@@ -1,0 +1,816 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' identity/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /identity/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve identity data
+      externalDocs:
+        url: /api/products/identity/#identityget
+      operationId: identityGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: 100
+                          current: 110
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        owners:
+                          - addresses:
+                              - data:
+                                  city: Malakoff
+                                  country: US
+                                  postal_code: '14236'
+                                  region: NY
+                                  street: 2992 Cameron Road
+                                primary: true
+                              - data:
+                                  city: San Matias
+                                  country: US
+                                  postal_code: 93405-2255
+                                  region: CA
+                                  street: 2493 Leisure Lane
+                                primary: false
+                            emails:
+                              - data: accountholder0@example.com
+                                primary: true
+                                type: primary
+                              - data: accountholder1@example.com
+                                primary: false
+                                type: secondary
+                              - data: >-
+                                  extraordinarily.long.email.username.123456@reallylonghostname.com
+                                primary: false
+                                type: other
+                            names:
+                              - Alberta Bobbeth Charleson
+                            phone_numbers:
+                              - data: '1112223333'
+                                primary: false
+                                type: home
+                              - data: '1112224444'
+                                primary: false
+                                type: work
+                              - data: '1112225555'
+                                primary: false
+                                type: mobile
+                        subtype: checking
+                        type: depository
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        balances:
+                          available: 200
+                          current: 210
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '1111'
+                        name: Plaid Saving
+                        official_name: Plaid Silver Standard 0.1% Interest Saving
+                        owners:
+                          - addresses:
+                              - data:
+                                  city: Malakoff
+                                  country: US
+                                  postal_code: '14236'
+                                  region: NY
+                                  street: 2992 Cameron Road
+                                primary: true
+                              - data:
+                                  city: San Matias
+                                  country: US
+                                  postal_code: 93405-2255
+                                  region: CA
+                                  street: 2493 Leisure Lane
+                                primary: false
+                            emails:
+                              - data: accountholder0@example.com
+                                primary: true
+                                type: primary
+                              - data: accountholder1@example.com
+                                primary: false
+                                type: secondary
+                              - data: >-
+                                  extraordinarily.long.email.username.123456@reallylonghostname.com
+                                primary: false
+                                type: other
+                            names:
+                              - Alberta Bobbeth Charleson
+                            phone_numbers:
+                              - data: '1112223333'
+                                primary: false
+                                type: home
+                              - data: '1112224444'
+                                primary: false
+                                type: work
+                              - data: '1112225555'
+                                primary: false
+                                type: mobile
+                        subtype: savings
+                        type: depository
+                    item:
+                      available_products:
+                        - balance
+                        - investments
+                      billed_products:
+                        - assets
+                        - auth
+                        - identity
+                        - liabilities
+                        - transactions
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: 3nARps6TOYtbACO
+      description: >-
+        The `/identity/get` endpoint allows you to retrieve various account
+        holder information on file with the financial institution, including
+        names, emails, phone numbers, and addresses. Only name data is
+        guaranteed to be returned; other fields will be empty arrays if not
+        provided by the institution.
+
+
+        This request may take some time to complete if identity was not
+        specified as an initial product when creating the Item. This is because
+        Plaid must communicate directly with the institution to retrieve the
+        data.
+
+
+        Note: In API versions 2018-05-22 and earlier, the `owners` object is not
+        returned, and instead identity information is returned in the top level
+        `identity` object. For more details, see [Plaid API
+        versioning](https://plaid.com/docs/api/versioning/#version-2019-05-29).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityGetRequest'
+        description: ''
+  /identity/documents/uploads/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    x-hidden-from-docs: true
+    post:
+      tags:
+        - plaid
+      summary: Returns uploaded document identity
+      externalDocs:
+        url: none
+      operationId: identityDocumentsUploadsGet
+      description: >-
+        Use `/identity/documents/uploads/get` to retrieve document uploaded
+        identity.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityDocumentsUploadsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: 100
+                          current: 110
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        owners:
+                          - addresses:
+                              - data:
+                                  city: Malakoff
+                                  country: US
+                                  postal_code: '14236'
+                                  region: NY
+                                  street: 2992 Cameron Road
+                                primary: true
+                              - data:
+                                  city: San Matias
+                                  country: US
+                                  postal_code: 93405-2255
+                                  region: CA
+                                  street: 2493 Leisure Lane
+                                primary: false
+                            emails:
+                              - data: accountholder0@example.com
+                                primary: true
+                                type: primary
+                              - data: accountholder1@example.com
+                                primary: false
+                                type: secondary
+                              - data: >-
+                                  extraordinarily.long.email.username.123456@reallylonghostname.com
+                                primary: false
+                                type: other
+                            names:
+                              - Alberta Bobbeth Charleson
+                            phone_numbers:
+                              - data: '1112223333'
+                                primary: false
+                                type: home
+                              - data: '1112224444'
+                                primary: false
+                                type: work
+                              - data: '1112225555'
+                                primary: false
+                                type: mobile
+                        subtype: checking
+                        type: depository
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        balances:
+                          available: 200
+                          current: 210
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '1111'
+                        name: Plaid Saving
+                        official_name: Plaid Silver Standard 0.1% Interest Saving
+                        owners:
+                          - addresses:
+                              - data:
+                                  city: Malakoff
+                                  country: US
+                                  postal_code: '14236'
+                                  region: NY
+                                  street: 2992 Cameron Road
+                                primary: true
+                              - data:
+                                  city: San Matias
+                                  country: US
+                                  postal_code: 93405-2255
+                                  region: CA
+                                  street: 2493 Leisure Lane
+                                primary: false
+                            emails:
+                              - data: accountholder0@example.com
+                                primary: true
+                                type: primary
+                              - data: accountholder1@example.com
+                                primary: false
+                                type: secondary
+                              - data: >-
+                                  extraordinarily.long.email.username.123456@reallylonghostname.com
+                                primary: false
+                                type: other
+                            names:
+                              - Alberta Bobbeth Charleson
+                            phone_numbers:
+                              - data: '1112223333'
+                                primary: false
+                                type: home
+                              - data: '1112224444'
+                                primary: false
+                                type: work
+                              - data: '1112225555'
+                                primary: false
+                                type: mobile
+                        subtype: savings
+                        type: depository
+                    item:
+                      available_products:
+                        - balance
+                        - investments
+                      billed_products:
+                        - assets
+                        - auth
+                        - identity
+                        - liabilities
+                        - transactions
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: 3nARps6TOYtbACO
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityDocumentsUploadsGetRequest'
+  /identity/match:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve identity match score
+      externalDocs:
+        url: /api/products/identity/#identitymatch
+      operationId: identityMatch
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityMatchResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: null
+                          current: null
+                          iso_currency_code: null
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        legal_name:
+                          score: 90
+                          is_nickname_match: true
+                          is_first_name_or_last_name_match: true
+                          is_business_name_detected: false
+                        phone_number:
+                          score: 100
+                        email_address:
+                          score: 100
+                        address:
+                          score: 100
+                          is_postal_code_match: true
+                        subtype: checking
+                        type: depository
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        balances:
+                          available: null
+                          current: null
+                          iso_currency_code: null
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '1111'
+                        name: Plaid Saving
+                        official_name: Plaid Silver Standard 0.1% Interest Saving
+                        legal_name:
+                          score: 30
+                          is_first_name_or_last_name_match: false
+                        phone_number:
+                          score: 100
+                        email_address: null
+                        address:
+                          score: 100
+                          is_postal_code_match: true
+                        subtype: savings
+                        type: depository
+                    item:
+                      available_products:
+                        - balance
+                        - investments
+                      billed_products:
+                        - assets
+                        - auth
+                        - identity
+                        - liabilities
+                        - transactions
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: 3nARps6TOYtbACO
+      description: >-
+        The `/identity/match` endpoint generates a match score, which indicates
+        how well the provided identity data matches the identity information on
+        file with the account holder's financial institution.
+
+
+        Fields within the `balances` object will always be null when retrieved
+        by `/identity/match`. Instead, use the free `/accounts/get` endpoint to
+        request balance cached data, or `/accounts/balance/get` for real-time
+        data.
+
+
+        This request may take some time to complete if Identity was not
+        specified as an initial product when creating the Item. This is because
+        Plaid must communicate directly with the institution to retrieve the
+        data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityMatchRequest'
+        description: ''
+  /identity/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Refresh identity data
+      externalDocs:
+        url: /api/products/identity/#identityrefresh
+      operationId: identityRefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        `/identity/refresh` is an optional endpoint for users of the Identity
+        product. It initiates an on-demand extraction to fetch the most up to
+        date Identity information from the Financial Institution. This on-demand
+        extraction takes place in addition to the periodic extractions that
+        automatically occur for any Identity-enabled Item. If changes to
+        Identity are discovered after calling `/identity/refresh`, Plaid will
+        fire a webhook
+        [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/identity/#default_update).
+
+
+        As this endpoint triggers a synchronous request for fresh data, latency
+        may be higher than for other Plaid endpoints (typically less than 10
+        seconds, but occasionally up to 30 seconds or more); if you encounter
+        errors, you may find it necessary to adjust your timeout period when
+        making requests.
+
+
+        `/identity/refresh` is offered as an add-on to Identity and has a
+        separate [fee model](/docs/account/billing/#per-request-flat-fee). To
+        request access to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityRefreshRequest'
+  /processor/identity/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve Identity data
+      externalDocs:
+        url: /api/processor-partners/#processoridentityget
+      operationId: processorIdentityGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorIdentityGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: XMGPJy4q1gsQoKd5z9R3tK8kJ9EWL8SdkgKMq
+                      balances:
+                        available: 100
+                        current: 110
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      owners:
+                        - addresses:
+                            - data:
+                                city: Malakoff
+                                country: US
+                                postal_code: '14236'
+                                region: NY
+                                street: 2992 Cameron Road
+                              primary: true
+                            - data:
+                                city: San Matias
+                                country: US
+                                postal_code: 93405-2255
+                                region: CA
+                                street: 2493 Leisure Lane
+                              primary: false
+                          emails:
+                            - data: accountholder0@example.com
+                              primary: true
+                              type: primary
+                            - data: accountholder1@example.com
+                              primary: false
+                              type: secondary
+                            - data: >-
+                                extraordinarily.long.email.username.123456@reallylonghostname.com
+                              primary: false
+                              type: other
+                          names:
+                            - Alberta Bobbeth Charleson
+                          phone_numbers:
+                            - data: '1112223333'
+                              primary: false
+                              type: home
+                            - data: '1112224444'
+                              primary: false
+                              type: work
+                            - data: '1112225555'
+                              primary: false
+                              type: mobile1
+                      subtype: checking
+                      type: depository
+                    request_id: eOPkBl6t33veI2J
+      description: >-
+        The `/processor/identity/get` endpoint allows you to retrieve various
+        account holder information on file with the financial institution,
+        including names, emails, phone numbers, and addresses.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorIdentityGetRequest'
+  /processor/identity/match:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve identity match score
+      externalDocs:
+        url: /api/processor-partners/#processoridentitymatch
+      operationId: processorIdentityMatch
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorIdentityMatchResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: null
+                        current: null
+                        iso_currency_code: null
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      legal_name:
+                        score: 90
+                        is_nickname_match: true
+                        is_first_name_or_last_name_match: true
+                        is_business_name_detected: false
+                      phone_number:
+                        score: 100
+                      email_address:
+                        score: 100
+                      address:
+                        score: 100
+                        is_postal_code_match: true
+                      subtype: checking
+                      type: depository
+                    request_id: 3nARps6TOYtbACO
+      description: >-
+        The `/processor/identity/match` endpoint generates a match score, which
+        indicates how well the provided identity data matches the identity
+        information on file with the account holder's financial institution.
+
+
+        Fields within the `balances` object will always be null when retrieved
+        by `/identity/match`. Instead, use the free `/accounts/get` endpoint to
+        request balance cached data, or `/accounts/balance/get` for real-time
+        data.
+
+
+        This request may take some time to complete if Identity was not
+        specified as an initial product when creating the Item. This is because
+        Plaid must communicate directly with the institution to retrieve the
+        data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorIdentityMatchRequest'
+        description: ''
+components:
+  schemas:
+    IdentityGetResponse:
+      type: object
+      additionalProperties: true
+      description: IdentityGetResponse defines the response schema for `/identity/get`
+      properties:
+        accounts:
+          type: array
+          description: The accounts for which Identity data has been requested
+          items:
+            $ref: '#/components/schemas/AccountIdentity'
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - item
+        - request_id
+    IdentityDocumentsUploadsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        IdentityDocumentsUploadsGetResponse defines the response schema for
+        `/identity/documents/uploads/get`
+      properties:
+        accounts:
+          type: array
+          description: The accounts for which Identity data has been requested
+          items:
+            $ref: '#/components/schemas/AccountIdentityDocumentUpload'
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - item
+        - request_id
+    IdentityMatchResponse:
+      type: object
+      additionalProperties: true
+      description: IdentityMatchResponse defines the response schema for `/identity/match`
+      properties:
+        accounts:
+          type: array
+          description: The accounts for which Identity match has been requested
+          items:
+            $ref: '#/components/schemas/AccountIdentityMatchScore'
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - item
+        - request_id
+    IdentityRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        IdentityRefreshResponse defines the response schema for
+        `/identity/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ProcessorIdentityGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorIdentityGetResponse defines the response schema for
+        `/processor/identity/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountIdentity'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - request_id
+    ProcessorIdentityMatchResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorIdentityMatchResponse defines the response schema for
+        `/processor/identity/match`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountIdentityMatchScore'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - request_id

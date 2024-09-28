@@ -1,0 +1,600 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' signal/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /processor/signal/evaluate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Evaluate a planned ACH transaction
+      externalDocs:
+        url: /api/processor-partners/#processorsignalevaluate
+      operationId: processorSignalEvaluate
+      description: >-
+        Use `/processor/signal/evaluate` to evaluate a planned ACH transaction
+        as a processor to get a return risk assessment (such as a risk score and
+        risk tier) and additional risk signals.
+
+
+        In order to obtain a valid score for an ACH transaction, Plaid must have
+        an access token for the account, and the Item must be healthy (receiving
+        product updates) or have recently been in a healthy state. If the
+        transaction does not meet eligibility requirements, an error will be
+        returned corresponding to the underlying cause. If
+        `/processor/signal/evaluate` is called on the same transaction multiple
+        times within a 24-hour period, cached results may be returned. For more
+        information please refer to our error documentation on [item
+        errors](/docs/errors/item/) and [Link in Update
+        Mode](/docs/link/update-mode/).
+
+
+        Note: This request may take some time to complete if Signal is being
+        added to an existing Item. This is because Plaid must communicate
+        directly with the institution when retrieving the data for the first
+        time. To reduce this latency, you can call `/signal/prepare` on the Item
+        before you need to request Signal data.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalEvaluateResponse'
+              examples:
+                example-1:
+                  value:
+                    scores:
+                      customer_initiated_return_risk:
+                        score: 9
+                        risk_tier: 1
+                      bank_initiated_return_risk:
+                        score: 72
+                        risk_tier: 7
+                    core_attributes:
+                      days_since_first_plaid_connection: 510
+                      plaid_connections_count_7d: 6
+                      plaid_connections_count_30d: 7
+                      total_plaid_connections_count: 15
+                      is_savings_or_money_market_account: false
+                    warnings: []
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalEvaluateRequest'
+  /processor/signal/decision/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Report whether you initiated an ACH transaction
+      externalDocs:
+        url: /api/processor-partners/#processorsignaldecisionreport
+      operationId: processorSignalDecisionReport
+      description: >-
+        After calling `/processor/signal/evaluate`, call
+        `/processor/signal/decision/report` to report whether the transaction
+        was initiated.
+
+
+        If you are using the [Plaid Transfer
+        product](https://www.plaid.com/docs/transfer) to create transfers, it is
+        not necessary to use this endpoint, as Plaid already knows whether the
+        transfer was initiated.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalDecisionReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalDecisionReportRequest'
+  /processor/signal/return/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Report a return for an ACH transaction
+      externalDocs:
+        url: /api/processor-partners/#processorsignalreturnreport
+      operationId: processorSignalReturnReport
+      description: >-
+        Call the `/processor/signal/return/report` endpoint to report a returned
+        transaction that was previously sent to the `/processor/signal/evaluate`
+        endpoint. Your feedback will be used by the model to incorporate the
+        latest risk trend in your portfolio.
+
+
+        If you are using the [Plaid Transfer
+        product](https://www.plaid.com/docs/transfer) to create transfers, it is
+        not necessary to use this endpoint, as Plaid already knows whether the
+        transfer was returned.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalReturnReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalReturnReportRequest'
+  /processor/signal/prepare:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Opt-in a processor token to Signal
+      externalDocs:
+        url: /api/processor-partners/#processorsignalprepare
+      operationId: processorSignalPrepare
+      description: >-
+        When a processor token is not initialized with Signal, call
+        `/processor/signal/prepare` to opt-in that processor token to the Signal
+        data collection process, which will improve the accuracy of the Signal
+        score.
+
+
+        If this endpoint is called with a processor token that is already
+        initialized with Signal, it will return a 200 response and will not
+        modify the processor token.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalPrepareResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalPrepareRequest'
+  /signal/evaluate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Evaluate a planned ACH transaction
+      externalDocs:
+        url: /api/products/signal#signalevaluate
+      operationId: signalEvaluate
+      description: >-
+        Use `/signal/evaluate` to evaluate a planned ACH transaction to get a
+        return risk assessment (such as a risk score and risk tier) and
+        additional risk signals.
+
+
+        In order to obtain a valid score for an ACH transaction, Plaid must have
+        an access token for the account, and the Item must be healthy (receiving
+        product updates) or have recently been in a healthy state. If the
+        transaction does not meet eligibility requirements, an error will be
+        returned corresponding to the underlying cause. If `/signal/evaluate` is
+        called on the same transaction multiple times within a 24-hour period,
+        cached results may be returned. For more information please refer to the
+        error documentation on [Item errors](/docs/errors/item/) and [Link in
+        Update Mode](/docs/link/update-mode/).
+
+
+        Note: This request may take some time to complete if Signal is being
+        added to an existing Item. This is because Plaid must communicate
+        directly with the institution when retrieving the data for the first
+        time.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalEvaluateResponse'
+              examples:
+                example-1:
+                  value:
+                    scores:
+                      customer_initiated_return_risk:
+                        score: 9
+                        risk_tier: 1
+                      bank_initiated_return_risk:
+                        score: 72
+                        risk_tier: 7
+                    core_attributes:
+                      days_since_first_plaid_connection: 510
+                      plaid_connections_count_7d: 6
+                      plaid_connections_count_30d: 7
+                      total_plaid_connections_count: 15
+                      is_savings_or_money_market_account: false
+                    warnings: []
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalEvaluateRequest'
+  /signal/decision/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Report whether you initiated an ACH transaction
+      externalDocs:
+        url: /api/products/signal#signaldecisionreport
+      operationId: signalDecisionReport
+      description: >-
+        After calling `/signal/evaluate`, call `/signal/decision/report` to
+        report whether the transaction was initiated.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalDecisionReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalDecisionReportRequest'
+  /signal/return/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Report a return for an ACH transaction
+      externalDocs:
+        url: /api/products/signal#signalreturnreport
+      operationId: signalReturnReport
+      description: >-
+        Call the `/signal/return/report` endpoint to report a returned
+        transaction that was previously sent to the `/signal/evaluate` endpoint.
+        Your feedback will be used by the model to incorporate the latest risk
+        trend in your portfolio.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalReturnReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalReturnReportRequest'
+  /signal/prepare:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Opt-in an Item to Signal
+      externalDocs:
+        url: /api/products/signal#signalprepare
+      operationId: signalPrepare
+      description: >-
+        When Link is not initialized with Signal, call `/signal/prepare` to
+        opt-in that Item to the Signal data collection process, developing a
+        Signal score.
+
+
+        If run on an Item that is already initialized with Signal, this endpoint
+        will return a 200 response and will not modify the Item.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalPrepareResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignalPrepareRequest'
+components:
+  schemas:
+    ProcessorSignalEvaluateResponse:
+      title: ProcessorSignalEvaluateResponse
+      description: >-
+        ProcessorSignalEvaluateResponse defines the response schema for
+        `/processor/signal/evaluate`
+      type: object
+      additionalProperties: true
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        scores:
+          $ref: '#/components/schemas/SignalScores'
+        core_attributes:
+          $ref: '#/components/schemas/SignalEvaluateCoreAttributes'
+        warnings:
+          type: array
+          description: >-
+            If bank information was not available to be used in the Signal
+            model, this array contains warnings describing why bank data is
+            missing. If you want to receive an API error instead of Signal
+            scores in the case of missing bank data, file a support ticket or
+            contact your Plaid account manager.
+          items:
+            $ref: '#/components/schemas/SignalWarning'
+      required:
+        - request_id
+        - scores
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ProcessorSignalDecisionReportResponse:
+      title: ProcessorSignalDecisionReportResponse
+      description: >-
+        ProcessorSignalDecisionReportResponse defines the response schema for
+        `/processor/signal/decision/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorSignalReturnReportResponse:
+      title: ProcessorSignalReturnReportResponse
+      description: >-
+        ProcessorSignalReturnReportResponse defines the response schema for
+        `/processor/signal/return/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorSignalPrepareResponse:
+      title: ProcessorSignalPrepareResponse
+      description: >-
+        ProcessorSignalPrepareResponse defines the response schema for
+        `/processor/signal/prepare`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SignalEvaluateResponse:
+      title: SignalEvaluateResponse
+      description: >-
+        SignalEvaluateResponse defines the response schema for
+        `/signal/income/evaluate`
+      type: object
+      additionalProperties: true
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        scores:
+          $ref: '#/components/schemas/SignalScores'
+        core_attributes:
+          $ref: '#/components/schemas/SignalEvaluateCoreAttributes'
+        risk_profile:
+          $ref: '#/components/schemas/RiskProfile'
+        warnings:
+          type: array
+          description: >-
+            If bank information was not available to be used in the Signal
+            model, this array contains warnings describing why bank data is
+            missing. If you want to receive an API error instead of Signal
+            scores in the case of missing bank data, file a support ticket or
+            contact your Plaid account manager.
+          items:
+            $ref: '#/components/schemas/SignalWarning'
+      required:
+        - request_id
+        - scores
+        - warnings
+    SignalDecisionReportResponse:
+      title: SignalDecisionReportResponse
+      description: >-
+        SignalDecisionReportResponse defines the response schema for
+        `/signal/decision/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SignalReturnReportResponse:
+      title: SignalReturnReportResponse
+      description: >-
+        SignalReturnReportResponse defines the response schema for
+        `/signal/return/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SignalPrepareResponse:
+      title: SignalPrepareResponse
+      description: SignalPrepareResponse defines the response schema for `/signal/prepare`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

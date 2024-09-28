@@ -1,0 +1,24 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' consumer report/pdf/get/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths: {}
+components:
+  schemas: {}

@@ -1,0 +1,377 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' deposit switch/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /deposit_switch/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create a deposit switch
+      externalDocs:
+        url: /deposit-switch/reference#deposit_switchcreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositSwitchCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    deposit_switch_id: c7jMwPPManIwy9rwMewWP7lpb4pKRbtrbMomp
+                    request_id: lMjeOeu9X1VUh1F
+      operationId: depositSwitchCreate
+      description: >-
+        This endpoint creates a deposit switch entity that will be persisted
+        throughout the lifecycle of the switch.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositSwitchCreateRequest'
+  /deposit_switch/token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create a deposit switch token
+      externalDocs:
+        url: /deposit-switch/reference#deposit_switchtokencreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositSwitchTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    deposit_switch_token: >-
+                      deposit-switch-sandbox-3e5cacca-10a6-11ea-bcdb-6003089acac0
+                    deposit_switch_token_expiration_time: '2019-12-31T12:01:37Z'
+                    request_id: 68MvHx4Ub5NYoXt
+      operationId: depositSwitchTokenCreate
+      description: >
+        In order for the end user to take action, you will need to create a
+        public token representing the deposit switch. This token is used to
+        initialize Link. It can be used one time and expires after 30 minutes.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositSwitchTokenCreateRequest'
+  /deposit_switch/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a deposit switch
+      externalDocs:
+        url: /deposit-switch/reference#deposit_switchget
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositSwitchGetResponse'
+              examples:
+                example-1:
+                  value:
+                    target_item_id: MdRAkq1QikR3BLjDyMfMkVpqLmEm1VR7bX5hE
+                    target_account_id: bX5hEMdRAkq1QikR3BLjDyMfMkVpqLmEm1VR7
+                    deposit_switch_id: LjDyMfMkVpqLmEm1VR7bQikR3BX5hEMdRAkq1
+                    state: completed
+                    switch_method: instant
+                    date_created: '2019-11-01'
+                    date_completed: '2019-11-01'
+                    account_has_multiple_allocations: true
+                    is_allocated_remainder: false
+                    percent_allocated: 50
+                    amount_allocated: null
+                    employer_name: COMPANY INC
+                    employer_id: pqLmEm1VR7bQi11231
+                    institution_name: Bank of America
+                    institution_id: ins_1
+                    request_id: lMjeOeu9X1VUh1F
+      operationId: depositSwitchGet
+      description: >-
+        This endpoint returns information related to how the user has configured
+        their payroll allocation and the state of the switch. You can use this
+        information to build logic related to the user's direct deposit
+        allocation preferences.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositSwitchGetRequest'
+      parameters: []
+  /deposit_switch/alt/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a deposit switch without using Plaid Exchange
+      tags:
+        - plaid
+      externalDocs:
+        url: /deposit-switch/reference#deposit_switchaltcreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepositSwitchAltCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    deposit_switch_id: c7jMwPPManIwy9rwMewWP7lpb4pKRbtrbMomp
+                    request_id: lMjeOeu9X1VUh1F
+      operationId: depositSwitchAltCreate
+      description: >-
+        This endpoint provides an alternative to `/deposit_switch/create` for
+        customers who have not yet fully integrated with Plaid Exchange. Like
+        `/deposit_switch/create`, it creates a deposit switch entity that will
+        be persisted throughout the lifecycle of the switch.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositSwitchAltCreateRequest'
+components:
+  schemas:
+    DepositSwitchCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        DepositSwitchCreateResponse defines the response schema for
+        `/deposit_switch/create`
+      properties:
+        deposit_switch_id:
+          type: string
+          description: >-
+            ID of the deposit switch. This ID is persisted throughout the
+            lifetime of the deposit switch.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - deposit_switch_id
+        - request_id
+    DepositSwitchTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        DepositSwitchTokenCreateResponse defines the response schema for
+        `/deposit_switch/token/create`
+      properties:
+        deposit_switch_token:
+          type: string
+          description: >-
+            Deposit switch token, used to initialize Link for the Deposit Switch
+            product
+        deposit_switch_token_expiration_time:
+          type: string
+          description: >-
+            Expiration time of the token, in [ISO
+            8601](https://wikipedia.org/wiki/ISO_8601) format
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - deposit_switch_token
+        - deposit_switch_token_expiration_time
+        - request_id
+    DepositSwitchGetResponse:
+      title: DepositSwitchGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        DepositSwitchGetResponse defines the response schema for
+        `/deposit_switch/get`
+      properties:
+        deposit_switch_id:
+          type: string
+          description: The ID of the deposit switch.
+        target_account_id:
+          type: string
+          nullable: true
+          description: The ID of the bank account the direct deposit was switched to.
+        target_item_id:
+          type: string
+          nullable: true
+          description: The ID of the Item the direct deposit was switched to.
+        state:
+          type: string
+          enum:
+            - initialized
+            - processing
+            - completed
+            - error
+          description: >-
+
+            The state, or status, of the deposit switch.
+
+
+            - `initialized` – The deposit switch has been initialized with the
+            user entering the information required to submit the deposit switch
+            request.
+
+
+            - `processing` – The deposit switch request has been submitted and
+            is being processed.
+
+
+            - `completed` – The user's employer has fulfilled the deposit switch
+            request.
+
+
+            - `error` – There was an error processing the deposit switch
+            request.
+        switch_method:
+          nullable: true
+          type: string
+          enum:
+            - instant
+            - mail
+            - pdf
+            - null
+          description: >-
+            The method used to make the deposit switch.
+
+
+            - `instant` – User instantly switched their direct deposit to a new
+            or existing bank account by connecting their payroll or employer
+            account.
+
+
+            - `mail` – User requested that Plaid contact their employer by mail
+            to make the direct deposit switch.
+
+
+            - `pdf` – User generated a PDF or email to be sent to their employer
+            with the information necessary to make the deposit switch.'
+        account_has_multiple_allocations:
+          nullable: true
+          type: boolean
+          description: >-
+            When `true`, user’s direct deposit goes to multiple banks. When
+            false, user’s direct deposit only goes to the target account. Always
+            `null` if the deposit switch has not been completed.
+        is_allocated_remainder:
+          nullable: true
+          type: boolean
+          description: >-
+            When `true`, the target account is allocated the remainder of direct
+            deposit after all other allocations have been deducted. When
+            `false`, user’s direct deposit is allocated as a percent or amount.
+            Always `null` if the deposit switch has not been completed.
+        percent_allocated:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            The percentage of direct deposit allocated to the target account.
+            Always `null` if the target account is not allocated a percentage or
+            if the deposit switch has not been completed or if
+            `is_allocated_remainder` is true.
+        amount_allocated:
+          type: number
+          format: double
+          nullable: true
+          description: >-
+            The dollar amount of direct deposit allocated to the target account.
+            Always `null` if the target account is not allocated an amount or if
+            the deposit switch has not been completed.
+        employer_name:
+          type: string
+          nullable: true
+          description: >-
+            The name of the employer selected by the user. If the user did not
+            select an employer, the value returned is `null`.
+        employer_id:
+          type: string
+          nullable: true
+          description: >-
+            The ID of the employer selected by the user. If the user did not
+            select an employer, the value returned is `null`.
+        institution_name:
+          type: string
+          nullable: true
+          description: >-
+            The name of the institution selected by the user. If the user did
+            not select an institution, the value returned is `null`.
+        institution_id:
+          type: string
+          nullable: true
+          description: >-
+            The ID of the institution selected by the user. If the user did not
+            select an institution, the value returned is `null`.
+        date_created:
+          description: >
+            [ISO 8601](https://wikipedia.org/wiki/ISO_8601) date the deposit
+            switch was created.
+          type: string
+          format: date
+        date_completed:
+          type: string
+          format: date
+          nullable: true
+          description: >
+            [ISO 8601](https://wikipedia.org/wiki/ISO_8601) date the deposit
+            switch was completed. Always `null` if the deposit switch has not
+            been completed.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - deposit_switch_id
+        - target_account_id
+        - target_item_id
+        - state
+        - account_has_multiple_allocations
+        - is_allocated_remainder
+        - percent_allocated
+        - amount_allocated
+        - date_created
+        - date_completed
+        - request_id
+    DepositSwitchAltCreateResponse:
+      title: DepositSwitchAltCreateResponse
+      type: object
+      additionalProperties: true
+      properties:
+        deposit_switch_id:
+          type: string
+          description: >-
+            ID of the deposit switch. This ID is persisted throughout the
+            lifetime of the deposit switch.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - deposit_switch_id
+        - request_id
+      description: >-
+        DepositSwitchAltCreateResponse defines the response schema for
+        `/deposit_switch/alt/create`

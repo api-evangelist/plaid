@@ -1,0 +1,91 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' employers/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /employers/search:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/employers/#employerssearch
+      operationId: employersSearch
+      summary: Search employer database
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployersSearchResponse'
+              examples:
+                example-1:
+                  value:
+                    employers:
+                      - name: Plaid Inc.
+                        address:
+                          city: San Francisco
+                          country: US
+                          postal_code: '94103'
+                          region: CA
+                          street: 1098 Harrison St
+                        confidence_score: 1
+                        employer_id: emp_1
+                    request_id: ixTBLZGvhD4NnmB
+      description: >-
+        `/employers/search` allows you the ability to search Plaid’s database of
+        known employers, for use with Deposit Switch. You can use this endpoint
+        to look up a user's employer in order to confirm that they are
+        supported. Users with non-supported employers can then be routed out of
+        the Deposit Switch flow.
+
+
+        The data in the employer database is currently limited. As the Deposit
+        Switch and Income products progress through their respective beta
+        periods, more employers are being regularly added. Because the employer
+        database is frequently updated, we recommend that you do not cache or
+        store data from this endpoint for more than a day.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmployersSearchRequest'
+components:
+  schemas:
+    EmployersSearchResponse:
+      title: EmployersSearchResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        EmployersSearchResponse defines the response schema for
+        `/employers/search`.
+      properties:
+        employers:
+          type: array
+          description: A list of employers matching the search criteria.
+          items:
+            $ref: '#/components/schemas/Employer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - employers
+        - request_id

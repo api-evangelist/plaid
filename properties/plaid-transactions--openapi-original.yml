@@ -1,0 +1,2694 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' transactions/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /transactions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get transaction data
+      externalDocs:
+        url: /api/products/transactions/#transactionsget
+      operationId: transactionsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: 110.94
+                          current: 110.94
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        subtype: checking
+                        type: depository
+                    transactions:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - investments
+                      billed_products:
+                        - assets
+                        - auth
+                        - liabilities
+                        - transactions
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    total_transactions: 1
+                    request_id: 45QSn
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        Note: All new implementations are encouraged to use `/transactions/sync`
+        rather than `/transactions/get`. `/transactions/sync` provides the same
+        functionality as `/transactions/get` and improves developer ease-of-use
+        for handling transactions updates.
+
+
+        The `/transactions/get` endpoint allows developers to receive
+        user-authorized transaction data for credit, depository, and some
+        loan-type accounts (only those with account subtype `student`; coverage
+        may be limited). For transaction history from investments accounts, use
+        the [Investments
+        endpoint](https://plaid.com/docs/api/products/investments/) instead.
+        Transaction data is standardized across financial institutions, and in
+        many cases transactions are linked to a clean name, entity type,
+        location, and category. Similarly, account data is standardized and
+        returned with a clean name, number, balance, and other meta information
+        where available.
+
+
+        Transactions are returned in reverse-chronological order, and the
+        sequence of transaction ordering is stable and will not shift. 
+        Transactions are not immutable and can also be removed altogether by the
+        institution; a removed transaction will no longer appear in
+        `/transactions/get`.  For more details, see [Pending and posted
+        transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).
+
+
+        Due to the potentially large number of transactions associated with an
+        Item, results are paginated. Manipulate the `count` and `offset`
+        parameters in conjunction with the `total_transactions` response body
+        field to fetch all available transactions.
+
+
+        Data returned by `/transactions/get` will be the data available for the
+        Item as of the most recent successful check for new transactions. Plaid
+        typically checks for new data multiple times a day, but these checks may
+        occur less frequently, such as once a day, depending on the institution.
+        To find out when the Item was last updated, use the [Item
+        Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger)
+        or call `/item/get`; the
+        `item.status.transactions.last_successful_update` field will show the
+        timestamp of the most recent successful update. To force Plaid to check
+        for new transactions, you can use the `/transactions/refresh` endpoint.
+
+
+        Note that data may not be immediately available to `/transactions/get`.
+        Plaid will begin to prepare transactions data upon Item link, if Link
+        was initialized with `transactions`, or upon the first call to
+        `/transactions/get`, if it wasn't. To be alerted when transaction data
+        is ready to be fetched, listen for the
+        [`INITIAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#initial_update)
+        and
+        [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update)
+        webhooks. If no transaction history is ready when `/transactions/get` is
+        called, it will return a `PRODUCT_NOT_READY` error.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsGetRequest'
+            examples: {}
+  /transactions/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Refresh transaction data
+      externalDocs:
+        url: /api/products/transactions/#transactionsrefresh
+      operationId: transactionsRefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        `/transactions/refresh` is an optional endpoint that initiates an
+        on-demand extraction to fetch the newest transactions for an Item. The
+        on-demand extraction takes place in addition to the periodic extractions
+        that automatically occur one or more times per day for any
+        Transactions-enabled Item. The Item must already have Transactions added
+        as a product in order to call `/transactions/refresh`.
+
+
+        If changes to transactions are discovered after calling
+        `/transactions/refresh`, Plaid will fire a webhook: for
+        `/transactions/sync` users,
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available)
+        will be fired if there are any transactions updated, added, or removed.
+        For users of both `/transactions/sync` and `/transactions/get`,
+        [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed)
+        will be fired if any removed transactions are detected, and
+        [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update)
+        will be fired if any new transactions are detected. New transactions can
+        be fetched by calling `/transactions/get` or `/transactions/sync`.
+
+
+        Note that the `/transactions/refresh` endpoint is not supported for
+        Capital One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED`
+        error if called on an Item from that institution.
+
+
+        As this endpoint triggers a synchronous request for fresh data, latency
+        may be higher than for other Plaid endpoints (typically less than 10
+        seconds, but occasionally up to 30 seconds or more); if you encounter
+        errors, you may find it necessary to adjust your timeout period when
+        making requests.
+
+
+        `/transactions/refresh` is offered as an optional add-on to Transactions
+        and has a separate [fee
+        model](/docs/account/billing/#per-request-flat-fee). To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRefreshRequest'
+  /transactions/recurring/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Fetch recurring transaction streams
+      externalDocs:
+        url: /api/products/transactions/#transactionsrecurringget
+      operationId: transactionsRecurringGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRecurringGetResponse'
+              examples:
+                example-1:
+                  value:
+                    updated_datetime: '2022-05-01T00:00:00Z'
+                    inflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        category:
+                          - Transfer
+                          - Payroll
+                        category_id: '21009000'
+                        description: Platypus Payroll
+                        merchant_name: null
+                        personal_finance_category:
+                          primary: INCOME
+                          detailed: INCOME_WAGES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-28'
+                        last_date: '2022-04-30'
+                        frequency: SEMI_MONTHLY
+                        transaction_ids:
+                          - nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw
+                          - EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL
+                          - ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd
+                          - QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK
+                          - uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF
+                        average_amount:
+                          amount: -800
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: -1000
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    outflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd
+                        category:
+                          - Service
+                          - Utilities
+                          - Electric
+                        category_id: '18068005'
+                        description: ConEd Bill Payment
+                        merchant_name: ConEd
+                        personal_finance_category:
+                          primary: RENT_AND_UTILITIES
+                          detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-04'
+                        last_date: '2022-05-02'
+                        frequency: MONTHLY
+                        transaction_ids:
+                          - yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                          - HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR
+                          - jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L
+                          - CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                        average_amount:
+                          amount: 85
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 100
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: false
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: SrBNJZDuUMweodmPmSOeOImwsWt53ZXfJQAfC
+                        category:
+                          - Shops
+                          - Warehouses and Wholesale Stores
+                        category_id: '19051000'
+                        description: Costco Annual Membership
+                        merchant_name: Costco
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-01-23'
+                        last_date: '2023-01-22'
+                        frequency: ANNUALLY
+                        transaction_ids:
+                          - yqEBJ72cS4jFwcpxJcDuQr94oAQ1R1lMC33D4
+                          - Kz5Hm3cZCgpn4tMEKUGAGD6kAcxMBsEZDSwJJ
+                        average_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    request_id: tbFyCEqkU775ZGG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/recurring/get` endpoint allows developers to receive
+        a summary of the recurring outflow and inflow streams (expenses and
+        deposits) from a user’s checking, savings or credit card accounts.
+        Additionally, Plaid provides key insights about each recurring stream
+        including the category, merchant, last amount, and more. Developers can
+        use these insights to build tools and experiences that help their users
+        better manage cash flow, monitor subscriptions, reduce spend, and stay
+        on track with bill payments.
+
+
+        This endpoint is offered as an add-on to Transactions. To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+
+
+        This endpoint can only be called on an Item that has already been
+        initialized with Transactions (either during Link, by specifying it in
+        `/link/token/create`; or after Link, by calling `/transactions/get` or
+        `/transactions/sync`). For optimal results, we strongly recommend
+        customers using Recurring Transactions to request at least 180 days of
+        history when initializing items with Transactions (using the
+        [`days_requested`](https://plaid.com/docs/api/tokens/#link-token-create-request-transactions-days-requested)
+        option). Once all historical transactions have been fetched, call
+        `/transactions/recurring/get` to receive the Recurring Transactions
+        streams and subscribe to the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook. To know when historical transactions have been fetched, if you
+        are using `/transactions/sync` listen for the
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete)
+        webhook and check that the `historical_update_complete` field in the
+        payload is `true`. If using `/transactions/get`, listen for the
+        [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update)
+        webhook.
+
+
+        After the initial call, you can call `/transactions/recurring/get`
+        endpoint at any point in the future to retrieve the latest summary of
+        recurring streams. Listen to the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook to be notified when new updates are available.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRecurringGetRequest'
+            examples: {}
+  /transactions/recurring/deactivate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+  /transactions/sync:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get incremental transaction updates on an Item
+      externalDocs:
+        url: /api/products/transactions/#transactionssync
+      operationId: transactionsSync
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsSyncResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: 110.94
+                          current: 110.94
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        subtype: checking
+                        type: depository
+                    added:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    modified:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                    removed:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        transaction_id: CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                    next_cursor: >-
+                      tVUUL15lYQN5rBnfDIc1I8xudpGdIlw9nsgeXWvhOfkECvUeR663i3Dt1uf/94S8ASkitgLcIiOSqNwzzp+bh89kirazha5vuZHBb2ZA5NtCDkkV
+                    has_more: false
+                    request_id: Wvhy9PZHQLV8njG
+                    transactions_update_status: HISTORICAL_UPDATE_COMPLETE
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/sync` endpoint allows developers to subscribe to all
+        transactions associated with an Item and get updates synchronously in a
+        stream-like manner, using a cursor to track which updates have already
+        been seen.
+
+
+        `/transactions/sync` provides the same functionality as
+        `/transactions/get` and can be used instead of `/transactions/get` to
+        simplify the process of tracking transactions updates. To learn more
+        about migrating from `/transactions/get`, see the [Transactions Sync
+        migration guide](https://plaid.com/docs/transactions/sync-migration/).
+
+
+        This endpoint provides user-authorized transaction data for `credit`,
+        `depository`, and some loan-type accounts (only those with account
+        subtype `student`; coverage may be limited). For transaction history
+        from `investments` accounts, use `/investments/transactions/get`
+        instead.
+
+
+        Returned transactions data is grouped into three types of update,
+        indicating whether the transaction was added, removed, or modified since
+        the last call to the API.
+
+
+        In the first call to `/transactions/sync` for an Item, the endpoint will
+        return all historical transactions data associated with that Item up
+        until the time of the API call (as "adds"), which then generates a
+        `next_cursor` for that Item. In subsequent calls, send the `next_cursor`
+        to receive only the changes that have occurred since the previous call.
+
+
+        Due to the potentially large number of transactions associated with an
+        Item, results are paginated. The `has_more` field specifies if
+        additional calls are necessary to fetch all available transaction
+        updates. Call `/transactions/sync` with the new cursor, pulling all
+        updates, until `has_more` is `false`.
+
+
+        When retrieving paginated updates, track both the `next_cursor` from the
+        latest response and the original cursor from the first call in which
+        `has_more` was `true`; if a call to `/transactions/sync` fails due to
+        the
+        [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination)
+        error, the entire pagination request loop must be restarted beginning
+        with the cursor for the first page of the update, rather than retrying
+        only the single request that failed.
+
+
+        Whenever new or updated transaction data becomes available,
+        `/transactions/sync` will provide these updates. Plaid typically checks
+        for new data multiple times a day, but these checks may occur less
+        frequently, such as once a day, depending on the institution. To find
+        out when the Item was last updated, use the [Item
+        Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger)
+        or call `/item/get`; the
+        `item.status.transactions.last_successful_update` field will show the
+        timestamp of the most recent successful update. To force Plaid to check
+        for new transactions, use the `/transactions/refresh` endpoint.
+
+
+        For newly created Items, data may not be immediately available to
+        `/transactions/sync`. Plaid begins preparing transactions data when the
+        Item is created, but the process can take anywhere from a few seconds to
+        several minutes to complete, depending on the number of transactions
+        available.
+
+
+        To be alerted when new data is available, listen for the
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available)
+        webhook.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsSyncRequest'
+            examples: {}
+  /transactions/enrich:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Enrich locally-held transaction data
+      externalDocs:
+        url: /api/products/enrich/#transactionsenrich
+      operationId: transactionsEnrich
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsEnrichResponse'
+              examples:
+                example-1:
+                  value:
+                    enriched_transactions:
+                      - id: 6135818adda16500147e7c1d
+                        description: 'PURCHASE WM SUPERCENTER #1700'
+                        amount: 72.1
+                        direction: OUTFLOW
+                        iso_currency_code: USD
+                        enrichments:
+                          counterparties:
+                            - name: Walmart
+                              type: merchant
+                              logo_url: >-
+                                https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                              website: walmart.com
+                              entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                              confidence_level: VERY_HIGH
+                              phone_number: '+18009256278'
+                          entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                          location:
+                            address: 13425 Community Rd
+                            city: Poway
+                            region: CA
+                            postal_code: '92064'
+                            country: US
+                            store_number: '1700'
+                            lat: 32.959068
+                            lon: -117.037666
+                          logo_url: >-
+                            https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                          merchant_name: Walmart
+                          payment_channel: in store
+                          personal_finance_category:
+                            detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                            primary: GENERAL_MERCHANDISE
+                            confidence_level: VERY_HIGH
+                          phone_number: '+18009256278'
+                          recurrence:
+                            is_recurring: false
+                          personal_finance_category_icon_url: >-
+                            https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                          website: walmart.com
+                      - id: 3958434bhde9384bcmeo3401
+                        description: DD DOORDASH BURGERKIN 855-123-4567 CA
+                        amount: 28.34
+                        direction: OUTFLOW
+                        iso_currency_code: USD
+                        enrichments:
+                          counterparties:
+                            - name: DoorDash
+                              type: marketplace
+                              logo_url: >-
+                                https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                              website: doordash.com
+                              entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                              confidence_level: VERY_HIGH
+                              phone_number: '+18001234567'
+                            - name: Burger King
+                              type: merchant
+                              logo_url: >-
+                                https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                              website: burgerking.com
+                              entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                              confidence_level: VERY_HIGH
+                              phone_number: null
+                          location:
+                            address: null
+                            city: null
+                            region: null
+                            postal_code: null
+                            country: null
+                            store_number: null
+                            lat: null
+                            lon: null
+                          entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                          logo_url: >-
+                            https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                          merchant_name: Burger King
+                          payment_channel: online
+                          personal_finance_category:
+                            detailed: FOOD_AND_DRINK_FAST_FOOD
+                            primary: FOOD_AND_DRINK
+                            confidence_level: VERY_HIGH
+                          personal_finance_category_icon_url: >-
+                            https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                          phone_number: null
+                          recurrence:
+                            is_recurring: false
+                          website: burgerking.com
+                    request_id: Wvhy9PZHQLV8njG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/enrich` endpoint enriches raw transaction data
+        generated by your own banking products or retrieved from other non-Plaid
+        sources.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsEnrichRequest'
+  /processor/transactions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get transaction data
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsget
+      operationId: processorTransactionsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: 110.94
+                        current: 110.94
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      subtype: checking
+                      type: depository
+                    transactions:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    total_transactions: 1
+                    request_id: Wvhy9PZHQLV8njG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/processor/transactions/get` endpoint allows developers to receive
+        user-authorized transaction data for credit, depository, and some
+        loan-type accounts (only those with account subtype `student`; coverage
+        may be limited). Transaction data is standardized across financial
+        institutions, and in many cases transactions are linked to a clean name,
+        entity type, location, and category. Similarly, account data is
+        standardized and returned with a clean name, number, balance, and other
+        meta information where available.
+
+
+        Transactions are returned in reverse-chronological order, and the
+        sequence of transaction ordering is stable and will not shift. 
+        Transactions are not immutable and can also be removed altogether by the
+        institution; a removed transaction will no longer appear in
+        `/processor/transactions/get`.  For more details, see [Pending and
+        posted
+        transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).
+
+
+        Due to the potentially large number of transactions associated with a
+        processor token, results are paginated. Manipulate the `count` and
+        `offset` parameters in conjunction with the `total_transactions`
+        response body field to fetch all available transactions.
+
+
+        Data returned by `/processor/transactions/get` will be the data
+        available for the processor token as of the most recent successful check
+        for new transactions. Plaid typically checks for new data multiple times
+        a day, but these checks may occur less frequently, such as once a day,
+        depending on the institution. To force Plaid to check for new
+        transactions, you can use the `/processor/transactions/refresh`
+        endpoint.
+
+
+        Note that data may not be immediately available to
+        `/processor/transactions/get`. Plaid will begin to prepare transactions
+        data upon Item link, if Link was initialized with `transactions`, or
+        upon the first call to `/processor/transactions/get`, if it wasn't. If
+        no transaction history is ready when `/processor/transactions/get` is
+        called, it will return a `PRODUCT_NOT_READY` error.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsGetRequest'
+            examples: {}
+  /processor/transactions/sync:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get incremental transaction updates on a processor token
+      externalDocs:
+        url: /api/processor-partners/#processortransactionssync
+      operationId: processorTransactionsSync
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsSyncResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: 110.94
+                        current: 110.94
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      subtype: checking
+                      type: depository
+                    added:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    modified:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                    removed:
+                      - transaction_id: CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                        account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                    next_cursor: >-
+                      tVUUL15lYQN5rBnfDIc1I8xudpGdIlw9nsgeXWvhOfkECvUeR663i3Dt1uf/94S8ASkitgLcIiOSqNwzzp+bh89kirazha5vuZHBb2ZA5NtCDkkV
+                    has_more: false
+                    request_id: 45QSn
+                    transactions_update_status: HISTORICAL_UPDATE_COMPLETE
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        This endpoint replaces `/processor/transactions/get` and its associated
+        webhooks for most common use-cases.
+
+
+        The `/processor/transactions/sync` endpoint allows developers to
+        subscribe to all transactions associated with a processor token and get
+        updates synchronously in a stream-like manner, using a cursor to track
+        which updates have already been seen. `/processor/transactions/sync`
+        provides the same functionality as `/processor/transactions/get` and can
+        be used instead of `/processor/transactions/get` to simplify the process
+        of tracking transactions updates.
+
+
+        This endpoint provides user-authorized transaction data for `credit`,
+        `depository`, and some loan-type accounts (only those with account
+        subtype `student`; coverage may be limited). For transaction history
+        from `investments` accounts, use `/investments/transactions/get`
+        instead.
+
+
+        Returned transactions data is grouped into three types of update,
+        indicating whether the transaction was added, removed, or modified since
+        the last call to the API.
+
+
+        In the first call to `/processor/transactions/sync` for a processor
+        token, the endpoint will return all historical transactions data
+        associated with that processor token up until the time of the API call
+        (as "adds"), which then generates a `next_cursor` for that processor
+        token. In subsequent calls, send the `next_cursor` to receive only the
+        changes that have occurred since the previous call.
+
+
+        Due to the potentially large number of transactions associated with a
+        processor token, results are paginated. The `has_more` field specifies
+        if additional calls are necessary to fetch all available transaction
+        updates. Call `/processor/transactions/sync` with the new cursor,
+        pulling all updates, until `has_more` is `false`.
+
+
+        When retrieving paginated updates, track both the `next_cursor` from the
+        latest response and the original cursor from the first call in which
+        `has_more` was `true`; if a call to `/processor/transactions/sync` fails
+        when retrieving a paginated update, which can occur as a result of the
+        [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination)
+        error, the entire pagination request loop must be restarted beginning
+        with the cursor for the first page of the update, rather than retrying
+        only the single request that failed.
+
+
+        Whenever new or updated transaction data becomes available,
+        `/processor/transactions/sync` will provide these updates. Plaid
+        typically checks for new data multiple times a day, but these checks may
+        occur less frequently, such as once a day, depending on the institution.
+        To force Plaid to check for new transactions, use the
+        `/processor/transactions/refresh` endpoint.
+
+
+        Note that for newly created processor tokens, data may not be
+        immediately available to `/processor/transactions/sync`. Plaid begins
+        preparing transactions data when the corresponding Item is created, but
+        the process can take anywhere from a few seconds to several minutes to
+        complete, depending on the number of transactions available.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsSyncRequest'
+            examples: {}
+  /processor/transactions/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Refresh transaction data
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsrefresh
+      operationId: processorTransactionsRefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        `/processor/transactions/refresh` is an optional endpoint for users of
+        the Transactions product. It initiates an on-demand extraction to fetch
+        the newest transactions for a processor token. This on-demand extraction
+        takes place in addition to the periodic extractions that automatically
+        occur one or more times per day for any Transactions-enabled processor
+        token. If changes to transactions are discovered after calling
+        `/processor/transactions/refresh`, Plaid will fire a webhook: for
+        `/transactions/sync` users,
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available)
+        will be fired if there are any transactions updated, added, or removed.
+        For users of both `/processor/transactions/sync` and
+        `/processor/transactions/get`,
+        [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed)
+        will be fired if any removed transactions are detected, and
+        [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update)
+        will be fired if any new transactions are detected. New transactions can
+        be fetched by calling `/processor/transactions/get` or
+        `/processor/transactions/sync`. Note that the
+        `/processor/transactions/refresh` endpoint is not supported for Capital
+        One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error
+        if called on a processor token from that institution.
+
+
+        As this endpoint triggers a synchronous request for fresh data, latency
+        may be higher than for other Plaid endpoints (typically less than 10
+        seconds, but occasionally up to 30 seconds or more); if you encounter
+        errors, you may find it necessary to adjust your timeout period when
+        making requests.
+
+
+        `/processor/transactions/refresh` is offered as an add-on to
+        Transactions and has a separate [fee
+        model](/docs/account/billing/#per-request-flat-fee). To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsRefreshRequest'
+  /processor/transactions/recurring/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Fetch recurring transaction streams
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsrecurringget
+      operationId: processorTransactionsRecurringGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsRecurringGetResponse'
+              examples:
+                example-1:
+                  value:
+                    updated_datetime: '2022-05-01T00:00:00Z'
+                    inflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        category:
+                          - Transfer
+                          - Payroll
+                        category_id: '21009000'
+                        description: Platypus Payroll
+                        merchant_name: null
+                        personal_finance_category:
+                          primary: INCOME
+                          detailed: INCOME_WAGES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-28'
+                        last_date: '2022-04-30'
+                        frequency: SEMI_MONTHLY
+                        transaction_ids:
+                          - nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw
+                          - EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL
+                          - ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd
+                          - QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK
+                          - uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF
+                        average_amount:
+                          amount: -800
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: -1000
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    outflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd
+                        category:
+                          - Service
+                          - Utilities
+                          - Electric
+                        category_id: '18068005'
+                        description: ConEd Bill Payment
+                        merchant_name: ConEd
+                        personal_finance_category:
+                          primary: RENT_AND_UTILITIES
+                          detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-04'
+                        last_date: '2022-05-02'
+                        frequency: MONTHLY
+                        transaction_ids:
+                          - yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                          - HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR
+                          - jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L
+                          - CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                        average_amount:
+                          amount: 85
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 100
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: false
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: SrBNJZDuUMweodmPmSOeOImwsWt53ZXfJQAfC
+                        category:
+                          - Shops
+                          - Warehouses and Wholesale Stores
+                        category_id: '19051000'
+                        description: Costco Annual Membership
+                        merchant_name: Costco
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-01-23'
+                        last_date: '2023-01-22'
+                        frequency: ANNUALLY
+                        transaction_ids:
+                          - yqEBJ72cS4jFwcpxJcDuQr94oAQ1R1lMC33D4
+                          - Kz5Hm3cZCgpn4tMEKUGAGD6kAcxMBsEZDSwJJ
+                        average_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    request_id: tbFyCEqkU775ZGG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/processor/transactions/recurring/get` endpoint allows developers
+        to receive a summary of the recurring outflow and inflow streams
+        (expenses and deposits) from a user’s checking, savings or credit card
+        accounts. Additionally, Plaid provides key insights about each recurring
+        stream including the category, merchant, last amount, and more.
+        Developers can use these insights to build tools and experiences that
+        help their users better manage cash flow, monitor subscriptions, reduce
+        spend, and stay on track with bill payments.
+
+
+        This endpoint is offered as an add-on to Transactions. To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+
+
+        This endpoint can only be called on a processor token that has already
+        been initialized with Transactions (either during Link, by specifying it
+        in `/link/token/create`; or after Link, by calling
+        `/processor/transactions/get` or `/processor/transactions/sync`). Once
+        all historical transactions have been fetched, call
+        `/processor/transactions/recurring/get` to receive the Recurring
+        Transactions streams and subscribe to the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook. To know when historical transactions have been fetched, if you
+        are using `/processor/transactions/sync` listen for the
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete)
+        webhook and check that the `historical_update_complete` field in the
+        payload is `true`. If using `/processor/transactions/get`, listen for
+        the
+        [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update)
+        webhook.
+
+
+        After the initial call, you can call
+        `/processor/transactions/recurring/get` endpoint at any point in the
+        future to retrieve the latest summary of recurring streams. Listen to
+        the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook to be notified when new updates are available.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsRecurringGetRequest'
+            examples: {}
+  /investments/transactions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get investment transactions
+      externalDocs:
+        url: /api/products/investments/#investmentstransactionsget
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvestmentsTransactionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: 5e66Dl6jNatx3nXPGwZ7UkJed4z6KBcZA4Rbe
+                        balances:
+                          available: 100
+                          current: 110
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        subtype: checking
+                        type: depository
+                      - account_id: KqZZMoZmBWHJlz7yKaZjHZb78VNpaxfVa7e5z
+                        balances:
+                          available: null
+                          current: 320.76
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '5555'
+                        name: Plaid IRA
+                        official_name: null
+                        subtype: ira
+                        type: investment
+                      - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
+                        balances:
+                          available: null
+                          current: 23631.9805
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '6666'
+                        name: Plaid 401k
+                        official_name: null
+                        subtype: 401k
+                        type: investment
+                    investment_transactions:
+                      - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
+                        amount: -8.72
+                        cancel_transaction_id: null
+                        date: '2020-05-29'
+                        fees: 0
+                        investment_transaction_id: oq99Pz97joHQem4BNjXECev1E4B6L6sRzwANW
+                        iso_currency_code: USD
+                        name: INCOME DIV DIVIDEND RECEIVED
+                        price: 0
+                        quantity: 0
+                        security_id: eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ
+                        subtype: dividend
+                        type: cash
+                        unofficial_currency_code: null
+                      - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
+                        amount: -1289.01
+                        cancel_transaction_id: null
+                        date: '2020-05-28'
+                        fees: 7.99
+                        investment_transaction_id: pK99jB9e7mtwjA435GpVuMvmWQKVbVFLWme57
+                        iso_currency_code: USD
+                        name: SELL Matthews Pacific Tiger Fund Insti Class
+                        price: 27.53
+                        quantity: -47.74104242992852
+                        security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
+                        subtype: sell
+                        type: sell
+                        unofficial_currency_code: null
+                      - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
+                        amount: 7.7
+                        cancel_transaction_id: null
+                        date: '2020-05-27'
+                        fees: 7.99
+                        investment_transaction_id: LKoo1ko93wtreBwM7yQnuQ3P5DNKbKSPRzBNv
+                        iso_currency_code: USD
+                        name: BUY DoubleLine Total Return Bond Fund
+                        price: 10.42
+                        quantity: 0.7388014749727547
+                        security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
+                        subtype: buy
+                        type: buy
+                        unofficial_currency_code: null
+                    item:
+                      available_products:
+                        - assets
+                        - balance
+                        - identity
+                        - transactions
+                      billed_products:
+                        - auth
+                        - investments
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_12
+                      item_id: 8Mqq5rqQ7Pcxq9MGDv3JULZ6yzZDLMCwoxGDq
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: iv4q3ZlytOOthkv
+                    securities:
+                      - close_price: 27
+                        close_price_as_of: null
+                        cusip: '577130834'
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US5771308344
+                        iso_currency_code: USD
+                        name: Matthews Pacific Tiger Fund Insti Class
+                        proxy_security_id: null
+                        security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
+                        sedol: null
+                        ticker_symbol: MIPTX
+                        type: mutual fund
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                      - close_price: 10.42
+                        close_price_as_of: null
+                        cusip: '258620103'
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US2586201038
+                        iso_currency_code: USD
+                        name: DoubleLine Total Return Bond Fund
+                        proxy_security_id: null
+                        security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
+                        sedol: null
+                        ticker_symbol: DBLTX
+                        type: mutual fund
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                      - close_price: 34.73
+                        close_price_as_of: null
+                        cusip: 84470P109
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US84470P1093
+                        iso_currency_code: USD
+                        name: Southside Bancshares Inc.
+                        proxy_security_id: null
+                        security_id: eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ
+                        sedol: null
+                        ticker_symbol: SBSI
+                        type: equity
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                    total_investment_transactions: 3
+      operationId: investmentsTransactionsGet
+      description: >-
+        The `/investments/transactions/get` endpoint allows developers to
+        retrieve up to 24 months of user-authorized transaction data for
+        investment accounts.
+
+
+        Transactions are returned in reverse-chronological order, and the
+        sequence of transaction ordering is stable and will not shift.
+
+
+        Due to the potentially large number of investment transactions
+        associated with an Item, results are paginated. Manipulate the count and
+        offset parameters in conjunction with the
+        `total_investment_transactions` response body field to fetch all
+        available investment transactions.
+
+
+        Note that Investments does not have a webhook to indicate when initial
+        transaction data has loaded (unless you use the `async_update` option).
+        Instead, if transactions data is not ready when
+        `/investments/transactions/get` is first called, Plaid will wait for the
+        data. For this reason, calling `/investments/transactions/get`
+        immediately after Link may take up to one to two minutes to return.
+
+
+        Data returned by the asynchronous investments extraction flow (when
+        `async_update` is set to true) may not be immediately available to
+        `/investments/transactions/get`. To be alerted when the data is ready to
+        be fetched, listen for the `HISTORICAL_UPDATE` webhook. If no
+        investments history is ready when `/investments/transactions/get` is
+        called, it will return a `PRODUCT_NOT_READY` error.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvestmentsTransactionsGetRequest'
+  /items/transactions/notify:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+  /beta/transactions/v1/enhance:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: enhance locally-held transaction data
+      operationId: transactionsEnhance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsEnhanceGetResponse'
+              examples:
+                example-1:
+                  value:
+                    enhanced_transactions:
+                      - id: 6135818adda16500147e7c1d
+                        description: Debit purchase Apple 1235
+                        amount: 2307.21
+                        iso_currency_code: USD
+                        enhancements:
+                          category:
+                            - Shops
+                            - Computers and Electronics
+                          category_id: '19013000'
+                          check_number: null
+                          counterparties:
+                            - name: Apple
+                              type: merchant
+                              logo_url: >-
+                                https://plaid-merchant-logos.plaid.com/apple_63.png
+                              website: apple.com
+                              confidence_level: VERY_HIGH
+                              phone_number: null
+                          location:
+                            address: 300 Post St
+                            city: San Francisco
+                            region: CA
+                            postal_code: '94108'
+                            country: US
+                            lat: 40.740352
+                            lon: -74.001761
+                            store_number: '1235'
+                          merchant_name: Apple
+                          website: apple.com
+                          logo_url: https://plaid-merchant-logos.plaid.com/apple_63.png
+                          payment_channel: in store
+                          personal_finance_category:
+                            primary: GENERAL_MERCHANDISE
+                            detailed: GENERAL_MERCHANDISE_ELECTRONICS
+                          personal_finance_category_icon_url: >-
+                            https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                          phone_number: null
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/beta/transactions/v1/enhance` endpoint enriches raw transaction
+        data provided directly by clients.
+
+
+        The product is currently in beta.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsEnhanceGetRequest'
+  /beta/transactions/rules/v1/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create transaction category rule
+      operationId: transactionsRulesCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    rule:
+                      id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo
+                      item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                      created_at: '2022-02-28T11:00:00Z'
+                      personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                      rule_details:
+                        field: NAME
+                        type: SUBSTRING_MATCH
+                        query: Burger Shack
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/create` endpoint creates transaction
+        categorization rules.
+
+
+        Rules will be applied on the Item's transactions returned in
+        `/transactions/get` response.
+
+
+        The product is currently in beta. To request access, contact
+        transactions-feedback@plaid.com.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesCreateRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+                  personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                  rule_details:
+                    field: NAME
+                    type: SUBSTRING_MATCH
+                    query: Burger Shack
+  /beta/transactions/rules/v1/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: >-
+        Return a list of rules created for the Item associated with the access
+        token.
+      operationId: transactionsRulesList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesListResponse'
+              examples:
+                example-1:
+                  value:
+                    rules:
+                      - id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo
+                        item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                        created_at: '2022-02-28T11:00:00Z'
+                        personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                        rule_details:
+                          field: NAME
+                          type: SUBSTRING_MATCH
+                          query: Burger Shack
+                      - id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF
+                        item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                        created_at: '2022-02-27T14:50:00Z'
+                        personal_finance_category: TRANSFER_IN_ACCOUNT_TRANSFER
+                        rule_details:
+                          field: TRANSACTION_ID
+                          type: EXACT_MATCH
+                          query: kgygNvAVPzSX9KkddNdWHaVGRVex1MHm3k9no
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/list` returns a list of transaction rules
+        created for the Item associated with the access token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesListRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+  /beta/transactions/rules/v1/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Remove transaction rule
+      operationId: transactionsRulesRemove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/remove` endpoint is used to remove a
+        transaction rule.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesRemoveRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+                  rule_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF
+  /beta/transactions/user_insights/v1/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    x-hidden-from-docs: true
+    post:
+      tags:
+        - plaid
+      summary: >-
+        Obtain user insights based on transactions sent through
+        /transactions/enrich
+      x-hidden-from-docs: true
+      externalDocs:
+        url: /api/products/enrich/#userinsightsget
+      operationId: transactionsUserInsightsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsUserInsightsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    user_data_overview:
+                      transaction_count: 21
+                      oldest_transaction_date: '2023-01-01'
+                      newest_transaction_date: '2023-01-31'
+                      days_available: 31
+                      total_outflows: 1245.11
+                      total_inflows: 2300.12
+                    counterparty_insights:
+                      financial_institution_insights:
+                        - name: Chase
+                          entity_id: o2Ry34bq605MvmEed3yjqjkYWwqRQYpnkjd0O
+                          website: chase.com
+                          detected_accounts:
+                            - account_type: depository
+                              account_subtype: null
+                              transaction_count: 1
+                              oldest_transaction_date: '2022-01-24'
+                              newest_transaction_date: '2023-01-05'
+                              newest_transaction_amount: 500
+                              total_outflows: 503
+                              total_inflows: 0
+                      merchant_insights:
+                        - name: Costco
+                          entity_id: pBowAoZJMM9DKR37jvNmzM4yWBBXyMzV2rM3A
+                          website: costco.com
+                          personal_finance_category_primary: GENERAL_MERCHANDISE
+                          personal_finance_category_detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          transaction_count: 2
+                          total_outflows: 953.46
+                          total_inflows: 24.99
+                        - name: PG&E
+                          entity_id: 6gEJJBrw8daLroaYgBAkpa65v9jVby69vejY0
+                          website: pge.com
+                          personal_finance_category_primary: RENT_AND_UTILITIES
+                          personal_finance_category_detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+                          transaction_count: 1
+                          total_outflows: 123.01
+                          total_inflows: 0
+                    category_insights:
+                      primary_category_insights:
+                        - name: GENERAL_MERCHANDISE
+                          transaction_count: 7
+                          total_outflows: 1025.23
+                          total_inflows: 24.99
+                          top_counterparties:
+                            - Costco
+                        - name: RENT_AND_UTILITIES
+                          transaction_count: 1
+                          total_outflows: 123.01
+                          total_inflows: 0
+                          top_counterparties:
+                            - PG&E
+                      detailed_category_insights:
+                        - name: GENERAL_MERCHANDISE_SUPERSTORES
+                          transaction_count: 3
+                          total_outflows: 997.11
+                          total_inflows: 24.99
+                          top_counterparties:
+                            - Costco
+                    recurring_transactions:
+                      inflow_streams:
+                        - stream_id: yhnUVSIfe7SfeU0bcz8PDQr5ZUxUXebUvbKC0
+                          description: Payroll * Plaid
+                          merchant_name: Plaid
+                          oldest_transaction_date: '2020-02-04'
+                          newest_transaction_date: '2023-08-02'
+                          average_days_apart: 7
+                          frequency: WEEKLY
+                          transaction_count: 5
+                          transaction_ids:
+                            - nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw
+                            - EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL
+                            - ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd
+                            - QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK
+                            - uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF
+                          average_amount:
+                            amount: 1000.91
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          last_amount:
+                            amount: 1000
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          is_active: true
+                          status: MATURE
+                          personal_finance_category_primary: INCOME
+                          personal_finance_category_detailed: INCOME_WAGES
+                      outflow_streams:
+                        - stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd
+                          description: ConEd Bill Payment
+                          merchant_name: ConEd
+                          oldest_transaction_date: '2022-02-04'
+                          newest_transaction_date: '2022-05-02'
+                          average_days_apart: 29
+                          frequency: MONTHLY
+                          transaction_count: 4
+                          transaction_ids:
+                            - yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                            - HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR
+                            - jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L
+                            - CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                          average_amount:
+                            amount: 85
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          last_amount:
+                            amount: 100
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          is_active: true
+                          status: MATURE
+                          personal_finance_category_primary: RENT_AND_UTILITIES
+                          personal_finance_category_detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/beta/transactions/user_insights/v1/get` gets user insights for
+        clients who have enriched data with `/transactions/enrich`.
+
+
+        The product is currently in beta.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsUserInsightsGetRequest'
+components:
+  schemas:
+    TransactionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsGetResponse defines the response schema for
+        `/transactions/get`
+      properties:
+        accounts:
+          type: array
+          description: >-
+            An array containing the `accounts` associated with the Item for
+            which transactions are being returned. Each transaction can be
+            mapped to its corresponding account via the `account_id` field.
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        transactions:
+          type: array
+          description: >-
+            An array containing transactions from the account. Transactions are
+            returned in reverse chronological order, with the most recent at the
+            beginning of the array. The maximum number of transactions returned
+            is determined by the `count` parameter.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        total_transactions:
+          type: integer
+          description: >-
+            The total number of transactions available within the date range
+            specified. If `total_transactions` is larger than the size of the
+            `transactions` array, more transactions are available and can be
+            fetched via manipulating the `offset` parameter.
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - transactions
+        - total_transactions
+        - item
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    TransactionsRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRefreshResponse defines the response schema for
+        `/transactions/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransactionsRecurringGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRecurringGetResponse defines the response schema for
+        `/transactions/recurring/get`
+      properties:
+        inflow_streams:
+          type: array
+          description: An array of depository transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        outflow_streams:
+          type: array
+          description: An array of expense transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        updated_datetime:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time transaction
+            streams for the given account were updated on
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - inflow_streams
+        - outflow_streams
+        - updated_datetime
+        - request_id
+    TransactionsSyncResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsSyncResponse defines the response schema for
+        `/transactions/sync`
+      properties:
+        transactions_update_status:
+          $ref: '#/components/schemas/TransactionsUpdateStatus'
+        accounts:
+          type: array
+          description: >-
+            An array of accounts at a financial institution associated with the
+            transactions in this response.
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        added:
+          type: array
+          description: >-
+            Transactions that have been added to the Item since `cursor` ordered
+            by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        modified:
+          type: array
+          description: >-
+            Transactions that have been modified on the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        removed:
+          type: array
+          description: >-
+            Transactions that have been removed from the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/RemovedTransaction'
+        next_cursor:
+          type: string
+          description: >-
+            Cursor used for fetching any future updates after the latest update
+            provided in this response. The cursor obtained after all pages have
+            been pulled (indicated by `has_more` being `false`) will be valid
+            for at least 1 year. This cursor should be persisted for later
+            calls. If transactions are not yet available, this will be an empty
+            string.
+        has_more:
+          type: boolean
+          description: >-
+            Represents if more than requested count of transaction updates
+            exist. If true, the additional updates can be fetched by making an
+            additional request with `cursor` set to `next_cursor`. If `has_more`
+            is true, it’s important to pull all available pages, to make it less
+            likely for underlying data changes to conflict with pagination.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - added
+        - modified
+        - removed
+        - next_cursor
+        - has_more
+        - request_id
+        - transactions_update_status
+    TransactionsEnrichResponse:
+      type: object
+      description: >-
+        TransactionsEnrichResponse defines the response schema for
+        `/transactions/enrich`.
+      x-examples: {}
+      additionalProperties: true
+      properties:
+        enriched_transactions:
+          type: array
+          description: A list of enriched transactions.
+          items:
+            $ref: '#/components/schemas/ClientProvidedEnrichedTransaction'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - enriched_transactions
+    ProcessorTransactionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsGetResponse defines the response schema for
+        `/processor/transactions/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        transactions:
+          type: array
+          description: >-
+            An array containing transactions from the account. Transactions are
+            returned in reverse chronological order, with the most recent at the
+            beginning of the array. The maximum number of transactions returned
+            is determined by the `count` parameter.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        total_transactions:
+          type: integer
+          description: >-
+            The total number of transactions available within the date range
+            specified. If `total_transactions` is larger than the size of the
+            `transactions` array, more transactions are available and can be
+            fetched via manipulating the `offset` parameter.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - transactions
+        - total_transactions
+        - request_id
+    ProcessorTransactionsSyncResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsSyncResponse defines the response schema for
+        `/processor/transactions/sync`
+      properties:
+        transactions_update_status:
+          $ref: '#/components/schemas/TransactionsUpdateStatus'
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        added:
+          type: array
+          description: >-
+            Transactions that have been added to the Item since `cursor` ordered
+            by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        modified:
+          type: array
+          description: >-
+            Transactions that have been modified on the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        removed:
+          type: array
+          description: >-
+            Transactions that have been removed from the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/RemovedTransaction'
+        next_cursor:
+          type: string
+          description: >-
+            Cursor used for fetching any future updates after the latest update
+            provided in this response. The cursor obtained after all pages have
+            been pulled (indicated by `has_more` being `false`) will be valid
+            for at least 1 year. This cursor should be persisted for later
+            calls. If transactions are not yet available, this will be an empty
+            string.
+        has_more:
+          type: boolean
+          description: >-
+            Represents if more than requested count of transaction updates
+            exist. If true, the additional updates can be fetched by making an
+            additional request with `cursor` set to `next_cursor`. If `has_more`
+            is true, it’s important to pull all available pages, to make it less
+            likely for underlying data changes to conflict with pagination.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - added
+        - modified
+        - removed
+        - next_cursor
+        - has_more
+        - request_id
+        - transactions_update_status
+    ProcessorTransactionsRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsRefreshResponse defines the response schema for
+        `/processor/transactions/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorTransactionsRecurringGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsRecurringGetResponse defines the response schema
+        for `/processor/transactions/recurring/get`
+      properties:
+        inflow_streams:
+          type: array
+          description: An array of depository transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        outflow_streams:
+          type: array
+          description: An array of expense transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        updated_datetime:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time transaction
+            streams for the given account were updated on
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - inflow_streams
+        - outflow_streams
+        - updated_datetime
+        - request_id
+    InvestmentsTransactionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        InvestmentsTransactionsGetResponse defines the response schema for
+        `/investments/transactions/get`
+      properties:
+        item:
+          $ref: '#/components/schemas/Item'
+        accounts:
+          type: array
+          description: The accounts for which transaction history is being fetched.
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        securities:
+          type: array
+          description: >-
+            All securities for which there is a corresponding transaction being
+            fetched.
+          items:
+            $ref: '#/components/schemas/Security'
+        investment_transactions:
+          type: array
+          description: The transactions being fetched
+          items:
+            $ref: '#/components/schemas/InvestmentTransaction'
+        total_investment_transactions:
+          type: integer
+          description: >-
+            The total number of transactions available within the date range
+            specified. If `total_investment_transactions` is larger than the
+            size of the `transactions` array, more transactions are available
+            and can be fetched via manipulating the `offset` parameter.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        is_investments_fallback_item:
+          type: boolean
+          description: >-
+            When true, this field indicates that the Item's portfolio was
+            manually created with the Investments Fallback flow.
+      required:
+        - item
+        - accounts
+        - securities
+        - investment_transactions
+        - total_investment_transactions
+        - request_id
+    TransactionsEnhanceGetResponse:
+      type: object
+      description: >-
+        TransactionsEnhanceGetResponse defines the response schema for
+        `/beta/transactions/v1/enhance`.
+      x-examples: {}
+      additionalProperties: true
+      properties:
+        enhanced_transactions:
+          type: array
+          description: An array of enhanced transactions.
+          items:
+            $ref: '#/components/schemas/ClientProvidedEnhancedTransaction'
+      required:
+        - enhanced_transactions
+    TransactionsRulesCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesCreateResponse defines the response schema for
+        `/beta/transactions/rules/v1/create`
+      properties:
+        rule:
+          $ref: '#/components/schemas/TransactionsCategoryRule'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - rule
+        - request_id
+    TransactionsRulesListResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesListResponse defines the response schema for
+        `/beta/transactions/rules/v1/list`
+      properties:
+        rules:
+          type: array
+          description: A list of the Item's transaction rules
+          items:
+            $ref: '#/components/schemas/TransactionsCategoryRule'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - rules
+        - request_id
+    TransactionsRulesRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesRemoveResponse defines the response schema for
+        `/beta/transactions/rules/v1/remove`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransactionsUserInsightsGetResponse:
+      type: object
+      description: >-
+        TransactionsUserInsightsGetResponse defines the response schema for
+        `/beta/transactions/user_insights/v1/get`.
+      additionalProperties: true
+      properties:
+        user_data_overview:
+          $ref: '#/components/schemas/UserDataOverview'
+        counterparty_insights:
+          $ref: '#/components/schemas/CounterpartyInsights'
+        category_insights:
+          $ref: '#/components/schemas/CategoryInsights'
+        recurring_transactions:
+          $ref: '#/components/schemas/RecurringTransactions'
+      required:
+        - user_data_overview

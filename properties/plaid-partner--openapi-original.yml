@@ -1,0 +1,426 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' partner/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /partner/customer/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Creates a new end customer for a Plaid reseller.
+      externalDocs:
+        url: /api/partner/#partnercustomercreate
+      description: >-
+        The `/partner/customer/create` endpoint is used by reseller partners to
+        create end customers.
+      operationId: partnerCustomerCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerCustomerCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    end_customer:
+                      client_id: 7f57eb3d2a9j6480121fx361
+                      company_name: Plaid
+                      status: ACTIVE
+                      secrets:
+                        sandbox: b60b5201d006ca5a7081d27c824d77
+                        development: 95e56a510204f293d3bebd4b9cf5c7
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerCustomerCreateRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  company_name: Plaid
+                  is_diligence_attested: true
+                  products:
+                    - auth
+                    - identity
+                  create_link_customization: true
+                  legal_entity_name: Plaid
+                  website: plaid.com
+                  application_name: Plaid
+                  technical_contact:
+                    given_name: Alice
+                    family_name: Smith
+                    email: alice.smith@example.com
+                  billing_contact:
+                    given_name: Bob
+                    family_name: Jones
+                    email: bob.jones@example.com
+                  address:
+                    city: New York
+                    street: 123 Main St
+                    region: NY
+                    postal_code: '12345'
+                    country_code: US
+                  is_bank_addendum_completed: true
+                  customer_support_info:
+                    email: support@example.com
+                    phone_number: '1234567890'
+                    contact_url: example.com/contact
+                    link_update_url: example.com/update
+                  redirect_uris:
+                    - http://localhost/oauth.html
+                    - https://www.example.com/oauth.html
+                    - https://*.example.com/oauth.html
+  /partner/customer/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Returns a Plaid reseller's end customer.
+      externalDocs:
+        url: /api/partner/#partnercustomerget
+      description: >-
+        The `/partner/customer/get` endpoint is used by reseller partners to
+        retrieve data about a single end customer.
+      operationId: partnerCustomerGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerCustomerGetResponse'
+              examples:
+                example-1:
+                  value:
+                    end_customer:
+                      client_id: 7f57eb3d2a9j6480121fx361
+                      company_name: Plaid
+                      status: ACTIVE
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerCustomerGetRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  end_customer_client_id: 7f57eb3d2a9j6480121fx361
+  /partner/customer/enable:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Enables a Plaid reseller's end customer in the Production environment.
+      externalDocs:
+        url: /api/partner/#partnercustomerenable
+      description: >-
+        The `/partner/customer/enable` endpoint is used by reseller partners to
+        enable an end customer in the Production environment.
+      operationId: partnerCustomerEnable
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerCustomerEnableResponse'
+              examples:
+                example-1:
+                  value:
+                    production_secret: 79g03eoofwl8240v776r2h667442119
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerCustomerEnableRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  end_customer_client_id: 7f57eb3d2a9j6480121fx361
+  /partner/customer/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Removes a Plaid reseller's end customer.
+      externalDocs:
+        url: /api/partner/#partnercustomerremove
+      description: >-
+        The `/partner/customer/remove` endpoint is used by reseller partners to
+        remove an end customer. Removing an end customer will remove it from
+        view in the Plaid Dashboard and deactivate its API keys. This endpoint
+        can only be used to remove an end customer that has not yet been enabled
+        in Production.
+      operationId: partnerCustomerRemove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartnerCustomerRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerCustomerRemoveRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  end_customer_client_id: 7f57eb3d2a9j6480121fx361
+  /partner/customer/oauth_institutions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: >-
+        Returns OAuth-institution registration information for a given end
+        customer.
+      externalDocs:
+        url: /api/partner/#partnercustomeroauth_institutionsget
+      description: >-
+        The `/partner/customer/oauth_institutions/get` endpoint is used by
+        reseller partners to retrieve OAuth-institution registration information
+        about a single end customer. To learn how to set up a webhook to listen
+        to status update events, visit the [reseller
+        documentation](https://plaid.com/docs/account/resellers/#enabling-end-customers).
+      operationId: partnerCustomerOauthInstitutionsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/PartnerCustomerOAuthInstitutionsGetResponse
+              examples:
+                example-1:
+                  value:
+                    flowdown_status: COMPLETE
+                    questionnaire_status: COMPLETE
+                    institutions:
+                      - name: Chase
+                        institution_id: ins_56
+                        environments:
+                          production: PROCESSING
+                          development: PROCESSING
+                        production_enablement_date: null
+                        classic_disablement_date: '2022-06-30'
+                      - name: Capital One
+                        institution_id: ins_128026
+                        environments:
+                          production: ENABLED
+                          development: ENABLED
+                        production_enablement_date: '2022-12-19'
+                        classic_disablement_date: null
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerCustomerOAuthInstitutionsGetRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  end_customer_client_id: 7f57eb3d2a9j6480121fx361
+components:
+  schemas:
+    PartnerCustomerCreateResponse:
+      description: Response schema for `/partner/customer/create`.
+      type: object
+      additionalProperties: true
+      properties:
+        end_customer:
+          $ref: '#/components/schemas/PartnerEndCustomerWithSecrets'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    PartnerCustomerGetResponse:
+      description: Response schema for `/partner/customer/get`.
+      type: object
+      additionalProperties: true
+      properties:
+        end_customer:
+          $ref: '#/components/schemas/PartnerEndCustomer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    PartnerCustomerEnableResponse:
+      description: Response schema for `/partner/customer/enable`.
+      type: object
+      additionalProperties: true
+      properties:
+        production_secret:
+          description: The end customer's secret key for the Production environment.
+          type: string
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    PartnerCustomerRemoveResponse:
+      description: Response schema for `/partner/customer/remove`.
+      type: object
+      additionalProperties: true
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    PartnerCustomerOAuthInstitutionsGetResponse:
+      description: Response schema for `/partner/customer/oauth_institutions/get`.
+      type: object
+      additionalProperties: true
+      properties:
+        flowdown_status:
+          $ref: '#/components/schemas/PartnerEndCustomerFlowdownStatus'
+        questionnaire_status:
+          $ref: '#/components/schemas/PartnerEndCustomerQuestionnaireStatus'
+        institutions:
+          type: array
+          description: >-
+            The OAuth institutions with which the end customer's application is
+            being registered.
+          items:
+            $ref: '#/components/schemas/PartnerEndCustomerOAuthInstitution'
+        request_id:
+          $ref: '#/components/schemas/RequestID'

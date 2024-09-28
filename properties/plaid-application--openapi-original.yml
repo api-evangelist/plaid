@@ -1,0 +1,283 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' application/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /item/application/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: List a user’s connected applications
+      operationId: itemApplicationList
+      description: List a user’s connected applications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationListResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationListRequest'
+  /item/application/unlink:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Unlink a user’s connected application
+      externalDocs:
+        url: none
+      operationId: itemApplicationUnlink
+      description: >-
+        Unlink a user’s connected application. On an unlink request, Plaid will
+        immediately revoke the Application’s access to the User’s data.  The
+        User will have to redo the OAuth authentication process in order to
+        restore functionality.
+
+
+        This endpoint only removes ongoing data access permissions, therefore
+        the User will need to reach out to the Application itself in order to
+        disable and delete their account and delete any data that the
+        Application already received (if the Application does not do so by
+        default).
+
+
+        This endpoint should be called in real time as the User is unlinking an
+        Application, and should not be batched in order to ensure that the
+        change is reflected as soon as possible.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationUnlinkResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: m8MDnv9okwxFNBV
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationUnlinkRequest'
+  /item/application/scopes/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Update the scopes of access for a particular application
+      operationId: itemApplicationScopesUpdate
+      description: >-
+        Enable consumers to update product access on selected accounts for an
+        application.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationScopesUpdateResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationScopesUpdateRequest'
+  /application/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve information about a Plaid application
+      operationId: applicationGet
+      description: >-
+        Allows financial institutions to retrieve information about Plaid
+        clients for the purpose of building control-tower experiences
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicationGetResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationGetRequest'
+        description: ''
+components:
+  schemas:
+    ItemApplicationListResponse:
+      description: Describes the connected application for a particular end user.
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        applications:
+          type: array
+          description: A list of connected applications.
+          items:
+            $ref: '#/components/schemas/ConnectedApplication'
+      required:
+        - applications
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ItemApplicationUnlinkResponse:
+      description: >-
+        ItemApplicationUnlinkResponse defines the response schema for
+        `/item/application/unlink`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ItemApplicationScopesUpdateResponse:
+      description: >-
+        ItemApplicationScopesUpdateResponse defines the response schema for
+        `/item/application/scopes/update`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ApplicationGetResponse:
+      description: >-
+        ApplicationGetResponse defines the response schema for
+        `/application/get`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        application:
+          $ref: '#/components/schemas/Application'
+      required:
+        - request_id
+        - application
