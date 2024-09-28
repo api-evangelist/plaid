@@ -1,0 +1,2411 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' credit/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /credit/audit_copy_token/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Audit
+        - Copy
+        - Credit
+        - Tokens
+      summary: 'Update An Audit Copy Token '
+      externalDocs:
+        url: /none/
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditAuditCopyTokenUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: eYupqX1mZkEuQRx
+                    updated: true
+      operationId: creditAuditCopyTokenUpdate
+      description: >-
+        The `/credit/audit_copy_token/update` endpoint updates an existing 
+        Audit Copy Token by adding the report tokens in the `report_tokens`
+        field to the `audit_copy_token`. If the Audit Copy Token already
+        contains a report of a certain type, it will be replaced with the token
+        provided in the `report_tokens` field.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditAuditCopyTokenUpdateRequest'
+  /credit/sessions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Credit
+        - Link
+        - Sessions
+        - Users
+      summary: 'Retrieve Link Sessions For Your User '
+      externalDocs:
+        url: /api/products/income/#creditsessionsget
+      operationId: creditSessionsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditSessionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: Aim3b
+                    sessions:
+                      - link_session_id: 356dbb28-7f98-44d1-8e6d-0cec580f3171
+                        results:
+                          item_add_results:
+                            - public_token: >-
+                                public-sandbox-5c224a01-8314-4491-a06f-39e193d5cddc
+                              item_id: M5eVJqLnv3tbzdngLDp9FL5OlDNxlNhlE55op
+                              institution_id: ins_56
+                          bank_income_results:
+                            - status: APPROVED
+                              item_id: M5eVJqLnv3tbzdngLDp9FL5OlDNxlNhlE55op
+                              institution_id: ins_56
+                        session_start_time: '2022-09-30T23:40:30.946225Z'
+                      - link_session_id: f742cae8-31e4-49cc-a621-6cafbdb26fb9
+                        results:
+                          payroll_income_results:
+                            - num_paystubs_retrieved: 2
+                              num_w2s_retrieved: 1
+                              institution_id: ins_92
+                        session_start_time: '2022-09-26T23:40:30.946225Z'
+      description: >-
+        This endpoint can be used for your end users after they complete the
+        Link flow. This endpoint returns a list of Link sessions that your user
+        completed, where each session includes the results from the Link flow.
+
+
+        These results include details about the Item that was created and some
+        product related metadata (showing, for example, whether the user
+        finished the bank income verification step).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditSessionsGetRequest'
+  /credit/audit_copy_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Audit
+        - Copy
+        - Credit
+        - Income
+        - Reports
+        - Tokens
+      summary: 'Create Asset Or Income Report Audit Copy Token '
+      externalDocs:
+        url: /api/products/income/#creditaudit_copy_tokencreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditAuditCopyTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    audit_copy_token: a-production-3tau2cwvybdvrhucaaai27ulu4
+                    request_id: Iam3b
+      operationId: creditAuditCopyTokenCreate
+      description: >-
+        Plaid can create an Audit Copy token of an Asset Report and/or Income
+        Report to share with participating Government Sponsored Entity (GSE). If
+        you participate in the Day 1 Certainty™ program, Plaid can supply an
+        Audit Copy token directly to Fannie Mae on your behalf. An Audit Copy
+        token contains the same underlying data as the Asset Report and/or
+        Income Report (result of /credit/payroll_income/get).
+
+
+        Use the `/credit/audit_copy_token/create` endpoint to create an
+        `audit_copy_token` and then pass that token to the GSE who needs access.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditAuditCopyTokenCreateRequest'
+  /credit/audit_copy_token/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Audit
+        - Copy
+        - Credit
+        - Tokens
+      summary: 'Remove An Audit Copy Token '
+      externalDocs:
+        url: /api/products/income/#creditaudit_copy_tokenremove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditAuditCopyTokenRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    removed: true
+                    request_id: m8MDnv9okwxFNBV
+      operationId: creditReportAuditCopyRemove
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditAuditCopyTokenRemoveRequest'
+        description: ''
+      description: >-
+        The `/credit/audit_copy_token/remove` endpoint allows you to remove an
+        Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token`
+        associated with it, meaning both you and any third parties holding the
+        token will no longer be able to use it to access Report data. Items
+        associated with the Report data and other Audit Copies of it are not
+        affected and will remain accessible after removing the given Audit Copy.
+  /credit/asset_report/freddie_mac/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Credit
+        - Endpoints
+        - Format
+        - Freddie
+        - Reports
+      summary: >-
+        Retrieve An Asset Report With Freddie Mac Format. Only Freddie Mac Can
+        Use This Endpoint. 
+      externalDocs:
+        url: /none/
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportFreddieGetResponse'
+              examples:
+                example-1:
+                  value:
+                    SchemaVersion: 1
+                    DEAL:
+                      LOANS:
+                        LOAN:
+                          LOAN_IDENTIFIERS:
+                            LOAN_IDENTIFIER:
+                              LoanIdentifier: '100016746'
+                              LoanIdentifierType: LenderLoan
+                      PARTIES:
+                        PARTY:
+                          - INDIVIDUAL:
+                              NAME:
+                                FirstName: John
+                                LastName: Deere
+                            ROLES:
+                              ROLE:
+                                ROLE_DETAIL:
+                                  PartyRoleType: Borrower
+                            TAXPAYER_IDENTIFIERS:
+                              TAXPAYER_IDENTIFIER:
+                                TaxpayerIdentifierType: SocialSecurityNumber
+                                TaxpayerIdentifierValue: 123-45-6789
+                      SERVICES:
+                        SERVICE:
+                          VERIFICATION_OF_ASSET:
+                            REPORTING_INFORMATION:
+                              ReportingInformationIdentifier: a-prod-kol4xb5y4nf2zecqalb2d55mze
+                            SERVICE_PRODUCT_FULFILLMENT:
+                              SERVICE_PRODUCT_FULFILLMENT_DETAIL:
+                                VendorOrderIdentifier: PLAID
+                                ServiceProductFulfillmentIdentifier: VOA
+                            VERIFICATION_OF_ASSET_RESPONSE:
+                              ASSETS:
+                                ASSET:
+                                  - ASSET_DETAIL:
+                                      AssetAccountIdentifier: '3847'
+                                      AssetUniqueIdentifier: c251a55e-c503-471b-a3b1-11a9243bc189
+                                      AssetAsOfDate: '2022-07-27'
+                                      AssetDescription: Unlimited Cash Rewards Visa Signature
+                                      AssetAvailableBalanceAmount: 2073.99
+                                      AssetCurrentBalanceAmount: 2007.09
+                                      AssetType: Other
+                                      AssetTypeAdditionalDescription: credit card
+                                      AssetDaysRequestedCount: 61
+                                      AssetOwnershipType: null
+                                    ASSET_OWNERS:
+                                      ASSET_OWNER:
+                                        - AssetOwnerText: Alberta Bobbeth Charleson
+                                    ASSET_HOLDER:
+                                      NAME:
+                                        FullName: Wells Fargo
+                                    ASSET_TRANSACTIONS:
+                                      ASSET_TRANSACTION:
+                                        - ASSET_TRANSACTION_DETAIL:
+                                            AssetTransactionUniqueIdentifier: 7jagxo9Eq6cXPKM8eMNJUgeeNnbgQdSDw6zgN
+                                            AssetTransactionAmount: 34.43
+                                            AssetTransactionDate: '2022-07-19'
+                                            AssetTransactionPostDate: '2022-07-19'
+                                            AssetTransactionType: Debit
+                                            AssetTransactionPaidByName: null
+                                            AssetTransactionTypeAdditionalDescription: null
+                                            AssetTransactionCategoryType: FoodDining
+                                            FinancialInstitutionTransactionIdentifier: null
+                                          ASSET_TRANSACTION_DESCRIPTON:
+                                            - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
+                                    VALIDATION_SOURCES:
+                                      VALIDATION_SOURCE:
+                                        - ValidationSourceName: ''
+                                          ValidationSourceReferenceIdentifier: ''
+                          STATUSES:
+                            STATUS:
+                              StatusCode: success
+                              StatusDescription: null
+                    request_id: eYupqX1mZkEuQRx
+      operationId: creditAssetReportFreddieMacGet
+      description: >-
+        The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset
+        Report in Freddie Mac's JSON format.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportFreddieGetRequest'
+        description: ''
+  /credit/freddie_mac/reports/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - (VOE)
+        - (aka
+        - Assets
+        - Assets),
+        - Available
+        - Credit
+        - Employment
+        - Endpoints
+        - Format
+        - Freddie
+        - Reports
+        - VOA
+        - Verification
+      summary: >-
+        Retrieve An Asset Report With Freddie Mac Format (aka VOA - Verification
+        Of Assets), And A Verification Of Employment (VOE) Report If This One Is
+        Available. Only Freddie Mac Can Use This Endpoint. 
+      externalDocs:
+        url: /none/
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditFreddieMacReportsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    SchemaVersion: 2.4
+                    DEAL:
+                      LOANS:
+                        LOAN:
+                          LoanRoleType: SubjectLoan
+                          LOAN_IDENTIFIERS:
+                            LOAN_IDENTIFIER:
+                              - LoanIdentifier: '100016746'
+                                LoanIdentifierType: LenderLoan
+                      PARTIES:
+                        PARTY:
+                          - INDIVIDUAL:
+                              NAME:
+                                FirstName: John
+                                LastName: Deere
+                                MiddleName: S
+                            ROLES:
+                              ROLE:
+                                ROLE_DETAIL:
+                                  PartyRoleType: Borrower
+                            TAXPAYER_IDENTIFIERS:
+                              TAXPAYER_IDENTIFIER:
+                                TaxpayerIdentifierType: SocialSecurityNumber
+                                TaxpayerIdentifierValue: 123-45-6789
+                      SERVICES:
+                        SERVICE:
+                          VERIFICATION_OF_ASSET:
+                            - REPORTING_INFORMATION:
+                                ReportIdentifierType: ReportID
+                                ReportDateTime: ''
+                                ReportingInformationParentIdentifier: a-prod-kol4xb5y4nf2zecqalb2d55mze
+                                ReportingInformationIdentifier: >-
+                                  assets-prod-20746587-2ad7-407f-a201-0669e1368cf7
+                              SERVICE_PRODUCT_FULFILLMENT:
+                                SERVICE_PRODUCT_FULFILLMENT_DETAIL:
+                                  VendorOrderIdentifier: PLAID
+                                  ServiceProductFulfillmentIdentifier: VOE
+                              VERIFICATION_OF_ASSET_RESPONSE:
+                                ASSETS:
+                                  ASSET:
+                                    - ASSET_DETAIL:
+                                        AssetAccountIdentifier: '3847'
+                                        AssetUniqueIdentifier: c251a55e-c503-471b-a3b1-11a9243bc189
+                                        AssetAsOfDate: '2022-07-27'
+                                        AssetDescription: Unlimited Cash Rewards Visa Signature
+                                        AssetAvailableBalanceAmount: 0
+                                        AssetCurrentBalanceAmount: 0
+                                        AssetType: Other
+                                        AssetTypeAdditionalDescription: credit card
+                                        AssetDaysRequestedCount: 61
+                                        AssetOwnershipType: null
+                                      ASSET_OWNERS:
+                                        ASSET_OWNER:
+                                          - AssetOwnerText: Alberta Bobbeth Charleson
+                                      ASSET_HOLDER:
+                                        NAME:
+                                          FullName: Wells Fargo
+                                      ASSET_TRANSACTIONS:
+                                        ASSET_TRANSACTION:
+                                          - ASSET_TRANSACTION_DETAIL:
+                                              AssetTransactionCategoryType: Reimbursement
+                                              AssetTransactionAmount: 0
+                                              AssetTransactionDate: '2022-07-28'
+                                              AssetTransactionPostDate: '2022-07-28'
+                                              AssetTransactionType: Credit
+                                              AssetTransactionPaidByName: null
+                                              AssetTransactionPaidToName: null
+                                              AssetTransactionTypeAdditionalDescription: null
+                                              AssetTransactionUniqueIdentifier: 8XQ2rJzjagxp87SJLNPKM8eMNJUgeeNnbg
+                                              FinancialInstitutionTransactionIdentifier: null
+                                            ASSET_TRANSACTION_DESCRIPTION:
+                                              - AssetTransactionDescription: UNITED AIRLINES SAN FRANCISCOCA
+                                      VALIDATION_SOURCES:
+                                        VALIDATION_SOURCE:
+                                          - ValidationSourceName: ''
+                                            ValidationSourceReferenceIdentifier: ''
+                            - REPORTING_INFORMATION:
+                                ReportDateTime: ''
+                                ReportingInformationParentIdentifier: a-prod-kol4xb5y4nf2zecqalb2d55mze
+                                ReportingInformationIdentifier: >-
+                                  assets-prod-20746587-2ad7-407f-a201-0669e1368cf7
+                                ReportIdentifierType: ReportID
+                              SERVICE_PRODUCT_FULFILLMENT:
+                                SERVICE_PRODUCT_FULFILLMENT_DETAIL:
+                                  VendorOrderIdentifier: PLAID
+                                  ServiceProductFulfillmentIdentifier: VOA
+                              VERIFICATION_OF_ASSET_RESPONSE:
+                                ASSETS:
+                                  ASSET:
+                                    - ASSET_DETAIL:
+                                        AssetAccountIdentifier: '3847'
+                                        AssetUniqueIdentifier: c251a55e-c503-471b-a3b1-11a9243bc189
+                                        AssetAsOfDate: '2022-07-27'
+                                        AssetDescription: Unlimited Cash Rewards Visa Signature
+                                        AssetAvailableBalanceAmount: 2073.99
+                                        AssetCurrentBalanceAmount: 2007.09
+                                        AssetType: Other
+                                        AssetTypeAdditionalDescription: credit card
+                                        AssetDaysRequestedCount: 61
+                                        AssetOwnershipType: null
+                                      ASSET_OWNERS:
+                                        ASSET_OWNER:
+                                          - AssetOwnerText: Alberta Bobbeth Charleson
+                                      ASSET_HOLDER:
+                                        NAME:
+                                          FullName: Wells Fargo
+                                      ASSET_TRANSACTIONS:
+                                        ASSET_TRANSACTION:
+                                          - ASSET_TRANSACTION_DETAIL:
+                                              AssetTransactionUniqueIdentifier: 7jagxo9Eq6cXPKM8eMNJUgeeNnbgQdSDw6zgN
+                                              AssetTransactionAmount: 34.43
+                                              AssetTransactionDate: '2022-07-19'
+                                              AssetTransactionPostDate: '2022-07-19'
+                                              AssetTransactionType: Debit
+                                              AssetTransactionPaidByName: null
+                                              AssetTransactionTypeAdditionalDescription: null
+                                              AssetTransactionCategoryType: FoodDining
+                                              FinancialInstitutionTransactionIdentifier: null
+                                            ASSET_TRANSACTION_DESCRIPTION:
+                                              - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
+                                      VALIDATION_SOURCES:
+                                        VALIDATION_SOURCE:
+                                          - ValidationSourceName: ''
+                                            ValidationSourceReferenceIdentifier: ''
+                          STATUSES:
+                            STATUS:
+                              StatusCode: success
+                              StatusDescription: null
+                    request_id: eYupqX1mZkEuQRx
+      operationId: creditFreddieMacReportsGet
+      description: >-
+        The `credit/asset_report/freddie_mac/get` endpoint retrieves the
+        Verification of Assets and Verification of Employment reports.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditFreddieMacReportsGetRequest'
+        description: ''
+  /beta/credit/v1/bank_employment/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve Information From The Bank Accounts Used For Employment
+        Verification 
+      tags:
+        - Accounts
+        - Bank
+        - Beta
+        - Credit
+        - Employment
+        - Information
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankEmploymentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+                    bank_employment_reports:
+                      - bank_employment_report_id: 0a7eaed6-5da7-4846-baaf-ad787306575e
+                        generated_time: '2023-01-23T22:47:53Z'
+                        days_requested: 90
+                        items:
+                          - item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                            last_updated_time: '2023-01-23T22:47:53Z'
+                            institution_id: ins_0
+                            institution_name: Plaid Bank
+                            bank_employments:
+                              - bank_employment_id: f17efbdd-caab-4278-8ece-963511cd3d51
+                                account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                                employer:
+                                  name: Plaid Inc.
+                                latest_deposit_date: '2023-01-15'
+                                earliest_deposit_date: '2022-01-15'
+                            bank_employment_accounts:
+                              - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                                mask: '8888'
+                                name: Plaid Checking Account
+                                official_name: Plaid Checking Account
+                                type: depository
+                                subtype: checking
+                                owners:
+                                  - addresses:
+                                      - data:
+                                          city: Malakoff
+                                          country: US
+                                          postal_code: '14236'
+                                          region: NY
+                                          street: 2992 Cameron Road
+                                        primary: true
+                                      - data:
+                                          city: San Matias
+                                          country: US
+                                          postal_code: 93405-2255
+                                          region: CA
+                                          street: 2493 Leisure Lane
+                                        primary: false
+                                    emails:
+                                      - data: accountholder0@example.com
+                                        primary: true
+                                        type: primary
+                                      - data: accountholder1@example.com
+                                        primary: false
+                                        type: secondary
+                                      - data: >-
+                                          extraordinarily.long.email.username.123456@reallylonghostname.com
+                                        primary: false
+                                        type: other
+                                    names:
+                                      - Alberta Bobbeth Charleson
+                                    phone_numbers:
+                                      - data: '1112223333'
+                                        primary: false
+                                        type: home
+                                      - data: '1112224444'
+                                        primary: false
+                                        type: work
+                                      - data: '1112225555'
+                                        primary: false
+                                        type: mobile
+                        warnings: []
+      externalDocs:
+        url: /api/products/income/#creditbank_employmentget
+      operationId: creditBankEmploymentGet
+      description: >-
+        `/credit/bank_employment/get` returns the employment report(s) derived
+        from bank transaction data for a specified user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankEmploymentGetRequest'
+  /credit/bank_income/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve Information From The Bank Accounts Used For Income
+        Verification 
+      tags:
+        - Accounts
+        - Bank
+        - Credit
+        - Income
+        - Information
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankIncomeGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+                    bank_income:
+                      - bank_income_id: abc123
+                        generated_time: '2022-01-31T22:47:53Z'
+                        days_requested: 90
+                        items:
+                          - last_updated_time: '2022-01-31T22:47:53Z'
+                            institution_id: ins_0
+                            institution_name: Plaid Bank
+                            item_id: “eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6”
+                            bank_income_accounts:
+                              - account_id: “GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9”
+                                mask: '8888'
+                                name: Plaid Checking Account
+                                official_name: Plaid Checking Account
+                                type: depository
+                                subtype: checking
+                                owners:
+                                  - addresses:
+                                      - data:
+                                          city: Malakoff
+                                          country: US
+                                          postal_code: '14236'
+                                          region: NY
+                                          street: 2992 Cameron Road
+                                        primary: true
+                                      - data:
+                                          city: San Matias
+                                          country: US
+                                          postal_code: 93405-2255
+                                          region: CA
+                                          street: 2493 Leisure Lane
+                                        primary: false
+                                    emails:
+                                      - data: accountholder0@example.com
+                                        primary: true
+                                        type: primary
+                                      - data: accountholder1@example.com
+                                        primary: false
+                                        type: secondary
+                                      - data: >-
+                                          extraordinarily.long.email.username.123456@reallylonghostname.com
+                                        primary: false
+                                        type: other
+                                    names:
+                                      - Alberta Bobbeth Charleson
+                                    phone_numbers:
+                                      - data: '1112223333'
+                                        primary: false
+                                        type: home
+                                      - data: '1112224444'
+                                        primary: false
+                                        type: work
+                                      - data: '1112225555'
+                                        primary: false
+                                        type: mobile
+                            bank_income_sources:
+                              - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                                income_source_id: “f17efbdd-caab-4278-8ece-963511cd3d51”
+                                income_description: “PLAID_INC_DIRECT_DEP_PPD”
+                                income_category: SALARY
+                                start_date: '2021-11-15'
+                                end_date: '2022-01-15'
+                                pay_frequency: MONTHLY
+                                total_amount: 300
+                                transaction_count: 1
+                                historical_summary:
+                                  - start_date: '2021-11-02'
+                                    end_date: '2021-11-30'
+                                    total_amount: 100
+                                    iso_currency_code: USD
+                                    unofficial_currency_code: null
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2021-11-15'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        transaction_id: 6RddrWNwE1uM63Ex5GKLhzlBl76aAZfgzlQNm
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                  - start_date: '2021-12-01'
+                                    end_date: '2021-12-31'
+                                    total_amount: 100
+                                    iso_currency_code: USD
+                                    unofficial_currency_code: null
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2021-12-15'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        transaction_id: 7BddrWNwE1uM63Ex5GKLhzlBl82aAZfgzlCBl
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                  - start_date: '2022-01-01'
+                                    end_date: '2021-01-31'
+                                    total_amount: 100
+                                    iso_currency_code: USD
+                                    unofficial_currency_code: null
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2022-01-31'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        transaction_id: 9FddrWNwE1uM95Ex5GKLhzlBl76aAZfgzlNQr
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                        bank_income_summary:
+                          total_amount: 300
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                          total_amounts:
+                            - amount: 300
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          start_date: '2021-11-15'
+                          end_date: '2022-01-15'
+                          income_sources_count: 1
+                          income_categories_count: 1
+                          income_transactions_count: 1
+                          historical_summary:
+                            - start_date: '2021-11-02'
+                              end_date: '2021-11-30'
+                              total_amount: 100
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2021-11-15'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  transaction_id: 6RddrWNwE1uM63Ex5GKLhzlBl76aAZfgzlQNm
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                            - start_date: '2021-12-01'
+                              end_date: '2021-12-31'
+                              total_amount: 100
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2021-12-15'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  transaction_id: 7BddrWNwE1uM63Ex5GKLhzlBl82aAZfgzlCBl
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                            - start_date: '2022-01-01'
+                              end_date: '2021-01-31'
+                              total_amount: 100
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2022-01-31'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  transaction_id: 9FddrWNwE1uM95Ex5GKLhzlBl76aAZfgzlNQr
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                        warnings: []
+      externalDocs:
+        url: /api/products/income/#creditbank_incomeget
+      operationId: creditBankIncomeGet
+      description: >-
+        `/credit/bank_income/get` returns the bank income report(s) for a
+        specified user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankIncomeGetRequest'
+  /credit/bank_income/pdf/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve Information From The Bank Accounts Used For Income Verification
+        In PDF Format 
+      tags:
+        - Accounts
+        - Bank
+        - Credit
+        - Format
+        - Income
+        - Information
+        - PDF
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: A PDF of the Bank Income Report
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/CreditBankIncomePDFGetResponse'
+      externalDocs:
+        url: /api/products/income/#creditbank_incomepdfget
+      operationId: creditBankIncomePdfGet
+      description: >-
+        `/credit/bank_income/pdf/get` returns the most recent bank income report
+        for a specified user in PDF format.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankIncomePDFGetRequest'
+  /credit/bank_income/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Refresh A User''s Bank Income Information '
+      tags:
+        - Bank
+        - Credit
+        - Income
+        - Information
+        - Refresh
+        - Users
+      externalDocs:
+        url: /api/products/income/#creditbank_incomerefresh
+      operationId: creditBankIncomeRefresh
+      description: >-
+        `/credit/bank_income/refresh` refreshes the bank income report data for
+        a specific user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankIncomeRefreshRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankIncomeRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+  /credit/bank_income/webhook/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Subscribe And Unsubscribe To Proactive Notifications For A User's Income
+        Profile 
+      tags:
+        - Bank
+        - Credit
+        - Income
+        - Notifications
+        - Proactive
+        - Profiles
+        - Subscribe
+        - Unsubscribe
+        - Users
+        - Webhooks
+      externalDocs:
+        url: /api/products/income/#creditbank_incomewebhookupdate
+      operationId: creditBankIncomeWebhookUpdate
+      description: >-
+        `/credit/bank_income/webhook/update` allows you to subscribe or
+        unsubscribe a user for income webhook notifications. By default, all
+        users start out unsubscribed.
+
+
+        If a user is subscribed, on significant changes to the user's income
+        profile, you will receive a `BANK_INCOME_REFRESH_UPDATE` webhook,
+        prompting you to refresh bank income data for the user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankIncomeWebhookUpdateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankIncomeWebhookUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+  /credit/payroll_income/parsing_config/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Update The Parsing Configuration For A Document Income Verification '
+      tags:
+        - Configurations
+        - Credit
+        - Documents
+        - Income
+        - Parsing
+        - Payroll
+        - Verification
+      externalDocs:
+        url: /api/products/income/#creditpayroll_incomeparsing_configupdate
+      operationId: creditPayrollIncomeParsingConfigUpdate
+      description: >-
+        `/credit/payroll_income/parsing_config/update` updates the parsing
+        configuration for a document income verification.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/CreditPayrollIncomeParsingConfigUpdateRequest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/CreditPayrollIncomeParsingConfigUpdateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+  /credit/bank_statements/uploads/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve Data For A User''s Uploaded Bank Statements '
+      tags:
+        - Bank
+        - Credit
+        - Data
+        - Statements
+        - Uploaded
+        - Uploads
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankStatementsUploadsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    items:
+                      - item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                        bank_statements:
+                          - transactions:
+                              - amount: -1000
+                                date: '2023-01-01'
+                                original_description: PAYCHECK
+                                account_id: c6778d3f-e44c-4348-874e-71507c1ac12d
+                            document_metadata:
+                              document_type: BANK_STATEMENT
+                              name: statement_01.pdf
+                              status: PROCESSING_COMPLETE
+                              download_url: null
+                              page_count: 2
+                            document_id: 2jkflanbd
+                            bank_accounts:
+                              - name: CHASE CHECKING
+                                bank_name: CHASE
+                                account_type: CHECKING
+                                account_number: '000009752'
+                                account_id: c6778d3f-e44c-4348-874e-71507c1ac12d
+                                owner:
+                                  name: JANE DOE
+                                  address:
+                                    postal_code: '94133'
+                                    country: US
+                                    region: CA
+                                    city: SAN FRANCISCO
+                                    street: 2140 TAYLOR ST
+                                periods:
+                                  - start_date: '2023-01-01'
+                                    end_date: '2023-02-01'
+                                    starting_balance: 2500
+                                    ending_balance: 3500
+                        status:
+                          processing_status: PROCESSING_COMPLETE
+                        updated_at: '2023-02-01T21:14:54Z'
+                    request_id: LhQf0THi8SH1yJm
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      externalDocs:
+        url: /api/products/income/#creditbank_statementsuploadsget
+      operationId: creditBankStatementsUploadsGet
+      description: >-
+        `/credit/bank_statements/uploads/get` returns parsed data from bank
+        statements uploaded by users as part of the Document Income flow. If
+        your account is not enabled for Document Parsing, contact your account
+        manager to request access.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankStatementsUploadsGetRequest'
+  /credit/payroll_income/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve A User''s Payroll Information '
+      tags:
+        - Credit
+        - Income
+        - Information
+        - Payroll
+        - Users
+      externalDocs:
+        url: /api/products/income/#creditpayroll_incomeget
+      operationId: creditPayrollIncomeGet
+      description: >-
+        This endpoint gets payroll income information for a specific user,
+        either as a result of the user connecting to their payroll provider or
+        uploading a pay related document.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditPayrollIncomeGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditPayrollIncomeGetResponse'
+              examples:
+                example-1:
+                  value:
+                    items:
+                      - item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                        institution_id: ins_92
+                        institution_name: ADP
+                        accounts:
+                          - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                            rate_of_pay:
+                              pay_amount: 100000
+                              pay_rate: ANNUAL
+                            pay_frequency: BIWEEKLY
+                        payroll_income:
+                          - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                            pay_stubs:
+                              - deductions:
+                                  breakdown:
+                                    - current_amount: 123.45
+                                      description: taxes
+                                      iso_currency_code: USD
+                                      unofficial_currency_code: null
+                                      ytd_amount: 246.9
+                                  total:
+                                    current_amount: 123.45
+                                    iso_currency_code: USD
+                                    unofficial_currency_code: null
+                                    ytd_amount: 246.9
+                                document_metadata:
+                                  document_type: PAYSTUB
+                                  name: paystub.pdf
+                                  status: PROCESSING_COMPLETE
+                                  download_url: null
+                                document_id: 2jkflanbd
+                                earnings:
+                                  breakdown:
+                                    - canonical_description: REGULAR_PAY
+                                      current_amount: 200.22
+                                      description: salary earned
+                                      hours: 80
+                                      iso_currency_code: USD
+                                      rate: null
+                                      unofficial_currency_code: null
+                                      ytd_amount: 400.44
+                                    - canonical_description: BONUS
+                                      current_amount: 100
+                                      description: bonus earned
+                                      hours: null
+                                      iso_currency_code: USD
+                                      rate: null
+                                      unofficial_currency_code: null
+                                      ytd_amount: 100
+                                  total:
+                                    current_amount: 300.22
+                                    hours: 160
+                                    iso_currency_code: USD
+                                    unofficial_currency_code: null
+                                    ytd_amount: 500.44
+                                employee:
+                                  address:
+                                    city: SAN FRANCISCO
+                                    country: US
+                                    postal_code: '94133'
+                                    region: CA
+                                    street: 2140 TAYLOR ST
+                                  name: ANNA CHARLESTON
+                                  marital_status: SINGLE
+                                  taxpayer_id:
+                                    id_type: SSN
+                                    id_mask: '3333'
+                                employer:
+                                  name: PLAID INC
+                                  address:
+                                    city: SAN FRANCISCO
+                                    country: US
+                                    postal_code: '94111'
+                                    region: CA
+                                    street: 1098 HARRISON ST
+                                net_pay:
+                                  current_amount: 123.34
+                                  description: TOTAL NET PAY
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                  ytd_amount: 253.54
+                                pay_period_details:
+                                  distribution_breakdown:
+                                    - account_name: Big time checking
+                                      bank_name: bank of plaid
+                                      current_amount: 176.77
+                                      iso_currency_code: USD
+                                      mask: '1223'
+                                      type: checking
+                                      unofficial_currency_code: null
+                                  end_date: '2020-12-15'
+                                  gross_earnings: 4500
+                                  iso_currency_code: USD
+                                  pay_amount: 1490.21
+                                  pay_date: '2020-12-15'
+                                  pay_frequency: BIWEEKLY
+                                  start_date: '2020-12-01'
+                                  unofficial_currency_code: null
+                            w2s:
+                              - allocated_tips: '1000'
+                                box_12:
+                                  - amount: '200'
+                                    code: AA
+                                box_9: box9
+                                dependent_care_benefits: '1000'
+                                document_metadata:
+                                  document_type: US_TAX_W2
+                                  download_url: null
+                                  name: w_2.pdf
+                                  status: PROCESSING_COMPLETE
+                                document_id: 1pkflebk4
+                                employee:
+                                  address:
+                                    city: San Francisco
+                                    country: US
+                                    postal_code: '94103'
+                                    region: CA
+                                    street: 1234 Grand St
+                                  name: Josie Georgia Harrison
+                                  marital_status: SINGLE
+                                  taxpayer_id:
+                                    id_type: SSN
+                                    id_mask: '1234'
+                                employer:
+                                  address:
+                                    city: New York
+                                    country: US
+                                    postal_code: '10010'
+                                    region: NY
+                                    street: 456 Main St
+                                  name: Acme Inc
+                                employer_id_number: 12-1234567
+                                federal_income_tax_withheld: '1000'
+                                medicare_tax_withheld: '1000'
+                                medicare_wages_and_tips: '1000'
+                                nonqualified_plans: '1000'
+                                other: other
+                                retirement_plan: CHECKED
+                                social_security_tax_withheld: '1000'
+                                social_security_tips: '1000'
+                                social_security_wages: '1000'
+                                state_and_local_wages:
+                                  - employer_state_id_number: 11111111111AAA
+                                    local_income_tax: '200'
+                                    local_wages_and_tips: '200'
+                                    locality_name: local
+                                    state: UT
+                                    state_income_tax: '200'
+                                    state_wages_tips: '200'
+                                statutory_employee: CHECKED
+                                tax_year: '2020'
+                                third_party_sick_pay: CHECKED
+                                wages_tips_other_comp: '1000'
+                            form1099s:
+                              - april_amount: null
+                                august_amount: null
+                                card_not_present_transaction: null
+                                crop_insurance_proceeds: 1000
+                                december_amount: null
+                                document_id: mvMZ59Z2a5
+                                document_metadata:
+                                  document_type: US_TAX_1099_MISC
+                                  download_url: null
+                                  name: form_1099_misc.pdf
+                                  status: PROCESSING_COMPLETE
+                                excess_golden_parachute_payments: 1000
+                                feburary_amount: null
+                                federal_income_tax_withheld: 1000
+                                filer:
+                                  address:
+                                    city: null
+                                    country: null
+                                    postal_code: null
+                                    region: null
+                                    street: null
+                                  name: null
+                                  tin: null
+                                  type: null
+                                fishing_boat_proceeds: 1000
+                                form_1099_type: FORM_1099_TYPE_MISC
+                                gross_amount: 1000
+                                gross_proceeds_paid_to_an_attorney: 1000
+                                january_amount: null
+                                july_amount: null
+                                june_amount: null
+                                march_amount: null
+                                may_amount: null
+                                medical_and_healthcare_payments: 1000
+                                merchant_category_code: null
+                                nonemployee_compensation: 1000
+                                november_amount: null
+                                number_of_payment_transactions: null
+                                october_amount: null
+                                other_income: 1000
+                                payer:
+                                  address:
+                                    city: SAN FRANCISCO
+                                    country: US
+                                    postal_code: '94111'
+                                    region: CA
+                                    street: 1098 HARRISON ST
+                                  name: PLAID INC
+                                  telephone_number: (123)456-7890
+                                  tin: 12-3456789
+                                payer_made_direct_sales_of_500_or_more_of_consumer_products_to_buyer: null
+                                payer_state_number: CA 12345
+                                payer_state_number_lower: null
+                                primary_state: null
+                                primary_state_id: CA 12345
+                                primary_state_income_tax: 1000
+                                pse_name: null
+                                pse_telephone_number: null
+                                recipient:
+                                  account_number: '45678'
+                                  address:
+                                    city: SAN FRANCISCO
+                                    country: US
+                                    postal_code: '94133'
+                                    region: CA
+                                    street: 2140 TAYLOR ST
+                                  facta_filing_requirement: CHECKED
+                                  name: Josie Georgia Harrison
+                                  second_tin_exists: NOT CHECKED
+                                  tin: 12-3456789
+                                rents: 1000
+                                royalties: 1000
+                                secondary_state: null
+                                secondary_state_id: null
+                                secondary_state_income_tax: null
+                                section_409a_deferrals: 1000
+                                section_409a_income: 1000
+                                september_amount: null
+                                state_income: 1000
+                                state_income_lower: null
+                                state_tax_withheld: 1000
+                                state_tax_withheld_lower: null
+                                substitute_payments_in_lieu_of_dividends_or_interest: null
+                                tax_year: '2022'
+                                transactions_reported: null
+                        status:
+                          processing_status: PROCESSING_COMPLETE
+                        updated_at: '2022-08-02T21:14:54Z'
+                    request_id: 2pxQ59buGdsHRef
+  /credit/payroll_income/risk_signals/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve Fraud Insights For A User''s Manually Uploaded Document(s). '
+      tags:
+        - Credit
+        - Document(s)
+        - Fraud
+        - Income
+        - Insights
+        - Manually
+        - Payroll
+        - Risk
+        - Signals
+        - Uploaded
+        - Users
+      externalDocs:
+        url: /api/products/income/#creditpayroll_incomerisk_signalsget
+      operationId: creditPayrollIncomeRiskSignalsGet
+      description: >-
+        `/credit/payroll_income/risk_signals/get` can be used as part of the
+        Document Income flow to assess a user-uploaded document for signs of
+        potential fraud or tampering. It returns a risk score for each uploaded
+        document that indicates the likelihood of the document being fraudulent,
+        in addition to details on the individual risk signals contributing to
+        the score.
+
+
+        To trigger risk signal generation for an Item, call `/link/token/create`
+        with `parsing_config` set to include `risk_signals`, or call
+        `/credit/payroll_income/parsing_config/update`. Once risk signal
+        generation has been triggered, `/credit/payroll_income/risk_signals/get`
+        can be called at any time after the `INCOME_VERIFICATION_RISK_SIGNALS`
+        webhook has been fired.
+
+
+        `/credit/payroll_income/risk_signals/get` is offered as an add-on to
+        Document Income and is billed separately. To request access to this
+        endpoint, submit a product access request or contact your Plaid account
+        manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditPayrollIncomeRiskSignalsGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditPayrollIncomeRiskSignalsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    items:
+                      - item_id: testItemID
+                        verification_risk_signals:
+                          - account_id: null
+                            multi_document_risk_signals: []
+                            single_document_risk_signals:
+                              - document_reference:
+                                  document_id: lRepoQjxlJ1nz
+                                  document_name: Paystub.pdf
+                                risk_summary:
+                                  risk_score: 70
+                                risk_signals:
+                                  - actual_value: '0.00'
+                                    expected_value: '25.09'
+                                    field: null
+                                    signal_description: null
+                                    has_fraud_risk: true
+                                    type: MASKING
+                                    page_number: 1
+                                    institution_metadata:
+                                      item_id: testItemID
+                                  - actual_value: null
+                                    expected_value: null
+                                    field: null
+                                    signal_description: >-
+                                      Creation date and modification date do not
+                                      match
+                                    has_fraud_risk: true
+                                    institution_metadata: null
+                                    type: METADATA_DATES_OUTSIDE_WINDOW
+                                    page_number: 0
+                    request_id: LhQf0THi8SH1yJm
+  /credit/payroll_income/precheck:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      summary: 'Check Income Verification Eligibility And Optimize Conversion '
+      tags:
+        - Checks
+        - Conversions
+        - Credit
+        - Eligibility
+        - Income
+        - Optimize
+        - Payroll
+        - Precheck
+        - Verification
+      operationId: creditPayrollIncomePrecheck
+      externalDocs:
+        url: /api/products/income/#creditpayroll_incomeprecheck
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditPayrollIncomePrecheckResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: lMjeOeu9X1VUh1F
+                    confidence: HIGH
+      description: >-
+        `/credit/payroll_income/precheck` is an optional endpoint that can be
+        called before initializing a Link session for income verification. It
+        evaluates whether a given user is supportable by digital income
+        verification. If the user is eligible for digital verification, that
+        information will be associated with the user token, and in this way will
+        generate a Link UI optimized for the end user and their specific
+        employer. If the user cannot be confirmed as eligible, the user can
+        still use the income verification flow, but they may be required to
+        manually upload a paystub to verify their income.
+
+
+        While all request fields are optional, providing `employer` data will
+        increase the chance of receiving a useful result.
+
+
+        When testing in Sandbox, you can control the results by providing
+        special test values in the `employer` and `access_tokens` fields.
+        `employer_good` and `employer_bad` will result in `HIGH` and `LOW`
+        confidence values, respectively. `employer_multi` will result in a
+        `HIGH` confidence with multiple payroll options. Likewise, `access_good`
+        and `access_bad` will result in `HIGH` and `LOW` confidence values,
+        respectively. Any other value for `employer` and `access_tokens` in
+        Sandbox will result in `UNKNOWN` confidence.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditPayrollIncomePrecheckRequest'
+  /credit/employment/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve A Summary Of An Individual''s Employment Information '
+      tags:
+        - Credit
+        - Employment
+        - Individual's
+        - Information
+        - Summaries
+      operationId: creditEmploymentGet
+      externalDocs:
+        url: /api/products/income/#creditemploymentget
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditEmploymentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    items:
+                      - item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                        employments:
+                          - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                            status: ACTIVE
+                            start_date: '2020-01-01'
+                            end_date: null
+                            employer:
+                              name: Plaid Inc
+                            title: Software Engineer
+                            platform_ids:
+                              employee_id: '1234567'
+                              position_id: '8888'
+                              payroll_id: '1234567'
+                            employee_type: FULL_TIME
+                            last_paystub_date: '2022-01-15'
+                    request_id: LhQf0THi8SH1yJm
+      description: >-
+        `/credit/employment/get` returns a list of items with employment
+        information from a user's payroll provider that was verified by an end
+        user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditEmploymentGetRequest'
+  /credit/payroll_income/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Credit
+        - Digital
+        - Income
+        - Payroll
+        - Refresh
+        - Verification
+      summary: 'Refresh A Digital Payroll Income Verification '
+      externalDocs:
+        url: /api/products/income/#creditpayroll_incomerefresh
+      operationId: creditPayrollIncomeRefresh
+      description: >-
+        `/credit/payroll_income/refresh` refreshes a given digital payroll
+        income verification.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditPayrollIncomeRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: nTkbCH41HYmpbm5
+                    verification_refresh_status: USER_PRESENCE_REQUIRED
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditPayrollIncomeRefreshRequest'
+  /credit/relay/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Relay Token To Share An Asset Report With A Partner Client '
+      tags:
+        - Assets
+        - Clients
+        - Credit
+        - Partners
+        - Relay
+        - Reports
+        - Share
+        - Tokens
+      operationId: creditRelayCreate
+      externalDocs:
+        url: /api/products/assets/#creditrelaycreate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditRelayCreateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditRelayCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    relay_token: credit-relay-production-3TAU2CWVYBDVRHUCAAAI27ULU4
+                    request_id: Iam3b
+      description: >-
+        Plaid can share an Asset Report directly with a participating third
+        party on your behalf. The shared Asset Report is the exact same Asset
+        Report originally created in `/asset_report/create`.
+
+
+        To grant a third party access to an Asset Report, use the
+        `/credit/relay/create` endpoint to create a `relay_token` and then pass
+        that token to your third party. Each third party has its own
+        `secondary_client_id`; for example, `ce5bd328dcd34123456`. You'll need
+        to create a separate `relay_token` for each third party that needs
+        access to the report on your behalf.
+  /credit/relay/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve The Reports Associated With A Relay Token That Was Shared With
+        You 
+      tags:
+        - Associated
+        - Credit
+        - Relay
+        - Reports
+        - Shared
+        - Tokens
+      operationId: creditRelayGet
+      externalDocs:
+        url: /api/products/assets/#creditrelayget
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditRelayGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportGetResponse'
+              examples:
+                example-1:
+                  value:
+                    report:
+                      asset_report_id: 028e8404-a013-4a45-ac9e-002482f9cafc
+                      client_report_id: client_report_id_1221
+                      date_generated: '2023-03-30T18:27:37Z'
+                      days_requested: 5
+                      items:
+                        - accounts:
+                            - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
+                              balances:
+                                available: 43200
+                                current: 43200
+                                limit: null
+                                margin_loan_amount: null
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 49050
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '4444'
+                              name: Plaid Money Market
+                              official_name: >-
+                                Plaid Platinum Standard 1.85% Interest Money
+                                Market
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: money market
+                              transactions:
+                                - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
+                                  amount: 5850
+                                  date: '2023-03-30'
+                                  iso_currency_code: USD
+                                  original_description: ACH Electronic CreditGUSTO PAY 123456
+                                  pending: false
+                                  transaction_id: gGQgjoeyqBF89PND6K14Sow1wddZBmtLomJ78
+                                  unofficial_currency_code: null
+                              type: depository
+                            - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                              balances:
+                                available: 100
+                                current: 110
+                                limit: null
+                                margin_loan_amount: null
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 110
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -390
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -373.67
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '0000'
+                              name: Plaid Checking
+                              official_name: Plaid Gold Standard 0% Interest Checking
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: checking
+                              transactions:
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 89.4
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  original_description: SparkFun
+                                  pending: false
+                                  transaction_id: 4zBRq1Qem4uAPnoyKjJNTRQpQddM4ztlo1PLD
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 12
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: 'McDonalds #3322'
+                                  pending: false
+                                  transaction_id: dkjL41PnbKsPral79jpxhMWdW55gkPfBkWpRL
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 4.33
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: Starbucks
+                                  pending: false
+                                  transaction_id: a84ZxQaWDAtDL3dRgmazT57K7jjN3WFkNWMDy
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: -500
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  original_description: United Airlines **** REFUND ****
+                                  pending: false
+                                  transaction_id: xG9jbv3eMoFWepzB7wQLT3LoLggX5Duy1Gbe5
+                                  unofficial_currency_code: null
+                              type: depository
+                          date_last_updated: '2023-03-30T18:25:26Z'
+                          institution_id: ins_109508
+                          institution_name: First Platypus Bank
+                          item_id: AZMP7JrGXgtPd3AQMeg7hwMKgk5E8qU1V5ME7
+                      user:
+                        client_user_id: uid_40332
+                        email: abcharleston@example.com
+                        first_name: Anna
+                        last_name: Charleston
+                        middle_name: B
+                        phone_number: 1-415-867-5309
+                        ssn: 111-22-1234
+                    request_id: GVzMdiDd8DDAQK4
+                    warnings: []
+      description: >-
+        `/credit/relay/get` allows third parties to receive a report that was
+        shared with them, using a `relay_token` that was created by the report
+        owner.
+  /credit/relay/pdf/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve The Pdf Reports Associated With A Relay Token That Was Shared
+        With You (beta) 
+      tags:
+        - (beta)
+        - Associated
+        - Credit
+        - PDF
+        - Relay
+        - Reports
+        - Shared
+        - Tokens
+      responses:
+        '200':
+          description: A PDF of the Asset Report
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/CreditRelayPDFGetResponse'
+      operationId: creditRelayPdfGet
+      externalDocs:
+        url: /api/products/assets/#creditrelaypdfget
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditRelayPDFGetRequest'
+      description: >-
+        `/credit/relay/pdf/get` allows third parties to receive a pdf report
+        that was shared with them, using a `relay_token` that was created by the
+        report owner.
+
+
+        The `/credit/relay/pdf/get` endpoint retrieves the Asset Report in PDF
+        format. Before calling `/credit/relay/pdf/get`, you must first create
+        the Asset Report using `/credit/relay/create` and then wait for the
+        [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready)
+        webhook to fire, indicating that the Report is ready to be retrieved.
+
+
+        The response to `/credit/relay/pdf/get` is the PDF binary data. The
+        `request_id` is returned in the `Plaid-Request-ID` header.
+
+
+        [View a sample PDF Asset
+        Report](https://plaid.com/documents/sample-asset-report.pdf).
+  /credit/relay/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Credit
+        - Refresh
+        - Relay
+        - Reports
+        - Tokens
+      summary: 'Refresh A Report Of A Relay Token '
+      externalDocs:
+        url: /api/products/assets/#creditrelayrefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditRelayRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    relay_token: credit-relay-sandbox-8218d5f8-6d6d-403d-92f5-13a9afaa4398
+                    request_id: NBZaq
+                    asset_report_id: bf3a0490-344c-4620-a219-2693162e4b1d
+      operationId: creditRelayRefresh
+      description: >-
+        The `/credit/relay/refresh` endpoint allows third parties to refresh a
+        report that was relayed to them, using a `relay_token` that was created
+        by the report owner. A new report will be created with the original
+        report parameters, but with the most recent data available based on the
+        `days_requested` value of the original report.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditRelayRefreshRequest'
+        description: ''
+  /credit/relay/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Credit
+        - Relay
+        - Tokens
+      summary: 'Remove Relay Token '
+      externalDocs:
+        url: /api/products/assets/#creditrelayremove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditRelayRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    removed: true
+                    request_id: m8MDnv9okwxFNBV
+      operationId: creditRelayRemove
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditRelayRemoveRequest'
+        description: ''
+      description: >-
+        The `/credit/relay/remove` endpoint allows you to invalidate a
+        `relay_token`. The third party holding the token will no longer be able
+        to access or refresh the reports which the `relay_token` gives access
+        to. The original report, associated Items, and other relay tokens that
+        provide access to the same report are not affected and will remain
+        accessible after removing the given `relay_token`.
+components:
+  schemas:
+    CreditAuditCopyTokenUpdateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditAuditCopyTokenUpdateResponse defines the response schema for
+        `/credit/audit_copy_token/update`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        updated:
+          type: boolean
+          description: '`true` if the Audit Copy Token was successfully updated.'
+      required:
+        - request_id
+        - updated
+    CreditSessionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditSessionsGetResponse defines the response schema for
+        `/credit/sessions/get`
+      properties:
+        sessions:
+          type: array
+          description: >-
+            A list of Link sessions for the user. Sessions will be sorted in
+            reverse chronological order.
+          items:
+            $ref: '#/components/schemas/CreditSession'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CreditAuditCopyTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditAuditCopyTokenCreateResponse defines the response schema for
+        `/credit/audit_copy_token/get`
+      properties:
+        audit_copy_token:
+          type: string
+          description: >-
+            A token that can be shared with a third party auditor, which allows
+            them to fetch the Asset Reports attached to the token. This token
+            should be stored securely.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - audit_copy_token
+        - request_id
+    CreditAuditCopyTokenRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditAuditCopyTokenRemoveResponse defines the response schema for
+        `/credit/audit_copy_token/remove`
+      properties:
+        removed:
+          type: boolean
+          description: '`true` if the Audit Copy was successfully removed.'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - removed
+        - request_id
+    AssetReportFreddieGetResponse:
+      title: AssetReportFreddieGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportFreddieGetResponse defines the response schema for
+        `/asset_report/get`
+      properties:
+        DEAL:
+          $ref: '#/components/schemas/AssetReportFreddie'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        SchemaVersion:
+          type: number
+          description: >-
+            The Verification Of Assets (aka VOA or Freddie Mac Schema) schema
+            version.
+      required:
+        - DEAL
+        - request_id
+        - SchemaVersion
+    CreditFreddieMacReportsGetResponse:
+      title: CreditFreddieMacReportsGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditFreddieMacReportsGetResponse defines the response schema for
+        `/credit/freddie_mac/reports/get`
+      properties:
+        DEAL:
+          $ref: '#/components/schemas/CreditFreddieMacVerificationOfAssetsDeal'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        SchemaVersion:
+          type: number
+          description: The Verification Of Assets (VOA) schema version.
+      required:
+        - request_id
+        - DEAL
+        - SchemaVersion
+    CreditBankEmploymentGetResponse:
+      title: CreditBankEmploymentGetResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CreditBankEmploymentGetResponse defines the response schema for
+        `/beta/credit/v1/bank_employment/get`.
+      properties:
+        bank_employment_reports:
+          type: array
+          description: >-
+            Bank Employment data. Each entry in the array will be a distinct
+            bank employment report.
+          items:
+            $ref: '#/components/schemas/CreditBankEmploymentReport'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+        - bank_employment_reports
+    CreditBankIncomeGetResponse:
+      title: CreditBankIncomeGetResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CreditBankIncomeGetResponse defines the response schema for
+        `/credit/bank_income/get`
+      properties:
+        bank_income:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditBankIncome'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CreditBankIncomeRefreshResponse:
+      title: CreditBankIncomeRefreshResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditBankIncomeRefreshResponse defines the response schema for
+        `/credit/bank_income/refresh`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CreditBankIncomeWebhookUpdateResponse:
+      title: CreditBankIncomeWebhookUpdateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditBankIncomeWebhookUpdateResponse defines the response schema for
+        `/credit/bank_income/webhook/update`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CreditPayrollIncomeParsingConfigUpdateResponse:
+      title: CreditPayrollIncomeParsingConfigUpdateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditPayrollIncomeParsingConfigUpdateResponse defines the response
+        schema for `/credit/payroll_income/documents/update`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CreditBankStatementsUploadsGetResponse:
+      title: CreditBankStatementsUploadsGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditBankStatementsUploadsGetResponse defines the response schema for
+        `/credit/bank_statements/uploads/get`
+      properties:
+        items:
+          description: Array of bank statement upload items.
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditBankStatementUploadItem'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - items
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    CreditPayrollIncomeGetResponse:
+      title: CreditPayrollIncomeGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response body for `/credit/payroll_income/get`.
+      properties:
+        items:
+          description: Array of payroll items.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollItem'
+        error:
+          $ref: '#/components/schemas/PlaidError'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - items
+        - request_id
+    CreditPayrollIncomeRiskSignalsGetResponse:
+      title: CreditPayrollIncomeRiskSignalsGetReponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditPayrollIncomeRiskSignalsGetRequest defines the response schema for
+        `/credit/payroll_income/risk_signals/get`
+      properties:
+        items:
+          description: Array of payroll items.
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollRiskSignalsItem'
+        error:
+          $ref: '#/components/schemas/PlaidError'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - items
+        - request_id
+    CreditPayrollIncomePrecheckResponse:
+      title: CreditPayrollIncomePrecheckResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/credit/payroll_income/precheck`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        confidence:
+          $ref: '#/components/schemas/IncomeVerificationPrecheckConfidence'
+      required:
+        - confidence
+        - request_id
+    CreditEmploymentGetResponse:
+      title: CreditEmploymentGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditEmploymentGetResponse defines the response schema for
+        `/credit/employment/get`.
+      properties:
+        items:
+          description: Array of employment items.
+          type: array
+          items:
+            $ref: '#/components/schemas/CreditEmploymentItem'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - items
+        - request_id
+    CreditPayrollIncomeRefreshResponse:
+      title: CreditPayrollIncomeRefreshResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditPayrollIncomeRefreshResponse defines the response schema for
+        `/credit/payroll_income/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        verification_refresh_status:
+          $ref: '#/components/schemas/CreditPayrollIncomeRefreshStatus'
+      required:
+        - request_id
+        - verification_refresh_status
+    CreditRelayCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditRelayCreateResponse defines the response schema for
+        `/credit/relay/create`
+      properties:
+        relay_token:
+          type: string
+          description: >-
+            A token that can be shared with a third party to allow them to
+            access the Asset Report. This token should be stored securely.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - relay_token
+        - request_id
+    AssetReportGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportGetResponse defines the response schema for
+        `/asset_report/get`
+      properties:
+        report:
+          $ref: '#/components/schemas/AssetReport'
+        warnings:
+          type: array
+          description: >-
+            If the Asset Report generation was successful but identity
+            information cannot be returned, this array will contain information
+            about the errors causing identity information to be missing
+          items:
+            $ref: '#/components/schemas/Warning'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - report
+        - warnings
+        - request_id
+    CreditRelayRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditRelayRefreshResponse defines the response schema for
+        `/credit/relay/refresh`
+      properties:
+        relay_token:
+          type: string
+        asset_report_id:
+          $ref: '#/components/schemas/AssetReportId'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - relay_token
+        - request_id
+    CreditRelayRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        CreditRelayRemoveResponse defines the response schema for
+        `/credit/relay/remove`
+      properties:
+        removed:
+          type: boolean
+          description: '`true` if the relay token was successfully removed.'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - removed
+        - request_id

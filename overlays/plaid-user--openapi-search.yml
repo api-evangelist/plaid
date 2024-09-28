@@ -1,0 +1,627 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' user/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /beacon/user/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Beacon User '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserCreateRequest'
+        required: true
+      tags:
+        - Beacon
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserCreate
+      description: >-
+        Create and scan a Beacon User against your Beacon Program, according to
+        your program's settings.
+
+
+        When you submit a new user to `/beacon/user/create`, several checks are
+        performed immediately:
+
+          - The user's PII (provided within the `user` object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of `pending_review`.
+
+          - The user's PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.
+
+          - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.
+      externalDocs:
+        url: /api/products/beacon/#beaconusercreate
+  /beacon/user/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Get A Beacon User '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserGetRequest'
+        required: true
+      tags:
+        - Beacon
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserGet
+      description: >
+        Fetch a Beacon User.
+
+
+        The Beacon User is returned with all of their associated information and
+        a `status` based on the Beacon Network duplicate record and fraud
+        checks.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserget
+  /beacon/user/review:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Review A Beacon User '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserReviewRequest'
+        required: true
+      tags:
+        - Beacon
+        - Reviews
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserReview
+      description: >-
+        Update the status of a Beacon User.
+
+
+        When updating a Beacon User's status via this endpoint, Plaid validates
+        that the status change is consistent with the related state for this
+        Beacon User. Specifically, we will check:
+
+
+        1. Whether there are any associated Beacon Reports connected to the
+        Beacon User, and
+
+        2. Whether there are any confirmed Beacon Report Syndications connected
+        to the Beacon User.
+
+
+        When updating a Beacon User's status to "rejected", we enforce that
+        either a Beacon Report has been created for the Beacon User or a Beacon
+        Report Syndication has been confirmed.
+
+        When updating a Beacon User's status to "cleared", we enforce that there
+        are no active Beacon Reports or confirmed Beacon Report Syndications
+        associated with the user. If you previously created a Beacon Report for
+        this user, you must delete it before updating the Beacon User's status
+        to "cleared".
+
+        There are no restrictions on updating a Beacon User's status to
+        "pending_review".
+
+
+        If these conditions are not met, the request will be rejected with an
+        error explaining the issue.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserreview
+  /beacon/user/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Update The Identity Data Of A Beacon User '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserUpdateRequest'
+        required: true
+      tags:
+        - Beacon
+        - Data
+        - Identity
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserUpdate
+      description: >-
+        Update the identity data for a Beacon User in your Beacon Program.
+
+
+        Similar to `/beacon/user/create`, several checks are performed
+        immediately when you submit a change to `/beacon/user/update`:
+
+          - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of `pending_review`.
+
+          - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.
+
+          - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.
+
+        Plaid maintains a version history for each Beacon User, so the Beacon
+        User's identity data before and after the update is retained as separate
+        versions.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserupdate
+  /beacon/user/history/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List A Beacon User''s History '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserHistoryListRequest'
+        required: true
+      tags:
+        - Beacon
+        - History
+        - Users
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserHistoryListResponse'
+              examples:
+                example-1:
+                  value:
+                    beacon_users:
+                      - id: becusr_42cF1MNo42r9Xj
+                        version: 1
+                        created_at: '2020-07-24T03:26:02Z'
+                        updated_at: '2020-07-24T03:26:02Z'
+                        status: cleared
+                        program_id: becprg_11111111111111
+                        client_user_id: your-db-id-3b24110
+                        user:
+                          date_of_birth: '1990-05-29'
+                          name:
+                            given_name: Leslie
+                            family_name: Knope
+                          address:
+                            street: 123 Main St.
+                            street2: Unit 42
+                            city: Pawnee
+                            region: IN
+                            postal_code: '46001'
+                            country: US
+                          email_address: user@example.com
+                          phone_number: '+19876543212'
+                          id_number:
+                            value: '123456789'
+                            type: us_ssn
+                          ip_address: 192.0.2.42
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserHistoryList
+      description: List all changes to the Beacon User in reverse-chronological order.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserhistorylist
+  /user/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_UNDETERMINED
+    post:
+      tags:
+        - Users
+      summary: 'Create User '
+      externalDocs:
+        url: /api/products/income/#usercreate
+      operationId: userCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    user_token: user-sandbox-b0e2c4ee-a763-4df5-bfe9-46a46bce993d
+                    user_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                    request_id: Aim3b
+      description: >-
+        This endpoint should be called for each of your end users before they
+        begin a Plaid income flow. This provides you a single token to access
+        all income data associated with the user. You should only create one per
+        end user.
+
+
+        If you call the endpoint multiple times with the same `client_user_id`,
+        the first creation call will succeed and the rest will fail with an
+        error message indicating that the user has been created for the given
+        `client_user_id`.
+
+
+        Ensure that you store the `user_token` along with your user's identifier
+        in your database, as it is not possible to retrieve a previously created
+        `user_token`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateRequest'
+  /user/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    x-hidden-from-docs: true
+    post:
+      tags:
+        - Information
+        - Users
+      summary: 'Update User Information '
+      externalDocs:
+        url: /api/products/income/#userupdate
+      operationId: userUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: Aim3b
+      description: >-
+        This endpoint is used to update user information associated with an
+        existing `user_token`. The `user_token` should be in the response of
+        `/user/create` call
+
+
+        If you call the endpoint with a non-exist `user_token`, the call will
+        fail with an error message indicating that the user token is not found.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateRequest'
+components:
+  schemas:
+    BeaconUserCreateResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconUserGetResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconUserUpdateResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconUserHistoryListResponse:
+      description: The response schema for `/beacon/user/history/list`
+      additionalProperties: true
+      properties:
+        beacon_users:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeaconUser'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - beacon_users
+        - next_cursor
+        - request_id
+      type: object
+    UserCreateResponse:
+      type: object
+      additionalProperties: true
+      description: UserCreateResponse defines the response schema for `/user/create`
+      properties:
+        user_token:
+          $ref: '#/components/schemas/UserToken'
+        user_id:
+          $ref: '#/components/schemas/UserId'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - user_token
+        - user_id
+        - request_id
+    UserUpdateResponse:
+      x-hidden-from-docs: true
+      type: object
+      additionalProperties: true
+      description: UserUpdateResponse defines the response schema for `/user/update`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

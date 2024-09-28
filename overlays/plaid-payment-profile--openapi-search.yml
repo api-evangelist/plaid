@@ -1,0 +1,342 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' payment profile/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /sandbox/payment_profile/reset_login:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - Login
+        - Payments
+        - Profiles
+        - Reset
+        - Sandbox
+      summary: 'Reset The Login Of A Payment Profile '
+      externalDocs:
+        url: /api/sandbox/#sandboxpayment_profilereset_login
+      operationId: sandboxPaymentProfileResetLogin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxPaymentProfileResetLoginResponse'
+              examples:
+                example-1:
+                  value:
+                    reset_login: true
+                    request_id: m8MDnv9okwxFNBV
+      description: >-
+        `/sandbox/payment_profile/reset_login/` forces a Payment Profile into a
+        state where the login is no longer valid. This makes it easy to test
+        update mode for Payment Profile in the Sandbox environment.
+
+         After calling `/sandbox/payment_profile/reset_login`, calls to the `/transfer/authorization/create` with the Payment Profile will result in a `decision_rationale` `PAYMENT_PROFILE_LOGIN_REQUIRED`. You can then use update mode for Payment Profile to restore it into a good state.
+
+         In order to invoke this endpoint, you must first [create a Payment Profile](https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional) and [go through the Link flow](https://plaid.com/docs/transfer/add-to-app/#create-a-link-token).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxPaymentProfileResetLoginRequest'
+  /payment_profile/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - Payments
+        - Profiles
+      summary: 'Create Payment Profile '
+      externalDocs:
+        url: /api/products/transfer/#payment_profilecreate
+      operationId: paymentProfileCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentProfileCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    payment_profile_token: >-
+                      payment-profile-sandbox-eda0b25e-8ef3-4ebb-9ef7-1ef3db3c5ee8
+                    request_id: 4ciYmmesdqSiUAB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use `/payment_profile/create` endpoint to create a new payment profile.
+
+        To initiate the account linking experience, call `/link/token/create`
+        and provide the `payment_profile_token` in the
+        `transfer.payment_profile_token` field.
+
+        You can then use the `payment_profile_token` when creating transfers
+        using `/transfer/authorization/create` and `/transfer/create`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentProfileCreateRequest'
+  /payment_profile/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - Payments
+        - Profiles
+      summary: 'Get Payment Profile '
+      externalDocs:
+        url: /api/products/transfer/#payment_profileget
+      operationId: paymentProfileGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentProfileGetResponse'
+              examples:
+                example-1:
+                  value:
+                    status: READY
+                    updated_at: '2022-07-07T12:48:37Z'
+                    created_at: '2022-07-05T12:48:37Z'
+                    deleted_at: null
+                    request_id: 4ciYmmesdqSiUAB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use `/payment_profile/get` endpoint to get the status of a given Payment
+        Profile.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentProfileGetRequest'
+  /payment_profile/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - Payments
+        - Profiles
+      summary: 'Remove Payment Profile '
+      externalDocs:
+        url: /api/products/transfer/#payment_profileremove
+      operationId: paymentProfileRemove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentProfileRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4ciYmmesdqSiUAB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/payment_profile/remove` endpoint to remove a given Payment
+        Profile. Once it’s removed, it can no longer be used to create
+        transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentProfileRemoveRequest'
+components:
+  schemas:
+    SandboxPaymentProfileResetLoginResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxPaymentProfileResetLoginResponse defines the response schema for
+        `/sandbox/payment_profile/reset_login`
+      properties:
+        reset_login:
+          type: boolean
+          description: '`true` if the call succeeded'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - reset_login
+        - request_id
+    PaymentProfileCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentProfileCreateResponse defines the response schema for
+        `/payment_profile/create`
+      properties:
+        payment_profile_token:
+          $ref: '#/components/schemas/PaymentProfileToken'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - payment_profile_token
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    PaymentProfileGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentProfileGetResponse defines the response schema for
+        `/payment_profile/get`
+      properties:
+        updated_at:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time the given Payment
+            Profile was updated at
+        created_at:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the time the given Payment
+            Profile was created at
+        deleted_at:
+          type: string
+          nullable: true
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the time the given Payment
+            Profile was deleted at. Always `null` if the Payment Profile has not
+            been deleted
+        status:
+          $ref: '#/components/schemas/PaymentProfileStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+        - status
+        - created_at
+        - updated_at
+        - deleted_at
+    PaymentProfileRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentProfileRemoveResponse defines the response schema for
+        `/payment_profile/remove`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

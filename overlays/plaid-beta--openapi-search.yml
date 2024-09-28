@@ -1,0 +1,701 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' beta/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /beta/credit/v1/bank_employment/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Retrieve Information From The Bank Accounts Used For Employment
+        Verification 
+      tags:
+        - Accounts
+        - Bank
+        - Beta
+        - Credit
+        - Employment
+        - Information
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditBankEmploymentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+                    bank_employment_reports:
+                      - bank_employment_report_id: 0a7eaed6-5da7-4846-baaf-ad787306575e
+                        generated_time: '2023-01-23T22:47:53Z'
+                        days_requested: 90
+                        items:
+                          - item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                            last_updated_time: '2023-01-23T22:47:53Z'
+                            institution_id: ins_0
+                            institution_name: Plaid Bank
+                            bank_employments:
+                              - bank_employment_id: f17efbdd-caab-4278-8ece-963511cd3d51
+                                account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                                employer:
+                                  name: Plaid Inc.
+                                latest_deposit_date: '2023-01-15'
+                                earliest_deposit_date: '2022-01-15'
+                            bank_employment_accounts:
+                              - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
+                                mask: '8888'
+                                name: Plaid Checking Account
+                                official_name: Plaid Checking Account
+                                type: depository
+                                subtype: checking
+                                owners:
+                                  - addresses:
+                                      - data:
+                                          city: Malakoff
+                                          country: US
+                                          postal_code: '14236'
+                                          region: NY
+                                          street: 2992 Cameron Road
+                                        primary: true
+                                      - data:
+                                          city: San Matias
+                                          country: US
+                                          postal_code: 93405-2255
+                                          region: CA
+                                          street: 2493 Leisure Lane
+                                        primary: false
+                                    emails:
+                                      - data: accountholder0@example.com
+                                        primary: true
+                                        type: primary
+                                      - data: accountholder1@example.com
+                                        primary: false
+                                        type: secondary
+                                      - data: >-
+                                          extraordinarily.long.email.username.123456@reallylonghostname.com
+                                        primary: false
+                                        type: other
+                                    names:
+                                      - Alberta Bobbeth Charleson
+                                    phone_numbers:
+                                      - data: '1112223333'
+                                        primary: false
+                                        type: home
+                                      - data: '1112224444'
+                                        primary: false
+                                        type: work
+                                      - data: '1112225555'
+                                        primary: false
+                                        type: mobile
+                        warnings: []
+      externalDocs:
+        url: /api/products/income/#creditbank_employmentget
+      operationId: creditBankEmploymentGet
+      description: >-
+        `/credit/bank_employment/get` returns the employment report(s) derived
+        from bank transaction data for a specified user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditBankEmploymentGetRequest'
+  /beta/transactions/v1/enhance:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Beta
+        - Data
+        - Enhance
+        - Locally held
+        - Transactions
+      summary: 'Enhance Locally-held Transaction Data '
+      operationId: transactionsEnhance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsEnhanceGetResponse'
+              examples:
+                example-1:
+                  value:
+                    enhanced_transactions:
+                      - id: 6135818adda16500147e7c1d
+                        description: Debit purchase Apple 1235
+                        amount: 2307.21
+                        iso_currency_code: USD
+                        enhancements:
+                          category:
+                            - Shops
+                            - Computers and Electronics
+                          category_id: '19013000'
+                          check_number: null
+                          counterparties:
+                            - name: Apple
+                              type: merchant
+                              logo_url: >-
+                                https://plaid-merchant-logos.plaid.com/apple_63.png
+                              website: apple.com
+                              confidence_level: VERY_HIGH
+                              phone_number: null
+                          location:
+                            address: 300 Post St
+                            city: San Francisco
+                            region: CA
+                            postal_code: '94108'
+                            country: US
+                            lat: 40.740352
+                            lon: -74.001761
+                            store_number: '1235'
+                          merchant_name: Apple
+                          website: apple.com
+                          logo_url: https://plaid-merchant-logos.plaid.com/apple_63.png
+                          payment_channel: in store
+                          personal_finance_category:
+                            primary: GENERAL_MERCHANDISE
+                            detailed: GENERAL_MERCHANDISE_ELECTRONICS
+                          personal_finance_category_icon_url: >-
+                            https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                          phone_number: null
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/beta/transactions/v1/enhance` endpoint enriches raw transaction
+        data provided directly by clients.
+
+
+        The product is currently in beta.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsEnhanceGetRequest'
+  /beta/transactions/rules/v1/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Beta
+        - Categories
+        - Rules
+        - Transactions
+      summary: 'Create Transaction Category Rule '
+      operationId: transactionsRulesCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    rule:
+                      id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo
+                      item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                      created_at: '2022-02-28T11:00:00Z'
+                      personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                      rule_details:
+                        field: NAME
+                        type: SUBSTRING_MATCH
+                        query: Burger Shack
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/create` endpoint creates transaction
+        categorization rules.
+
+
+        Rules will be applied on the Item's transactions returned in
+        `/transactions/get` response.
+
+
+        The product is currently in beta. To request access, contact
+        transactions-feedback@plaid.com.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesCreateRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+                  personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                  rule_details:
+                    field: NAME
+                    type: SUBSTRING_MATCH
+                    query: Burger Shack
+  /beta/transactions/rules/v1/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Access
+        - Associated
+        - Beta
+        - Items
+        - Rules
+        - Tokens
+        - Transactions
+      summary: >-
+        Return A List Of Rules Created For The Item Associated With The Access
+        Token. 
+      operationId: transactionsRulesList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesListResponse'
+              examples:
+                example-1:
+                  value:
+                    rules:
+                      - id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo
+                        item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                        created_at: '2022-02-28T11:00:00Z'
+                        personal_finance_category: FOOD_AND_DRINK_FAST_FOOD
+                        rule_details:
+                          field: NAME
+                          type: SUBSTRING_MATCH
+                          query: Burger Shack
+                      - id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF
+                        item_id: wz666MBjYWTp2PDzzggYhM6oWWmBb
+                        created_at: '2022-02-27T14:50:00Z'
+                        personal_finance_category: TRANSFER_IN_ACCOUNT_TRANSFER
+                        rule_details:
+                          field: TRANSACTION_ID
+                          type: EXACT_MATCH
+                          query: kgygNvAVPzSX9KkddNdWHaVGRVex1MHm3k9no
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/list` returns a list of transaction rules
+        created for the Item associated with the access token.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesListRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+  /beta/transactions/rules/v1/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Beta
+        - Rules
+        - Transactions
+      summary: 'Remove Transaction Rule '
+      operationId: transactionsRulesRemove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsRulesRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/transactions/rules/v1/remove` endpoint is used to remove a
+        transaction rule.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsRulesRemoveRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: 7f57eb3d2a9j6480121fx361
+                  secret: 79g03eoofwl8240v776r2h667442119
+                  access_token: access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175
+                  rule_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF
+  /beta/transactions/user_insights/v1/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    x-hidden-from-docs: true
+    post:
+      tags:
+        - /transactions/enrich
+        - Based
+        - Beta
+        - Insights
+        - Obtain
+        - Sent
+        - Transactions
+        - Users
+      summary: >-
+        Obtain User Insights Based On Transactions Sent Through
+        /transactions/enrich 
+      x-hidden-from-docs: true
+      externalDocs:
+        url: /api/products/enrich/#userinsightsget
+      operationId: transactionsUserInsightsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionsUserInsightsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    user_data_overview:
+                      transaction_count: 21
+                      oldest_transaction_date: '2023-01-01'
+                      newest_transaction_date: '2023-01-31'
+                      days_available: 31
+                      total_outflows: 1245.11
+                      total_inflows: 2300.12
+                    counterparty_insights:
+                      financial_institution_insights:
+                        - name: Chase
+                          entity_id: o2Ry34bq605MvmEed3yjqjkYWwqRQYpnkjd0O
+                          website: chase.com
+                          detected_accounts:
+                            - account_type: depository
+                              account_subtype: null
+                              transaction_count: 1
+                              oldest_transaction_date: '2022-01-24'
+                              newest_transaction_date: '2023-01-05'
+                              newest_transaction_amount: 500
+                              total_outflows: 503
+                              total_inflows: 0
+                      merchant_insights:
+                        - name: Costco
+                          entity_id: pBowAoZJMM9DKR37jvNmzM4yWBBXyMzV2rM3A
+                          website: costco.com
+                          personal_finance_category_primary: GENERAL_MERCHANDISE
+                          personal_finance_category_detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          transaction_count: 2
+                          total_outflows: 953.46
+                          total_inflows: 24.99
+                        - name: PG&E
+                          entity_id: 6gEJJBrw8daLroaYgBAkpa65v9jVby69vejY0
+                          website: pge.com
+                          personal_finance_category_primary: RENT_AND_UTILITIES
+                          personal_finance_category_detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+                          transaction_count: 1
+                          total_outflows: 123.01
+                          total_inflows: 0
+                    category_insights:
+                      primary_category_insights:
+                        - name: GENERAL_MERCHANDISE
+                          transaction_count: 7
+                          total_outflows: 1025.23
+                          total_inflows: 24.99
+                          top_counterparties:
+                            - Costco
+                        - name: RENT_AND_UTILITIES
+                          transaction_count: 1
+                          total_outflows: 123.01
+                          total_inflows: 0
+                          top_counterparties:
+                            - PG&E
+                      detailed_category_insights:
+                        - name: GENERAL_MERCHANDISE_SUPERSTORES
+                          transaction_count: 3
+                          total_outflows: 997.11
+                          total_inflows: 24.99
+                          top_counterparties:
+                            - Costco
+                    recurring_transactions:
+                      inflow_streams:
+                        - stream_id: yhnUVSIfe7SfeU0bcz8PDQr5ZUxUXebUvbKC0
+                          description: Payroll * Plaid
+                          merchant_name: Plaid
+                          oldest_transaction_date: '2020-02-04'
+                          newest_transaction_date: '2023-08-02'
+                          average_days_apart: 7
+                          frequency: WEEKLY
+                          transaction_count: 5
+                          transaction_ids:
+                            - nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw
+                            - EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL
+                            - ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd
+                            - QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK
+                            - uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF
+                          average_amount:
+                            amount: 1000.91
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          last_amount:
+                            amount: 1000
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          is_active: true
+                          status: MATURE
+                          personal_finance_category_primary: INCOME
+                          personal_finance_category_detailed: INCOME_WAGES
+                      outflow_streams:
+                        - stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd
+                          description: ConEd Bill Payment
+                          merchant_name: ConEd
+                          oldest_transaction_date: '2022-02-04'
+                          newest_transaction_date: '2022-05-02'
+                          average_days_apart: 29
+                          frequency: MONTHLY
+                          transaction_count: 4
+                          transaction_ids:
+                            - yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                            - HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR
+                            - jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L
+                            - CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                          average_amount:
+                            amount: 85
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          last_amount:
+                            amount: 100
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                          is_active: true
+                          status: MATURE
+                          personal_finance_category_primary: RENT_AND_UTILITIES
+                          personal_finance_category_detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/beta/transactions/user_insights/v1/get` gets user insights for
+        clients who have enriched data with `/transactions/enrich`.
+
+
+        The product is currently in beta.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionsUserInsightsGetRequest'
+components:
+  schemas:
+    CreditBankEmploymentGetResponse:
+      title: CreditBankEmploymentGetResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CreditBankEmploymentGetResponse defines the response schema for
+        `/beta/credit/v1/bank_employment/get`.
+      properties:
+        bank_employment_reports:
+          type: array
+          description: >-
+            Bank Employment data. Each entry in the array will be a distinct
+            bank employment report.
+          items:
+            $ref: '#/components/schemas/CreditBankEmploymentReport'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+        - bank_employment_reports
+    TransactionsEnhanceGetResponse:
+      type: object
+      description: >-
+        TransactionsEnhanceGetResponse defines the response schema for
+        `/beta/transactions/v1/enhance`.
+      x-examples: {}
+      additionalProperties: true
+      properties:
+        enhanced_transactions:
+          type: array
+          description: An array of enhanced transactions.
+          items:
+            $ref: '#/components/schemas/ClientProvidedEnhancedTransaction'
+      required:
+        - enhanced_transactions
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    TransactionsRulesCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesCreateResponse defines the response schema for
+        `/beta/transactions/rules/v1/create`
+      properties:
+        rule:
+          $ref: '#/components/schemas/TransactionsCategoryRule'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - rule
+        - request_id
+    TransactionsRulesListResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesListResponse defines the response schema for
+        `/beta/transactions/rules/v1/list`
+      properties:
+        rules:
+          type: array
+          description: A list of the Item's transaction rules
+          items:
+            $ref: '#/components/schemas/TransactionsCategoryRule'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - rules
+        - request_id
+    TransactionsRulesRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        TransactionsRulesRemoveResponse defines the response schema for
+        `/beta/transactions/rules/v1/remove`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransactionsUserInsightsGetResponse:
+      type: object
+      description: >-
+        TransactionsUserInsightsGetResponse defines the response schema for
+        `/beta/transactions/user_insights/v1/get`.
+      additionalProperties: true
+      properties:
+        user_data_overview:
+          $ref: '#/components/schemas/UserDataOverview'
+        counterparty_insights:
+          $ref: '#/components/schemas/CounterpartyInsights'
+        category_insights:
+          $ref: '#/components/schemas/CategoryInsights'
+        recurring_transactions:
+          $ref: '#/components/schemas/RecurringTransactions'
+      required:
+        - user_data_overview

@@ -1,0 +1,2151 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' processor/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /processor/auth/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Authentication
+        - Data
+        - Processor
+      summary: 'Retrieve Auth Data '
+      externalDocs:
+        url: /api/processor-partners/#processorauthget
+      operationId: processorAuthGet
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorAuthGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                      balances:
+                        available: 100
+                        current: 110
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Checking
+                      subtype: checking
+                      type: depository
+                    numbers:
+                      ach:
+                        account: '9900009606'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        routing: '011401533'
+                        wire_routing: '021000021'
+                      eft:
+                        account: '111122223333'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        institution: '021'
+                        branch: '01140'
+                      international:
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        bic: NWBKGB21
+                        iban: GB29NWBK60161331926819
+                      bacs:
+                        account: '31926819'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        sort_code: '601613'
+                    request_id: 1zlMf
+      description: >
+        The `/processor/auth/get` endpoint returns the bank account and bank
+        identification number (such as the routing number, for US accounts), for
+        a checking or savings account that''s associated with a given
+        `processor_token`. The endpoint also returns high-level account data and
+        balances when available.
+
+
+        Versioning note: API versions 2019-05-29 and earlier use a different
+        schema for the `numbers` object returned by this endpoint. For details,
+        see [Plaid API
+        versioning](https://plaid.com/docs/api/versioning/#version-2020-09-14).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorAuthGetRequest'
+  /processor/account/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Accounts
+        - Associated
+        - Processor
+        - Tokens
+      summary: 'Retrieve The Account Associated With A Processor Token '
+      externalDocs:
+        url: /api/processor-partners/#processoraccountget
+      operationId: processorAccountGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorAccountGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: QKKzevvp33HxPWpoqn6rI13BxW4awNSjnw4xv
+                      balances:
+                        available: 100
+                        current: 110
+                        limit: null
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Checking
+                      subtype: checking
+                      type: depository
+                    institution_id: ins_109508
+                    request_id: 1zlMf
+      description: >
+        This endpoint returns the account associated with a given processor
+        token.
+
+
+        This endpoint retrieves cached information, rather than extracting fresh
+        information from the institution. As a result, the account balance
+        returned may not be up-to-date; for realtime balance information, use
+        `/processor/balance/get` instead. Note that some information is
+        nullable.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorAccountGetRequest'
+  /processor/transactions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Data
+        - Processor
+        - Transactions
+      summary: 'Get Transaction Data '
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsget
+      operationId: processorTransactionsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: 110.94
+                        current: 110.94
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      subtype: checking
+                      type: depository
+                    transactions:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    total_transactions: 1
+                    request_id: Wvhy9PZHQLV8njG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/processor/transactions/get` endpoint allows developers to receive
+        user-authorized transaction data for credit, depository, and some
+        loan-type accounts (only those with account subtype `student`; coverage
+        may be limited). Transaction data is standardized across financial
+        institutions, and in many cases transactions are linked to a clean name,
+        entity type, location, and category. Similarly, account data is
+        standardized and returned with a clean name, number, balance, and other
+        meta information where available.
+
+
+        Transactions are returned in reverse-chronological order, and the
+        sequence of transaction ordering is stable and will not shift. 
+        Transactions are not immutable and can also be removed altogether by the
+        institution; a removed transaction will no longer appear in
+        `/processor/transactions/get`.  For more details, see [Pending and
+        posted
+        transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).
+
+
+        Due to the potentially large number of transactions associated with a
+        processor token, results are paginated. Manipulate the `count` and
+        `offset` parameters in conjunction with the `total_transactions`
+        response body field to fetch all available transactions.
+
+
+        Data returned by `/processor/transactions/get` will be the data
+        available for the processor token as of the most recent successful check
+        for new transactions. Plaid typically checks for new data multiple times
+        a day, but these checks may occur less frequently, such as once a day,
+        depending on the institution. To force Plaid to check for new
+        transactions, you can use the `/processor/transactions/refresh`
+        endpoint.
+
+
+        Note that data may not be immediately available to
+        `/processor/transactions/get`. Plaid will begin to prepare transactions
+        data upon Item link, if Link was initialized with `transactions`, or
+        upon the first call to `/processor/transactions/get`, if it wasn't. If
+        no transaction history is ready when `/processor/transactions/get` is
+        called, it will return a `PRODUCT_NOT_READY` error.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsGetRequest'
+            examples: {}
+  /processor/transactions/sync:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Incremental
+        - Processor
+        - Sync
+        - Tokens
+        - Transactions
+      summary: 'Get Incremental Transaction Updates On A Processor Token '
+      externalDocs:
+        url: /api/processor-partners/#processortransactionssync
+      operationId: processorTransactionsSync
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsSyncResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: 110.94
+                        current: 110.94
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      subtype: checking
+                      type: depository
+                    added:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 72.1
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Shops
+                          - Supermarkets and Groceries
+                        category_id: '19046000'
+                        check_number: null
+                        counterparties:
+                          - name: Walmart
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                            website: walmart.com
+                            entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-24'
+                        datetime: '2023-09-24T11:01:01Z'
+                        authorized_date: '2023-09-22'
+                        authorized_datetime: '2023-09-22T10:34:50Z'
+                        location:
+                          address: 13425 Community Rd
+                          city: Poway
+                          region: CA
+                          postal_code: '92064'
+                          country: US
+                          lat: 32.959068
+                          lon: -117.037666
+                          store_number: '1700'
+                        name: 'PURCHASE WM SUPERCENTER #1700'
+                        merchant_name: Walmart
+                        merchant_entity_id: O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/walmart_1100.png
+                        website: walmart.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: in store
+                        pending: false
+                        pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
+                        transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        transaction_code: null
+                        transaction_type: place
+                    modified:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        account_owner: null
+                        amount: 28.34
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                        category:
+                          - Food and Drink
+                          - Restaurants
+                          - Fast Food
+                        category_id: '13005032'
+                        check_number: null
+                        counterparties:
+                          - name: DoorDash
+                            type: marketplace
+                            logo_url: >-
+                              https://plaid-counterparty-logos.plaid.com/doordash_1.png
+                            website: doordash.com
+                            entity_id: YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm
+                            confidence_level: HIGH
+                          - name: Burger King
+                            type: merchant
+                            logo_url: >-
+                              https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                            website: burgerking.com
+                            entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                            confidence_level: VERY_HIGH
+                        date: '2023-09-28'
+                        datetime: '2023-09-28T15:10:09Z'
+                        authorized_date: '2023-09-27'
+                        authorized_datetime: '2023-09-27T08:01:58Z'
+                        location:
+                          address: null
+                          city: null
+                          region: null
+                          postal_code: null
+                          country: null
+                          lat: null
+                          lon: null
+                          store_number: null
+                        name: Dd Doordash Burgerkin
+                        merchant_name: Burger King
+                        merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
+                        logo_url: >-
+                          https://plaid-merchant-logos.plaid.com/burger_king_155.png
+                        website: burgerking.com
+                        payment_meta:
+                          by_order_of: null
+                          payee: null
+                          payer: null
+                          payment_method: null
+                          payment_processor: null
+                          ppd_id: null
+                          reason: null
+                          reference_number: null
+                        payment_channel: online
+                        pending: true
+                        pending_transaction_id: null
+                        personal_finance_category:
+                          primary: FOOD_AND_DRINK
+                          detailed: FOOD_AND_DRINK_FAST_FOOD
+                          confidence_level: VERY_HIGH
+                        personal_finance_category_icon_url: >-
+                          https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
+                        transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                        transaction_code: null
+                        transaction_type: digital
+                    removed:
+                      - transaction_id: CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                        account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                    next_cursor: >-
+                      tVUUL15lYQN5rBnfDIc1I8xudpGdIlw9nsgeXWvhOfkECvUeR663i3Dt1uf/94S8ASkitgLcIiOSqNwzzp+bh89kirazha5vuZHBb2ZA5NtCDkkV
+                    has_more: false
+                    request_id: 45QSn
+                    transactions_update_status: HISTORICAL_UPDATE_COMPLETE
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        This endpoint replaces `/processor/transactions/get` and its associated
+        webhooks for most common use-cases.
+
+
+        The `/processor/transactions/sync` endpoint allows developers to
+        subscribe to all transactions associated with a processor token and get
+        updates synchronously in a stream-like manner, using a cursor to track
+        which updates have already been seen. `/processor/transactions/sync`
+        provides the same functionality as `/processor/transactions/get` and can
+        be used instead of `/processor/transactions/get` to simplify the process
+        of tracking transactions updates.
+
+
+        This endpoint provides user-authorized transaction data for `credit`,
+        `depository`, and some loan-type accounts (only those with account
+        subtype `student`; coverage may be limited). For transaction history
+        from `investments` accounts, use `/investments/transactions/get`
+        instead.
+
+
+        Returned transactions data is grouped into three types of update,
+        indicating whether the transaction was added, removed, or modified since
+        the last call to the API.
+
+
+        In the first call to `/processor/transactions/sync` for a processor
+        token, the endpoint will return all historical transactions data
+        associated with that processor token up until the time of the API call
+        (as "adds"), which then generates a `next_cursor` for that processor
+        token. In subsequent calls, send the `next_cursor` to receive only the
+        changes that have occurred since the previous call.
+
+
+        Due to the potentially large number of transactions associated with a
+        processor token, results are paginated. The `has_more` field specifies
+        if additional calls are necessary to fetch all available transaction
+        updates. Call `/processor/transactions/sync` with the new cursor,
+        pulling all updates, until `has_more` is `false`.
+
+
+        When retrieving paginated updates, track both the `next_cursor` from the
+        latest response and the original cursor from the first call in which
+        `has_more` was `true`; if a call to `/processor/transactions/sync` fails
+        when retrieving a paginated update, which can occur as a result of the
+        [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination)
+        error, the entire pagination request loop must be restarted beginning
+        with the cursor for the first page of the update, rather than retrying
+        only the single request that failed.
+
+
+        Whenever new or updated transaction data becomes available,
+        `/processor/transactions/sync` will provide these updates. Plaid
+        typically checks for new data multiple times a day, but these checks may
+        occur less frequently, such as once a day, depending on the institution.
+        To force Plaid to check for new transactions, use the
+        `/processor/transactions/refresh` endpoint.
+
+
+        Note that for newly created processor tokens, data may not be
+        immediately available to `/processor/transactions/sync`. Plaid begins
+        preparing transactions data when the corresponding Item is created, but
+        the process can take anywhere from a few seconds to several minutes to
+        complete, depending on the number of transactions available.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsSyncRequest'
+            examples: {}
+  /processor/transactions/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Data
+        - Processor
+        - Refresh
+        - Transactions
+      summary: 'Refresh Transaction Data '
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsrefresh
+      operationId: processorTransactionsRefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        `/processor/transactions/refresh` is an optional endpoint for users of
+        the Transactions product. It initiates an on-demand extraction to fetch
+        the newest transactions for a processor token. This on-demand extraction
+        takes place in addition to the periodic extractions that automatically
+        occur one or more times per day for any Transactions-enabled processor
+        token. If changes to transactions are discovered after calling
+        `/processor/transactions/refresh`, Plaid will fire a webhook: for
+        `/transactions/sync` users,
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available)
+        will be fired if there are any transactions updated, added, or removed.
+        For users of both `/processor/transactions/sync` and
+        `/processor/transactions/get`,
+        [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed)
+        will be fired if any removed transactions are detected, and
+        [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update)
+        will be fired if any new transactions are detected. New transactions can
+        be fetched by calling `/processor/transactions/get` or
+        `/processor/transactions/sync`. Note that the
+        `/processor/transactions/refresh` endpoint is not supported for Capital
+        One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error
+        if called on a processor token from that institution.
+
+
+        As this endpoint triggers a synchronous request for fresh data, latency
+        may be higher than for other Plaid endpoints (typically less than 10
+        seconds, but occasionally up to 30 seconds or more); if you encounter
+        errors, you may find it necessary to adjust your timeout period when
+        making requests.
+
+
+        `/processor/transactions/refresh` is offered as an add-on to
+        Transactions and has a separate [fee
+        model](/docs/account/billing/#per-request-flat-fee). To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsRefreshRequest'
+  /processor/transactions/recurring/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Fetch
+        - Processor
+        - Recurring
+        - Streams
+        - Transactions
+      summary: 'Fetch Recurring Transaction Streams '
+      externalDocs:
+        url: /api/processor-partners/#processortransactionsrecurringget
+      operationId: processorTransactionsRecurringGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTransactionsRecurringGetResponse'
+              examples:
+                example-1:
+                  value:
+                    updated_datetime: '2022-05-01T00:00:00Z'
+                    inflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
+                        category:
+                          - Transfer
+                          - Payroll
+                        category_id: '21009000'
+                        description: Platypus Payroll
+                        merchant_name: null
+                        personal_finance_category:
+                          primary: INCOME
+                          detailed: INCOME_WAGES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-28'
+                        last_date: '2022-04-30'
+                        frequency: SEMI_MONTHLY
+                        transaction_ids:
+                          - nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw
+                          - EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL
+                          - ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd
+                          - QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK
+                          - uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF
+                        average_amount:
+                          amount: -800
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: -1000
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    outflow_streams:
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd
+                        category:
+                          - Service
+                          - Utilities
+                          - Electric
+                        category_id: '18068005'
+                        description: ConEd Bill Payment
+                        merchant_name: ConEd
+                        personal_finance_category:
+                          primary: RENT_AND_UTILITIES
+                          detailed: RENT_AND_UTILITIES_GAS_AND_ELECTRICITY
+                          confidence_level: UNKNOWN
+                        first_date: '2022-02-04'
+                        last_date: '2022-05-02'
+                        frequency: MONTHLY
+                        transaction_ids:
+                          - yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
+                          - HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR
+                          - jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L
+                          - CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
+                        average_amount:
+                          amount: 85
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 100
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: false
+                      - account_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff
+                        stream_id: SrBNJZDuUMweodmPmSOeOImwsWt53ZXfJQAfC
+                        category:
+                          - Shops
+                          - Warehouses and Wholesale Stores
+                        category_id: '19051000'
+                        description: Costco Annual Membership
+                        merchant_name: Costco
+                        personal_finance_category:
+                          primary: GENERAL_MERCHANDISE
+                          detailed: GENERAL_MERCHANDISE_SUPERSTORES
+                          confidence_level: UNKNOWN
+                        first_date: '2022-01-23'
+                        last_date: '2023-01-22'
+                        frequency: ANNUALLY
+                        transaction_ids:
+                          - yqEBJ72cS4jFwcpxJcDuQr94oAQ1R1lMC33D4
+                          - Kz5Hm3cZCgpn4tMEKUGAGD6kAcxMBsEZDSwJJ
+                        average_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        last_amount:
+                          amount: 120
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        is_active: true
+                        status: MATURE
+                        is_user_modified: true
+                        last_user_modified_datetime: '2023-01-19T10:34:50Z'
+                    request_id: tbFyCEqkU775ZGG
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Error response
+      description: >-
+        The `/processor/transactions/recurring/get` endpoint allows developers
+        to receive a summary of the recurring outflow and inflow streams
+        (expenses and deposits) from a user’s checking, savings or credit card
+        accounts. Additionally, Plaid provides key insights about each recurring
+        stream including the category, merchant, last amount, and more.
+        Developers can use these insights to build tools and experiences that
+        help their users better manage cash flow, monitor subscriptions, reduce
+        spend, and stay on track with bill payments.
+
+
+        This endpoint is offered as an add-on to Transactions. To request access
+        to this endpoint, submit a [product access
+        request](https://dashboard.plaid.com/team/products) or contact your
+        Plaid account manager.
+
+
+        This endpoint can only be called on a processor token that has already
+        been initialized with Transactions (either during Link, by specifying it
+        in `/link/token/create`; or after Link, by calling
+        `/processor/transactions/get` or `/processor/transactions/sync`). Once
+        all historical transactions have been fetched, call
+        `/processor/transactions/recurring/get` to receive the Recurring
+        Transactions streams and subscribe to the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook. To know when historical transactions have been fetched, if you
+        are using `/processor/transactions/sync` listen for the
+        [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete)
+        webhook and check that the `historical_update_complete` field in the
+        payload is `true`. If using `/processor/transactions/get`, listen for
+        the
+        [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update)
+        webhook.
+
+
+        After the initial call, you can call
+        `/processor/transactions/recurring/get` endpoint at any point in the
+        future to retrieve the latest summary of recurring streams. Listen to
+        the
+        [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update)
+        webhook to be notified when new updates are available.
+
+
+        To receive Transactions webhooks for a processor token, set its webhook
+        URL via the
+        [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate)
+        endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTransactionsRecurringGetRequest'
+            examples: {}
+  /processor/signal/evaluate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - ACH
+        - Evaluate
+        - Planned
+        - Processor
+        - Signals
+        - Transactions
+      summary: 'Evaluate A Planned ACH Transaction '
+      externalDocs:
+        url: /api/processor-partners/#processorsignalevaluate
+      operationId: processorSignalEvaluate
+      description: >-
+        Use `/processor/signal/evaluate` to evaluate a planned ACH transaction
+        as a processor to get a return risk assessment (such as a risk score and
+        risk tier) and additional risk signals.
+
+
+        In order to obtain a valid score for an ACH transaction, Plaid must have
+        an access token for the account, and the Item must be healthy (receiving
+        product updates) or have recently been in a healthy state. If the
+        transaction does not meet eligibility requirements, an error will be
+        returned corresponding to the underlying cause. If
+        `/processor/signal/evaluate` is called on the same transaction multiple
+        times within a 24-hour period, cached results may be returned. For more
+        information please refer to our error documentation on [item
+        errors](/docs/errors/item/) and [Link in Update
+        Mode](/docs/link/update-mode/).
+
+
+        Note: This request may take some time to complete if Signal is being
+        added to an existing Item. This is because Plaid must communicate
+        directly with the institution when retrieving the data for the first
+        time. To reduce this latency, you can call `/signal/prepare` on the Item
+        before you need to request Signal data.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalEvaluateResponse'
+              examples:
+                example-1:
+                  value:
+                    scores:
+                      customer_initiated_return_risk:
+                        score: 9
+                        risk_tier: 1
+                      bank_initiated_return_risk:
+                        score: 72
+                        risk_tier: 7
+                    core_attributes:
+                      days_since_first_plaid_connection: 510
+                      plaid_connections_count_7d: 6
+                      plaid_connections_count_30d: 7
+                      total_plaid_connections_count: 15
+                      is_savings_or_money_market_account: false
+                    warnings: []
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalEvaluateRequest'
+  /processor/signal/decision/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - ACH
+        - Decision
+        - Initiated
+        - Processor
+        - Reports
+        - Signals
+        - Transactions
+        - Whether
+      summary: 'Report Whether You Initiated An ACH Transaction '
+      externalDocs:
+        url: /api/processor-partners/#processorsignaldecisionreport
+      operationId: processorSignalDecisionReport
+      description: >-
+        After calling `/processor/signal/evaluate`, call
+        `/processor/signal/decision/report` to report whether the transaction
+        was initiated.
+
+
+        If you are using the [Plaid Transfer
+        product](https://www.plaid.com/docs/transfer) to create transfers, it is
+        not necessary to use this endpoint, as Plaid already knows whether the
+        transfer was initiated.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalDecisionReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalDecisionReportRequest'
+  /processor/signal/return/report:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - ACH
+        - Processor
+        - Reports
+        - Signals
+        - Transactions
+      summary: 'Report A Return For An ACH Transaction '
+      externalDocs:
+        url: /api/processor-partners/#processorsignalreturnreport
+      operationId: processorSignalReturnReport
+      description: >-
+        Call the `/processor/signal/return/report` endpoint to report a returned
+        transaction that was previously sent to the `/processor/signal/evaluate`
+        endpoint. Your feedback will be used by the model to incorporate the
+        latest risk trend in your portfolio.
+
+
+        If you are using the [Plaid Transfer
+        product](https://www.plaid.com/docs/transfer) to create transfers, it is
+        not necessary to use this endpoint, as Plaid already knows whether the
+        transfer was returned.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalReturnReportResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalReturnReportRequest'
+  /processor/signal/prepare:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Opt in
+        - Prepare
+        - Processor
+        - Signals
+        - Tokens
+      summary: 'Opt-in A Processor Token To Signal '
+      externalDocs:
+        url: /api/processor-partners/#processorsignalprepare
+      operationId: processorSignalPrepare
+      description: >-
+        When a processor token is not initialized with Signal, call
+        `/processor/signal/prepare` to opt-in that processor token to the Signal
+        data collection process, which will improve the accuracy of the Signal
+        score.
+
+
+        If this endpoint is called with a processor token that is already
+        initialized with Signal, it will return a 200 response and will not
+        modify the processor token.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorSignalPrepareResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorSignalPrepareRequest'
+  /processor/bank_transfer/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Bank
+        - Processor
+        - Transfers
+      summary: 'Create A Bank Transfer As A Processor '
+      externalDocs:
+        url: /api/processor-partners/#bank_transfercreate
+      operationId: processorBankTransferCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorBankTransferCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer:
+                      account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                      ach_class: ppd
+                      amount: '12.34'
+                      cancellable: true
+                      created: '2020-08-06T17:27:15Z'
+                      custom_tag: my tag
+                      description: Testing2
+                      direction: outbound
+                      failure_reason: null
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      iso_currency_code: USD
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      network: ach
+                      origination_account_id: 11111111-1111-1111-1111-111111111111
+                      status: pending
+                      type: credit
+                      user:
+                        email_address: plaid@plaid.com
+                        legal_name: John Smith
+                        routing_number: '111111111'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/processor/bank_transfer/create` endpoint to initiate a new
+        bank transfer as a processor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorBankTransferCreateRequest'
+  /processor/liabilities/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Data
+        - Liabilities
+        - Processor
+      summary: 'Retrieve Liabilities Data '
+      externalDocs:
+        url: /api/processor-partners/#processorliabilitiesget
+      operationId: processorLiabilitiesGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorLiabilitiesGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK
+                      balances:
+                        available: null
+                        current: 410
+                        iso_currency_code: USD
+                        limit: 2000
+                        unofficial_currency_code: null
+                      mask: '3333'
+                      name: Plaid Credit Card
+                      official_name: Plaid Diamond 12.5% APR Interest Credit Card
+                      subtype: credit card
+                      type: credit
+                    liabilities:
+                      credit:
+                        - account_id: dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK
+                          aprs:
+                            - apr_percentage: 15.24
+                              apr_type: balance_transfer_apr
+                              balance_subject_to_apr: 1562.32
+                              interest_charge_amount: 130.22
+                            - apr_percentage: 27.95
+                              apr_type: cash_apr
+                              balance_subject_to_apr: 56.22
+                              interest_charge_amount: 14.81
+                            - apr_percentage: 12.5
+                              apr_type: purchase_apr
+                              balance_subject_to_apr: 157.01
+                              interest_charge_amount: 25.66
+                            - apr_percentage: 0
+                              apr_type: special
+                              balance_subject_to_apr: 1000
+                              interest_charge_amount: 0
+                          is_overdue: false
+                          last_payment_amount: 168.25
+                          last_payment_date: '2019-05-22'
+                          last_statement_issue_date: '2019-05-28'
+                          last_statement_balance: 1708.77
+                          minimum_payment_amount: 20
+                          next_payment_due_date: '2020-05-28'
+                      mortgage: []
+                      student: []
+                    request_id: dTnnm60WgKGLnKL
+      description: >-
+        The `/processor/liabilities/get` endpoint returns various details about
+        a loan or credit account. Liabilities data is available primarily for US
+        financial institutions, with some limited coverage of Canadian
+        institutions. Currently supported account types are account type
+        `credit` with account subtype `credit card` or `paypal`, and account
+        type `loan` with account subtype `student` or `mortgage`.
+
+
+        The types of information returned by Liabilities can include balances
+        and due dates, loan terms, and account details such as original loan
+        amount and guarantor. Data is refreshed approximately once per day; the
+        latest data can be retrieved by calling `/processor/liabilities/get`.
+
+
+        Note: This request may take some time to complete if `liabilities` was
+        not specified as an initial product when creating the processor token.
+        This is because Plaid must communicate directly with the institution to
+        retrieve the additional data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorLiabilitiesGetRequest'
+  /processor/identity/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Data
+        - Entities
+        - Identity
+        - Processor
+      summary: 'Retrieve Identity Data '
+      externalDocs:
+        url: /api/processor-partners/#processoridentityget
+      operationId: processorIdentityGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorIdentityGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: XMGPJy4q1gsQoKd5z9R3tK8kJ9EWL8SdkgKMq
+                      balances:
+                        available: 100
+                        current: 110
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      owners:
+                        - addresses:
+                            - data:
+                                city: Malakoff
+                                country: US
+                                postal_code: '14236'
+                                region: NY
+                                street: 2992 Cameron Road
+                              primary: true
+                            - data:
+                                city: San Matias
+                                country: US
+                                postal_code: 93405-2255
+                                region: CA
+                                street: 2493 Leisure Lane
+                              primary: false
+                          emails:
+                            - data: accountholder0@example.com
+                              primary: true
+                              type: primary
+                            - data: accountholder1@example.com
+                              primary: false
+                              type: secondary
+                            - data: >-
+                                extraordinarily.long.email.username.123456@reallylonghostname.com
+                              primary: false
+                              type: other
+                          names:
+                            - Alberta Bobbeth Charleson
+                          phone_numbers:
+                            - data: '1112223333'
+                              primary: false
+                              type: home
+                            - data: '1112224444'
+                              primary: false
+                              type: work
+                            - data: '1112225555'
+                              primary: false
+                              type: mobile1
+                      subtype: checking
+                      type: depository
+                    request_id: eOPkBl6t33veI2J
+      description: >-
+        The `/processor/identity/get` endpoint allows you to retrieve various
+        account holder information on file with the financial institution,
+        including names, emails, phone numbers, and addresses.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorIdentityGetRequest'
+  /processor/identity/match:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Entities
+        - Identity
+        - Match
+        - Processor
+        - Scores
+      summary: 'Retrieve Identity Match Score '
+      externalDocs:
+        url: /api/processor-partners/#processoridentitymatch
+      operationId: processorIdentityMatch
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorIdentityMatchResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                      balances:
+                        available: null
+                        current: null
+                        iso_currency_code: null
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Standard 0% Interest Checking
+                      legal_name:
+                        score: 90
+                        is_nickname_match: true
+                        is_first_name_or_last_name_match: true
+                        is_business_name_detected: false
+                      phone_number:
+                        score: 100
+                      email_address:
+                        score: 100
+                      address:
+                        score: 100
+                        is_postal_code_match: true
+                      subtype: checking
+                      type: depository
+                    request_id: 3nARps6TOYtbACO
+      description: >-
+        The `/processor/identity/match` endpoint generates a match score, which
+        indicates how well the provided identity data matches the identity
+        information on file with the account holder's financial institution.
+
+
+        Fields within the `balances` object will always be null when retrieved
+        by `/identity/match`. Instead, use the free `/accounts/get` endpoint to
+        request balance cached data, or `/accounts/balance/get` for real-time
+        data.
+
+
+        This request may take some time to complete if Identity was not
+        specified as an initial product when creating the Item. This is because
+        Plaid must communicate directly with the institution to retrieve the
+        data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorIdentityMatchRequest'
+        description: ''
+  /processor/balance/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Balance
+        - Data
+        - Processor
+      summary: 'Retrieve Balance Data '
+      externalDocs:
+        url: /api/processor-partners/#processorbalanceget
+      operationId: processorBalanceGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorBalanceGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: QKKzevvp33HxPWpoqn6rI13BxW4awNSjnw4xv
+                      balances:
+                        available: 100
+                        current: 110
+                        limit: null
+                        iso_currency_code: USD
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Checking
+                      subtype: checking
+                      type: depository
+                    request_id: 1zlMf
+      description: >-
+        The `/processor/balance/get` endpoint returns the real-time balance for
+        each of an Item's accounts. While other endpoints may return a balance
+        object, only `/processor/balance/get` forces the available and current
+        balance fields to be refreshed rather than cached. 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorBalanceGetRequest'
+        description: >-
+          The `/processor/balance/get` endpoint returns the real-time balance
+          for the account associated with a given `processor_token`.
+
+
+          The current balance is the total amount of funds in the account. The
+          available balance is the current balance less any outstanding holds or
+          debits that have not yet posted to the account.
+
+
+          Note that not all institutions calculate the available balance. In the
+          event that available balance is unavailable from the institution,
+          Plaid will return an available balance value of `null`.
+  /processor/token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Processor
+        - Tokens
+      summary: 'Create Processor Token '
+      externalDocs:
+        url: /api/processors/#processortokencreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    processor_token: processor-sandbox-0asd1-a92nc
+                    request_id: xrQNYZ7Zoh6R7gV
+      operationId: processorTokenCreate
+      description: >-
+        Used to create a token suitable for sending to one of Plaid's partners
+        to enable integrations. Note that Stripe partnerships use bank account
+        tokens instead; see `/processor/stripe/bank_account_token/create` for
+        creating tokens for use with Stripe integrations. Once created, a
+        processor token for a given Item cannot be modified or updated. If the
+        account must be linked to a new or different partner resource, create a
+        new Item by having the user go through the Link flow again; a new
+        processor token can then be created from the new `access_token`.
+        Processor tokens can also be revoked, using `/item/remove`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTokenCreateRequest'
+        description: ''
+  /processor/token/permissions/set:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Access
+        - Controls
+        - Permissions
+        - Processor
+        - Processor's
+        - Products
+        - Sets
+        - Tokens
+      summary: 'Control A Processor''s Access To Products '
+      externalDocs:
+        url: /api/processors/#processortokenpermissionsset
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTokenPermissionsSetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: xrQNYZ7Zoh6R7gV
+      operationId: processorTokenPermissionsSet
+      description: >-
+        Used to control a processor's access to products on the given processor
+        token. By default, a processor will have access to all available
+        products on the corresponding item. To restrict access to a particular
+        set of products, call this endpoint with the desired products. To
+        restore access to all available products, call this endpoint with an
+        empty list. This endpoint can be called multiple times as your needs and
+        your processor's needs change.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTokenPermissionsSetRequest'
+  /processor/token/permissions/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Permissions
+        - Processor
+        - Products
+        - Token's
+        - Tokens
+      summary: 'Get A Processor Token''s Product Permissions '
+      externalDocs:
+        url: /api/processors/#processortokenpermissionsget
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTokenPermissionsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: xrQNYZ7Zoh6R7gV
+                    products:
+                      - auth
+                      - balance
+                      - identity
+      operationId: processorTokenPermissionsGet
+      description: >-
+        Used to get a processor token's product permissions. The `products`
+        field will be an empty list if the processor can access all available
+        products.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTokenPermissionsGetRequest'
+  /processor/token/webhook/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Processor
+        - Token's
+        - Tokens
+        - URL
+        - Webhooks
+      summary: 'Update A Processor Token''s Webhook URL '
+      externalDocs:
+        url: /api/processor-partners/#processortokenwebhookupdate
+      operationId: processorTokenWebhookUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTokenWebhookUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: vYK11LNTfRoAMbj
+      description: >-
+        This endpoint allows you, the processor, to update the webhook URL
+        associated with a processor token. This request triggers a
+        `WEBHOOK_UPDATE_ACKNOWLEDGED` webhook to the newly specified webhook
+        URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorTokenWebhookUpdateRequest'
+  /processor/stripe/bank_account_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Accounts
+        - Bank
+        - Processor
+        - Stripe
+        - Tokens
+      summary: 'Create Stripe Bank Account Token '
+      externalDocs:
+        url: /api/processors/#processorstripebank_account_tokencreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/ProcessorStripeBankAccountTokenCreateResponse
+              examples:
+                example-1:
+                  value:
+                    stripe_bank_account_token: btok_5oEetfLzPklE1fwJZ7SG
+                    request_id: xrQNYZ7Zoh6R7gV
+      operationId: processorStripeBankAccountTokenCreate
+      description: >-
+
+        Used to create a token suitable for sending to Stripe to enable
+        Plaid-Stripe integrations. For a detailed guide on integrating Stripe,
+        see [Add Stripe to your
+        app](https://plaid.com/docs/auth/partnerships/stripe/).
+
+
+        Note that the Stripe bank account token is a one-time use token. To
+        store bank account information for later use, you can use a Stripe
+        customer object and create an associated bank account from the token, or
+        you can use a Stripe Custom account and create an associated external
+        bank account from the token. This bank account information should work
+        indefinitely, unless the user's bank account information changes or they
+        revoke Plaid's permissions to access their account. Stripe bank account
+        information cannot be modified once the bank account token has been
+        created. If you ever need to change the bank account details used by
+        Stripe for a specific customer, have the user go through Link again and
+        create a new bank account token from the new `access_token`.
+
+
+        Bank account tokens can also be revoked, using `/item/remove`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/ProcessorStripeBankAccountTokenCreateRequest
+        description: ''
+  /processor/apex/processor_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Accounts
+        - Apex
+        - Bank
+        - Processor
+        - Tokens
+      summary: 'Create Apex Bank Account Token '
+      externalDocs:
+        url: /none/
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorTokenCreateResponse'
+      operationId: processorApexProcessorTokenCreate
+      description: >-
+        Used to create a token suitable for sending to Apex to enable Plaid-Apex
+        integrations.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorApexProcessorTokenCreateRequest'
+        description: ''
+components:
+  schemas:
+    ProcessorAuthGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorAuthGetResponse defines the response schema for
+        `/processor/auth/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        numbers:
+          $ref: '#/components/schemas/ProcessorNumber'
+        account:
+          $ref: '#/components/schemas/AccountBase'
+      required:
+        - request_id
+        - numbers
+        - account
+    ProcessorAccountGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorAccountGetResponse defines the response schema for
+        `/processor/account/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        institution_id:
+          description: The Plaid Institution ID associated with the Account.
+          type: string
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - institution_id
+        - request_id
+    ProcessorTransactionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsGetResponse defines the response schema for
+        `/processor/transactions/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        transactions:
+          type: array
+          description: >-
+            An array containing transactions from the account. Transactions are
+            returned in reverse chronological order, with the most recent at the
+            beginning of the array. The maximum number of transactions returned
+            is determined by the `count` parameter.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        total_transactions:
+          type: integer
+          description: >-
+            The total number of transactions available within the date range
+            specified. If `total_transactions` is larger than the size of the
+            `transactions` array, more transactions are available and can be
+            fetched via manipulating the `offset` parameter.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - transactions
+        - total_transactions
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ProcessorTransactionsSyncResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsSyncResponse defines the response schema for
+        `/processor/transactions/sync`
+      properties:
+        transactions_update_status:
+          $ref: '#/components/schemas/TransactionsUpdateStatus'
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        added:
+          type: array
+          description: >-
+            Transactions that have been added to the Item since `cursor` ordered
+            by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        modified:
+          type: array
+          description: >-
+            Transactions that have been modified on the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/Transaction'
+        removed:
+          type: array
+          description: >-
+            Transactions that have been removed from the Item since `cursor`
+            ordered by ascending last modified time.
+          items:
+            $ref: '#/components/schemas/RemovedTransaction'
+        next_cursor:
+          type: string
+          description: >-
+            Cursor used for fetching any future updates after the latest update
+            provided in this response. The cursor obtained after all pages have
+            been pulled (indicated by `has_more` being `false`) will be valid
+            for at least 1 year. This cursor should be persisted for later
+            calls. If transactions are not yet available, this will be an empty
+            string.
+        has_more:
+          type: boolean
+          description: >-
+            Represents if more than requested count of transaction updates
+            exist. If true, the additional updates can be fetched by making an
+            additional request with `cursor` set to `next_cursor`. If `has_more`
+            is true, it’s important to pull all available pages, to make it less
+            likely for underlying data changes to conflict with pagination.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - added
+        - modified
+        - removed
+        - next_cursor
+        - has_more
+        - request_id
+        - transactions_update_status
+    ProcessorTransactionsRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsRefreshResponse defines the response schema for
+        `/processor/transactions/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorTransactionsRecurringGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTransactionsRecurringGetResponse defines the response schema
+        for `/processor/transactions/recurring/get`
+      properties:
+        inflow_streams:
+          type: array
+          description: An array of depository transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        outflow_streams:
+          type: array
+          description: An array of expense transaction streams.
+          items:
+            $ref: '#/components/schemas/TransactionStream'
+        updated_datetime:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time transaction
+            streams for the given account were updated on
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - inflow_streams
+        - outflow_streams
+        - updated_datetime
+        - request_id
+    ProcessorSignalEvaluateResponse:
+      title: ProcessorSignalEvaluateResponse
+      description: >-
+        ProcessorSignalEvaluateResponse defines the response schema for
+        `/processor/signal/evaluate`
+      type: object
+      additionalProperties: true
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        scores:
+          $ref: '#/components/schemas/SignalScores'
+        core_attributes:
+          $ref: '#/components/schemas/SignalEvaluateCoreAttributes'
+        warnings:
+          type: array
+          description: >-
+            If bank information was not available to be used in the Signal
+            model, this array contains warnings describing why bank data is
+            missing. If you want to receive an API error instead of Signal
+            scores in the case of missing bank data, file a support ticket or
+            contact your Plaid account manager.
+          items:
+            $ref: '#/components/schemas/SignalWarning'
+      required:
+        - request_id
+        - scores
+    ProcessorSignalDecisionReportResponse:
+      title: ProcessorSignalDecisionReportResponse
+      description: >-
+        ProcessorSignalDecisionReportResponse defines the response schema for
+        `/processor/signal/decision/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorSignalReturnReportResponse:
+      title: ProcessorSignalReturnReportResponse
+      description: >-
+        ProcessorSignalReturnReportResponse defines the response schema for
+        `/processor/signal/return/report`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorSignalPrepareResponse:
+      title: ProcessorSignalPrepareResponse
+      description: >-
+        ProcessorSignalPrepareResponse defines the response schema for
+        `/processor/signal/prepare`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorBankTransferCreateResponse:
+      title: ProcessorBankTransferCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/processor/bank_transfer/create`
+      properties:
+        bank_transfer:
+          $ref: '#/components/schemas/BankTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer
+        - request_id
+    ProcessorLiabilitiesGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorLiabilitiesGetResponse defines the response schema for
+        `/processor/liabilities/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        liabilities:
+          $ref: '#/components/schemas/LiabilitiesObject'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - liabilities
+        - request_id
+    ProcessorIdentityGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorIdentityGetResponse defines the response schema for
+        `/processor/identity/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountIdentity'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - request_id
+    ProcessorIdentityMatchResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorIdentityMatchResponse defines the response schema for
+        `/processor/identity/match`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountIdentityMatchScore'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - request_id
+    ProcessorBalanceGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorBalanceGetResponse defines the response schema for
+        `/processor/balance/get`
+      properties:
+        account:
+          $ref: '#/components/schemas/AccountBase'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - account
+        - request_id
+    ProcessorTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTokenCreateResponse defines the response schema for
+        `/processor/token/create` and `/processor/apex/processor_token/create`
+      properties:
+        processor_token:
+          type: string
+          description: >-
+            The `processor_token` that can then be used by the Plaid partner to
+            make API requests
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - processor_token
+        - request_id
+    ProcessorTokenPermissionsSetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTokenPermissionsSetResponse defines the response schema for
+        `/processor/token/permissions/set`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorTokenPermissionsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTokenPermissionsGetResponse defines the response schema for
+        `/processor/token/permissions/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        products:
+          type: array
+          description: >-
+            A list of products the processor token should have access to. An
+            empty list means that the processor has access to all available
+            products, including future products.
+          items:
+            $ref: '#/components/schemas/Products'
+      required:
+        - request_id
+        - products
+    ProcessorTokenWebhookUpdateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorTokenWebhookUpdateResponse defines the response schema for
+        `/processor/token/webhook/update`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ProcessorStripeBankAccountTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorStripeBankAccountTokenCreateResponse defines the response
+        schema for `/processor/stripe/bank_account/create`
+      properties:
+        stripe_bank_account_token:
+          type: string
+          description: >-
+            A token that can be sent to Stripe for use in making API calls to
+            Plaid
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - stripe_bank_account_token
+        - request_id

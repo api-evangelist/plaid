@@ -1,0 +1,900 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' asset report/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /asset_report/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Reports
+      summary: 'Create An Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportcreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    asset_report_token: assets-sandbox-6f12f5bb-22dd-4855-b918-f47ec439198a
+                    asset_report_id: 1f414183-220c-44f5-b0c8-bc0e6d4053bb
+                    request_id: Iam3b
+      operationId: assetReportCreate
+      description: >-
+        The `/asset_report/create` endpoint initiates the process of creating an
+        Asset Report, which can then be retrieved by passing the
+        `asset_report_token` return value to the `/asset_report/get` or
+        `/asset_report/pdf/get` endpoints.
+
+
+        The Asset Report takes some time to be created and is not available
+        immediately after calling `/asset_report/create`. The exact amount of
+        time to create the report will vary depending on how many days of
+        history are requested and will typically range from a few seconds to
+        about one minute. When the Asset Report is ready to be retrieved using
+        `/asset_report/get` or `/asset_report/pdf/get`, Plaid will fire a
+        `PRODUCT_READY` webhook. For full details of the webhook schema, see
+        [Asset Report
+        webhooks](https://plaid.com/docs/api/products/assets/#webhooks).
+
+
+        The `/asset_report/create` endpoint creates an Asset Report at a moment
+        in time. Asset Reports are immutable. To get an updated Asset Report,
+        use the `/asset_report/refresh` endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportCreateRequest'
+  /asset_report/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Reports
+      summary: 'Retrieve An Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportget
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportGetResponse'
+              examples:
+                example-1:
+                  value:
+                    report:
+                      asset_report_id: 028e8404-a013-4a45-ac9e-002482f9cafc
+                      client_report_id: client_report_id_1221
+                      date_generated: '2023-03-30T18:27:37Z'
+                      days_requested: 5
+                      items:
+                        - accounts:
+                            - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
+                              balances:
+                                available: 43200
+                                current: 43200
+                                limit: null
+                                margin_loan_amount: null
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 49050
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '4444'
+                              name: Plaid Money Market
+                              official_name: >-
+                                Plaid Platinum Standard 1.85% Interest Money
+                                Market
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: money market
+                              transactions:
+                                - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
+                                  amount: 5850
+                                  date: '2023-03-30'
+                                  iso_currency_code: USD
+                                  original_description: ACH Electronic CreditGUSTO PAY 123456
+                                  pending: false
+                                  transaction_id: gGQgjoeyqBF89PND6K14Sow1wddZBmtLomJ78
+                                  unofficial_currency_code: null
+                              type: depository
+                            - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                              balances:
+                                available: 100
+                                current: 110
+                                limit: null
+                                margin_loan_amount: null
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 110
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -390
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -373.67
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '0000'
+                              name: Plaid Checking
+                              official_name: Plaid Gold Standard 0% Interest Checking
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: checking
+                              transactions:
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 89.4
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  original_description: SparkFun
+                                  pending: false
+                                  transaction_id: 4zBRq1Qem4uAPnoyKjJNTRQpQddM4ztlo1PLD
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 12
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: 'McDonalds #3322'
+                                  pending: false
+                                  transaction_id: dkjL41PnbKsPral79jpxhMWdW55gkPfBkWpRL
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: 4.33
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: Starbucks
+                                  pending: false
+                                  transaction_id: a84ZxQaWDAtDL3dRgmazT57K7jjN3WFkNWMDy
+                                  unofficial_currency_code: null
+                                - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
+                                  amount: -500
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  original_description: United Airlines **** REFUND ****
+                                  pending: false
+                                  transaction_id: xG9jbv3eMoFWepzB7wQLT3LoLggX5Duy1Gbe5
+                                  unofficial_currency_code: null
+                              type: depository
+                          date_last_updated: '2023-03-30T18:25:26Z'
+                          institution_id: ins_109508
+                          institution_name: First Platypus Bank
+                          item_id: AZMP7JrGXgtPd3AQMeg7hwMKgk5E8qU1V5ME7
+                      user:
+                        client_user_id: uid_40332
+                        email: abcharleston@example.com
+                        first_name: Anna
+                        last_name: Charleston
+                        middle_name: B
+                        phone_number: 1-415-867-5309
+                        ssn: 111-22-1234
+                    request_id: GVzMdiDd8DDAQK4
+                    warnings: []
+      operationId: assetReportGet
+      description: >-
+        The `/asset_report/get` endpoint retrieves the Asset Report in JSON
+        format. Before calling `/asset_report/get`, you must first create the
+        Asset Report using `/asset_report/create` (or filter an Asset Report
+        using `/asset_report/filter`) and then wait for the
+        [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready)
+        webhook to fire, indicating that the Report is ready to be retrieved.
+
+
+        By default, an Asset Report includes transaction descriptions as
+        returned by the bank, as opposed to parsed and categorized by Plaid. You
+        can also receive cleaned and categorized transactions, as well as
+        additional insights like merchant name or location information. We call
+        this an Asset Report with Insights. An Asset Report with Insights
+        provides transaction category, location, and merchant information in
+        addition to the transaction strings provided in a standard Asset Report.
+        To retrieve an Asset Report with Insights, call `/asset_report/get`
+        endpoint with `include_insights` set to `true`.
+
+
+        For latency-sensitive applications, you can optionally call
+        `/asset_report/create` with `options.add_ons` set to `["fast_assets"]`.
+        This will cause Plaid to create two versions of the Asset Report: one
+        with only current and available balance and identity information, and
+        then later on the complete Asset Report. You will receive separate
+        webhooks for each version of the Asset Report.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportGetRequest'
+        description: ''
+  /asset_report/pdf/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - PDF
+        - Reports
+      summary: 'Retrieve A PDF Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportpdfget
+      responses:
+        '200':
+          description: A PDF of the Asset Report
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/AssetReportPDFGetResponse'
+      operationId: assetReportPdfGet
+      description: >-
+        The `/asset_report/pdf/get` endpoint retrieves the Asset Report in PDF
+        format. Before calling `/asset_report/pdf/get`, you must first create
+        the Asset Report using `/asset_report/create` (or filter an Asset Report
+        using `/asset_report/filter`) and then wait for the
+        [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready)
+        webhook to fire, indicating that the Report is ready to be retrieved.
+
+
+        The response to `/asset_report/pdf/get` is the PDF binary data. The
+        `request_id`  is returned in the `Plaid-Request-ID` header.
+
+
+        [View a sample PDF Asset
+        Report](https://plaid.com/documents/sample-asset-report.pdf).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportPDFGetRequest'
+        description: ''
+  /asset_report/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Refresh
+        - Reports
+      summary: 'Refresh An Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportrefresh
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    asset_report_id: c33ebe8b-6a63-4d74-a83d-d39791231ac0
+                    asset_report_token: assets-sandbox-8218d5f8-6d6d-403d-92f5-13a9afaa4398
+                    request_id: NBZaq
+      operationId: assetReportRefresh
+      description: >-
+        An Asset Report is an immutable snapshot of a user's assets. In order to
+        "refresh" an Asset Report you created previously, you can use the
+        `/asset_report/refresh` endpoint to create a new Asset Report based on
+        the old one, but with the most recent data available.
+
+
+        The new Asset Report will contain the same Items as the original Report,
+        as well as the same filters applied by any call to
+        `/asset_report/filter`. By default, the new Asset Report will also use
+        the same parameters you submitted with your original
+        `/asset_report/create` request, but the original `days_requested` value
+        and the values of any parameters in the `options` object can be
+        overridden with new values. To change these arguments, simply supply new
+        values for them in your request to `/asset_report/refresh`. Submit an
+        empty string ("") for any previously-populated fields you would like set
+        as empty.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportRefreshRequest'
+        description: ''
+  /asset_report/filter:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Filter
+        - Reports
+      summary: 'Filter Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportfilter
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportFilterResponse'
+              examples:
+                example-1:
+                  value:
+                    asset_report_token: assets-sandbox-bc410c6a-4653-4c75-985c-e757c3497c5c
+                    asset_report_id: fdc09207-0cef-4d88-b5eb-0d970758ebd9
+                    request_id: qEg07
+      operationId: assetReportFilter
+      description: >-
+        By default, an Asset Report will contain all of the accounts on a given
+        Item. In some cases, you may not want the Asset Report to contain all
+        accounts. For example, you might have the end user choose which accounts
+        are relevant in Link using the Account Select view, which you can enable
+        in the dashboard. Or, you might always exclude certain account types or
+        subtypes, which you can identify by using the `/accounts/get` endpoint.
+        To narrow an Asset Report to only a subset of accounts, use the
+        `/asset_report/filter` endpoint.
+
+
+        To exclude certain Accounts from an Asset Report, first use the
+        `/asset_report/create` endpoint to create the report, then send the
+        `asset_report_token` along with a list of `account_ids` to exclude to
+        the `/asset_report/filter` endpoint, to create a new Asset Report which
+        contains only a subset of the original Asset Report's data.
+
+
+        Because Asset Reports are immutable, calling `/asset_report/filter` does
+        not alter the original Asset Report in any way; rather,
+        `/asset_report/filter` creates a new Asset Report with a new token and
+        id. Asset Reports created via `/asset_report/filter` do not contain new
+        Asset data, and are not billed.
+
+
+        Plaid will fire a
+        [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready)
+        webhook once generation of the filtered Asset Report has completed.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportFilterRequest'
+        description: ''
+  /asset_report/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Reports
+      summary: 'Delete An Asset Report '
+      externalDocs:
+        url: /api/products/assets/#asset_reportremove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    removed: true
+                    request_id: I6zHN
+      operationId: assetReportRemove
+      description: >-
+        The `/item/remove` endpoint allows you to invalidate an `access_token`,
+        meaning you will not be able to create new Asset Reports with it.
+        Removing an Item does not affect any Asset Reports or Audit Copies you
+        have already created, which will remain accessible until you remove them
+        specifically.
+
+
+        The `/asset_report/remove` endpoint allows you to remove access to an
+        Asset Report. Removing an Asset Report invalidates its
+        `asset_report_token`, meaning you will no longer be able to use it to
+        access Report data or create new Audit Copies. Removing an Asset Report
+        does not affect the underlying Items, but does invalidate any
+        `audit_copy_tokens` associated with the Asset Report.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportRemoveRequest'
+        description: ''
+  /asset_report/audit_copy/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Audit
+        - Copy
+        - Reports
+      summary: 'Create Asset Report Audit Copy '
+      externalDocs:
+        url: /api/products/assets/#asset_reportaudit_copycreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportAuditCopyCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    audit_copy_token: a-sandbox-3TAU2CWVYBDVRHUCAAAI27ULU4
+                    request_id: Iam3b
+      operationId: assetReportAuditCopyCreate
+      description: >-
+        Plaid can provide an Audit Copy of any Asset Report directly to a
+        participating third party on your behalf. For example, Plaid can supply
+        an Audit Copy directly to Fannie Mae on your behalf if you participate
+        in the Day 1 Certainty™ program. An Audit Copy contains the same
+        underlying data as the Asset Report.
+
+
+        To grant access to an Audit Copy, use the
+        `/asset_report/audit_copy/create` endpoint to create an
+        `audit_copy_token` and then pass that token to the third party who needs
+        access. Each third party has its own `auditor_id`, for example
+        `fannie_mae`. You’ll need to create a separate Audit Copy for each third
+        party to whom you want to grant access to the Report.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportAuditCopyCreateRequest'
+  /asset_report/audit_copy/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve An Asset Report Audit Copy '
+      tags:
+        - Assets
+        - Audit
+        - Copy
+        - Reports
+      operationId: assetReportAuditCopyGet
+      externalDocs:
+        url: /none/
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportAuditCopyGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportGetResponse'
+      description: >-
+        `/asset_report/audit_copy/get` allows auditors to get a copy of an Asset
+        Report that was previously shared via the
+        `/asset_report/audit_copy/create` endpoint.  The caller of
+        `/asset_report/audit_copy/create` must provide the `audit_copy_token` to
+        the auditor.  This token can then be used to call
+        `/asset_report/audit_copy/create`.
+  /asset_report/audit_copy/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Audit
+        - Copy
+        - Reports
+      summary: 'Remove Asset Report Audit Copy '
+      externalDocs:
+        url: /api/products/assets/#asset_reportaudit_copyremove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportAuditCopyRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    removed: true
+                    request_id: m8MDnv9okwxFNBV
+      operationId: assetReportAuditCopyRemove
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportAuditCopyRemoveRequest'
+        description: ''
+      description: >-
+        The `/asset_report/audit_copy/remove` endpoint allows you to remove an
+        Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token`
+        associated with it, meaning both you and any third parties holding the
+        token will no longer be able to use it to access Report data. Items
+        associated with the Asset Report, the Asset Report itself and other
+        Audit Copies of it are not affected and will remain accessible after
+        removing the given Audit Copy.
+  /credit/asset_report/freddie_mac/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Assets
+        - Credit
+        - Endpoints
+        - Format
+        - Freddie
+        - Reports
+      summary: >-
+        Retrieve An Asset Report With Freddie Mac Format. Only Freddie Mac Can
+        Use This Endpoint. 
+      externalDocs:
+        url: /none/
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetReportFreddieGetResponse'
+              examples:
+                example-1:
+                  value:
+                    SchemaVersion: 1
+                    DEAL:
+                      LOANS:
+                        LOAN:
+                          LOAN_IDENTIFIERS:
+                            LOAN_IDENTIFIER:
+                              LoanIdentifier: '100016746'
+                              LoanIdentifierType: LenderLoan
+                      PARTIES:
+                        PARTY:
+                          - INDIVIDUAL:
+                              NAME:
+                                FirstName: John
+                                LastName: Deere
+                            ROLES:
+                              ROLE:
+                                ROLE_DETAIL:
+                                  PartyRoleType: Borrower
+                            TAXPAYER_IDENTIFIERS:
+                              TAXPAYER_IDENTIFIER:
+                                TaxpayerIdentifierType: SocialSecurityNumber
+                                TaxpayerIdentifierValue: 123-45-6789
+                      SERVICES:
+                        SERVICE:
+                          VERIFICATION_OF_ASSET:
+                            REPORTING_INFORMATION:
+                              ReportingInformationIdentifier: a-prod-kol4xb5y4nf2zecqalb2d55mze
+                            SERVICE_PRODUCT_FULFILLMENT:
+                              SERVICE_PRODUCT_FULFILLMENT_DETAIL:
+                                VendorOrderIdentifier: PLAID
+                                ServiceProductFulfillmentIdentifier: VOA
+                            VERIFICATION_OF_ASSET_RESPONSE:
+                              ASSETS:
+                                ASSET:
+                                  - ASSET_DETAIL:
+                                      AssetAccountIdentifier: '3847'
+                                      AssetUniqueIdentifier: c251a55e-c503-471b-a3b1-11a9243bc189
+                                      AssetAsOfDate: '2022-07-27'
+                                      AssetDescription: Unlimited Cash Rewards Visa Signature
+                                      AssetAvailableBalanceAmount: 2073.99
+                                      AssetCurrentBalanceAmount: 2007.09
+                                      AssetType: Other
+                                      AssetTypeAdditionalDescription: credit card
+                                      AssetDaysRequestedCount: 61
+                                      AssetOwnershipType: null
+                                    ASSET_OWNERS:
+                                      ASSET_OWNER:
+                                        - AssetOwnerText: Alberta Bobbeth Charleson
+                                    ASSET_HOLDER:
+                                      NAME:
+                                        FullName: Wells Fargo
+                                    ASSET_TRANSACTIONS:
+                                      ASSET_TRANSACTION:
+                                        - ASSET_TRANSACTION_DETAIL:
+                                            AssetTransactionUniqueIdentifier: 7jagxo9Eq6cXPKM8eMNJUgeeNnbgQdSDw6zgN
+                                            AssetTransactionAmount: 34.43
+                                            AssetTransactionDate: '2022-07-19'
+                                            AssetTransactionPostDate: '2022-07-19'
+                                            AssetTransactionType: Debit
+                                            AssetTransactionPaidByName: null
+                                            AssetTransactionTypeAdditionalDescription: null
+                                            AssetTransactionCategoryType: FoodDining
+                                            FinancialInstitutionTransactionIdentifier: null
+                                          ASSET_TRANSACTION_DESCRIPTON:
+                                            - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
+                                    VALIDATION_SOURCES:
+                                      VALIDATION_SOURCE:
+                                        - ValidationSourceName: ''
+                                          ValidationSourceReferenceIdentifier: ''
+                          STATUSES:
+                            STATUS:
+                              StatusCode: success
+                              StatusDescription: null
+                    request_id: eYupqX1mZkEuQRx
+      operationId: creditAssetReportFreddieMacGet
+      description: >-
+        The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset
+        Report in Freddie Mac's JSON format.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetReportFreddieGetRequest'
+        description: ''
+components:
+  schemas:
+    AssetReportCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportCreateResponse defines the response schema for
+        `/asset_report/create`
+      properties:
+        asset_report_token:
+          $ref: '#/components/schemas/AssetReportToken'
+        asset_report_id:
+          $ref: '#/components/schemas/AssetReportId'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - asset_report_token
+        - asset_report_id
+        - request_id
+    AssetReportGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportGetResponse defines the response schema for
+        `/asset_report/get`
+      properties:
+        report:
+          $ref: '#/components/schemas/AssetReport'
+        warnings:
+          type: array
+          description: >-
+            If the Asset Report generation was successful but identity
+            information cannot be returned, this array will contain information
+            about the errors causing identity information to be missing
+          items:
+            $ref: '#/components/schemas/Warning'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - report
+        - warnings
+        - request_id
+    AssetReportRefreshResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportRefreshResponse defines the response schema for
+        `/asset_report/refresh`
+      properties:
+        asset_report_id:
+          $ref: '#/components/schemas/AssetReportId'
+        asset_report_token:
+          $ref: '#/components/schemas/AssetReportToken'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - asset_report_id
+        - asset_report_token
+        - request_id
+    AssetReportFilterResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportFilterResponse defines the response schema for
+        `/asset_report/filter`
+      properties:
+        asset_report_token:
+          $ref: '#/components/schemas/AssetReportToken'
+        asset_report_id:
+          $ref: '#/components/schemas/AssetReportId'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - asset_report_token
+        - asset_report_id
+        - request_id
+    AssetReportRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportRemoveResponse defines the response schema for
+        `/asset_report/remove`
+      properties:
+        removed:
+          type: boolean
+          description: '`true` if the Asset Report was successfully removed.'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - removed
+        - request_id
+    AssetReportAuditCopyCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportAuditCopyCreateResponse defines the response schema for
+        `/asset_report/audit_copy/get`
+      properties:
+        audit_copy_token:
+          type: string
+          description: >-
+            A token that can be shared with a third party auditor to allow them
+            to obtain access to the Asset Report. This token should be stored
+            securely.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - audit_copy_token
+        - request_id
+    AssetReportAuditCopyRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportAuditCopyRemoveResponse defines the response schema for
+        `/asset_report/audit_copy/remove`
+      properties:
+        removed:
+          type: boolean
+          description: '`true` if the Audit Copy was successfully removed.'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - removed
+        - request_id
+    AssetReportFreddieGetResponse:
+      title: AssetReportFreddieGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        AssetReportFreddieGetResponse defines the response schema for
+        `/asset_report/get`
+      properties:
+        DEAL:
+          $ref: '#/components/schemas/AssetReportFreddie'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        SchemaVersion:
+          type: number
+          description: >-
+            The Verification Of Assets (aka VOA or Freddie Mac Schema) schema
+            version.
+      required:
+        - DEAL
+        - request_id
+        - SchemaVersion

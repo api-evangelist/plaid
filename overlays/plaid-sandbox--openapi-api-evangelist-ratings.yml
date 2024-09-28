@@ -1,0 +1,1404 @@
+weekNumber: 24
+rule:
+  - code: openapi-external-docs-error
+    message: External Docs
+  - code: openapi-openapi-version-300-info
+    message: 3.0.0 Version of OpenAPI
+  - code: openapi-openapi-version-310-info
+    message: 3.1.0 Version of OpenAPI
+  - code: openapi-info-license-error
+    message: License Object
+  - code: openapi-info-title-info
+    message: Info Title
+  - code: openapi-info-title-upper-case-warn
+    message: Info Title Upper Case
+  - code: openapi-info-version-info
+    message: Info Version
+  - code: openapi-info-description-info
+    message: Info Description
+  - code: openapi-info-contact-email-error
+    message: Contact Email
+  - code: openapi-info-contact-info
+    message: Contact Object
+  - code: openapi-info-contact-name-info
+    message: Contact Name
+  - code: openapi-info-contact-url-info
+    message: Contact URL
+  - code: openapi-info-terms-of-service-info
+    message: Terms of Service
+  - code: openapi-tags-object-info
+    message: Tag Object
+  - code: openapi-tags-one-error
+    message: One Tag
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxProcessorTokenCreateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: invalid-ref
+    message: '''#/components/schemas/PlaidError'' does not exist'
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxProcessorTokenCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxPublicTokenCreateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxPublicTokenCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxItemFireWebhookResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxItemFireWebhookRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxItemResetLoginResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxItemResetLoginRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxItemSetVerificationStatusResponse' does not
+      exist
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxItemSetVerificationStatusRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankTransferSimulateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankTransferSimulateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferSweepSimulateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferSweepSimulateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferSimulateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferSimulateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferRefundSimulateResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferRefundSimulateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerSimulateAvailableResponse' does
+      not exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerSimulateAvailableRequest' does
+      not exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerDepositSimulateResponse' does
+      not exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerDepositSimulateRequest' does
+      not exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerWithdrawSimulateResponse' does
+      not exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest' does
+      not exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferRepaymentSimulateResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferRepaymentSimulateRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferFireWebhookResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferFireWebhookRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferTestClockCreateResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferTestClockCreateRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferTestClockAdvanceResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxTransferTestClockAdvanceRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferTestClockGetResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferTestClockGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferTestClockListResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxTransferTestClockListRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxPaymentProfileResetLoginResponse' does not
+      exist
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxPaymentProfileResetLoginRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxBankTransferFireWebhookResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxBankTransferFireWebhookRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxIncomeFireWebhookResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxIncomeFireWebhookRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankIncomeFireWebhookResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankIncomeFireWebhookRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxOauthSelectAccountsResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxOauthSelectAccountsRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-security-schemes-error
+    message: Security Scheme

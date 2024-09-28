@@ -1,0 +1,1180 @@
+weekNumber: 25
+rule:
+  - code: openapi-external-docs-error
+    message: External Docs
+  - code: openapi-openapi-version-300-info
+    message: 3.0.0 Version of OpenAPI
+  - code: openapi-openapi-version-310-info
+    message: 3.1.0 Version of OpenAPI
+  - code: openapi-info-license-error
+    message: License Object
+  - code: openapi-info-title-info
+    message: Info Title
+  - code: openapi-info-title-upper-case-warn
+    message: Info Title Upper Case
+  - code: openapi-info-version-info
+    message: Info Version
+  - code: openapi-info-description-info
+    message: Info Description
+  - code: openapi-info-contact-email-error
+    message: Contact Email
+  - code: openapi-info-contact-info
+    message: Contact Object
+  - code: openapi-info-contact-name-info
+    message: Contact Name
+  - code: openapi-info-contact-url-info
+    message: Contact URL
+  - code: openapi-info-terms-of-service-info
+    message: Terms of Service
+  - code: openapi-tags-object-info
+    message: Tag Object
+  - code: openapi-tags-one-error
+    message: One Tag
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenUpdateResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenUpdateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditSessionsGetResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditSessionsGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenCreateResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenRemoveResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditAuditCopyTokenRemoveRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/AssetReportFreddieGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/AssetReportFreddieGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditFreddieMacReportsGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditFreddieMacReportsGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankEmploymentGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankEmploymentGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomeGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomeGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomePDFGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomePDFGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomeRefreshRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomeRefreshResponse'' does not exist'
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditBankIncomeWebhookUpdateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditBankIncomeWebhookUpdateResponse' does not
+      exist
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditPayrollIncomeParsingConfigUpdateRequest' does
+      not exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditPayrollIncomeParsingConfigUpdateResponse' does
+      not exist
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditBankStatementsUploadsGetResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: invalid-ref
+    message: '''#/components/schemas/PlaidError'' does not exist'
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditBankStatementsUploadsGetRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomeGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomeGetResponse'' does not exist'
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditPayrollIncomeRiskSignalsGetRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/CreditPayrollIncomeRiskSignalsGetResponse' does not
+      exist
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomePrecheckResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomePrecheckRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditEmploymentGetResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditEmploymentGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomeRefreshResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditPayrollIncomeRefreshRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayCreateResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/AssetReportGetResponse'' does not exist'
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-length-error
+    message: Operation Summary Length
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayPDFGetResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayPDFGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayRefreshResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayRefreshRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayRemoveResponse'' does not exist'
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/CreditRelayRemoveRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-security-schemes-error
+    message: Security Scheme

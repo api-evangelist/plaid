@@ -1,0 +1,1010 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' cra/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /cra/base_report/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      summary: 'Retrieve A Base Report '
+      tags:
+        - Base
+        - Cra
+        - Reports
+      operationId: baseReportGet
+      x-hidden-from-docs: true
+      externalDocs:
+        url: /none/
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseReportGetRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseReportGetResponse'
+              examples:
+                example-1:
+                  value:
+                    report:
+                      report_id: 028e8404-a013-4a45-ac9e-002482f9cafc
+                      date_generated: '2023-03-30T18:27:37Z'
+                      days_requested: 5
+                      items:
+                        - accounts:
+                            - balances:
+                                available: 43200
+                                current: 43200
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                                limit: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 49050
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: 49050
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '4444'
+                              name: Plaid Money Market
+                              official_name: >-
+                                Plaid Platinum Standard 1.85% Interest Money
+                                Market
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: money market
+                              transactions:
+                                - amount: 5850
+                                  date: '2023-03-30'
+                                  iso_currency_code: USD
+                                  original_description: ACH Electronic CreditGUSTO PAY 123456
+                                  pending: false
+                                  unofficial_currency_code: null
+                              type: depository
+                            - balances:
+                                available: 100
+                                current: 110
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                                limit: null
+                              days_available: 5
+                              historical_balances:
+                                - current: 110
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -390
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -373.67
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-26'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                                - current: -284.27
+                                  date: '2023-03-25'
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              mask: '0000'
+                              name: Plaid Checking
+                              official_name: Plaid Gold Standard 0% Interest Checking
+                              owners:
+                                - addresses:
+                                    - data:
+                                        city: Malakoff
+                                        country: US
+                                        region: NY
+                                        street: 2992 Cameron Road
+                                        postal_code: '14236'
+                                      primary: true
+                                    - data:
+                                        city: San Matias
+                                        country: US
+                                        region: CA
+                                        street: 2493 Leisure Lane
+                                        postal_code: 93405-2255
+                                      primary: false
+                                  emails:
+                                    - data: accountholder0@example.com
+                                      primary: true
+                                      type: primary
+                                    - data: accountholder1@example.com
+                                      primary: false
+                                      type: secondary
+                                    - data: >-
+                                        extraordinarily.long.email.username.123456@reallylonghostname.com
+                                      primary: false
+                                      type: other
+                                  names:
+                                    - Alberta Bobbeth Charleson
+                                  phone_numbers:
+                                    - data: '1112223333'
+                                      primary: false
+                                      type: home
+                                    - data: '1112224444'
+                                      primary: false
+                                      type: work
+                                    - data: '1112225555'
+                                      primary: false
+                                      type: mobile
+                              ownership_type: null
+                              subtype: checking
+                              transactions:
+                                - amount: 89.4
+                                  date: '2023-03-27'
+                                  iso_currency_code: USD
+                                  original_description: SparkFun
+                                  pending: false
+                                  unofficial_currency_code: null
+                                - amount: 12
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: 'McDonalds #3322'
+                                  pending: false
+                                  unofficial_currency_code: null
+                                - amount: 4.33
+                                  date: '2023-03-28'
+                                  iso_currency_code: USD
+                                  original_description: Starbucks
+                                  pending: false
+                                  unofficial_currency_code: null
+                                - amount: -500
+                                  date: '2023-03-29'
+                                  iso_currency_code: USD
+                                  original_description: United Airlines **** REFUND ****
+                                  pending: false
+                                  unofficial_currency_code: null
+                              type: depository
+                          date_last_updated: '2023-03-30T18:25:26Z'
+                          institution_id: ins_109508
+                          institution_name: First Platypus Bank
+                    request_id: GVzMdiDd8DDAQK4
+      description: >-
+        This endpoint allows the customer to retrieve a Base Report. Customers
+        should pass in the `user_token` created in `/link/token/create`.
+  /cra/base_report/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      summary: 'Create A Base Report '
+      tags:
+        - Base
+        - Cra
+        - Reports
+      operationId: baseReportCreate
+      x-hidden-from-docs: true
+      externalDocs:
+        url: /none/
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BaseReportCreateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BaseReportCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: GVzMdiDd8DDAQK4
+      description: >-
+        This endpoint allows the customer to create a Base Report by passing in
+        a user token. The Base Report will be generated based on the most
+        recently linked item from the user token.
+  /cra/bank_income/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      summary: >-
+        Retrieve Information From The Bank Accounts Used For Income
+        Verification 
+      tags:
+        - Accounts
+        - Bank
+        - Cra
+        - Income
+        - Information
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraBankIncomeGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+                    bank_income:
+                      - bank_income_id: abc123
+                        generated_time: '2022-01-31T22:47:53Z'
+                        days_requested: 90
+                        items:
+                          - last_updated_time: '2022-01-31T22:47:53Z'
+                            institution_id: ins_0
+                            institution_name: Plaid Bank
+                            bank_income_accounts:
+                              - mask: '8888'
+                                name: Plaid Checking Account
+                                official_name: Plaid Checking Account
+                                type: depository
+                                subtype: checking
+                                owners:
+                                  - addresses:
+                                      - data:
+                                          city: Malakoff
+                                          country: US
+                                          postal_code: '14236'
+                                          region: NY
+                                          street: 2992 Cameron Road
+                                        primary: true
+                                      - data:
+                                          city: San Matias
+                                          country: US
+                                          postal_code: 93405-2255
+                                          region: CA
+                                          street: 2493 Leisure Lane
+                                        primary: false
+                                    emails:
+                                      - data: accountholder0@example.com
+                                        primary: true
+                                        type: primary
+                                      - data: accountholder1@example.com
+                                        primary: false
+                                        type: secondary
+                                      - data: >-
+                                          extraordinarily.long.email.username.123456@reallylonghostname.com
+                                        primary: false
+                                        type: other
+                                    names:
+                                      - Alberta Bobbeth Charleson
+                                    phone_numbers:
+                                      - data: '1112223333'
+                                        primary: false
+                                        type: home
+                                      - data: '1112224444'
+                                        primary: false
+                                        type: work
+                                      - data: '1112225555'
+                                        primary: false
+                                        type: mobile
+                            bank_income_sources:
+                              - income_source_id: “f17efbdd-caab-4278-8ece-963511cd3d51”
+                                income_description: “PLAID_INC_DIRECT_DEP_PPD”
+                                income_category: SALARY
+                                start_date: '2021-11-15'
+                                end_date: '2022-01-15'
+                                pay_frequency: MONTHLY
+                                total_amount: 300
+                                iso_currency_code: USD
+                                unofficial_currency_code: null
+                                transaction_count: 1
+                                next_payment_date: '2022-12-15'
+                                historical_average_monthly_gross_income: 390
+                                historical_average_monthly_income: 300
+                                forecasted_average_monthly_income: 300
+                                forecasted_average_monthly_income_prediction_intervals:
+                                  - lower_bound: 200
+                                    upper_bound: 400
+                                    probability: 0.8
+                                employer:
+                                  name: Plaid Inc
+                                historical_summary:
+                                  - start_date: '2021-11-02'
+                                    end_date: '2021-11-30'
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2021-11-15'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                  - start_date: '2021-12-01'
+                                    end_date: '2021-12-31'
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2021-12-15'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                  - start_date: '2022-01-01'
+                                    end_date: '2022-01-31'
+                                    total_amounts:
+                                      - amount: 100
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                                    transactions:
+                                      - amount: -100
+                                        date: '2022-01-31'
+                                        name: “PLAID_INC_DIRECT_DEP_PPD”
+                                        original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                        pending: false
+                                        check_number: null
+                                        iso_currency_code: USD
+                                        unofficial_currency_code: null
+                        bank_income_summary:
+                          total_amounts:
+                            - amount: 300
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          start_date: '2021-11-15'
+                          end_date: '2022-01-15'
+                          income_sources_count: 1
+                          income_categories_count: 1
+                          income_transactions_count: 1
+                          historical_average_monthly_gross_income:
+                            - amount: 390
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          historical_average_monthly_income:
+                            - amount: 300
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          forecasted_average_monthly_income:
+                            - amount: 300
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          historical_annual_gross_income:
+                            - amount: 4680
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          historical_annual_income:
+                            - amount: 3600
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          forecasted_annual_income:
+                            - amount: 3600
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                          historical_summary:
+                            - start_date: '2021-11-02'
+                              end_date: '2021-11-30'
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2021-11-15'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                            - start_date: '2021-12-01'
+                              end_date: '2021-12-31'
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2021-12-15'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                            - start_date: '2022-01-01'
+                              end_date: '2022-01-31'
+                              total_amounts:
+                                - amount: 100
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                              transactions:
+                                - amount: -100
+                                  date: '2022-01-31'
+                                  name: “PLAID_INC_DIRECT_DEP_PPD”
+                                  original_description: PLAID_INC_DIRECT_DEP_PPD 123
+                                  pending: false
+                                  check_number: null
+                                  iso_currency_code: USD
+                                  unofficial_currency_code: null
+                        warnings: []
+      externalDocs:
+        url: /api/products/income/#crabank_incomeget
+      operationId: craBankIncomeGet
+      description: >-
+        `/cra/bank_income/get` returns the bank income report(s) for a specified
+        user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraBankIncomeGetRequest'
+  /cra/bank_income/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      summary: 'Create A CRA Report For Income Verification '
+      tags:
+        - Bank
+        - CRA
+        - Cra
+        - Income
+        - Reports
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraBankIncomeCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+      externalDocs:
+        url: /api/products/income/#crabank_incomecreate
+      operationId: craBankIncomeCreate
+      description: '`/cra/bank_income/create` creates a CRA report for income verification'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraBankIncomeCreateRequest'
+  /cra/partner_insights/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      summary: >-
+        Retrieve Cash Flow Insights From The Bank Accounts Used For Income
+        Verification 
+      tags:
+        - Accounts
+        - Bank
+        - Cash
+        - Cra
+        - Flows
+        - Income
+        - Insights
+        - Partners
+        - Used
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraPartnerInsightsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+                    report:
+                      - report_id: abc123
+                        generated_time: '2022-01-31T22:47:53Z'
+                        items:
+                          - institution_id: ins_0
+                            institution_name: Plaid Bank
+                            item_id: ABC123
+                            accounts:
+                              - mask: '8888'
+                                name: Plaid Checking Account
+                                official_name: Plaid Checking Account
+                                type: depository
+                                subtype: checking
+                                owners:
+                                  - addresses:
+                                      - data:
+                                          city: Malakoff
+                                          country: US
+                                          postal_code: '14236'
+                                          region: NY
+                                          street: 2992 Cameron Road
+                                        primary: true
+                                      - data:
+                                          city: San Matias
+                                          country: US
+                                          postal_code: 93405-2255
+                                          region: CA
+                                          street: 2493 Leisure Lane
+                                        primary: false
+                                    emails:
+                                      - data: accountholder0@example.com
+                                        primary: true
+                                        type: primary
+                                      - data: accountholder1@example.com
+                                        primary: false
+                                        type: secondary
+                                      - data: >-
+                                          extraordinarily.long.email.username.123456@reallylonghostname.com
+                                        primary: false
+                                        type: other
+                                    names:
+                                      - Alberta Bobbeth Charleson
+                                    phone_numbers:
+                                      - data: '1112223333'
+                                        primary: false
+                                        type: home
+                                      - data: '1112224444'
+                                        primary: false
+                                        type: work
+                                      - data: '1112225555'
+                                        primary: false
+                                        type: mobile
+                        prism:
+                          insights:
+                            version: 3
+                            result:
+                              l6m_cumbal_acc: 1
+                          cash_score:
+                            version: 3
+                            score: 900
+                            reason_codes:
+                              - CASHFLOW_D11
+                            metadata:
+                              max_age: 20
+                              min_age: 1
+                              min_age_credit: 0
+                              min_age_debit: 1
+                              max_age_debit: 20
+                              max_age_credit: 0
+                              num_trxn_credit: 0
+                              num_trxn_debit: 40
+                              l1m_credit_value_cnt: 0
+                              l1m_debit_value_cnt: 40
+                          detect:
+                            version: 3
+                            score: 900
+                            reason_codes:
+                              - CASHFLOW_D11
+                            metadata:
+                              max_age: 20
+                              min_age: 1
+                              min_age_credit: 0
+                              min_age_debit: 1
+                              max_age_debit: 20
+                              max_age_credit: 0
+                              num_trxn_credit: 0
+                              num_trxn_debit: 40
+                              l1m_credit_value_cnt: 0
+                              l1m_debit_value_cnt: 40
+                          status: SUCCESS
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      externalDocs:
+        url: /api/products/income/#crapartner_insightsget
+      operationId: craPartnerInsightsGet
+      description: >-
+        `/cra/partner_insights/get` returns cash flow insights for a specified
+        user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraPartnerInsightsGetRequest'
+  /cra/loans/applications/register:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      tags:
+        - Applications
+        - Cra
+        - Decisions
+        - Loan
+        - Loans
+        - Register
+      summary: 'Register Loan Applications And Decisions. '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraLoansApplicationsRegisterResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+      operationId: craLoansApplicationsRegister
+      externalDocs:
+        url: /none/
+      description: >-
+        `/cra/loans/applications/register` registers loan applications and
+        decisions.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraLoansApplicationsRegisterRequest'
+  /cra/loans/register:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      tags:
+        - Applicants
+        - Cra
+        - Loans
+        - Register
+      summary: 'Register A List Of Loans To Their Applicants. '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraLoansRegisterResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+      operationId: craLoansRegister
+      externalDocs:
+        url: /none/
+      description: '`/cra/loans/register` registers a list of loans to their applicants.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CRALoansRegisterRequest'
+  /cra/loans/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      tags:
+        - Cra
+        - Data
+        - Loan
+        - Loans
+      summary: 'Updates Loan Data. '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraLoansUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+      operationId: craLoansUpdate
+      externalDocs:
+        url: /none/
+      description: >-
+        `/cra/loans/update` updates loan information such as the status and
+        payment history.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraLoansUpdateRequest'
+  /cra/loans/unregister:
+    x-plaid-business-unit-context: BUSINESS_UNIT_CRA
+    post:
+      tags:
+        - Cra
+        - Loans
+        - Unregister
+      summary: 'Unregister A List Of Loans. '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CraLoanUnregisterResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LhQf0THi8SH1yJm
+      operationId: craLoansUnregister
+      externalDocs:
+        url: /none/
+      description: >-
+        `/cra/loans/unregister` indicates the loans have reached a final status
+        and no further updates are expected.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraLoansUnregisterRequest'
+components:
+  schemas:
+    BaseReportGetResponse:
+      type: object
+      x-hidden-from-docs: true
+      additionalProperties: true
+      description: >-
+        BaseReportGetResponse defines the response schema for
+        `/cra/base_report/get`
+      properties:
+        report:
+          $ref: '#/components/schemas/BaseReport'
+        warnings:
+          type: array
+          description: >-
+            If the Base Report generation was successful but identity
+            information cannot be returned, this array will contain information
+            about the errors causing identity information to be missing
+          items:
+            $ref: '#/components/schemas/BaseReportWarning'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - report
+        - request_id
+    BaseReportCreateResponse:
+      type: object
+      x-hidden-from-docs: true
+      additionalProperties: true
+      description: >-
+        BaseReportCreateResponse defines the response schema for
+        `cra/base_report/create`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CraBankIncomeGetResponse:
+      title: CraBankIncomeGetResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraBankIncomeGetResponse defines the response schema for
+        `/cra/bank_income/get`.
+      properties:
+        bank_income:
+          type: array
+          items:
+            $ref: '#/components/schemas/CraBankIncome'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CraBankIncomeCreateResponse:
+      title: CraBankIncomeCreateResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraBankIncomeCreateRequest defines the response schema for
+        `/cra/bank_income/create`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    CraPartnerInsightsGetResponse:
+      title: CraPartnerInsightsGetResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraPartnerInsightsGetResponse defines the response schema for
+        `/cra/partner_insights/get`.
+      properties:
+        report:
+          type: array
+          items:
+            $ref: '#/components/schemas/CraPartnerInsights'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    CraLoansApplicationsRegisterResponse:
+      title: CraLoansApplicationsRegisterResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraLoansApplicationsRegisterResponse defines the response schema for
+        `/cra/loans/applications/register`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CraLoansRegisterResponse:
+      title: CraLoansRegisterResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraLoansRegisterResponse defines the response schema for
+        `/cra/loans/register`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CraLoansUpdateResponse:
+      title: CraLoansUpdateResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraLoansUpdateResponse defines the response schema for
+        `/cra/loans/update`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    CraLoanUnregisterResponse:
+      title: CraLoanUnregisterResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        CraLoanUnregisterResponse defines the response schema for
+        `/cra/loans/unregister`.
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

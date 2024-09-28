@@ -1,0 +1,968 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' identity verification/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /identity_verification/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A New Identity Verification '
+      description: >
+        Create a new Identity Verification for the user specified by the
+        `client_user_id` field. The requirements and behavior of the
+        verification are determined by the `template_id` provided.
+
+        If you don't know whether the associated user already has an active
+        Identity Verification, you can specify `"is_idempotent": true` in the
+        request body. With idempotency enabled, a new Identity Verification will
+        only be created if one does not already exist for the associated
+        `client_user_id` and `template_id`. If an Identity Verification is
+        found, it will be returned unmodified with an `200 OK` HTTP status code.
+
+
+        You can also use this endpoint to supply information you already have
+        collected about the user; if any of these fields are specified, the
+        screens prompting the user to enter them will be skipped during the Link
+        flow.
+      tags:
+        - Entities
+        - Identity
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityVerificationCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: idv_52xR9LKo77r1Np
+                    client_user_id: your-db-id-3b24110
+                    created_at: '2020-07-24T03:26:02Z'
+                    completed_at: '2020-07-24T03:26:02Z'
+                    previous_attempt_id: idv_42cF1MNo42r9Xj
+                    shareable_url: >-
+                      https://flow.plaid.com/verify/idv_4FrXJvfQU3zGUR?key=e004115db797f7cc3083bff3167cba30644ef630fb46f5b086cde6cc3b86a36f
+                    template:
+                      id: idvtmp_4FrXJvfQU3zGUR
+                      version: 2
+                    user:
+                      phone_number: '+19876543212'
+                      date_of_birth: '1990-05-29'
+                      ip_address: 192.0.2.42
+                      email_address: user@example.com
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                    status: success
+                    steps:
+                      accept_tos: success
+                      verify_sms: success
+                      kyc_check: success
+                      documentary_verification: success
+                      selfie_check: success
+                      watchlist_screening: success
+                      risk_check: success
+                    documentary_verification:
+                      status: success
+                      documents:
+                        - status: success
+                          attempt: 1
+                          images:
+                            original_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_front.jpeg
+                            original_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_back.jpeg
+                            cropped_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_front.jpeg
+                            cropped_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_back.jpeg
+                            face: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/face.jpeg
+                          extracted_data:
+                            id_number: AB123456
+                            category: drivers_license
+                            expiration_date: '1990-05-29'
+                            issuing_country: US
+                            issuing_region: IN
+                            date_of_birth: '1990-05-29'
+                            address:
+                              street: 123 Main St. Unit 42
+                              city: Pawnee
+                              region: IN
+                              postal_code: '46001'
+                              country: US
+                          analysis:
+                            authenticity: match
+                            image_quality: high
+                            extracted_data:
+                              name: match
+                              date_of_birth: match
+                              expiration_date: not_expired
+                              issuing_country: match
+                          redacted_at: '2020-07-24T03:26:02Z'
+                    selfie_check:
+                      status: success
+                      selfies:
+                        - status: success
+                          attempt: 1
+                          capture:
+                            image_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.jpeg
+                            video_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.webm
+                          analysis:
+                            document_comparison: match
+                    kyc_check:
+                      status: success
+                      address:
+                        summary: match
+                        po_box: 'yes'
+                        type: residential
+                      name:
+                        summary: match
+                      date_of_birth:
+                        summary: match
+                      id_number:
+                        summary: match
+                      phone_number:
+                        summary: match
+                        area_code: match
+                    risk_check:
+                      status: success
+                      behavior:
+                        user_interactions: risky
+                        fraud_ring_detected: 'yes'
+                        bot_detected: 'yes'
+                      email:
+                        is_deliverable: 'yes'
+                        breach_count: 1
+                        first_breached_at: '1990-05-29'
+                        last_breached_at: '1990-05-29'
+                        domain_registered_at: '1990-05-29'
+                        domain_is_free_provider: 'yes'
+                        domain_is_custom: 'yes'
+                        domain_is_disposable: 'yes'
+                        top_level_domain_is_suspicious: 'yes'
+                        linked_services:
+                          - apple
+                      phone:
+                        linked_services:
+                          - apple
+                      devices:
+                        - ip_proxy_type: none_detected
+                          ip_spam_list_count: 1
+                          ip_timezone_offset: '+06:00:00'
+                      identity_abuse_signals:
+                        synthetic_identity:
+                          score: 0
+                        stolen_identity:
+                          score: 0
+                    watchlist_screening_id: scr_52xR9LKo77r1Np
+                    redacted_at: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: identityVerificationCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityVerificationCreateRequest'
+        required: true
+      externalDocs:
+        url: /api/products/identity-verification/#identity_verificationcreate
+  /identity_verification/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve Identity Verification '
+      tags:
+        - Entities
+        - Identity
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityVerificationGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: idv_52xR9LKo77r1Np
+                    client_user_id: your-db-id-3b24110
+                    created_at: '2020-07-24T03:26:02Z'
+                    completed_at: '2020-07-24T03:26:02Z'
+                    previous_attempt_id: idv_42cF1MNo42r9Xj
+                    shareable_url: >-
+                      https://flow.plaid.com/verify/idv_4FrXJvfQU3zGUR?key=e004115db797f7cc3083bff3167cba30644ef630fb46f5b086cde6cc3b86a36f
+                    template:
+                      id: idvtmp_4FrXJvfQU3zGUR
+                      version: 2
+                    user:
+                      phone_number: '+19876543212'
+                      date_of_birth: '1990-05-29'
+                      ip_address: 192.0.2.42
+                      email_address: user@example.com
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                    status: success
+                    steps:
+                      accept_tos: success
+                      verify_sms: success
+                      kyc_check: success
+                      documentary_verification: success
+                      selfie_check: success
+                      watchlist_screening: success
+                      risk_check: success
+                    documentary_verification:
+                      status: success
+                      documents:
+                        - status: success
+                          attempt: 1
+                          images:
+                            original_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_front.jpeg
+                            original_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_back.jpeg
+                            cropped_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_front.jpeg
+                            cropped_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_back.jpeg
+                            face: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/face.jpeg
+                          extracted_data:
+                            id_number: AB123456
+                            category: drivers_license
+                            expiration_date: '1990-05-29'
+                            issuing_country: US
+                            issuing_region: IN
+                            date_of_birth: '1990-05-29'
+                            address:
+                              street: 123 Main St. Unit 42
+                              city: Pawnee
+                              region: IN
+                              postal_code: '46001'
+                              country: US
+                          analysis:
+                            authenticity: match
+                            image_quality: high
+                            extracted_data:
+                              name: match
+                              date_of_birth: match
+                              expiration_date: not_expired
+                              issuing_country: match
+                          redacted_at: '2020-07-24T03:26:02Z'
+                    selfie_check:
+                      status: success
+                      selfies:
+                        - status: success
+                          attempt: 1
+                          capture:
+                            image_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.jpeg
+                            video_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.webm
+                          analysis:
+                            document_comparison: match
+                    kyc_check:
+                      status: success
+                      address:
+                        summary: match
+                        po_box: 'yes'
+                        type: residential
+                      name:
+                        summary: match
+                      date_of_birth:
+                        summary: match
+                      id_number:
+                        summary: match
+                      phone_number:
+                        summary: match
+                        area_code: match
+                    risk_check:
+                      status: success
+                      behavior:
+                        user_interactions: risky
+                        fraud_ring_detected: 'yes'
+                        bot_detected: 'yes'
+                      email:
+                        is_deliverable: 'yes'
+                        breach_count: 1
+                        first_breached_at: '1990-05-29'
+                        last_breached_at: '1990-05-29'
+                        domain_registered_at: '1990-05-29'
+                        domain_is_free_provider: 'yes'
+                        domain_is_custom: 'yes'
+                        domain_is_disposable: 'yes'
+                        top_level_domain_is_suspicious: 'yes'
+                        linked_services:
+                          - apple
+                      phone:
+                        linked_services:
+                          - apple
+                      devices:
+                        - ip_proxy_type: none_detected
+                          ip_spam_list_count: 1
+                          ip_timezone_offset: '+06:00:00'
+                      identity_abuse_signals:
+                        synthetic_identity:
+                          score: 0
+                        stolen_identity:
+                          score: 0
+                    watchlist_screening_id: scr_52xR9LKo77r1Np
+                    redacted_at: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: identityVerificationGet
+      description: Retrieve a previously created Identity Verification.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityVerificationGetRequest'
+        required: true
+      externalDocs:
+        url: /api/products/identity-verification/#identity_verificationget
+  /identity_verification/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Identity Verifications '
+      tags:
+        - Entities
+        - Identity
+        - Verification
+        - Verifications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityVerificationListResponse'
+              examples:
+                example-1:
+                  value:
+                    identity_verifications:
+                      - id: idv_52xR9LKo77r1Np
+                        client_user_id: your-db-id-3b24110
+                        created_at: '2020-07-24T03:26:02Z'
+                        completed_at: '2020-07-24T03:26:02Z'
+                        previous_attempt_id: idv_42cF1MNo42r9Xj
+                        shareable_url: >-
+                          https://flow.plaid.com/verify/idv_4FrXJvfQU3zGUR?key=e004115db797f7cc3083bff3167cba30644ef630fb46f5b086cde6cc3b86a36f
+                        template:
+                          id: idvtmp_4FrXJvfQU3zGUR
+                          version: 2
+                        user:
+                          phone_number: '+19876543212'
+                          date_of_birth: '1990-05-29'
+                          ip_address: 192.0.2.42
+                          email_address: user@example.com
+                          name:
+                            given_name: Leslie
+                            family_name: Knope
+                          address:
+                            street: 123 Main St.
+                            street2: Unit 42
+                            city: Pawnee
+                            region: IN
+                            postal_code: '46001'
+                            country: US
+                          id_number:
+                            value: '123456789'
+                            type: us_ssn
+                        status: success
+                        steps:
+                          accept_tos: success
+                          verify_sms: success
+                          kyc_check: success
+                          documentary_verification: success
+                          selfie_check: success
+                          watchlist_screening: success
+                          risk_check: success
+                        documentary_verification:
+                          status: success
+                          documents:
+                            - status: success
+                              attempt: 1
+                              images:
+                                original_front: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_front.jpeg
+                                original_back: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_back.jpeg
+                                cropped_front: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_front.jpeg
+                                cropped_back: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_back.jpeg
+                                face: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/face.jpeg
+                              extracted_data:
+                                id_number: AB123456
+                                category: drivers_license
+                                expiration_date: '1990-05-29'
+                                issuing_country: US
+                                issuing_region: IN
+                                date_of_birth: '1990-05-29'
+                                address:
+                                  street: 123 Main St. Unit 42
+                                  city: Pawnee
+                                  region: IN
+                                  postal_code: '46001'
+                                  country: US
+                              analysis:
+                                authenticity: match
+                                image_quality: high
+                                extracted_data:
+                                  name: match
+                                  date_of_birth: match
+                                  expiration_date: not_expired
+                                  issuing_country: match
+                              redacted_at: '2020-07-24T03:26:02Z'
+                        selfie_check:
+                          status: success
+                          selfies:
+                            - status: success
+                              attempt: 1
+                              capture:
+                                image_url: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.jpeg
+                                video_url: >-
+                                  https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.webm
+                              analysis:
+                                document_comparison: match
+                        kyc_check:
+                          status: success
+                          address:
+                            summary: match
+                            po_box: 'yes'
+                            type: residential
+                          name:
+                            summary: match
+                          date_of_birth:
+                            summary: match
+                          id_number:
+                            summary: match
+                          phone_number:
+                            summary: match
+                            area_code: match
+                        risk_check:
+                          status: success
+                          behavior:
+                            user_interactions: risky
+                            fraud_ring_detected: 'yes'
+                            bot_detected: 'yes'
+                          email:
+                            is_deliverable: 'yes'
+                            breach_count: 1
+                            first_breached_at: '1990-05-29'
+                            last_breached_at: '1990-05-29'
+                            domain_registered_at: '1990-05-29'
+                            domain_is_free_provider: 'yes'
+                            domain_is_custom: 'yes'
+                            domain_is_disposable: 'yes'
+                            top_level_domain_is_suspicious: 'yes'
+                            linked_services:
+                              - apple
+                          phone:
+                            linked_services:
+                              - apple
+                          devices:
+                            - ip_proxy_type: none_detected
+                              ip_spam_list_count: 1
+                              ip_timezone_offset: '+06:00:00'
+                          identity_abuse_signals:
+                            synthetic_identity:
+                              score: 0
+                            stolen_identity:
+                              score: 0
+                        watchlist_screening_id: scr_52xR9LKo77r1Np
+                        redacted_at: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: identityVerificationList
+      description: Filter and list Identity Verifications created by your account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityVerificationListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/identity-verification/#identity_verificationlist
+  /identity_verification/retry:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retry An Identity Verification '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityVerificationRetryRequest'
+        required: true
+      tags:
+        - Entities
+        - Identity
+        - Retry
+        - Verification
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityVerificationRetryResponse'
+              examples:
+                example-1:
+                  value:
+                    id: idv_52xR9LKo77r1Np
+                    client_user_id: your-db-id-3b24110
+                    created_at: '2020-07-24T03:26:02Z'
+                    completed_at: '2020-07-24T03:26:02Z'
+                    previous_attempt_id: idv_42cF1MNo42r9Xj
+                    shareable_url: >-
+                      https://flow.plaid.com/verify/idv_4FrXJvfQU3zGUR?key=e004115db797f7cc3083bff3167cba30644ef630fb46f5b086cde6cc3b86a36f
+                    template:
+                      id: idvtmp_4FrXJvfQU3zGUR
+                      version: 2
+                    user:
+                      phone_number: '+19876543212'
+                      date_of_birth: '1990-05-29'
+                      ip_address: 192.0.2.42
+                      email_address: user@example.com
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                    status: success
+                    steps:
+                      accept_tos: success
+                      verify_sms: success
+                      kyc_check: success
+                      documentary_verification: success
+                      selfie_check: success
+                      watchlist_screening: success
+                      risk_check: success
+                    documentary_verification:
+                      status: success
+                      documents:
+                        - status: success
+                          attempt: 1
+                          images:
+                            original_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_front.jpeg
+                            original_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/original_back.jpeg
+                            cropped_front: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_front.jpeg
+                            cropped_back: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/cropped_back.jpeg
+                            face: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/documents/1/face.jpeg
+                          extracted_data:
+                            id_number: AB123456
+                            category: drivers_license
+                            expiration_date: '1990-05-29'
+                            issuing_country: US
+                            issuing_region: IN
+                            date_of_birth: '1990-05-29'
+                            address:
+                              street: 123 Main St. Unit 42
+                              city: Pawnee
+                              region: IN
+                              postal_code: '46001'
+                              country: US
+                          analysis:
+                            authenticity: match
+                            image_quality: high
+                            extracted_data:
+                              name: match
+                              date_of_birth: match
+                              expiration_date: not_expired
+                              issuing_country: match
+                          redacted_at: '2020-07-24T03:26:02Z'
+                    selfie_check:
+                      status: success
+                      selfies:
+                        - status: success
+                          attempt: 1
+                          capture:
+                            image_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.jpeg
+                            video_url: >-
+                              https://example.plaid.com/verifications/idv_52xR9LKo77r1Np/selfie/liveness.webm
+                          analysis:
+                            document_comparison: match
+                    kyc_check:
+                      status: success
+                      address:
+                        summary: match
+                        po_box: 'yes'
+                        type: residential
+                      name:
+                        summary: match
+                      date_of_birth:
+                        summary: match
+                      id_number:
+                        summary: match
+                      phone_number:
+                        summary: match
+                        area_code: match
+                    risk_check:
+                      status: success
+                      behavior:
+                        user_interactions: risky
+                        fraud_ring_detected: 'yes'
+                        bot_detected: 'yes'
+                      email:
+                        is_deliverable: 'yes'
+                        breach_count: 1
+                        first_breached_at: '1990-05-29'
+                        last_breached_at: '1990-05-29'
+                        domain_registered_at: '1990-05-29'
+                        domain_is_free_provider: 'yes'
+                        domain_is_custom: 'yes'
+                        domain_is_disposable: 'yes'
+                        top_level_domain_is_suspicious: 'yes'
+                        linked_services:
+                          - apple
+                      phone:
+                        linked_services:
+                          - apple
+                      devices:
+                        - ip_proxy_type: none_detected
+                          ip_spam_list_count: 1
+                          ip_timezone_offset: '+06:00:00'
+                      identity_abuse_signals:
+                        synthetic_identity:
+                          score: 0
+                        stolen_identity:
+                          score: 0
+                    watchlist_screening_id: scr_52xR9LKo77r1Np
+                    redacted_at: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: identityVerificationRetry
+      description: Allow a customer to retry their Identity Verification
+      externalDocs:
+        url: /api/products/identity-verification/#identity_verificationretry
+  /identity_verification/autofill/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      x-hidden-from-docs: true
+      summary: 'Create Autofill For An Identity Verification '
+      description: >-
+        Try to autofill an Identity Verification based of the provided phone
+        number, date of birth and country of residence.
+      tags:
+        - Autofill
+        - Entities
+        - Identity
+        - Verification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdentityVerificationAutofillCreateRequest'
+            example:
+              identity_verification_id: flwses_42cF1MNo42r9Xj
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/IdentityVerificationAutofillCreateResponse
+              examples:
+                example-1:
+                  value:
+                    status: success
+                    user:
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                        po_box: 'yes'
+                        type: residential
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                    request_id: saKrIBuEB9qJZng
+      operationId: identityVerificationAutofillCreate
+      externalDocs:
+        url: >-
+          /api/products/identity-verification/#identity_verificationautofillcreate
+components:
+  schemas:
+    IdentityVerificationCreateResponse:
+      description: >-
+        A identity verification attempt represents a customer's attempt to
+        verify their identity, reflecting the required steps for completing the
+        session, the results for each step, and information collected in the
+        process.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/IdentityVerificationID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        completed_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        previous_attempt_id:
+          $ref: '#/components/schemas/PreviousIdentityVerificationAttemptID'
+        shareable_url:
+          $ref: '#/components/schemas/ShareableURL'
+        template:
+          $ref: '#/components/schemas/IdentityVerificationTemplateReference'
+        user:
+          $ref: '#/components/schemas/IdentityVerificationUserData'
+        status:
+          $ref: '#/components/schemas/IdentityVerificationStatus'
+        steps:
+          $ref: '#/components/schemas/IdentityVerificationStepSummary'
+        documentary_verification:
+          $ref: '#/components/schemas/DocumentaryVerification'
+        selfie_check:
+          $ref: '#/components/schemas/SelfieCheck'
+        kyc_check:
+          $ref: '#/components/schemas/KYCCheckDetails'
+        risk_check:
+          $ref: '#/components/schemas/RiskCheckDetails'
+        watchlist_screening_id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualIDNullable'
+        redacted_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - client_user_id
+        - created_at
+        - completed_at
+        - previous_attempt_id
+        - shareable_url
+        - template
+        - user
+        - status
+        - steps
+        - documentary_verification
+        - selfie_check
+        - kyc_check
+        - risk_check
+        - watchlist_screening_id
+        - redacted_at
+        - request_id
+      type: object
+    IdentityVerificationGetResponse:
+      description: >-
+        A identity verification attempt represents a customer's attempt to
+        verify their identity, reflecting the required steps for completing the
+        session, the results for each step, and information collected in the
+        process.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/IdentityVerificationID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        completed_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        previous_attempt_id:
+          $ref: '#/components/schemas/PreviousIdentityVerificationAttemptID'
+        shareable_url:
+          $ref: '#/components/schemas/ShareableURL'
+        template:
+          $ref: '#/components/schemas/IdentityVerificationTemplateReference'
+        user:
+          $ref: '#/components/schemas/IdentityVerificationUserData'
+        status:
+          $ref: '#/components/schemas/IdentityVerificationStatus'
+        steps:
+          $ref: '#/components/schemas/IdentityVerificationStepSummary'
+        documentary_verification:
+          $ref: '#/components/schemas/DocumentaryVerification'
+        selfie_check:
+          $ref: '#/components/schemas/SelfieCheck'
+        kyc_check:
+          $ref: '#/components/schemas/KYCCheckDetails'
+        risk_check:
+          $ref: '#/components/schemas/RiskCheckDetails'
+        watchlist_screening_id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualIDNullable'
+        redacted_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - client_user_id
+        - created_at
+        - completed_at
+        - previous_attempt_id
+        - shareable_url
+        - template
+        - user
+        - status
+        - steps
+        - documentary_verification
+        - selfie_check
+        - kyc_check
+        - risk_check
+        - watchlist_screening_id
+        - redacted_at
+        - request_id
+      type: object
+    IdentityVerificationListResponse:
+      description: Paginated list of Plaid sessions.
+      additionalProperties: true
+      properties:
+        identity_verifications:
+          description: List of Plaid sessions
+          type: array
+          items:
+            $ref: '#/components/schemas/IdentityVerification'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - identity_verifications
+        - next_cursor
+        - request_id
+      type: object
+    IdentityVerificationRetryResponse:
+      description: >-
+        A identity verification attempt represents a customer's attempt to
+        verify their identity, reflecting the required steps for completing the
+        session, the results for each step, and information collected in the
+        process.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/IdentityVerificationID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        completed_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        previous_attempt_id:
+          $ref: '#/components/schemas/PreviousIdentityVerificationAttemptID'
+        shareable_url:
+          $ref: '#/components/schemas/ShareableURL'
+        template:
+          $ref: '#/components/schemas/IdentityVerificationTemplateReference'
+        user:
+          $ref: '#/components/schemas/IdentityVerificationUserData'
+        status:
+          $ref: '#/components/schemas/IdentityVerificationStatus'
+        steps:
+          $ref: '#/components/schemas/IdentityVerificationStepSummary'
+        documentary_verification:
+          $ref: '#/components/schemas/DocumentaryVerification'
+        selfie_check:
+          $ref: '#/components/schemas/SelfieCheck'
+        kyc_check:
+          $ref: '#/components/schemas/KYCCheckDetails'
+        risk_check:
+          $ref: '#/components/schemas/RiskCheckDetails'
+        watchlist_screening_id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualIDNullable'
+        redacted_at:
+          $ref: '#/components/schemas/TimestampNullable'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - client_user_id
+        - created_at
+        - completed_at
+        - previous_attempt_id
+        - shareable_url
+        - template
+        - user
+        - status
+        - steps
+        - documentary_verification
+        - selfie_check
+        - kyc_check
+        - risk_check
+        - watchlist_screening_id
+        - redacted_at
+        - request_id
+      type: object
+    IdentityVerificationAutofillCreateResponse:
+      description: >-
+        Autofill represents unverified customer information. This needs to be
+        confirmed by the customer before using.
+      additionalProperties: true
+      properties:
+        status:
+          $ref: '#/components/schemas/IdentityVerificationAutofillStatus'
+        user:
+          $ref: '#/components/schemas/IdentityVerificationAutofillUserData'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - status
+        - user
+        - request_id
+      type: object

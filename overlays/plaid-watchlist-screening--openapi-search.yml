@@ -1,0 +1,1601 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' watchlist screening/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /watchlist_screening/entity/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Watchlist Screening For An Entity '
+      operationId: watchlistScreeningEntityCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningEntityCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: entscr_52xR9LKo77r1Np
+                    search_terms:
+                      entity_watchlist_program_id: entprg_2eRPsDnL66rZ7H
+                      legal_name: Al-Qaida
+                      document_number: C31195855
+                      email_address: user@example.com
+                      country: US
+                      phone_number: '+14025671234'
+                      url: https://example.com
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      description: >-
+        Create a new entity watchlist screening to check your customer against
+        watchlists defined in the associated entity watchlist program. If your
+        associated program has ongoing screening enabled, this is the profile
+        information that will be used to monitor your customer over time.
+      tags:
+        - Entities
+        - Screening
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityCreateRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentitycreate
+  /watchlist_screening/entity/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Get An Entity Screening '
+      tags:
+        - Entities
+        - Screening
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningEntityGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: entscr_52xR9LKo77r1Np
+                    search_terms:
+                      entity_watchlist_program_id: entprg_2eRPsDnL66rZ7H
+                      legal_name: Al-Qaida
+                      document_number: C31195855
+                      email_address: user@example.com
+                      country: US
+                      phone_number: '+14025671234'
+                      url: https://example.com
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityGet
+      description: Retrieve an entity watchlist screening.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityGetRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityget
+  /watchlist_screening/entity/history/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List History For Entity Watchlist Screenings '
+      tags:
+        - Entities
+        - History
+        - Screening
+        - Screenings
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningEntityHistoryListResponse
+              examples:
+                example-1:
+                  value:
+                    entity_watchlist_screenings:
+                      - id: entscr_52xR9LKo77r1Np
+                        search_terms:
+                          entity_watchlist_program_id: entprg_2eRPsDnL66rZ7H
+                          legal_name: Al-Qaida
+                          document_number: C31195855
+                          email_address: user@example.com
+                          country: US
+                          phone_number: '+14025671234'
+                          url: https://example.com
+                          version: 1
+                        assignee: 54350110fedcbaf01234ffee
+                        status: cleared
+                        client_user_id: your-db-id-3b24110
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityHistoryList
+      description: >-
+        List all changes to the entity watchlist screening in
+        reverse-chronological order. If the watchlist screening has not been
+        edited, no history will be returned.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityHistoryListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityhistorylist
+  /watchlist_screening/entity/hit/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Hits For Entity Watchlist Screenings '
+      tags:
+        - Entities
+        - Hit
+        - Hits
+        - Screening
+        - Screenings
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningEntityHitListResponse'
+              examples:
+                example-1:
+                  value:
+                    entity_watchlist_screening_hits:
+                      - id: enthit_52xR9LKo77r1Np
+                        review_status: pending_review
+                        first_active: '2020-07-24T03:26:02Z'
+                        inactive_since: '2020-07-24T03:26:02Z'
+                        historical_since: '2020-07-24T03:26:02Z'
+                        list_code: EU_CON
+                        plaid_uid: uid_3NggckTimGSJHS
+                        source_uid: 26192ABC
+                        analysis:
+                          documents: match
+                          email_addresses: match
+                          locations: match
+                          names: match
+                          phone_numbers: match
+                          urls: match
+                          search_terms_version: 1
+                        data:
+                          documents:
+                            - analysis:
+                                summary: match
+                              data:
+                                type: swift
+                                number: C31195855
+                          email_addresses:
+                            - analysis:
+                                summary: match
+                              data:
+                                email_address: user@example.com
+                          locations:
+                            - analysis:
+                                summary: match
+                              data:
+                                full: Florida, US
+                                country: US
+                          names:
+                            - analysis:
+                                summary: match
+                              data:
+                                full: Al Qaida
+                                is_primary: false
+                                weak_alias_determination: none
+                          phone_numbers:
+                            - analysis:
+                                summary: match
+                              data:
+                                type: phone
+                                phone_number: '+14025671234'
+                          urls:
+                            - analysis:
+                                summary: match
+                              data:
+                                url: https://example.com
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityHitList
+      description: List all hits for the entity watchlist screening.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityHitListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityhitlist
+  /watchlist_screening/entity/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Entity Watchlist Screenings '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningEntityListResponse'
+              examples:
+                example-1:
+                  value:
+                    entity_watchlist_screenings:
+                      - id: entscr_52xR9LKo77r1Np
+                        search_terms:
+                          entity_watchlist_program_id: entprg_2eRPsDnL66rZ7H
+                          legal_name: Al-Qaida
+                          document_number: C31195855
+                          email_address: user@example.com
+                          country: US
+                          phone_number: '+14025671234'
+                          url: https://example.com
+                          version: 1
+                        assignee: 54350110fedcbaf01234ffee
+                        status: cleared
+                        client_user_id: your-db-id-3b24110
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityList
+      description: List all entity screenings.
+      tags:
+        - Entities
+        - Screening
+        - Screenings
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentitylist
+  /watchlist_screening/entity/program/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Get Entity Watchlist Screening Program '
+      tags:
+        - Entities
+        - Program
+        - Screening
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningEntityProgramGetResponse
+              examples:
+                example-1:
+                  value:
+                    id: entprg_2eRPsDnL66rZ7H
+                    created_at: '2020-07-24T03:26:02Z'
+                    is_rescanning_enabled: true
+                    lists_enabled:
+                      - EU_CON
+                    name: Sample Program
+                    name_sensitivity: balanced
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    is_archived: false
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityProgramGet
+      description: Get an entity watchlist screening program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityProgramGetRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityprogramget
+  /watchlist_screening/entity/program/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Entity Watchlist Screening Programs '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningEntityProgramListResponse
+              examples:
+                example-1:
+                  value:
+                    entity_watchlist_programs:
+                      - id: entprg_2eRPsDnL66rZ7H
+                        created_at: '2020-07-24T03:26:02Z'
+                        is_rescanning_enabled: true
+                        lists_enabled:
+                          - EU_CON
+                        name: Sample Program
+                        name_sensitivity: balanced
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                        is_archived: false
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityProgramList
+      description: List all entity watchlist screening programs
+      tags:
+        - Entities
+        - Program
+        - Programs
+        - Screening
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityProgramListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityprogramlist
+  /watchlist_screening/entity/review/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Review For An Entity Watchlist Screening '
+      operationId: watchlistScreeningEntityReviewCreate
+      description: >-
+        Create a review for an entity watchlist screening. Reviews are
+        compliance reports created by users in your organization regarding the
+        relevance of potential hits found by Plaid.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityReviewCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningEntityReviewCreateResponse
+              examples:
+                example-1:
+                  value:
+                    id: entrev_aCLNRxK3UVzn2r
+                    confirmed_hits:
+                      - enthit_52xR9LKo77r1Np
+                    dismissed_hits:
+                      - enthit_52xR9LKo77r1Np
+                    comment: >-
+                      These look like legitimate matches, rejecting the
+                      customer.
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      tags:
+        - Entities
+        - Reviews
+        - Screening
+        - Watchlist
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityreviewcreate
+  /watchlist_screening/entity/review/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Reviews For Entity Watchlist Screenings '
+      tags:
+        - Entities
+        - Reviews
+        - Screening
+        - Screenings
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningEntityReviewListResponse
+              examples:
+                example-1:
+                  value:
+                    entity_watchlist_screening_reviews:
+                      - id: entrev_aCLNRxK3UVzn2r
+                        confirmed_hits:
+                          - enthit_52xR9LKo77r1Np
+                        dismissed_hits:
+                          - enthit_52xR9LKo77r1Np
+                        comment: >-
+                          These look like legitimate matches, rejecting the
+                          customer.
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningEntityReviewList
+      description: >-
+        List all reviews for a particular entity watchlist screening. Reviews
+        are compliance reports created by users in your organization regarding
+        the relevance of potential hits found by Plaid.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityReviewListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityreviewlist
+  /watchlist_screening/entity/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Update An Entity Screening '
+      operationId: watchlistScreeningEntityUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningEntityUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: entscr_52xR9LKo77r1Np
+                    search_terms:
+                      entity_watchlist_program_id: entprg_2eRPsDnL66rZ7H
+                      legal_name: Al-Qaida
+                      document_number: C31195855
+                      email_address: user@example.com
+                      country: US
+                      phone_number: '+14025671234'
+                      url: https://example.com
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      description: Update an entity watchlist screening.
+      tags:
+        - Entities
+        - Screening
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningEntityUpdateRequest'
+        description: The entity screening was successfully updated.
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningentityupdate
+  /watchlist_screening/individual/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Watchlist Screening For A Person '
+      operationId: watchlistScreeningIndividualCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualCreateResponse
+              examples:
+                example-1:
+                  value:
+                    id: scr_52xR9LKo77r1Np
+                    search_terms:
+                      watchlist_program_id: prg_2eRPsDnL66rZ7H
+                      legal_name: Aleksey Potemkin
+                      date_of_birth: '1990-05-29'
+                      document_number: C31195855
+                      country: US
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      description: >-
+        Create a new Watchlist Screening to check your customer against
+        watchlists defined in the associated Watchlist Program. If your
+        associated program has ongoing screening enabled, this is the profile
+        information that will be used to monitor your customer over time.
+      tags:
+        - Indiv
+        - Person
+        - Screening
+        - Ual
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningIndividualCreateRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualcreate
+  /watchlist_screening/individual/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve An Individual Watchlist Screening '
+      tags:
+        - Indiv
+        - Individual
+        - Screening
+        - Ual
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningIndividualGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: scr_52xR9LKo77r1Np
+                    search_terms:
+                      watchlist_program_id: prg_2eRPsDnL66rZ7H
+                      legal_name: Aleksey Potemkin
+                      date_of_birth: '1990-05-29'
+                      document_number: C31195855
+                      country: US
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualGet
+      description: Retrieve a previously created individual watchlist screening
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningIndividualGetRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualget
+  /watchlist_screening/individual/history/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List History For Individual Watchlist Screenings '
+      tags:
+        - History
+        - Indiv
+        - Individual
+        - Screening
+        - Screenings
+        - Ual
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualHistoryListResponse
+              examples:
+                example-1:
+                  value:
+                    watchlist_screenings:
+                      - id: scr_52xR9LKo77r1Np
+                        search_terms:
+                          watchlist_program_id: prg_2eRPsDnL66rZ7H
+                          legal_name: Aleksey Potemkin
+                          date_of_birth: '1990-05-29'
+                          document_number: C31195855
+                          country: US
+                          version: 1
+                        assignee: 54350110fedcbaf01234ffee
+                        status: cleared
+                        client_user_id: your-db-id-3b24110
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualHistoryList
+      description: >-
+        List all changes to the individual watchlist screening in
+        reverse-chronological order. If the watchlist screening has not been
+        edited, no history will be returned.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/WatchlistScreeningIndividualHistoryListRequest
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualhistorylist
+  /watchlist_screening/individual/hit/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Hits For Individual Watchlist Screening '
+      tags:
+        - Hit
+        - Hits
+        - Indiv
+        - Individual
+        - Screening
+        - Ual
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualHitListResponse
+              examples:
+                example-1:
+                  value:
+                    watchlist_screening_hits:
+                      - id: scrhit_52xR9LKo77r1Np
+                        review_status: pending_review
+                        first_active: '2020-07-24T03:26:02Z'
+                        inactive_since: '2020-07-24T03:26:02Z'
+                        historical_since: '2020-07-24T03:26:02Z'
+                        list_code: US_SDN
+                        plaid_uid: uid_3NggckTimGSJHS
+                        source_uid: 26192ABC
+                        analysis:
+                          dates_of_birth: match
+                          documents: match
+                          locations: match
+                          names: match
+                          search_terms_version: 1
+                        data:
+                          dates_of_birth:
+                            - analysis:
+                                summary: match
+                              data:
+                                beginning: '1990-05-29'
+                                ending: '1990-05-29'
+                          documents:
+                            - analysis:
+                                summary: match
+                              data:
+                                type: passport
+                                number: C31195855
+                          locations:
+                            - analysis:
+                                summary: match
+                              data:
+                                full: Florida, US
+                                country: US
+                          names:
+                            - analysis:
+                                summary: match
+                              data:
+                                full: Aleksey Potemkin
+                                is_primary: false
+                                weak_alias_determination: none
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualHitList
+      description: >-
+        List all hits found by Plaid for a particular individual watchlist
+        screening.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningIndividualHitListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualhitlist
+  /watchlist_screening/individual/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Individual Watchlist Screenings '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WatchlistScreeningIndividualListResponse'
+              examples:
+                example-1:
+                  value:
+                    watchlist_screenings:
+                      - id: scr_52xR9LKo77r1Np
+                        search_terms:
+                          watchlist_program_id: prg_2eRPsDnL66rZ7H
+                          legal_name: Aleksey Potemkin
+                          date_of_birth: '1990-05-29'
+                          document_number: C31195855
+                          country: US
+                          version: 1
+                        assignee: 54350110fedcbaf01234ffee
+                        status: cleared
+                        client_user_id: your-db-id-3b24110
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualList
+      description: List previously created watchlist screenings for individuals
+      tags:
+        - Indiv
+        - Individual
+        - Screening
+        - Screenings
+        - Ual
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningIndividualListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividuallist
+  /watchlist_screening/individual/program/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Get Individual Watchlist Screening Program '
+      tags:
+        - Indiv
+        - Individual
+        - Program
+        - Screening
+        - Ual
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualProgramGetResponse
+              examples:
+                example-1:
+                  value:
+                    id: prg_2eRPsDnL66rZ7H
+                    created_at: '2020-07-24T03:26:02Z'
+                    is_rescanning_enabled: true
+                    lists_enabled:
+                      - US_SDN
+                    name: Sample Program
+                    name_sensitivity: balanced
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    is_archived: false
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualProgramGet
+      description: Get an individual watchlist screening program
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/WatchlistScreeningIndividualProgramGetRequest
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualprogramget
+  /watchlist_screening/individual/program/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Individual Watchlist Screening Programs '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualProgramListResponse
+              examples:
+                example-1:
+                  value:
+                    watchlist_programs:
+                      - id: prg_2eRPsDnL66rZ7H
+                        created_at: '2020-07-24T03:26:02Z'
+                        is_rescanning_enabled: true
+                        lists_enabled:
+                          - US_SDN
+                        name: Sample Program
+                        name_sensitivity: balanced
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                        is_archived: false
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualProgramList
+      description: List all individual watchlist screening programs
+      tags:
+        - Indiv
+        - Individual
+        - Program
+        - Programs
+        - Screening
+        - Ual
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/WatchlistScreeningIndividualProgramListRequest
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualprogramlist
+  /watchlist_screening/individual/review/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Review For An Individual Watchlist Screening '
+      operationId: watchlistScreeningIndividualReviewCreate
+      description: >-
+        Create a review for the individual watchlist screening. Reviews are
+        compliance reports created by users in your organization regarding the
+        relevance of potential hits found by Plaid.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/WatchlistScreeningIndividualReviewCreateRequest
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualReviewCreateResponse
+              examples:
+                example-1:
+                  value:
+                    id: rev_aCLNRxK3UVzn2r
+                    confirmed_hits:
+                      - scrhit_52xR9LKo77r1Np
+                    dismissed_hits:
+                      - scrhit_52xR9LKo77r1Np
+                    comment: >-
+                      These look like legitimate matches, rejecting the
+                      customer.
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      tags:
+        - Indiv
+        - Individual
+        - Reviews
+        - Screening
+        - Ual
+        - Watchlist
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualreviewcreate
+  /watchlist_screening/individual/review/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Reviews For Individual Watchlist Screenings '
+      tags:
+        - Indiv
+        - Individual
+        - Reviews
+        - Screening
+        - Screenings
+        - Ual
+        - Watchlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualReviewListResponse
+              examples:
+                example-1:
+                  value:
+                    watchlist_screening_reviews:
+                      - id: rev_aCLNRxK3UVzn2r
+                        confirmed_hits:
+                          - scrhit_52xR9LKo77r1Np
+                        dismissed_hits:
+                          - scrhit_52xR9LKo77r1Np
+                        comment: >-
+                          These look like legitimate matches, rejecting the
+                          customer.
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: watchlistScreeningIndividualReviewList
+      description: List all reviews for the individual watchlist screening.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/WatchlistScreeningIndividualReviewListRequest
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualreviewlist
+  /watchlist_screening/individual/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Update Individual Watchlist Screening '
+      operationId: watchlistScreeningIndividualUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/WatchlistScreeningIndividualUpdateResponse
+              examples:
+                example-1:
+                  value:
+                    id: scr_52xR9LKo77r1Np
+                    search_terms:
+                      watchlist_program_id: prg_2eRPsDnL66rZ7H
+                      legal_name: Aleksey Potemkin
+                      date_of_birth: '1990-05-29'
+                      document_number: C31195855
+                      country: US
+                      version: 1
+                    assignee: 54350110fedcbaf01234ffee
+                    status: cleared
+                    client_user_id: your-db-id-3b24110
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      description: >-
+        Update a specific individual watchlist screening. This endpoint can be
+        used to add additional customer information, correct outdated
+        information, add a reference id, assign the individual to a reviewer,
+        and update which program it is associated with. Please note that you may
+        not update `search_terms` and `status` at the same time since editing
+        `search_terms` may trigger an automatic `status` change.
+      tags:
+        - Indiv
+        - Individual
+        - Screening
+        - Ual
+        - Watchlist
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WatchlistScreeningIndividualUpdateRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#watchlist_screeningindividualupdate
+components:
+  schemas:
+    WatchlistScreeningEntityCreateResponse:
+      description: >-
+        The entity screening object allows you to represent an entity in your
+        system, update its profile, and search for it on various watchlists.
+        Note: Rejected entity screenings will not receive new hits, regardless
+        of entity program configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/EntityWatchlistScreeningID'
+        search_terms:
+          $ref: '#/components/schemas/EntityWatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningEntityGetResponse:
+      description: >-
+        The entity screening object allows you to represent an entity in your
+        system, update its profile, and search for it on various watchlists.
+        Note: Rejected entity screenings will not receive new hits, regardless
+        of entity program configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/EntityWatchlistScreeningID'
+        search_terms:
+          $ref: '#/components/schemas/EntityWatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningEntityHistoryListResponse:
+      description: Paginated list of entity watchlist screenings
+      additionalProperties: true
+      properties:
+        entity_watchlist_screenings:
+          description: List of entity watchlist screening
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreening'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - entity_watchlist_screenings
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningEntityHitListResponse:
+      description: Paginated list of entity watchlist screening hits
+      additionalProperties: true
+      properties:
+        entity_watchlist_screening_hits:
+          description: List of entity watchlist screening hits
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreeningHit'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - entity_watchlist_screening_hits
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningEntityListResponse:
+      description: Paginated list of entity watchlist screenings
+      additionalProperties: true
+      properties:
+        entity_watchlist_screenings:
+          description: List of entity watchlist screening
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreening'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - entity_watchlist_screenings
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningEntityProgramGetResponse:
+      description: >-
+        A program that configures the active lists, search parameters, and other
+        behavior for initial and ongoing screening of entities.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/EntityWatchlistProgramID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        is_rescanning_enabled:
+          description: >-
+            Indicator specifying whether the program is enabled and will perform
+            daily rescans.
+          type: boolean
+          example: true
+        lists_enabled:
+          description: Watchlists enabled for the associated program
+          type: array
+          example:
+            - EU_CON
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/EntityWatchlistCode'
+        name:
+          $ref: '#/components/schemas/EntityWatchlistScreeningProgramName'
+        name_sensitivity:
+          $ref: '#/components/schemas/ProgramNameSensitivity'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        is_archived:
+          $ref: '#/components/schemas/ProgramArchived'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - created_at
+        - is_rescanning_enabled
+        - lists_enabled
+        - name
+        - name_sensitivity
+        - audit_trail
+        - is_archived
+        - request_id
+      type: object
+    WatchlistScreeningEntityProgramListResponse:
+      description: Paginated list of entity watchlist screening programs
+      additionalProperties: true
+      properties:
+        entity_watchlist_programs:
+          description: List of entity watchlist screening programs
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityWatchlistProgram'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - entity_watchlist_programs
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningEntityReviewCreateResponse:
+      description: >-
+        A review submitted by a team member for an entity watchlist screening. A
+        review can be either a comment on the current screening state, actions
+        taken
+
+        against hits attached to the watchlist screening, or both.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/EntityWatchlistScreeningReviewID'
+        confirmed_hits:
+          type: array
+          description: >-
+            Hits marked as a true positive after thorough manual review. These
+            hits will never recur or be updated once dismissed. In most cases,
+            confirmed hits indicate that the customer should be rejected.
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreeningHitID'
+        dismissed_hits:
+          type: array
+          description: >-
+            Hits marked as a false positive after thorough manual review. These
+            hits will never recur or be updated once dismissed.
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreeningHitID'
+        comment:
+          $ref: '#/components/schemas/ReviewComment'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - confirmed_hits
+        - dismissed_hits
+        - comment
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningEntityReviewListResponse:
+      description: Paginated list of entity watchlist screening reviews
+      additionalProperties: true
+      properties:
+        entity_watchlist_screening_reviews:
+          description: List of entity watchlist screening reviews
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityWatchlistScreeningReview'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - entity_watchlist_screening_reviews
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningEntityUpdateResponse:
+      description: >-
+        The entity screening object allows you to represent an entity in your
+        system, update its profile, and search for it on various watchlists.
+        Note: Rejected entity screenings will not receive new hits, regardless
+        of entity program configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/EntityWatchlistScreeningID'
+        search_terms:
+          $ref: '#/components/schemas/EntityWatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningIndividualCreateResponse:
+      description: >-
+        The screening object allows you to represent a customer in your system,
+        update their profile, and search for them on various watchlists. Note:
+        Rejected customers will not receive new hits, regardless of program
+        configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualID'
+        search_terms:
+          $ref: '#/components/schemas/WatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningIndividualGetResponse:
+      description: >-
+        The screening object allows you to represent a customer in your system,
+        update their profile, and search for them on various watchlists. Note:
+        Rejected customers will not receive new hits, regardless of program
+        configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualID'
+        search_terms:
+          $ref: '#/components/schemas/WatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningIndividualHistoryListResponse:
+      description: Paginated list of individual watchlist screenings.
+      additionalProperties: true
+      properties:
+        watchlist_screenings:
+          description: List of individual watchlist screenings
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningIndividual'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - watchlist_screenings
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningIndividualHitListResponse:
+      description: Paginated list of individual watchlist screening hits
+      additionalProperties: true
+      properties:
+        watchlist_screening_hits:
+          description: List of individual watchlist screening hits
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningHit'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - watchlist_screening_hits
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningIndividualListResponse:
+      description: Paginated list of individual watchlist screenings.
+      additionalProperties: true
+      properties:
+        watchlist_screenings:
+          description: List of individual watchlist screenings
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningIndividual'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - watchlist_screenings
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningIndividualProgramGetResponse:
+      description: >-
+        A program that configures the active lists, search parameters, and other
+        behavior for initial and ongoing screening of individuals.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/WatchlistProgramID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        is_rescanning_enabled:
+          description: >-
+            Indicator specifying whether the program is enabled and will perform
+            daily rescans.
+          type: boolean
+          example: true
+        lists_enabled:
+          description: Watchlists enabled for the associated program
+          type: array
+          example:
+            - US_SDN
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/IndividualWatchlistCode'
+        name:
+          $ref: '#/components/schemas/IndividualWatchlistScreeningProgramName'
+        name_sensitivity:
+          $ref: '#/components/schemas/ProgramNameSensitivity'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        is_archived:
+          $ref: '#/components/schemas/ProgramArchived'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - created_at
+        - is_rescanning_enabled
+        - lists_enabled
+        - name
+        - name_sensitivity
+        - audit_trail
+        - is_archived
+        - request_id
+      type: object
+    WatchlistScreeningIndividualProgramListResponse:
+      description: Paginated list of individual watchlist screening programs
+      additionalProperties: true
+      properties:
+        watchlist_programs:
+          description: List of individual watchlist screening programs
+          type: array
+          items:
+            $ref: '#/components/schemas/IndividualWatchlistProgram'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - watchlist_programs
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningIndividualReviewCreateResponse:
+      description: >-
+        A review submitted by a team member for an individual watchlist
+        screening. A review can be either a comment on the current screening
+        state, actions taken
+
+        against hits attached to the watchlist screening, or both.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/WatchlistScreeningReviewID'
+        confirmed_hits:
+          type: array
+          description: >-
+            Hits marked as a true positive after thorough manual review. These
+            hits will never recur or be updated once dismissed. In most cases,
+            confirmed hits indicate that the customer should be rejected.
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningHitID'
+        dismissed_hits:
+          type: array
+          description: >-
+            Hits marked as a false positive after thorough manual review. These
+            hits will never recur or be updated once dismissed.
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningHitID'
+        comment:
+          $ref: '#/components/schemas/ReviewComment'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - confirmed_hits
+        - dismissed_hits
+        - comment
+        - audit_trail
+        - request_id
+      type: object
+    WatchlistScreeningIndividualReviewListResponse:
+      description: Paginated list of screening reviews
+      additionalProperties: true
+      properties:
+        watchlist_screening_reviews:
+          description: List of screening reviews
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistScreeningReview'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - watchlist_screening_reviews
+        - next_cursor
+        - request_id
+      type: object
+    WatchlistScreeningIndividualUpdateResponse:
+      description: >-
+        The screening object allows you to represent a customer in your system,
+        update their profile, and search for them on various watchlists. Note:
+        Rejected customers will not receive new hits, regardless of program
+        configuration.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/WatchlistScreeningIndividualID'
+        search_terms:
+          $ref: '#/components/schemas/WatchlistScreeningSearchTerms'
+        assignee:
+          $ref: '#/components/schemas/DashboardUserIDNullable'
+        status:
+          $ref: '#/components/schemas/WatchlistScreeningStatus'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserIDNullable'
+        audit_trail:
+          $ref: '#/components/schemas/WatchlistScreeningAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - search_terms
+        - assignee
+        - status
+        - client_user_id
+        - audit_trail
+        - request_id
+      type: object

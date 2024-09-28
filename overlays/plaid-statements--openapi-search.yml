@@ -1,0 +1,188 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' statements/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /statements/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Associated
+        - Items
+        - Statements
+      summary: 'Retrieve A List Of All Statements Associated With An Item. '
+      externalDocs:
+        url: /api/products/statements#statementslist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatementsListResponse'
+              examples:
+                example-1:
+                  value:
+                    item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                    institution_id: ins_3
+                    institution_name: Chase
+                    accounts:
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        account_mask: '0000'
+                        account_name: Plaid Saving
+                        account_official_name: Plaid Silver Standard 0.1% Interest Saving
+                        account_subtype: savings
+                        account_type: depository
+                        statements:
+                          - statement_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                            month: 5
+                            year: 2023
+                    request_id: eYupqX1mZkEuQRx
+      operationId: statementsList
+      description: >-
+        The `/statements/list` endpoint retrieves a list of all statements
+        associated with an item.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatementsListRequest'
+        description: ''
+  /statements/download:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Download
+        - Single
+        - Statements
+      summary: 'Retrieve A Single Statement. '
+      externalDocs:
+        url: /api/products/statements#statementsdownload
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatementsDownloadResponse'
+      operationId: statementsDownload
+      description: >-
+        The `/statements/download` endpoint retrieves a single statement PDF in
+        binary format.  The response will contain a `Plaid-Content-Hash` header
+        containing a SHA 256 checksum of the statement. This can be used to
+        verify that the file being sent by Plaid is the same file that was
+        downloaded to your system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatementsDownloadRequest'
+        description: ''
+  /statements/refresh:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Data
+        - Refresh
+        - Statements
+      externalDocs:
+        url: /api/products/statements#statementsrefresh
+      summary: 'Refresh Statements Data. '
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatementsRefreshResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: eYupqX1mZkEuQRx
+      operationId: statementsRefresh
+      description: >-
+        `/statements/refresh` initiates an on-demand extraction to fetch the
+        statements for the provided dates.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatementsRefreshRequest'
+        description: ''
+components:
+  schemas:
+    StatementsListResponse:
+      title: StatementsListResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        StatementsListResponse defines the response schema for
+        `/statements/list`
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatementsAccount'
+        institution_id:
+          description: The Plaid Institution ID associated with the Item.
+          type: string
+        institution_name:
+          description: The name of the institution associated with the Item.
+          type: string
+        item_id:
+          description: >-
+            The Plaid Item ID. The `item_id` is always unique; linking the same
+            account at the same institution twice will result in two Items with
+            different `item_id` values. Like all Plaid identifiers, the
+            `item_id` is case-sensitive.
+          type: string
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - institution_id
+        - institution_name
+        - item_id
+        - request_id
+    StatementsDownloadResponse:
+      title: StatementsDownloadResponse
+      format: binary
+      type: string
+      description: >-
+        StatementsDownloadResponse defines the response schema for
+        `/statements/download`. The response will contain a `Plaid-Content-Hash`
+        header containing a SHA 256 checksum of the statement. This can be used
+        to verify that the file being sent by Plaid is the same file that was
+        downloaded to your systems.
+    StatementsRefreshResponse:
+      title: StatementsRefreshResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        StatementsRefreshResponse defines the response schema for
+        `/statements/refresh`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

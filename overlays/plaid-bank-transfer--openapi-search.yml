@@ -1,0 +1,947 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' bank transfer/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /processor/bank_transfer/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Bank
+        - Processor
+        - Transfers
+      summary: 'Create A Bank Transfer As A Processor '
+      externalDocs:
+        url: /api/processor-partners/#bank_transfercreate
+      operationId: processorBankTransferCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorBankTransferCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer:
+                      account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                      ach_class: ppd
+                      amount: '12.34'
+                      cancellable: true
+                      created: '2020-08-06T17:27:15Z'
+                      custom_tag: my tag
+                      description: Testing2
+                      direction: outbound
+                      failure_reason: null
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      iso_currency_code: USD
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      network: ach
+                      origination_account_id: 11111111-1111-1111-1111-111111111111
+                      status: pending
+                      type: credit
+                      user:
+                        email_address: plaid@plaid.com
+                        legal_name: John Smith
+                        routing_number: '111111111'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/processor/bank_transfer/create` endpoint to initiate a new
+        bank transfer as a processor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorBankTransferCreateRequest'
+  /bank_transfer/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve A Bank Transfer '
+      tags:
+        - Bank
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transferget
+      operationId: bankTransferGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferGetResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer:
+                      account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                      ach_class: ppd
+                      amount: '12.34'
+                      cancellable: true
+                      created: '2020-08-06T17:27:15Z'
+                      custom_tag: my tag
+                      description: Testing2
+                      direction: outbound
+                      failure_reason:
+                        ach_return_code: R13
+                        description: Invalid ACH routing number
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      iso_currency_code: USD
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      network: ach
+                      origination_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      status: pending
+                      type: credit
+                      user:
+                        email_address: plaid@plaid.com
+                        legal_name: John Smith
+                        routing_number: '111111111'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/bank_transfer/get` fetches information about the bank transfer
+        corresponding to the given `bank_transfer_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferGetRequest'
+            examples: {}
+      parameters: []
+  /bank_transfer/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Create A Bank Transfer '
+      tags:
+        - Bank
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transfercreate
+      operationId: bankTransferCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer:
+                      account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                      ach_class: ppd
+                      amount: '12.34'
+                      cancellable: true
+                      created: '2020-08-06T17:27:15Z'
+                      custom_tag: my tag
+                      description: Testing2
+                      direction: outbound
+                      failure_reason: null
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      iso_currency_code: USD
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      network: ach
+                      origination_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      status: pending
+                      type: credit
+                      user:
+                        email_address: plaid@plaid.com
+                        legal_name: John Smith
+                        routing_number: '111111111'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/bank_transfer/create` endpoint to initiate a new bank
+        transfer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferCreateRequest'
+  /bank_transfer/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Bank Transfers '
+      tags:
+        - Bank
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transferlist
+      operationId: bankTransferList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferListResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfers:
+                      - account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                        ach_class: ppd
+                        amount: '12.34'
+                        cancellable: true
+                        created: '2020-08-06T17:27:15Z'
+                        custom_tag: my tag
+                        description: Testing2
+                        direction: outbound
+                        failure_reason:
+                          ach_return_code: R13
+                          description: Invalid ACH routing number
+                        id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        iso_currency_code: USD
+                        metadata:
+                          key1: value1
+                          key2: value2
+                        network: ach
+                        origination_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        originator_client_id: 569ed2f36b3a3a021713abc1
+                        status: pending
+                        type: credit
+                        user:
+                          email_address: plaid@plaid.com
+                          legal_name: John Smith
+                          routing_number: '111111111'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >
+        Use the `/bank_transfer/list` endpoint to see a list of all your bank
+        transfers and their statuses. Results are paginated; use the `count` and
+        `offset` query parameters to retrieve the desired bank transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferListRequest'
+  /bank_transfer/cancel:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Cancel A Bank Transfer '
+      tags:
+        - Bank
+        - Cancels
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transfercancel
+      operationId: bankTransferCancel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferCancelResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/bank_transfer/cancel` endpoint to cancel a bank transfer.  A
+        transfer is eligible for cancelation if the `cancellable` property
+        returned by `/bank_transfer/get` is `true`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferCancelRequest'
+  /bank_transfer/event/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Bank Transfer Events '
+      tags:
+        - Bank
+        - Events
+        - Transfers
+      externalDocs:
+        url: /api/products/auth#bank_transfereventlist
+      operationId: bankTransferEventList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferEventListResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer_events:
+                      - account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                        bank_transfer_amount: '12.34'
+                        bank_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        bank_transfer_iso_currency_code: USD
+                        bank_transfer_type: credit
+                        direction: outbound
+                        event_id: 1
+                        event_type: pending
+                        failure_reason: null
+                        origination_account_id: ''
+                        timestamp: '2020-08-06T17:27:15Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/bank_transfer/event/list` endpoint to get a list of
+        Plaid-initiated ACH or bank transfer events based on specified filter
+        criteria. When using Auth with micro-deposit verification enabled, this
+        endpoint can be used to fetch status updates on ACH micro-deposits. For
+        more details, see [micro-deposit
+        events](https://plaid.com/docs/auth/coverage/microdeposit-events/).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferEventListRequest'
+  /bank_transfer/event/sync:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Sync Bank Transfer Events '
+      tags:
+        - Bank
+        - Events
+        - Sync
+        - Transfers
+      externalDocs:
+        url: /api/products/auth/#bank_transfereventsync
+      operationId: bankTransferEventSync
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferEventSyncResponse'
+              examples:
+                example-1:
+                  value:
+                    bank_transfer_events:
+                      - account_id: 6qL6lWoQkAfNE3mB8Kk5tAnvpX81qefrvvl7B
+                        bank_transfer_amount: '12.34'
+                        bank_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        bank_transfer_iso_currency_code: USD
+                        bank_transfer_type: credit
+                        direction: outbound
+                        event_id: 1
+                        event_type: pending
+                        failure_reason: null
+                        origination_account_id: ''
+                        timestamp: '2020-08-06T17:27:15Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferEventSyncRequest'
+      description: >-
+        `/bank_transfer/event/sync` allows you to request up to the next 25
+        Plaid-initiated bank transfer events that happened after a specific
+        `event_id`. When using Auth with micro-deposit verification enabled,
+        this endpoint can be used to fetch status updates on ACH micro-deposits.
+        For more details, see [micro-deposit
+        events](https://www.plaid.com/docs/auth/coverage/microdeposit-events/).
+  /bank_transfer/sweep/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Retrieve A Sweep '
+      tags:
+        - Bank
+        - Sweep
+        - Transfers
+      externalDocs:
+        url: /api/products/transfer/#bank_transfersweepget
+      operationId: bankTransferSweepGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferSweepGetResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: d5394a4d-0b04-4a02-9f4a-7ca5c0f52f9d
+                      created_at: '2020-08-06T17:27:15Z'
+                      amount: '12.34'
+                      iso_currency_code: USD
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/bank_transfer/sweep/get` endpoint fetches information about the
+        sweep corresponding to the given `sweep_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferSweepGetRequest'
+            examples: {}
+      parameters: []
+  /bank_transfer/sweep/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'List Sweeps '
+      tags:
+        - Bank
+        - Sweep
+        - Sweeps
+        - Transfers
+      externalDocs:
+        url: /api/products/transfer/#bank_transfersweeplist
+      operationId: bankTransferSweepList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferSweepListResponse'
+              examples:
+                example-1:
+                  value:
+                    sweeps:
+                      - id: d5394a4d-0b04-4a02-9f4a-7ca5c0f52f9d
+                        created_at: '2020-08-06T17:27:15Z'
+                        amount: '12.34'
+                        iso_currency_code: USD
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/bank_transfer/sweep/list` endpoint fetches information about the
+        sweeps matching the given filters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferSweepListRequest'
+            examples: {}
+      parameters: []
+  /bank_transfer/balance/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Get Balance Of Your Bank Transfer Account '
+      tags:
+        - Accounts
+        - Balance
+        - Bank
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transferbalanceget
+      operationId: bankTransferBalanceGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferBalanceGetResponse'
+              examples:
+                example-1:
+                  value:
+                    balance:
+                      available: '1721.70'
+                      transactable: '721.70'
+                    origination_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/bank_transfer/balance/get` endpoint to see the available
+        balance in your bank transfer account. Debit transfers increase this
+        balance once their status is posted. Credit transfers decrease this
+        balance when they are created.
+
+
+        The transactable balance shows the amount in your account that you are
+        able to use for transfers, and is essentially your available balance
+        minus your minimum balance.
+
+
+        Note that this endpoint can only be used with FBO accounts, when using
+        Bank Transfers in the Full Service configuration. It cannot be used on
+        your own account when using Bank Transfers in the BTS Platform
+        configuration.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferBalanceGetRequest'
+  /bank_transfer/migrate_account:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Migrate Account Into Bank Transfers '
+      tags:
+        - Accounts
+        - Bank
+        - Migrate
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference#bank_transfermigrate_account
+      operationId: bankTransferMigrateAccount
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransferMigrateAccountResponse'
+              examples:
+                example-1:
+                  value:
+                    access_token: access-sandbox-435beced-94e8-4df3-a181-1dde1cfa19f0
+                    account_id: zvyDgbeeDluZ43AJP6m5fAxDlgoZXDuoy5gjN
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        As an alternative to adding Items via Link, you can also use the
+        `/bank_transfer/migrate_account` endpoint to migrate known account and
+        routing numbers to Plaid Items.  Note that Items created in this way are
+        not compatible with endpoints for other products, such as
+        `/accounts/balance/get`, and can only be used with Bank Transfer
+        endpoints.  If you require access to other endpoints, create the Item
+        through Link instead.  Access to `/bank_transfer/migrate_account` is not
+        enabled by default; to obtain access, contact your Plaid Account
+        Manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BankTransferMigrateAccountRequest'
+  /sandbox/bank_transfer/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Simulate A Bank Transfer Event In Sandbox '
+      tags:
+        - Bank
+        - Events
+        - Sandbox
+        - Simulate
+        - Transfers
+      externalDocs:
+        url: /bank-transfers/reference/#sandboxbank_transfersimulate
+      operationId: sandboxBankTransferSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxBankTransferSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LmHYMwBhZUvsM03
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/bank_transfer/simulate` endpoint to simulate a bank
+        transfer event in the Sandbox environment.  Note that while an event
+        will be simulated and will appear when using endpoints such as
+        `/bank_transfer/event/sync` or `/bank_transfer/event/list`, no
+        transactions will actually take place and funds will not move between
+        accounts, even within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxBankTransferSimulateRequest'
+  /sandbox/bank_transfer/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: 'Manually Fire A Bank Transfer Webhook '
+      tags:
+        - Bank
+        - Fire
+        - Manually
+        - Sandbox
+        - Transfers
+        - Webhooks
+      externalDocs:
+        url: /bank-transfers/reference/#sandboxbank_transferfire_webhook
+      operationId: sandboxBankTransferFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxBankTransferFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/bank_transfer/fire_webhook` endpoint to manually
+        trigger a Bank Transfers webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxBankTransferFireWebhookRequest'
+components:
+  schemas:
+    ProcessorBankTransferCreateResponse:
+      title: ProcessorBankTransferCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/processor/bank_transfer/create`
+      properties:
+        bank_transfer:
+          $ref: '#/components/schemas/BankTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    BankTransferGetResponse:
+      title: BankTransferGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/get`
+      properties:
+        bank_transfer:
+          $ref: '#/components/schemas/BankTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer
+        - request_id
+    BankTransferCreateResponse:
+      title: BankTransferCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/create`
+      properties:
+        bank_transfer:
+          $ref: '#/components/schemas/BankTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer
+        - request_id
+    BankTransferListResponse:
+      title: BankTransferListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/list`
+      properties:
+        bank_transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfers
+        - request_id
+    BankTransferCancelResponse:
+      title: BankTransferCancelResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/cancel`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    BankTransferEventListResponse:
+      title: BankTransferEventListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/event/list`
+      properties:
+        bank_transfer_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankTransferEvent'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer_events
+        - request_id
+    BankTransferEventSyncResponse:
+      title: BankTransferEventSyncResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/event/sync`
+      properties:
+        bank_transfer_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankTransferEvent'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - bank_transfer_events
+        - request_id
+    BankTransferSweepGetResponse:
+      title: BankTransferSweepGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        BankTransferSweepGetResponse defines the response schema for
+        `/bank_transfer/sweep/get`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/BankTransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweep
+        - request_id
+    BankTransferSweepListResponse:
+      title: BankTransferSweepListResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        BankTransferSweepListResponse defines the response schema for
+        `/bank_transfer/sweep/list`
+      properties:
+        sweeps:
+          type: array
+          items:
+            $ref: '#/components/schemas/BankTransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweeps
+        - request_id
+    BankTransferBalanceGetResponse:
+      title: BankTransferBalanceGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/balance/get`
+      properties:
+        balance:
+          $ref: '#/components/schemas/BankTransferBalance'
+        origination_account_id:
+          type: string
+          description: The ID of the origination account that this balance belongs to.
+          nullable: true
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - balance
+        - origination_account_id
+        - request_id
+    BankTransferMigrateAccountResponse:
+      title: BankTransferMigrateAccountResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/bank_transfer/migrate_account`
+      properties:
+        access_token:
+          type: string
+          description: The Plaid `access_token` for the newly created Item.
+        account_id:
+          type: string
+          description: The Plaid `account_id` for the newly created Item.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - access_token
+        - account_id
+        - request_id
+    SandboxBankTransferSimulateResponse:
+      title: SandboxBankTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/bank_transfer/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxBankTransferFireWebhookResponse:
+      title: SandboxBankTransferFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/sandbox/bank_transfer/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

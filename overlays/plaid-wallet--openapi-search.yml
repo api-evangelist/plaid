@@ -1,0 +1,467 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' wallet/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /wallet/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallet
+        - Wallet
+      summary: 'Create An E-wallet '
+      externalDocs:
+        url: /api/products/virtual-accounts/#walletcreate
+      operationId: walletCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    wallet_id: wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    recipient_id: >-
+                      recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6
+                    balance:
+                      iso_currency_code: GBP
+                      current: 123.12
+                      available: 100.96
+                    request_id: 4zlKapIkTm8p5KM
+                    numbers:
+                      bacs:
+                        account: '12345678'
+                        sort_code: '123456'
+                    status: ACTIVE
+      description: Create an e-wallet. The response is the newly created e-wallet object.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletCreateRequest'
+  /wallet/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallet
+        - Fetch
+        - Wallet
+      summary: 'Fetch An E-wallet '
+      externalDocs:
+        url: /api/products/virtual-accounts/#walletget
+      operationId: walletGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletGetResponse'
+              examples:
+                example-1:
+                  value:
+                    wallet_id: wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    recipient_id: >-
+                      recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6
+                    balance:
+                      iso_currency_code: GBP
+                      current: 123.12
+                      available: 100.96
+                    request_id: 4zlKapIkTm8p5KM
+                    numbers:
+                      bacs:
+                        account: '12345678'
+                        sort_code: '123456'
+                      international:
+                        iban: GB33BUKB20201555555555
+                        bic: BUKBGB22
+                    status: ACTIVE
+                example-2:
+                  value:
+                    wallet_id: wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    recipient_id: >-
+                      recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6
+                    balance:
+                      iso_currency_code: EUR
+                      current: 123.12
+                      available: 100.96
+                    request_id: 4zlKapIkTm8p5KM
+                    numbers:
+                      international:
+                        iban: NL91ABNA0417164300
+                        bic: ABNANL2A
+                    status: ACTIVE
+      description: Fetch an e-wallet. The response includes the current balance.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletGetRequest'
+  /wallet/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallets
+        - Fetch
+        - Wallet
+      summary: 'Fetch A List Of E-wallets '
+      externalDocs:
+        url: /api/products/virtual-accounts/#walletlist
+      operationId: walletList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletListResponse'
+              examples:
+                example-1:
+                  value:
+                    wallets:
+                      - wallet_id: >-
+                          wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                        recipient_id: >-
+                          recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6
+                        balance:
+                          iso_currency_code: GBP
+                          current: 123.12
+                          available: 100.96
+                        numbers:
+                          bacs:
+                            account: '12345678'
+                            sort_code: '123456'
+                        status: ACTIVE
+                      - wallet_id: >-
+                          wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a999
+                        recipient_id: >-
+                          recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f7
+                        balance:
+                          iso_currency_code: EUR
+                          current: 456.78
+                          available: 100.96
+                        numbers:
+                          international:
+                            iban: GB22HBUK40221241555626
+                            bic: HBUKGB4B
+                        status: ACTIVE
+                    request_id: 4zlKapIkTm8p5KM
+      description: This endpoint lists all e-wallets in descending order of creation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletListRequest'
+  /wallet/transaction/execute:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallet
+        - Execute
+        - Transactions
+        - Using
+        - Wallet
+      summary: 'Execute A Transaction Using An E-wallet '
+      externalDocs:
+        url: /api/products/virtual-accounts/#wallettransactionexecute
+      operationId: walletTransactionExecute
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransactionExecuteResponse'
+              examples:
+                example-1:
+                  value:
+                    transaction_id: >-
+                      wallet-transaction-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    status: EXECUTED
+                    request_id: 4zlKapIkTm8p5KM
+      description: >-
+        Execute a transaction using the specified e-wallet.
+
+        Specify the e-wallet to debit from, the counterparty to credit to, the
+        idempotency key to prevent duplicate transactions, the amount and
+        reference for the transaction.
+
+        Transactions will settle in seconds to several days, depending on the
+        underlying payment rail.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionExecuteRequest'
+  /wallet/transaction/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallet
+        - Fetch
+        - Transactions
+        - Wallet
+      summary: 'Fetch An E-wallet Transaction '
+      externalDocs:
+        url: /api/products/virtual-accounts/#wallettransactionget
+      operationId: walletTransactionGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransactionGetResponse'
+              examples:
+                example-1:
+                  value:
+                    transaction_id: >-
+                      wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    wallet_id: wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    type: PAYOUT
+                    reference: Payout 99744
+                    amount:
+                      iso_currency_code: GBP
+                      value: 123.12
+                    status: EXECUTED
+                    created_at: '2020-12-02T21:14:54Z'
+                    last_status_update: '2020-12-02T21:15:01Z'
+                    counterparty:
+                      numbers:
+                        bacs:
+                          account: '31926819'
+                          sort_code: '601613'
+                      name: John Smith
+                    request_id: 4zlKapIkTm8p5KM
+                example-2:
+                  value:
+                    transaction_id: >-
+                      wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    wallet_id: wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                    type: PAYOUT
+                    reference: Payout 99744
+                    amount:
+                      iso_currency_code: EUR
+                      value: 456.78
+                    status: EXECUTED
+                    created_at: '2020-12-02T21:14:54Z'
+                    last_status_update: '2020-12-02T21:15:01Z'
+                    counterparty:
+                      numbers:
+                        international:
+                          iban: GB33BUKB20201555555555
+                      name: John Smith
+                    request_id: 4zlKapIkTm8p5KM
+      description: Fetch a specific e-wallet transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionGetRequest'
+  /wallet/transaction/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - E wallet
+        - Transactions
+        - Wallet
+      summary: 'List E-wallet Transactions '
+      externalDocs:
+        url: /api/products/virtual-accounts/#wallettransactionlist
+      operationId: walletTransactionList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WalletTransactionListResponse'
+              examples:
+                example-1:
+                  value:
+                    next_cursor: YWJjMTIzIT8kKiYoKSctPUB
+                    transactions:
+                      - transaction_id: >-
+                          wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                        wallet_id: >-
+                          wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                        type: PAYOUT
+                        reference: Payout 99744
+                        amount:
+                          iso_currency_code: GBP
+                          value: 123.12
+                        status: EXECUTED
+                        created_at: '2020-12-02T21:14:54Z'
+                        last_status_update: '2020-12-02T21:15:01Z'
+                        counterparty:
+                          numbers:
+                            bacs:
+                              account: '31926819'
+                              sort_code: '601613'
+                          name: John Smith
+                      - transaction_id: >-
+                          wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                        wallet_id: >-
+                          wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88
+                        type: PAYOUT
+                        reference: Payout 99744
+                        amount:
+                          iso_currency_code: EUR
+                          value: 456.78
+                        status: EXECUTED
+                        created_at: '2020-12-02T21:14:54Z'
+                        last_status_update: '2020-12-02T21:15:01Z'
+                        counterparty:
+                          numbers:
+                            international:
+                              iban: GB33BUKB20201555555555
+                          name: John Smith
+                    request_id: 4zlKapIkTm8p5KM
+      description: >-
+        This endpoint lists the latest transactions of the specified e-wallet.
+        Transactions are returned in descending order by the `created_at` time.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WalletTransactionListRequest'
+components:
+  schemas:
+    WalletCreateResponse:
+      type: object
+      additionalProperties: true
+      description: WalletCreateResponse defines the response schema for `/wallet/create`
+      allOf:
+        - $ref: '#/components/schemas/Wallet'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - wallet_id
+        - balance
+        - request_id
+    WalletGetResponse:
+      type: object
+      additionalProperties: true
+      description: WalletGetResponse defines the response schema for `/wallet/get`
+      allOf:
+        - $ref: '#/components/schemas/Wallet'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - wallet_id
+        - balance
+        - request_id
+    WalletListResponse:
+      type: object
+      additionalProperties: true
+      description: WalletListResponse defines the response schema for `/wallet/list`
+      properties:
+        wallets:
+          type: array
+          description: An array of e-wallets
+          items:
+            $ref: '#/components/schemas/Wallet'
+        next_cursor:
+          type: string
+          description: >-
+            Cursor used for fetching e-wallets created before the latest
+            e-wallet provided in this response
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - wallets
+        - request_id
+    WalletTransactionExecuteResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        WalletTransactionExecuteResponse defines the response schema for
+        `/wallet/transaction/execute`
+      properties:
+        transaction_id:
+          type: string
+          description: A unique ID identifying the transaction
+        status:
+          $ref: '#/components/schemas/WalletTransactionStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transaction_id
+        - status
+        - request_id
+    WalletTransactionGetResponse:
+      title: WalletTransactionGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        WalletTransactionGetResponse defines the response schema for
+        `/wallet/transaction/get`
+      allOf:
+        - $ref: '#/components/schemas/WalletTransaction'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - transaction_id
+        - reference
+        - type
+        - amount
+        - counterparty
+        - status
+        - created_at
+        - request_id
+    WalletTransactionListResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        WalletTransactionListResponse defines the response schema for
+        `/wallet/transaction/list`
+      properties:
+        transactions:
+          type: array
+          description: >-
+            An array of transactions of an e-wallet, associated with the given
+            `wallet_id`
+          items:
+            $ref: '#/components/schemas/WalletTransaction'
+        next_cursor:
+          type: string
+          description: >-
+            Cursor used for fetching transactions created before the latest
+            transaction provided in this response
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transactions
+        - request_id

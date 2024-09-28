@@ -1,0 +1,804 @@
+weekNumber: 25
+rule:
+  - code: openapi-external-docs-error
+    message: External Docs
+  - code: openapi-openapi-version-300-info
+    message: 3.0.0 Version of OpenAPI
+  - code: openapi-openapi-version-310-info
+    message: 3.1.0 Version of OpenAPI
+  - code: openapi-info-license-error
+    message: License Object
+  - code: openapi-info-title-info
+    message: Info Title
+  - code: openapi-info-title-upper-case-warn
+    message: Info Title Upper Case
+  - code: openapi-info-version-info
+    message: Info Version
+  - code: openapi-info-description-info
+    message: Info Description
+  - code: openapi-info-contact-email-error
+    message: Contact Email
+  - code: openapi-info-contact-info
+    message: Contact Object
+  - code: openapi-info-contact-name-info
+    message: Contact Name
+  - code: openapi-info-contact-url-info
+    message: Contact URL
+  - code: openapi-info-terms-of-service-info
+    message: Terms of Service
+  - code: openapi-tags-object-info
+    message: Tag Object
+  - code: openapi-tags-one-error
+    message: One Tag
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/ProcessorBankTransferCreateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: invalid-ref
+    message: '''#/components/schemas/PlaidError'' does not exist'
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/ProcessorBankTransferCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferGetResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferCreateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferCreateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferListResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferListRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferCancelResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferCancelRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferEventListResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferEventListRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferEventSyncResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferEventSyncRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferSweepGetResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferSweepGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferSweepListResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferSweepListRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferBalanceGetResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferBalanceGetRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferMigrateAccountResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/BankTransferMigrateAccountRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankTransferSimulateResponse'' does not exist'
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-operations-description-length-error
+    message: Operation Description Length
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: '''#/components/schemas/SandboxBankTransferSimulateRequest'' does not exist'
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-no-api-in-path-error
+    message: No API in Path
+  - code: openapi-no-path-trailing-slash-info
+    message: Path Trailing Slash
+  - code: openapi-path-description-warn
+    message: Path Description
+  - code: openapi-version-in-path-info
+    message: Version in Path
+  - code: openapi-operation-security-definitions-error
+    message: Operation Security Definition
+  - code: openapi-operations-summary-info
+    message: Operation Summary
+  - code: openapi-operations-summary-period-none-info
+    message: Operation Summary Period
+  - code: openapi-operations-tags-info
+    message: Operation Tags
+  - code: openapi-operations-operation-ids-info
+    message: Operation ID.
+  - code: openapi-response-post-201-status-code-error
+    message: POST 201 Status Code
+  - code: openapi-response-post-400-status-code-warn
+    message: 400 Status Code for POST Responses
+  - code: openapi-response-post-404-status-code-warn
+    message: 404 Status Code for POST Responses
+  - code: openapi-response-post-500-status-code-error
+    message: 500 Status Code for POST Responses
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxBankTransferFireWebhookResponse' does not
+      exist
+  - code: openapi-response-get-default-status-code-info
+    message: Response Has Default Status Code
+  - code: openapi-response-get-default-content-info
+    message: Default Content
+  - code: openapi-response-get-default-media-type-info
+    message: JSON Media Type Default
+  - code: openapi-response-get-default-media-type-schema-info
+    message: Schema Default
+  - code: openapi-response-get-default-schema-components-warn
+    message: Default Response Schema Components
+  - code: openapi-response-get-default-schema-ref-info
+    message: Default Response Schema Ref
+  - code: openapi-operations-description-info
+    message: Operation Description
+  - code: openapi-request-body-on-post-info
+    message: Request Body POST
+  - code: openapi-request-body-content-on-post-info
+    message: Request Body Content POST
+  - code: openapi-request-body-have-content-info
+    message: Request Body Content
+  - code: openapi-request-body-have-application-json-info
+    message: Request Body Application JSON
+  - code: openapi-request-body-json-media-type-on-post-info
+    message: JSON Media Type POST
+  - code: openapi-request-body-have-schema-info
+    message: Request Body Schema
+  - code: invalid-ref
+    message: >-
+      '#/components/schemas/SandboxBankTransferFireWebhookRequest' does not
+      exist
+  - code: openapi-request-body-schema-ref-info
+    message: Request Body Schema Ref
+  - code: openapi-security-schemes-error
+    message: Security Scheme

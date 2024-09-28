@@ -1,0 +1,799 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' payment initiation/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /payment_initiation/recipient/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+        - Recipient
+      summary: 'Create Payment Recipient '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationrecipientcreate
+      operationId: paymentInitiationRecipientCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationRecipientCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    recipient_id: recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6
+                    request_id: 4zlKapIkTm8p5KM
+      description: >
+        Create a payment recipient for payment initiation.  The recipient must
+        be in Europe, within a country that is a member of the Single Euro
+        Payment Area (SEPA) or a non-Eurozone country
+        [supported](https://plaid.com/global) by Plaid. For a standing order
+        (recurring) payment, the recipient must be in the UK.
+
+
+        It is recommended to use `bacs` in the UK and `iban` in EU.
+
+
+        The endpoint is idempotent: if a developer has already made a request
+        with the same payment details, Plaid will return the same
+        `recipient_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationRecipientCreateRequest'
+  /payment_initiation/payment/reverse:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Existing
+        - Initiation
+        - Payments
+        - Reverse
+      summary: 'Reverse An Existing Payment '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationpaymentreverse
+      operationId: paymentInitiationPaymentReverse
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationPaymentReverseResponse'
+              examples:
+                example-1:
+                  value:
+                    refund_id: >-
+                      wallet-transaction-id-production-c5f8cd31-6cae-4cad-9b0d-f7c10be9cc4b
+                    request_id: HtlKzBX0fMeF7mU
+                    status: INITIATED
+      description: >
+        Reverse a settled payment from a Plaid virtual account.
+
+
+        The original payment must be in a settled state to be refunded.
+
+        To refund partially, specify the amount as part of the request.
+
+        If the amount is not specified, the refund amount will be equal to all
+
+        of the remaining payment amount that has not been refunded yet.
+
+
+        The refund will go back to the source account that initiated the
+        payment.
+
+        The original payment must have been initiated to a Plaid virtual account
+
+        so that this account can be used to initiate the refund.
+
+
+        Providing counterparty information such as date of birth and address
+        increases 
+
+        the likelihood of refund being successful without human intervention.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationPaymentReverseRequest'
+  /payment_initiation/recipient/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+        - Recipient
+      summary: 'Get Payment Recipient '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationrecipientget
+      operationId: paymentInitiationRecipientGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationRecipientGetResponse'
+              examples:
+                example-1:
+                  value:
+                    recipient_id: recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6
+                    name: Wonder Wallet
+                    iban: GB29NWBK60161331926819
+                    address:
+                      street:
+                        - 96 Guild Street
+                        - 9th Floor
+                      city: London
+                      postal_code: SE14 8JW
+                      country: GB
+                    request_id: 4zlKapIkTm8p5KM
+      description: Get details about a payment recipient you have previously created.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationRecipientGetRequest'
+  /payment_initiation/recipient/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+        - Recipient
+        - Recipients
+      summary: 'List Payment Recipients '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationrecipientlist
+      operationId: paymentInitiationRecipientList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationRecipientListResponse'
+              examples:
+                example-1:
+                  value:
+                    recipients:
+                      - recipient_id: >-
+                          recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6
+                        name: Wonder Wallet
+                        iban: GB29NWBK60161331926819
+                        address:
+                          street:
+                            - 96 Guild Street
+                            - 9th Floor
+                          city: London
+                          postal_code: SE14 8JW
+                          country: GB
+                    request_id: 4zlKapIkTm8p5KM
+      description: >-
+        The `/payment_initiation/recipient/list` endpoint list the payment
+        recipients that you have previously created.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationRecipientListRequest'
+  /payment_initiation/payment/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+      summary: 'Create A Payment '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationpaymentcreate
+      operationId: paymentInitiationPaymentCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationPaymentCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    payment_id: payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    status: PAYMENT_STATUS_INPUT_NEEDED
+                    request_id: 4ciYVmesrySiUAB
+      description: >-
+        After creating a payment recipient, you can use the
+        `/payment_initiation/payment/create` endpoint to create a payment to
+        that recipient.  Payments can be one-time or standing order (recurring)
+        and can be denominated in either EUR, GBP or other chosen
+        [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency). 
+        If making domestic GBP-denominated payments, your recipient must have
+        been created with BACS numbers. In general, EUR-denominated payments
+        will be sent via SEPA Credit Transfer, GBP-denominated payments will be
+        sent via the Faster Payments network and for non-Eurozone markets
+        typically via the local payment scheme, but the payment network used
+        will be determined by the institution. Payments sent via Faster Payments
+        will typically arrive immediately, while payments sent via SEPA Credit
+        Transfer or other local payment schemes will typically arrive in one
+        business day.
+
+
+        Standing orders (recurring payments) must be denominated in GBP and can
+        only be sent to recipients in the UK. Once created, standing order
+        payments cannot be modified or canceled via the API. An end user can
+        cancel or modify a standing order directly on their banking application
+        or website, or by contacting the bank. Standing orders will follow the
+        payment rules of the underlying rails (Faster Payments in UK). Payments
+        can be sent Monday to Friday, excluding bank holidays. If the
+        pre-arranged date falls on a weekend or bank holiday, the payment is
+        made on the next working day. It is not possible to guarantee the exact
+        time the payment will reach the recipient’s account, although at least
+        90% of standing order payments are sent by 6am.
+
+
+        In the Development environment, payments must be below 5 GBP or other
+        chosen
+        [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency).
+        For details on any payment limits in Production, contact your Plaid
+        Account Manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationPaymentCreateRequest'
+        description: ''
+  /payment_initiation/payment/token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+        - Tokens
+      deprecated: true
+      summary: 'Create Payment Token '
+      externalDocs:
+        url: /link/maintain-legacy-integration/#creating-a-payment-token
+      operationId: createPaymentToken
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/PaymentInitiationPaymentTokenCreateResponse
+              examples:
+                example-1:
+                  value:
+                    payment_token: payment-token-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    payment_token_expiration_time: '2020-01-01T00:00:00Z'
+                    request_id: 4ciYVmesrySiUAB
+      description: >-
+        The `/payment_initiation/payment/token/create` endpoint has been
+        deprecated. New Plaid customers will be unable to use this endpoint, and
+        existing customers are encouraged to migrate to the newer,
+        `link_token`-based flow. The recommended flow is to provide the
+        `payment_id` to `/link/token/create`, which returns a `link_token` used
+        to initialize Link.
+
+
+        The `/payment_initiation/payment/token/create` is used to create a
+        `payment_token`, which can then be used in Link initialization to enter
+        a payment initiation flow. You can only use a `payment_token` once. If
+        this attempt fails, the end user aborts the flow, or the token expires,
+        you will need to create a new payment token. Creating a new payment
+        token does not require end user input.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationPaymentTokenCreateRequest'
+  /payment_initiation/consent/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Consent
+        - Initiation
+        - Payments
+      summary: 'Create Payment Consent '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationconsentcreate
+      operationId: paymentInitiationConsentCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationConsentCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    consent_id: consent-id-production-feca8a7a-5491-4444-9999-f3062bb735d3
+                    status: UNAUTHORISED
+                    request_id: 4ciYmmesdqSiUAB
+      description: >-
+        The `/payment_initiation/consent/create` endpoint is used to create a
+        payment consent, which can be used to initiate payments on behalf of the
+        user. Payment consents are created with `UNAUTHORISED` status by default
+        and must be authorised by the user before payments can be initiated.
+
+
+        Consents can be limited in time and scope, and have constraints that
+        describe limitations for payments.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationConsentCreateRequest'
+  /payment_initiation/consent/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Consent
+        - Initiation
+        - Payments
+      summary: 'Get Payment Consent '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationconsentget
+      operationId: paymentInitiationConsentGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationConsentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4ciYuuesdqSiUAB
+                    consent_id: consent-id-production-feca8a7a-5491-4aef-9298-f3062bb735d3
+                    status: AUTHORISED
+                    created_at: '2021-10-30T15:26:48Z'
+                    recipient_id: >-
+                      recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6
+                    reference: ref-00001
+                    constraints:
+                      valid_date_time:
+                        from: '2021-12-25T11:12:13Z'
+                        to: '2022-12-31T15:26:48Z'
+                      max_payment_amount:
+                        currency: GBP
+                        value: 100
+                      periodic_amounts:
+                        - amount:
+                            currency: GBP
+                            value: 300
+                          interval: WEEK
+                          alignment: CALENDAR
+                    scopes:
+                      - ME_TO_ME
+      description: >-
+        The `/payment_initiation/consent/get` endpoint can be used to check the
+        status of a payment consent, as well as to receive basic information
+        such as recipient and constraints.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationConsentGetRequest'
+  /payment_initiation/consent/revoke:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Consent
+        - Initiation
+        - Payments
+        - Revoke
+      summary: 'Revoke Payment Consent '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationconsentrevoke
+      operationId: paymentInitiationConsentRevoke
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationConsentRevokeResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4ciYaaesdqSiUAB
+      description: >-
+        The `/payment_initiation/consent/revoke` endpoint can be used to revoke
+        the payment consent. Once the consent is revoked, it is not possible to
+        initiate payments using it.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationConsentRevokeRequest'
+  /payment_initiation/consent/payment/execute:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Consent
+        - Execute
+        - Initiation
+        - Payments
+        - Single
+        - Using
+      summary: 'Execute A Single Payment Using Consent '
+      externalDocs:
+        url: >-
+          /api/products/payment-initiation/#payment_initiationconsentpaymentexecute
+      operationId: paymentInitiationConsentPaymentExecute
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/PaymentInitiationConsentPaymentExecuteResponse
+              examples:
+                example-1:
+                  value:
+                    payment_id: payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    request_id: 4ciYccesdqSiUAB
+                    status: PAYMENT_STATUS_INITIATED
+      description: >-
+        The `/payment_initiation/consent/payment/execute` endpoint can be used
+        to execute payments using payment consent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/PaymentInitiationConsentPaymentExecuteRequest
+  /payment_initiation/payment/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Details
+        - Initiation
+        - Payments
+      summary: 'Get Payment Details '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationpaymentget
+      operationId: paymentInitiationPaymentGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationPaymentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    payment_id: payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                    payment_token: payment-token-sandbox-c6a26505-42b4-46fe-8ecf-bf9edcafbebb
+                    reference: Account Funding 99744
+                    amount:
+                      currency: GBP
+                      value: 100
+                    status: PAYMENT_STATUS_INPUT_NEEDED
+                    last_status_update: '2019-11-06T21:10:52Z'
+                    recipient_id: recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6
+                    bacs:
+                      account: '31926819'
+                      account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                      sort_code: '601613'
+                    iban: null
+                    request_id: aEAQmewMzlVa1k6
+      description: >-
+        The `/payment_initiation/payment/get` endpoint can be used to check the
+        status of a payment, as well as to receive basic information such as
+        recipient and payment amount. In the case of standing orders, the
+        `/payment_initiation/payment/get` endpoint will provide information
+        about the status of the overall standing order itself; the API cannot be
+        used to retrieve payment status for individual payments within a
+        standing order.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationPaymentGetRequest'
+        description: ''
+  /payment_initiation/payment/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - Initiation
+        - Payments
+      summary: 'List Payments '
+      externalDocs:
+        url: /api/products/payment-initiation/#payment_initiationpaymentlist
+      operationId: paymentInitiationPaymentList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentInitiationPaymentListResponse'
+              examples:
+                example-1:
+                  value:
+                    payments:
+                      - payment_id: >-
+                          payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3
+                        reference: Account Funding 99744
+                        amount:
+                          currency: GBP
+                          value: 100
+                        status: PAYMENT_STATUS_INPUT_NEEDED
+                        last_status_update: '2019-11-06T21:10:52Z'
+                        recipient_id: >-
+                          recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6
+                        bacs:
+                          account: '31926819'
+                          account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                          sort_code: '601613'
+                        iban: null
+                    next_cursor: '2020-01-01T00:00:00Z'
+                    request_id: aEAQmewMzlVa1k6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentInitiationPaymentListRequest'
+      description: >-
+        The `/payment_initiation/payment/list` endpoint can be used to retrieve
+        all created payments. By default, the 10 most recent payments are
+        returned. You can request more payments and paginate through the results
+        using the optional `count` and `cursor` parameters.
+components:
+  schemas:
+    PaymentInitiationRecipientCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationRecipientCreateResponse defines the response schema for
+        `/payment_initation/recipient/create`
+      properties:
+        recipient_id:
+          type: string
+          description: A unique ID identifying the recipient
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - recipient_id
+        - request_id
+    PaymentInitiationPaymentReverseResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationPaymentReverseResponse defines the response schema for
+        `/payment_initation/payment/reverse`
+      properties:
+        refund_id:
+          type: string
+          description: A unique ID identifying the refund
+        status:
+          $ref: '#/components/schemas/WalletTransactionStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - refund_id
+        - request_id
+        - status
+    PaymentInitiationRecipientGetResponse:
+      additionalProperties: true
+      description: >-
+        PaymentInitiationRecipientGetResponse defines the response schema for
+        `/payment_initiation/recipient/get`
+      allOf:
+        - $ref: '#/components/schemas/PaymentInitiationRecipient'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - recipient_id
+        - name
+        - request_id
+    PaymentInitiationRecipientListResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationRecipientListResponse defines the response schema for
+        `/payment_initiation/recipient/list`
+      properties:
+        recipients:
+          type: array
+          description: An array of payment recipients created for Payment Initiation
+          items:
+            $ref: '#/components/schemas/PaymentInitiationRecipient'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - recipients
+        - request_id
+    PaymentInitiationPaymentCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationPaymentCreateResponse defines the response schema for
+        `/payment_initiation/payment/create`
+      properties:
+        payment_id:
+          type: string
+          description: A unique ID identifying the payment
+        status:
+          $ref: '#/components/schemas/PaymentInitiationPaymentCreateStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - payment_id
+        - status
+        - request_id
+    PaymentInitiationPaymentTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationPaymentTokenCreateResponse defines the response schema
+        for `/payment_initiation/payment/token/create`
+      properties:
+        payment_token:
+          type: string
+          description: >-
+            A `payment_token` that can be provided to Link initialization to
+            enter the payment initiation flow
+        payment_token_expiration_time:
+          format: date-time
+          type: string
+          description: >-
+            The date and time at which the token will expire, in [ISO
+            8601](https://wikipedia.org/wiki/ISO_8601) format. A `payment_token`
+            expires after 15 minutes.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - payment_token
+        - payment_token_expiration_time
+        - request_id
+    PaymentInitiationConsentCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationConsentCreateResponse defines the response schema for
+        `/payment_initiation/consent/create`
+      properties:
+        consent_id:
+          type: string
+          description: A unique ID identifying the payment consent.
+        status:
+          $ref: '#/components/schemas/PaymentInitiationConsentStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - consent_id
+        - status
+        - request_id
+    PaymentInitiationConsentGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationConsentGetResponse defines the response schema for
+        `/payment_initation/consent/get`
+      allOf:
+        - $ref: '#/components/schemas/PaymentInitiationConsent'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    PaymentInitiationConsentRevokeResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationConsentRevokeResponse defines the response schema for
+        `/payment_initation/consent/revoke`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+    PaymentInitiationConsentPaymentExecuteResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationConsentPaymentExecuteResponse defines the response
+        schema for `/payment_initiation/consent/payment/execute`
+      properties:
+        payment_id:
+          type: string
+          description: A unique ID identifying the payment
+        status:
+          $ref: '#/components/schemas/PaymentInitiationPaymentStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - payment_id
+        - status
+        - request_id
+    PaymentInitiationPaymentGetResponse:
+      additionalProperties: true
+      description: >-
+        PaymentInitiationPaymentGetResponse defines the response schema for
+        `/payment_initation/payment/get`
+      allOf:
+        - $ref: '#/components/schemas/PaymentInitiationPayment'
+        - type: object
+          properties:
+            request_id:
+              $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+        - payment_id
+        - amount
+        - status
+        - recipient_id
+        - reference
+        - last_status_update
+        - bacs
+        - iban
+    PaymentInitiationPaymentListResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        PaymentInitiationPaymentListResponse defines the response schema for
+        `/payment_initiation/payment/list`
+      properties:
+        payments:
+          type: array
+          description: >-
+            An array of payments that have been created, associated with the
+            given `client_id`.
+          items:
+            $ref: '#/components/schemas/PaymentInitiationPayment'
+        next_cursor:
+          nullable: true
+          format: date-time
+          type: string
+          description: >-
+            The value that, when used as the optional `cursor` parameter to
+            `/payment_initiation/payment/list`, will return the next unreturned
+            payment as its first payment.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - payments
+        - next_cursor
+        - request_id
