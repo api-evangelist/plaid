@@ -81,7 +81,7 @@ apis:
   - name: Plaid Consumer Report API
     description: >-
       Consumer Report provides lenders, property managers, and buy now pay later
-      providers real-time visibility into a borrower’s finances, along with
+      providers real-time visibility into a borrower's finances, along with
       signals only made possible through our vantage point as the leading open
       banking network.
     tags: []
@@ -153,7 +153,7 @@ apis:
       - URL
       - Unlink
       - Users
-      - User’s
+      - User's
       - Verification
       - Webhooks
     properties:
@@ -1231,4 +1231,3 @@ overlays:
     url: /overlays/api-evangelist-ratings.yml
 aid: plaid
 score: 1200
-
