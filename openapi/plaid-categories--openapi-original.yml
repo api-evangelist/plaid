@@ -1,0 +1,173 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' categories/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /categories/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      security: []
+      tags:
+        - plaid
+      summary: Get categories
+      externalDocs:
+        url: /api/products/transactions/#categoriesget
+      operationId: categoriesGet
+      description: >-
+        Send a request to the `/categories/get` endpoint to get detailed
+        information on categories returned by Plaid. This endpoint does not
+        require authentication.
+
+
+        All implementations are recommended to use the newer
+        `personal_finance_category` taxonomy instead of the older `category`
+        taxonomy supported by this endpoint. The [`personal_finance_category
+        taxonomy` CSV
+        file](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv)
+        is available for download and is not accessible via API.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesGetResponse'
+              examples:
+                example-1:
+                  value:
+                    categories:
+                      - category_id: '10000000'
+                        group: special
+                        hierarchy:
+                          - Bank Fees
+                      - category_id: '10001000'
+                        group: special
+                        hierarchy:
+                          - Bank Fees
+                          - Overdraft
+                      - category_id: '12001000'
+                        group: place
+                        hierarchy:
+                          - Community
+                          - Animal Shelter
+                    request_id: ixTBLZGvhD4NnmB
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriesGetRequest'
+components:
+  schemas:
+    CategoriesGetResponse:
+      type: object
+      additionalProperties: true
+      description: CategoriesGetResponse defines the response schema for `/categories/get`
+      properties:
+        categories:
+          type: array
+          description: An array of all of the transaction categories used by Plaid.
+          items:
+            $ref: '#/components/schemas/Category'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - categories
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message

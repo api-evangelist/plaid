@@ -1,0 +1,241 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' link delivery/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /link_delivery/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create Hosted Link session
+      externalDocs:
+        url: /assets/waitlist/hosted-link/
+      operationId: linkDeliveryCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkDeliveryCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    link_delivery_url: >-
+                      http://secure.plaid.com/99ace160-3cf7-4e51-a083-403633425815
+                    link_delivery_session_id: 99ace160-3cf7-4e51-a083-403633425815
+                    request_id: 4ciYmmesdqSiUAB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/link_delivery/create` endpoint to create a Hosted Link
+        session.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkDeliveryCreateRequest'
+  /link_delivery/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get Hosted Link session
+      externalDocs:
+        url: /assets/waitlist/hosted-link/
+      operationId: linkDeliveryGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkDeliveryGetResponse'
+              examples:
+                example-1:
+                  value:
+                    status: COMPLETED
+                    created_at: '2019-10-12T07:20:50.52Z'
+                    public_tokens:
+                      - public-sandbox-b0e2c4ee-a763-4df5-bfe9-46a46bce993d
+                    completed_at: '2019-10-12T07:21:50.52Z'
+                    request_id: 4ciYmmesdqSiUAB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/link_delivery/get` endpoint to get the status of a Hosted Link
+        session.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinkDeliveryGetRequest'
+components:
+  schemas:
+    LinkDeliveryCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        LinkDeliveryCreateResponse defines the response schema for
+        `/link_delivery/create`
+      properties:
+        link_delivery_url:
+          type: string
+          description: >-
+            The URL to the Hosted Link session, which will be delivered by the
+            specified delivery method.
+        link_delivery_session_id:
+          type: string
+          description: >-
+            The ID for the Hosted Link session. Same as the `link_token` string
+            excluding the "link-{env}-" prefix.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - link_delivery_url
+        - link_delivery_session_id
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    LinkDeliveryGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        LinkDeliveryGetRequest defines the response schema for
+        `/link_delivery/get`
+      properties:
+        status:
+          $ref: '#/components/schemas/LinkDeliverySessionStatus'
+        created_at:
+          type: string
+          format: date-time
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the time the given Hosted Link
+            session was created at.
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
+            (`YYYY-MM-DDTHH:mm:ssZ`) indicating the time the given Hosted Link
+            session was completed at.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        access_tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessToken'
+          nullable: true
+          description: An array of access tokens associated with the Hosted Link session.
+        item_ids:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemId'
+          nullable: true
+          description: An array of `item_id`s associated with the Hosted Link session.
+      required:
+        - status
+        - created_at
+        - request_id

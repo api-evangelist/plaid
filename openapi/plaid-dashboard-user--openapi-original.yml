@@ -1,0 +1,129 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' dashboard user/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /dashboard_user/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a dashboard user
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardUserGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: 54350110fedcbaf01234ffee
+                    created_at: '2020-07-24T03:26:02Z'
+                    email_address: user@example.com
+                    status: active
+                    request_id: saKrIBuEB9qJZng
+      operationId: dashboardUserGet
+      description: Retrieve information about a dashboard user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashboardUserGetRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#dashboard_userget
+  /dashboard_user/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List dashboard users
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardUserListResponse'
+              examples:
+                example-1:
+                  value:
+                    dashboard_users:
+                      - id: 54350110fedcbaf01234ffee
+                        created_at: '2020-07-24T03:26:02Z'
+                        email_address: user@example.com
+                        status: active
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: dashboardUserList
+      description: List all dashboard users associated with your account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashboardUserListRequest'
+        required: true
+      externalDocs:
+        url: /api/products/monitor/#dashboard_userlist
+components:
+  schemas:
+    DashboardUserGetResponse:
+      description: >-
+        Account information associated with a team member with access to the
+        Plaid dashboard.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/DashboardUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        email_address:
+          $ref: '#/components/schemas/EmailAddress'
+        status:
+          $ref: '#/components/schemas/DashboardUserStatus'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - created_at
+        - email_address
+        - status
+        - request_id
+      type: object
+    DashboardUserListResponse:
+      description: Paginated list of dashboard users
+      additionalProperties: true
+      properties:
+        dashboard_users:
+          description: List of dashboard users
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardUser'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - dashboard_users
+        - next_cursor
+        - request_id
+      type: object

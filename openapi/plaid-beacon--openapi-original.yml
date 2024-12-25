@@ -1,0 +1,1109 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' beacon/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /beacon/account_risk/v1/evaluate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    x-hidden-from-docs: true
+    post:
+      tags:
+        - plaid
+      summary: Evaluate risk of a bank account
+      externalDocs:
+        url: none
+      operationId: beaconAccountRiskEvaluate
+      description: >-
+        Use `/beacon/account_risk/v1/evaluate` to get risk insights for a linked
+        account.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconAccountRiskEvaluateResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: mbVr0axYMECQ07NJ5gXnHRM9DeD2RJCxm9roR
+                        attributes:
+                          days_since_first_plaid_connection: 510
+                          plaid_connections_count_7d: 6
+                          plaid_connections_count_30d: 7
+                          total_plaid_connections_count: 15
+                        subtype: checking
+                        type: depository
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconAccountRiskEvaluateRequest'
+  /beacon/user/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserCreateRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserCreate
+      description: >-
+        Create and scan a Beacon User against your Beacon Program, according to
+        your program's settings.
+
+
+        When you submit a new user to `/beacon/user/create`, several checks are
+        performed immediately:
+
+          - The user's PII (provided within the `user` object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of `pending_review`.
+
+          - The user's PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.
+
+          - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.
+      externalDocs:
+        url: /api/products/beacon/#beaconusercreate
+  /beacon/user/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserGetRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserGet
+      description: >
+        Fetch a Beacon User.
+
+
+        The Beacon User is returned with all of their associated information and
+        a `status` based on the Beacon Network duplicate record and fraud
+        checks.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserget
+  /beacon/user/review:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Review a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserReviewRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserReview
+      description: >-
+        Update the status of a Beacon User.
+
+
+        When updating a Beacon User's status via this endpoint, Plaid validates
+        that the status change is consistent with the related state for this
+        Beacon User. Specifically, we will check:
+
+
+        1. Whether there are any associated Beacon Reports connected to the
+        Beacon User, and
+
+        2. Whether there are any confirmed Beacon Report Syndications connected
+        to the Beacon User.
+
+
+        When updating a Beacon User's status to "rejected", we enforce that
+        either a Beacon Report has been created for the Beacon User or a Beacon
+        Report Syndication has been confirmed.
+
+        When updating a Beacon User's status to "cleared", we enforce that there
+        are no active Beacon Reports or confirmed Beacon Report Syndications
+        associated with the user. If you previously created a Beacon Report for
+        this user, you must delete it before updating the Beacon User's status
+        to "cleared".
+
+        There are no restrictions on updating a Beacon User's status to
+        "pending_review".
+
+
+        If these conditions are not met, the request will be rejected with an
+        error explaining the issue.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserreview
+  /beacon/report/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a Beacon Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconReportCreateRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconReportCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becrpt_11111111111111
+                    beacon_user_id: becusr_42cF1MNo42r9Xj
+                    created_at: '2020-07-24T03:26:02Z'
+                    type: first_party
+                    fraud_date: '1990-05-29'
+                    fraud_amount:
+                      iso_currency_code: USD
+                      value: 100
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconReportCreate
+      description: Create a fraud report for a given Beacon User.
+      externalDocs:
+        url: /api/products/beacon/#beaconreportcreate
+  /beacon/report/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List Beacon Reports for a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconReportListRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconReportListResponse'
+              examples:
+                example-1:
+                  value:
+                    beacon_reports:
+                      - id: becrpt_11111111111111
+                        beacon_user_id: becusr_42cF1MNo42r9Xj
+                        created_at: '2020-07-24T03:26:02Z'
+                        type: first_party
+                        fraud_date: '1990-05-29'
+                        fraud_amount:
+                          iso_currency_code: USD
+                          value: 100
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconReportList
+      description: >-
+        Use the `/beacon/report/list` endpoint to view all Beacon Reports you
+        created for a specific Beacon User. The reports returned by this
+        endpoint are exclusively reports you created for a specific user. A
+        Beacon User can only have one active report at a time, but a new report
+        can be created if a previous report has been deleted. The results from
+        this endpoint are paginated; the `next_cursor` field will be populated
+        if there is another page of results that can be retrieved. To fetch the
+        next page, pass the `next_cursor` value as the `cursor` parameter in the
+        next request.
+      externalDocs:
+        url: /api/products/beacon/#beaconreportlist
+  /beacon/report_syndication/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List Beacon Report Syndications for a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconReportSyndicationListRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconReportSyndicationListResponse'
+              examples:
+                example-1:
+                  value:
+                    beacon_report_syndications:
+                      - id: becrsn_11111111111111
+                        report:
+                          id: becrpt_11111111111111
+                          created_at: '2020-07-24T03:26:02Z'
+                          type: first_party
+                          fraud_date: '1990-05-29'
+                        analysis:
+                          address: match
+                          date_of_birth: match
+                          email_address: match
+                          name: match
+                          id_number: match
+                          ip_address: match
+                          phone_number: match
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconReportSyndicationList
+      description: >-
+        Use the `/beacon/report_syndication/list` endpoint to view all Beacon
+        Reports that have been syndicated to a specific Beacon User. This
+        endpoint returns Beacon Report Syndications which are references to
+        Beacon Reports created either by you, or another Beacon customer, that
+        matched the specified Beacon User. A Beacon User can have multiple
+        active Beacon Report Syndications at once. The results from this
+        endpoint are paginated; the `next_cursor` field will be populated if
+        there is another page of results that can be retrieved. To fetch the
+        next page, pass the `next_cursor` value as the `cursor` parameter in the
+        next request.
+      externalDocs:
+        url: /api/products/beacon/#beaconreportsyndicationlist
+  /beacon/report/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a Beacon Report
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconReportGetRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconReportGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becrpt_11111111111111
+                    beacon_user_id: becusr_42cF1MNo42r9Xj
+                    created_at: '2020-07-24T03:26:02Z'
+                    type: first_party
+                    fraud_date: '1990-05-29'
+                    fraud_amount:
+                      iso_currency_code: USD
+                      value: 100
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconReportGet
+      description: Returns a Beacon report for a given Beacon report id.
+      externalDocs:
+        url: /api/products/beacon/#beaconreportget
+  /beacon/report_syndication/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a Beacon Report Syndication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconReportSyndicationGetRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconReportSyndicationGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becrsn_11111111111111
+                    report:
+                      id: becrpt_11111111111111
+                      created_at: '2020-07-24T03:26:02Z'
+                      type: first_party
+                      fraud_date: '1990-05-29'
+                    analysis:
+                      address: match
+                      date_of_birth: match
+                      email_address: match
+                      name: match
+                      id_number: match
+                      ip_address: match
+                      phone_number: match
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconReportSyndicationGet
+      description: >-
+        Returns a Beacon Report Syndication for a given Beacon Report
+        Syndication id.
+      externalDocs:
+        url: /api/products/beacon/#beaconreportsyndicationget
+  /beacon/user/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Update the identity data of a Beacon User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserUpdateRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becusr_42cF1MNo42r9Xj
+                    version: 1
+                    created_at: '2020-07-24T03:26:02Z'
+                    updated_at: '2020-07-24T03:26:02Z'
+                    status: cleared
+                    program_id: becprg_11111111111111
+                    client_user_id: your-db-id-3b24110
+                    user:
+                      date_of_birth: '1990-05-29'
+                      name:
+                        given_name: Leslie
+                        family_name: Knope
+                      address:
+                        street: 123 Main St.
+                        street2: Unit 42
+                        city: Pawnee
+                        region: IN
+                        postal_code: '46001'
+                        country: US
+                      email_address: user@example.com
+                      phone_number: '+19876543212'
+                      id_number:
+                        value: '123456789'
+                        type: us_ssn
+                      ip_address: 192.0.2.42
+                    audit_trail:
+                      source: dashboard
+                      dashboard_user_id: 54350110fedcbaf01234ffee
+                      timestamp: '2020-07-24T03:26:02Z'
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserUpdate
+      description: >-
+        Update the identity data for a Beacon User in your Beacon Program.
+
+
+        Similar to `/beacon/user/create`, several checks are performed
+        immediately when you submit a change to `/beacon/user/update`:
+
+          - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's "Duplicate Information Filtering" settings, the user will be returned with a status of `pending_review`.
+
+          - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.
+
+          - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.
+
+        Plaid maintains a version history for each Beacon User, so the Beacon
+        User's identity data before and after the update is retained as separate
+        versions.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserupdate
+  /beacon/duplicate/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a Beacon Duplicate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconDuplicateGetRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconDuplicateGetResponse'
+              examples:
+                example-1:
+                  value:
+                    id: becdup_11111111111111
+                    beacon_user1:
+                      id: becusr_42cF1MNo42r9Xj
+                      version: 1
+                    beacon_user2:
+                      id: becusr_42cF1MNo42r9Xj
+                      version: 1
+                    analysis:
+                      address: match
+                      date_of_birth: match
+                      email_address: match
+                      name: match
+                      id_number: match
+                      ip_address: match
+                      phone_number: match
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconDuplicateGet
+      description: >
+        Returns a Beacon Duplicate for a given Beacon Duplicate id.
+
+
+        A Beacon Duplicate represents a pair of similar Beacon Users within your
+        organization.
+
+
+        Two Beacon User revisions are returned for each Duplicate record in
+        either the `beacon_user1` or `beacon_user2` response fields.
+
+
+        The `analysis` field in the response indicates which fields matched
+        between `beacon_user1` and `beacon_user2`.
+      externalDocs:
+        url: /api/products/beacon/#beaconduplicateget
+  /beacon/user/history/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List a Beacon User's history
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeaconUserHistoryListRequest'
+        required: true
+      tags:
+        - plaid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BeaconUserHistoryListResponse'
+              examples:
+                example-1:
+                  value:
+                    beacon_users:
+                      - id: becusr_42cF1MNo42r9Xj
+                        version: 1
+                        created_at: '2020-07-24T03:26:02Z'
+                        updated_at: '2020-07-24T03:26:02Z'
+                        status: cleared
+                        program_id: becprg_11111111111111
+                        client_user_id: your-db-id-3b24110
+                        user:
+                          date_of_birth: '1990-05-29'
+                          name:
+                            given_name: Leslie
+                            family_name: Knope
+                          address:
+                            street: 123 Main St.
+                            street2: Unit 42
+                            city: Pawnee
+                            region: IN
+                            postal_code: '46001'
+                            country: US
+                          email_address: user@example.com
+                          phone_number: '+19876543212'
+                          id_number:
+                            value: '123456789'
+                            type: us_ssn
+                          ip_address: 192.0.2.42
+                        audit_trail:
+                          source: dashboard
+                          dashboard_user_id: 54350110fedcbaf01234ffee
+                          timestamp: '2020-07-24T03:26:02Z'
+                    next_cursor: eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM
+                    request_id: saKrIBuEB9qJZng
+      operationId: beaconUserHistoryList
+      description: List all changes to the Beacon User in reverse-chronological order.
+      externalDocs:
+        url: /api/products/beacon/#beaconuserhistorylist
+components:
+  schemas:
+    BeaconAccountRiskEvaluateResponse:
+      title: BeaconAccountRiskEvaluateResponse
+      description: >-
+        BeaconAccountRiskEvaluateResponse defines the response schema for
+        `/beacon/account_risk/v1/evaluate`
+      type: object
+      x-hidden-from-docs: true
+      additionalProperties: true
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        accounts:
+          type: array
+          description: The accounts for which a risk evaluation has been requested.
+          items:
+            $ref: '#/components/schemas/BeaconAccountRiskEvaluateAccount'
+      required:
+        - request_id
+        - accounts
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    BeaconUserCreateResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconUserGetResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconReportCreateResponse:
+      description: >-
+        A Beacon Report describes the type of fraud committed by a user as well
+        as the date the fraud was committed and the total amount of money lost
+        due to the fraud incident.
+
+
+        This information is used to block similar fraud attempts on your
+        platform as well as alert other companies who screen a user with
+        matching identity information.
+
+        Other companies will not receive any new identity information, just what
+        matched, plus information such as industry, type of fraud, and date of
+        fraud.
+
+
+        You can manage your fraud reports by adding, deleting, or editing
+        reports as you get additional information on fraudulent users.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconReportID'
+        beacon_user_id:
+          $ref: '#/components/schemas/BeaconUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        type:
+          $ref: '#/components/schemas/BeaconReportType'
+        fraud_date:
+          $ref: '#/components/schemas/ISO8601Date'
+        fraud_amount:
+          $ref: '#/components/schemas/FraudAmount'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - beacon_user_id
+        - created_at
+        - type
+        - fraud_date
+        - fraud_amount
+        - audit_trail
+        - request_id
+      type: object
+    BeaconReportListResponse:
+      description: The response schema for `/beacon/report/list`
+      additionalProperties: true
+      properties:
+        beacon_reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeaconReport'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - beacon_reports
+        - next_cursor
+        - request_id
+      type: object
+    BeaconReportSyndicationListResponse:
+      description: The response schema for `/beacon/report_syndication/list`
+      additionalProperties: true
+      properties:
+        beacon_report_syndications:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeaconReportSyndication'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - beacon_report_syndications
+        - next_cursor
+        - request_id
+      type: object
+    BeaconReportGetResponse:
+      description: >-
+        A Beacon Report describes the type of fraud committed by a user as well
+        as the date the fraud was committed and the total amount of money lost
+        due to the fraud incident.
+
+
+        This information is used to block similar fraud attempts on your
+        platform as well as alert other companies who screen a user with
+        matching identity information.
+
+        Other companies will not receive any new identity information, just what
+        matched, plus information such as industry, type of fraud, and date of
+        fraud.
+
+
+        You can manage your fraud reports by adding, deleting, or editing
+        reports as you get additional information on fraudulent users.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconReportID'
+        beacon_user_id:
+          $ref: '#/components/schemas/BeaconUserID'
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        type:
+          $ref: '#/components/schemas/BeaconReportType'
+        fraud_date:
+          $ref: '#/components/schemas/ISO8601Date'
+        fraud_amount:
+          $ref: '#/components/schemas/FraudAmount'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - beacon_user_id
+        - created_at
+        - type
+        - fraud_date
+        - fraud_amount
+        - audit_trail
+        - request_id
+      type: object
+    BeaconReportSyndicationGetResponse:
+      description: >-
+        A Beacon Report Syndication represents a Beacon Report created either by
+        your organization or another Beacon customer that matches a specific
+        Beacon User you've created.
+
+
+        The `analysis` field in the response indicates which fields matched
+        between the originally reported Beacon User and the Beacon User that the
+        report was syndicated to.
+
+
+        The `report` field in the response contains a subset of information from
+        the original report.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconReportSyndicationID'
+        report:
+          $ref: '#/components/schemas/BeaconReportSyndicationOriginalReport'
+        analysis:
+          $ref: '#/components/schemas/BeaconReportSyndicationAnalysis'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - report
+        - analysis
+        - request_id
+      type: object
+    BeaconUserUpdateResponse:
+      description: >-
+        A Beacon User represents an end user that has been scanned against the
+        Beacon Network.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconUserID'
+        version:
+          type: integer
+          description: >-
+            The `version` field begins with 1 and increments each time the user
+            is updated.
+          example: 1
+        created_at:
+          $ref: '#/components/schemas/Timestamp'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAtTimestamp'
+        status:
+          $ref: '#/components/schemas/BeaconUserStatus'
+        program_id:
+          $ref: '#/components/schemas/BeaconProgramID'
+        client_user_id:
+          $ref: '#/components/schemas/ClientUserID'
+        user:
+          $ref: '#/components/schemas/BeaconUserData'
+        audit_trail:
+          $ref: '#/components/schemas/BeaconAuditTrail'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - version
+        - created_at
+        - updated_at
+        - status
+        - program_id
+        - client_user_id
+        - user
+        - audit_trail
+        - request_id
+      type: object
+    BeaconDuplicateGetResponse:
+      description: >-
+        A Beacon Duplicate represents a pair of matching Beacon Users and an
+        analysis of the fields they matched on.
+      additionalProperties: true
+      properties:
+        id:
+          $ref: '#/components/schemas/BeaconDuplicateID'
+        beacon_user1:
+          $ref: '#/components/schemas/BeaconUserRevision'
+        beacon_user2:
+          $ref: '#/components/schemas/BeaconUserRevision'
+        analysis:
+          $ref: '#/components/schemas/BeaconMatchSummaryAnalysis'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - id
+        - beacon_user1
+        - beacon_user2
+        - analysis
+        - request_id
+      type: object
+    BeaconUserHistoryListResponse:
+      description: The response schema for `/beacon/user/history/list`
+      additionalProperties: true
+      properties:
+        beacon_users:
+          type: array
+          items:
+            $ref: '#/components/schemas/BeaconUser'
+        next_cursor:
+          $ref: '#/components/schemas/Cursor'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - beacon_users
+        - next_cursor
+        - request_id
+      type: object

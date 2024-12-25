@@ -1,0 +1,351 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' accounts/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /accounts/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve accounts
+      externalDocs:
+        url: /api/accounts/#accountsget
+      operationId: accountsGet
+      description: >-
+        The `/accounts/get` endpoint can be used to retrieve a list of accounts
+        associated with any linked Item. Plaid will only return active bank
+        accounts — that is, accounts that are not closed and are capable of
+        carrying a balance.
+
+        For items that went through the updated account selection pane, this
+        endpoint only returns accounts that were permissioned by the user when
+        they initially created the Item. If a user creates a new account after
+        the initial link, you can capture this event through the
+        [`NEW_ACCOUNTS_AVAILABLE`](https://plaid.com/docs/api/items/#new_accounts_available)
+        webhook and then use Link's [update
+        mode](https://plaid.com/docs/link/update-mode/) to request that the user
+        share this new account with you.
+
+
+        `/accounts/get` is free to use and retrieves cached information, rather
+        than extracting fresh information from the institution. The balance
+        returned will reflect the balance at the time of the last successful
+        Item update. If the Item is enabled for a regularly updating product,
+        such as Transactions, Investments, or Liabilities, the balance will
+        typically update about once a day, as long as the Item is healthy. If
+        the Item is enabled only for products that do not frequently update,
+        such as Auth or Identity, balance data may be much older.
+
+
+        For realtime balance information, use the paid endpoint
+        `/accounts/balance/get` instead.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: blgvvBlXw3cq5GMPwqB6s6q4dLKB9WcVqGDGo
+                        balances:
+                          available: 100
+                          current: 110
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        persistent_account_id: >-
+                          8cfb8beb89b774ee43b090625f0d61d0814322b43bff984eaf60386e
+                        subtype: checking
+                        type: depository
+                      - account_id: 6PdjjRP6LmugpBy5NgQvUqpRXMWxzktg3rwrk
+                        balances:
+                          available: null
+                          current: 23631.9805
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '6666'
+                        name: Plaid 401k
+                        official_name: null
+                        subtype: 401k
+                        type: investment
+                      - account_id: XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58
+                        balances:
+                          available: null
+                          current: 65262
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '7777'
+                        name: Plaid Student Loan
+                        official_name: null
+                        subtype: student
+                        type: loan
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - payment_initiation
+                        - transactions
+                      billed_products:
+                        - assets
+                        - auth
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_117650
+                      item_id: DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: bkVE1BHWMAZ9Rnr
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountsGetRequest'
+            examples:
+              example-1:
+                value:
+                  client_id: string
+                  secret: string
+                  access_token: string
+                  options:
+                    account_ids:
+                      - string
+  /accounts/balance/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve real-time balance data
+      externalDocs:
+        url: /api/products/balance/#accountsbalanceget
+      operationId: accountsBalanceGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
+                        balances:
+                          available: 100
+                          current: 110
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '0000'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Standard 0% Interest Checking
+                        persistent_account_id: >-
+                          8cfb8beb89b774ee43b090625f0d61d0814322b43bff984eaf60386e
+                        subtype: checking
+                        type: depository
+                      - account_id: dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK
+                        balances:
+                          available: null
+                          current: 410
+                          iso_currency_code: USD
+                          limit: 2000
+                          unofficial_currency_code: null
+                        mask: '3333'
+                        name: Plaid Credit Card
+                        official_name: Plaid Diamond 12.5% APR Interest Credit Card
+                        subtype: credit card
+                        type: credit
+                      - account_id: Pp1Vpkl9w8sajvK6oEEKtr7vZxBnGpf7LxxLE
+                        balances:
+                          available: null
+                          current: 65262
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '7777'
+                        name: Plaid Student Loan
+                        official_name: null
+                        subtype: student
+                        type: loan
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - investments
+                      billed_products:
+                        - assets
+                        - auth
+                        - liabilities
+                        - transactions
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: qk5Bxes3gDfv4F2
+      description: >-
+        The `/accounts/balance/get` endpoint returns the real-time balance for
+        each of an Item's accounts. While other endpoints, such as
+        `/accounts/get`, return a balance object, only `/accounts/balance/get`
+        forces the available and current balance fields to be refreshed rather
+        than cached. This endpoint can be used for existing Items that were
+        added via any of Plaid’s other products. This endpoint can be used as
+        long as Link has been initialized with any other product, `balance`
+        itself is not a product that can be used to initialize Link. As this
+        endpoint triggers a synchronous request for fresh data, latency may be
+        higher than for other Plaid endpoints (typically less than 10 seconds,
+        but occasionally up to 30 seconds or more); if you encounter errors, you
+        may find it necessary to adjust your timeout period when making
+        requests.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountsBalanceGetRequest'
+            examples:
+              example-1:
+                value:
+                  access_token: string
+                  secret: string
+                  client_id: string
+                  options:
+                    account_ids:
+                      - string
+components:
+  schemas:
+    AccountsGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        AccountsGetResponse defines the response schema for `/accounts/get` and
+        `/accounts/balance/get`.
+      properties:
+        accounts:
+          type: array
+          description: >-
+            An array of financial institution accounts associated with the Item.
+
+            If `/accounts/balance/get` was called, each account will include
+            real-time balance information.
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        item:
+          $ref: '#/components/schemas/Item'
+        payment_risk_assessment:
+          $ref: '#/components/schemas/AccountsBalanceGetResponsePaymentRiskAssessment'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - item
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message

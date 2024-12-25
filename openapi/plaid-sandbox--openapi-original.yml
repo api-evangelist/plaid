@@ -1,0 +1,1332 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' sandbox/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /sandbox/processor_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create a test Item and processor token
+      externalDocs:
+        url: /api/sandbox/#sandboxprocessor_tokencreate
+      operationId: sandboxProcessorTokenCreate
+      description: >-
+        Use the `/sandbox/processor_token/create` endpoint to create a valid
+        `processor_token` for an arbitrary institution ID and test credentials.
+        The created `processor_token` corresponds to a new Sandbox Item. You can
+        then use this `processor_token` with the `/processor/` API endpoints in
+        Sandbox. You can also use `/sandbox/processor_token/create` with the
+        [`user_custom` test
+        username](https://plaid.com/docs/sandbox/user-custom) to generate a test
+        account with custom data.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxProcessorTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    processor_token: processor-sandbox-b0e2c4ee-a763-4df5-bfe9-46a46bce993d
+                    request_id: Aim3b
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxProcessorTokenCreateRequest'
+  /sandbox/public_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create a test Item
+      externalDocs:
+        url: /api/sandbox/#sandboxpublic_tokencreate
+      operationId: sandboxPublicTokenCreate
+      description: >-
+        Use the `/sandbox/public_token/create` endpoint to create a valid
+        `public_token`  for an arbitrary institution ID, initial products, and
+        test credentials. The created `public_token` maps to a new Sandbox Item.
+        You can then call `/item/public_token/exchange` to exchange the
+        `public_token` for an `access_token` and perform all API actions.
+        `/sandbox/public_token/create` can also be used with the [`user_custom`
+        test username](https://plaid.com/docs/sandbox/user-custom) to generate a
+        test account with custom data. `/sandbox/public_token/create` cannot be
+        used with OAuth institutions.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxPublicTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    public_token: public-sandbox-b0e2c4ee-a763-4df5-bfe9-46a46bce993d
+                    request_id: Aim3b
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxPublicTokenCreateRequest'
+  /sandbox/item/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Fire a test webhook
+      externalDocs:
+        url: /api/sandbox/#sandboxitemfire_webhook
+      operationId: sandboxItemFireWebhook
+      description: >-
+        The `/sandbox/item/fire_webhook` endpoint is used to test that code
+        correctly handles webhooks. This endpoint can trigger the following
+        webhooks:
+
+
+        `DEFAULT_UPDATE`: Transactions update webhook to be fired for a given
+        Sandbox Item. If the Item does not support Transactions, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `NEW_ACCOUNTS_AVAILABLE`: Webhook to be fired for a given Sandbox Item
+        created with Account Select v2.
+
+
+        `AUTH_DATA_UPDATE`: Webhook to be fired for a given Sandbox Item created
+        with Auth as an enabled product.
+
+
+        `SMS_MICRODEPOSITS_VERIFICATION`: Fired when a given same day
+        micro-deposit item is verified via SMS verification.
+
+
+        `LOGIN_REPAIRED`: Fired when an Item recovers from the
+        `ITEM_LOGIN_REQUIRED` without the user going through update mode in your
+        app.
+
+
+        `RECURRING_TRANSACTIONS_UPDATE`: Recurring Transactions webhook to be
+        fired for a given Sandbox Item. If the Item does not support Recurring
+        Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `SYNC_UPDATES_AVAILABLE`: Transactions webhook to be fired for a given
+        Sandbox Item.  If the Item does not support Transactions, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `PRODUCT_READY`: Assets webhook to be fired when a given asset report
+        has been successfully generated. If the Item does not support Assets, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `ERROR`: Assets webhook to be fired when asset report generation has
+        failed. If the Item does not support Assets, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        Note that this endpoint is provided for developer ease-of-use and is not
+        required for testing webhooks; webhooks will also fire in Sandbox under
+        the same conditions that they would in Production or Development (except
+        for webhooks of type `TRANSFER`).
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    webhook_fired: true
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemFireWebhookRequest'
+  /sandbox/item/reset_login:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Force a Sandbox Item into an error state
+      externalDocs:
+        url: /api/sandbox/#sandboxitemreset_login
+      operationId: sandboxItemResetLogin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemResetLoginResponse'
+              examples:
+                example-1:
+                  value:
+                    reset_login: true
+                    request_id: m8MDnv9okwxFNBV
+      description: >-
+        `/sandbox/item/reset_login/` forces an Item into an
+        `ITEM_LOGIN_REQUIRED` state in order to simulate an Item whose login is
+        no longer valid. This makes it easy to test Link's [update
+        mode](https://plaid.com/docs/link/update-mode) flow in the Sandbox
+        environment.  After calling `/sandbox/item/reset_login`, You can then
+        use Plaid Link update mode to restore the Item to a good state. An
+        `ITEM_LOGIN_REQUIRED` webhook will also be fired after a call to this
+        endpoint, if one is associated with the Item.
+
+
+
+        In the Sandbox, Items will transition to an `ITEM_LOGIN_REQUIRED` error
+        state automatically after 30 days, even if this endpoint is not called.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemResetLoginRequest'
+  /sandbox/item/set_verification_status:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Set verification status for Sandbox account
+      externalDocs:
+        url: /api/sandbox/#sandboxitemset_verification_status
+      operationId: sandboxItemSetVerificationStatus
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemSetVerificationStatusResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+      description: >-
+        The `/sandbox/item/set_verification_status` endpoint can be used to
+        change the verification status of an Item in in the Sandbox in order to
+        simulate the Automated Micro-deposit flow.
+
+
+        For more information on testing Automated Micro-deposits in Sandbox, see
+        [Auth full coverage
+        testing](https://plaid.com/docs/auth/coverage/testing#).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemSetVerificationStatusRequest'
+  /sandbox/bank_transfer/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a bank transfer event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /bank-transfers/reference/#sandboxbank_transfersimulate
+      operationId: sandboxBankTransferSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxBankTransferSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: LmHYMwBhZUvsM03
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/bank_transfer/simulate` endpoint to simulate a bank
+        transfer event in the Sandbox environment.  Note that while an event
+        will be simulated and will appear when using endpoints such as
+        `/bank_transfer/event/sync` or `/bank_transfer/event/list`, no
+        transactions will actually take place and funds will not move between
+        accounts, even within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxBankTransferSimulateRequest'
+  /sandbox/transfer/sweep/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate creating a sweep
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfersweepsimulate
+      operationId: sandboxTransferSweepSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferSweepSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: d5394a4d-0b04-4a02-9f4a-7ca5c0f52f9d
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      created: '2020-08-06T17:27:15Z'
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      settled: '2020-08-07'
+                      network_trace_id: null
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/sweep/simulate` endpoint to create a sweep
+        and associated events in the Sandbox environment. Upon calling this
+        endpoint, all transfers with a sweep status of `swept` will become
+        `swept_settled`, all `posted` or `pending` transfers with a sweep status
+        of `unswept` will become `swept`, and all `returned` transfers with a
+        sweep status of `swept` will become `return_swept`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferSweepSimulateRequest'
+  /sandbox/transfer/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a transfer event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfersimulate
+      operationId: sandboxTransferSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/simulate` endpoint to simulate a transfer
+        event in the Sandbox environment.  Note that while an event will be
+        simulated and will appear when using endpoints such as
+        `/transfer/event/sync` or `/transfer/event/list`, no transactions will
+        actually take place and funds will not move between accounts, even
+        within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferSimulateRequest'
+  /sandbox/transfer/refund/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a refund event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferrefundsimulate
+      operationId: sandboxTransferRefundSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferRefundSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/refund/simulate` endpoint to simulate a
+        refund event in the Sandbox environment.  Note that while an event will
+        be simulated and will appear when using endpoints such as
+        `/transfer/event/sync` or `/transfer/event/list`, no transactions will
+        actually take place and funds will not move between accounts, even
+        within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferRefundSimulateRequest'
+  /sandbox/transfer/ledger/simulate_available:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate converting pending balance to available balance
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgersimulate_available
+      operationId: sandboxTransferLedgerSimulateAvailable
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerSimulateAvailableResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/simulate_available` endpoint to
+        simulate converting pending balance to available balance for all
+        originators in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/SandboxTransferLedgerSimulateAvailableRequest
+  /sandbox/transfer/ledger/deposit/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a ledger deposit event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgerdepositsimulate
+      operationId: sandboxTransferLedgerDepositSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerDepositSimulateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/deposit/simulate` endpoint to simulate
+        a ledger deposit event in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferLedgerDepositSimulateRequest'
+  /sandbox/transfer/ledger/withdraw/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a ledger withdraw event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgerwithdrawsimulate
+      operationId: sandboxTransferLedgerWithdrawSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerWithdrawSimulateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/withdraw/simulate` endpoint to
+        simulate a ledger withdraw event in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest
+  /sandbox/transfer/repayment/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Trigger the creation of a repayment
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferrepaymentsimulate
+      operationId: sandboxTransferRepaymentSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferRepaymentSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4vAbY6XyqqoPQLB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/repayment/simulate` endpoint to trigger the
+        creation of a repayment. As a side effect of calling this route, a
+        repayment is created that includes all unreimbursed returns of
+        guaranteed transfers. If there are no such returns, an 400 error is
+        returned.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferRepaymentSimulateRequest'
+  /sandbox/transfer/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire a Transfer webhook
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferfire_webhook
+      operationId: sandboxTransferFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/fire_webhook` endpoint to manually trigger a
+        `TRANSFER_EVENTS_UPDATE` webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferFireWebhookRequest'
+  /sandbox/transfer/test_clock/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockcreate
+      operationId: sandboxTransferTestClockCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clock:
+                      test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                      virtual_time: '2006-01-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/create` endpoint to create a
+        `test_clock` in the Sandbox environment.
+
+
+        A test clock object represents an independent timeline and has a
+        `virtual_time` field indicating the current timestamp of the timeline.
+        Test clocks are used for testing recurring transfers in Sandbox.
+
+
+        A test clock can be associated with up to 5 recurring transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockCreateRequest'
+  /sandbox/transfer/test_clock/advance:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Advance a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockadvance
+      operationId: sandboxTransferTestClockAdvance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockAdvanceResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/advance` endpoint to advance a
+        `test_clock` in the Sandbox environment.
+
+
+        A test clock object represents an independent timeline and has a
+        `virtual_time` field indicating the current timestamp of the timeline. A
+        test clock can be advanced by incrementing `virtual_time`, but may never
+        go back to a lower `virtual_time`.
+
+
+        If a test clock is advanced, we will simulate the changes that ought to
+        occur during the time that elapsed.
+
+
+        For example, a client creates a weekly recurring transfer with a test
+        clock set at t. When the client advances the test clock by setting
+        `virtual_time` = t + 15 days, 2 new originations should be created,
+        along with the webhook events.
+
+
+        The advancement of the test clock from its current `virtual_time` should
+        be limited such that there are no more than 20 originations resulting
+        from the advance operation on each `recurring_transfer` associated with
+        the `test_clock`.
+
+
+        For example, if the recurring transfer associated with this test clock
+        originates once every 4 weeks, you can advance the `virtual_time` up to
+        80 weeks on each API call.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockAdvanceRequest'
+  /sandbox/transfer/test_clock/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockget
+      operationId: sandboxTransferTestClockGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockGetResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clock:
+                      test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                      virtual_time: '2006-01-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/get` endpoint to get a
+        `test_clock` in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockGetRequest'
+  /sandbox/transfer/test_clock/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List test clocks
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clocklist
+      operationId: sandboxTransferTestClockList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockListResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clocks:
+                      - test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                        virtual_time: '2006-01-02T15:04:05Z'
+                      - test_clock_id: a33a6eda-5e97-5d64-244a-a9274110152d
+                        virtual_time: '2006-02-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/list` endpoint to see a list of
+        all your test clocks in the Sandbox environment, by ascending
+        `virtual_time`. Results are paginated; use the `count` and `offset`
+        query parameters to retrieve the desired test clocks.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockListRequest'
+  /sandbox/payment_profile/reset_login:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - plaid
+      summary: Reset the login of a Payment Profile
+      externalDocs:
+        url: /api/sandbox/#sandboxpayment_profilereset_login
+      operationId: sandboxPaymentProfileResetLogin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxPaymentProfileResetLoginResponse'
+              examples:
+                example-1:
+                  value:
+                    reset_login: true
+                    request_id: m8MDnv9okwxFNBV
+      description: >-
+        `/sandbox/payment_profile/reset_login/` forces a Payment Profile into a
+        state where the login is no longer valid. This makes it easy to test
+        update mode for Payment Profile in the Sandbox environment.
+
+         After calling `/sandbox/payment_profile/reset_login`, calls to the `/transfer/authorization/create` with the Payment Profile will result in a `decision_rationale` `PAYMENT_PROFILE_LOGIN_REQUIRED`. You can then use update mode for Payment Profile to restore it into a good state.
+
+         In order to invoke this endpoint, you must first [create a Payment Profile](https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional) and [go through the Link flow](https://plaid.com/docs/transfer/add-to-app/#create-a-link-token).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxPaymentProfileResetLoginRequest'
+  /sandbox/bank_transfer/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire a Bank Transfer webhook
+      tags:
+        - plaid
+      externalDocs:
+        url: /bank-transfers/reference/#sandboxbank_transferfire_webhook
+      operationId: sandboxBankTransferFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxBankTransferFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/bank_transfer/fire_webhook` endpoint to manually
+        trigger a Bank Transfers webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxBankTransferFireWebhookRequest'
+  /sandbox/income/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire an Income webhook
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxincomefire_webhook
+      operationId: sandboxIncomeFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxIncomeFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/income/fire_webhook` endpoint to manually trigger a
+        Payroll or Document Income webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxIncomeFireWebhookRequest'
+  /sandbox/bank_income/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire a bank income webhook in sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxbankincomefire_webhook
+      operationId: sandboxBankIncomeFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxBankIncomeFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/bank_income/fire_webhook` endpoint to manually trigger
+        a Bank Income webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxBankIncomeFireWebhookRequest'
+  /sandbox/oauth/select_accounts:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Save the selected accounts when connecting to the Platypus Oauth
+        institution
+      description: >-
+        Save the selected accounts when connecting to the Platypus Oauth
+        institution
+      tags:
+        - plaid
+      operationId: sandboxOauthSelectAccounts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxOauthSelectAccountsResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxOauthSelectAccountsRequest'
+components:
+  schemas:
+    SandboxProcessorTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      properties:
+        processor_token:
+          type: string
+          description: >-
+            A processor token that can be used to call the `/processor/`
+            endpoints.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      description: >-
+        SandboxProcessorTokenCreateResponse defines the response schema for
+        `/sandbox/processor_token/create`
+      required:
+        - processor_token
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    SandboxPublicTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxPublicTokenCreateResponse defines the response schema for
+        `/sandbox/public_token/create`
+      properties:
+        public_token:
+          type: string
+          description: >-
+            A public token that can be exchanged for an access token using
+            `/item/public_token/exchange`
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - public_token
+        - request_id
+    SandboxItemFireWebhookResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemFireWebhookResponse defines the response schema for
+        `/sandbox/item/fire_webhook`
+      properties:
+        webhook_fired:
+          type: boolean
+          description: Value is `true`  if the test` webhook_code`  was successfully fired.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - webhook_fired
+        - request_id
+    SandboxItemResetLoginResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemResetLoginResponse defines the response schema for
+        `/sandbox/item/reset_login`
+      properties:
+        reset_login:
+          type: boolean
+          description: '`true` if the call succeeded'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - reset_login
+        - request_id
+    SandboxItemSetVerificationStatusResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemSetVerificationStatusResponse defines the response schema for
+        `/sandbox/item/set_verification_status`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxBankTransferSimulateResponse:
+      title: SandboxBankTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/bank_transfer/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferSweepSimulateResponse:
+      title: SandboxTransferSweepSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/sweep/simulate`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/SimulatedTransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferSimulateResponse:
+      title: SandboxTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferRefundSimulateResponse:
+      title: SandboxTransferRefundSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/refund/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerSimulateAvailableResponse:
+      title: SandboxTransferLedgerSimulateAvailableResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/simulate_available`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerDepositSimulateResponse:
+      title: SandboxTransferLedgerDepositSimulateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/deposit/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerWithdrawSimulateResponse:
+      title: SandboxTransferLedgerWithdrawSimulateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/withdraw/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferRepaymentSimulateResponse:
+      title: SandboxTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/repayment/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferFireWebhookResponse:
+      title: SandboxTransferFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/sandbox/transfer/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferTestClockCreateResponse:
+      title: SandboxTransferTestClockCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/create`
+      properties:
+        test_clock:
+          $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clock
+        - request_id
+    SandboxTransferTestClockAdvanceResponse:
+      title: SandboxTransferTestClockAdvanceResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/advance`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferTestClockGetResponse:
+      title: SandboxTransferTestClockGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/get`
+      properties:
+        test_clock:
+          $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clock
+        - request_id
+    SandboxTransferTestClockListResponse:
+      title: SandboxTransferTestClockListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/list`
+      properties:
+        test_clocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clocks
+        - request_id
+    SandboxPaymentProfileResetLoginResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxPaymentProfileResetLoginResponse defines the response schema for
+        `/sandbox/payment_profile/reset_login`
+      properties:
+        reset_login:
+          type: boolean
+          description: '`true` if the call succeeded'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - reset_login
+        - request_id
+    SandboxBankTransferFireWebhookResponse:
+      title: SandboxBankTransferFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/sandbox/bank_transfer/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxIncomeFireWebhookResponse:
+      title: SandboxIncomeFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        SandboxIncomeFireWebhookResponse defines the response schema for
+        `/sandbox/income/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxBankIncomeFireWebhookResponse:
+      title: SandboxBankIncomeFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        SandboxBankIncomeFireWebhookResponse defines the response schema for
+        `/sandbox/bank_income/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxOauthSelectAccountsResponse:
+      title: SandboxOauthSelectAccountsResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/sandbox/oauth/select_accounts`

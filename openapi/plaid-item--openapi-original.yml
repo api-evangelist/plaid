@@ -1,0 +1,926 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' item/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /item/activity/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: List a historical log of user consent events
+      operationId: itemActivityList
+      description: List a historical log of user consent events
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemActivityListResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: m8MDnv9okwxFNBV
+                    activities: []
+                    last_data_access_times: []
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemActivityListRequest'
+  /item/application/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: List a user’s connected applications
+      operationId: itemApplicationList
+      description: List a user’s connected applications
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationListResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationListRequest'
+  /item/application/unlink:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Unlink a user’s connected application
+      externalDocs:
+        url: none
+      operationId: itemApplicationUnlink
+      description: >-
+        Unlink a user’s connected application. On an unlink request, Plaid will
+        immediately revoke the Application’s access to the User’s data.  The
+        User will have to redo the OAuth authentication process in order to
+        restore functionality.
+
+
+        This endpoint only removes ongoing data access permissions, therefore
+        the User will need to reach out to the Application itself in order to
+        disable and delete their account and delete any data that the
+        Application already received (if the Application does not do so by
+        default).
+
+
+        This endpoint should be called in real time as the User is unlinking an
+        Application, and should not be batched in order to ensure that the
+        change is reflected as soon as possible.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationUnlinkResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: m8MDnv9okwxFNBV
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationUnlinkRequest'
+  /item/application/scopes/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Update the scopes of access for a particular application
+      operationId: itemApplicationScopesUpdate
+      description: >-
+        Enable consumers to update product access on selected accounts for an
+        application.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemApplicationScopesUpdateResponse'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemApplicationScopesUpdateRequest'
+  /item/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve an Item
+      externalDocs:
+        url: /api/items/#itemget
+      operationId: itemGet
+      description: Returns information about the status of an Item.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemGetResponse'
+              examples:
+                example-1:
+                  value:
+                    item:
+                      available_products:
+                        - balance
+                        - auth
+                      billed_products:
+                        - identity
+                        - transactions
+                      error: null
+                      institution_id: ins_109508
+                      item_id: Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr
+                      update_type: background
+                      webhook: https://plaid.com/example/hook
+                      consent_expiration_time: null
+                    status:
+                      transactions:
+                        last_successful_update: '2019-02-15T15:52:39Z'
+                        last_failed_update: '2019-01-22T04:32:00Z'
+                      last_webhook:
+                        sent_at: '2019-02-15T15:53:00Z'
+                        code_sent: DEFAULT_UPDATE
+                    request_id: m8MDnv9okwxFNBV
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemGetRequest'
+        description: ''
+  /item/remove:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Remove an Item
+      externalDocs:
+        url: /api/items/#itemremove
+      operationId: itemRemove
+      description: >-
+        The `/item/remove` endpoint allows you to remove an Item. Once removed,
+        the `access_token`, as well as any processor tokens or bank account
+        tokens associated with the Item, is no longer valid and cannot be used
+        to access any data that was associated with the Item.
+
+
+        Removing an Item does not affect any Asset Reports or Audit Copies you
+        have already created, which will remain accessible until you remove
+        access to them specifically using the `/asset_report/remove` endpoint.
+
+
+        Note that in the Development environment, issuing an `/item/remove` 
+        request will not decrement your live credential count. To increase your
+        credential account in Development, contact Support.
+
+
+        Also note that for certain OAuth-based institutions, an Item removed via
+        `/item/remove` may still show as an active connection in the
+        institution's OAuth permission manager.
+
+
+        API versions 2019-05-29 and earlier return a `removed` boolean as part
+        of the response.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemRemoveResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: m8MDnv9okwxFNBV
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemRemoveRequest'
+        description: ''
+  /sandbox/item/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Fire a test webhook
+      externalDocs:
+        url: /api/sandbox/#sandboxitemfire_webhook
+      operationId: sandboxItemFireWebhook
+      description: >-
+        The `/sandbox/item/fire_webhook` endpoint is used to test that code
+        correctly handles webhooks. This endpoint can trigger the following
+        webhooks:
+
+
+        `DEFAULT_UPDATE`: Transactions update webhook to be fired for a given
+        Sandbox Item. If the Item does not support Transactions, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `NEW_ACCOUNTS_AVAILABLE`: Webhook to be fired for a given Sandbox Item
+        created with Account Select v2.
+
+
+        `AUTH_DATA_UPDATE`: Webhook to be fired for a given Sandbox Item created
+        with Auth as an enabled product.
+
+
+        `SMS_MICRODEPOSITS_VERIFICATION`: Fired when a given same day
+        micro-deposit item is verified via SMS verification.
+
+
+        `LOGIN_REPAIRED`: Fired when an Item recovers from the
+        `ITEM_LOGIN_REQUIRED` without the user going through update mode in your
+        app.
+
+
+        `RECURRING_TRANSACTIONS_UPDATE`: Recurring Transactions webhook to be
+        fired for a given Sandbox Item. If the Item does not support Recurring
+        Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `SYNC_UPDATES_AVAILABLE`: Transactions webhook to be fired for a given
+        Sandbox Item.  If the Item does not support Transactions, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `PRODUCT_READY`: Assets webhook to be fired when a given asset report
+        has been successfully generated. If the Item does not support Assets, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        `ERROR`: Assets webhook to be fired when asset report generation has
+        failed. If the Item does not support Assets, a
+        `SANDBOX_PRODUCT_NOT_ENABLED` error will result.
+
+
+        Note that this endpoint is provided for developer ease-of-use and is not
+        required for testing webhooks; webhooks will also fire in Sandbox under
+        the same conditions that they would in Production or Development (except
+        for webhooks of type `TRANSFER`).
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    webhook_fired: true
+                    request_id: 1vwmF5TBQwiqfwP
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemFireWebhookRequest'
+  /item/webhook/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Update Webhook URL
+      externalDocs:
+        url: /api/items/#itemwebhookupdate
+      operationId: itemWebhookUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemWebhookUpdateResponse'
+              examples:
+                example-1:
+                  value:
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - payment_initiation
+                        - transactions
+                      billed_products:
+                        - assets
+                        - auth
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_117650
+                      item_id: DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: vYK11LNTfRoAMbj
+      description: >-
+        The POST `/item/webhook/update` allows you to update the webhook URL
+        associated with an Item. This request triggers a
+        [`WEBHOOK_UPDATE_ACKNOWLEDGED`](https://plaid.com/docs/api/items/#webhook_update_acknowledged)
+        webhook to the newly specified webhook URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemWebhookUpdateRequest'
+  /item/access_token/invalidate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Invalidate access_token
+      externalDocs:
+        url: /api/tokens/#itemaccess_tokeninvalidate
+      operationId: itemAccessTokenInvalidate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemAccessTokenInvalidateResponse'
+              examples:
+                example-1:
+                  value:
+                    new_access_token: access-sandbox-8ab976e6-64bc-4b38-98f7-731e7a349970
+                    request_id: m8MDnv9okwxFNBV
+      description: >
+        By default, the `access_token` associated with an Item does not expire
+        and should be stored in a persistent, secure manner.
+
+
+        You can use the `/item/access_token/invalidate` endpoint to rotate the
+        `access_token` associated with an Item. The endpoint returns a new
+        `access_token` and immediately invalidates the previous `access_token`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemAccessTokenInvalidateRequest'
+  /sandbox/item/reset_login:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Force a Sandbox Item into an error state
+      externalDocs:
+        url: /api/sandbox/#sandboxitemreset_login
+      operationId: sandboxItemResetLogin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemResetLoginResponse'
+              examples:
+                example-1:
+                  value:
+                    reset_login: true
+                    request_id: m8MDnv9okwxFNBV
+      description: >-
+        `/sandbox/item/reset_login/` forces an Item into an
+        `ITEM_LOGIN_REQUIRED` state in order to simulate an Item whose login is
+        no longer valid. This makes it easy to test Link's [update
+        mode](https://plaid.com/docs/link/update-mode) flow in the Sandbox
+        environment.  After calling `/sandbox/item/reset_login`, You can then
+        use Plaid Link update mode to restore the Item to a good state. An
+        `ITEM_LOGIN_REQUIRED` webhook will also be fired after a call to this
+        endpoint, if one is associated with the Item.
+
+
+
+        In the Sandbox, Items will transition to an `ITEM_LOGIN_REQUIRED` error
+        state automatically after 30 days, even if this endpoint is not called.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemResetLoginRequest'
+  /sandbox/item/set_verification_status:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Set verification status for Sandbox account
+      externalDocs:
+        url: /api/sandbox/#sandboxitemset_verification_status
+      operationId: sandboxItemSetVerificationStatus
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxItemSetVerificationStatusResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 1vwmF5TBQwiqfwP
+      description: >-
+        The `/sandbox/item/set_verification_status` endpoint can be used to
+        change the verification status of an Item in in the Sandbox in order to
+        simulate the Automated Micro-deposit flow.
+
+
+        For more information on testing Automated Micro-deposits in Sandbox, see
+        [Auth full coverage
+        testing](https://plaid.com/docs/auth/coverage/testing#).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxItemSetVerificationStatusRequest'
+  /item/public_token/exchange:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Exchange public token for an access token
+      externalDocs:
+        url: /api/tokens/#itempublic_tokenexchange
+      operationId: itemPublicTokenExchange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPublicTokenExchangeResponse'
+              examples:
+                example-1:
+                  value:
+                    access_token: access-sandbox-de3ce8ef-33f8-452c-a685-8671031fc0f6
+                    item_id: M5eVJqLnv3tbzdngLDp9FL5OlDNxlNhlE55op
+                    request_id: Aim3b
+      description: >-
+        Exchange a Link `public_token` for an API `access_token`. Link hands off
+        the `public_token` client-side via the `onSuccess` callback once a user
+        has successfully created an Item. The `public_token` is ephemeral and
+        expires after 30 minutes. An `access_token` does not expire, but can be
+        revoked by calling `/item/remove`.
+
+
+        The response also includes an `item_id` that should be stored with the
+        `access_token`. The `item_id` is used to identify an Item in a webhook.
+        The `item_id` can also be retrieved by making an `/item/get` request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemPublicTokenExchangeRequest'
+  /item/public_token/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Create public token
+      externalDocs:
+        url: /api/tokens/#itempublic_tokencreate
+      operationId: itemCreatePublicToken
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPublicTokenCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    public_token: public-sandbox-b0e2c4ee-a763-4df5-bfe9-46a46bce993d
+                    request_id: Aim3b
+      description: >-
+        Note: As of July 2020, the `/item/public_token/create` endpoint is
+        deprecated. Instead, use `/link/token/create` with an `access_token` to
+        create a Link token for use with [update
+        mode](https://plaid.com/docs/link/update-mode).
+
+
+        If you need your user to take action to restore or resolve an error
+        associated with an Item, generate a public token with the
+        `/item/public_token/create` endpoint and then initialize Link with that
+        `public_token`.
+
+
+        A `public_token` is one-time use and expires after 30 minutes. You use a
+        `public_token` to initialize Link in [update
+        mode](https://plaid.com/docs/link/update-mode) for a particular Item.
+        You can generate a `public_token` for an Item even if you did not use
+        Link to create the Item originally.
+
+
+        The `/item/public_token/create` endpoint is **not** used to create your
+        initial `public_token`. If you have not already received an
+        `access_token` for a specific Item, use Link to obtain your
+        `public_token` instead. See the
+        [Quickstart](https://plaid.com/docs/quickstart) for more information.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemPublicTokenCreateRequest'
+  /item/import:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Import Item
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemImportResponse'
+              examples:
+                example-1:
+                  value:
+                    access_token: access-sandbox-99ace160-3cf7-4e51-a083-403633425815
+                    request_id: ewIBAn6RZirsk4W
+      operationId: itemImport
+      description: >-
+        `/item/import` creates an Item via your Plaid Exchange Integration and
+        returns an `access_token`. As part of an `/item/import` request, you
+        will include a User ID (`user_auth.user_id`) and Authentication Token
+        (`user_auth.auth_token`) that enable data aggregation through your Plaid
+        Exchange API endpoints. These authentication principals are to be chosen
+        by you.
+
+
+        Upon creating an Item via `/item/import`, Plaid will automatically begin
+        an extraction of that Item through the Plaid Exchange infrastructure you
+        have already integrated.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemImportRequest'
+components:
+  schemas:
+    ItemActivityListResponse:
+      description: Describes a historical log of user consent events.
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        activities:
+          type: array
+          description: A list of activities.
+          items:
+            $ref: '#/components/schemas/Activity'
+        last_data_access_times:
+          type: array
+          description: >-
+            An array of objects containing timestamps for the last time each
+            data type was accessed per application.
+          items:
+            $ref: '#/components/schemas/LastDataAccessTimes'
+        cursor:
+          type: string
+          description: Cursor used for pagination.
+      required:
+        - activities
+        - last_data_access_times
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ItemApplicationListResponse:
+      description: Describes the connected application for a particular end user.
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        applications:
+          type: array
+          description: A list of connected applications.
+          items:
+            $ref: '#/components/schemas/ConnectedApplication'
+      required:
+        - applications
+    ItemApplicationUnlinkResponse:
+      description: >-
+        ItemApplicationUnlinkResponse defines the response schema for
+        `/item/application/unlink`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ItemApplicationScopesUpdateResponse:
+      description: >-
+        ItemApplicationScopesUpdateResponse defines the response schema for
+        `/item/application/scopes/update`
+      additionalProperties: true
+      type: object
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ItemGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ItemGetResponse defines the response schema for `/item/get` and
+        `/item/webhook/update`
+      properties:
+        item:
+          $ref: '#/components/schemas/Item'
+        status:
+          $ref: '#/components/schemas/ItemStatusNullable'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - item
+        - request_id
+    ItemRemoveResponse:
+      type: object
+      additionalProperties: true
+      description: ItemRemoveResponse defines the response schema for `/item/remove`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxItemFireWebhookResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemFireWebhookResponse defines the response schema for
+        `/sandbox/item/fire_webhook`
+      properties:
+        webhook_fired:
+          type: boolean
+          description: Value is `true`  if the test` webhook_code`  was successfully fired.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - webhook_fired
+        - request_id
+    ItemWebhookUpdateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ItemWebhookUpdateResponse defines the response schema for
+        `/item/webhook/update`
+      properties:
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - item
+        - request_id
+    ItemAccessTokenInvalidateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ItemAccessTokenInvalidateResponse defines the response schema for
+        `/item/access_token/invalidate`
+      properties:
+        new_access_token:
+          $ref: '#/components/schemas/AccessToken'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - new_access_token
+        - request_id
+    SandboxItemResetLoginResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemResetLoginResponse defines the response schema for
+        `/sandbox/item/reset_login`
+      properties:
+        reset_login:
+          type: boolean
+          description: '`true` if the call succeeded'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - reset_login
+        - request_id
+    SandboxItemSetVerificationStatusResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        SandboxItemSetVerificationStatusResponse defines the response schema for
+        `/sandbox/item/set_verification_status`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    ItemPublicTokenExchangeResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ItemPublicTokenExchangeResponse defines the response schema for
+        `/item/public_token/exchange`
+      properties:
+        access_token:
+          $ref: '#/components/schemas/AccessToken'
+        item_id:
+          type: string
+          description: >-
+            The `item_id` value of the Item associated with the returned
+            `access_token`
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - access_token
+        - item_id
+        - request_id
+    ItemPublicTokenCreateResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ItemPublicTokenCreateResponse defines the response schema for
+        `/item/public_token/create`
+      properties:
+        public_token:
+          type: string
+          description: >-
+            A `public_token` for the particular Item corresponding to the
+            specified `access_token`
+        expiration:
+          type: string
+          format: date-time
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - public_token
+        - request_id
+    ItemImportResponse:
+      type: object
+      additionalProperties: true
+      description: ItemImportResponse defines the response schema for `/item/import`
+      properties:
+        access_token:
+          $ref: '#/components/schemas/AccessToken'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - access_token
+        - request_id

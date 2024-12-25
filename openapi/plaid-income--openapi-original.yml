@@ -1,0 +1,599 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' income/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /income/verification/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: (Deprecated) Create an income verification instance
+      tags:
+        - plaid
+      deprecated: true
+      externalDocs:
+        url: /api/products/income/#incomeverificationcreate
+      operationId: incomeVerificationCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncomeVerificationCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    income_verification_id: f2a826d7-25cf-483b-a124-c40beb64b732
+                    request_id: lMjeOeu9X1VUh1F
+      description: >-
+        `/income/verification/create` begins the income verification process by
+        returning an `income_verification_id`. You can then provide the
+        `income_verification_id` to `/link/token/create` under the
+        `income_verification` parameter in order to create a Link instance that
+        will prompt the user to go through the income verification flow. Plaid
+        will fire an `INCOME` webhook once the user completes the Payroll Income
+        flow, or when the uploaded documents in the Document Income flow have
+        finished processing. 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomeVerificationCreateRequest'
+  /income/verification/paystubs/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        (Deprecated) Retrieve information from the paystubs used for income
+        verification
+      deprecated: true
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/income/#incomeverificationpaystubsget
+      operationId: incomeVerificationPaystubsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncomeVerificationPaystubsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    document_metadata:
+                      - doc_id: 2jkflanbd
+                        doc_type: DOCUMENT_TYPE_PAYSTUB
+                        name: paystub.pdf
+                        status: DOCUMENT_STATUS_PROCESSING_COMPLETE
+                    paystubs:
+                      - deductions:
+                          breakdown:
+                            - current_amount: 123.45
+                              description: taxes
+                              iso_currency_code: USD
+                              unofficial_currency_code: null
+                              ytd_amount: 246.9
+                          total:
+                            current_amount: 123.45
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                            ytd_amount: 246.9
+                        doc_id: 2jkflanbd
+                        earnings:
+                          breakdown:
+                            - canonical_description: REGULAR PAY
+                              current_amount: 200.22
+                              description: salary earned
+                              hours: 80
+                              iso_currency_code: USD
+                              rate: null
+                              unofficial_currency_code: null
+                              ytd_amount: 400.44
+                            - canonical_desription: BONUS
+                              current_amount: 100
+                              description: bonus earned
+                              hours: null
+                              iso_currency_code: USD
+                              rate: null
+                              unofficial_currency_code: null
+                              ytd_amount: 100
+                          total:
+                            current_amount: 300.22
+                            hours: 160
+                            iso_currency_code: USD
+                            unofficial_currency_code: null
+                            ytd_amount: 500.44
+                        employee:
+                          address:
+                            city: SAN FRANCISCO
+                            country: US
+                            postal_code: '94133'
+                            region: CA
+                            street: 2140 TAYLOR ST
+                          name: ANNA CHARLESTON
+                          marital_status: single
+                          taxpayer_id:
+                            id_type: SSN
+                            id_mask: '3333'
+                        employer:
+                          name: PLAID INC
+                          address:
+                            city: SAN FRANCISCO
+                            country: US
+                            postal_code: '94111'
+                            region: CA
+                            street: 1098 HARRISON ST
+                        net_pay:
+                          current_amount: 123.34
+                          description: TOTAL NET PAY
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                          ytd_amount: 253.54
+                        pay_period_details:
+                          check_amount: 1490.21
+                          distribution_breakdown:
+                            - account_name: Big time checking
+                              bank_name: bank of plaid
+                              current_amount: 176.77
+                              iso_currency_code: USD
+                              mask: '1223'
+                              type: checking
+                              unofficial_currency_code: null
+                          end_date: '2020-12-15'
+                          gross_earnings: 4500
+                          pay_date: '2020-12-15'
+                          start_date: '2020-12-01'
+                          pay_frequency: PAY_FREQUENCY_BIWEEKLY
+                    request_id: 2pxQ59buGdsHRef
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomeVerificationPaystubsGetRequest'
+        description: ''
+      description: >-
+        `/income/verification/paystubs/get` returns the information collected
+        from the paystubs that were used to verify an end user's income. It can
+        be called once the status of the verification has been set to
+        `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME:
+        verification_status` webhook. Attempting to call the endpoint before
+        verification has been completed will result in an error.
+
+
+        This endpoint has been deprecated; new integrations should use
+        `/credit/payroll_income/get` instead.
+  /income/verification/documents/download:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      summary: >-
+        (Deprecated) Download the original documents used for income
+        verification
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/income/#incomeverificationdocumentsdownload
+      operationId: incomeVerificationDocumentsDownload
+      responses:
+        '200':
+          description: >-
+            A ZIP file containing source documents(s) used as the basis for
+            income verification.
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+      description: >-
+        `/income/verification/documents/download` provides the ability to
+        download the source documents associated with the verification.
+
+
+        If Document Income was used, the documents will be those the user
+        provided in Link. For Payroll Income, the most recent files available
+
+        for download from the payroll provider will be available from this
+        endpoint.
+
+
+        The response to `/income/verification/documents/download` is a ZIP file
+        in binary data. If a `document_id` is passed, a single document will be
+        contained in this file.
+
+        If not, the response will contain all documents associated with the
+        verification.
+
+
+        The `request_id` is returned in the `Plaid-Request-ID` header.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomeVerificationDocumentsDownloadRequest'
+      parameters: []
+  /income/verification/taxforms/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      tags:
+        - plaid
+      summary: >-
+        (Deprecated) Retrieve information from the tax documents used for income
+        verification
+      externalDocs:
+        url: /api/products/income/#incomeverificationtaxformsget
+      operationId: incomeVerificationTaxformsGet
+      description: >-
+        `/income/verification/taxforms/get` returns the information collected
+        from forms that were used to verify an end user''s income. It can be
+        called once the status of the verification has been set to
+        `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME:
+        verification_status` webhook. Attempting to call the endpoint before
+        verification has been completed will result in an error.
+
+
+        This endpoint has been deprecated; new integrations should use
+        `/credit/payroll_income/get` instead.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncomeVerificationTaxformsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    document_metadata:
+                      - doc_id: q5Ypbbr03p
+                        doc_type: DOCUMENT_TYPE_US_TAX_W2
+                        name: my_w2.pdf
+                        status: DOCUMENT_STATUS_PROCESSING_COMPLETE
+                    request_id: 73W7sz8nIP8Mgck
+                    taxforms:
+                      - document_type: W2
+                        w2:
+                          allocated_tips: '1000'
+                          box_12:
+                            - amount: '200'
+                              code: AA
+                          box_9: box9
+                          dependent_care_benefits: '1000'
+                          employee:
+                            address:
+                              city: San Francisco
+                              country: US
+                              postal_code: '94103'
+                              region: CA
+                              street: 1234 Grand St
+                            name: Josie Georgia Harrison
+                            marital_status: single
+                            taxpayer_id:
+                              id_type: SSN
+                              id_mask: '1234'
+                          employer:
+                            address:
+                              city: New York
+                              country: US
+                              postal_code: '10010'
+                              region: NY
+                              street: 456 Main St
+                            name: Acme Inc
+                          employee_id_number: 12-1234567
+                          federal_income_tax_withheld: '1000'
+                          medicare_tax_withheld: '1000'
+                          medicare_wages_and_tips: '1000'
+                          nonqualified_plans: '1000'
+                          other: other
+                          retirement_plan: CHECKED
+                          social_security_tax_withheld: '1000'
+                          social_security_tips: '1000'
+                          social_security_wages: '1000'
+                          state_and_local_wages:
+                            - employer_state_id_number: 11111111111AAA
+                              local_income_tax: '200'
+                              local_wages_tips: '200'
+                              locality_name: local
+                              state: UT
+                              state_income_tax: '200'
+                              state_wages_tips: '200'
+                          statutory_employee: CHECKED
+                          tax_year: '2020'
+                          third_party_sick_pay: CHECKED
+                          wages_tips_other_comp: '1000'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomeVerificationTaxformsGetRequest'
+        description: ''
+  /income/verification/precheck:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      deprecated: true
+      summary: >-
+        (Deprecated) Check digital income verification eligibility and optimize
+        conversion
+      tags:
+        - plaid
+      operationId: incomeVerificationPrecheck
+      externalDocs:
+        url: /api/products/income/#incomeverificationprecheck
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncomeVerificationPrecheckResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: lMjeOeu9X1VUh1F
+                    precheck_id: n9elqYlvYm
+                    confidence: HIGH
+      description: >-
+        `/income/verification/precheck` is an optional endpoint that can be
+        called before initializing a Link session for income verification. It
+        evaluates whether a given user is supportable by digital income
+        verification and returns a `precheck_id` that can be provided to
+        `/link/token/create`. If the user is eligible for digital verification,
+        providing the `precheck_id` in this way will generate a Link UI
+        optimized for the end user and their specific employer. If the user
+        cannot be confirmed as eligible, the `precheck_id` can still be provided
+        to `/link/token/create` and the user can still use the income
+        verification flow, but they may be required to manually upload a paystub
+        to verify their income.
+
+
+        While all request fields are optional, providing either `employer` or
+        `transactions_access_tokens` data will increase the chance of receiving
+        a useful result.
+
+
+        This endpoint has been deprecated; new integrations should use
+        `/credit/payroll_income/precheck` instead.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomeVerificationPrecheckRequest'
+  /sandbox/income/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire an Income webhook
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxincomefire_webhook
+      operationId: sandboxIncomeFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxIncomeFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/income/fire_webhook` endpoint to manually trigger a
+        Payroll or Document Income webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxIncomeFireWebhookRequest'
+components:
+  schemas:
+    IncomeVerificationCreateResponse:
+      title: IncomeVerificationCreateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        IncomeVerificationCreateResponse defines the response schema for
+        `/income/verification/create`.
+      properties:
+        income_verification_id:
+          type: string
+          description: >-
+            ID of the verification. This ID is persisted throughout the lifetime
+            of the verification.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - income_verification_id
+        - request_id
+    IncomeVerificationPaystubsGetResponse:
+      title: IncomeVerificationPaystubsGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        IncomeVerificationPaystubsGetResponse defines the response schema for
+        `/income/verification/paystubs/get`.
+      properties:
+        document_metadata:
+          description: Metadata for an income document.
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentMetadata'
+        paystubs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Paystub'
+        error:
+          $ref: '#/components/schemas/PlaidError'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - paystubs
+        - request_id
+    IncomeVerificationTaxformsGetResponse:
+      title: IncomeVerificationTaxformsGetResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        IncomeVerificationTaxformsGetResponse defines the response schema for
+        `/income/verification/taxforms/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        document_metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentMetadata'
+        taxforms:
+          type: array
+          description: A list of forms.
+          items:
+            $ref: '#/components/schemas/Taxform'
+        error:
+          $ref: '#/components/schemas/PlaidError'
+      required:
+        - taxforms
+        - document_metadata
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    IncomeVerificationPrecheckResponse:
+      title: IncomeVerificationPrecheckResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        IncomeVerificationPrecheckResponse defines the response schema for
+        `/income/verification/precheck`.
+      properties:
+        precheck_id:
+          type: string
+          description: >-
+            ID of the precheck. Provide this value when calling
+            `/link/token/create` in order to optimize Link conversion.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        confidence:
+          $ref: '#/components/schemas/IncomeVerificationPrecheckConfidence'
+      required:
+        - precheck_id
+        - confidence
+        - request_id
+    SandboxIncomeFireWebhookResponse:
+      title: SandboxIncomeFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: >-
+        SandboxIncomeFireWebhookResponse defines the response schema for
+        `/sandbox/income/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id

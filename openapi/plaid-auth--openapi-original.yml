@@ -1,0 +1,642 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' auth/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /auth/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve auth data
+      externalDocs:
+        url: /api/products/auth/#authget
+      operationId: authGet
+      description: >-
+        The `/auth/get` endpoint returns the bank account and bank
+        identification numbers (such as routing numbers, for US accounts)
+        associated with an Item's checking and savings accounts, along with
+        high-level account data and balances when available.
+
+
+        Note: This request may take some time to complete if `auth` was not
+        specified as an initial product when creating the Item. This is because
+        Plaid must communicate directly with the institution to retrieve the
+        data.
+
+
+        Versioning note: In API version 2017-03-08, the schema of the `numbers`
+        object returned by this endpoint is substantially different. For
+        details, see [Plaid API
+        versioning](https://plaid.com/docs/api/versioning/#version-2018-05-22).
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        balances:
+                          available: 100
+                          current: 110
+                          limit: null
+                          iso_currency_code: USD
+                          unofficial_currency_code: null
+                        mask: '9606'
+                        name: Plaid Checking
+                        official_name: Plaid Gold Checking
+                        subtype: checking
+                        type: depository
+                    numbers:
+                      ach:
+                        - account: '9900009606'
+                          account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                          routing: '011401533'
+                          wire_routing: '021000021'
+                      eft:
+                        - account: '111122223333'
+                          account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                          institution: '021'
+                          branch: '01140'
+                      international:
+                        - account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                          bic: NWBKGB21
+                          iban: GB29NWBK60161331926819
+                      bacs:
+                        - account: '31926819'
+                          account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                          sort_code: '601613'
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - payment_initiation
+                        - transactions
+                      billed_products:
+                        - assets
+                        - auth
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_117650
+                      item_id: DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    request_id: m8MDnv9okwxFNBV
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+          description: Default error
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthGetRequest'
+            examples: {}
+        description: ''
+  /processor/auth/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Retrieve Auth data
+      externalDocs:
+        url: /api/processor-partners/#processorauthget
+      operationId: processorAuthGet
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorAuthGetResponse'
+              examples:
+                example-1:
+                  value:
+                    account:
+                      account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                      balances:
+                        available: 100
+                        current: 110
+                        iso_currency_code: USD
+                        limit: null
+                        unofficial_currency_code: null
+                      mask: '0000'
+                      name: Plaid Checking
+                      official_name: Plaid Gold Checking
+                      subtype: checking
+                      type: depository
+                    numbers:
+                      ach:
+                        account: '9900009606'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        routing: '011401533'
+                        wire_routing: '021000021'
+                      eft:
+                        account: '111122223333'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        institution: '021'
+                        branch: '01140'
+                      international:
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        bic: NWBKGB21
+                        iban: GB29NWBK60161331926819
+                      bacs:
+                        account: '31926819'
+                        account_id: vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D
+                        sort_code: '601613'
+                    request_id: 1zlMf
+      description: >
+        The `/processor/auth/get` endpoint returns the bank account and bank
+        identification number (such as the routing number, for US accounts), for
+        a checking or savings account that''s associated with a given
+        `processor_token`. The endpoint also returns high-level account data and
+        balances when available.
+
+
+        Versioning note: API versions 2019-05-29 and earlier use a different
+        schema for the `numbers` object returned by this endpoint. For details,
+        see [Plaid API
+        versioning](https://plaid.com/docs/api/versioning/#version-2020-09-14).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessorAuthGetRequest'
+  /investments/auth/get:
+    x-hidden-from-docs: true
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      tags:
+        - plaid
+      summary: Get data needed to authorize an investments transfer
+      externalDocs:
+        url: /api/products/investments/#investmentsauth
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvestmentsAuthGetResponse'
+              examples:
+                example-1:
+                  value:
+                    accounts:
+                      - account_id: 5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g
+                        balances:
+                          available: 43200
+                          current: 43200
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '4444'
+                        name: Plaid Money Market
+                        official_name: Plaid Platinum Standard 1.85% Interest Money Market
+                        subtype: money market
+                        type: depository
+                      - account_id: JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1
+                        balances:
+                          available: null
+                          current: 110.01
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '5555'
+                        name: Plaid IRA
+                        official_name: null
+                        subtype: ira
+                        type: investment
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        balances:
+                          available: null
+                          current: 23631.9805
+                          iso_currency_code: USD
+                          limit: null
+                          unofficial_currency_code: null
+                        mask: '6666'
+                        name: Plaid Roth IRA
+                        official_name: null
+                        subtype: roth
+                        type: investment
+                    holdings:
+                      - account_id: JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1
+                        cost_basis: 1
+                        institution_price: 1
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 0.01
+                        iso_currency_code: USD
+                        quantity: 0.01
+                        security_id: d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are
+                        unofficial_currency_code: null
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        cost_basis: 1.5
+                        institution_price: 2.11
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 2.11
+                        iso_currency_code: USD
+                        quantity: 1
+                        security_id: KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy
+                        unofficial_currency_code: null
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        cost_basis: 10
+                        institution_price: 10.42
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 20.84
+                        iso_currency_code: USD
+                        quantity: 2
+                        security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
+                        unofficial_currency_code: null
+                      - account_id: JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1
+                        cost_basis: 0.01
+                        institution_price: 0.011
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 110
+                        iso_currency_code: USD
+                        quantity: 10000
+                        security_id: 8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb
+                        unofficial_currency_code: null
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        cost_basis: 23
+                        institution_price: 27
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 636.309
+                        iso_currency_code: USD
+                        quantity: 23.567
+                        security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
+                        unofficial_currency_code: null
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        cost_basis: 15
+                        institution_price: 13.73
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 1373.6865
+                        iso_currency_code: USD
+                        quantity: 100.05
+                        security_id: nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN
+                        unofficial_currency_code: null
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        cost_basis: 1
+                        institution_price: 1
+                        institution_price_as_of: '2021-04-13'
+                        institution_price_datetime: null
+                        institution_value: 12345.67
+                        iso_currency_code: USD
+                        quantity: 12345.67
+                        security_id: d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are
+                        unofficial_currency_code: null
+                    item:
+                      available_products:
+                        - balance
+                        - identity
+                        - liabilities
+                        - transactions
+                      billed_products:
+                        - assets
+                        - auth
+                        - investments_auth
+                      consent_expiration_time: null
+                      error: null
+                      institution_id: ins_3
+                      item_id: 4z9LPae1nRHWy8pvg9jrsgbRP4ZNQvIdbLq7g
+                      update_type: background
+                      webhook: https://www.genericwebhookurl.com/webhook
+                    numbers:
+                      acats:
+                        - account: TR4444
+                          account_id: 5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g
+                          dtc_numbers: []
+                        - account: TR5555
+                          account_id: JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1
+                          dtc_numbers: []
+                        - account: TR6666
+                          account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                          dtc_numbers: []
+                      aton: []
+                    request_id: l68wb8zpS0hqmsJ
+                    owners:
+                      - account_id: 5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g
+                        names:
+                          - Alberta Bobbeth Charleson
+                      - account_id: JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1
+                        names:
+                          - Alberta Bobbeth Charleson
+                      - account_id: k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm
+                        names:
+                          - Alberta Bobbeth Charleson
+                    securities:
+                      - close_price: 0.011
+                        close_price_as_of: '2021-04-13'
+                        cusip: null
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: null
+                        iso_currency_code: USD
+                        name: Nflx Feb 01'18 $355 Call
+                        proxy_security_id: null
+                        security_id: 8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb
+                        sedol: null
+                        ticker_symbol: NFLX180201C00355000
+                        type: derivative
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract:
+                          contract_type: call
+                          expiration_date: '2018-02-01'
+                          strike_price: 355
+                          underlying_security_ticker: NFLX
+                      - close_price: 27
+                        close_price_as_of: null
+                        cusip: '577130834'
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US5771308344
+                        iso_currency_code: USD
+                        name: Matthews Pacific Tiger Fund Insti Class
+                        proxy_security_id: null
+                        security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
+                        sedol: null
+                        ticker_symbol: MIPTX
+                        type: mutual fund
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                      - close_price: 2.11
+                        close_price_as_of: null
+                        cusip: 00448Q201
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US00448Q2012
+                        iso_currency_code: USD
+                        name: Achillion Pharmaceuticals Inc.
+                        proxy_security_id: null
+                        security_id: KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy
+                        sedol: null
+                        ticker_symbol: ACHN
+                        type: equity
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                      - close_price: 10.42
+                        close_price_as_of: null
+                        cusip: '258620103'
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: false
+                        isin: US2586201038
+                        iso_currency_code: USD
+                        name: DoubleLine Total Return Bond Fund
+                        proxy_security_id: null
+                        security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
+                        sedol: null
+                        ticker_symbol: DBLTX
+                        type: mutual fund
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+                      - close_price: 1
+                        close_price_as_of: null
+                        cusip: null
+                        institution_id: null
+                        institution_security_id: null
+                        is_cash_equivalent: true
+                        isin: null
+                        iso_currency_code: USD
+                        name: U S Dollar
+                        proxy_security_id: null
+                        security_id: d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are
+                        sedol: null
+                        ticker_symbol: USD
+                        type: cash
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: null
+                        option_contract: null
+                      - close_price: 13.73
+                        close_price_as_of: null
+                        cusip: null
+                        institution_id: ins_3
+                        institution_security_id: NHX105509
+                        is_cash_equivalent: false
+                        isin: null
+                        iso_currency_code: USD
+                        name: NH PORTFOLIO 1055 (FIDELITY INDEX)
+                        proxy_security_id: null
+                        security_id: nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN
+                        sedol: null
+                        ticker_symbol: NHX105509
+                        type: etf
+                        unofficial_currency_code: null
+                        update_datetime: null
+                        market_identifier_code: XNAS
+                        option_contract: null
+      operationId: investmentsAuthGet
+      description: >-
+        The `/investments/auth/get` endpoint allows developers to receive
+        user-authorized data to facilitate the transfer of holdings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvestmentsAuthGetRequest'
+components:
+  schemas:
+    AuthGetResponse:
+      type: object
+      additionalProperties: true
+      description: AuthGetResponse defines the response schema for `/auth/get`
+      properties:
+        accounts:
+          type: array
+          description: The `accounts` for which numbers are being retrieved.
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        numbers:
+          $ref: '#/components/schemas/AuthGetNumbers'
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - numbers
+        - item
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    ProcessorAuthGetResponse:
+      type: object
+      additionalProperties: true
+      description: >-
+        ProcessorAuthGetResponse defines the response schema for
+        `/processor/auth/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        numbers:
+          $ref: '#/components/schemas/ProcessorNumber'
+        account:
+          $ref: '#/components/schemas/AccountBase'
+      required:
+        - request_id
+        - numbers
+        - account
+    InvestmentsAuthGetResponse:
+      type: object
+      additionalProperties: true
+      x-hidden-from-docs: true
+      description: >-
+        InvestmentsAuthGetResponse defines the response schema for
+        `/investments/auth/get`
+      properties:
+        accounts:
+          type: array
+          description: The accounts for which data is being retrieved
+          items:
+            $ref: '#/components/schemas/AccountBase'
+        holdings:
+          type: array
+          description: >-
+            The holdings belonging to investment accounts associated with the
+            Item. Details of the securities in the holdings are provided in the
+            `securities` field. 
+          items:
+            $ref: '#/components/schemas/Holding'
+        securities:
+          description: >-
+            Objects describing the securities held in the accounts associated
+            with the Item. 
+          type: array
+          items:
+            $ref: '#/components/schemas/Security'
+        owners:
+          description: >-
+            Information about the account owners for the accounts associated
+            with the Item. 
+          type: array
+          items:
+            $ref: '#/components/schemas/InvestmentsAuthOwner'
+        numbers:
+          $ref: '#/components/schemas/InvestmentsAuthGetNumbers'
+        item:
+          $ref: '#/components/schemas/Item'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - accounts
+        - holdings
+        - securities
+        - item
+        - numbers
+        - owners
+        - request_id

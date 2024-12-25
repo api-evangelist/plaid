@@ -1,0 +1,3194 @@
+openapi: 3.0.0
+servers:
+  - description: Production
+    url: https://production.plaid.com
+  - description: Development
+    url: https://development.plaid.com
+  - description: Sandbox
+    url: https://sandbox.plaid.com
+info:
+  title: ' transfer/'
+  version: 2020-09-14_1.517.0
+  description: Needs description.
+  contact:
+    name: Plaid Developer Team
+    url: https://plaid.com
+  termsOfService: https://plaid.com/legal/
+tags: []
+security:
+  - clientId: []
+    secret: []
+    plaidVersion: []
+paths:
+  /transfer/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transferget
+      operationId: transferGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferGetResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer:
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      ach_class: ppd
+                      amount: '12.34'
+                      cancellable: true
+                      created: '2020-08-06T17:27:15Z'
+                      description: Desc
+                      guarantee_decision: null
+                      guarantee_decision_rationale: null
+                      failure_reason:
+                        ach_return_code: R13
+                        description: Invalid ACH routing number
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      authorization_id: c9f90aa1-2949-c799-e2b6-ea05c89bb586
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      network: ach
+                      origination_account_id: ''
+                      originator_client_id: null
+                      refunds: []
+                      status: pending
+                      type: credit
+                      iso_currency_code: USD
+                      standard_return_window: '2020-08-07'
+                      unauthorized_return_window: '2020-10-07'
+                      expected_settlement_date: '2020-08-04'
+                      user:
+                        email_address: acharleston@email.com
+                        legal_name: Anne Charleston
+                        phone_number: 510-555-0128
+                        address:
+                          street: 123 Main St.
+                          city: San Francisco
+                          region: CA
+                          postal_code: '94053'
+                          country: US
+                      recurring_transfer_id: null
+                      credit_funds_source: sweep
+                      facilitator_fee: '1.23'
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/get` endpoint fetches information about the transfer
+        corresponding to the given `transfer_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferGetRequest'
+            examples: {}
+      parameters: []
+  /transfer/recurring/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a recurring transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/recurring-transfers/#transferrecurringget
+      operationId: transferRecurringGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRecurringGetResponse'
+              examples:
+                example-1:
+                  value:
+                    recurring_transfer:
+                      recurring_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      created: '2022-07-05T12:48:37Z'
+                      next_origination_date: '2022-10-28'
+                      test_clock_id: null
+                      status: active
+                      amount: '12.34'
+                      description: payment
+                      type: debit
+                      ach_class: ppd
+                      network: ach
+                      origination_account_id: ''
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      iso_currency_code: USD
+                      transfer_ids:
+                        - 271ef220-dbf8-caeb-a7dc-a2b3e8a80963
+                        - c8dbaf75-2abb-e2dc-4171-12448e13b848
+                      user:
+                        legal_name: Anne Charleston
+                        phone_number: 510-555-0128
+                        email_address: acharleston@email.com
+                        address:
+                          street: 123 Main St.
+                          city: San Francisco
+                          region: CA
+                          postal_code: '94053'
+                          country: US
+                      schedule:
+                        start_date: '2022-10-01'
+                        end_date: '2023-10-01'
+                        interval_unit: week
+                        interval_count: 1
+                        interval_execution_day: 5
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/recurring/get` fetches information about the recurring
+        transfer corresponding to the given `recurring_transfer_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRecurringGetRequest'
+  /transfer/authorization/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a transfer authorization
+      tags:
+        - plaid
+      externalDocs:
+        url: >-
+          /api/products/transfer/initiating-transfers/#transferauthorizationcreate
+      operationId: transferAuthorizationCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferAuthorizationCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    authorization:
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      created: '2020-08-06T17:27:15Z'
+                      decision: approved
+                      decision_rationale: null
+                      guarantee_decision: null
+                      guarantee_decision_rationale: null
+                      payment_risk: null
+                      proposed_transfer:
+                        ach_class: ppd
+                        account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        type: credit
+                        user:
+                          legal_name: Anne Charleston
+                          phone_number: 510-555-0128
+                          email_address: acharleston@email.com
+                          address:
+                            street: 123 Main St.
+                            city: San Francisco
+                            region: CA
+                            postal_code: '94053'
+                            country: US
+                        amount: '12.34'
+                        network: ach
+                        iso_currency_code: USD
+                        origination_account_id: ''
+                        originator_client_id: null
+                        credit_funds_source: sweep
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/authorization/create` endpoint to authorize a
+        transfer. This endpoint must be called prior to calling
+        `/transfer/create`.
+
+
+        There are three possible outcomes to calling this endpoint: If the
+        `authorization.decision` in the response is `declined`, the proposed
+        transfer has failed the risk check and you cannot proceed with the
+        transfer. If the `authorization.decision` is `approved`, and the
+        `authorization.rationale_code` is `null`, the transfer has passed the
+        risk check and you can proceed to call `/transfer/create`. If the
+        `authorization.decision` is `approved` and the
+        `authorization.rationale_code` is non-`null`, the risk check could not
+        be run: you may proceed with the transfer, but should perform your own
+        risk evaluation. For more details, see the response schema.
+
+
+        In Plaid's Sandbox environment the decisions will be returned as
+        follows:
+
+          - To approve a transfer with `null` rationale code, make an authorization request with an `amount` less than the available balance in the account.
+
+          - To approve a transfer with the rationale code `MANUALLY_VERIFIED_ITEM`, create an Item in Link through the [Same Day Micro-deposits flow](https://plaid.com/docs/auth/coverage/testing/#testing-same-day-micro-deposits).
+
+          - To approve a transfer with the rationale code `ITEM_LOGIN_REQUIRED`, [reset the login for an Item](https://plaid.com/docs/sandbox/#item_login_required).
+
+          - To decline a transfer with the rationale code `NSF`, the available balance on the account must be less than the authorization `amount`. See [Create Sandbox test data](https://plaid.com/docs/sandbox/user-custom/) for details on how to customize data in Sandbox.
+
+          - To decline a transfer with the rationale code `RISK`, the available balance on the account must be exactly $0. See [Create Sandbox test data](https://plaid.com/docs/sandbox/user-custom/) for details on how to customize data in Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferAuthorizationCreateRequest'
+  /transfer/authorization/cancel:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Cancel a transfer authorization
+      tags:
+        - plaid
+      externalDocs:
+        url: >-
+          /api/products/transfer/initiating-transfers/#transferauthorizationcancel
+      operationId: transferAuthorizationCancel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferAuthorizationCancelResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/authorization/cancel` endpoint to cancel a transfer
+        authorization. A transfer authorization is eligible for cancellation if
+        it has not yet been used to create a transfer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferAuthorizationCancelRequest'
+  /transfer/balance/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: (Deprecated) Retrieve a balance held with Plaid
+      deprecated: true
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/balance/#transferbalanceget
+      operationId: transferBalanceGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferBalanceGetResponse'
+              examples:
+                example-1:
+                  value:
+                    balance:
+                      available: '1721.70'
+                      type: prefunded_rtp_credits
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        (Deprecated) Use the `/transfer/balance/get` endpoint to view a balance
+        held with Plaid.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferBalanceGetRequest'
+  /transfer/capabilities/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get RTP eligibility information of a transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/account-linking/#transfercapabilitiesget
+      operationId: transferCapabilitiesGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferCapabilitiesGetResponse'
+              examples:
+                example-1:
+                  value:
+                    institution_supported_networks:
+                      rtp:
+                        credit: true
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/capabilities/get` endpoint to determine the RTP
+        eligibility information of a transfer. To simulate RTP eligibility in
+        Sandbox, log in using the username `user_good` and password `pass_good`
+        and use the first two checking and savings accounts in the "First
+        Platypus Bank" institution (ending in 0000 or 1111), which will return
+        `true`. Any other account will return `false`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferCapabilitiesGetRequest'
+  /transfer/configuration/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get transfer product configuration
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/metrics/#transferconfigurationget
+      operationId: transferConfigurationGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferConfigurationGetResponse'
+              examples:
+                example-1:
+                  value:
+                    max_single_transfer_amount: ''
+                    max_single_transfer_credit_amount: '1000.00'
+                    max_single_transfer_debit_amount: '1000.00'
+                    max_daily_credit_amount: '50000.00'
+                    max_daily_debit_amount: '50000.00'
+                    max_monthly_amount: ''
+                    max_monthly_credit_amount: '500000.00'
+                    max_monthly_debit_amount: '500000.00'
+                    iso_currency_code: USD
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/configuration/get` endpoint to view your transfer
+        product configurations.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferConfigurationGetRequest'
+  /transfer/ledger/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve Plaid Ledger balance
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/ledger/#transferledgerget
+      operationId: transferLedgerGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferLedgerGetResponse'
+              examples:
+                example-1:
+                  value:
+                    balance:
+                      available: '1721.70'
+                      pending: '123.45'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/ledger/get` endpoint to view a balance on the ledger
+        held with Plaid.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferLedgerGetRequest'
+  /transfer/ledger/distribute:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: >-
+        Move available balance between the ledgers of the platform and one of
+        its originators
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/ledger/#transferledgerdistribute
+      operationId: transferLedgerDistribute
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferLedgerDistributeResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/ledger/distribute` endpoint to move available balance
+        between the ledgers of the platform and one of its originators.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferLedgerDistributeRequest'
+  /transfer/ledger/deposit:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Deposit funds into a Plaid Ledger balance
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/ledger/#transferledgerdeposit
+      operationId: transferLedgerDeposit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferLedgerDepositResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: 8c2fda9a-aa2f-4735-a00f-f4e0d2d2faee
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      created: '2020-08-06T17:27:15Z'
+                      amount: '-12.34'
+                      iso_currency_code: USD
+                      settled: null
+                      status: pending
+                      trigger: manual
+                      description: deposit
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/ledger/deposit` endpoint to deposit funds into Plaid
+        Ledger.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferLedgerDepositRequest'
+  /transfer/ledger/withdraw:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Withdraw funds from a Plaid Ledger balance
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/ledger/#transferledgerwithdraw
+      operationId: transferLedgerWithdraw
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferLedgerWithdrawResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: 8c2fda9a-aa2f-4735-a00f-f4e0d2d2faee
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      created: '2020-08-06T17:27:15Z'
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      settled: null
+                      status: pending
+                      trigger: manual
+                      description: withdraw
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/ledger/withdraw` endpoint to withdraw funds from a
+        Plaid Ledger balance.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferLedgerWithdrawRequest'
+  /transfer/originator/funding_account/update:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Update the funding account associated with the originator
+      tags:
+        - plaid
+      externalDocs:
+        url: >-
+          /api/products/transfer/platform-payments/#transferoriginatorfunding_accountupdate
+      operationId: transferOriginatorFundingAccountUpdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/TransferOriginatorFundingAccountUpdateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/originator/funding_account/update` endpoint to update
+        the funding account associated with the originator.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/TransferOriginatorFundingAccountUpdateRequest
+  /transfer/metrics/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get transfer product usage metrics
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/metrics/#transfermetricsget
+      operationId: transferMetricsGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferMetricsGetResponse'
+              examples:
+                example-1:
+                  value:
+                    daily_debit_transfer_volume: '1234.56'
+                    daily_credit_transfer_volume: '567.89'
+                    monthly_transfer_volume: ''
+                    monthly_debit_transfer_volume: '10000.00'
+                    monthly_credit_transfer_volume: '2345.67'
+                    iso_currency_code: USD
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/metrics/get` endpoint to view your transfer product
+        usage metrics.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferMetricsGetRequest'
+  /transfer/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/initiating-transfers/#transfercreate
+      operationId: transferCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer:
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      authorization_id: c9f90aa1-2949-c799-e2b6-ea05c89bb586
+                      ach_class: ppd
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      type: credit
+                      user:
+                        legal_name: Anne Charleston
+                        phone_number: 510-555-0128
+                        email_address: acharleston@email.com
+                        address:
+                          street: 123 Main St.
+                          city: San Francisco
+                          region: CA
+                          postal_code: '94053'
+                          country: US
+                      amount: '12.34'
+                      description: payment
+                      created: '2020-08-06T17:27:15Z'
+                      refunds: []
+                      status: pending
+                      network: ach
+                      cancellable: true
+                      guarantee_decision: null
+                      guarantee_decision_rationale: null
+                      failure_reason: null
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      origination_account_id: ''
+                      iso_currency_code: USD
+                      standard_return_window: '2023-08-07'
+                      unauthorized_return_window: '2023-10-07'
+                      expected_settlement_date: '2023-08-04'
+                      originator_client_id: 569ed2f36b3a3a021713abc1
+                      recurring_transfer_id: null
+                      credit_funds_source: sweep
+                      facilitator_fee: '1.23'
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: Use the `/transfer/create` endpoint to initiate a new transfer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferCreateRequest'
+  /transfer/recurring/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a recurring transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/recurring-transfers/#transferrecurringcreate
+      operationId: transferRecurringCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRecurringCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    recurring_transfer:
+                      recurring_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      created: '2022-07-05T12:48:37Z'
+                      next_origination_date: '2022-10-28'
+                      test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                      status: active
+                      amount: '12.34'
+                      description: payment
+                      type: debit
+                      ach_class: ppd
+                      network: ach
+                      origination_account_id: ''
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      iso_currency_code: USD
+                      transfer_ids: []
+                      user:
+                        legal_name: Anne Charleston
+                        phone_number: 510-555-0128
+                        email_address: acharleston@email.com
+                        address:
+                          street: 123 Main St.
+                          city: San Francisco
+                          region: CA
+                          postal_code: '94053'
+                          country: US
+                      schedule:
+                        start_date: '2022-10-01'
+                        end_date: '2023-10-01'
+                        interval_unit: week
+                        interval_count: 1
+                        interval_execution_day: 5
+                    decision: approved
+                    decision_rationale: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/recurring/create` endpoint to initiate a new
+        recurring transfer. This capability is not currently supported for
+        Transfer UI or Platform Payments (beta) customers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRecurringCreateRequest'
+  /transfer/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List transfers
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transferlist
+      operationId: transferList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferListResponse'
+              examples:
+                example-1:
+                  value:
+                    transfers:
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        ach_class: ppd
+                        amount: '12.34'
+                        cancellable: true
+                        created: '2019-12-09T17:27:15Z'
+                        description: Desc
+                        guarantee_decision: null
+                        guarantee_decision_rationale: null
+                        failure_reason:
+                          ach_return_code: R13
+                          description: Invalid ACH routing number
+                        id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        authorization_id: c9f90aa1-2949-c799-e2b6-ea05c89bb586
+                        metadata:
+                          key1: value1
+                          key2: value2
+                        network: ach
+                        origination_account_id: ''
+                        originator_client_id: null
+                        refunds: []
+                        status: pending
+                        type: credit
+                        iso_currency_code: USD
+                        standard_return_window: '2020-08-07'
+                        unauthorized_return_window: '2020-10-07'
+                        expected_settlement_date: '2020-08-04'
+                        user:
+                          email_address: acharleston@email.com
+                          legal_name: Anne Charleston
+                          phone_number: 510-555-0128
+                          address:
+                            street: 123 Main St.
+                            city: San Francisco
+                            region: CA
+                            postal_code: '94053'
+                            country: US
+                        recurring_transfer_id: null
+                        credit_funds_source: sweep
+                        facilitator_fee: '1.23'
+                        network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >
+        Use the `/transfer/list` endpoint to see a list of all your transfers
+        and their statuses. Results are paginated; use the `count` and `offset`
+        query parameters to retrieve the desired transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferListRequest'
+  /transfer/recurring/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List recurring transfers
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/recurring-transfers/#transferrecurringlist
+      operationId: transferRecurringList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRecurringListResponse'
+              examples:
+                example-1:
+                  value:
+                    recurring_transfers:
+                      - recurring_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        created: '2022-07-05T12:48:37Z'
+                        next_origination_date: '2022-10-28'
+                        test_clock_id: null
+                        status: active
+                        amount: '12.34'
+                        description: payment
+                        type: debit
+                        ach_class: ppd
+                        network: ach
+                        origination_account_id: ''
+                        account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        iso_currency_code: USD
+                        transfer_ids:
+                          - 4242fc8d-3ec6-fb38-fa0c-a8e37d03cd57
+                        user:
+                          legal_name: Anne Charleston
+                          phone_number: 510-555-0128
+                          email_address: acharleston@email.com
+                          address:
+                            street: 123 Main St.
+                            city: San Francisco
+                            region: CA
+                            postal_code: '94053'
+                            country: US
+                        schedule:
+                          start_date: '2022-10-01'
+                          end_date: '2023-10-01'
+                          interval_unit: week
+                          interval_count: 1
+                          interval_execution_day: 5
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >
+        Use the `/transfer/recurring/list` endpoint to see a list of all your
+        recurring transfers and their statuses. Results are paginated; use the
+        `count` and `offset` query parameters to retrieve the desired recurring
+        transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRecurringListRequest'
+  /transfer/cancel:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Cancel a transfer
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/initiating-transfers/#transfercancel
+      operationId: transferCancel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferCancelResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/cancel` endpoint to cancel a transfer.  A transfer is
+        eligible for cancellation if the `cancellable` property returned by
+        `/transfer/get` is `true`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferCancelRequest'
+  /transfer/recurring/cancel:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Cancel a recurring transfer.
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/recurring-transfers/#transferrecurringcancel
+      operationId: transferRecurringCancel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRecurringCancelResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/recurring/cancel` endpoint to cancel a recurring
+        transfer.  Scheduled transfer that hasn't been submitted to bank will be
+        cancelled.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRecurringCancelRequest'
+  /transfer/event/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List transfer events
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transfereventlist
+      operationId: transferEventList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferEventListResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer_events:
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        transfer_amount: '12.34'
+                        transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        transfer_type: credit
+                        event_id: 1
+                        event_type: posted
+                        failure_reason: null
+                        origination_account_id: ''
+                        originator_client_id: 569ed2f36b3a3a021713abc1
+                        refund_id: null
+                        sweep_amount: null
+                        sweep_id: null
+                        timestamp: '2019-12-09T17:27:15Z'
+                    has_more: true
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/event/list` endpoint to get a list of transfer events
+        based on specified filter criteria.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferEventListRequest'
+  /transfer/event/sync:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Sync transfer events
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transfereventsync
+      operationId: transferEventSync
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferEventSyncResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer_events:
+                      - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        transfer_amount: '12.34'
+                        transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                        transfer_type: credit
+                        event_id: 1
+                        event_type: pending
+                        failure_reason: null
+                        origination_account_id: ''
+                        originator_client_id: null
+                        refund_id: null
+                        sweep_amount: null
+                        sweep_id: null
+                        timestamp: '2019-12-09T17:27:15Z'
+                    has_more: true
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferEventSyncRequest'
+      description: >-
+        `/transfer/event/sync` allows you to request up to the next 25 transfer
+        events that happened after a specific `event_id`. Use the
+        `/transfer/event/sync` endpoint to guarantee you have seen all transfer
+        events.
+  /transfer/sweep/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a sweep
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transfersweepget
+      operationId: transferSweepGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferSweepGetResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: 8c2fda9a-aa2f-4735-a00f-f4e0d2d2faee
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      created: '2020-08-06T17:27:15Z'
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      settled: '2020-08-07'
+                      status: settled
+                      network_trace_id: '123456789012345'
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/sweep/get` endpoint fetches a sweep corresponding to the
+        given `sweep_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferSweepGetRequest'
+            examples: {}
+      parameters: []
+  /transfer/sweep/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List sweeps
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/reading-transfers/#transfersweeplist
+      operationId: transferSweepList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferSweepListResponse'
+              examples:
+                example-1:
+                  value:
+                    sweeps:
+                      - id: d5394a4d-0b04-4a02-9f4a-7ca5c0f52f9d
+                        funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                        created: '2019-12-09T17:27:15Z'
+                        amount: '-12.34'
+                        iso_currency_code: USD
+                        settled: '2019-12-10'
+                        status: settled
+                        originator_client_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/sweep/list` endpoint fetches sweeps matching the given
+        filters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferSweepListRequest'
+            examples: {}
+      parameters: []
+  /transfer/migrate_account:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Migrate account into Transfers
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/account-linking/#transfermigrate_account
+      operationId: transferMigrateAccount
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferMigrateAccountResponse'
+              examples:
+                example-1:
+                  value:
+                    access_token: access-sandbox-435beced-94e8-4df3-a181-1dde1cfa19f0
+                    account_id: zvyDgbeeDluZ43AJP6m5fAxDlgoZXDuoy5gjN
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        As an alternative to adding Items via Link, you can also use the
+        `/transfer/migrate_account` endpoint to migrate known account and
+        routing numbers to Plaid Items. If you intend to create wire transfers
+        on this account, you must provide `wire_routing_number`. Note that Items
+        created in this way are not compatible with endpoints for other
+        products, such as `/accounts/balance/get`, and can only be used with
+        Transfer endpoints.  If you require access to other endpoints, create
+        the Item through Link instead.  Access to `/transfer/migrate_account` is
+        not enabled by default; to obtain access, contact your Plaid Account
+        Manager.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferMigrateAccountRequest'
+  /transfer/intent/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a transfer intent object to invoke the Transfer UI
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/account-linking/#transferintentcreate
+      operationId: transferIntentCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferIntentCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer_intent:
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 9853defc-e703-463d-86b1-dc0607a45359
+                      ach_class: ppd
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      created: '2020-08-06T17:27:15Z'
+                      description: Desc
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      mode: PAYMENT
+                      origination_account_id: 9853defc-e703-463d-86b1-dc0607a45359
+                      status: PENDING
+                      user:
+                        address:
+                          street: 100 Market Street
+                          city: San Francisco
+                          region: CA
+                          postal_code: '94103'
+                          country: US
+                        email_address: acharleston@email.com
+                        legal_name: Anne Charleston
+                        phone_number: 123-456-7890
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/intent/create` endpoint to generate a transfer intent
+        object and invoke the Transfer UI.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferIntentCreateRequest'
+  /transfer/intent/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve more information about a transfer intent
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/account-linking/#transferintentget
+      operationId: transferIntentGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferIntentGetResponse'
+              examples:
+                example-1:
+                  value:
+                    transfer_intent:
+                      account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
+                      funding_account_id: 9853defc-e703-463d-86b1-dc0607a45359
+                      ach_class: ppd
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      authorization_decision: APPROVED
+                      authorization_decision_rationale: null
+                      created: '2019-12-09T17:27:15Z'
+                      description: Desc
+                      failure_reason: null
+                      guarantee_decision: null
+                      guarantee_decision_rationale: null
+                      id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      metadata:
+                        key1: value1
+                        key2: value2
+                      mode: DISBURSEMENT
+                      origination_account_id: 9853defc-e703-463d-86b1-dc0607a45359
+                      status: SUCCEEDED
+                      transfer_id: 590ecd12-1dcc-7eae-4ad6-c28d1ec90df2
+                      user:
+                        address:
+                          street: 123 Main St.
+                          city: San Francisco
+                          region: California
+                          postal_code: '94053'
+                          country: US
+                        email_address: acharleston@email.com
+                        legal_name: Anne Charleston
+                        phone_number: 510-555-0128
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/intent/get` endpoint to retrieve more information
+        about a transfer intent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferIntentGetRequest'
+  /transfer/repayment/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Lists historical repayments
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/#transferrepaymentlist
+      operationId: transferRepaymentList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRepaymentListResponse'
+              examples:
+                example-1:
+                  value:
+                    repayments:
+                      - repayment_id: d4bfce70-2470-4298-ae87-5e9b3e18bfaf
+                        created: '2019-12-09T12:34:56Z'
+                        amount: '12.34'
+                        iso_currency_code: USD
+                    request_id: h0dvmW8g4r2Z0KX
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/repayment/list` endpoint fetches repayments matching the
+        given filters. Repayments are returned in reverse-chronological order
+        (most recent first) starting at the given `start_time`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRepaymentListRequest'
+            examples:
+              example-1:
+                value:
+                  start_time: '2022-01-10T12:34:56Z'
+                  count: 1
+      parameters: []
+  /transfer/repayment/return/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List the returns included in a repayment
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/#transferrepaymentreturnlist
+      operationId: transferRepaymentReturnList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRepaymentReturnListResponse'
+              examples:
+                example-1:
+                  value:
+                    repayment_returns:
+                      - transfer_id: d4bfce70-2470-4298-ae87-5e9b3e18bfaf
+                        event_id: 5
+                        amount: '12.34'
+                        iso_currency_code: USD
+                    request_id: Ay70UHyBmbY0wUf
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/repayment/return/list` endpoint retrieves the set of
+        returns that were batched together into the specified repayment. The sum
+        of amounts of returns retrieved by this request equals the amount of the
+        repayment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRepaymentReturnListRequest'
+            examples:
+              example-1:
+                value:
+                  start_time: '2022-01-10T12:34:56Z'
+                  count: 1
+                  repayment_id: d4bfce70-2470-4298-ae87-5e9b3e18bfaf
+      parameters: []
+  /transfer/originator/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a new originator
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/platform-payments/#transferoriginatorcreate
+      operationId: transferOriginatorCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferOriginatorCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    originator_client_id: 6a65dh3d1h0d1027121ak184
+                    company_name: Marketplace of Shannon
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/originator/create` endpoint to create a new
+        originator and return an `originator_client_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferOriginatorCreateRequest'
+            examples: {}
+      parameters: []
+  /transfer/questionnaire/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Generate a Plaid-hosted onboarding UI URL.
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/platform-payments/#transferquestionnairecreate
+      operationId: transferQuestionnaireCreate
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferQuestionnaireCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    onboarding_url: https://plaid.com/originator/hIFGXx1zM5pFerygu7lw
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/questionnaire/create` endpoint generates a Plaid-hosted
+        onboarding UI URL. Redirect the originator to this URL to provide their
+        due diligence information and agree to Plaid’s terms for ACH money
+        movement.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferQuestionnaireCreateRequest'
+            examples: {}
+      parameters: []
+  /transfer/diligence/submit:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Submit transfer diligence on behalf of the originator
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/platform-payments/#transferdiligencesubmit
+      operationId: transferDiligenceSubmit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferDiligenceSubmitResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/diligence/submit` endpoint to submit transfer
+        diligence on behalf of the originator (i.e., the end customer).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferDiligenceSubmitRequest'
+            examples: {}
+      parameters: []
+  /transfer/diligence/document/upload:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Upload transfer diligence document on behalf of the originator
+      tags:
+        - plaid
+      externalDocs:
+        url: >-
+          /api/products/transfer/platform-payments/#transferdiligencedocumentupload
+      operationId: transferDiligenceDocumentUpload
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferDiligenceDocumentUploadResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Third-party sender customers can use
+        `/transfer/diligence/document/upload` endpoint to upload a document on
+        behalf of its end customer (i.e. originator) to Plaid. You’ll need to
+        send a request of type multipart/form-data.
+
+        You must provide the `client_id` in the `PLAID-CLIENT-ID` header and
+        `secret` in the `PLAID-SECRET` header.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferDiligenceDocumentUploadRequest'
+            examples: {}
+      parameters: []
+  /transfer/originator/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get status of an originator's onboarding
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/platform-payments/#transferoriginatorget
+      operationId: transferOriginatorGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferOriginatorGetResponse'
+              examples:
+                example-1:
+                  value:
+                    originator:
+                      client_id: 6a65dh3d1h0d1027121ak184
+                      transfer_diligence_status: approved
+                      company_name: Plaid
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/originator/get` endpoint gets status updates for an
+        originator's onboarding process. This information is also available via
+        the Transfer page on the Plaid dashboard.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferOriginatorGetRequest'
+          examples: {}
+      parameters: []
+  /transfer/originator/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get status of all originators' onboarding
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/platform-payments/#transferoriginatorlist
+      operationId: transferOriginatorList
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferOriginatorListResponse'
+              examples:
+                example-1:
+                  value:
+                    originators:
+                      - client_id: 6a65dh3d1h0d1027121ak184
+                        transfer_diligence_status: approved
+                      - client_id: 8g89as4d2k1d9852938ba019
+                        transfer_diligence_status: denied
+                    request_id: 4zlKapIkTm8p5KM
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/originator/list` endpoint gets status updates for all of
+        your originators' onboarding. This information is also available via the
+        Plaid dashboard.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferOriginatorListRequest'
+            examples: {}
+      parameters: []
+  /transfer/refund/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a refund
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/refunds/#transferrefundcreate
+      operationId: transferRefundCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRefundCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    refund:
+                      id: 667af684-9ee1-4f5f-862a-633ec4c545cc
+                      transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      amount: '12.34'
+                      status: pending
+                      created: '2020-08-06T17:27:15Z'
+                      failure_reason: null
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/refund/create` endpoint to create a refund for a
+        transfer. A transfer can be refunded if the transfer was initiated in
+        the past 180 days.
+
+
+        Processing of the refund will not occur until at least 4 business days
+        following the transfer's settlement date, plus any hold/settlement
+        delays. This 3-day window helps better protect your business from
+        regular ACH returns. Consumer initiated returns (unauthorized returns)
+        could still happen for about 60 days from the settlement date. If the
+        original transfer is canceled, returned or failed, all pending refunds
+        will automatically be canceled. Processed refunds cannot be revoked.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRefundCreateRequest'
+      parameters: []
+  /transfer/refund/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Retrieve a refund
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/refunds/#transferrefundget
+      operationId: transferRefundGet
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRefundGetResponse'
+              examples:
+                example-1:
+                  value:
+                    refund:
+                      id: 667af684-9ee1-4f5f-862a-633ec4c545cc
+                      transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
+                      amount: '12.34'
+                      status: pending
+                      created: '2020-08-06T17:27:15Z'
+                      failure_reason: null
+                      network_trace_id: null
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        The `/transfer/refund/get` endpoint fetches information about the refund
+        corresponding to the given `refund_id`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRefundGetRequest'
+            examples: {}
+      parameters: []
+  /transfer/refund/cancel:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Cancel a refund
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/products/transfer/refunds/#transferrefundcancel
+      operationId: transferRefundCancel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferRefundCancelResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: saKrIBuEB9qJZno
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/transfer/refund/cancel` endpoint to cancel a refund.  A refund
+        is eligible for cancellation if it has not yet been submitted to the
+        payment network.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRefundCancelRequest'
+  /sandbox/transfer/sweep/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate creating a sweep
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfersweepsimulate
+      operationId: sandboxTransferSweepSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferSweepSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    sweep:
+                      id: d5394a4d-0b04-4a02-9f4a-7ca5c0f52f9d
+                      funding_account_id: 8945fedc-e703-463d-86b1-dc0607b55460
+                      created: '2020-08-06T17:27:15Z'
+                      amount: '12.34'
+                      iso_currency_code: USD
+                      settled: '2020-08-07'
+                      network_trace_id: null
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/sweep/simulate` endpoint to create a sweep
+        and associated events in the Sandbox environment. Upon calling this
+        endpoint, all transfers with a sweep status of `swept` will become
+        `swept_settled`, all `posted` or `pending` transfers with a sweep status
+        of `unswept` will become `swept`, and all `returned` transfers with a
+        sweep status of `swept` will become `return_swept`.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferSweepSimulateRequest'
+  /sandbox/transfer/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a transfer event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfersimulate
+      operationId: sandboxTransferSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/simulate` endpoint to simulate a transfer
+        event in the Sandbox environment.  Note that while an event will be
+        simulated and will appear when using endpoints such as
+        `/transfer/event/sync` or `/transfer/event/list`, no transactions will
+        actually take place and funds will not move between accounts, even
+        within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferSimulateRequest'
+  /sandbox/transfer/refund/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a refund event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferrefundsimulate
+      operationId: sandboxTransferRefundSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferRefundSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/refund/simulate` endpoint to simulate a
+        refund event in the Sandbox environment.  Note that while an event will
+        be simulated and will appear when using endpoints such as
+        `/transfer/event/sync` or `/transfer/event/list`, no transactions will
+        actually take place and funds will not move between accounts, even
+        within the Sandbox.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferRefundSimulateRequest'
+  /sandbox/transfer/ledger/simulate_available:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate converting pending balance to available balance
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgersimulate_available
+      operationId: sandboxTransferLedgerSimulateAvailable
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerSimulateAvailableResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/simulate_available` endpoint to
+        simulate converting pending balance to available balance for all
+        originators in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/SandboxTransferLedgerSimulateAvailableRequest
+  /sandbox/transfer/ledger/deposit/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a ledger deposit event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgerdepositsimulate
+      operationId: sandboxTransferLedgerDepositSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerDepositSimulateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/deposit/simulate` endpoint to simulate
+        a ledger deposit event in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferLedgerDepositSimulateRequest'
+  /sandbox/transfer/ledger/withdraw/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Simulate a ledger withdraw event in Sandbox
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferledgerwithdrawsimulate
+      operationId: sandboxTransferLedgerWithdrawSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/SandboxTransferLedgerWithdrawSimulateResponse
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/ledger/withdraw/simulate` endpoint to
+        simulate a ledger withdraw event in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: >-
+                #/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest
+  /sandbox/transfer/repayment/simulate:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Trigger the creation of a repayment
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferrepaymentsimulate
+      operationId: sandboxTransferRepaymentSimulate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferRepaymentSimulateResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: 4vAbY6XyqqoPQLB
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/repayment/simulate` endpoint to trigger the
+        creation of a repayment. As a side effect of calling this route, a
+        repayment is created that includes all unreimbursed returns of
+        guaranteed transfers. If there are no such returns, an 400 error is
+        returned.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferRepaymentSimulateRequest'
+  /sandbox/transfer/fire_webhook:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Manually fire a Transfer webhook
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransferfire_webhook
+      operationId: sandboxTransferFireWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferFireWebhookResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/fire_webhook` endpoint to manually trigger a
+        `TRANSFER_EVENTS_UPDATE` webhook in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferFireWebhookRequest'
+  /sandbox/transfer/test_clock/create:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Create a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockcreate
+      operationId: sandboxTransferTestClockCreate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockCreateResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clock:
+                      test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                      virtual_time: '2006-01-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/create` endpoint to create a
+        `test_clock` in the Sandbox environment.
+
+
+        A test clock object represents an independent timeline and has a
+        `virtual_time` field indicating the current timestamp of the timeline.
+        Test clocks are used for testing recurring transfers in Sandbox.
+
+
+        A test clock can be associated with up to 5 recurring transfers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockCreateRequest'
+  /sandbox/transfer/test_clock/advance:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Advance a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockadvance
+      operationId: sandboxTransferTestClockAdvance
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockAdvanceResponse'
+              examples:
+                example-1:
+                  value:
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/advance` endpoint to advance a
+        `test_clock` in the Sandbox environment.
+
+
+        A test clock object represents an independent timeline and has a
+        `virtual_time` field indicating the current timestamp of the timeline. A
+        test clock can be advanced by incrementing `virtual_time`, but may never
+        go back to a lower `virtual_time`.
+
+
+        If a test clock is advanced, we will simulate the changes that ought to
+        occur during the time that elapsed.
+
+
+        For example, a client creates a weekly recurring transfer with a test
+        clock set at t. When the client advances the test clock by setting
+        `virtual_time` = t + 15 days, 2 new originations should be created,
+        along with the webhook events.
+
+
+        The advancement of the test clock from its current `virtual_time` should
+        be limited such that there are no more than 20 originations resulting
+        from the advance operation on each `recurring_transfer` associated with
+        the `test_clock`.
+
+
+        For example, if the recurring transfer associated with this test clock
+        originates once every 4 weeks, you can advance the `virtual_time` up to
+        80 weeks on each API call.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockAdvanceRequest'
+  /sandbox/transfer/test_clock/get:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: Get a test clock
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clockget
+      operationId: sandboxTransferTestClockGet
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockGetResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clock:
+                      test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                      virtual_time: '2006-01-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/get` endpoint to get a
+        `test_clock` in the Sandbox environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockGetRequest'
+  /sandbox/transfer/test_clock/list:
+    x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
+    post:
+      summary: List test clocks
+      tags:
+        - plaid
+      externalDocs:
+        url: /api/sandbox/#sandboxtransfertest_clocklist
+      operationId: sandboxTransferTestClockList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SandboxTransferTestClockListResponse'
+              examples:
+                example-1:
+                  value:
+                    test_clocks:
+                      - test_clock_id: b33a6eda-5e97-5d64-244a-a9274110151c
+                        virtual_time: '2006-01-02T15:04:05Z'
+                      - test_clock_id: a33a6eda-5e97-5d64-244a-a9274110152d
+                        virtual_time: '2006-02-02T15:04:05Z'
+                    request_id: mdqfuVxeoza6mhu
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlaidError'
+      description: >-
+        Use the `/sandbox/transfer/test_clock/list` endpoint to see a list of
+        all your test clocks in the Sandbox environment, by ascending
+        `virtual_time`. Results are paginated; use the `count` and `offset`
+        query parameters to retrieve the desired test clocks.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxTransferTestClockListRequest'
+components:
+  schemas:
+    TransferGetResponse:
+      title: TransferGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/get`
+      properties:
+        transfer:
+          $ref: '#/components/schemas/Transfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer
+        - request_id
+    PlaidError:
+      description: >-
+        Errors are identified by `error_code` and categorized by `error_type`.
+        Use these in preference to HTTP status codes to identify and handle
+        specific errors. HTTP status codes are set and provide the broadest
+        categorization of errors: 4xx codes are for developer- or user-related
+        errors, and 5xx codes are for Plaid-related errors, and the status will
+        be 2xx in non-error cases. An Item with a non-`null` error object will
+        only be part of an API response when calling `/item/get` to view Item
+        status. Otherwise, error fields will be `null` if no error has occurred;
+        if an error has occurred, an error code will be returned instead.
+      type: object
+      additionalProperties: true
+      title: Error
+      nullable: true
+      properties:
+        error_type:
+          $ref: '#/components/schemas/PlaidErrorType'
+        error_code:
+          description: The particular error code. Safe for programmatic use.
+          type: string
+        error_message:
+          description: >-
+            A developer-friendly representation of the error code. This may
+            change over time and is not safe for programmatic use.
+          type: string
+        display_message:
+          description: >-
+            A user-friendly representation of the error code. `null` if the
+            error is not related to user action.
+
+
+            This may change over time and is not safe for programmatic use.
+          type: string
+          nullable: true
+        request_id:
+          type: string
+          description: >-
+            A unique ID identifying the request, to be used for troubleshooting
+            purposes. This field will be omitted in errors provided by webhooks.
+        causes:
+          type: array
+          description: >-
+            In the Assets product, a request can pertain to more than one Item.
+            If an error is returned for such a request, `causes` will return an
+            array of errors containing a breakdown of these errors on the
+            individual Item level, if any can be identified.
+
+
+            `causes` will only be provided for the `error_type`
+            `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an
+            error nested within a `warning` object.
+          items: {}
+        status:
+          type: integer
+          description: >-
+            The HTTP status code associated with the error. This will only be
+            returned in the response body when the error information is provided
+            via a webhook.
+          nullable: true
+        documentation_url:
+          type: string
+          description: >-
+            The URL of a Plaid documentation page with more information about
+            the error
+        suggested_action:
+          type: string
+          nullable: true
+          description: Suggested steps for resolving the error
+      required:
+        - error_type
+        - error_code
+        - error_message
+        - display_message
+    TransferRecurringGetResponse:
+      title: TransferRecurringGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/recurring/get`
+      properties:
+        recurring_transfer:
+          $ref: '#/components/schemas/RecurringTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - recurring_transfer
+        - request_id
+    TransferAuthorizationCreateResponse:
+      title: TransferAuthorizationCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/authorization/create`
+      properties:
+        authorization:
+          $ref: '#/components/schemas/TransferAuthorization'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - authorization
+        - request_id
+    TransferAuthorizationCancelResponse:
+      title: TransferAuthorizationCancelResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/authorization/cancel`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferBalanceGetResponse:
+      title: TransferBalanceGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/balance/get`
+      properties:
+        balance:
+          $ref: '#/components/schemas/TransferBalance'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - balance
+        - request_id
+    TransferCapabilitiesGetResponse:
+      title: TransferCapabilitiesGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/capabilities/get`
+      properties:
+        institution_supported_networks:
+          $ref: '#/components/schemas/InstitutionSupportedNetworks'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - institution_supported_networks
+        - request_id
+    TransferConfigurationGetResponse:
+      title: TransferConfigurationGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/configuration/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        max_single_transfer_amount:
+          type: string
+          description: >-
+            The max limit of dollar amount of a single transfer (decimal string
+            with two digits of precision e.g. "10.00").
+          deprecated: true
+          x-hidden-from-docs: true
+        max_single_transfer_credit_amount:
+          type: string
+          description: >-
+            The max limit of dollar amount of a single credit transfer (decimal
+            string with two digits of precision e.g. "10.00").
+        max_single_transfer_debit_amount:
+          type: string
+          description: >-
+            The max limit of dollar amount of a single debit transfer (decimal
+            string with two digits of precision e.g. "10.00").
+        max_daily_credit_amount:
+          type: string
+          description: >-
+            The max limit of sum of dollar amount of credit transfers in last 24
+            hours (decimal string with two digits of precision e.g. "10.00").
+        max_daily_debit_amount:
+          type: string
+          description: >-
+            The max limit of sum of dollar amount of debit transfers in last 24
+            hours (decimal string with two digits of precision e.g. "10.00").
+        max_monthly_amount:
+          type: string
+          description: >-
+            The max limit of sum of dollar amount of credit and debit transfers
+            in one calendar month (decimal string with two digits of precision
+            e.g. "10.00").
+          deprecated: true
+          x-hidden-from-docs: true
+        max_monthly_credit_amount:
+          type: string
+          description: >-
+            The max limit of sum of dollar amount of credit transfers in one
+            calendar month (decimal string with two digits of precision e.g.
+            "10.00").
+        max_monthly_debit_amount:
+          type: string
+          description: >-
+            The max limit of sum of dollar amount of debit transfers in one
+            calendar month (decimal string with two digits of precision e.g.
+            "10.00").
+        iso_currency_code:
+          type: string
+          description: The currency of the dollar amount, e.g. "USD".
+      required:
+        - request_id
+        - max_single_transfer_amount
+        - max_single_transfer_credit_amount
+        - max_single_transfer_debit_amount
+        - max_daily_credit_amount
+        - max_daily_debit_amount
+        - max_monthly_amount
+        - max_monthly_credit_amount
+        - max_monthly_debit_amount
+        - iso_currency_code
+    TransferLedgerGetResponse:
+      title: TransferLedgerGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/ledger/get`
+      properties:
+        balance:
+          $ref: '#/components/schemas/TransferLedgerBalance'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - balance
+        - request_id
+    TransferLedgerDistributeResponse:
+      title: TransferLedgerDistributeResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/ledger/distribute`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferLedgerDepositResponse:
+      title: TransferLedgerDepositResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/ledger/deposit`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/TransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweep
+        - request_id
+    TransferLedgerWithdrawResponse:
+      title: TransferLedgerWithdrawResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/ledger/withdraw`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/TransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweep
+        - request_id
+    TransferOriginatorFundingAccountUpdateResponse:
+      title: TransferOriginatorFundingAccountUpdateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/transfer/originator/funding_account/update`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferMetricsGetResponse:
+      title: TransferMetricsGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/metrics/get`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+        daily_debit_transfer_volume:
+          type: string
+          description: >-
+            Sum of dollar amount of debit transfers in last 24 hours (decimal
+            string with two digits of precision e.g. "10.00").
+        daily_credit_transfer_volume:
+          type: string
+          description: >-
+            Sum of dollar amount of credit transfers in last 24 hours (decimal
+            string with two digits of precision e.g. "10.00").
+        monthly_transfer_volume:
+          type: string
+          description: >-
+            Sum of dollar amount of credit and debit transfers in current
+            calendar month (decimal string with two digits of precision e.g.
+            "10.00").
+          deprecated: true
+          x-hidden-from-docs: true
+        monthly_debit_transfer_volume:
+          type: string
+          description: >-
+            Sum of dollar amount of debit transfers in current calendar month
+            (decimal string with two digits of precision e.g. "10.00").
+        monthly_credit_transfer_volume:
+          type: string
+          description: >-
+            Sum of dollar amount of credit transfers in current calendar month
+            (decimal string with two digits of precision e.g. "10.00").
+        iso_currency_code:
+          type: string
+          description: The currency of the dollar amount, e.g. "USD".
+      required:
+        - request_id
+        - daily_debit_transfer_volume
+        - daily_credit_transfer_volume
+        - monthly_transfer_volume
+        - monthly_debit_transfer_volume
+        - monthly_credit_transfer_volume
+        - iso_currency_code
+    TransferCreateResponse:
+      title: TransferCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/create`
+      properties:
+        transfer:
+          $ref: '#/components/schemas/Transfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer
+        - request_id
+    TransferRecurringCreateResponse:
+      title: TransferRecurringCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/recurring/create`
+      properties:
+        recurring_transfer:
+          $ref: '#/components/schemas/RecurringTransferNullable'
+        decision:
+          $ref: '#/components/schemas/TransferAuthorizationDecision'
+        decision_rationale:
+          $ref: '#/components/schemas/TransferAuthorizationDecisionRationale'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - decision
+        - request_id
+    TransferListResponse:
+      title: TransferListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/list`
+      properties:
+        transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfers
+        - request_id
+    TransferRecurringListResponse:
+      title: TransferRecurringListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/recurring/list`
+      properties:
+        recurring_transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurringTransfer'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - recurring_transfers
+        - request_id
+    TransferCancelResponse:
+      title: TransferCancelResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/cancel`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferRecurringCancelResponse:
+      title: TransferRecurringCancelResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/recurring/cancel`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferEventListResponse:
+      title: TransferEventListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/event/list`
+      properties:
+        transfer_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferEvent'
+        has_more:
+          type: boolean
+          description: >-
+            Whether there are more events to be pulled from the endpoint that
+            have not already been returned
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer_events
+        - has_more
+        - request_id
+    TransferEventSyncResponse:
+      title: TransferEventSyncResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/event/sync`
+      properties:
+        transfer_events:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferEvent'
+        has_more:
+          type: boolean
+          description: >-
+            Whether there are more events to be pulled from the endpoint that
+            have not already been returned
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer_events
+        - has_more
+        - request_id
+    TransferSweepGetResponse:
+      title: TransferSweepGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/sweep/get`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/TransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweep
+        - request_id
+    TransferSweepListResponse:
+      title: TransferSweepListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/sweep/list`
+      properties:
+        sweeps:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - sweeps
+        - request_id
+    TransferMigrateAccountResponse:
+      title: TransferMigrateAccountResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/migrate_account`
+      properties:
+        access_token:
+          type: string
+          description: The Plaid `access_token` for the newly created Item.
+        account_id:
+          type: string
+          description: The Plaid `account_id` for the newly created Item.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - access_token
+        - account_id
+        - request_id
+    TransferIntentCreateResponse:
+      title: TransferIntentCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/intent/create`
+      properties:
+        transfer_intent:
+          $ref: '#/components/schemas/TransferIntentCreate'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer_intent
+        - request_id
+    TransferIntentGetResponse:
+      title: TransferIntentGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/intent/get`
+      properties:
+        transfer_intent:
+          $ref: '#/components/schemas/TransferIntentGet'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - transfer_intent
+        - request_id
+    TransferRepaymentListResponse:
+      title: TransferRepaymentListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/repayments/list`
+      properties:
+        repayments:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferRepayment'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - repayments
+        - request_id
+    TransferRepaymentReturnListResponse:
+      title: TransferRepaymentReturnListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/repayments/return/list`
+      properties:
+        repayment_returns:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferRepaymentReturn'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - repayment_returns
+        - request_id
+    TransferOriginatorCreateResponse:
+      title: TransferOriginatorCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/originator/create`
+      properties:
+        originator_client_id:
+          type: string
+          description: >-
+            Client ID of the originator. This identifier will be used when
+            creating transfers and should be stored associated with end user
+            information.
+        company_name:
+          type: string
+          description: The company name of the end customer.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - originator_client_id
+        - company_name
+        - request_id
+    TransferQuestionnaireCreateResponse:
+      title: TransferQuestionnaireCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/questionnaire/create`
+      properties:
+        onboarding_url:
+          type: string
+          description: >-
+            Plaid-hosted onboarding URL that you will redirect the end customer
+            to.
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - onboarding_url
+        - request_id
+    TransferDiligenceSubmitResponse:
+      title: TransferDiligenceSubmitResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/diligence/submit`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferDiligenceDocumentUploadResponse:
+      title: TransferDiligenceDocumentUploadResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/diligence/document/upload`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    TransferOriginatorGetResponse:
+      title: TransferOriginatorGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/originator/get`
+      properties:
+        originator:
+          $ref: '#/components/schemas/DetailedOriginator'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - originator
+        - request_id
+    TransferOriginatorListResponse:
+      title: TransferOriginatorListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/originator/list`
+      properties:
+        originators:
+          type: array
+          items:
+            $ref: '#/components/schemas/Originator'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - originators
+        - request_id
+    TransferRefundCreateResponse:
+      title: TransferRefundCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/refund/create`
+      properties:
+        refund:
+          $ref: '#/components/schemas/TransferRefund'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - refund
+        - request_id
+    TransferRefundGetResponse:
+      title: TransferRefundCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/refund/get`
+      properties:
+        refund:
+          $ref: '#/components/schemas/TransferRefund'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - refund
+        - request_id
+    TransferRefundCancelResponse:
+      title: TransferRefundCancelResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/transfer/refund/cancel`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferSweepSimulateResponse:
+      title: SandboxTransferSweepSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/sweep/simulate`
+      properties:
+        sweep:
+          $ref: '#/components/schemas/SimulatedTransferSweep'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferSimulateResponse:
+      title: SandboxTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferRefundSimulateResponse:
+      title: SandboxTransferRefundSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/refund/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerSimulateAvailableResponse:
+      title: SandboxTransferLedgerSimulateAvailableResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/simulate_available`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerDepositSimulateResponse:
+      title: SandboxTransferLedgerDepositSimulateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/deposit/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferLedgerWithdrawSimulateResponse:
+      title: SandboxTransferLedgerWithdrawSimulateResponse
+      type: object
+      additionalProperties: true
+      description: >-
+        Defines the response schema for
+        `/sandbox/transfer/ledger/withdraw/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferRepaymentSimulateResponse:
+      title: SandboxTransferSimulateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/repayment/simulate`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferFireWebhookResponse:
+      title: SandboxTransferFireWebhookResponse
+      additionalProperties: true
+      type: object
+      description: Defines the response schema for `/sandbox/transfer/fire_webhook`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferTestClockCreateResponse:
+      title: SandboxTransferTestClockCreateResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/create`
+      properties:
+        test_clock:
+          $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clock
+        - request_id
+    SandboxTransferTestClockAdvanceResponse:
+      title: SandboxTransferTestClockAdvanceResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/advance`
+      properties:
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - request_id
+    SandboxTransferTestClockGetResponse:
+      title: SandboxTransferTestClockGetResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/get`
+      properties:
+        test_clock:
+          $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clock
+        - request_id
+    SandboxTransferTestClockListResponse:
+      title: SandboxTransferTestClockListResponse
+      type: object
+      additionalProperties: true
+      description: Defines the response schema for `/sandbox/transfer/test_clock/list`
+      properties:
+        test_clocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransferTestClock'
+        request_id:
+          $ref: '#/components/schemas/RequestID'
+      required:
+        - test_clocks
+        - request_id
