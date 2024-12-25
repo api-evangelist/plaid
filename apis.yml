@@ -30,7 +30,7 @@ apis:
       - Freddie
     properties:
       - type: OpenAPI
-        url: properties/plaid-asset-report--openapi-original.yml
+        url: openapiplaid-asset-report--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/assets/
     overlays:
@@ -68,7 +68,7 @@ apis:
       - Verification
     properties:
       - type: OpenAPI
-        url: properties/plaid-cra--openapi-original.yml
+        url: openapiplaid-cra--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-cra--openapi-search.yml
@@ -87,7 +87,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-consumer-report-pdf-get--openapi-original.yml
+        url: openapiplaid-consumer-report-pdf-get--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-consumer-report-pdf-get--openapi-search.yml
@@ -106,7 +106,7 @@ apis:
       - Refresh
     properties:
       - type: OpenAPI
-        url: properties/plaid-statements--openapi-original.yml
+        url: openapiplaid-statements--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/statements/
     overlays:
@@ -158,7 +158,7 @@ apis:
       - Webhooks
     properties:
       - type: OpenAPI
-        url: properties/plaid-item--openapi-original.yml
+        url: openapiplaid-item--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/items/
     overlays:
@@ -175,7 +175,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-application--openapi-original.yml
+        url: openapiplaid-application--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/items/
     overlays:
@@ -192,7 +192,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-profile--openapi-original.yml
+        url: openapiplaid-profile--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/
     overlays:
@@ -213,7 +213,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-auth--openapi-original.yml
+        url: openapiplaid-auth--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/auth/
     overlays:
@@ -232,7 +232,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-transactions--openapi-original.yml
+        url: openapiplaid-transactions--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transactions/
     overlays:
@@ -255,7 +255,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-institutions--openapi-original.yml
+        url: openapiplaid-institutions--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/institutions/
     overlays:
@@ -274,7 +274,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-accounts--openapi-original.yml
+        url: openapiplaid-accounts--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/accounts/
     overlays:
@@ -293,7 +293,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-categories--openapi-original.yml
+        url: openapiplaid-categories--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transactions/
     overlays:
@@ -313,7 +313,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-sandbox--openapi-original.yml
+        url: openapiplaid-sandbox--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/sandbox/
     overlays:
@@ -336,7 +336,7 @@ apis:
       - Real Time
     properties:
       - type: OpenAPI
-        url: properties/plaid-accounts--openapi-original.yml
+        url: openapiplaid-accounts--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/accounts/
     overlays:
@@ -353,7 +353,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-identity--openapi-original.yml
+        url: openapiplaid-identity--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-identity--openapi-search.yml
@@ -368,7 +368,7 @@ apis:
       - Users
     properties:
       - type: OpenAPI
-        url: properties/plaid-dashboard-user--openapi-original.yml
+        url: openapiplaid-dashboard-user--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/account/activity/
     overlays:
@@ -391,7 +391,7 @@ apis:
       - Autofill
     properties:
       - type: OpenAPI
-        url: properties/plaid-identity-verification--openapi-original.yml
+        url: openapiplaid-identity-verification--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-identity-verification--openapi-search.yml
@@ -421,7 +421,7 @@ apis:
       - Individual
     properties:
       - type: OpenAPI
-        url: properties/plaid-watchlist-screening--openapi-original.yml
+        url: openapiplaid-watchlist-screening--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-watchlist-screening--openapi-search.yml
@@ -450,7 +450,7 @@ apis:
       - History
     properties:
       - type: OpenAPI
-        url: properties/plaid-beacon--openapi-original.yml
+        url: openapiplaid-beacon--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/beacon/
     overlays:
@@ -473,7 +473,7 @@ apis:
       - Autofill
     properties:
       - type: OpenAPI
-        url: properties/plaid-identity-verification--openapi-original.yml
+        url: openapiplaid-identity-verification--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/identity-verification/
     overlays:
@@ -537,7 +537,7 @@ apis:
       - Apex
     properties:
       - type: OpenAPI
-        url: properties/plaid-processor--openapi-original.yml
+        url: openapiplaid-processor--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/processor-partners/
     overlays:
@@ -556,7 +556,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-webhook-verification--openapi-original.yml
+        url: openapiplaid-webhook-verification--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/webhooks/webhook-verification/
     overlays:
@@ -573,7 +573,7 @@ apis:
       - Processor
     properties:
       - type: OpenAPI
-        url: properties/plaid-liabilities--openapi-original.yml
+        url: openapiplaid-liabilities--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/liabilities/
     overlays:
@@ -606,7 +606,7 @@ apis:
       - Details
     properties:
       - type: OpenAPI
-        url: properties/plaid-payment-initiation--openapi-original.yml
+        url: openapiplaid-payment-initiation--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/payment-initiation/
     overlays:
@@ -630,7 +630,7 @@ apis:
       - Information
     properties:
       - type: OpenAPI
-        url: properties/plaid-user--openapi-original.yml
+        url: openapiplaid-user--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/beacon/
     overlays:
@@ -709,7 +709,7 @@ apis:
       - (beta)
     properties:
       - type: OpenAPI
-        url: properties/plaid-credit--openapi-original.yml
+        url: openapiplaid-credit--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-credit--openapi-search.yml
@@ -733,7 +733,7 @@ apis:
       - Transfers
     properties:
       - type: OpenAPI
-        url: properties/plaid-investments--openapi-original.yml
+        url: openapiplaid-investments--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/investments/
     overlays:
@@ -757,7 +757,7 @@ apis:
       - Using
     properties:
       - type: OpenAPI
-        url: properties/plaid-deposit-switch--openapi-original.yml
+        url: openapiplaid-deposit-switch--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-deposit-switch--openapi-search.yml
@@ -780,7 +780,7 @@ apis:
       - OAuth
     properties:
       - type: OpenAPI
-        url: properties/plaid-link--openapi-original.yml
+        url: openapiplaid-link--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/link/
     overlays:
@@ -870,7 +870,7 @@ apis:
       - Clocks
     properties:
       - type: OpenAPI
-        url: properties/plaid-transfer--openapi-original.yml
+        url: openapiplaid-transfer--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transfer/
     overlays:
@@ -903,7 +903,7 @@ apis:
       - Webhooks
     properties:
       - type: OpenAPI
-        url: properties/plaid-bank-transfer--openapi-original.yml
+        url: openapiplaid-bank-transfer--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transfer/
     overlays:
@@ -924,7 +924,7 @@ apis:
       - Search
     properties:
       - type: OpenAPI
-        url: properties/plaid-employers--openapi-original.yml
+        url: openapiplaid-employers--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/income/
     overlays:
@@ -963,7 +963,7 @@ apis:
       - Webhooks
     properties:
       - type: OpenAPI
-        url: properties/plaid-income--openapi-original.yml
+        url: openapiplaid-income--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/income/
     overlays:
@@ -1004,7 +1004,7 @@ apis:
       - Users
     properties:
       - type: OpenAPI
-        url: properties/plaid-beta--openapi-original.yml
+        url: openapiplaid-beta--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/
     overlays:
@@ -1037,7 +1037,7 @@ apis:
       - Opt In
     properties:
       - type: OpenAPI
-        url: properties/plaid-signal--openapi-original.yml
+        url: openapiplaid-signal--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/signal/
     overlays:
@@ -1065,7 +1065,7 @@ apis:
       - E Wallet
     properties:
       - type: OpenAPI
-        url: properties/plaid-wallet--openapi-original.yml
+        url: openapiplaid-wallet--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/virtual-accounts/
     overlays:
@@ -1082,7 +1082,7 @@ apis:
     tags: []
     properties:
       - type: OpenAPI
-        url: properties/plaid-paymet-profile--openapi-original.yml
+        url: openapiplaid-paymet-profile--openapi-original.yml
     overlays:
       - type: OpenAPI
         url: overlays/plaid-paymet-profile--openapi-search.yml
@@ -1100,7 +1100,7 @@ apis:
       - Sandbox
     properties:
       - type: OpenAPI
-        url: properties/plaid-payment-profile--openapi-original.yml
+        url: openapiplaid-payment-profile--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/payment-initiation/add-to-app/
     overlays:
@@ -1133,7 +1133,7 @@ apis:
       - Registrations
     properties:
       - type: OpenAPI
-        url: properties/plaid-partner--openapi-original.yml
+        url: openapiplaid-partner--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/partner/
     overlays:
@@ -1158,7 +1158,7 @@ apis:
       - Sessions
     properties:
       - type: OpenAPI
-        url: properties/plaid-link-delivery--openapi-original.yml
+        url: openapiplaid-link-delivery--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/link/hosted-link/
     overlays:
@@ -1183,7 +1183,7 @@ apis:
       - Webhooks
     properties:
       - type: OpenAPI
-        url: properties/plaid-fdx--openapi-original.yml
+        url: openapiplaid-fdx--openapi-original.yml
       - type: Documentation
         url: https://plaid.github.io/core-exchange/api-versions/six-dot-zero
     overlays:
