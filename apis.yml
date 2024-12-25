@@ -32,11 +32,6 @@ apis:
         url: openapi/plaid-asset-report--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/assets/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-asset-report--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-asset-report--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/assets/
     baseURL: https://production.plaid.com
     score: 428
@@ -68,11 +63,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-cra--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-cra--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-cra--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/check/api/
     score: 213
     baseURL: https://production.plaid.com
@@ -87,9 +77,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-consumer-report-pdf-get--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-consumer-report-pdf-get--openapi-search.yml
     humanURL: https://plaid.com/docs/check/api/
     baseURL: https://production.plaid.com
     aid: plaid:plaid-consumer-report-api
@@ -108,11 +95,6 @@ apis:
         url: openapi/plaid-statements--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/statements/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-statements--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-statements--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/statements/
     score: 155
     baseURL: https://production.plaid.com
@@ -160,11 +142,6 @@ apis:
         url: openapi/plaid-item--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/items/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-item--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-item--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/items/
     score: 760
     baseURL: https://production.plaid.com
@@ -177,11 +154,6 @@ apis:
         url: openapi/plaid-application--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/items/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-application--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-application--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/items/
     score: 295
     baseURL: https://production.plaid.com
@@ -194,11 +166,6 @@ apis:
         url: openapi/plaid-profile--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-profile--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-profile--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/
     score: 218
     baseURL: https://production.plaid.com
@@ -215,11 +182,6 @@ apis:
         url: openapi/plaid-auth--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/auth/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-auth--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-auth--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/auth/
     baseURL: https://production.plaid.com
     score: 218
@@ -234,11 +196,6 @@ apis:
         url: openapi/plaid-transactions--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transactions/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-transactions--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-transactions--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/transactions/
     baseURL: https://production.plaid.com
     score: 1113
@@ -257,11 +214,6 @@ apis:
         url: openapi/plaid-institutions--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/institutions/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-institutions--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-institutions--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/institutions/
     baseURL: https://production.plaid.com
     score: 278
@@ -276,11 +228,6 @@ apis:
         url: openapi/plaid-accounts--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/accounts/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-accounts--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-accounts--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/accounts/
     baseURL: https://production.plaid.com
     score: 208
@@ -295,11 +242,6 @@ apis:
         url: openapi/plaid-categories--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transactions/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-categories--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-categories--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/transactions/#categoriesget
     baseURL: https://production.plaid.com
     score: 44
@@ -315,11 +257,6 @@ apis:
         url: openapi/plaid-sandbox--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/sandbox/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-sandbox--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-sandbox--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/sandbox/
     score: 635
     baseURL: https://production.plaid.com
@@ -338,11 +275,6 @@ apis:
         url: openapi/plaid-accounts--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/accounts/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-accounts--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-accounts--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/accounts/
     score: 66
     baseURL: https://production.plaid.com
@@ -353,9 +285,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-identity--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-identity--openapi-search.yml
     aid: plaid:plaid-entity-api-delete
   - name: Plaid Dashboard User API
     description: >-
@@ -370,11 +299,6 @@ apis:
         url: openapi/plaid-dashboard-user--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/account/activity/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-dashboard-user--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-dashboard-user--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/account/activity/
     baseURL: https://production.plaid.com
     score: 58
@@ -391,12 +315,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-identity-verification--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-identity-verification--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: >-
-          overlays/plaid-identity-verification--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/identity-verification/
     score: 122
     baseURL: https://production.plaid.com
@@ -421,11 +339,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-watchlist-screening--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-watchlist-screening--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-watchlist-screening--openapi-api-evangelist-ratings.yml
     score: 440
     humanURL: https://plaid.com/docs/api/products/monitor/
     baseURL: https://production.plaid.com
@@ -452,11 +365,6 @@ apis:
         url: openapi/plaid-beacon--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/beacon/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-beacon--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-beacon--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/beacon/
     score: 279
     baseURL: https://production.plaid.com
@@ -475,12 +383,6 @@ apis:
         url: openapi/plaid-identity-verification--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/identity-verification/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-identity-verification--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: >-
-          overlays/plaid-identity-verification--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/identity-verification/
     score: 122
     baseURL: https://production.plaid.com
@@ -539,11 +441,6 @@ apis:
         url: openapi/plaid-processor--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/processor-partners/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-processor--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-processor--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/processor-partners/
     score: 529
     baseURL: https://production.plaid.com
@@ -558,9 +455,6 @@ apis:
         url: openapi/plaid-webhook-verification--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/webhooks/webhook-verification/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-webhook-verification--openapi-search.yml
     humanURL: https://plaid.com/docs/api/webhooks/webhook-verification/
     baseURL: https://production.plaid.com
     aid: plaid:plaid-webhook-verification-api
@@ -575,11 +469,6 @@ apis:
         url: openapi/plaid-liabilities--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/liabilities/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-liabilities--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-liabilities--openapi-api-evangelist-ratings.yml
     score: 60
     humanURL: https://plaid.com/docs/api/products/liabilities/
     baseURL: https://production.plaid.com
@@ -608,11 +497,6 @@ apis:
         url: openapi/plaid-payment-initiation--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/payment-initiation/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-payment-initiation--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-payment-initiation--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/payment-initiation/
     score: 275
     baseURL: https://production.plaid.com
@@ -632,11 +516,6 @@ apis:
         url: openapi/plaid-user--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/beacon/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-user--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-user--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/beacon/
     score: 168
     baseURL: https://production.plaid.com
@@ -709,11 +588,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-credit--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-credit--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-credit--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/assets/
     score: 535
     baseURL: https://production.plaid.com
@@ -735,11 +609,6 @@ apis:
         url: openapi/plaid-investments--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/investments/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-investments--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-investments--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/investments/
     score: 109
     baseURL: https://production.plaid.com
@@ -757,11 +626,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-deposit-switch--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-deposit-switch--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-deposit-switch--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/
     score: 102
     baseURL: https://production.plaid.com
@@ -782,11 +646,6 @@ apis:
         url: openapi/plaid-link--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/link/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-link--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-link--openapi-api-evangelist-ratings.yml
     score: 102
     humanURL: https://plaid.com/docs/link/
     baseURL: https://production.plaid.com
@@ -872,11 +731,6 @@ apis:
         url: openapi/plaid-transfer--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transfer/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-transfer--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-transfer--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/transfer/
     score: 1358
     baseURL: https://production.plaid.com
@@ -905,11 +759,6 @@ apis:
         url: openapi/plaid-bank-transfer--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/transfer/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-bank-transfer--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-bank-transfer--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/transfer/
     score: 372
     baseURL: https://production.plaid.com
@@ -926,11 +775,6 @@ apis:
         url: openapi/plaid-employers--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/income/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-employers--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-employers--openapi-api-evangelist-ratings.yml
     score: 38
     humanURL: https://plaid.com/docs/income/
     baseURL: https://production.plaid.com
@@ -965,11 +809,6 @@ apis:
         url: openapi/plaid-income--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/income/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-income--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-income--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/income/
     score: 164
     baseURL: https://production.plaid.com
@@ -1006,11 +845,6 @@ apis:
         url: openapi/plaid-beta--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-beta--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-beta--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/
     score: 170
     baseURL: https://production.plaid.com
@@ -1039,11 +873,6 @@ apis:
         url: openapi/plaid-signal--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/signal/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-signal--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-signal--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/signal/
     score: 238
     baseURL: https://production.plaid.com
@@ -1067,11 +896,6 @@ apis:
         url: openapi/plaid-wallet--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/products/virtual-accounts/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-wallet--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-wallet--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/products/virtual-accounts/
     score: 143
     baseURL: https://production.plaid.com
@@ -1082,9 +906,6 @@ apis:
     properties:
       - type: OpenAPI
         url: openapi/plaid-paymet-profile--openapi-original.yml
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-paymet-profile--openapi-search.yml
     aid: plaid:plaid-paymet-profile-api-delete
   - name: Plaid Sandb ox API
     description: >-
@@ -1102,11 +923,6 @@ apis:
         url: openapi/plaid-payment-profile--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/payment-initiation/add-to-app/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-payment-profile--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-payment-profile--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/sandbox/
     score: 120
     baseURL: https://production.plaid.com
@@ -1135,11 +951,6 @@ apis:
         url: openapi/plaid-partner--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/api/partner/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-partner--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-partner--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/api/partner/
     score: 155
     baseURL: https://production.plaid.com
@@ -1160,11 +971,6 @@ apis:
         url: openapi/plaid-link-delivery--openapi-original.yml
       - type: Documentation
         url: https://plaid.com/docs/link/hosted-link/
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-link-delivery--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-link-delivery--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.com/docs/link/hosted-link/
     score: 70
     baseURL: https://production.plaid.com
@@ -1185,11 +991,6 @@ apis:
         url: openapi/plaid-fdx--openapi-original.yml
       - type: Documentation
         url: https://plaid.github.io/core-exchange/api-versions/six-dot-zero
-    overlays:
-      - type: OpenAPI
-        url: overlays/plaid-fdx--openapi-search.yml
-      - type: API Evangelist Ratings
-        url: overlays/plaid-fdx--openapi-api-evangelist-ratings.yml
     humanURL: https://plaid.github.io/core-exchange/api-versions/six-dot-zero
     score: 43
     baseURL: https://production.plaid.com
