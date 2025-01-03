@@ -334,34 +334,6 @@ apis:
       user-friendly financial applications. Additionally, Plaid Institutions API
       offers robust security measures to protect users' sensitive financial
       information, ensuring peace of mind for both developers and users.
-  - aid: plaid:plaid-accounts-api
-    name: Plaid Accounts API
-    tags: []
-    score: 208
-    baseURL: https://production.plaid.com
-    humanURL: https://plaid.com/docs/api/accounts/
-    overlays:
-      - url: overlays/plaid-accounts--openapi-search.yml
-        type: OpenAPI
-      - url: overlays/plaid-accounts--openapi-api-evangelist-ratings.yml
-        type: API Evangelist Ratings
-    properties:
-      - url: openapi/plaid-accounts--openapi-original.yml
-        type: OpenAPI
-      - url: https://plaid.com/docs/api/accounts/
-        type: Documentation
-    description: >-
-      Plaid Accounts API is a financial technology tool that enables developers
-      to securely access and retrieve detailed information about a user's
-      banking and financial accounts. By integrating with Plaid's API,
-      developers can streamline the process of verifying account ownership,
-      account balances, transaction history, and other essential financial data.
-      This enables developers to build innovative new financial applications,
-      services, and experiences that can help users better manage their money
-      and make more informed financial decisions. Plaid Accounts API offers a
-      robust and reliable solution for connecting with various financial
-      institutions and retrieving accurate and up-to-date account information in
-      a secure and efficient manner.
   - aid: plaid:plaid-categories-api
     name: Plaid Categories API
     tags: []
@@ -601,41 +573,6 @@ apis:
       tasks such as payments and transfers. This API empowers businesses to
       leverage financial data in innovative ways, enabling them to make more
       informed decisions and provide personalized services to their customers.
-  - aid: plaid:plaid-entity-verification-api
-    name: Plaid Entity Verification API
-    tags:
-      - Entities
-      - Identity
-      - Verification
-      - Verifications
-      - Retry
-      - Autofill
-    score: 122
-    baseURL: https://production.plaid.com
-    humanURL: https://plaid.com/docs/api/products/identity-verification/
-    overlays:
-      - url: overlays/plaid-identity-verification--openapi-search.yml
-        type: OpenAPI
-      - url: >-
-
-          overlays/plaid-identity-verification--openapi-api-evangelist-ratings.yml
-        type: API Evangelist Ratings
-    properties:
-      - url: openapi/plaid-identity-verification--openapi-original.yml
-        type: OpenAPI
-      - url: https://plaid.com/docs/api/products/identity-verification/
-        type: Documentation
-    description: >-
-      Plaid Entity Verification API is a powerful tool that allows businesses to
-      verify the identity and ownership of individuals or entities with ease.
-      With this API, companies can quickly and securely verify important
-      information such as names, addresses, and account ownership to ensure the
-      legitimacy of their customers. By leveraging Plaid's extensive network of
-      financial institutions and data sources, businesses can streamline their
-      verification processes, reduce fraud, and enhance the overall security of
-      their operations. This API provides a seamless and efficient solution for
-      businesses looking to enhance their risk management practices and build
-      trust with their customers.
   - aid: plaid:plaid-processor-api
     name: Plaid Processor API
     tags:
