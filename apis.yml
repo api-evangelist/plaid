@@ -1514,9 +1514,8 @@ description: >-
   data into software applications, enabling businesses to create innovative and
   user-friendly financial products.
 maintainers:
-  - FN: API Evangelist
-    url: http://apievangelist.com
-    email: info@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
 specificationVersion: '0.16'
 type: Contract
 position: Consuming
