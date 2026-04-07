@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportcreate
@@ -73,7 +74,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportget
@@ -340,7 +341,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a PDF Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportpdfget
@@ -378,7 +379,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportrefresh
@@ -424,7 +425,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Filter Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportfilter
@@ -481,7 +482,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Delete an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportremove
@@ -523,7 +524,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copycreate
@@ -565,7 +566,7 @@ paths:
     post:
       summary: Plaid Retrieve an Asset Report Audit Copy
       tags:
-        - plaid
+        - Plaid
       operationId: assetReportAuditCopyGet
       externalDocs:
         url: /none/
@@ -593,7 +594,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copyremove
@@ -629,7 +630,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: >-
         Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.
       externalDocs:

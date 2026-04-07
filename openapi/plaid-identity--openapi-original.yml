@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity data
       externalDocs:
         url: /api/products/identity/#identityget
@@ -189,7 +190,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Returns uploaded document identity
       externalDocs:
         url: none
@@ -337,7 +338,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/products/identity/#identitymatch
@@ -442,7 +443,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh identity data
       externalDocs:
         url: /api/products/identity/#identityrefresh
@@ -497,7 +498,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Identity data
       externalDocs:
         url: /api/processor-partners/#processoridentityget
@@ -579,7 +580,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/processor-partners/#processoridentitymatch

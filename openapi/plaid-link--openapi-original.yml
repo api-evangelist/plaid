@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Check profile eligibility
       externalDocs:
         url: /api/link/#profileeligibilitycheck
@@ -61,7 +62,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_UNDETERMINED
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Link Token
       externalDocs:
         url: /api/tokens/#linktokencreate
@@ -101,7 +102,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get Link Token
       externalDocs:
         url: /api/tokens/#linktokenget
@@ -150,7 +151,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Exchange the Link Correlation Id for a Link Token
       externalDocs:
         url: /api/oauth/#linkcorrelationid

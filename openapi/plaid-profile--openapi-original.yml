@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a Profile
       externalDocs:
         url: /api/profile/#profileget
@@ -81,7 +82,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Check profile eligibility
       externalDocs:
         url: /api/link/#profileeligibilitycheck

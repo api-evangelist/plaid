@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -42,7 +43,7 @@ paths:
         screens prompting the user to enter them will be skipped during the Link
         flow.
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -202,7 +203,7 @@ paths:
     post:
       summary: Plaid Retrieve Identity Verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -363,7 +364,7 @@ paths:
     post:
       summary: Plaid List Identity Verifications
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -532,7 +533,7 @@ paths:
               $ref: '#/components/schemas/IdentityVerificationRetryRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -691,7 +692,7 @@ paths:
         Try to autofill an Identity Verification based of the provided phone
         number, date of birth and country of residence.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:

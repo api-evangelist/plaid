@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get Investment holdings
       externalDocs:
         url: /api/products/investments/#investmentsholdingsget
@@ -330,7 +331,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get investment transactions
       externalDocs:
         url: /api/products/investments/#investmentstransactionsget
@@ -539,7 +540,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh investment data
       externalDocs:
         url: /api/products/investments/#investmentsrefresh
@@ -604,7 +605,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get data needed to authorize an investments transfer
       externalDocs:
         url: /api/products/investments/#investmentsauth

@@ -15,7 +15,7 @@ info:
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
 tags:
-  - name: plaid
+  - name: Plaid
     description: The Plaid API
 security:
   - clientId: []
@@ -26,7 +26,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportcreate
@@ -60,7 +60,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportget
@@ -303,7 +303,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a PDF Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportpdfget
@@ -332,7 +332,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportrefresh
@@ -365,7 +365,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Filter Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportfilter
@@ -402,7 +402,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Delete an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportremove
@@ -434,7 +434,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copycreate
@@ -466,7 +466,7 @@ paths:
     post:
       summary: Plaid Retrieve an Asset Report Audit Copy
       tags:
-        - plaid
+        - Plaid
       operationId: assetReportAuditCopyGet
       externalDocs:
         url: /none/
@@ -488,7 +488,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copyremove
@@ -518,7 +518,7 @@ paths:
     post:
       summary: Plaid Retrieve a Base Report
       tags:
-        - plaid
+        - Plaid
       operationId: baseReportGet
       x-hidden-from-docs: true
       externalDocs:
@@ -731,7 +731,7 @@ paths:
     post:
       summary: Plaid Create a Base Report
       tags:
-        - plaid
+        - Plaid
       operationId: baseReportCreate
       x-hidden-from-docs: true
       externalDocs:
@@ -758,7 +758,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update an Audit Copy Token
       externalDocs:
         url: /none/
@@ -787,7 +787,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -1014,7 +1014,7 @@ paths:
     post:
       summary: Plaid Create a CRA report for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -1041,7 +1041,7 @@ paths:
     post:
       summary: Plaid Retrieve cash flow insights from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -1162,7 +1162,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Register loan applications and decisions.
       responses:
         "200":
@@ -1189,7 +1189,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Register a list of loans to their applicants.
       responses:
         "200":
@@ -1216,7 +1216,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Updates loan data.
       responses:
         "200":
@@ -1243,7 +1243,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Unregister a list of loans.
       responses:
         "200":
@@ -1270,7 +1270,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a PDF Reports
       responses:
         "200":
@@ -1297,7 +1297,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a list of all statements associated with an item.
       externalDocs:
         url: /api/products/statements#statementslist
@@ -1339,7 +1339,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a single statement.
       externalDocs:
         url: /api/products/statements#statementsdownload
@@ -1363,7 +1363,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/statements#statementsrefresh
       summary: Plaid Refresh statements data.
@@ -1391,7 +1391,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List a historical log of user consent events
       operationId: itemActivityList
       description: List a historical log of user consent events
@@ -1424,7 +1424,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List a user’s connected applications
       operationId: itemApplicationList
       description: List a user’s connected applications
@@ -1451,7 +1451,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Unlink a user’s connected application
       externalDocs:
         url: none
@@ -1489,7 +1489,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update the scopes of access for a particular application
       operationId: itemApplicationScopesUpdate
       description: Enable consumers to update product access on selected accounts for an application.
@@ -1516,7 +1516,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Retrieve information about a Plaid application
       operationId: applicationGet
       description: Allows financial institutions to retrieve information about Plaid clients for the purpose of building control-tower experiences
@@ -1544,7 +1544,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Item
       externalDocs:
         url: /api/items/#itemget
@@ -1599,7 +1599,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve a Profile
       externalDocs:
         url: /api/profile/#profileget
@@ -1652,7 +1652,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve auth data
       externalDocs:
         url: /api/products/auth/#authget
@@ -1739,7 +1739,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get transaction data
       externalDocs:
         url: /api/products/transactions/#transactionsget
@@ -1932,7 +1932,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh transaction data
       externalDocs:
         url: /api/products/transactions/#transactionsrefresh
@@ -1974,7 +1974,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch recurring transaction streams
       externalDocs:
         url: /api/products/transactions/#transactionsrecurringget
@@ -2115,7 +2115,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get incremental transaction updates on an Item
       externalDocs:
         url: /api/products/transactions/#transactionssync
@@ -2306,7 +2306,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Enrich locally-held transaction data
       externalDocs:
         url: /api/products/enrich/#transactionsenrich
@@ -2419,7 +2419,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get details of all supported institutions
       externalDocs:
         url: /api/institutions/#institutionsget
@@ -2538,7 +2538,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Search institutions
       externalDocs:
         url: /api/institutions/#institutionssearch
@@ -2654,7 +2654,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get details of an institution
       externalDocs:
         url: /api/institutions/#institutionsget_by_id
@@ -2773,7 +2773,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove an Item
       externalDocs:
         url: /api/items/#itemremove
@@ -2816,7 +2816,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve accounts
       externalDocs:
         url: /api/accounts/#accountsget
@@ -2918,7 +2918,7 @@ paths:
     post:
       security: []
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get categories
       externalDocs:
         url: /api/products/transactions/#categoriesget
@@ -2969,7 +2969,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a test Item and processor token
       externalDocs:
         url: /api/sandbox/#sandboxprocessor_tokencreate
@@ -3003,7 +3003,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a test Item
       externalDocs:
         url: /api/sandbox/#sandboxpublic_tokencreate
@@ -3038,7 +3038,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fire a test webhook
       externalDocs:
         url: /api/sandbox/#sandboxitemfire_webhook
@@ -3094,7 +3094,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve real-time balance data
       externalDocs:
         url: /api/products/balance/#accountsbalanceget
@@ -3184,7 +3184,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity data
       externalDocs:
         url: /api/products/identity/#identityget
@@ -3335,7 +3335,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Returns uploaded document identity
       externalDocs:
         url: none
@@ -3479,7 +3479,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/products/identity/#identitymatch
@@ -3574,7 +3574,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh identity data
       externalDocs:
         url: /api/products/identity/#identityrefresh
@@ -3613,7 +3613,7 @@ paths:
     post:
       summary: Plaid Retrieve a dashboard user
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -3644,7 +3644,7 @@ paths:
     post:
       summary: Plaid List dashboard users
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -3682,7 +3682,7 @@ paths:
 
         You can also use this endpoint to supply information you already have collected about the user; if any of these fields are specified, the screens prompting the user to enter them will be skipped during the Link flow.
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -3834,7 +3834,7 @@ paths:
     post:
       summary: Plaid Retrieve Identity Verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -3987,7 +3987,7 @@ paths:
     post:
       summary: Plaid List Identity Verifications
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4148,7 +4148,7 @@ paths:
               $ref: '#/components/schemas/IdentityVerificationRetryRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4325,7 +4325,7 @@ paths:
                     request_id: saKrIBuEB9qJZng
       description: Create a new entity watchlist screening to check your customer against watchlists defined in the associated entity watchlist program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4339,7 +4339,7 @@ paths:
     post:
       summary: Plaid Get an entity screening
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4383,7 +4383,7 @@ paths:
     post:
       summary: Plaid List history for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4429,7 +4429,7 @@ paths:
     post:
       summary: Plaid List hits for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4542,7 +4542,7 @@ paths:
       operationId: watchlistScreeningEntityList
       description: List all entity screenings.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4556,7 +4556,7 @@ paths:
     post:
       summary: Plaid Get entity watchlist screening program
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4622,7 +4622,7 @@ paths:
       operationId: watchlistScreeningEntityProgramList
       description: List all entity watchlist screening programs
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4665,7 +4665,7 @@ paths:
                       timestamp: "2020-07-24T03:26:02Z"
                     request_id: saKrIBuEB9qJZng
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/monitor/#watchlist_screeningentityreviewcreate
   /watchlist_screening/entity/review/list:
@@ -4673,7 +4673,7 @@ paths:
     post:
       summary: Plaid List reviews for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4742,7 +4742,7 @@ paths:
                     request_id: saKrIBuEB9qJZng
       description: Update an entity watchlist screening.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4785,7 +4785,7 @@ paths:
                     request_id: saKrIBuEB9qJZng
       description: Create a new Watchlist Screening to check your customer against watchlists defined in the associated Watchlist Program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4799,7 +4799,7 @@ paths:
     post:
       summary: Plaid Retrieve an individual watchlist screening
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4841,7 +4841,7 @@ paths:
     post:
       summary: Plaid List history for individual watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4885,7 +4885,7 @@ paths:
     post:
       summary: Plaid List hits for individual watchlist screening
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -4984,7 +4984,7 @@ paths:
       operationId: watchlistScreeningIndividualList
       description: List previously created watchlist screenings for individuals
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -4998,7 +4998,7 @@ paths:
     post:
       summary: Plaid Get individual watchlist screening program
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5064,7 +5064,7 @@ paths:
       operationId: watchlistScreeningIndividualProgramList
       description: List all individual watchlist screening programs
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -5107,7 +5107,7 @@ paths:
                       timestamp: "2020-07-24T03:26:02Z"
                     request_id: saKrIBuEB9qJZng
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/monitor/#watchlist_screeningindividualreviewcreate
   /watchlist_screening/individual/review/list:
@@ -5115,7 +5115,7 @@ paths:
     post:
       summary: Plaid List reviews for individual watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5182,7 +5182,7 @@ paths:
                     request_id: saKrIBuEB9qJZng
       description: Update a specific individual watchlist screening. This endpoint can be used to add additional customer information, correct outdated information, add a reference id, assign the individual to a reviewer, and update which program it is associated with. Please note that you may not update `search_terms` and `status` at the same time since editing `search_terms` may trigger an automatic `status` change.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -5196,7 +5196,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Evaluate risk of a bank account
       externalDocs:
         url: none
@@ -5245,7 +5245,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserCreateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5310,7 +5310,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5369,7 +5369,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserReviewRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5437,7 +5437,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportCreateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5476,7 +5476,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5517,7 +5517,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportSyndicationListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5560,7 +5560,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5599,7 +5599,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportSyndicationGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5640,7 +5640,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserUpdateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5707,7 +5707,7 @@ paths:
               $ref: '#/components/schemas/BeaconDuplicateGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5752,7 +5752,7 @@ paths:
       summary: Plaid Create autofill for an Identity Verification
       description: Try to autofill an Identity Verification based of the provided phone number, date of birth and country of residence.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -5803,7 +5803,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserHistoryListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -5854,7 +5854,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Auth data
       externalDocs:
         url: /api/processor-partners/#processorauthget
@@ -5916,7 +5916,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve the account associated with a processor token
       externalDocs:
         url: /api/processor-partners/#processoraccountget
@@ -5960,7 +5960,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsget
@@ -6137,7 +6137,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get incremental transaction updates on a processor token
       externalDocs:
         url: /api/processor-partners/#processortransactionssync
@@ -6328,7 +6328,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsrefresh
@@ -6366,7 +6366,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch recurring transaction streams
       externalDocs:
         url: /api/processor-partners/#processortransactionsrecurringget
@@ -6507,7 +6507,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Evaluate a planned ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalevaluate
@@ -6559,7 +6559,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report whether you initiated an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignaldecisionreport
@@ -6595,7 +6595,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report a return for an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalreturnreport
@@ -6631,7 +6631,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Opt-in a processor token to Signal
       externalDocs:
         url: /api/processor-partners/#processorsignalprepare
@@ -6667,7 +6667,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a bank transfer as a processor
       externalDocs:
         url: /api/processor-partners/#bank_transfercreate
@@ -6723,7 +6723,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Liabilities data
       externalDocs:
         url: /api/processor-partners/#processorliabilitiesget
@@ -6797,7 +6797,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Identity data
       externalDocs:
         url: /api/processor-partners/#processoridentityget
@@ -6875,7 +6875,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/processor-partners/#processoridentitymatch
@@ -6933,7 +6933,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Balance data
       externalDocs:
         url: /api/processor-partners/#processorbalanceget
@@ -6979,7 +6979,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update Webhook URL
       externalDocs:
         url: /api/items/#itemwebhookupdate
@@ -7021,7 +7021,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Invalidate access_token
       externalDocs:
         url: /api/tokens/#itemaccess_tokeninvalidate
@@ -7052,7 +7052,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get webhook verification key
       externalDocs:
         url: /api/webhooks/webhook-verification/#get-webhook-verification-key
@@ -7093,7 +7093,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Liabilities data
       externalDocs:
         url: /api/products/liabilities/#liabilitiesget
@@ -7283,7 +7283,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment recipient
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientcreate
@@ -7316,7 +7316,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Reverse an existing payment
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentreverse
@@ -7345,7 +7345,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment recipient
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientget
@@ -7382,7 +7382,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List payment recipients
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientlist
@@ -7420,7 +7420,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a payment
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentcreate
@@ -7455,7 +7455,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       deprecated: true
       summary: Plaid Create payment token
       externalDocs:
@@ -7488,7 +7488,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentcreate
@@ -7520,7 +7520,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentget
@@ -7567,7 +7567,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Revoke payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentrevoke
@@ -7594,7 +7594,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Execute a single payment using consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentpaymentexecute
@@ -7623,7 +7623,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Force a Sandbox Item into an error state
       externalDocs:
         url: /api/sandbox/#sandboxitemreset_login
@@ -7655,7 +7655,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Set verification status for Sandbox account
       externalDocs:
         url: /api/sandbox/#sandboxitemset_verification_status
@@ -7685,7 +7685,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Exchange public token for an access token
       externalDocs:
         url: /api/tokens/#itempublic_tokenexchange
@@ -7717,7 +7717,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create public token
       externalDocs:
         url: /api/tokens/#itempublic_tokencreate
@@ -7752,7 +7752,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_UNDETERMINED
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create user
       externalDocs:
         url: /api/products/income/#usercreate
@@ -7787,7 +7787,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update user information
       externalDocs:
         url: /api/products/income/#userupdate
@@ -7817,7 +7817,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Link sessions for your user
       externalDocs:
         url: /api/products/income/#creditsessionsget
@@ -7866,7 +7866,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment details
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentget
@@ -7908,7 +7908,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List payments
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentlist
@@ -7950,7 +7950,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get Investment holdings
       externalDocs:
         url: /api/products/investments/#investmentsholdingsget
@@ -8254,7 +8254,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get investment transactions
       externalDocs:
         url: /api/products/investments/#investmentstransactionsget
@@ -8442,7 +8442,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh investment data
       externalDocs:
         url: /api/products/investments/#investmentsrefresh
@@ -8481,7 +8481,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get data needed to authorize an investments transfer
       externalDocs:
         url: /api/products/investments/#investmentsauth
@@ -8767,7 +8767,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create processor token
       externalDocs:
         url: /api/processors/#processortokencreate
@@ -8796,7 +8796,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Control a processor's access to products
       externalDocs:
         url: /api/processors/#processortokenpermissionsset
@@ -8823,7 +8823,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get a processor token's product permissions
       externalDocs:
         url: /api/processors/#processortokenpermissionsget
@@ -8854,7 +8854,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update a processor token's webhook URL
       externalDocs:
         url: /api/processor-partners/#processortokenwebhookupdate
@@ -8881,7 +8881,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Stripe bank account token
       externalDocs:
         url: /api/processors/#processorstripebank_account_tokencreate
@@ -8916,7 +8916,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Apex bank account token
       externalDocs:
         url: /none/
@@ -8940,7 +8940,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a deposit switch
       externalDocs:
         url: /deposit-switch/reference#deposit_switchcreate
@@ -8970,7 +8970,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Import Item
       responses:
         "200":
@@ -8999,7 +8999,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a deposit switch token
       externalDocs:
         url: /deposit-switch/reference#deposit_switchtokencreate
@@ -9030,7 +9030,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Check profile eligibility
       externalDocs:
         url: /api/link/#profileeligibilitycheck
@@ -9062,7 +9062,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_UNDETERMINED
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Link Token
       externalDocs:
         url: /api/tokens/#linktokencreate
@@ -9095,7 +9095,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get Link Token
       externalDocs:
         url: /api/tokens/#linktokenget
@@ -9142,7 +9142,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Exchange the Link Correlation Id for a Link Token
       externalDocs:
         url: /api/oauth/#linkcorrelationid
@@ -9176,7 +9176,7 @@ paths:
       externalDocs:
         url: /deposit-switch/reference#deposit_switchget
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -9217,7 +9217,7 @@ paths:
     post:
       summary: Plaid Retrieve a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transferget
       operationId: transferGet
@@ -9295,7 +9295,7 @@ paths:
     post:
       summary: Plaid Retrieve a recurring transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringget
       operationId: transferRecurringGet
@@ -9363,7 +9363,7 @@ paths:
     post:
       summary: Plaid Retrieve a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferget
       operationId: bankTransferGet
@@ -9424,7 +9424,7 @@ paths:
     post:
       summary: Plaid Create a transfer authorization
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transferauthorizationcreate
       operationId: transferAuthorizationCreate
@@ -9501,7 +9501,7 @@ paths:
     post:
       summary: Plaid Cancel a transfer authorization
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transferauthorizationcancel
       operationId: transferAuthorizationCancel
@@ -9535,7 +9535,7 @@ paths:
       summary: (Deprecated) Retrieve a balance held with Plaid
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/balance/#transferbalanceget
       operationId: transferBalanceGet
@@ -9571,7 +9571,7 @@ paths:
     post:
       summary: Plaid Get RTP eligibility information of a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transfercapabilitiesget
       operationId: transferCapabilitiesGet
@@ -9607,7 +9607,7 @@ paths:
     post:
       summary: Plaid Get transfer product configuration
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/metrics/#transferconfigurationget
       operationId: transferConfigurationGet
@@ -9649,7 +9649,7 @@ paths:
     post:
       summary: Retrieve Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerget
       operationId: transferLedgerGet
@@ -9685,7 +9685,7 @@ paths:
     post:
       summary: Plaid Move available balance between the ledgers of the platform and one of its originators
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerdistribute
       operationId: transferLedgerDistribute
@@ -9718,7 +9718,7 @@ paths:
     post:
       summary: Deposit funds into a Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerdeposit
       operationId: transferLedgerDeposit
@@ -9762,7 +9762,7 @@ paths:
     post:
       summary: Withdraw funds from a Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerwithdraw
       operationId: transferLedgerWithdraw
@@ -9806,7 +9806,7 @@ paths:
     post:
       summary: Plaid Update the funding account associated with the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorfunding_accountupdate
       operationId: transferOriginatorFundingAccountUpdate
@@ -9839,7 +9839,7 @@ paths:
     post:
       summary: Plaid Get transfer product usage metrics
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/metrics/#transfermetricsget
       operationId: transferMetricsGet
@@ -9878,7 +9878,7 @@ paths:
     post:
       summary: Plaid Create a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transfercreate
       operationId: transferCreate
@@ -9951,7 +9951,7 @@ paths:
     post:
       summary: Plaid Create a recurring transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringcreate
       operationId: transferRecurringCreate
@@ -10018,7 +10018,7 @@ paths:
     post:
       summary: Plaid Create a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfercreate
       operationId: bankTransferCreate
@@ -10074,7 +10074,7 @@ paths:
     post:
       summary: Plaid List transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transferlist
       operationId: transferList
@@ -10150,7 +10150,7 @@ paths:
     post:
       summary: Plaid List recurring transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringlist
       operationId: transferRecurringList
@@ -10217,7 +10217,7 @@ paths:
     post:
       summary: Plaid List bank transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferlist
       operationId: bankTransferList
@@ -10277,7 +10277,7 @@ paths:
     post:
       summary: Plaid Cancel a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transfercancel
       operationId: transferCancel
@@ -10310,7 +10310,7 @@ paths:
     post:
       summary: Plaid Cancel a recurring transfer.
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringcancel
       operationId: transferRecurringCancel
@@ -10343,7 +10343,7 @@ paths:
     post:
       summary: Plaid Cancel a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfercancel
       operationId: bankTransferCancel
@@ -10376,7 +10376,7 @@ paths:
     post:
       summary: Plaid List transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfereventlist
       operationId: transferEventList
@@ -10425,7 +10425,7 @@ paths:
     post:
       summary: Plaid List bank transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/auth#bank_transfereventlist
       operationId: bankTransferEventList
@@ -10470,7 +10470,7 @@ paths:
     post:
       summary: Plaid Sync transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfereventsync
       operationId: transferEventSync
@@ -10519,7 +10519,7 @@ paths:
     post:
       summary: Plaid Sync bank transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/auth/#bank_transfereventsync
       operationId: bankTransferEventSync
@@ -10564,7 +10564,7 @@ paths:
     post:
       summary: Plaid Retrieve a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfersweepget
       operationId: transferSweepGet
@@ -10609,7 +10609,7 @@ paths:
     post:
       summary: Plaid Retrieve a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#bank_transfersweepget
       operationId: bankTransferSweepGet
@@ -10650,7 +10650,7 @@ paths:
     post:
       summary: Plaid List sweeps
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfersweeplist
       operationId: transferSweepList
@@ -10695,7 +10695,7 @@ paths:
     post:
       summary: Plaid List sweeps
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#bank_transfersweeplist
       operationId: bankTransferSweepList
@@ -10736,7 +10736,7 @@ paths:
     post:
       summary: Plaid Get balance of your Bank Transfer account
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferbalanceget
       operationId: bankTransferBalanceGet
@@ -10778,7 +10778,7 @@ paths:
     post:
       summary: Plaid Migrate account into Bank Transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfermigrate_account
       operationId: bankTransferMigrateAccount
@@ -10813,7 +10813,7 @@ paths:
     post:
       summary: Plaid Migrate account into Transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transfermigrate_account
       operationId: transferMigrateAccount
@@ -10848,7 +10848,7 @@ paths:
     post:
       summary: Plaid Create a transfer intent object to invoke the Transfer UI
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transferintentcreate
       operationId: transferIntentCreate
@@ -10906,7 +10906,7 @@ paths:
     post:
       summary: Plaid Retrieve more information about a transfer intent
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transferintentget
       operationId: transferIntentGet
@@ -10970,7 +10970,7 @@ paths:
     post:
       summary: Plaid Lists historical repayments
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#transferrepaymentlist
       operationId: transferRepaymentList
@@ -11015,7 +11015,7 @@ paths:
     post:
       summary: Plaid List the returns included in a repayment
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#transferrepaymentreturnlist
       operationId: transferRepaymentReturnList
@@ -11061,7 +11061,7 @@ paths:
     post:
       summary: Plaid Create a new originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorcreate
       operationId: transferOriginatorCreate
@@ -11098,7 +11098,7 @@ paths:
     post:
       summary: Generate a Plaid-hosted onboarding UI URL.
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferquestionnairecreate
       operationId: transferQuestionnaireCreate
@@ -11135,7 +11135,7 @@ paths:
     post:
       summary: Plaid Submit transfer diligence on behalf of the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferdiligencesubmit
       operationId: transferDiligenceSubmit
@@ -11170,7 +11170,7 @@ paths:
     post:
       summary: Plaid Upload transfer diligence document on behalf of the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferdiligencedocumentupload
       operationId: transferDiligenceDocumentUpload
@@ -11207,7 +11207,7 @@ paths:
     post:
       summary: Plaid Get status of an originator's onboarding
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorget
       operationId: transferOriginatorGet
@@ -11247,7 +11247,7 @@ paths:
     post:
       summary: Plaid Get status of all originators' onboarding
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorlist
       operationId: transferOriginatorList
@@ -11288,7 +11288,7 @@ paths:
     post:
       summary: Plaid Create a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundcreate
       operationId: transferRefundCreate
@@ -11333,7 +11333,7 @@ paths:
     post:
       summary: Plaid Retrieve a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundget
       operationId: transferRefundGet
@@ -11377,7 +11377,7 @@ paths:
     post:
       summary: Plaid Cancel a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundcancel
       operationId: transferRefundCancel
@@ -11410,7 +11410,7 @@ paths:
     post:
       summary: Plaid Simulate a bank transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transfersimulate
       operationId: sandboxBankTransferSimulate
@@ -11443,7 +11443,7 @@ paths:
     post:
       summary: Plaid Simulate creating a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersweepsimulate
       operationId: sandboxTransferSweepSimulate
@@ -11484,7 +11484,7 @@ paths:
     post:
       summary: Plaid Simulate a transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersimulate
       operationId: sandboxTransferSimulate
@@ -11517,7 +11517,7 @@ paths:
     post:
       summary: Plaid Simulate a refund event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrefundsimulate
       operationId: sandboxTransferRefundSimulate
@@ -11550,7 +11550,7 @@ paths:
     post:
       summary: Plaid Simulate converting pending balance to available balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgersimulate_available
       operationId: sandboxTransferLedgerSimulateAvailable
@@ -11583,7 +11583,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger deposit event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerdepositsimulate
       operationId: sandboxTransferLedgerDepositSimulate
@@ -11616,7 +11616,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger withdraw event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerwithdrawsimulate
       operationId: sandboxTransferLedgerWithdrawSimulate
@@ -11649,7 +11649,7 @@ paths:
     post:
       summary: Plaid Trigger the creation of a repayment
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrepaymentsimulate
       operationId: sandboxTransferRepaymentSimulate
@@ -11682,7 +11682,7 @@ paths:
     post:
       summary: Plaid Manually fire a Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferfire_webhook
       operationId: sandboxTransferFireWebhook
@@ -11715,7 +11715,7 @@ paths:
     post:
       summary: Plaid Create a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockcreate
       operationId: sandboxTransferTestClockCreate
@@ -11756,7 +11756,7 @@ paths:
     post:
       summary: Plaid Advance a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockadvance
       operationId: sandboxTransferTestClockAdvance
@@ -11800,7 +11800,7 @@ paths:
     post:
       summary: Plaid Get a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockget
       operationId: sandboxTransferTestClockGet
@@ -11836,7 +11836,7 @@ paths:
     post:
       summary: Plaid List test clocks
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clocklist
       operationId: sandboxTransferTestClockList
@@ -11874,7 +11874,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Reset the login of a Payment Profile
       externalDocs:
         url: /api/sandbox/#sandboxpayment_profilereset_login
@@ -11907,7 +11907,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/employers/#employerssearch
       operationId: employersSearch
@@ -11948,7 +11948,7 @@ paths:
     post:
       summary: Plaid (Deprecated) Create an income verification instance
       tags:
-        - plaid
+        - Plaid
       deprecated: true
       externalDocs:
         url: /api/products/income/#incomeverificationcreate
@@ -11978,7 +11978,7 @@ paths:
       summary: Plaid (Deprecated) Retrieve information from the paystubs used for income verification
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#incomeverificationpaystubsget
       operationId: incomeVerificationPaystubsGet
@@ -12094,7 +12094,7 @@ paths:
       deprecated: true
       summary: Plaid (Deprecated) Download the original documents used for income verification
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#incomeverificationdocumentsdownload
       operationId: incomeVerificationDocumentsDownload
@@ -12128,7 +12128,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid (Deprecated) Retrieve information from the tax documents used for income verification
       externalDocs:
         url: /api/products/income/#incomeverificationtaxformsget
@@ -12223,7 +12223,7 @@ paths:
       deprecated: true
       summary: Plaid (Deprecated) Check digital income verification eligibility and optimize conversion
       tags:
-        - plaid
+        - Plaid
       operationId: incomeVerificationPrecheck
       externalDocs:
         url: /api/products/income/#incomeverificationprecheck
@@ -12258,7 +12258,7 @@ paths:
       deprecated: true
       summary: Plaid (Deprecated) Retrieve a summary of an individual's employment information
       tags:
-        - plaid
+        - Plaid
       operationId: employmentVerificationGet
       externalDocs:
         url: /api/products/income/#employmentverificationget
@@ -12299,7 +12299,7 @@ paths:
     post:
       summary: Create a deposit switch without using Plaid Exchange
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /deposit-switch/reference#deposit_switchaltcreate
       responses:
@@ -12326,7 +12326,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Asset or Income Report Audit Copy Token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokencreate
@@ -12357,7 +12357,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove an Audit Copy token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokenremove
@@ -12386,7 +12386,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.
       externalDocs:
         url: /none/
@@ -12487,7 +12487,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.
       externalDocs:
         url: /none/
@@ -12642,7 +12642,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for employment verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -12731,7 +12731,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -12952,7 +12952,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for income verification in PDF format
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: A PDF of the Bank Income Report
@@ -12975,7 +12975,7 @@ paths:
     post:
       summary: Plaid Refresh a user's bank income information
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditbank_incomerefresh
       operationId: creditBankIncomeRefresh
@@ -13002,7 +13002,7 @@ paths:
     post:
       summary: Plaid Subscribe and unsubscribe to proactive notifications for a user's income profile
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditbank_incomewebhookupdate
       operationId: creditBankIncomeWebhookUpdate
@@ -13032,7 +13032,7 @@ paths:
     post:
       summary: Plaid Update the parsing configuration for a document income verification
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeparsing_configupdate
       operationId: creditPayrollIncomeParsingConfigUpdate
@@ -13059,7 +13059,7 @@ paths:
     post:
       summary: Plaid Retrieve data for a user's uploaded bank statements
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: OK
@@ -13129,7 +13129,7 @@ paths:
     post:
       summary: Plaid Retrieve a user's payroll information
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeget
       operationId: creditPayrollIncomeGet
@@ -13398,7 +13398,7 @@ paths:
     post:
       summary: Plaid Retrieve fraud insights for a user's manually uploaded document(s).
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomerisk_signalsget
       operationId: creditPayrollIncomeRiskSignalsGet
@@ -13460,7 +13460,7 @@ paths:
       deprecated: true
       summary: Plaid Check income verification eligibility and optimize conversion
       tags:
-        - plaid
+        - Plaid
       operationId: creditPayrollIncomePrecheck
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeprecheck
@@ -13493,7 +13493,7 @@ paths:
     post:
       summary: Plaid Retrieve a summary of an individual's employment information
       tags:
-        - plaid
+        - Plaid
       operationId: creditEmploymentGet
       externalDocs:
         url: /api/products/income/#creditemploymentget
@@ -13535,7 +13535,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh a digital payroll income verification
       externalDocs:
         url: /api/products/income/#creditpayroll_incomerefresh
@@ -13570,7 +13570,7 @@ paths:
     post:
       summary: Plaid Create a relay token to share an Asset Report with a partner client
       tags:
-        - plaid
+        - Plaid
       operationId: creditRelayCreate
       externalDocs:
         url: /api/products/assets/#creditrelaycreate
@@ -13601,7 +13601,7 @@ paths:
     post:
       summary: Plaid Retrieve the reports associated with a relay token that was shared with you
       tags:
-        - plaid
+        - Plaid
       operationId: creditRelayGet
       externalDocs:
         url: /api/products/assets/#creditrelayget
@@ -13838,7 +13838,7 @@ paths:
     post:
       summary: Plaid Retrieve the pdf reports associated with a relay token that was shared with you (beta)
       tags:
-        - plaid
+        - Plaid
       responses:
         "200":
           description: A PDF of the Asset Report
@@ -13867,7 +13867,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh a report of a relay token
       externalDocs:
         url: /api/products/assets/#creditrelayrefresh
@@ -13897,7 +13897,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove relay token
       externalDocs:
         url: /api/products/assets/#creditrelayremove
@@ -13927,7 +13927,7 @@ paths:
     post:
       summary: Plaid Manually fire a Bank Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transferfire_webhook
       operationId: sandboxBankTransferFireWebhook
@@ -13960,7 +13960,7 @@ paths:
     post:
       summary: Plaid Manually fire an Income webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxincomefire_webhook
       operationId: sandboxIncomeFireWebhook
@@ -13993,7 +13993,7 @@ paths:
     post:
       summary: Plaid Manually fire a bank income webhook in sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxbankincomefire_webhook
       operationId: sandboxBankIncomeFireWebhook
@@ -14027,7 +14027,7 @@ paths:
       summary: Plaid Save the selected accounts when connecting to the Platypus Oauth institution
       description: Save the selected accounts when connecting to the Platypus Oauth institution
       tags:
-        - plaid
+        - Plaid
       operationId: sandboxOauthSelectAccounts
       responses:
         "200":
@@ -14052,7 +14052,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Evaluate a planned ACH transaction
       externalDocs:
         url: /api/products/signal#signalevaluate
@@ -14104,7 +14104,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report whether you initiated an ACH transaction
       externalDocs:
         url: /api/products/signal#signaldecisionreport
@@ -14137,7 +14137,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report a return for an ACH transaction
       externalDocs:
         url: /api/products/signal#signalreturnreport
@@ -14170,7 +14170,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Opt-in an Item to Signal
       externalDocs:
         url: /api/products/signal#signalprepare
@@ -14206,7 +14206,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletcreate
@@ -14244,7 +14244,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletget
@@ -14299,7 +14299,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch a list of e-wallets
       externalDocs:
         url: /api/products/virtual-accounts/#walletlist
@@ -14349,7 +14349,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Execute a transaction using an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionexecute
@@ -14381,7 +14381,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch an e-wallet transaction
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionget
@@ -14442,7 +14442,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List e-wallet transactions
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionlist
@@ -14502,7 +14502,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid enhance locally-held transaction data
       operationId: transactionsEnhance
       responses:
@@ -14571,7 +14571,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create transaction category rule
       operationId: transactionsRulesCreate
       responses:
@@ -14627,7 +14627,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Return a list of rules created for the Item associated with the access token.
       operationId: transactionsRulesList
       responses:
@@ -14681,7 +14681,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove transaction rule
       operationId: transactionsRulesRemove
       responses:
@@ -14720,7 +14720,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Obtain user insights based on transactions sent through /transactions/enrich
       x-hidden-from-docs: true
       externalDocs:
@@ -14870,7 +14870,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profilecreate
@@ -14908,7 +14908,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileget
@@ -14946,7 +14946,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileremove
@@ -14979,7 +14979,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Creates a new end customer for a Plaid reseller.
       externalDocs:
         url: /api/partner/#partnercustomercreate
@@ -15057,7 +15057,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Returns a Plaid reseller's end customer.
       externalDocs:
         url: /api/partner/#partnercustomerget
@@ -15100,7 +15100,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Enables a Plaid reseller's end customer in the Production environment.
       externalDocs:
         url: /api/partner/#partnercustomerenable
@@ -15140,7 +15140,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Removes a Plaid reseller's end customer.
       externalDocs:
         url: /api/partner/#partnercustomerremove
@@ -15179,7 +15179,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Returns OAuth-institution registration information for a given end customer.
       externalDocs:
         url: /api/partner/#partnercustomeroauth_institutionsget
@@ -15235,7 +15235,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Hosted Link session
       externalDocs:
         url: /assets/waitlist/hosted-link/
@@ -15270,7 +15270,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get Hosted Link session
       externalDocs:
         url: /assets/waitlist/hosted-link/
@@ -15308,7 +15308,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       description: A generic webhook receiver endpoint for FDX Event Notifications
       x-hidden-from-docs: true
       externalDocs:

@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -26,7 +27,7 @@ paths:
       summary: >-
         Plaid Retrieve information from the bank accounts used for employment verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -117,7 +118,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid enhance locally-held transaction data
       operationId: transactionsEnhance
       responses:
@@ -190,7 +191,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create transaction category rule
       operationId: transactionsRulesCreate
       responses:
@@ -251,7 +252,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: >-
         Plaid Return a list of rules created for the Item associated with the access token.
       operationId: transactionsRulesList
@@ -308,7 +309,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove transaction rule
       operationId: transactionsRulesRemove
       responses:
@@ -349,7 +350,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: >-
         Plaid Obtain user insights based on transactions sent through /transactions/enrich
       x-hidden-from-docs: true

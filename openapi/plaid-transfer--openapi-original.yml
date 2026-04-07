@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     post:
       summary: Plaid Retrieve a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transferget
       operationId: transferGet
@@ -105,7 +106,7 @@ paths:
     post:
       summary: Plaid Retrieve a recurring transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringget
       operationId: transferRecurringGet
@@ -175,7 +176,7 @@ paths:
     post:
       summary: Plaid Create a transfer authorization
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: >-
           /api/products/transfer/initiating-transfers/#transferauthorizationcreate
@@ -267,7 +268,7 @@ paths:
     post:
       summary: Plaid Cancel a transfer authorization
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: >-
           /api/products/transfer/initiating-transfers/#transferauthorizationcancel
@@ -305,7 +306,7 @@ paths:
       summary: (Deprecated) Retrieve a balance held with Plaid
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/balance/#transferbalanceget
       operationId: transferBalanceGet
@@ -343,7 +344,7 @@ paths:
     post:
       summary: Plaid Get RTP eligibility information of a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transfercapabilitiesget
       operationId: transferCapabilitiesGet
@@ -385,7 +386,7 @@ paths:
     post:
       summary: Plaid Get transfer product configuration
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/metrics/#transferconfigurationget
       operationId: transferConfigurationGet
@@ -429,7 +430,7 @@ paths:
     post:
       summary: Retrieve Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerget
       operationId: transferLedgerGet
@@ -468,7 +469,7 @@ paths:
       summary: >-
         Plaid Move available balance between the ledgers of the platform and one of its originators
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerdistribute
       operationId: transferLedgerDistribute
@@ -503,7 +504,7 @@ paths:
     post:
       summary: Deposit funds into a Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerdeposit
       operationId: transferLedgerDeposit
@@ -549,7 +550,7 @@ paths:
     post:
       summary: Withdraw funds from a Plaid Ledger balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/ledger/#transferledgerwithdraw
       operationId: transferLedgerWithdraw
@@ -595,7 +596,7 @@ paths:
     post:
       summary: Plaid Update the funding account associated with the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: >-
           /api/products/transfer/platform-payments/#transferoriginatorfunding_accountupdate
@@ -633,7 +634,7 @@ paths:
     post:
       summary: Plaid Get transfer product usage metrics
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/metrics/#transfermetricsget
       operationId: transferMetricsGet
@@ -674,7 +675,7 @@ paths:
     post:
       summary: Plaid Create a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transfercreate
       operationId: transferCreate
@@ -747,7 +748,7 @@ paths:
     post:
       summary: Plaid Create a recurring transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringcreate
       operationId: transferRecurringCreate
@@ -817,7 +818,7 @@ paths:
     post:
       summary: Plaid List transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transferlist
       operationId: transferList
@@ -895,7 +896,7 @@ paths:
     post:
       summary: Plaid List recurring transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringlist
       operationId: transferRecurringList
@@ -965,7 +966,7 @@ paths:
     post:
       summary: Plaid Cancel a transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/initiating-transfers/#transfercancel
       operationId: transferCancel
@@ -1001,7 +1002,7 @@ paths:
     post:
       summary: Plaid Cancel a recurring transfer.
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/recurring-transfers/#transferrecurringcancel
       operationId: transferRecurringCancel
@@ -1037,7 +1038,7 @@ paths:
     post:
       summary: Plaid List transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfereventlist
       operationId: transferEventList
@@ -1088,7 +1089,7 @@ paths:
     post:
       summary: Plaid Sync transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfereventsync
       operationId: transferEventSync
@@ -1141,7 +1142,7 @@ paths:
     post:
       summary: Plaid Retrieve a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfersweepget
       operationId: transferSweepGet
@@ -1188,7 +1189,7 @@ paths:
     post:
       summary: Plaid List sweeps
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/reading-transfers/#transfersweeplist
       operationId: transferSweepList
@@ -1235,7 +1236,7 @@ paths:
     post:
       summary: Plaid Migrate account into Transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transfermigrate_account
       operationId: transferMigrateAccount
@@ -1280,7 +1281,7 @@ paths:
     post:
       summary: Plaid Create a transfer intent object to invoke the Transfer UI
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transferintentcreate
       operationId: transferIntentCreate
@@ -1340,7 +1341,7 @@ paths:
     post:
       summary: Plaid Retrieve more information about a transfer intent
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/account-linking/#transferintentget
       operationId: transferIntentGet
@@ -1406,7 +1407,7 @@ paths:
     post:
       summary: Plaid Lists historical repayments
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#transferrepaymentlist
       operationId: transferRepaymentList
@@ -1454,7 +1455,7 @@ paths:
     post:
       summary: Plaid List the returns included in a repayment
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#transferrepaymentreturnlist
       operationId: transferRepaymentReturnList
@@ -1504,7 +1505,7 @@ paths:
     post:
       summary: Plaid Create a new originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorcreate
       operationId: transferOriginatorCreate
@@ -1543,7 +1544,7 @@ paths:
     post:
       summary: Generate a Plaid-hosted onboarding UI URL.
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferquestionnairecreate
       operationId: transferQuestionnaireCreate
@@ -1584,7 +1585,7 @@ paths:
     post:
       summary: Plaid Submit transfer diligence on behalf of the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferdiligencesubmit
       operationId: transferDiligenceSubmit
@@ -1621,7 +1622,7 @@ paths:
     post:
       summary: Plaid Upload transfer diligence document on behalf of the originator
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: >-
           /api/products/transfer/platform-payments/#transferdiligencedocumentupload
@@ -1664,7 +1665,7 @@ paths:
     post:
       summary: Plaid Get status of an originator's onboarding
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorget
       operationId: transferOriginatorGet
@@ -1707,7 +1708,7 @@ paths:
     post:
       summary: Plaid Get status of all originators' onboarding
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/platform-payments/#transferoriginatorlist
       operationId: transferOriginatorList
@@ -1751,7 +1752,7 @@ paths:
     post:
       summary: Plaid Create a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundcreate
       operationId: transferRefundCreate
@@ -1805,7 +1806,7 @@ paths:
     post:
       summary: Plaid Retrieve a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundget
       operationId: transferRefundGet
@@ -1851,7 +1852,7 @@ paths:
     post:
       summary: Plaid Cancel a refund
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/refunds/#transferrefundcancel
       operationId: transferRefundCancel
@@ -1887,7 +1888,7 @@ paths:
     post:
       summary: Plaid Simulate creating a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersweepsimulate
       operationId: sandboxTransferSweepSimulate
@@ -1934,7 +1935,7 @@ paths:
     post:
       summary: Plaid Simulate a transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersimulate
       operationId: sandboxTransferSimulate
@@ -1973,7 +1974,7 @@ paths:
     post:
       summary: Plaid Simulate a refund event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrefundsimulate
       operationId: sandboxTransferRefundSimulate
@@ -2012,7 +2013,7 @@ paths:
     post:
       summary: Plaid Simulate converting pending balance to available balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgersimulate_available
       operationId: sandboxTransferLedgerSimulateAvailable
@@ -2050,7 +2051,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger deposit event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerdepositsimulate
       operationId: sandboxTransferLedgerDepositSimulate
@@ -2086,7 +2087,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger withdraw event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerwithdrawsimulate
       operationId: sandboxTransferLedgerWithdrawSimulate
@@ -2123,7 +2124,7 @@ paths:
     post:
       summary: Plaid Trigger the creation of a repayment
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrepaymentsimulate
       operationId: sandboxTransferRepaymentSimulate
@@ -2161,7 +2162,7 @@ paths:
     post:
       summary: Plaid Manually fire a Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferfire_webhook
       operationId: sandboxTransferFireWebhook
@@ -2196,7 +2197,7 @@ paths:
     post:
       summary: Plaid Create a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockcreate
       operationId: sandboxTransferTestClockCreate
@@ -2242,7 +2243,7 @@ paths:
     post:
       summary: Plaid Advance a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockadvance
       operationId: sandboxTransferTestClockAdvance
@@ -2304,7 +2305,7 @@ paths:
     post:
       summary: Plaid Get a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockget
       operationId: sandboxTransferTestClockGet
@@ -2342,7 +2343,7 @@ paths:
     post:
       summary: Plaid List test clocks
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clocklist
       operationId: sandboxTransferTestClockList

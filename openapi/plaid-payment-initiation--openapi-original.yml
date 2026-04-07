@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment recipient
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientcreate
@@ -65,7 +66,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Reverse an existing payment
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentreverse
@@ -119,7 +120,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment recipient
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientget
@@ -156,7 +157,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List payment recipients
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationrecipientlist
@@ -197,7 +198,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a payment
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentcreate
@@ -260,7 +261,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       deprecated: true
       summary: Plaid Create payment token
       externalDocs:
@@ -305,7 +306,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentcreate
@@ -342,7 +343,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentget
@@ -393,7 +394,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Revoke payment consent
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationconsentrevoke
@@ -423,7 +424,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Execute a single payment using consent
       externalDocs:
         url: >-
@@ -457,7 +458,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment details
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentget
@@ -506,7 +507,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List payments
       externalDocs:
         url: /api/products/payment-initiation/#payment_initiationpaymentlist

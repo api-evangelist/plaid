@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     post:
       summary: Plaid Retrieve a dashboard user
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -56,7 +57,7 @@ paths:
     post:
       summary: Plaid List dashboard users
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK

@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     post:
       summary: Plaid Retrieve a Base Report
       tags:
-        - plaid
+        - Plaid
       operationId: baseReportGet
       x-hidden-from-docs: true
       externalDocs:
@@ -244,7 +245,7 @@ paths:
     post:
       summary: Plaid Create a Base Report
       tags:
-        - plaid
+        - Plaid
       operationId: baseReportCreate
       x-hidden-from-docs: true
       externalDocs:
@@ -275,7 +276,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -505,7 +506,7 @@ paths:
     post:
       summary: Plaid Create a CRA report for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -533,7 +534,7 @@ paths:
       summary: >-
         Plaid Retrieve cash flow insights from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -657,7 +658,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Register loan applications and decisions.
       responses:
         '200':
@@ -686,7 +687,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Register a list of loans to their applicants.
       responses:
         '200':
@@ -713,7 +714,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Updates loan data.
       responses:
         '200':
@@ -742,7 +743,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Unregister a list of loans.
       responses:
         '200':

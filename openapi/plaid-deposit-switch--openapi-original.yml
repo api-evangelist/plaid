@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a deposit switch
       externalDocs:
         url: /deposit-switch/reference#deposit_switchcreate
@@ -54,7 +55,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a deposit switch token
       externalDocs:
         url: /deposit-switch/reference#deposit_switchtokencreate
@@ -90,7 +91,7 @@ paths:
       externalDocs:
         url: /deposit-switch/reference#deposit_switchget
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -135,7 +136,7 @@ paths:
     post:
       summary: Create a deposit switch without using Plaid Exchange
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /deposit-switch/reference#deposit_switchaltcreate
       responses:

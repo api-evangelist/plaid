@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List a historical log of user consent events
       operationId: itemActivityList
       description: List a historical log of user consent events
@@ -57,7 +58,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List a user’s connected applications
       operationId: itemApplicationList
       description: List a user’s connected applications
@@ -84,7 +85,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Unlink a user’s connected application
       externalDocs:
         url: none
@@ -133,7 +134,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update the scopes of access for a particular application
       operationId: itemApplicationScopesUpdate
       description: >-
@@ -162,7 +163,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve an Item
       externalDocs:
         url: /api/items/#itemget
@@ -216,7 +217,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove an Item
       externalDocs:
         url: /api/items/#itemremove
@@ -272,7 +273,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fire a test webhook
       externalDocs:
         url: /api/sandbox/#sandboxitemfire_webhook
@@ -358,7 +359,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update Webhook URL
       externalDocs:
         url: /api/items/#itemwebhookupdate
@@ -404,7 +405,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Invalidate access_token
       externalDocs:
         url: /api/tokens/#itemaccess_tokeninvalidate
@@ -439,7 +440,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Force a Sandbox Item into an error state
       externalDocs:
         url: /api/sandbox/#sandboxitemreset_login
@@ -480,7 +481,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Set verification status for Sandbox account
       externalDocs:
         url: /api/sandbox/#sandboxitemset_verification_status
@@ -515,7 +516,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Exchange public token for an access token
       externalDocs:
         url: /api/tokens/#itempublic_tokenexchange
@@ -554,7 +555,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create public token
       externalDocs:
         url: /api/tokens/#itempublic_tokencreate
@@ -606,7 +607,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Import Item
       responses:
         '200':

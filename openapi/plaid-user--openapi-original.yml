@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -31,7 +32,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserCreateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -99,7 +100,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -161,7 +162,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserReviewRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -248,7 +249,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserUpdateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -319,7 +320,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserHistoryListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -370,7 +371,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_UNDETERMINED
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create user
       externalDocs:
         url: /api/products/income/#usercreate
@@ -415,7 +416,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update user information
       externalDocs:
         url: /api/products/income/#userupdate

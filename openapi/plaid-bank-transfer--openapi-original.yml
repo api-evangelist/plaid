@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a bank transfer as a processor
       externalDocs:
         url: /api/processor-partners/#bank_transfercreate
@@ -83,7 +84,7 @@ paths:
     post:
       summary: Plaid Retrieve a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferget
       operationId: bankTransferGet
@@ -146,7 +147,7 @@ paths:
     post:
       summary: Plaid Create a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfercreate
       operationId: bankTransferCreate
@@ -204,7 +205,7 @@ paths:
     post:
       summary: Plaid List bank transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferlist
       operationId: bankTransferList
@@ -266,7 +267,7 @@ paths:
     post:
       summary: Plaid Cancel a bank transfer
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfercancel
       operationId: bankTransferCancel
@@ -302,7 +303,7 @@ paths:
     post:
       summary: Plaid List bank transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/auth#bank_transfereventlist
       operationId: bankTransferEventList
@@ -353,7 +354,7 @@ paths:
     post:
       summary: Plaid Sync bank transfer events
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/auth/#bank_transfereventsync
       operationId: bankTransferEventSync
@@ -404,7 +405,7 @@ paths:
     post:
       summary: Plaid Retrieve a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#bank_transfersweepget
       operationId: bankTransferSweepGet
@@ -447,7 +448,7 @@ paths:
     post:
       summary: Plaid List sweeps
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/transfer/#bank_transfersweeplist
       operationId: bankTransferSweepList
@@ -490,7 +491,7 @@ paths:
     post:
       summary: Plaid Get balance of your Bank Transfer account
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transferbalanceget
       operationId: bankTransferBalanceGet
@@ -542,7 +543,7 @@ paths:
     post:
       summary: Plaid Migrate account into Bank Transfers
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference#bank_transfermigrate_account
       operationId: bankTransferMigrateAccount
@@ -586,7 +587,7 @@ paths:
     post:
       summary: Plaid Simulate a bank transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transfersimulate
       operationId: sandboxBankTransferSimulate
@@ -625,7 +626,7 @@ paths:
     post:
       summary: Plaid Manually fire a Bank Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transferfire_webhook
       operationId: sandboxBankTransferFireWebhook

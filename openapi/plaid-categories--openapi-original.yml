@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     post:
       security: []
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get categories
       externalDocs:
         url: /api/products/transactions/#categoriesget

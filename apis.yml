@@ -5,16 +5,16 @@ apis:
     name: Plaid Asset Report API
     tags:
       - Assets
-      - Reports
-      - PDF
-      - Refresh
-      - Filter
       - Audit
       - Copy
       - Credit
       - Endpoints
+      - Filter
       - Format
       - Freddie
+      - PDF
+      - Refresh
+      - Reports
     score: 428
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/assets/
@@ -47,8 +47,8 @@ apis:
       - Applications
       - Bank
       - Base
-      - CRA
       - Cash
+      - CRA
       - Data
       - Decisions
       - Flows
@@ -109,12 +109,12 @@ apis:
     name: Plaid Statements API
     tags:
       - Associated
-      - Items
-      - Statements
-      - Download
-      - Single
       - Data
+      - Download
+      - Items
       - Refresh
+      - Single
+      - Statements
     score: 155
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/statements/
@@ -170,10 +170,10 @@ apis:
       - Status
       - Tests
       - Tokens
-      - URL
       - Unlink
-      - Users
+      - URL
       - User's
+      - Users
       - Verification
       - Webhooks
     score: 760
@@ -462,19 +462,19 @@ apis:
   - aid: plaid:plaid-entity-verification-api
     name: Plaid Entity Verification API
     tags:
+      - Autofill
       - Entities
       - Identity
+      - Retry
       - Verification
       - Verifications
-      - Retry
-      - Autofill
     score: 122
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/identity-verification/
     overlays:
       - url: overlays/plaid-identity-verification--openapi-search.yml
         type: OpenAPI
-      - url: >-
+      - url: >2-
 
           overlays/plaid-identity-verification--openapi-api-evangelist-ratings.yml
         type: API Evangelist Ratings
@@ -496,19 +496,19 @@ apis:
     name: Plaid Watchlist Screening API
     tags:
       - Entities
-      - Screening
-      - Watchlist
       - History
-      - Screenings
       - Hit
       - Hits
+      - Indiv
+      - Individual
+      - Person
       - Program
       - Programs
       - Reviews
-      - Indiv
-      - Person
+      - Screening
+      - Screenings
       - Ual
-      - Individual
+      - Watchlist
     score: 440
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/monitor/
@@ -538,17 +538,17 @@ apis:
       - Accounts
       - Bank
       - Beacon
+      - Data
+      - Duplicate
       - Evaluate
-      - Risk
-      - Users
-      - Reviews
+      - History
+      - Identity
       - Reports
+      - Reviews
+      - Risk
       - Syndication
       - Syndications
-      - Data
-      - Identity
-      - Duplicate
-      - History
+      - Users
     score: 279
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/beacon/
@@ -576,48 +576,48 @@ apis:
   - aid: plaid:plaid-processor-api
     name: Plaid Processor API
     tags:
-      - Authentication
-      - Data
-      - Processor
-      - Accounts
-      - Associated
-      - Tokens
-      - Transactions
-      - Incremental
-      - Sync
-      - Refresh
-      - Fetch
-      - Recurring
-      - Streams
-      - ACH
-      - Evaluate
-      - Planned
-      - Signals
-      - Decision
-      - Initiated
-      - Reports
-      - Whether
-      - Opt In
-      - Prepare
-      - Bank
-      - Transfers
-      - Liabilities
-      - Entities
-      - Identity
-      - Match
-      - Scores
-      - Balance
       - Access
+      - Accounts
+      - ACH
+      - Apex
+      - Associated
+      - Authentication
+      - Balance
+      - Bank
       - Controls
+      - Data
+      - Decision
+      - Entities
+      - Evaluate
+      - Fetch
+      - Identity
+      - Incremental
+      - Initiated
+      - Liabilities
+      - Match
+      - Opt In
       - Permissions
+      - Planned
+      - Prepare
+      - Processor
       - Processor's
       - Products
+      - Recurring
+      - Refresh
+      - Reports
+      - Scores
       - Sets
+      - Signals
+      - Streams
+      - Stripe
+      - Sync
       - Token's
+      - Tokens
+      - Transactions
+      - Transfers
       - URL
       - Webhooks
-      - Stripe
-      - Apex
+      - Whether
     score: 529
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/processor-partners/
@@ -701,19 +701,19 @@ apis:
   - aid: plaid:plaid-payment-initiation-api
     name: Plaid Payment Initiation API
     tags:
+      - Consent
+      - Details
+      - Execute
+      - Existing
       - Initiation
       - Payments
       - Recipient
-      - Existing
-      - Reverse
       - Recipients
-      - Tokens
-      - Consent
+      - Reverse
       - Revoke
-      - Execute
       - Single
+      - Tokens
       - Using
-      - Details
     score: 275
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/payment-initiation/
@@ -741,12 +741,12 @@ apis:
     name: Plaid Beacon API
     tags:
       - Beacon
-      - Users
-      - Reviews
       - Data
-      - Identity
       - History
+      - Identity
       - Information
+      - Reviews
+      - Users
     score: 168
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/beacon/
@@ -774,68 +774,68 @@ apis:
   - aid: plaid:plaid-credit-api
     name: Plaid Credit API
     tags:
-      - Audit
-      - Copy
-      - Credit
-      - Tokens
-      - Link
-      - Sessions
-      - Users
-      - Assets
-      - Income
-      - Reports
-      - Endpoints
-      - Format
-      - Freddie
+      - (Aka
+      - (Beta)
       - (VOE)
-      - (aka
-      - Assets),
-      - Available
-      - Employment
-      - VOA
-      - Verification
       - Accounts
+      - Assets
+      - Assets),
+      - Associated
+      - Audit
+      - Available
       - Bank
       - Beta
+      - Checks
+      - Clients
+      - Configurations
+      - Conversions
+      - Copy
+      - Credit
+      - Data
+      - Digital
+      - Document(s)
+      - Documents
+      - Eligibility
+      - Employment
+      - Endpoints
+      - Format
+      - Fraud
+      - Freddie
+      - Income
+      - Individual's
       - Information
-      - Used
-      - PDF
-      - Refresh
+      - Insights
+      - Link
+      - Manually
       - Notifications
+      - Optimize
+      - Parsing
+      - Partners
+      - Payroll
+      - PDF
+      - Precheck
       - Proactive
       - Profiles
-      - Subscribe
-      - Unsubscribe
-      - Webhooks
-      - Configurations
-      - Documents
-      - Parsing
-      - Payroll
-      - Data
+      - Refresh
+      - Relay
+      - Reports
+      - Risk
+      - Sessions
+      - Share
+      - Shared
+      - Signals
       - Statements
+      - Subscribe
+      - Summaries
+      - Tokens
+      - Unsubscribe
       - Uploaded
       - Uploads
-      - Document(s)
-      - Fraud
-      - Insights
-      - Manually
-      - Risk
-      - Signals
-      - Checks
-      - Conversions
-      - Eligibility
-      - Optimize
-      - Precheck
-      - Individual's
-      - Summaries
-      - Digital
-      - Clients
-      - Partners
-      - Relay
-      - Share
-      - Associated
-      - Shared
-      - (beta)
+      - Used
+      - Users
+      - Verification
+      - VOA
+      - Webhooks
     score: 535
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/assets/
@@ -861,14 +861,14 @@ apis:
   - aid: plaid:plaid-investments-api
     name: Plaid Investments API
     tags:
-      - Holdings
-      - Investments
-      - Transactions
-      - Data
-      - Refresh
       - Authentication
       - Authorize
+      - Data
+      - Holdings
+      - Investments
       - Needed
+      - Refresh
+      - Transactions
       - Transfers
     score: 109
     baseURL: https://production.plaid.com
@@ -897,12 +897,12 @@ apis:
   - aid: plaid:plaid-deposit-switch-api
     name: Plaid Deposit Switch API
     tags:
-      - Deposit
-      - Switch
-      - Tokens
       - Alt
+      - Deposit
       - Exchange
       - Plaid
+      - Switch
+      - Tokens
       - Using
     score: 102
     baseURL: https://production.plaid.com
@@ -929,13 +929,13 @@ apis:
     name: Plaid Link API
     tags:
       - Checks
+      - Correlation
       - Eligibility
+      - Exchange
       - Link
+      - OAuth
       - Profiles
       - Tokens
-      - Correlation
-      - Exchange
-      - OAuth
     score: 102
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/link/
@@ -963,79 +963,79 @@ apis:
   - aid: plaid:plaid-transfer-api
     name: Plaid Transfer API
     tags:
-      - Transfers
-      - Recurring
-      - Authorization
-      - Cancels
       - (Deprecated)
-      - Balance
-      - Held
-      - Plaid
-      - Capabilities
-      - Eligibility
-      - Information
-      - RTP
-      - Configurations
-      - Products
-      - Ledgers
-      - Available
-      - Between
-      - Distribute
-      - Items
-      - Move
-      - Originators
-      - Platforms
-      - Deposit
-      - Funds
-      - Withdraw
+      - About
       - Accounts
+      - Advance
       - Associated
-      - Funding
-      - Originator
-      - Metrics
-      - Usage
+      - Authorization
+      - Available
+      - Balance
+      - Behalf
+      - Between
+      - Cancels
+      - Capabilities
+      - Clock
+      - Clocks
+      - Configurations
+      - Converting
+      - Creating
+      - Creation
+      - Deposit
+      - Diligence
+      - Distribute
+      - Documents
+      - Eligibility
       - Events
-      - Sync
-      - Sweep
-      - Sweeps
-      - Migrate
+      - Fire
+      - Funding
+      - Funds
+      - Generate
+      - Held
+      - Historical
+      - Included
+      - Information
       - Intent
       - Invoke
+      - Items
+      - Ledgers
+      - Manually
+      - Metrics
+      - Migrate
+      - Move
       - Objects
-      - UI
-      - About
-      - Historical
+      - Onboarding
+      - Originator
+      - Originator's
+      - Originators
+      - Originators'
+      - Pending
+      - Plaid
+      - Plaid Hosted
+      - Platforms
+      - Products
+      - Questionnaires
+      - Recurring
+      - Refunds
       - Repayment
       - Repayments
-      - Included
-      - Generate
-      - Onboarding
-      - Plaid Hosted
-      - Questionnaires
-      - URL
-      - Behalf
-      - Diligence
-      - Submit
-      - Documents
-      - Uploads
-      - Originator's
-      - Status
-      - Originators'
-      - Refunds
-      - Creating
+      - RTP
       - Sandbox
       - Simulate
-      - Converting
-      - Pending
-      - Creation
-      - Triggers
-      - Fire
-      - Manually
-      - Webhooks
-      - Clock
+      - Status
+      - Submit
+      - Sweep
+      - Sweeps
+      - Sync
       - Tests
-      - Advance
-      - Clocks
+      - Transfers
+      - Triggers
+      - UI
+      - Uploads
+      - URL
+      - Usage
+      - Webhooks
+      - Withdraw
     score: 1358
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/transfer/
@@ -1061,21 +1061,21 @@ apis:
   - aid: plaid:plaid-bank-transfer-api
     name: Plaid Bank Transfer API
     tags:
-      - Bank
-      - Processor
-      - Transfers
-      - Cancels
-      - Events
-      - Sync
-      - Sweep
-      - Sweeps
       - Accounts
       - Balance
-      - Migrate
-      - Sandbox
-      - Simulate
+      - Bank
+      - Cancels
+      - Events
       - Fire
       - Manually
+      - Migrate
+      - Processor
+      - Sandbox
+      - Simulate
+      - Sweep
+      - Sweeps
+      - Sync
+      - Transfers
       - Webhooks
     score: 372
     baseURL: https://production.plaid.com
@@ -1139,26 +1139,26 @@ apis:
     name: Plaid Income API
     tags:
       - (Deprecated)
-      - Income
-      - Instances
-      - Verification
-      - Information
-      - Paystubs
-      - Used
-      - Documents
-      - Download
-      - Original
-      - Taxes
-      - Taxforms
       - Checks
       - Conversions
       - Digital
+      - Documents
+      - Download
       - Eligibility
-      - Optimize
-      - Precheck
       - Fire
+      - Income
+      - Information
+      - Instances
       - Manually
+      - Optimize
+      - Original
+      - Paystubs
+      - Precheck
       - Sandbox
+      - Taxes
+      - Taxforms
+      - Used
+      - Verification
       - Webhooks
     score: 164
     baseURL: https://production.plaid.com
@@ -1186,30 +1186,30 @@ apis:
   - aid: plaid:plaid-beta-api
     name: Plaid Beta API
     tags:
-      - Accounts
-      - Bank
-      - Beta
-      - Credit
-      - Employment
-      - Information
-      - Used
-      - Verification
-      - Data
-      - Enhance
-      - Locally Held
-      - Transactions
-      - Categories
-      - Rules
+      - /Transactions/Enrich
       - Access
+      - Accounts
       - Associated
-      - Items
-      - Tokens
-      - /transactions/enrich
+      - Bank
       - Based
+      - Beta
+      - Categories
+      - Credit
+      - Data
+      - Employment
+      - Enhance
+      - Information
       - Insights
+      - Items
+      - Locally Held
       - Obtain
+      - Rules
       - Sent
+      - Tokens
+      - Transactions
+      - Used
       - Users
+      - Verification
     score: 170
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/
@@ -1237,20 +1237,19 @@ apis:
     name: Plaid Signal API
     tags:
       - ACH
-      - Evaluate
-      - Planned
-      - Processor
-      - Signals
-      - Transactions
       - Decision
+      - Evaluate
       - Initiated
-      - Reports
-      - Whether
-      - Opt In
-      - Prepare
-      - Tokens
       - Items
       - Opt In
+      - Planned
+      - Prepare
+      - Processor
+      - Reports
+      - Signals
+      - Tokens
+      - Transactions
+      - Whether
     score: 238
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/signal/
@@ -1279,16 +1278,12 @@ apis:
     name: Plaid Wallet API
     tags:
       - E Wallet
-      - Wallet
-      - E Wallet
-      - Fetch
       - E Wallets
-      - E Wallet
       - Execute
+      - Fetch
       - Transactions
       - Using
-      - E Wallet
-      - E Wallet
+      - Wallet
     score: 143
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/products/virtual-accounts/
@@ -1368,20 +1363,20 @@ apis:
     tags:
       - Creates
       - Customers
-      - Partners
-      - Plaid
-      - Reseller
-      - Reseller's
       - Enable
       - Enables
       - Environments
-      - Production
       - Given
       - Information
       - Institutions
       - OAuth
       - OAuth Institution
+      - Partners
+      - Plaid
+      - Production
       - Registrations
+      - Reseller
+      - Reseller's
     score: 155
     baseURL: https://production.plaid.com
     humanURL: https://plaid.com/docs/api/partner/
@@ -1472,8 +1467,8 @@ apis:
       technology solutions.
 name: Plaid
 tags:
-  - Financial
   - Bank Accounts
+  - Financial
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 score: 1200
 common:

@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletcreate
@@ -63,7 +64,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletget
@@ -120,7 +121,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch a list of e-wallets
       externalDocs:
         url: /api/products/virtual-accounts/#walletlist
@@ -174,7 +175,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Execute a transaction using an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionexecute
@@ -212,7 +213,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch an e-wallet transaction
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionget
@@ -275,7 +276,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid List e-wallet transactions
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionlist

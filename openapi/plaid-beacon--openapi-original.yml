@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     x-hidden-from-docs: true
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Evaluate risk of a bank account
       externalDocs:
         url: none
@@ -76,7 +77,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserCreateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -144,7 +145,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -206,7 +207,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserReviewRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -293,7 +294,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportCreateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -332,7 +333,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -382,7 +383,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportSyndicationListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -435,7 +436,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -474,7 +475,7 @@ paths:
               $ref: '#/components/schemas/BeaconReportSyndicationGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -517,7 +518,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserUpdateRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -588,7 +589,7 @@ paths:
               $ref: '#/components/schemas/BeaconDuplicateGetRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -643,7 +644,7 @@ paths:
               $ref: '#/components/schemas/BeaconUserHistoryListRequest'
         required: true
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK

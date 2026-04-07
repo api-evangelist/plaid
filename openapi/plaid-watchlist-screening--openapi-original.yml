@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -59,7 +60,7 @@ paths:
         associated program has ongoing screening enabled, this is the profile
         information that will be used to monitor your customer over time.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -73,7 +74,7 @@ paths:
     post:
       summary: Plaid Get an entity screening
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -117,7 +118,7 @@ paths:
     post:
       summary: Plaid List history for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -167,7 +168,7 @@ paths:
     post:
       summary: Plaid List hits for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -280,7 +281,7 @@ paths:
       operationId: watchlistScreeningEntityList
       description: List all entity screenings.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -294,7 +295,7 @@ paths:
     post:
       summary: Plaid Get entity watchlist screening program
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -362,7 +363,7 @@ paths:
       operationId: watchlistScreeningEntityProgramList
       description: List all entity watchlist screening programs
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -411,7 +412,7 @@ paths:
                       timestamp: '2020-07-24T03:26:02Z'
                     request_id: saKrIBuEB9qJZng
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/monitor/#watchlist_screeningentityreviewcreate
   /watchlist_screening/entity/review/list:
@@ -419,7 +420,7 @@ paths:
     post:
       summary: Plaid List reviews for entity watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -494,7 +495,7 @@ paths:
                     request_id: saKrIBuEB9qJZng
       description: Update an entity watchlist screening.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -542,7 +543,7 @@ paths:
         associated program has ongoing screening enabled, this is the profile
         information that will be used to monitor your customer over time.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -556,7 +557,7 @@ paths:
     post:
       summary: Plaid Retrieve an individual watchlist screening
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -598,7 +599,7 @@ paths:
     post:
       summary: Plaid List history for individual watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -647,7 +648,7 @@ paths:
     post:
       summary: Plaid List hits for individual watchlist screening
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -749,7 +750,7 @@ paths:
       operationId: watchlistScreeningIndividualList
       description: List previously created watchlist screenings for individuals
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -763,7 +764,7 @@ paths:
     post:
       summary: Plaid Get individual watchlist screening program
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -832,7 +833,7 @@ paths:
       operationId: watchlistScreeningIndividualProgramList
       description: List all individual watchlist screening programs
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:
@@ -883,7 +884,7 @@ paths:
                       timestamp: '2020-07-24T03:26:02Z'
                     request_id: saKrIBuEB9qJZng
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/monitor/#watchlist_screeningindividualreviewcreate
   /watchlist_screening/individual/review/list:
@@ -891,7 +892,7 @@ paths:
     post:
       summary: Plaid List reviews for individual watchlist screenings
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -969,7 +970,7 @@ paths:
         not update `search_terms` and `status` at the same time since editing
         `search_terms` may trigger an automatic `status` change.
       tags:
-        - plaid
+        - Plaid
       requestBody:
         content:
           application/json:

@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -25,7 +26,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Reset the login of a Payment Profile
       externalDocs:
         url: /api/sandbox/#sandboxpayment_profilereset_login
@@ -61,7 +62,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profilecreate
@@ -105,7 +106,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileget
@@ -145,7 +146,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileremove

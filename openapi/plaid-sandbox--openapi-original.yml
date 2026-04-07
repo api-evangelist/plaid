@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a test Item and processor token
       externalDocs:
         url: /api/sandbox/#sandboxprocessor_tokencreate
@@ -66,7 +67,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a test Item
       externalDocs:
         url: /api/sandbox/#sandboxpublic_tokencreate
@@ -110,7 +111,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fire a test webhook
       externalDocs:
         url: /api/sandbox/#sandboxitemfire_webhook
@@ -196,7 +197,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Force a Sandbox Item into an error state
       externalDocs:
         url: /api/sandbox/#sandboxitemreset_login
@@ -237,7 +238,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Set verification status for Sandbox account
       externalDocs:
         url: /api/sandbox/#sandboxitemset_verification_status
@@ -273,7 +274,7 @@ paths:
     post:
       summary: Plaid Simulate a bank transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transfersimulate
       operationId: sandboxBankTransferSimulate
@@ -312,7 +313,7 @@ paths:
     post:
       summary: Plaid Simulate creating a sweep
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersweepsimulate
       operationId: sandboxTransferSweepSimulate
@@ -359,7 +360,7 @@ paths:
     post:
       summary: Plaid Simulate a transfer event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfersimulate
       operationId: sandboxTransferSimulate
@@ -398,7 +399,7 @@ paths:
     post:
       summary: Plaid Simulate a refund event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrefundsimulate
       operationId: sandboxTransferRefundSimulate
@@ -437,7 +438,7 @@ paths:
     post:
       summary: Plaid Simulate converting pending balance to available balance
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgersimulate_available
       operationId: sandboxTransferLedgerSimulateAvailable
@@ -475,7 +476,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger deposit event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerdepositsimulate
       operationId: sandboxTransferLedgerDepositSimulate
@@ -511,7 +512,7 @@ paths:
     post:
       summary: Plaid Simulate a ledger withdraw event in Sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferledgerwithdrawsimulate
       operationId: sandboxTransferLedgerWithdrawSimulate
@@ -548,7 +549,7 @@ paths:
     post:
       summary: Plaid Trigger the creation of a repayment
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferrepaymentsimulate
       operationId: sandboxTransferRepaymentSimulate
@@ -586,7 +587,7 @@ paths:
     post:
       summary: Plaid Manually fire a Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransferfire_webhook
       operationId: sandboxTransferFireWebhook
@@ -621,7 +622,7 @@ paths:
     post:
       summary: Plaid Create a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockcreate
       operationId: sandboxTransferTestClockCreate
@@ -667,7 +668,7 @@ paths:
     post:
       summary: Plaid Advance a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockadvance
       operationId: sandboxTransferTestClockAdvance
@@ -729,7 +730,7 @@ paths:
     post:
       summary: Plaid Get a test clock
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clockget
       operationId: sandboxTransferTestClockGet
@@ -767,7 +768,7 @@ paths:
     post:
       summary: Plaid List test clocks
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxtransfertest_clocklist
       operationId: sandboxTransferTestClockList
@@ -809,7 +810,7 @@ paths:
     post:
       deprecated: true
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Reset the login of a Payment Profile
       externalDocs:
         url: /api/sandbox/#sandboxpayment_profilereset_login
@@ -845,7 +846,7 @@ paths:
     post:
       summary: Plaid Manually fire a Bank Transfer webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /bank-transfers/reference/#sandboxbank_transferfire_webhook
       operationId: sandboxBankTransferFireWebhook
@@ -880,7 +881,7 @@ paths:
     post:
       summary: Plaid Manually fire an Income webhook
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxincomefire_webhook
       operationId: sandboxIncomeFireWebhook
@@ -915,7 +916,7 @@ paths:
     post:
       summary: Plaid Manually fire a bank income webhook in sandbox
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/sandbox/#sandboxbankincomefire_webhook
       operationId: sandboxBankIncomeFireWebhook
@@ -954,7 +955,7 @@ paths:
         Save the selected accounts when connecting to the Platypus Oauth
         institution
       tags:
-        - plaid
+        - Plaid
       operationId: sandboxOauthSelectAccounts
       responses:
         '200':

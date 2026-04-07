@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Auth data
       externalDocs:
         url: /api/processor-partners/#processorauthget
@@ -94,7 +95,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve the account associated with a processor token
       externalDocs:
         url: /api/processor-partners/#processoraccountget
@@ -144,7 +145,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsget
@@ -362,7 +363,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get incremental transaction updates on a processor token
       externalDocs:
         url: /api/processor-partners/#processortransactionssync
@@ -611,7 +612,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsrefresh
@@ -680,7 +681,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Fetch recurring transaction streams
       externalDocs:
         url: /api/processor-partners/#processortransactionsrecurringget
@@ -858,7 +859,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Evaluate a planned ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalevaluate
@@ -927,7 +928,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report whether you initiated an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignaldecisionreport
@@ -969,7 +970,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Report a return for an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalreturnreport
@@ -1012,7 +1013,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Opt-in a processor token to Signal
       externalDocs:
         url: /api/processor-partners/#processorsignalprepare
@@ -1054,7 +1055,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create a bank transfer as a processor
       externalDocs:
         url: /api/processor-partners/#bank_transfercreate
@@ -1112,7 +1113,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Liabilities data
       externalDocs:
         url: /api/processor-partners/#processorliabilitiesget
@@ -1199,7 +1200,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Identity data
       externalDocs:
         url: /api/processor-partners/#processoridentityget
@@ -1281,7 +1282,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/processor-partners/#processoridentitymatch
@@ -1349,7 +1350,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Balance data
       externalDocs:
         url: /api/processor-partners/#processorbalanceget
@@ -1406,7 +1407,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create processor token
       externalDocs:
         url: /api/processors/#processortokencreate
@@ -1444,7 +1445,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Control a processor's access to products
       externalDocs:
         url: /api/processors/#processortokenpermissionsset
@@ -1478,7 +1479,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Get a processor token's product permissions
       externalDocs:
         url: /api/processors/#processortokenpermissionsget
@@ -1512,7 +1513,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update a processor token's webhook URL
       externalDocs:
         url: /api/processor-partners/#processortokenwebhookupdate
@@ -1543,7 +1544,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Stripe bank account token
       externalDocs:
         url: /api/processors/#processorstripebank_account_tokencreate
@@ -1595,7 +1596,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Apex bank account token
       externalDocs:
         url: /none/

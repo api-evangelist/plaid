@@ -14,7 +14,8 @@ info:
     name: Plaid Developer Team
     url: https://plaid.com
   termsOfService: https://plaid.com/legal/
-tags: []
+tags:
+  - name: Plaid
 security:
   - clientId: []
     secret: []
@@ -24,7 +25,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Update an Audit Copy Token
       externalDocs:
         url: /none/
@@ -56,7 +57,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Retrieve Link sessions for your user
       externalDocs:
         url: /api/products/income/#creditsessionsget
@@ -111,7 +112,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Create Asset or Income Report Audit Copy Token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokencreate
@@ -149,7 +150,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove an Audit Copy token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokenremove
@@ -184,7 +185,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: >-
         Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.
       externalDocs:
@@ -288,7 +289,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: >-
         Plaid Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.
       externalDocs:
@@ -449,7 +450,7 @@ paths:
       summary: >-
         Plaid Retrieve information from the bank accounts used for employment verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -541,7 +542,7 @@ paths:
     post:
       summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -766,7 +767,7 @@ paths:
       summary: >-
         Plaid Retrieve information from the bank accounts used for income verification in PDF format
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: A PDF of the Bank Income Report
@@ -791,7 +792,7 @@ paths:
     post:
       summary: Plaid Refresh a user's bank income information
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditbank_incomerefresh
       operationId: creditBankIncomeRefresh
@@ -821,7 +822,7 @@ paths:
       summary: >-
         Plaid Subscribe and unsubscribe to proactive notifications for a user's income profile
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditbank_incomewebhookupdate
       operationId: creditBankIncomeWebhookUpdate
@@ -856,7 +857,7 @@ paths:
     post:
       summary: Plaid Update the parsing configuration for a document income verification
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeparsing_configupdate
       operationId: creditPayrollIncomeParsingConfigUpdate
@@ -887,7 +888,7 @@ paths:
     post:
       summary: Plaid Retrieve data for a user's uploaded bank statements
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: OK
@@ -961,7 +962,7 @@ paths:
     post:
       summary: Plaid Retrieve a user's payroll information
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeget
       operationId: creditPayrollIncomeGet
@@ -1233,7 +1234,7 @@ paths:
     post:
       summary: Plaid Retrieve fraud insights for a user's manually uploaded document(s).
       tags:
-        - plaid
+        - Plaid
       externalDocs:
         url: /api/products/income/#creditpayroll_incomerisk_signalsget
       operationId: creditPayrollIncomeRiskSignalsGet
@@ -1312,7 +1313,7 @@ paths:
       deprecated: true
       summary: Plaid Check income verification eligibility and optimize conversion
       tags:
-        - plaid
+        - Plaid
       operationId: creditPayrollIncomePrecheck
       externalDocs:
         url: /api/products/income/#creditpayroll_incomeprecheck
@@ -1363,7 +1364,7 @@ paths:
     post:
       summary: Plaid Retrieve a summary of an individual's employment information
       tags:
-        - plaid
+        - Plaid
       operationId: creditEmploymentGet
       externalDocs:
         url: /api/products/income/#creditemploymentget
@@ -1408,7 +1409,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh a digital payroll income verification
       externalDocs:
         url: /api/products/income/#creditpayroll_incomerefresh
@@ -1445,7 +1446,7 @@ paths:
     post:
       summary: Plaid Create a relay token to share an Asset Report with a partner client
       tags:
-        - plaid
+        - Plaid
       operationId: creditRelayCreate
       externalDocs:
         url: /api/products/assets/#creditrelaycreate
@@ -1485,7 +1486,7 @@ paths:
       summary: >-
         Plaid Retrieve the reports associated with a relay token that was shared with you
       tags:
-        - plaid
+        - Plaid
       operationId: creditRelayGet
       externalDocs:
         url: /api/products/assets/#creditrelayget
@@ -1730,7 +1731,7 @@ paths:
       summary: >-
         Plaid Retrieve the pdf reports associated with a relay token that was shared with you (beta)
       tags:
-        - plaid
+        - Plaid
       responses:
         '200':
           description: A PDF of the Asset Report
@@ -1770,7 +1771,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Refresh a report of a relay token
       externalDocs:
         url: /api/products/assets/#creditrelayrefresh
@@ -1805,7 +1806,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       tags:
-        - plaid
+        - Plaid
       summary: Plaid Remove relay token
       externalDocs:
         url: /api/products/assets/#creditrelayremove
