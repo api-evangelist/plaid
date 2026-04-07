@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' dashboard user/'
+  title: 'Plaid dashboard user/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /dashboard_user/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a dashboard user
+      summary: Plaid Retrieve a dashboard user
       tags:
         - plaid
       responses:
@@ -54,7 +54,7 @@ paths:
   /dashboard_user/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List dashboard users
+      summary: Plaid List dashboard users
       tags:
         - plaid
       responses:

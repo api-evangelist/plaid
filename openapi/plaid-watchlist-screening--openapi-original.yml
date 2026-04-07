@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' watchlist screening/'
+  title: 'Plaid watchlist screening/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /watchlist_screening/entity/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a watchlist screening for an entity
+      summary: Plaid Create a watchlist screening for an entity
       operationId: watchlistScreeningEntityCreate
       responses:
         '200':
@@ -71,7 +71,7 @@ paths:
   /watchlist_screening/entity/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get an entity screening
+      summary: Plaid Get an entity screening
       tags:
         - plaid
       responses:
@@ -115,7 +115,7 @@ paths:
   /watchlist_screening/entity/history/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List history for entity watchlist screenings
+      summary: Plaid List history for entity watchlist screenings
       tags:
         - plaid
       responses:
@@ -165,7 +165,7 @@ paths:
   /watchlist_screening/entity/hit/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List hits for entity watchlist screenings
+      summary: Plaid List hits for entity watchlist screenings
       tags:
         - plaid
       responses:
@@ -246,7 +246,7 @@ paths:
   /watchlist_screening/entity/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List entity watchlist screenings
+      summary: Plaid List entity watchlist screenings
       responses:
         '200':
           description: OK
@@ -292,7 +292,7 @@ paths:
   /watchlist_screening/entity/program/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get entity watchlist screening program
+      summary: Plaid Get entity watchlist screening program
       tags:
         - plaid
       responses:
@@ -332,7 +332,7 @@ paths:
   /watchlist_screening/entity/program/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List entity watchlist screening programs
+      summary: Plaid List entity watchlist screening programs
       responses:
         '200':
           description: OK
@@ -374,7 +374,7 @@ paths:
   /watchlist_screening/entity/review/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a review for an entity watchlist screening
+      summary: Plaid Create a review for an entity watchlist screening
       operationId: watchlistScreeningEntityReviewCreate
       description: >-
         Create a review for an entity watchlist screening. Reviews are
@@ -417,7 +417,7 @@ paths:
   /watchlist_screening/entity/review/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List reviews for entity watchlist screenings
+      summary: Plaid List reviews for entity watchlist screenings
       tags:
         - plaid
       responses:
@@ -462,7 +462,7 @@ paths:
   /watchlist_screening/entity/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update an entity screening
+      summary: Plaid Update an entity screening
       operationId: watchlistScreeningEntityUpdate
       responses:
         '200':
@@ -507,7 +507,7 @@ paths:
   /watchlist_screening/individual/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a watchlist screening for a person
+      summary: Plaid Create a watchlist screening for a person
       operationId: watchlistScreeningIndividualCreate
       responses:
         '200':
@@ -554,7 +554,7 @@ paths:
   /watchlist_screening/individual/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve an individual watchlist screening
+      summary: Plaid Retrieve an individual watchlist screening
       tags:
         - plaid
       responses:
@@ -596,7 +596,7 @@ paths:
   /watchlist_screening/individual/history/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List history for individual watchlist screenings
+      summary: Plaid List history for individual watchlist screenings
       tags:
         - plaid
       responses:
@@ -645,7 +645,7 @@ paths:
   /watchlist_screening/individual/hit/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List hits for individual watchlist screening
+      summary: Plaid List hits for individual watchlist screening
       tags:
         - plaid
       responses:
@@ -717,7 +717,7 @@ paths:
   /watchlist_screening/individual/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List Individual Watchlist Screenings
+      summary: Plaid List Individual Watchlist Screenings
       responses:
         '200':
           description: OK
@@ -761,7 +761,7 @@ paths:
   /watchlist_screening/individual/program/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get individual watchlist screening program
+      summary: Plaid Get individual watchlist screening program
       tags:
         - plaid
       responses:
@@ -802,7 +802,7 @@ paths:
   /watchlist_screening/individual/program/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List individual watchlist screening programs
+      summary: Plaid List individual watchlist screening programs
       responses:
         '200':
           description: OK
@@ -845,7 +845,7 @@ paths:
   /watchlist_screening/individual/review/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a review for an individual watchlist screening
+      summary: Plaid Create a review for an individual watchlist screening
       operationId: watchlistScreeningIndividualReviewCreate
       description: >-
         Create a review for the individual watchlist screening. Reviews are
@@ -889,7 +889,7 @@ paths:
   /watchlist_screening/individual/review/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List reviews for individual watchlist screenings
+      summary: Plaid List reviews for individual watchlist screenings
       tags:
         - plaid
       responses:
@@ -932,7 +932,7 @@ paths:
   /watchlist_screening/individual/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update individual watchlist screening
+      summary: Plaid Update individual watchlist screening
       operationId: watchlistScreeningIndividualUpdate
       responses:
         '200':

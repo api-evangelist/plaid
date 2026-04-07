@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' link delivery/'
+  title: 'Plaid link delivery/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create Hosted Link session
+      summary: Plaid Create Hosted Link session
       externalDocs:
         url: /assets/waitlist/hosted-link/
       operationId: linkDeliveryCreate
@@ -63,7 +63,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get Hosted Link session
+      summary: Plaid Get Hosted Link session
       externalDocs:
         url: /assets/waitlist/hosted-link/
       operationId: linkDeliveryGet

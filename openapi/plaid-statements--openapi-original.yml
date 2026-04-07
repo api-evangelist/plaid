@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' statements/'
+  title: 'Plaid statements/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve a list of all statements associated with an item.
+      summary: Plaid Retrieve a list of all statements associated with an item.
       externalDocs:
         url: /api/products/statements#statementslist
       responses:
@@ -69,7 +69,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve a single statement.
+      summary: Plaid Retrieve a single statement.
       externalDocs:
         url: /api/products/statements#statementsdownload
       responses:
@@ -100,7 +100,7 @@ paths:
         - plaid
       externalDocs:
         url: /api/products/statements#statementsrefresh
-      summary: Refresh statements data.
+      summary: Plaid Refresh statements data.
       responses:
         '200':
           description: OK

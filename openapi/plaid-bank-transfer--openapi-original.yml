@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' bank transfer/'
+  title: 'Plaid bank transfer/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create a bank transfer as a processor
+      summary: Plaid Create a bank transfer as a processor
       externalDocs:
         url: /api/processor-partners/#bank_transfercreate
       operationId: processorBankTransferCreate
@@ -48,7 +48,7 @@ paths:
                       custom_tag: my tag
                       description: Testing2
                       direction: outbound
-                      failure_reason: null
+                      failure_reason:
                       id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                       iso_currency_code: USD
                       metadata:
@@ -81,7 +81,7 @@ paths:
   /bank_transfer/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a bank transfer
+      summary: Plaid Retrieve a bank transfer
       tags:
         - plaid
       externalDocs:
@@ -144,7 +144,7 @@ paths:
   /bank_transfer/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a bank transfer
+      summary: Plaid Create a bank transfer
       tags:
         - plaid
       externalDocs:
@@ -169,7 +169,7 @@ paths:
                       custom_tag: my tag
                       description: Testing2
                       direction: outbound
-                      failure_reason: null
+                      failure_reason:
                       id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                       iso_currency_code: USD
                       metadata:
@@ -202,7 +202,7 @@ paths:
   /bank_transfer/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List bank transfers
+      summary: Plaid List bank transfers
       tags:
         - plaid
       externalDocs:
@@ -264,7 +264,7 @@ paths:
   /bank_transfer/cancel:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Cancel a bank transfer
+      summary: Plaid Cancel a bank transfer
       tags:
         - plaid
       externalDocs:
@@ -300,7 +300,7 @@ paths:
   /bank_transfer/event/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List bank transfer events
+      summary: Plaid List bank transfer events
       tags:
         - plaid
       externalDocs:
@@ -325,7 +325,7 @@ paths:
                         direction: outbound
                         event_id: 1
                         event_type: pending
-                        failure_reason: null
+                        failure_reason:
                         origination_account_id: ''
                         timestamp: '2020-08-06T17:27:15Z'
                     request_id: mdqfuVxeoza6mhu
@@ -351,7 +351,7 @@ paths:
   /bank_transfer/event/sync:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Sync bank transfer events
+      summary: Plaid Sync bank transfer events
       tags:
         - plaid
       externalDocs:
@@ -376,7 +376,7 @@ paths:
                         direction: outbound
                         event_id: 1
                         event_type: pending
-                        failure_reason: null
+                        failure_reason:
                         origination_account_id: ''
                         timestamp: '2020-08-06T17:27:15Z'
                     request_id: mdqfuVxeoza6mhu
@@ -402,7 +402,7 @@ paths:
   /bank_transfer/sweep/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a sweep
+      summary: Plaid Retrieve a sweep
       tags:
         - plaid
       externalDocs:
@@ -445,7 +445,7 @@ paths:
   /bank_transfer/sweep/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List sweeps
+      summary: Plaid List sweeps
       tags:
         - plaid
       externalDocs:
@@ -488,7 +488,7 @@ paths:
   /bank_transfer/balance/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get balance of your Bank Transfer account
+      summary: Plaid Get balance of your Bank Transfer account
       tags:
         - plaid
       externalDocs:
@@ -540,7 +540,7 @@ paths:
   /bank_transfer/migrate_account:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Migrate account into Bank Transfers
+      summary: Plaid Migrate account into Bank Transfers
       tags:
         - plaid
       externalDocs:
@@ -584,7 +584,7 @@ paths:
   /sandbox/bank_transfer/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a bank transfer event in Sandbox
+      summary: Plaid Simulate a bank transfer event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -623,7 +623,7 @@ paths:
   /sandbox/bank_transfer/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire a Bank Transfer webhook
+      summary: Plaid Manually fire a Bank Transfer webhook
       tags:
         - plaid
       externalDocs:

@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' income/'
+  title: 'Plaid income/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /income/verification/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: (Deprecated) Create an income verification instance
+      summary: Plaid (Deprecated) Create an income verification instance
       tags:
         - plaid
       deprecated: true
@@ -61,8 +61,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        (Deprecated) Retrieve information from the paystubs used for income
-        verification
+        Plaid (Deprecated) Retrieve information from the paystubs used for income verification
       deprecated: true
       tags:
         - plaid
@@ -90,12 +89,12 @@ paths:
                             - current_amount: 123.45
                               description: taxes
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                               ytd_amount: 246.9
                           total:
                             current_amount: 123.45
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                             ytd_amount: 246.9
                         doc_id: 2jkflanbd
                         earnings:
@@ -105,22 +104,22 @@ paths:
                               description: salary earned
                               hours: 80
                               iso_currency_code: USD
-                              rate: null
-                              unofficial_currency_code: null
+                              rate:
+                              unofficial_currency_code:
                               ytd_amount: 400.44
                             - canonical_desription: BONUS
                               current_amount: 100
                               description: bonus earned
-                              hours: null
+                              hours:
                               iso_currency_code: USD
-                              rate: null
-                              unofficial_currency_code: null
+                              rate:
+                              unofficial_currency_code:
                               ytd_amount: 100
                           total:
                             current_amount: 300.22
                             hours: 160
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                             ytd_amount: 500.44
                         employee:
                           address:
@@ -146,7 +145,7 @@ paths:
                           current_amount: 123.34
                           description: TOTAL NET PAY
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                           ytd_amount: 253.54
                         pay_period_details:
                           check_amount: 1490.21
@@ -157,7 +156,7 @@ paths:
                               iso_currency_code: USD
                               mask: '1223'
                               type: checking
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           end_date: '2020-12-15'
                           gross_earnings: 4500
                           pay_date: '2020-12-15'
@@ -187,8 +186,7 @@ paths:
     post:
       deprecated: true
       summary: >-
-        (Deprecated) Download the original documents used for income
-        verification
+        Plaid (Deprecated) Download the original documents used for income verification
       tags:
         - plaid
       externalDocs:
@@ -239,8 +237,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        (Deprecated) Retrieve information from the tax documents used for income
-        verification
+        Plaid (Deprecated) Retrieve information from the tax documents used for income verification
       externalDocs:
         url: /api/products/income/#incomeverificationtaxformsget
       operationId: incomeVerificationTaxformsGet
@@ -340,8 +337,7 @@ paths:
     post:
       deprecated: true
       summary: >-
-        (Deprecated) Check digital income verification eligibility and optimize
-        conversion
+        Plaid (Deprecated) Check digital income verification eligibility and optimize conversion
       tags:
         - plaid
       operationId: incomeVerificationPrecheck
@@ -390,7 +386,7 @@ paths:
   /sandbox/income/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire an Income webhook
+      summary: Plaid Manually fire an Income webhook
       tags:
         - plaid
       externalDocs:

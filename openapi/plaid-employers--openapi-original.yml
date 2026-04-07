@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' employers/'
+  title: 'Plaid employers/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -28,7 +28,7 @@ paths:
       externalDocs:
         url: /api/employers/#employerssearch
       operationId: employersSearch
-      summary: Search employer database
+      summary: Plaid Search employer database
       responses:
         '200':
           description: OK

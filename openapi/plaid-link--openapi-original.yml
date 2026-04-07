@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' link/'
+  title: 'Plaid link/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -26,7 +26,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Check profile eligibility
+      summary: Plaid Check profile eligibility
       externalDocs:
         url: /api/link/#profileeligibilitycheck
       operationId: linkProfileEligibilityCheck
@@ -62,7 +62,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create Link Token
+      summary: Plaid Create Link Token
       externalDocs:
         url: /api/tokens/#linktokencreate
       operationId: linkTokenCreate
@@ -102,7 +102,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get Link Token
+      summary: Plaid Get Link Token
       externalDocs:
         url: /api/tokens/#linktokenget
       operationId: linkTokenGet
@@ -131,7 +131,7 @@ paths:
                       initial_products:
                         - auth
                       language: en
-                      redirect_uri: null
+                      redirect_uri:
                       webhook: https://www.example.com/webhook
                     request_id: u0ydFs493XjyTYn
       description: >-
@@ -151,7 +151,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Exchange the Link Correlation Id for a Link Token
+      summary: Plaid Exchange the Link Correlation Id for a Link Token
       externalDocs:
         url: /api/oauth/#linkcorrelationid
       operationId: linkOauthCorrelationIdExchange

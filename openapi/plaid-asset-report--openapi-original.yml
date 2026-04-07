@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' asset report/'
+  title: 'Plaid asset report/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create an Asset Report
+      summary: Plaid Create an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportcreate
       responses:
@@ -74,7 +74,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve an Asset Report
+      summary: Plaid Retrieve an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportget
       responses:
@@ -98,32 +98,32 @@ paths:
                               balances:
                                 available: 43200
                                 current: 43200
-                                limit: null
-                                margin_loan_amount: null
+                                limit:
+                                margin_loan_amount:
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
+                                unofficial_currency_code:
                               days_available: 5
                               historical_balances:
                                 - current: 49050
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '4444'
                               name: Plaid Money Market
                               official_name: >-
@@ -168,7 +168,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: money market
                               transactions:
                                 - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
@@ -178,38 +178,38 @@ paths:
                                   original_description: ACH Electronic CreditGUSTO PAY 123456
                                   pending: false
                                   transaction_id: gGQgjoeyqBF89PND6K14Sow1wddZBmtLomJ78
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                             - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                               balances:
                                 available: 100
                                 current: 110
-                                limit: null
-                                margin_loan_amount: null
+                                limit:
+                                margin_loan_amount:
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
+                                unofficial_currency_code:
                               days_available: 5
                               historical_balances:
                                 - current: 110
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -390
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -373.67
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '0000'
                               name: Plaid Checking
                               official_name: Plaid Gold Standard 0% Interest Checking
@@ -252,7 +252,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: checking
                               transactions:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
@@ -262,7 +262,7 @@ paths:
                                   original_description: SparkFun
                                   pending: false
                                   transaction_id: 4zBRq1Qem4uAPnoyKjJNTRQpQddM4ztlo1PLD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: 12
                                   date: '2023-03-28'
@@ -270,7 +270,7 @@ paths:
                                   original_description: 'McDonalds #3322'
                                   pending: false
                                   transaction_id: dkjL41PnbKsPral79jpxhMWdW55gkPfBkWpRL
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: 4.33
                                   date: '2023-03-28'
@@ -278,7 +278,7 @@ paths:
                                   original_description: Starbucks
                                   pending: false
                                   transaction_id: a84ZxQaWDAtDL3dRgmazT57K7jjN3WFkNWMDy
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: -500
                                   date: '2023-03-29'
@@ -286,7 +286,7 @@ paths:
                                   original_description: United Airlines **** REFUND ****
                                   pending: false
                                   transaction_id: xG9jbv3eMoFWepzB7wQLT3LoLggX5Duy1Gbe5
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                           date_last_updated: '2023-03-30T18:25:26Z'
                           institution_id: ins_109508
@@ -341,7 +341,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve a PDF Asset Report
+      summary: Plaid Retrieve a PDF Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportpdfget
       responses:
@@ -379,7 +379,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh an Asset Report
+      summary: Plaid Refresh an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportrefresh
       responses:
@@ -425,7 +425,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Filter Asset Report
+      summary: Plaid Filter Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportfilter
       responses:
@@ -482,7 +482,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Delete an Asset Report
+      summary: Plaid Delete an Asset Report
       externalDocs:
         url: /api/products/assets/#asset_reportremove
       responses:
@@ -524,7 +524,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create Asset Report Audit Copy
+      summary: Plaid Create Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copycreate
       responses:
@@ -563,7 +563,7 @@ paths:
   /asset_report/audit_copy/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve an Asset Report Audit Copy
+      summary: Plaid Retrieve an Asset Report Audit Copy
       tags:
         - plaid
       operationId: assetReportAuditCopyGet
@@ -594,7 +594,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove Asset Report Audit Copy
+      summary: Plaid Remove Asset Report Audit Copy
       externalDocs:
         url: /api/products/assets/#asset_reportaudit_copyremove
       responses:
@@ -631,8 +631,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can
-        use this endpoint.
+        Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.
       externalDocs:
         url: /none/
       responses:
@@ -689,7 +688,7 @@ paths:
                                       AssetType: Other
                                       AssetTypeAdditionalDescription: credit card
                                       AssetDaysRequestedCount: 61
-                                      AssetOwnershipType: null
+                                      AssetOwnershipType:
                                     ASSET_OWNERS:
                                       ASSET_OWNER:
                                         - AssetOwnerText: Alberta Bobbeth Charleson
@@ -704,10 +703,10 @@ paths:
                                             AssetTransactionDate: '2022-07-19'
                                             AssetTransactionPostDate: '2022-07-19'
                                             AssetTransactionType: Debit
-                                            AssetTransactionPaidByName: null
-                                            AssetTransactionTypeAdditionalDescription: null
+                                            AssetTransactionPaidByName:
+                                            AssetTransactionTypeAdditionalDescription:
                                             AssetTransactionCategoryType: FoodDining
-                                            FinancialInstitutionTransactionIdentifier: null
+                                            FinancialInstitutionTransactionIdentifier:
                                           ASSET_TRANSACTION_DESCRIPTON:
                                             - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
                                     VALIDATION_SOURCES:
@@ -717,7 +716,7 @@ paths:
                           STATUSES:
                             STATUS:
                               StatusCode: success
-                              StatusDescription: null
+                              StatusDescription:
                     request_id: eYupqX1mZkEuQRx
       operationId: creditAssetReportFreddieMacGet
       description: >-

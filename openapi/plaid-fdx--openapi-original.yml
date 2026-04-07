@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' fdx/'
+  title: 'Plaid fdx/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -29,7 +29,7 @@ paths:
       x-hidden-from-docs: true
       externalDocs:
         url: /api/fdx/notifications/#post
-      summary: Webhook receiver for fdx notifications
+      summary: Plaid Webhook receiver for fdx notifications
       operationId: fdxNotifications
       requestBody:
         required: true

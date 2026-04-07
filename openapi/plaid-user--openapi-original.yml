@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' user/'
+  title: 'Plaid user/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /beacon/user/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a Beacon User
+      summary: Plaid Create a Beacon User
       requestBody:
         content:
           application/json:
@@ -91,7 +91,7 @@ paths:
   /beacon/user/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a Beacon User
+      summary: Plaid Get a Beacon User
       requestBody:
         content:
           application/json:
@@ -153,7 +153,7 @@ paths:
   /beacon/user/review:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Review a Beacon User
+      summary: Plaid Review a Beacon User
       requestBody:
         content:
           application/json:
@@ -240,7 +240,7 @@ paths:
   /beacon/user/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update the identity data of a Beacon User
+      summary: Plaid Update the identity data of a Beacon User
       requestBody:
         content:
           application/json:
@@ -311,7 +311,7 @@ paths:
   /beacon/user/history/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List a Beacon User's history
+      summary: Plaid List a Beacon User's history
       requestBody:
         content:
           application/json:
@@ -371,7 +371,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create user
+      summary: Plaid Create user
       externalDocs:
         url: /api/products/income/#usercreate
       operationId: userCreate
@@ -416,7 +416,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Update user information
+      summary: Plaid Update user information
       externalDocs:
         url: /api/products/income/#userupdate
       operationId: userUpdate

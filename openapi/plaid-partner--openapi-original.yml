@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' partner/'
+  title: 'Plaid partner/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -237,8 +237,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Returns OAuth-institution registration information for a given end
-        customer.
+        Plaid Returns OAuth-institution registration information for a given end customer.
       externalDocs:
         url: /api/partner/#partnercustomeroauth_institutionsget
       description: >-
@@ -267,7 +266,7 @@ paths:
                         environments:
                           production: PROCESSING
                           development: PROCESSING
-                        production_enablement_date: null
+                        production_enablement_date:
                         classic_disablement_date: '2022-06-30'
                       - name: Capital One
                         institution_id: ins_128026
@@ -275,7 +274,7 @@ paths:
                           production: ENABLED
                           development: ENABLED
                         production_enablement_date: '2022-12-19'
-                        classic_disablement_date: null
+                        classic_disablement_date:
                     request_id: 4zlKapIkTm8p5KM
         default:
           description: Error response

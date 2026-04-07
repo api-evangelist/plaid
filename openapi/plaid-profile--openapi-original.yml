@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' profile/'
+  title: 'Plaid profile/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -26,7 +26,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve a Profile
+      summary: Plaid Retrieve a Profile
       externalDocs:
         url: /api/profile/#profileget
       operationId: profileGet
@@ -82,7 +82,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Check profile eligibility
+      summary: Plaid Check profile eligibility
       externalDocs:
         url: /api/link/#profileeligibilitycheck
       operationId: linkProfileEligibilityCheck

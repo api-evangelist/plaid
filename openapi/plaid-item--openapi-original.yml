@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' item/'
+  title: 'Plaid item/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: List a historical log of user consent events
+      summary: Plaid List a historical log of user consent events
       operationId: itemActivityList
       description: List a historical log of user consent events
       responses:
@@ -58,7 +58,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: List a user’s connected applications
+      summary: Plaid List a user’s connected applications
       operationId: itemApplicationList
       description: List a user’s connected applications
       responses:
@@ -85,7 +85,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Unlink a user’s connected application
+      summary: Plaid Unlink a user’s connected application
       externalDocs:
         url: none
       operationId: itemApplicationUnlink
@@ -134,7 +134,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Update the scopes of access for a particular application
+      summary: Plaid Update the scopes of access for a particular application
       operationId: itemApplicationScopesUpdate
       description: >-
         Enable consumers to update product access on selected accounts for an
@@ -163,7 +163,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve an Item
+      summary: Plaid Retrieve an Item
       externalDocs:
         url: /api/items/#itemget
       operationId: itemGet
@@ -185,12 +185,12 @@ paths:
                       billed_products:
                         - identity
                         - transactions
-                      error: null
+                      error:
                       institution_id: ins_109508
                       item_id: Ed6bjNrDLJfGvZWwnkQlfxwoNz54B5C97ejBr
                       update_type: background
                       webhook: https://plaid.com/example/hook
-                      consent_expiration_time: null
+                      consent_expiration_time:
                     status:
                       transactions:
                         last_successful_update: '2019-02-15T15:52:39Z'
@@ -217,7 +217,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove an Item
+      summary: Plaid Remove an Item
       externalDocs:
         url: /api/items/#itemremove
       operationId: itemRemove
@@ -233,8 +233,7 @@ paths:
         access to them specifically using the `/asset_report/remove` endpoint.
 
 
-        Note that in the Development environment, issuing an `/item/remove` 
-        request will not decrement your live credential count. To increase your
+        Note that in the Development environment, issuing an `/item/remove`  request will not decrement your live credential count. To increase your
         credential account in Development, contact Support.
 
 
@@ -274,7 +273,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fire a test webhook
+      summary: Plaid Fire a test webhook
       externalDocs:
         url: /api/sandbox/#sandboxitemfire_webhook
       operationId: sandboxItemFireWebhook
@@ -360,7 +359,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Update Webhook URL
+      summary: Plaid Update Webhook URL
       externalDocs:
         url: /api/items/#itemwebhookupdate
       operationId: itemWebhookUpdate
@@ -383,8 +382,8 @@ paths:
                       billed_products:
                         - assets
                         - auth
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_117650
                       item_id: DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6
                       update_type: background
@@ -406,7 +405,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Invalidate access_token
+      summary: Plaid Invalidate access_token
       externalDocs:
         url: /api/tokens/#itemaccess_tokeninvalidate
       operationId: itemAccessTokenInvalidate
@@ -441,7 +440,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Force a Sandbox Item into an error state
+      summary: Plaid Force a Sandbox Item into an error state
       externalDocs:
         url: /api/sandbox/#sandboxitemreset_login
       operationId: sandboxItemResetLogin
@@ -482,7 +481,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Set verification status for Sandbox account
+      summary: Plaid Set verification status for Sandbox account
       externalDocs:
         url: /api/sandbox/#sandboxitemset_verification_status
       operationId: sandboxItemSetVerificationStatus
@@ -517,7 +516,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Exchange public token for an access token
+      summary: Plaid Exchange public token for an access token
       externalDocs:
         url: /api/tokens/#itempublic_tokenexchange
       operationId: itemPublicTokenExchange
@@ -556,7 +555,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create public token
+      summary: Plaid Create public token
       externalDocs:
         url: /api/tokens/#itempublic_tokencreate
       operationId: itemCreatePublicToken
@@ -608,7 +607,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Import Item
+      summary: Plaid Import Item
       responses:
         '200':
           description: OK

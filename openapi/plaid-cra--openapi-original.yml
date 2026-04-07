@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' cra/'
+  title: 'Plaid cra/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /cra/base_report/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
-      summary: Retrieve a Base Report
+      summary: Plaid Retrieve a Base Report
       tags:
         - plaid
       operationId: baseReportGet
@@ -56,30 +56,30 @@ paths:
                                 available: 43200
                                 current: 43200
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
-                                limit: null
+                                unofficial_currency_code:
+                                limit:
                               days_available: 5
                               historical_balances:
                                 - current: 49050
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '4444'
                               name: Plaid Money Market
                               official_name: >-
@@ -124,7 +124,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: money market
                               transactions:
                                 - amount: 5850
@@ -132,36 +132,36 @@ paths:
                                   iso_currency_code: USD
                                   original_description: ACH Electronic CreditGUSTO PAY 123456
                                   pending: false
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                             - balances:
                                 available: 100
                                 current: 110
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
-                                limit: null
+                                unofficial_currency_code:
+                                limit:
                               days_available: 5
                               historical_balances:
                                 - current: 110
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -390
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -373.67
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '0000'
                               name: Plaid Checking
                               official_name: Plaid Gold Standard 0% Interest Checking
@@ -204,7 +204,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: checking
                               transactions:
                                 - amount: 89.4
@@ -212,25 +212,25 @@ paths:
                                   iso_currency_code: USD
                                   original_description: SparkFun
                                   pending: false
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - amount: 12
                                   date: '2023-03-28'
                                   iso_currency_code: USD
                                   original_description: 'McDonalds #3322'
                                   pending: false
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - amount: 4.33
                                   date: '2023-03-28'
                                   iso_currency_code: USD
                                   original_description: Starbucks
                                   pending: false
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - amount: -500
                                   date: '2023-03-29'
                                   iso_currency_code: USD
                                   original_description: United Airlines **** REFUND ****
                                   pending: false
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                           date_last_updated: '2023-03-30T18:25:26Z'
                           institution_id: ins_109508
@@ -242,7 +242,7 @@ paths:
   /cra/base_report/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
-      summary: Create a Base Report
+      summary: Plaid Create a Base Report
       tags:
         - plaid
       operationId: baseReportCreate
@@ -273,7 +273,7 @@ paths:
   /cra/bank_income/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
-      summary: Retrieve information from the bank accounts used for income verification
+      summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
         - plaid
       responses:
@@ -349,7 +349,7 @@ paths:
                                 pay_frequency: MONTHLY
                                 total_amount: 300
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
+                                unofficial_currency_code:
                                 transaction_count: 1
                                 next_payment_date: '2022-12-15'
                                 historical_average_monthly_gross_income: 390
@@ -367,51 +367,51 @@ paths:
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2021-11-15'
                                         name: “PLAID_INC_DIRECT_DEP_PPD”
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                   - start_date: '2021-12-01'
                                     end_date: '2021-12-31'
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2021-12-15'
                                         name: “PLAID_INC_DIRECT_DEP_PPD”
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                   - start_date: '2022-01-01'
                                     end_date: '2022-01-31'
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2022-01-31'
                                         name: “PLAID_INC_DIRECT_DEP_PPD”
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                         bank_income_summary:
                           total_amounts:
                             - amount: 300
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           start_date: '2021-11-15'
                           end_date: '2022-01-15'
                           income_sources_count: 1
@@ -420,73 +420,73 @@ paths:
                           historical_average_monthly_gross_income:
                             - amount: 390
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           historical_average_monthly_income:
                             - amount: 300
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           forecasted_average_monthly_income:
                             - amount: 300
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           historical_annual_gross_income:
                             - amount: 4680
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           historical_annual_income:
                             - amount: 3600
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           forecasted_annual_income:
                             - amount: 3600
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           historical_summary:
                             - start_date: '2021-11-02'
                               end_date: '2021-11-30'
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2021-11-15'
                                   name: “PLAID_INC_DIRECT_DEP_PPD”
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                             - start_date: '2021-12-01'
                               end_date: '2021-12-31'
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2021-12-15'
                                   name: “PLAID_INC_DIRECT_DEP_PPD”
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                             - start_date: '2022-01-01'
                               end_date: '2022-01-31'
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2022-01-31'
                                   name: “PLAID_INC_DIRECT_DEP_PPD”
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                         warnings: []
       externalDocs:
         url: /api/products/income/#crabank_incomeget
@@ -503,7 +503,7 @@ paths:
   /cra/bank_income/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
-      summary: Create a CRA report for income verification
+      summary: Plaid Create a CRA report for income verification
       tags:
         - plaid
       responses:
@@ -531,8 +531,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_CRA
     post:
       summary: >-
-        Retrieve cash flow insights from the bank accounts used for income
-        verification
+        Plaid Retrieve cash flow insights from the bank accounts used for income verification
       tags:
         - plaid
       responses:
@@ -659,7 +658,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Register loan applications and decisions.
+      summary: Plaid Register loan applications and decisions.
       responses:
         '200':
           description: OK
@@ -688,7 +687,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Register a list of loans to their applicants.
+      summary: Plaid Register a list of loans to their applicants.
       responses:
         '200':
           description: OK
@@ -715,7 +714,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Updates loan data.
+      summary: Plaid Updates loan data.
       responses:
         '200':
           description: OK
@@ -744,7 +743,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Unregister a list of loans.
+      summary: Plaid Unregister a list of loans.
       responses:
         '200':
           description: OK

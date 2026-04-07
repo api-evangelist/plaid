@@ -270,7 +270,7 @@ apis:
         type: Documentation
     description: >-
       Plaid Auth API is a powerful tool that allows developers to securely
-      access and retrieve financial data from users bank accounts. By
+      access and retrieve financial data from users bank accounts. By
       integrating with this API, developers can streamline the account
       verification process and provide a seamless user experience. The API
       handles the authentication process and retrieves transaction history,
@@ -1332,7 +1332,7 @@ apis:
       is stored in their account. This helps to keep their financial
       transactions secure and organized.
   - aid: plaid:plaid-sandb-ox-api
-    name: Plaid Sandb ox API
+    name: Plaid Sandb Ox API
     tags:
       - Login
       - Payments

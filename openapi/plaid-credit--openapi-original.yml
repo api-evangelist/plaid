@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' credit/'
+  title: 'Plaid credit/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Update an Audit Copy Token
+      summary: Plaid Update an Audit Copy Token
       externalDocs:
         url: /none/
       responses:
@@ -42,8 +42,7 @@ paths:
                     updated: true
       operationId: creditAuditCopyTokenUpdate
       description: >-
-        The `/credit/audit_copy_token/update` endpoint updates an existing 
-        Audit Copy Token by adding the report tokens in the `report_tokens`
+        The `/credit/audit_copy_token/update` endpoint updates an existing  Audit Copy Token by adding the report tokens in the `report_tokens`
         field to the `audit_copy_token`. If the Audit Copy Token already
         contains a report of a certain type, it will be replaced with the token
         provided in the `report_tokens` field.
@@ -58,7 +57,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve Link sessions for your user
+      summary: Plaid Retrieve Link sessions for your user
       externalDocs:
         url: /api/products/income/#creditsessionsget
       operationId: creditSessionsGet
@@ -113,7 +112,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create Asset or Income Report Audit Copy Token
+      summary: Plaid Create Asset or Income Report Audit Copy Token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokencreate
       responses:
@@ -151,7 +150,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove an Audit Copy token
+      summary: Plaid Remove an Audit Copy token
       externalDocs:
         url: /api/products/income/#creditaudit_copy_tokenremove
       responses:
@@ -187,8 +186,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can
-        use this endpoint.
+        Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.
       externalDocs:
         url: /none/
       responses:
@@ -245,7 +243,7 @@ paths:
                                       AssetType: Other
                                       AssetTypeAdditionalDescription: credit card
                                       AssetDaysRequestedCount: 61
-                                      AssetOwnershipType: null
+                                      AssetOwnershipType:
                                     ASSET_OWNERS:
                                       ASSET_OWNER:
                                         - AssetOwnerText: Alberta Bobbeth Charleson
@@ -260,10 +258,10 @@ paths:
                                             AssetTransactionDate: '2022-07-19'
                                             AssetTransactionPostDate: '2022-07-19'
                                             AssetTransactionType: Debit
-                                            AssetTransactionPaidByName: null
-                                            AssetTransactionTypeAdditionalDescription: null
+                                            AssetTransactionPaidByName:
+                                            AssetTransactionTypeAdditionalDescription:
                                             AssetTransactionCategoryType: FoodDining
-                                            FinancialInstitutionTransactionIdentifier: null
+                                            FinancialInstitutionTransactionIdentifier:
                                           ASSET_TRANSACTION_DESCRIPTON:
                                             - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
                                     VALIDATION_SOURCES:
@@ -273,7 +271,7 @@ paths:
                           STATUSES:
                             STATUS:
                               StatusCode: success
-                              StatusDescription: null
+                              StatusDescription:
                     request_id: eYupqX1mZkEuQRx
       operationId: creditAssetReportFreddieMacGet
       description: >-
@@ -292,9 +290,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification
-        Of Assets), and a Verification Of Employment (VOE) report if this one is
-        available. Only Freddie Mac can use this endpoint.
+        Plaid Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.
       externalDocs:
         url: /none/
       responses:
@@ -357,7 +353,7 @@ paths:
                                         AssetType: Other
                                         AssetTypeAdditionalDescription: credit card
                                         AssetDaysRequestedCount: 61
-                                        AssetOwnershipType: null
+                                        AssetOwnershipType:
                                       ASSET_OWNERS:
                                         ASSET_OWNER:
                                           - AssetOwnerText: Alberta Bobbeth Charleson
@@ -372,11 +368,11 @@ paths:
                                               AssetTransactionDate: '2022-07-28'
                                               AssetTransactionPostDate: '2022-07-28'
                                               AssetTransactionType: Credit
-                                              AssetTransactionPaidByName: null
-                                              AssetTransactionPaidToName: null
-                                              AssetTransactionTypeAdditionalDescription: null
+                                              AssetTransactionPaidByName:
+                                              AssetTransactionPaidToName:
+                                              AssetTransactionTypeAdditionalDescription:
                                               AssetTransactionUniqueIdentifier: 8XQ2rJzjagxp87SJLNPKM8eMNJUgeeNnbg
-                                              FinancialInstitutionTransactionIdentifier: null
+                                              FinancialInstitutionTransactionIdentifier:
                                             ASSET_TRANSACTION_DESCRIPTION:
                                               - AssetTransactionDescription: UNITED AIRLINES SAN FRANCISCOCA
                                       VALIDATION_SOURCES:
@@ -406,7 +402,7 @@ paths:
                                         AssetType: Other
                                         AssetTypeAdditionalDescription: credit card
                                         AssetDaysRequestedCount: 61
-                                        AssetOwnershipType: null
+                                        AssetOwnershipType:
                                       ASSET_OWNERS:
                                         ASSET_OWNER:
                                           - AssetOwnerText: Alberta Bobbeth Charleson
@@ -421,10 +417,10 @@ paths:
                                               AssetTransactionDate: '2022-07-19'
                                               AssetTransactionPostDate: '2022-07-19'
                                               AssetTransactionType: Debit
-                                              AssetTransactionPaidByName: null
-                                              AssetTransactionTypeAdditionalDescription: null
+                                              AssetTransactionPaidByName:
+                                              AssetTransactionTypeAdditionalDescription:
                                               AssetTransactionCategoryType: FoodDining
-                                              FinancialInstitutionTransactionIdentifier: null
+                                              FinancialInstitutionTransactionIdentifier:
                                             ASSET_TRANSACTION_DESCRIPTION:
                                               - AssetTransactionDescription: TONYS PIZZA NAPOLETANA SAN FRANCISCOCA
                                       VALIDATION_SOURCES:
@@ -434,7 +430,7 @@ paths:
                           STATUSES:
                             STATUS:
                               StatusCode: success
-                              StatusDescription: null
+                              StatusDescription:
                     request_id: eYupqX1mZkEuQRx
       operationId: creditFreddieMacReportsGet
       description: >-
@@ -451,8 +447,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Retrieve information from the bank accounts used for employment
-        verification
+        Plaid Retrieve information from the bank accounts used for employment verification
       tags:
         - plaid
       responses:
@@ -544,7 +539,7 @@ paths:
   /credit/bank_income/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve information from the bank accounts used for income verification
+      summary: Plaid Retrieve information from the bank accounts used for income verification
       tags:
         - plaid
       responses:
@@ -628,11 +623,11 @@ paths:
                                     end_date: '2021-11-30'
                                     total_amount: 100
                                     iso_currency_code: USD
-                                    unofficial_currency_code: null
+                                    unofficial_currency_code:
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2021-11-15'
@@ -640,18 +635,18 @@ paths:
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
                                         transaction_id: 6RddrWNwE1uM63Ex5GKLhzlBl76aAZfgzlQNm
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                   - start_date: '2021-12-01'
                                     end_date: '2021-12-31'
                                     total_amount: 100
                                     iso_currency_code: USD
-                                    unofficial_currency_code: null
+                                    unofficial_currency_code:
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2021-12-15'
@@ -659,18 +654,18 @@ paths:
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
                                         transaction_id: 7BddrWNwE1uM63Ex5GKLhzlBl82aAZfgzlCBl
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                   - start_date: '2022-01-01'
                                     end_date: '2021-01-31'
                                     total_amount: 100
                                     iso_currency_code: USD
-                                    unofficial_currency_code: null
+                                    unofficial_currency_code:
                                     total_amounts:
                                       - amount: 100
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                                     transactions:
                                       - amount: -100
                                         date: '2022-01-31'
@@ -678,17 +673,17 @@ paths:
                                         original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                         pending: false
                                         transaction_id: 9FddrWNwE1uM95Ex5GKLhzlBl76aAZfgzlNQr
-                                        check_number: null
+                                        check_number:
                                         iso_currency_code: USD
-                                        unofficial_currency_code: null
+                                        unofficial_currency_code:
                         bank_income_summary:
                           total_amount: 300
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                           total_amounts:
                             - amount: 300
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                           start_date: '2021-11-15'
                           end_date: '2022-01-15'
                           income_sources_count: 1
@@ -699,11 +694,11 @@ paths:
                               end_date: '2021-11-30'
                               total_amount: 100
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2021-11-15'
@@ -711,18 +706,18 @@ paths:
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
                                   transaction_id: 6RddrWNwE1uM63Ex5GKLhzlBl76aAZfgzlQNm
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                             - start_date: '2021-12-01'
                               end_date: '2021-12-31'
                               total_amount: 100
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2021-12-15'
@@ -730,18 +725,18 @@ paths:
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
                                   transaction_id: 7BddrWNwE1uM63Ex5GKLhzlBl82aAZfgzlCBl
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                             - start_date: '2022-01-01'
                               end_date: '2021-01-31'
                               total_amount: 100
                               iso_currency_code: USD
-                              unofficial_currency_code: null
+                              unofficial_currency_code:
                               total_amounts:
                                 - amount: 100
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               transactions:
                                 - amount: -100
                                   date: '2022-01-31'
@@ -749,9 +744,9 @@ paths:
                                   original_description: PLAID_INC_DIRECT_DEP_PPD 123
                                   pending: false
                                   transaction_id: 9FddrWNwE1uM95Ex5GKLhzlBl76aAZfgzlNQr
-                                  check_number: null
+                                  check_number:
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                         warnings: []
       externalDocs:
         url: /api/products/income/#creditbank_incomeget
@@ -769,8 +764,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Retrieve information from the bank accounts used for income verification
-        in PDF format
+        Plaid Retrieve information from the bank accounts used for income verification in PDF format
       tags:
         - plaid
       responses:
@@ -795,7 +789,7 @@ paths:
   /credit/bank_income/refresh:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Refresh a user's bank income information
+      summary: Plaid Refresh a user's bank income information
       tags:
         - plaid
       externalDocs:
@@ -825,8 +819,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Subscribe and unsubscribe to proactive notifications for a user's income
-        profile
+        Plaid Subscribe and unsubscribe to proactive notifications for a user's income profile
       tags:
         - plaid
       externalDocs:
@@ -861,7 +854,7 @@ paths:
   /credit/payroll_income/parsing_config/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update the parsing configuration for a document income verification
+      summary: Plaid Update the parsing configuration for a document income verification
       tags:
         - plaid
       externalDocs:
@@ -892,7 +885,7 @@ paths:
   /credit/bank_statements/uploads/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve data for a user's uploaded bank statements
+      summary: Plaid Retrieve data for a user's uploaded bank statements
       tags:
         - plaid
       responses:
@@ -917,7 +910,7 @@ paths:
                               document_type: BANK_STATEMENT
                               name: statement_01.pdf
                               status: PROCESSING_COMPLETE
-                              download_url: null
+                              download_url:
                               page_count: 2
                             document_id: 2jkflanbd
                             bank_accounts:
@@ -966,7 +959,7 @@ paths:
   /credit/payroll_income/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a user's payroll information
+      summary: Plaid Retrieve a user's payroll information
       tags:
         - plaid
       externalDocs:
@@ -1010,18 +1003,18 @@ paths:
                                     - current_amount: 123.45
                                       description: taxes
                                       iso_currency_code: USD
-                                      unofficial_currency_code: null
+                                      unofficial_currency_code:
                                       ytd_amount: 246.9
                                   total:
                                     current_amount: 123.45
                                     iso_currency_code: USD
-                                    unofficial_currency_code: null
+                                    unofficial_currency_code:
                                     ytd_amount: 246.9
                                 document_metadata:
                                   document_type: PAYSTUB
                                   name: paystub.pdf
                                   status: PROCESSING_COMPLETE
-                                  download_url: null
+                                  download_url:
                                 document_id: 2jkflanbd
                                 earnings:
                                   breakdown:
@@ -1030,22 +1023,22 @@ paths:
                                       description: salary earned
                                       hours: 80
                                       iso_currency_code: USD
-                                      rate: null
-                                      unofficial_currency_code: null
+                                      rate:
+                                      unofficial_currency_code:
                                       ytd_amount: 400.44
                                     - canonical_description: BONUS
                                       current_amount: 100
                                       description: bonus earned
-                                      hours: null
+                                      hours:
                                       iso_currency_code: USD
-                                      rate: null
-                                      unofficial_currency_code: null
+                                      rate:
+                                      unofficial_currency_code:
                                       ytd_amount: 100
                                   total:
                                     current_amount: 300.22
                                     hours: 160
                                     iso_currency_code: USD
-                                    unofficial_currency_code: null
+                                    unofficial_currency_code:
                                     ytd_amount: 500.44
                                 employee:
                                   address:
@@ -1071,7 +1064,7 @@ paths:
                                   current_amount: 123.34
                                   description: TOTAL NET PAY
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                   ytd_amount: 253.54
                                 pay_period_details:
                                   distribution_breakdown:
@@ -1081,7 +1074,7 @@ paths:
                                       iso_currency_code: USD
                                       mask: '1223'
                                       type: checking
-                                      unofficial_currency_code: null
+                                      unofficial_currency_code:
                                   end_date: '2020-12-15'
                                   gross_earnings: 4500
                                   iso_currency_code: USD
@@ -1089,7 +1082,7 @@ paths:
                                   pay_date: '2020-12-15'
                                   pay_frequency: BIWEEKLY
                                   start_date: '2020-12-01'
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                             w2s:
                               - allocated_tips: '1000'
                                 box_12:
@@ -1099,7 +1092,7 @@ paths:
                                 dependent_care_benefits: '1000'
                                 document_metadata:
                                   document_type: US_TAX_W2
-                                  download_url: null
+                                  download_url:
                                   name: w_2.pdf
                                   status: PROCESSING_COMPLETE
                                 document_id: 1pkflebk4
@@ -1146,45 +1139,45 @@ paths:
                                 third_party_sick_pay: CHECKED
                                 wages_tips_other_comp: '1000'
                             form1099s:
-                              - april_amount: null
-                                august_amount: null
-                                card_not_present_transaction: null
+                              - april_amount:
+                                august_amount:
+                                card_not_present_transaction:
                                 crop_insurance_proceeds: 1000
-                                december_amount: null
+                                december_amount:
                                 document_id: mvMZ59Z2a5
                                 document_metadata:
                                   document_type: US_TAX_1099_MISC
-                                  download_url: null
+                                  download_url:
                                   name: form_1099_misc.pdf
                                   status: PROCESSING_COMPLETE
                                 excess_golden_parachute_payments: 1000
-                                feburary_amount: null
+                                feburary_amount:
                                 federal_income_tax_withheld: 1000
                                 filer:
                                   address:
-                                    city: null
-                                    country: null
-                                    postal_code: null
-                                    region: null
-                                    street: null
-                                  name: null
-                                  tin: null
-                                  type: null
+                                    city:
+                                    country:
+                                    postal_code:
+                                    region:
+                                    street:
+                                  name:
+                                  tin:
+                                  type:
                                 fishing_boat_proceeds: 1000
                                 form_1099_type: FORM_1099_TYPE_MISC
                                 gross_amount: 1000
                                 gross_proceeds_paid_to_an_attorney: 1000
-                                january_amount: null
-                                july_amount: null
-                                june_amount: null
-                                march_amount: null
-                                may_amount: null
+                                january_amount:
+                                july_amount:
+                                june_amount:
+                                march_amount:
+                                may_amount:
                                 medical_and_healthcare_payments: 1000
-                                merchant_category_code: null
+                                merchant_category_code:
                                 nonemployee_compensation: 1000
-                                november_amount: null
-                                number_of_payment_transactions: null
-                                october_amount: null
+                                november_amount:
+                                number_of_payment_transactions:
+                                october_amount:
                                 other_income: 1000
                                 payer:
                                   address:
@@ -1196,14 +1189,14 @@ paths:
                                   name: PLAID INC
                                   telephone_number: (123)456-7890
                                   tin: 12-3456789
-                                payer_made_direct_sales_of_500_or_more_of_consumer_products_to_buyer: null
+                                payer_made_direct_sales_of_500_or_more_of_consumer_products_to_buyer:
                                 payer_state_number: CA 12345
-                                payer_state_number_lower: null
-                                primary_state: null
+                                payer_state_number_lower:
+                                primary_state:
                                 primary_state_id: CA 12345
                                 primary_state_income_tax: 1000
-                                pse_name: null
-                                pse_telephone_number: null
+                                pse_name:
+                                pse_telephone_number:
                                 recipient:
                                   account_number: '45678'
                                   address:
@@ -1218,19 +1211,19 @@ paths:
                                   tin: 12-3456789
                                 rents: 1000
                                 royalties: 1000
-                                secondary_state: null
-                                secondary_state_id: null
-                                secondary_state_income_tax: null
+                                secondary_state:
+                                secondary_state_id:
+                                secondary_state_income_tax:
                                 section_409a_deferrals: 1000
                                 section_409a_income: 1000
-                                september_amount: null
+                                september_amount:
                                 state_income: 1000
-                                state_income_lower: null
+                                state_income_lower:
                                 state_tax_withheld: 1000
-                                state_tax_withheld_lower: null
-                                substitute_payments_in_lieu_of_dividends_or_interest: null
+                                state_tax_withheld_lower:
+                                substitute_payments_in_lieu_of_dividends_or_interest:
                                 tax_year: '2022'
-                                transactions_reported: null
+                                transactions_reported:
                         status:
                           processing_status: PROCESSING_COMPLETE
                         updated_at: '2022-08-02T21:14:54Z'
@@ -1238,7 +1231,7 @@ paths:
   /credit/payroll_income/risk_signals/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve fraud insights for a user's manually uploaded document(s).
+      summary: Plaid Retrieve fraud insights for a user's manually uploaded document(s).
       tags:
         - plaid
       externalDocs:
@@ -1284,7 +1277,7 @@ paths:
                     items:
                       - item_id: testItemID
                         verification_risk_signals:
-                          - account_id: null
+                          - account_id:
                             multi_document_risk_signals: []
                             single_document_risk_signals:
                               - document_reference:
@@ -1295,21 +1288,21 @@ paths:
                                 risk_signals:
                                   - actual_value: '0.00'
                                     expected_value: '25.09'
-                                    field: null
-                                    signal_description: null
+                                    field:
+                                    signal_description:
                                     has_fraud_risk: true
                                     type: MASKING
                                     page_number: 1
                                     institution_metadata:
                                       item_id: testItemID
-                                  - actual_value: null
-                                    expected_value: null
-                                    field: null
+                                  - actual_value:
+                                    expected_value:
+                                    field:
                                     signal_description: >-
                                       Creation date and modification date do not
                                       match
                                     has_fraud_risk: true
-                                    institution_metadata: null
+                                    institution_metadata:
                                     type: METADATA_DATES_OUTSIDE_WINDOW
                                     page_number: 0
                     request_id: LhQf0THi8SH1yJm
@@ -1317,7 +1310,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       deprecated: true
-      summary: Check income verification eligibility and optimize conversion
+      summary: Plaid Check income verification eligibility and optimize conversion
       tags:
         - plaid
       operationId: creditPayrollIncomePrecheck
@@ -1368,7 +1361,7 @@ paths:
   /credit/employment/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a summary of an individual's employment information
+      summary: Plaid Retrieve a summary of an individual's employment information
       tags:
         - plaid
       operationId: creditEmploymentGet
@@ -1390,7 +1383,7 @@ paths:
                           - account_id: GeooLPBGDEunl54q7N3ZcyD5aLPLEai1nkzM9
                             status: ACTIVE
                             start_date: '2020-01-01'
-                            end_date: null
+                            end_date:
                             employer:
                               name: Plaid Inc
                             title: Software Engineer
@@ -1416,7 +1409,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh a digital payroll income verification
+      summary: Plaid Refresh a digital payroll income verification
       externalDocs:
         url: /api/products/income/#creditpayroll_incomerefresh
       operationId: creditPayrollIncomeRefresh
@@ -1450,7 +1443,7 @@ paths:
   /credit/relay/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a relay token to share an Asset Report with a partner client
+      summary: Plaid Create a relay token to share an Asset Report with a partner client
       tags:
         - plaid
       operationId: creditRelayCreate
@@ -1490,8 +1483,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Retrieve the reports associated with a relay token that was shared with
-        you
+        Plaid Retrieve the reports associated with a relay token that was shared with you
       tags:
         - plaid
       operationId: creditRelayGet
@@ -1524,32 +1516,32 @@ paths:
                               balances:
                                 available: 43200
                                 current: 43200
-                                limit: null
-                                margin_loan_amount: null
+                                limit:
+                                margin_loan_amount:
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
+                                unofficial_currency_code:
                               days_available: 5
                               historical_balances:
                                 - current: 49050
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: 49050
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '4444'
                               name: Plaid Money Market
                               official_name: >-
@@ -1594,7 +1586,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: money market
                               transactions:
                                 - account_id: 1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8
@@ -1604,38 +1596,38 @@ paths:
                                   original_description: ACH Electronic CreditGUSTO PAY 123456
                                   pending: false
                                   transaction_id: gGQgjoeyqBF89PND6K14Sow1wddZBmtLomJ78
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                             - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                               balances:
                                 available: 100
                                 current: 110
-                                limit: null
-                                margin_loan_amount: null
+                                limit:
+                                margin_loan_amount:
                                 iso_currency_code: USD
-                                unofficial_currency_code: null
+                                unofficial_currency_code:
                               days_available: 5
                               historical_balances:
                                 - current: 110
                                   date: '2023-03-29'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -390
                                   date: '2023-03-28'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -373.67
                                   date: '2023-03-27'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-26'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - current: -284.27
                                   date: '2023-03-25'
                                   iso_currency_code: USD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               mask: '0000'
                               name: Plaid Checking
                               official_name: Plaid Gold Standard 0% Interest Checking
@@ -1678,7 +1670,7 @@ paths:
                                     - data: '1112225555'
                                       primary: false
                                       type: mobile
-                              ownership_type: null
+                              ownership_type:
                               subtype: checking
                               transactions:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
@@ -1688,7 +1680,7 @@ paths:
                                   original_description: SparkFun
                                   pending: false
                                   transaction_id: 4zBRq1Qem4uAPnoyKjJNTRQpQddM4ztlo1PLD
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: 12
                                   date: '2023-03-28'
@@ -1696,7 +1688,7 @@ paths:
                                   original_description: 'McDonalds #3322'
                                   pending: false
                                   transaction_id: dkjL41PnbKsPral79jpxhMWdW55gkPfBkWpRL
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: 4.33
                                   date: '2023-03-28'
@@ -1704,7 +1696,7 @@ paths:
                                   original_description: Starbucks
                                   pending: false
                                   transaction_id: a84ZxQaWDAtDL3dRgmazT57K7jjN3WFkNWMDy
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                                 - account_id: eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v
                                   amount: -500
                                   date: '2023-03-29'
@@ -1712,7 +1704,7 @@ paths:
                                   original_description: United Airlines **** REFUND ****
                                   pending: false
                                   transaction_id: xG9jbv3eMoFWepzB7wQLT3LoLggX5Duy1Gbe5
-                                  unofficial_currency_code: null
+                                  unofficial_currency_code:
                               type: depository
                           date_last_updated: '2023-03-30T18:25:26Z'
                           institution_id: ins_109508
@@ -1736,8 +1728,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Retrieve the pdf reports associated with a relay token that was shared
-        with you (beta)
+        Plaid Retrieve the pdf reports associated with a relay token that was shared with you (beta)
       tags:
         - plaid
       responses:
@@ -1780,7 +1771,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh a report of a relay token
+      summary: Plaid Refresh a report of a relay token
       externalDocs:
         url: /api/products/assets/#creditrelayrefresh
       responses:
@@ -1815,7 +1806,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove relay token
+      summary: Plaid Remove relay token
       externalDocs:
         url: /api/products/assets/#creditrelayremove
       responses:

@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' identity verification/'
+  title: 'Plaid identity verification/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /identity_verification/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a new Identity Verification
+      summary: Plaid Create a new Identity Verification
       description: >
         Create a new Identity Verification for the user specified by the
         `client_user_id` field. The requirements and behavior of the
@@ -200,7 +200,7 @@ paths:
   /identity_verification/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve Identity Verification
+      summary: Plaid Retrieve Identity Verification
       tags:
         - plaid
       responses:
@@ -361,7 +361,7 @@ paths:
   /identity_verification/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List Identity Verifications
+      summary: Plaid List Identity Verifications
       tags:
         - plaid
       responses:
@@ -524,7 +524,7 @@ paths:
   /identity_verification/retry:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retry an Identity Verification
+      summary: Plaid Retry an Identity Verification
       requestBody:
         content:
           application/json:
@@ -686,7 +686,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       x-hidden-from-docs: true
-      summary: Create autofill for an Identity Verification
+      summary: Plaid Create autofill for an Identity Verification
       description: >-
         Try to autofill an Identity Verification based of the provided phone
         number, date of birth and country of residence.

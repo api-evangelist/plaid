@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' signal/'
+  title: 'Plaid signal/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Evaluate a planned ACH transaction
+      summary: Plaid Evaluate a planned ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalevaluate
       operationId: processorSignalEvaluate
@@ -94,7 +94,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Report whether you initiated an ACH transaction
+      summary: Plaid Report whether you initiated an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignaldecisionreport
       operationId: processorSignalDecisionReport
@@ -136,7 +136,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Report a return for an ACH transaction
+      summary: Plaid Report a return for an ACH transaction
       externalDocs:
         url: /api/processor-partners/#processorsignalreturnreport
       operationId: processorSignalReturnReport
@@ -179,7 +179,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Opt-in a processor token to Signal
+      summary: Plaid Opt-in a processor token to Signal
       externalDocs:
         url: /api/processor-partners/#processorsignalprepare
       operationId: processorSignalPrepare
@@ -221,7 +221,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Evaluate a planned ACH transaction
+      summary: Plaid Evaluate a planned ACH transaction
       externalDocs:
         url: /api/products/signal#signalevaluate
       operationId: signalEvaluate
@@ -288,7 +288,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Report whether you initiated an ACH transaction
+      summary: Plaid Report whether you initiated an ACH transaction
       externalDocs:
         url: /api/products/signal#signaldecisionreport
       operationId: signalDecisionReport
@@ -323,7 +323,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Report a return for an ACH transaction
+      summary: Plaid Report a return for an ACH transaction
       externalDocs:
         url: /api/products/signal#signalreturnreport
       operationId: signalReturnReport
@@ -360,7 +360,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Opt-in an Item to Signal
+      summary: Plaid Opt-in an Item to Signal
       externalDocs:
         url: /api/products/signal#signalprepare
       operationId: signalPrepare

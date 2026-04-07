@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' categories/'
+  title: 'Plaid categories/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -26,7 +26,7 @@ paths:
       security: []
       tags:
         - plaid
-      summary: Get categories
+      summary: Plaid Get categories
       externalDocs:
         url: /api/products/transactions/#categoriesget
       operationId: categoriesGet

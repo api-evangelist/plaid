@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' application/'
+  title: 'Plaid application/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: List a user’s connected applications
+      summary: Plaid List a user’s connected applications
       operationId: itemApplicationList
       description: List a user’s connected applications
       responses:
@@ -52,7 +52,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Unlink a user’s connected application
+      summary: Plaid Unlink a user’s connected application
       externalDocs:
         url: none
       operationId: itemApplicationUnlink
@@ -101,7 +101,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Update the scopes of access for a particular application
+      summary: Plaid Update the scopes of access for a particular application
       operationId: itemApplicationScopesUpdate
       description: >-
         Enable consumers to update product access on selected accounts for an

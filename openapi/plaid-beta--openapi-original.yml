@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' beta/'
+  title: 'Plaid beta/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -24,8 +24,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Retrieve information from the bank accounts used for employment
-        verification
+        Plaid Retrieve information from the bank accounts used for employment verification
       tags:
         - plaid
       responses:
@@ -119,7 +118,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: enhance locally-held transaction data
+      summary: Plaid enhance locally-held transaction data
       operationId: transactionsEnhance
       responses:
         '200':
@@ -141,7 +140,7 @@ paths:
                             - Shops
                             - Computers and Electronics
                           category_id: '19013000'
-                          check_number: null
+                          check_number:
                           counterparties:
                             - name: Apple
                               type: merchant
@@ -149,7 +148,7 @@ paths:
                                 https://plaid-merchant-logos.plaid.com/apple_63.png
                               website: apple.com
                               confidence_level: VERY_HIGH
-                              phone_number: null
+                              phone_number:
                           location:
                             address: 300 Post St
                             city: San Francisco
@@ -168,7 +167,7 @@ paths:
                             detailed: GENERAL_MERCHANDISE_ELECTRONICS
                           personal_finance_category_icon_url: >-
                             https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
-                          phone_number: null
+                          phone_number:
         default:
           content:
             application/json:
@@ -192,7 +191,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create transaction category rule
+      summary: Plaid Create transaction category rule
       operationId: transactionsRulesCreate
       responses:
         '200':
@@ -254,8 +253,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Return a list of rules created for the Item associated with the access
-        token.
+        Plaid Return a list of rules created for the Item associated with the access token.
       operationId: transactionsRulesList
       responses:
         '200':
@@ -311,7 +309,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove transaction rule
+      summary: Plaid Remove transaction rule
       operationId: transactionsRulesRemove
       responses:
         '200':
@@ -353,8 +351,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Obtain user insights based on transactions sent through
-        /transactions/enrich
+        Plaid Obtain user insights based on transactions sent through /transactions/enrich
       x-hidden-from-docs: true
       externalDocs:
         url: /api/products/enrich/#userinsightsget
@@ -383,7 +380,7 @@ paths:
                           website: chase.com
                           detected_accounts:
                             - account_type: depository
-                              account_subtype: null
+                              account_subtype:
                               transaction_count: 1
                               oldest_transaction_date: '2022-01-24'
                               newest_transaction_date: '2023-01-05'
@@ -447,11 +444,11 @@ paths:
                           average_amount:
                             amount: 1000.91
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           last_amount:
                             amount: 1000
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           is_active: true
                           status: MATURE
                           personal_finance_category_primary: INCOME
@@ -473,11 +470,11 @@ paths:
                           average_amount:
                             amount: 85
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           last_amount:
                             amount: 100
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           is_active: true
                           status: MATURE
                           personal_finance_category_primary: RENT_AND_UTILITIES

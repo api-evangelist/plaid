@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' transactions/'
+  title: 'Plaid transactions/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get transaction data
+      summary: Plaid Get transaction data
       externalDocs:
         url: /api/products/transactions/#transactionsget
       operationId: transactionsGet
@@ -45,8 +45,8 @@ paths:
                           available: 110.94
                           current: 110.94
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -54,16 +54,16 @@ paths:
                         type: depository
                     transactions:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 28.34
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Food and Drink
                           - Restaurants
                           - Fast Food
                         category_id: '13005032'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: DoorDash
                             type: marketplace
@@ -84,14 +84,14 @@ paths:
                         authorized_date: '2023-09-27'
                         authorized_datetime: '2023-09-27T08:01:58Z'
                         location:
-                          address: null
-                          city: null
-                          region: null
-                          postal_code: null
-                          country: null
-                          lat: null
-                          lon: null
-                          store_number: null
+                          address:
+                          city:
+                          region:
+                          postal_code:
+                          country:
+                          lat:
+                          lon:
+                          store_number:
                         name: Dd Doordash Burgerkin
                         merchant_name: Burger King
                         merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
@@ -99,17 +99,17 @@ paths:
                           https://plaid-merchant-logos.plaid.com/burger_king_155.png
                         website: burgerking.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: online
                         pending: true
-                        pending_transaction_id: null
+                        pending_transaction_id:
                         personal_finance_category:
                           primary: FOOD_AND_DRINK
                           detailed: FOOD_AND_DRINK_FAST_FOOD
@@ -117,18 +117,18 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
                         transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: digital
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 72.1
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Shops
                           - Supermarkets and Groceries
                         category_id: '19046000'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: Walmart
                             type: merchant
@@ -157,14 +157,14 @@ paths:
                           https://plaid-merchant-logos.plaid.com/walmart_1100.png
                         website: walmart.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: in store
                         pending: false
                         pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
@@ -175,7 +175,7 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
                         transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: place
                     item:
                       available_products:
@@ -187,8 +187,8 @@ paths:
                         - auth
                         - liabilities
                         - transactions
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_3
                       item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
                       update_type: background
@@ -222,8 +222,7 @@ paths:
 
 
         Transactions are returned in reverse-chronological order, and the
-        sequence of transaction ordering is stable and will not shift. 
-        Transactions are not immutable and can also be removed altogether by the
+        sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the
         institution; a removed transaction will no longer appear in
         `/transactions/get`.  For more details, see [Pending and posted
         transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).
@@ -269,7 +268,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh transaction data
+      summary: Plaid Refresh transaction data
       externalDocs:
         url: /api/products/transactions/#transactionsrefresh
       operationId: transactionsRefresh
@@ -341,7 +340,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fetch recurring transaction streams
+      summary: Plaid Fetch recurring transaction streams
       externalDocs:
         url: /api/products/transactions/#transactionsrecurringget
       operationId: transactionsRecurringGet
@@ -364,7 +363,7 @@ paths:
                           - Payroll
                         category_id: '21009000'
                         description: Platypus Payroll
-                        merchant_name: null
+                        merchant_name:
                         personal_finance_category:
                           primary: INCOME
                           detailed: INCOME_WAGES
@@ -381,11 +380,11 @@ paths:
                         average_amount:
                           amount: -800
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: -1000
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: true
@@ -415,11 +414,11 @@ paths:
                         average_amount:
                           amount: 85
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: 100
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: false
@@ -444,11 +443,11 @@ paths:
                         average_amount:
                           amount: 120
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: 120
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: true
@@ -516,7 +515,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get incremental transaction updates on an Item
+      summary: Plaid Get incremental transaction updates on an Item
       externalDocs:
         url: /api/products/transactions/#transactionssync
       operationId: transactionsSync
@@ -536,8 +535,8 @@ paths:
                           available: 110.94
                           current: 110.94
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -545,15 +544,15 @@ paths:
                         type: depository
                     added:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 72.1
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Shops
                           - Supermarkets and Groceries
                         category_id: '19046000'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: Walmart
                             type: merchant
@@ -582,14 +581,14 @@ paths:
                           https://plaid-merchant-logos.plaid.com/walmart_1100.png
                         website: walmart.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: in store
                         pending: false
                         pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
@@ -600,20 +599,20 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
                         transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: place
                     modified:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 28.34
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Food and Drink
                           - Restaurants
                           - Fast Food
                         category_id: '13005032'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: DoorDash
                             type: marketplace
@@ -634,14 +633,14 @@ paths:
                         authorized_date: '2023-09-27'
                         authorized_datetime: '2023-09-27T08:01:58Z'
                         location:
-                          address: null
-                          city: null
-                          region: null
-                          postal_code: null
-                          country: null
-                          lat: null
-                          lon: null
-                          store_number: null
+                          address:
+                          city:
+                          region:
+                          postal_code:
+                          country:
+                          lat:
+                          lon:
+                          store_number:
                         name: Dd Doordash Burgerkin
                         merchant_name: Burger King
                         merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
@@ -649,17 +648,17 @@ paths:
                           https://plaid-merchant-logos.plaid.com/burger_king_155.png
                         website: burgerking.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: online
                         pending: true
-                        pending_transaction_id: null
+                        pending_transaction_id:
                         personal_finance_category:
                           primary: FOOD_AND_DRINK
                           detailed: FOOD_AND_DRINK_FAST_FOOD
@@ -667,7 +666,7 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
                         transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: digital
                     removed:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
@@ -767,7 +766,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Enrich locally-held transaction data
+      summary: Plaid Enrich locally-held transaction data
       externalDocs:
         url: /api/products/enrich/#transactionsenrich
       operationId: transactionsEnrich
@@ -843,16 +842,16 @@ paths:
                               website: burgerking.com
                               entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
                               confidence_level: VERY_HIGH
-                              phone_number: null
+                              phone_number:
                           location:
-                            address: null
-                            city: null
-                            region: null
-                            postal_code: null
-                            country: null
-                            store_number: null
-                            lat: null
-                            lon: null
+                            address:
+                            city:
+                            region:
+                            postal_code:
+                            country:
+                            store_number:
+                            lat:
+                            lon:
                           entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
                           logo_url: >-
                             https://plaid-merchant-logos.plaid.com/burger_king_155.png
@@ -864,7 +863,7 @@ paths:
                             confidence_level: VERY_HIGH
                           personal_finance_category_icon_url: >-
                             https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
-                          phone_number: null
+                          phone_number:
                           recurrence:
                             is_recurring: false
                           website: burgerking.com
@@ -890,7 +889,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get transaction data
+      summary: Plaid Get transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsget
       operationId: processorTransactionsGet
@@ -910,8 +909,8 @@ paths:
                         available: 110.94
                         current: 110.94
                         iso_currency_code: USD
-                        limit: null
-                        unofficial_currency_code: null
+                        limit:
+                        unofficial_currency_code:
                       mask: '0000'
                       name: Plaid Checking
                       official_name: Plaid Gold Standard 0% Interest Checking
@@ -919,16 +918,16 @@ paths:
                       type: depository
                     transactions:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 28.34
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Food and Drink
                           - Restaurants
                           - Fast Food
                         category_id: '13005032'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: DoorDash
                             type: marketplace
@@ -949,14 +948,14 @@ paths:
                         authorized_date: '2023-09-27'
                         authorized_datetime: '2023-09-27T08:01:58Z'
                         location:
-                          address: null
-                          city: null
-                          region: null
-                          postal_code: null
-                          country: null
-                          lat: null
-                          lon: null
-                          store_number: null
+                          address:
+                          city:
+                          region:
+                          postal_code:
+                          country:
+                          lat:
+                          lon:
+                          store_number:
                         name: Dd Doordash Burgerkin
                         merchant_name: Burger King
                         merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
@@ -964,17 +963,17 @@ paths:
                           https://plaid-merchant-logos.plaid.com/burger_king_155.png
                         website: burgerking.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: online
                         pending: true
-                        pending_transaction_id: null
+                        pending_transaction_id:
                         personal_finance_category:
                           primary: FOOD_AND_DRINK
                           detailed: FOOD_AND_DRINK_FAST_FOOD
@@ -982,18 +981,18 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
                         transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: digital
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 72.1
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Shops
                           - Supermarkets and Groceries
                         category_id: '19046000'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: Walmart
                             type: merchant
@@ -1022,14 +1021,14 @@ paths:
                           https://plaid-merchant-logos.plaid.com/walmart_1100.png
                         website: walmart.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: in store
                         pending: false
                         pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
@@ -1040,7 +1039,7 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
                         transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: place
                     total_transactions: 1
                     request_id: Wvhy9PZHQLV8njG
@@ -1062,8 +1061,7 @@ paths:
 
 
         Transactions are returned in reverse-chronological order, and the
-        sequence of transaction ordering is stable and will not shift. 
-        Transactions are not immutable and can also be removed altogether by the
+        sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the
         institution; a removed transaction will no longer appear in
         `/processor/transactions/get`.  For more details, see [Pending and
         posted
@@ -1109,7 +1107,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get incremental transaction updates on a processor token
+      summary: Plaid Get incremental transaction updates on a processor token
       externalDocs:
         url: /api/processor-partners/#processortransactionssync
       operationId: processorTransactionsSync
@@ -1129,8 +1127,8 @@ paths:
                         available: 110.94
                         current: 110.94
                         iso_currency_code: USD
-                        limit: null
-                        unofficial_currency_code: null
+                        limit:
+                        unofficial_currency_code:
                       mask: '0000'
                       name: Plaid Checking
                       official_name: Plaid Gold Standard 0% Interest Checking
@@ -1138,15 +1136,15 @@ paths:
                       type: depository
                     added:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 72.1
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Shops
                           - Supermarkets and Groceries
                         category_id: '19046000'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: Walmart
                             type: merchant
@@ -1175,14 +1173,14 @@ paths:
                           https://plaid-merchant-logos.plaid.com/walmart_1100.png
                         website: walmart.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: in store
                         pending: false
                         pending_transaction_id: no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc
@@ -1193,20 +1191,20 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
                         transaction_id: lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: place
                     modified:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
-                        account_owner: null
+                        account_owner:
                         amount: 28.34
                         iso_currency_code: USD
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                         category:
                           - Food and Drink
                           - Restaurants
                           - Fast Food
                         category_id: '13005032'
-                        check_number: null
+                        check_number:
                         counterparties:
                           - name: DoorDash
                             type: marketplace
@@ -1227,14 +1225,14 @@ paths:
                         authorized_date: '2023-09-27'
                         authorized_datetime: '2023-09-27T08:01:58Z'
                         location:
-                          address: null
-                          city: null
-                          region: null
-                          postal_code: null
-                          country: null
-                          lat: null
-                          lon: null
-                          store_number: null
+                          address:
+                          city:
+                          region:
+                          postal_code:
+                          country:
+                          lat:
+                          lon:
+                          store_number:
                         name: Dd Doordash Burgerkin
                         merchant_name: Burger King
                         merchant_entity_id: mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1
@@ -1242,17 +1240,17 @@ paths:
                           https://plaid-merchant-logos.plaid.com/burger_king_155.png
                         website: burgerking.com
                         payment_meta:
-                          by_order_of: null
-                          payee: null
-                          payer: null
-                          payment_method: null
-                          payment_processor: null
-                          ppd_id: null
-                          reason: null
-                          reference_number: null
+                          by_order_of:
+                          payee:
+                          payer:
+                          payment_method:
+                          payment_processor:
+                          ppd_id:
+                          reason:
+                          reference_number:
                         payment_channel: online
                         pending: true
-                        pending_transaction_id: null
+                        pending_transaction_id:
                         personal_finance_category:
                           primary: FOOD_AND_DRINK
                           detailed: FOOD_AND_DRINK_FAST_FOOD
@@ -1260,7 +1258,7 @@ paths:
                         personal_finance_category_icon_url: >-
                           https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png
                         transaction_id: yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0
-                        transaction_code: null
+                        transaction_code:
                         transaction_type: digital
                     removed:
                       - transaction_id: CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l
@@ -1358,7 +1356,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh transaction data
+      summary: Plaid Refresh transaction data
       externalDocs:
         url: /api/processor-partners/#processortransactionsrefresh
       operationId: processorTransactionsRefresh
@@ -1427,7 +1425,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fetch recurring transaction streams
+      summary: Plaid Fetch recurring transaction streams
       externalDocs:
         url: /api/processor-partners/#processortransactionsrecurringget
       operationId: processorTransactionsRecurringGet
@@ -1450,7 +1448,7 @@ paths:
                           - Payroll
                         category_id: '21009000'
                         description: Platypus Payroll
-                        merchant_name: null
+                        merchant_name:
                         personal_finance_category:
                           primary: INCOME
                           detailed: INCOME_WAGES
@@ -1467,11 +1465,11 @@ paths:
                         average_amount:
                           amount: -800
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: -1000
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: true
@@ -1501,11 +1499,11 @@ paths:
                         average_amount:
                           amount: 85
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: 100
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: false
@@ -1530,11 +1528,11 @@ paths:
                         average_amount:
                           amount: 120
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         last_amount:
                           amount: 120
                           iso_currency_code: USD
-                          unofficial_currency_code: null
+                          unofficial_currency_code:
                         is_active: true
                         status: MATURE
                         is_user_modified: true
@@ -1605,7 +1603,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get investment transactions
+      summary: Plaid Get investment transactions
       externalDocs:
         url: /api/products/investments/#investmentstransactionsget
       responses:
@@ -1624,8 +1622,8 @@ paths:
                           available: 100
                           current: 110
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -1633,32 +1631,32 @@ paths:
                         type: depository
                       - account_id: KqZZMoZmBWHJlz7yKaZjHZb78VNpaxfVa7e5z
                         balances:
-                          available: null
+                          available:
                           current: 320.76
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '5555'
                         name: Plaid IRA
-                        official_name: null
+                        official_name:
                         subtype: ira
                         type: investment
                       - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
                         balances:
-                          available: null
+                          available:
                           current: 23631.9805
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '6666'
                         name: Plaid 401k
-                        official_name: null
+                        official_name:
                         subtype: 401k
                         type: investment
                     investment_transactions:
                       - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
                         amount: -8.72
-                        cancel_transaction_id: null
+                        cancel_transaction_id:
                         date: '2020-05-29'
                         fees: 0
                         investment_transaction_id: oq99Pz97joHQem4BNjXECev1E4B6L6sRzwANW
@@ -1669,10 +1667,10 @@ paths:
                         security_id: eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ
                         subtype: dividend
                         type: cash
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                       - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
                         amount: -1289.01
-                        cancel_transaction_id: null
+                        cancel_transaction_id:
                         date: '2020-05-28'
                         fees: 7.99
                         investment_transaction_id: pK99jB9e7mtwjA435GpVuMvmWQKVbVFLWme57
@@ -1683,10 +1681,10 @@ paths:
                         security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
                         subtype: sell
                         type: sell
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                       - account_id: rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj
                         amount: 7.7
-                        cancel_transaction_id: null
+                        cancel_transaction_id:
                         date: '2020-05-27'
                         fees: 7.99
                         investment_transaction_id: LKoo1ko93wtreBwM7yQnuQ3P5DNKbKSPRzBNv
@@ -1697,7 +1695,7 @@ paths:
                         security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
                         subtype: buy
                         type: buy
-                        unofficial_currency_code: null
+                        unofficial_currency_code:
                     item:
                       available_products:
                         - assets
@@ -1707,8 +1705,8 @@ paths:
                       billed_products:
                         - auth
                         - investments
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_12
                       item_id: 8Mqq5rqQ7Pcxq9MGDv3JULZ6yzZDLMCwoxGDq
                       update_type: background
@@ -1716,59 +1714,59 @@ paths:
                     request_id: iv4q3ZlytOOthkv
                     securities:
                       - close_price: 27
-                        close_price_as_of: null
+                        close_price_as_of:
                         cusip: '577130834'
-                        institution_id: null
-                        institution_security_id: null
+                        institution_id:
+                        institution_security_id:
                         is_cash_equivalent: false
                         isin: US5771308344
                         iso_currency_code: USD
                         name: Matthews Pacific Tiger Fund Insti Class
-                        proxy_security_id: null
+                        proxy_security_id:
                         security_id: JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP
-                        sedol: null
+                        sedol:
                         ticker_symbol: MIPTX
                         type: mutual fund
-                        unofficial_currency_code: null
-                        update_datetime: null
+                        unofficial_currency_code:
+                        update_datetime:
                         market_identifier_code: XNAS
-                        option_contract: null
+                        option_contract:
                       - close_price: 10.42
-                        close_price_as_of: null
+                        close_price_as_of:
                         cusip: '258620103'
-                        institution_id: null
-                        institution_security_id: null
+                        institution_id:
+                        institution_security_id:
                         is_cash_equivalent: false
                         isin: US2586201038
                         iso_currency_code: USD
                         name: DoubleLine Total Return Bond Fund
-                        proxy_security_id: null
+                        proxy_security_id:
                         security_id: NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk
-                        sedol: null
+                        sedol:
                         ticker_symbol: DBLTX
                         type: mutual fund
-                        unofficial_currency_code: null
-                        update_datetime: null
+                        unofficial_currency_code:
+                        update_datetime:
                         market_identifier_code: XNAS
-                        option_contract: null
+                        option_contract:
                       - close_price: 34.73
-                        close_price_as_of: null
+                        close_price_as_of:
                         cusip: 84470P109
-                        institution_id: null
-                        institution_security_id: null
+                        institution_id:
+                        institution_security_id:
                         is_cash_equivalent: false
                         isin: US84470P1093
                         iso_currency_code: USD
                         name: Southside Bancshares Inc.
-                        proxy_security_id: null
+                        proxy_security_id:
                         security_id: eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ
-                        sedol: null
+                        sedol:
                         ticker_symbol: SBSI
                         type: equity
-                        unofficial_currency_code: null
-                        update_datetime: null
+                        unofficial_currency_code:
+                        update_datetime:
                         market_identifier_code: XNAS
-                        option_contract: null
+                        option_contract:
                     total_investment_transactions: 3
       operationId: investmentsTransactionsGet
       description: >-
@@ -1815,7 +1813,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: enhance locally-held transaction data
+      summary: Plaid enhance locally-held transaction data
       operationId: transactionsEnhance
       responses:
         '200':
@@ -1837,7 +1835,7 @@ paths:
                             - Shops
                             - Computers and Electronics
                           category_id: '19013000'
-                          check_number: null
+                          check_number:
                           counterparties:
                             - name: Apple
                               type: merchant
@@ -1845,7 +1843,7 @@ paths:
                                 https://plaid-merchant-logos.plaid.com/apple_63.png
                               website: apple.com
                               confidence_level: VERY_HIGH
-                              phone_number: null
+                              phone_number:
                           location:
                             address: 300 Post St
                             city: San Francisco
@@ -1864,7 +1862,7 @@ paths:
                             detailed: GENERAL_MERCHANDISE_ELECTRONICS
                           personal_finance_category_icon_url: >-
                             https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png
-                          phone_number: null
+                          phone_number:
         default:
           content:
             application/json:
@@ -1888,7 +1886,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create transaction category rule
+      summary: Plaid Create transaction category rule
       operationId: transactionsRulesCreate
       responses:
         '200':
@@ -1950,8 +1948,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Return a list of rules created for the Item associated with the access
-        token.
+        Plaid Return a list of rules created for the Item associated with the access token.
       operationId: transactionsRulesList
       responses:
         '200':
@@ -2007,7 +2004,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Remove transaction rule
+      summary: Plaid Remove transaction rule
       operationId: transactionsRulesRemove
       responses:
         '200':
@@ -2049,8 +2046,7 @@ paths:
       tags:
         - plaid
       summary: >-
-        Obtain user insights based on transactions sent through
-        /transactions/enrich
+        Plaid Obtain user insights based on transactions sent through /transactions/enrich
       x-hidden-from-docs: true
       externalDocs:
         url: /api/products/enrich/#userinsightsget
@@ -2079,7 +2075,7 @@ paths:
                           website: chase.com
                           detected_accounts:
                             - account_type: depository
-                              account_subtype: null
+                              account_subtype:
                               transaction_count: 1
                               oldest_transaction_date: '2022-01-24'
                               newest_transaction_date: '2023-01-05'
@@ -2143,11 +2139,11 @@ paths:
                           average_amount:
                             amount: 1000.91
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           last_amount:
                             amount: 1000
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           is_active: true
                           status: MATURE
                           personal_finance_category_primary: INCOME
@@ -2169,11 +2165,11 @@ paths:
                           average_amount:
                             amount: 85
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           last_amount:
                             amount: 100
                             iso_currency_code: USD
-                            unofficial_currency_code: null
+                            unofficial_currency_code:
                           is_active: true
                           status: MATURE
                           personal_finance_category_primary: RENT_AND_UTILITIES

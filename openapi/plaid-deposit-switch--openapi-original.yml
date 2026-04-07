@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' deposit switch/'
+  title: 'Plaid deposit switch/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create a deposit switch
+      summary: Plaid Create a deposit switch
       externalDocs:
         url: /deposit-switch/reference#deposit_switchcreate
       responses:
@@ -55,7 +55,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create a deposit switch token
+      summary: Plaid Create a deposit switch token
       externalDocs:
         url: /deposit-switch/reference#deposit_switchtokencreate
       responses:
@@ -86,7 +86,7 @@ paths:
   /deposit_switch/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a deposit switch
+      summary: Plaid Retrieve a deposit switch
       externalDocs:
         url: /deposit-switch/reference#deposit_switchget
       tags:
@@ -111,7 +111,7 @@ paths:
                     account_has_multiple_allocations: true
                     is_allocated_remainder: false
                     percent_allocated: 50
-                    amount_allocated: null
+                    amount_allocated:
                     employer_name: COMPANY INC
                     employer_id: pqLmEm1VR7bQi11231
                     institution_name: Bank of America
@@ -230,7 +230,7 @@ components:
             - processing
             - completed
             - error
-          description: >-
+          description: >2-
 
             The state, or status, of the deposit switch.
 
@@ -257,7 +257,7 @@ components:
             - instant
             - mail
             - pdf
-            - null
+            - 
           description: >-
             The method used to make the deposit switch.
 

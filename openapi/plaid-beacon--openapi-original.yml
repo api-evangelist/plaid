@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' beacon/'
+  title: 'Plaid beacon/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -26,7 +26,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Evaluate risk of a bank account
+      summary: Plaid Evaluate risk of a bank account
       externalDocs:
         url: none
       operationId: beaconAccountRiskEvaluate
@@ -68,7 +68,7 @@ paths:
   /beacon/user/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a Beacon User
+      summary: Plaid Create a Beacon User
       requestBody:
         content:
           application/json:
@@ -136,7 +136,7 @@ paths:
   /beacon/user/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a Beacon User
+      summary: Plaid Get a Beacon User
       requestBody:
         content:
           application/json:
@@ -198,7 +198,7 @@ paths:
   /beacon/user/review:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Review a Beacon User
+      summary: Plaid Review a Beacon User
       requestBody:
         content:
           application/json:
@@ -285,7 +285,7 @@ paths:
   /beacon/report/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a Beacon Report
+      summary: Plaid Create a Beacon Report
       requestBody:
         content:
           application/json:
@@ -324,7 +324,7 @@ paths:
   /beacon/report/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List Beacon Reports for a Beacon User
+      summary: Plaid List Beacon Reports for a Beacon User
       requestBody:
         content:
           application/json:
@@ -374,7 +374,7 @@ paths:
   /beacon/report_syndication/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List Beacon Report Syndications for a Beacon User
+      summary: Plaid List Beacon Report Syndications for a Beacon User
       requestBody:
         content:
           application/json:
@@ -427,7 +427,7 @@ paths:
   /beacon/report/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a Beacon Report
+      summary: Plaid Get a Beacon Report
       requestBody:
         content:
           application/json:
@@ -466,7 +466,7 @@ paths:
   /beacon/report_syndication/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a Beacon Report Syndication
+      summary: Plaid Get a Beacon Report Syndication
       requestBody:
         content:
           application/json:
@@ -509,7 +509,7 @@ paths:
   /beacon/user/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update the identity data of a Beacon User
+      summary: Plaid Update the identity data of a Beacon User
       requestBody:
         content:
           application/json:
@@ -580,7 +580,7 @@ paths:
   /beacon/duplicate/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a Beacon Duplicate
+      summary: Plaid Get a Beacon Duplicate
       requestBody:
         content:
           application/json:
@@ -635,7 +635,7 @@ paths:
   /beacon/user/history/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List a Beacon User's history
+      summary: Plaid List a Beacon User's history
       requestBody:
         content:
           application/json:

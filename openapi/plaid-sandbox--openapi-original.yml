@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' sandbox/'
+  title: 'Plaid sandbox/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create a test Item and processor token
+      summary: Plaid Create a test Item and processor token
       externalDocs:
         url: /api/sandbox/#sandboxprocessor_tokencreate
       operationId: sandboxProcessorTokenCreate
@@ -67,7 +67,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create a test Item
+      summary: Plaid Create a test Item
       externalDocs:
         url: /api/sandbox/#sandboxpublic_tokencreate
       operationId: sandboxPublicTokenCreate
@@ -111,7 +111,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fire a test webhook
+      summary: Plaid Fire a test webhook
       externalDocs:
         url: /api/sandbox/#sandboxitemfire_webhook
       operationId: sandboxItemFireWebhook
@@ -197,7 +197,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Force a Sandbox Item into an error state
+      summary: Plaid Force a Sandbox Item into an error state
       externalDocs:
         url: /api/sandbox/#sandboxitemreset_login
       operationId: sandboxItemResetLogin
@@ -238,7 +238,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Set verification status for Sandbox account
+      summary: Plaid Set verification status for Sandbox account
       externalDocs:
         url: /api/sandbox/#sandboxitemset_verification_status
       operationId: sandboxItemSetVerificationStatus
@@ -271,7 +271,7 @@ paths:
   /sandbox/bank_transfer/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a bank transfer event in Sandbox
+      summary: Plaid Simulate a bank transfer event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -310,7 +310,7 @@ paths:
   /sandbox/transfer/sweep/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate creating a sweep
+      summary: Plaid Simulate creating a sweep
       tags:
         - plaid
       externalDocs:
@@ -333,7 +333,7 @@ paths:
                       amount: '12.34'
                       iso_currency_code: USD
                       settled: '2020-08-07'
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: mdqfuVxeoza6mhu
         default:
           description: Error response
@@ -357,7 +357,7 @@ paths:
   /sandbox/transfer/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a transfer event in Sandbox
+      summary: Plaid Simulate a transfer event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -396,7 +396,7 @@ paths:
   /sandbox/transfer/refund/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a refund event in Sandbox
+      summary: Plaid Simulate a refund event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -435,7 +435,7 @@ paths:
   /sandbox/transfer/ledger/simulate_available:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate converting pending balance to available balance
+      summary: Plaid Simulate converting pending balance to available balance
       tags:
         - plaid
       externalDocs:
@@ -473,7 +473,7 @@ paths:
   /sandbox/transfer/ledger/deposit/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a ledger deposit event in Sandbox
+      summary: Plaid Simulate a ledger deposit event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -509,7 +509,7 @@ paths:
   /sandbox/transfer/ledger/withdraw/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a ledger withdraw event in Sandbox
+      summary: Plaid Simulate a ledger withdraw event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -546,7 +546,7 @@ paths:
   /sandbox/transfer/repayment/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Trigger the creation of a repayment
+      summary: Plaid Trigger the creation of a repayment
       tags:
         - plaid
       externalDocs:
@@ -584,7 +584,7 @@ paths:
   /sandbox/transfer/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire a Transfer webhook
+      summary: Plaid Manually fire a Transfer webhook
       tags:
         - plaid
       externalDocs:
@@ -619,7 +619,7 @@ paths:
   /sandbox/transfer/test_clock/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a test clock
+      summary: Plaid Create a test clock
       tags:
         - plaid
       externalDocs:
@@ -665,7 +665,7 @@ paths:
   /sandbox/transfer/test_clock/advance:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Advance a test clock
+      summary: Plaid Advance a test clock
       tags:
         - plaid
       externalDocs:
@@ -727,7 +727,7 @@ paths:
   /sandbox/transfer/test_clock/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a test clock
+      summary: Plaid Get a test clock
       tags:
         - plaid
       externalDocs:
@@ -765,7 +765,7 @@ paths:
   /sandbox/transfer/test_clock/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List test clocks
+      summary: Plaid List test clocks
       tags:
         - plaid
       externalDocs:
@@ -810,7 +810,7 @@ paths:
       deprecated: true
       tags:
         - plaid
-      summary: Reset the login of a Payment Profile
+      summary: Plaid Reset the login of a Payment Profile
       externalDocs:
         url: /api/sandbox/#sandboxpayment_profilereset_login
       operationId: sandboxPaymentProfileResetLogin
@@ -843,7 +843,7 @@ paths:
   /sandbox/bank_transfer/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire a Bank Transfer webhook
+      summary: Plaid Manually fire a Bank Transfer webhook
       tags:
         - plaid
       externalDocs:
@@ -878,7 +878,7 @@ paths:
   /sandbox/income/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire an Income webhook
+      summary: Plaid Manually fire an Income webhook
       tags:
         - plaid
       externalDocs:
@@ -913,7 +913,7 @@ paths:
   /sandbox/bank_income/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire a bank income webhook in sandbox
+      summary: Plaid Manually fire a bank income webhook in sandbox
       tags:
         - plaid
       externalDocs:
@@ -949,8 +949,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Save the selected accounts when connecting to the Platypus Oauth
-        institution
+        Plaid Save the selected accounts when connecting to the Platypus Oauth institution
       description: >-
         Save the selected accounts when connecting to the Platypus Oauth
         institution

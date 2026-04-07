@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' paymet profile/'
+  title: 'Plaid paymet profile/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:

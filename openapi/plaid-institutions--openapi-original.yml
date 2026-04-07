@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' institutions/'
+  title: 'Plaid institutions/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get details of all supported institutions
+      summary: Plaid Get details of all supported institutions
       externalDocs:
         url: /api/institutions/#institutionsget
       operationId: institutionsGet
@@ -150,7 +150,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Search institutions
+      summary: Plaid Search institutions
       externalDocs:
         url: /api/institutions/#institutionssearch
       operationId: institutionsSearch
@@ -272,7 +272,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Get details of an institution
+      summary: Plaid Get details of an institution
       externalDocs:
         url: /api/institutions/#institutionsget_by_id
       operationId: institutionsGetById
@@ -367,7 +367,7 @@ paths:
                             refresh_interval: NORMAL
                       primary_color: '#004966'
                       url: https://plaid.com
-                      logo: null
+                      logo:
                     request_id: m8MDnv9okwxFNBV
         default:
           content:

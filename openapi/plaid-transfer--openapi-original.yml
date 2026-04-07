@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' transfer/'
+  title: 'Plaid transfer/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -23,7 +23,7 @@ paths:
   /transfer/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a transfer
+      summary: Plaid Retrieve a transfer
       tags:
         - plaid
       externalDocs:
@@ -48,8 +48,8 @@ paths:
                       cancellable: true
                       created: '2020-08-06T17:27:15Z'
                       description: Desc
-                      guarantee_decision: null
-                      guarantee_decision_rationale: null
+                      guarantee_decision:
+                      guarantee_decision_rationale:
                       failure_reason:
                         ach_return_code: R13
                         description: Invalid ACH routing number
@@ -60,7 +60,7 @@ paths:
                         key2: value2
                       network: ach
                       origination_account_id: ''
-                      originator_client_id: null
+                      originator_client_id:
                       refunds: []
                       status: pending
                       type: credit
@@ -78,10 +78,10 @@ paths:
                           region: CA
                           postal_code: '94053'
                           country: US
-                      recurring_transfer_id: null
+                      recurring_transfer_id:
                       credit_funds_source: sweep
                       facilitator_fee: '1.23'
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -103,7 +103,7 @@ paths:
   /transfer/recurring/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a recurring transfer
+      summary: Plaid Retrieve a recurring transfer
       tags:
         - plaid
       externalDocs:
@@ -124,7 +124,7 @@ paths:
                       recurring_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                       created: '2022-07-05T12:48:37Z'
                       next_origination_date: '2022-10-28'
-                      test_clock_id: null
+                      test_clock_id:
                       status: active
                       amount: '12.34'
                       description: payment
@@ -173,7 +173,7 @@ paths:
   /transfer/authorization/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a transfer authorization
+      summary: Plaid Create a transfer authorization
       tags:
         - plaid
       externalDocs:
@@ -194,10 +194,10 @@ paths:
                       id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                       created: '2020-08-06T17:27:15Z'
                       decision: approved
-                      decision_rationale: null
-                      guarantee_decision: null
-                      guarantee_decision_rationale: null
-                      payment_risk: null
+                      decision_rationale:
+                      guarantee_decision:
+                      guarantee_decision_rationale:
+                      payment_risk:
                       proposed_transfer:
                         ach_class: ppd
                         account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
@@ -217,7 +217,7 @@ paths:
                         network: ach
                         iso_currency_code: USD
                         origination_account_id: ''
-                        originator_client_id: null
+                        originator_client_id:
                         credit_funds_source: sweep
                     request_id: saKrIBuEB9qJZno
         default:
@@ -265,7 +265,7 @@ paths:
   /transfer/authorization/cancel:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Cancel a transfer authorization
+      summary: Plaid Cancel a transfer authorization
       tags:
         - plaid
       externalDocs:
@@ -341,7 +341,7 @@ paths:
   /transfer/capabilities/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get RTP eligibility information of a transfer
+      summary: Plaid Get RTP eligibility information of a transfer
       tags:
         - plaid
       externalDocs:
@@ -383,7 +383,7 @@ paths:
   /transfer/configuration/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get transfer product configuration
+      summary: Plaid Get transfer product configuration
       tags:
         - plaid
       externalDocs:
@@ -466,8 +466,7 @@ paths:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
       summary: >-
-        Move available balance between the ledgers of the platform and one of
-        its originators
+        Plaid Move available balance between the ledgers of the platform and one of its originators
       tags:
         - plaid
       externalDocs:
@@ -524,11 +523,11 @@ paths:
                       created: '2020-08-06T17:27:15Z'
                       amount: '-12.34'
                       iso_currency_code: USD
-                      settled: null
+                      settled:
                       status: pending
                       trigger: manual
                       description: deposit
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -570,11 +569,11 @@ paths:
                       created: '2020-08-06T17:27:15Z'
                       amount: '12.34'
                       iso_currency_code: USD
-                      settled: null
+                      settled:
                       status: pending
                       trigger: manual
                       description: withdraw
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -594,7 +593,7 @@ paths:
   /transfer/originator/funding_account/update:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Update the funding account associated with the originator
+      summary: Plaid Update the funding account associated with the originator
       tags:
         - plaid
       externalDocs:
@@ -632,7 +631,7 @@ paths:
   /transfer/metrics/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get transfer product usage metrics
+      summary: Plaid Get transfer product usage metrics
       tags:
         - plaid
       externalDocs:
@@ -673,7 +672,7 @@ paths:
   /transfer/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a transfer
+      summary: Plaid Create a transfer
       tags:
         - plaid
       externalDocs:
@@ -713,9 +712,9 @@ paths:
                       status: pending
                       network: ach
                       cancellable: true
-                      guarantee_decision: null
-                      guarantee_decision_rationale: null
-                      failure_reason: null
+                      guarantee_decision:
+                      guarantee_decision_rationale:
+                      failure_reason:
                       metadata:
                         key1: value1
                         key2: value2
@@ -725,10 +724,10 @@ paths:
                       unauthorized_return_window: '2023-10-07'
                       expected_settlement_date: '2023-08-04'
                       originator_client_id: 569ed2f36b3a3a021713abc1
-                      recurring_transfer_id: null
+                      recurring_transfer_id:
                       credit_funds_source: sweep
                       facilitator_fee: '1.23'
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -746,7 +745,7 @@ paths:
   /transfer/recurring/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a recurring transfer
+      summary: Plaid Create a recurring transfer
       tags:
         - plaid
       externalDocs:
@@ -795,7 +794,7 @@ paths:
                         interval_count: 1
                         interval_execution_day: 5
                     decision: approved
-                    decision_rationale: null
+                    decision_rationale:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -816,7 +815,7 @@ paths:
   /transfer/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List transfers
+      summary: Plaid List transfers
       tags:
         - plaid
       externalDocs:
@@ -840,8 +839,8 @@ paths:
                         cancellable: true
                         created: '2019-12-09T17:27:15Z'
                         description: Desc
-                        guarantee_decision: null
-                        guarantee_decision_rationale: null
+                        guarantee_decision:
+                        guarantee_decision_rationale:
                         failure_reason:
                           ach_return_code: R13
                           description: Invalid ACH routing number
@@ -852,7 +851,7 @@ paths:
                           key2: value2
                         network: ach
                         origination_account_id: ''
-                        originator_client_id: null
+                        originator_client_id:
                         refunds: []
                         status: pending
                         type: credit
@@ -870,10 +869,10 @@ paths:
                             region: CA
                             postal_code: '94053'
                             country: US
-                        recurring_transfer_id: null
+                        recurring_transfer_id:
                         credit_funds_source: sweep
                         facilitator_fee: '1.23'
-                        network_trace_id: null
+                        network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -894,7 +893,7 @@ paths:
   /transfer/recurring/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List recurring transfers
+      summary: Plaid List recurring transfers
       tags:
         - plaid
       externalDocs:
@@ -914,7 +913,7 @@ paths:
                       - recurring_transfer_id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                         created: '2022-07-05T12:48:37Z'
                         next_origination_date: '2022-10-28'
-                        test_clock_id: null
+                        test_clock_id:
                         status: active
                         amount: '12.34'
                         description: payment
@@ -964,7 +963,7 @@ paths:
   /transfer/cancel:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Cancel a transfer
+      summary: Plaid Cancel a transfer
       tags:
         - plaid
       externalDocs:
@@ -1000,7 +999,7 @@ paths:
   /transfer/recurring/cancel:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Cancel a recurring transfer.
+      summary: Plaid Cancel a recurring transfer.
       tags:
         - plaid
       externalDocs:
@@ -1036,7 +1035,7 @@ paths:
   /transfer/event/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List transfer events
+      summary: Plaid List transfer events
       tags:
         - plaid
       externalDocs:
@@ -1060,12 +1059,12 @@ paths:
                         transfer_type: credit
                         event_id: 1
                         event_type: posted
-                        failure_reason: null
+                        failure_reason:
                         origination_account_id: ''
                         originator_client_id: 569ed2f36b3a3a021713abc1
-                        refund_id: null
-                        sweep_amount: null
-                        sweep_id: null
+                        refund_id:
+                        sweep_amount:
+                        sweep_id:
                         timestamp: '2019-12-09T17:27:15Z'
                     has_more: true
                     request_id: mdqfuVxeoza6mhu
@@ -1087,7 +1086,7 @@ paths:
   /transfer/event/sync:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Sync transfer events
+      summary: Plaid Sync transfer events
       tags:
         - plaid
       externalDocs:
@@ -1111,12 +1110,12 @@ paths:
                         transfer_type: credit
                         event_id: 1
                         event_type: pending
-                        failure_reason: null
+                        failure_reason:
                         origination_account_id: ''
-                        originator_client_id: null
-                        refund_id: null
-                        sweep_amount: null
-                        sweep_id: null
+                        originator_client_id:
+                        refund_id:
+                        sweep_amount:
+                        sweep_id:
                         timestamp: '2019-12-09T17:27:15Z'
                     has_more: true
                     request_id: mdqfuVxeoza6mhu
@@ -1140,7 +1139,7 @@ paths:
   /transfer/sweep/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a sweep
+      summary: Plaid Retrieve a sweep
       tags:
         - plaid
       externalDocs:
@@ -1187,7 +1186,7 @@ paths:
   /transfer/sweep/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List sweeps
+      summary: Plaid List sweeps
       tags:
         - plaid
       externalDocs:
@@ -1212,7 +1211,7 @@ paths:
                         iso_currency_code: USD
                         settled: '2019-12-10'
                         status: settled
-                        originator_client_id: null
+                        originator_client_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -1234,7 +1233,7 @@ paths:
   /transfer/migrate_account:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Migrate account into Transfers
+      summary: Plaid Migrate account into Transfers
       tags:
         - plaid
       externalDocs:
@@ -1279,7 +1278,7 @@ paths:
   /transfer/intent/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a transfer intent object to invoke the Transfer UI
+      summary: Plaid Create a transfer intent object to invoke the Transfer UI
       tags:
         - plaid
       externalDocs:
@@ -1339,7 +1338,7 @@ paths:
   /transfer/intent/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve more information about a transfer intent
+      summary: Plaid Retrieve more information about a transfer intent
       tags:
         - plaid
       externalDocs:
@@ -1362,12 +1361,12 @@ paths:
                       amount: '12.34'
                       iso_currency_code: USD
                       authorization_decision: APPROVED
-                      authorization_decision_rationale: null
+                      authorization_decision_rationale:
                       created: '2019-12-09T17:27:15Z'
                       description: Desc
-                      failure_reason: null
-                      guarantee_decision: null
-                      guarantee_decision_rationale: null
+                      failure_reason:
+                      guarantee_decision:
+                      guarantee_decision_rationale:
                       id: 460cbe92-2dcc-8eae-5ad6-b37d0ec90fd9
                       metadata:
                         key1: value1
@@ -1405,7 +1404,7 @@ paths:
   /transfer/repayment/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Lists historical repayments
+      summary: Plaid Lists historical repayments
       tags:
         - plaid
       externalDocs:
@@ -1453,7 +1452,7 @@ paths:
   /transfer/repayment/return/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List the returns included in a repayment
+      summary: Plaid List the returns included in a repayment
       tags:
         - plaid
       externalDocs:
@@ -1503,7 +1502,7 @@ paths:
   /transfer/originator/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a new originator
+      summary: Plaid Create a new originator
       tags:
         - plaid
       externalDocs:
@@ -1583,7 +1582,7 @@ paths:
   /transfer/diligence/submit:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Submit transfer diligence on behalf of the originator
+      summary: Plaid Submit transfer diligence on behalf of the originator
       tags:
         - plaid
       externalDocs:
@@ -1620,7 +1619,7 @@ paths:
   /transfer/diligence/document/upload:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Upload transfer diligence document on behalf of the originator
+      summary: Plaid Upload transfer diligence document on behalf of the originator
       tags:
         - plaid
       externalDocs:
@@ -1663,7 +1662,7 @@ paths:
   /transfer/originator/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get status of an originator's onboarding
+      summary: Plaid Get status of an originator's onboarding
       tags:
         - plaid
       externalDocs:
@@ -1706,7 +1705,7 @@ paths:
   /transfer/originator/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get status of all originators' onboarding
+      summary: Plaid Get status of all originators' onboarding
       tags:
         - plaid
       externalDocs:
@@ -1750,7 +1749,7 @@ paths:
   /transfer/refund/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a refund
+      summary: Plaid Create a refund
       tags:
         - plaid
       externalDocs:
@@ -1772,8 +1771,8 @@ paths:
                       amount: '12.34'
                       status: pending
                       created: '2020-08-06T17:27:15Z'
-                      failure_reason: null
-                      network_trace_id: null
+                      failure_reason:
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -1804,7 +1803,7 @@ paths:
   /transfer/refund/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Retrieve a refund
+      summary: Plaid Retrieve a refund
       tags:
         - plaid
       externalDocs:
@@ -1827,8 +1826,8 @@ paths:
                       amount: '12.34'
                       status: pending
                       created: '2020-08-06T17:27:15Z'
-                      failure_reason: null
-                      network_trace_id: null
+                      failure_reason:
+                      network_trace_id:
                     request_id: saKrIBuEB9qJZno
         default:
           description: Error response
@@ -1850,7 +1849,7 @@ paths:
   /transfer/refund/cancel:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Cancel a refund
+      summary: Plaid Cancel a refund
       tags:
         - plaid
       externalDocs:
@@ -1886,7 +1885,7 @@ paths:
   /sandbox/transfer/sweep/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate creating a sweep
+      summary: Plaid Simulate creating a sweep
       tags:
         - plaid
       externalDocs:
@@ -1909,7 +1908,7 @@ paths:
                       amount: '12.34'
                       iso_currency_code: USD
                       settled: '2020-08-07'
-                      network_trace_id: null
+                      network_trace_id:
                     request_id: mdqfuVxeoza6mhu
         default:
           description: Error response
@@ -1933,7 +1932,7 @@ paths:
   /sandbox/transfer/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a transfer event in Sandbox
+      summary: Plaid Simulate a transfer event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -1972,7 +1971,7 @@ paths:
   /sandbox/transfer/refund/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a refund event in Sandbox
+      summary: Plaid Simulate a refund event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -2011,7 +2010,7 @@ paths:
   /sandbox/transfer/ledger/simulate_available:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate converting pending balance to available balance
+      summary: Plaid Simulate converting pending balance to available balance
       tags:
         - plaid
       externalDocs:
@@ -2049,7 +2048,7 @@ paths:
   /sandbox/transfer/ledger/deposit/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a ledger deposit event in Sandbox
+      summary: Plaid Simulate a ledger deposit event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -2085,7 +2084,7 @@ paths:
   /sandbox/transfer/ledger/withdraw/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Simulate a ledger withdraw event in Sandbox
+      summary: Plaid Simulate a ledger withdraw event in Sandbox
       tags:
         - plaid
       externalDocs:
@@ -2122,7 +2121,7 @@ paths:
   /sandbox/transfer/repayment/simulate:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Trigger the creation of a repayment
+      summary: Plaid Trigger the creation of a repayment
       tags:
         - plaid
       externalDocs:
@@ -2160,7 +2159,7 @@ paths:
   /sandbox/transfer/fire_webhook:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Manually fire a Transfer webhook
+      summary: Plaid Manually fire a Transfer webhook
       tags:
         - plaid
       externalDocs:
@@ -2195,7 +2194,7 @@ paths:
   /sandbox/transfer/test_clock/create:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Create a test clock
+      summary: Plaid Create a test clock
       tags:
         - plaid
       externalDocs:
@@ -2241,7 +2240,7 @@ paths:
   /sandbox/transfer/test_clock/advance:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Advance a test clock
+      summary: Plaid Advance a test clock
       tags:
         - plaid
       externalDocs:
@@ -2303,7 +2302,7 @@ paths:
   /sandbox/transfer/test_clock/get:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: Get a test clock
+      summary: Plaid Get a test clock
       tags:
         - plaid
       externalDocs:
@@ -2341,7 +2340,7 @@ paths:
   /sandbox/transfer/test_clock/list:
     x-plaid-business-unit-context: BUSINESS_UNIT_PLAID
     post:
-      summary: List test clocks
+      summary: Plaid List test clocks
       tags:
         - plaid
       externalDocs:

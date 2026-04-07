@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' payment profile/'
+  title: 'Plaid payment profile/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -26,7 +26,7 @@ paths:
       deprecated: true
       tags:
         - plaid
-      summary: Reset the login of a Payment Profile
+      summary: Plaid Reset the login of a Payment Profile
       externalDocs:
         url: /api/sandbox/#sandboxpayment_profilereset_login
       operationId: sandboxPaymentProfileResetLogin
@@ -62,7 +62,7 @@ paths:
       deprecated: true
       tags:
         - plaid
-      summary: Create payment profile
+      summary: Plaid Create payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profilecreate
       operationId: paymentProfileCreate
@@ -106,7 +106,7 @@ paths:
       deprecated: true
       tags:
         - plaid
-      summary: Get payment profile
+      summary: Plaid Get payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileget
       operationId: paymentProfileGet
@@ -123,7 +123,7 @@ paths:
                     status: READY
                     updated_at: '2022-07-07T12:48:37Z'
                     created_at: '2022-07-05T12:48:37Z'
-                    deleted_at: null
+                    deleted_at:
                     request_id: 4ciYmmesdqSiUAB
         default:
           description: Error response
@@ -146,7 +146,7 @@ paths:
       deprecated: true
       tags:
         - plaid
-      summary: Remove payment profile
+      summary: Plaid Remove payment profile
       externalDocs:
         url: /api/products/transfer/#payment_profileremove
       operationId: paymentProfileRemove

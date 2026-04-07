@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' identity/'
+  title: 'Plaid identity/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve identity data
+      summary: Plaid Retrieve identity data
       externalDocs:
         url: /api/products/identity/#identityget
       operationId: identityGet
@@ -45,8 +45,8 @@ paths:
                           available: 100
                           current: 110
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -96,8 +96,8 @@ paths:
                           available: 200
                           current: 210
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '1111'
                         name: Plaid Saving
                         official_name: Plaid Silver Standard 0.1% Interest Saving
@@ -152,8 +152,8 @@ paths:
                         - identity
                         - liabilities
                         - transactions
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_3
                       item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
                       update_type: background
@@ -190,7 +190,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Returns uploaded document identity
+      summary: Plaid Returns uploaded document identity
       externalDocs:
         url: none
       operationId: identityDocumentsUploadsGet
@@ -213,8 +213,8 @@ paths:
                           available: 100
                           current: 110
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -264,8 +264,8 @@ paths:
                           available: 200
                           current: 210
                           iso_currency_code: USD
-                          limit: null
-                          unofficial_currency_code: null
+                          limit:
+                          unofficial_currency_code:
                         mask: '1111'
                         name: Plaid Saving
                         official_name: Plaid Silver Standard 0.1% Interest Saving
@@ -320,8 +320,8 @@ paths:
                         - identity
                         - liabilities
                         - transactions
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_3
                       item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
                       update_type: background
@@ -338,7 +338,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve identity match score
+      summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/products/identity/#identitymatch
       operationId: identityMatch
@@ -355,11 +355,11 @@ paths:
                     accounts:
                       - account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
                         balances:
-                          available: null
-                          current: null
-                          iso_currency_code: null
-                          limit: null
-                          unofficial_currency_code: null
+                          available:
+                          current:
+                          iso_currency_code:
+                          limit:
+                          unofficial_currency_code:
                         mask: '0000'
                         name: Plaid Checking
                         official_name: Plaid Gold Standard 0% Interest Checking
@@ -379,11 +379,11 @@ paths:
                         type: depository
                       - account_id: 3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr
                         balances:
-                          available: null
-                          current: null
-                          iso_currency_code: null
-                          limit: null
-                          unofficial_currency_code: null
+                          available:
+                          current:
+                          iso_currency_code:
+                          limit:
+                          unofficial_currency_code:
                         mask: '1111'
                         name: Plaid Saving
                         official_name: Plaid Silver Standard 0.1% Interest Saving
@@ -392,7 +392,7 @@ paths:
                           is_first_name_or_last_name_match: false
                         phone_number:
                           score: 100
-                        email_address: null
+                        email_address:
                         address:
                           score: 100
                           is_postal_code_match: true
@@ -408,8 +408,8 @@ paths:
                         - identity
                         - liabilities
                         - transactions
-                      consent_expiration_time: null
-                      error: null
+                      consent_expiration_time:
+                      error:
                       institution_id: ins_3
                       item_id: eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6
                       update_type: background
@@ -443,7 +443,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Refresh identity data
+      summary: Plaid Refresh identity data
       externalDocs:
         url: /api/products/identity/#identityrefresh
       operationId: identityRefresh
@@ -498,7 +498,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve Identity data
+      summary: Plaid Retrieve Identity data
       externalDocs:
         url: /api/processor-partners/#processoridentityget
       operationId: processorIdentityGet
@@ -518,8 +518,8 @@ paths:
                         available: 100
                         current: 110
                         iso_currency_code: USD
-                        limit: null
-                        unofficial_currency_code: null
+                        limit:
+                        unofficial_currency_code:
                       mask: '0000'
                       name: Plaid Checking
                       official_name: Plaid Gold Standard 0% Interest Checking
@@ -580,7 +580,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Retrieve identity match score
+      summary: Plaid Retrieve identity match score
       externalDocs:
         url: /api/processor-partners/#processoridentitymatch
       operationId: processorIdentityMatch
@@ -597,11 +597,11 @@ paths:
                     account:
                       account_id: BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp
                       balances:
-                        available: null
-                        current: null
-                        iso_currency_code: null
-                        limit: null
-                        unofficial_currency_code: null
+                        available:
+                        current:
+                        iso_currency_code:
+                        limit:
+                        unofficial_currency_code:
                       mask: '0000'
                       name: Plaid Checking
                       official_name: Plaid Gold Standard 0% Interest Checking

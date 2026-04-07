@@ -7,7 +7,7 @@ servers:
   - description: Sandbox
     url: https://sandbox.plaid.com
 info:
-  title: ' wallet/'
+  title: 'Plaid wallet/'
   version: 2020-09-14_1.517.0
   description: Needs description.
   contact:
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Create an e-wallet
+      summary: Plaid Create an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletcreate
       operationId: walletCreate
@@ -64,7 +64,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fetch an e-wallet
+      summary: Plaid Fetch an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#walletget
       operationId: walletGet
@@ -121,7 +121,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fetch a list of e-wallets
+      summary: Plaid Fetch a list of e-wallets
       externalDocs:
         url: /api/products/virtual-accounts/#walletlist
       operationId: walletList
@@ -175,7 +175,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Execute a transaction using an e-wallet
+      summary: Plaid Execute a transaction using an e-wallet
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionexecute
       operationId: walletTransactionExecute
@@ -213,7 +213,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: Fetch an e-wallet transaction
+      summary: Plaid Fetch an e-wallet transaction
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionget
       operationId: walletTransactionGet
@@ -276,7 +276,7 @@ paths:
     post:
       tags:
         - plaid
-      summary: List e-wallet transactions
+      summary: Plaid List e-wallet transactions
       externalDocs:
         url: /api/products/virtual-accounts/#wallettransactionlist
       operationId: walletTransactionList
