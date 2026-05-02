@@ -1,7 +1,7 @@
 # Plaid (plaid)
 Plaid is a financial technology company that provides an API platform for businesses to connect with user's financial accounts and facilitate transactions. Plaid's technology enables applications to securely access and authenticate user banking information, allowing them to offer services such as bank account verification, payment initiation, and personal finance management. By acting as the interface between financial institutions and third-party platforms, Plaid streamlines the process of integrating financial data into software applications, enabling businesses to create innovative and user-friendly financial products.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/banking/main/_apis/plaid/apis.md)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/plaid/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -16,7 +16,7 @@ Plaid is a financial technology company that provides an API platform for busine
 ## Timestamps
 
 - **Created:** 2024-07-07 
-- **Modified:** 2025-01-02 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
@@ -646,7 +646,7 @@ Plaid FDX API is a powerful tool that allows developers to easily access financi
 
 ## Maintainers
 
-**FN:** API Evangelist
+**FN:** Kin Lane
 
-**Email:** info@apievangelist.com
+**Email:** kin@apievangelist.com
 

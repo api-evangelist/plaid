@@ -1,5 +1,5 @@
 aid: plaid
-url: https://raw.githubusercontent.com/api-search/banking/main/_apis/plaid/apis.md
+url: https://raw.githubusercontent.com/api-evangelist/plaid/refs/heads/main/apis.yml
 apis:
   - aid: plaid:plaid-asset-report-api
     name: Plaid Asset Report API
@@ -1497,7 +1497,7 @@ common:
   - url: https://plaid.com/docs/api/webhooks/
     type: Webhooks
 created: '2024-07-07T00:00:00.000Z'
-modified: '2025-01-02'
+modified: '2026-04-28'
 description: >-
   Plaid is a financial technology company that provides an API platform for
   businesses to connect with user's financial accounts and facilitate
