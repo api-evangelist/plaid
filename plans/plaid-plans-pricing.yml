@@ -1,0 +1,114 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Plaid
+providerId: plaid
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Fintech
+  - Banking
+  - Open Finance
+description: Plaid uses one-time, subscription, and per-request pricing depending on product.
+sources:
+  - https://plaid.com/pricing/
+plans:
+  - id: plaid-payg
+    name: Pay As You Go
+    type: usage-based
+    description: Default Plaid pricing.
+    entries:
+      - label: Auth (per linked account)
+        name: auth
+        type: metered
+        metric: account
+        limit: -1
+        timeFrame: one-time
+        geo: US/CA
+        unit: 1
+        price: '1.50'
+        userMultiplied: false
+      - label: Identity (per call)
+        name: identity
+        type: metered
+        metric: call
+        limit: -1
+        timeFrame: usage
+        geo: US/CA
+        unit: 1
+        price: '0.30'
+        userMultiplied: false
+      - label: Income (per linked account)
+        name: income
+        type: metered
+        metric: account
+        limit: -1
+        timeFrame: one-time
+        geo: US/CA
+        unit: 1
+        price: custom
+        userMultiplied: false
+      - label: Balance (per call)
+        name: balance
+        type: metered
+        metric: call
+        limit: -1
+        timeFrame: usage
+        geo: US/CA
+        unit: 1
+        price: '0.10'
+        userMultiplied: false
+      - label: Transactions (per call)
+        name: transactions
+        type: metered
+        metric: call
+        limit: -1
+        timeFrame: usage
+        geo: US/CA
+        unit: 1
+        price: '0.45'
+        userMultiplied: false
+    elements:
+      - name: GA products
+      - name: Unlimited live API calls
+      - name: Link customization
+  - id: plaid-growth
+    name: Growth
+    type: subscription
+    description: Discounted product rates plus platform support and SSO.
+    entries:
+      - label: Monthly minimum (custom)
+        name: minimum
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: US/CA
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Discounted product rates
+      - name: Platform support
+      - name: SSO
+  - id: plaid-custom
+    name: Custom (Enterprise)
+    type: enterprise
+    description: Volume discounts (typically 30-50% off list at 10k+ MAU).
+    entries:
+      - label: Negotiated minimum
+        name: commit
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: $1k-$10k+
+        userMultiplied: false
+    elements:
+      - name: Volume discounts
+      - name: Beta product access
+      - name: Premium support
+      - name: Account management

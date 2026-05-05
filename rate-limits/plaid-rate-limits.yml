@@ -1,0 +1,45 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Plaid
+providerId: plaid
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Fintech
+description: Plaid rate limits per product per environment.
+sources:
+  - https://plaid.com/pricing/
+  - https://plaid.com/docs/errors/rate-limit-exceeded/
+headers: {}
+responseCodes:
+  throttled: 429
+  rateLimitExceeded: 429
+limits:
+  - name: Default per-Item per-day
+    scope: item
+    metric: requests_per_day
+    limit: 100
+    timeFrame: day
+  - name: Sandbox token create
+    scope: client
+    metric: requests_per_minute
+    limit: 30
+    timeFrame: minute
+  - name: Link token create
+    scope: client
+    metric: requests_per_second
+    limit: 30
+    timeFrame: second
+  - name: Asset Report create
+    scope: item
+    metric: requests_per_minute
+    limit: 1
+    timeFrame: minute per Item
+policies:
+  - name: Per-Item caps
+    description: Most product limits scope to a specific Item.
+  - name: Cursor pagination
+    description: Use /transactions/sync with cursor.
