@@ -1,0 +1,90 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid accounts/
+  description: Needs description.
+  tags:
+  - Plaid
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: plaid
+    baseUri: https://production.plaid.com
+    description: Plaid accounts/ HTTP API.
+    resources:
+    - name: accounts-get
+      path: /accounts/get
+      operations:
+      - name: accountsget
+        method: POST
+        description: Plaid Retrieve accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: accounts-balance-get
+      path: /accounts/balance/get
+      operations:
+      - name: accountsbalanceget
+        method: POST
+        description: Plaid Retrieve real-time balance data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: plaid-rest
+    description: REST adapter for Plaid accounts/.
+    resources:
+    - path: /accounts/get
+      name: accountsget
+      operations:
+      - method: POST
+        name: accountsget
+        description: Plaid Retrieve accounts
+        call: plaid.accountsget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /accounts/balance/get
+      name: accountsbalanceget
+      operations:
+      - method: POST
+        name: accountsbalanceget
+        description: Plaid Retrieve real-time balance data
+        call: plaid.accountsbalanceget
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: plaid-mcp
+    transport: http
+    description: MCP adapter for Plaid accounts/ for AI agent use.
+    tools:
+    - name: accountsget
+      description: Plaid Retrieve accounts
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: plaid.accountsget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: accountsbalanceget
+      description: Plaid Retrieve real-time balance data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: plaid.accountsbalanceget
+      outputParameters:
+      - type: object
+        mapping: $.
