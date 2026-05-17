@@ -1347,7 +1347,7 @@ common:
   - url: https://plaid.com/docs/support/
     type: Support
   - url: https://plaid.com/docs/changelog/
-    type: Change Log
+    type: ChangeLog
   - url: https://dashboard.plaid.com/signin
     type: Login
   - url: https://plaid.com/docs/api/libraries/
@@ -1392,6 +1392,6 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 specificationVersion: '0.16'
-type: Contract
+kind: contract
 position: Consuming
 access: 3rd-Party
