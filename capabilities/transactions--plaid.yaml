@@ -1,0 +1,664 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid transactions/ — Plaid
+  description: 'Plaid transactions/ — Plaid. 15 operations. Lead operation: Plaid Create transaction category rule. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: transactions--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid transactions/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: beta-transactions-rules-v1-create
+      path: /beta/transactions/rules/v1/create
+      operations:
+      - name: transactionsrulescreate
+        method: POST
+        description: Plaid Create transaction category rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-rules-v1-list
+      path: /beta/transactions/rules/v1/list
+      operations:
+      - name: transactionsruleslist
+        method: POST
+        description: Plaid Return a list of rules created for the Item associated with the access token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-rules-v1-remove
+      path: /beta/transactions/rules/v1/remove
+      operations:
+      - name: transactionsrulesremove
+        method: POST
+        description: Plaid Remove transaction rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-user_insights-v1-get
+      path: /beta/transactions/user_insights/v1/get
+      operations:
+      - name: transactionsuserinsightsget
+        method: POST
+        description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-v1-enhance
+      path: /beta/transactions/v1/enhance
+      operations:
+      - name: transactionsenhance
+        method: POST
+        description: Plaid enhance locally-held transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: investments-transactions-get
+      path: /investments/transactions/get
+      operations:
+      - name: investmentstransactionsget
+        method: POST
+        description: Plaid Get investment transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processor-transactions-get
+      path: /processor/transactions/get
+      operations:
+      - name: processortransactionsget
+        method: POST
+        description: Plaid Get transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processor-transactions-recurring-get
+      path: /processor/transactions/recurring/get
+      operations:
+      - name: processortransactionsrecurringget
+        method: POST
+        description: Plaid Fetch recurring transaction streams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processor-transactions-refresh
+      path: /processor/transactions/refresh
+      operations:
+      - name: processortransactionsrefresh
+        method: POST
+        description: Plaid Refresh transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processor-transactions-sync
+      path: /processor/transactions/sync
+      operations:
+      - name: processortransactionssync
+        method: POST
+        description: Plaid Get incremental transaction updates on a processor token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transactions-enrich
+      path: /transactions/enrich
+      operations:
+      - name: transactionsenrich
+        method: POST
+        description: Plaid Enrich locally-held transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transactions-get
+      path: /transactions/get
+      operations:
+      - name: transactionsget
+        method: POST
+        description: Plaid Get transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transactions-recurring-get
+      path: /transactions/recurring/get
+      operations:
+      - name: transactionsrecurringget
+        method: POST
+        description: Plaid Fetch recurring transaction streams
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transactions-refresh
+      path: /transactions/refresh
+      operations:
+      - name: transactionsrefresh
+        method: POST
+        description: Plaid Refresh transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transactions-sync
+      path: /transactions/sync
+      operations:
+      - name: transactionssync
+        method: POST
+        description: Plaid Get incremental transaction updates on an Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: transactions--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid transactions/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/beta/transactions/rules/v1/create
+      name: beta-transactions-rules-v1-create
+      description: REST surface for beta-transactions-rules-v1-create.
+      operations:
+      - method: POST
+        name: transactionsrulescreate
+        description: Plaid Create transaction category rule
+        call: transactions--plaid.transactionsrulescreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/rules/v1/list
+      name: beta-transactions-rules-v1-list
+      description: REST surface for beta-transactions-rules-v1-list.
+      operations:
+      - method: POST
+        name: transactionsruleslist
+        description: Plaid Return a list of rules created for the Item associated with the access token.
+        call: transactions--plaid.transactionsruleslist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/rules/v1/remove
+      name: beta-transactions-rules-v1-remove
+      description: REST surface for beta-transactions-rules-v1-remove.
+      operations:
+      - method: POST
+        name: transactionsrulesremove
+        description: Plaid Remove transaction rule
+        call: transactions--plaid.transactionsrulesremove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/user-insights/v1/get
+      name: beta-transactions-user-insights-v1-get
+      description: REST surface for beta-transactions-user_insights-v1-get.
+      operations:
+      - method: POST
+        name: transactionsuserinsightsget
+        description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+        call: transactions--plaid.transactionsuserinsightsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/v1/enhance
+      name: beta-transactions-v1-enhance
+      description: REST surface for beta-transactions-v1-enhance.
+      operations:
+      - method: POST
+        name: transactionsenhance
+        description: Plaid enhance locally-held transaction data
+        call: transactions--plaid.transactionsenhance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/investments/transactions/get
+      name: investments-transactions-get
+      description: REST surface for investments-transactions-get.
+      operations:
+      - method: POST
+        name: investmentstransactionsget
+        description: Plaid Get investment transactions
+        call: transactions--plaid.investmentstransactionsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processor/transactions/get
+      name: processor-transactions-get
+      description: REST surface for processor-transactions-get.
+      operations:
+      - method: POST
+        name: processortransactionsget
+        description: Plaid Get transaction data
+        call: transactions--plaid.processortransactionsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processor/transactions/recurring/get
+      name: processor-transactions-recurring-get
+      description: REST surface for processor-transactions-recurring-get.
+      operations:
+      - method: POST
+        name: processortransactionsrecurringget
+        description: Plaid Fetch recurring transaction streams
+        call: transactions--plaid.processortransactionsrecurringget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processor/transactions/refresh
+      name: processor-transactions-refresh
+      description: REST surface for processor-transactions-refresh.
+      operations:
+      - method: POST
+        name: processortransactionsrefresh
+        description: Plaid Refresh transaction data
+        call: transactions--plaid.processortransactionsrefresh
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processor/transactions/sync
+      name: processor-transactions-sync
+      description: REST surface for processor-transactions-sync.
+      operations:
+      - method: POST
+        name: processortransactionssync
+        description: Plaid Get incremental transaction updates on a processor token
+        call: transactions--plaid.processortransactionssync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transactions/enrich
+      name: transactions-enrich
+      description: REST surface for transactions-enrich.
+      operations:
+      - method: POST
+        name: transactionsenrich
+        description: Plaid Enrich locally-held transaction data
+        call: transactions--plaid.transactionsenrich
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transactions/get
+      name: transactions-get
+      description: REST surface for transactions-get.
+      operations:
+      - method: POST
+        name: transactionsget
+        description: Plaid Get transaction data
+        call: transactions--plaid.transactionsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transactions/recurring/get
+      name: transactions-recurring-get
+      description: REST surface for transactions-recurring-get.
+      operations:
+      - method: POST
+        name: transactionsrecurringget
+        description: Plaid Fetch recurring transaction streams
+        call: transactions--plaid.transactionsrecurringget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transactions/refresh
+      name: transactions-refresh
+      description: REST surface for transactions-refresh.
+      operations:
+      - method: POST
+        name: transactionsrefresh
+        description: Plaid Refresh transaction data
+        call: transactions--plaid.transactionsrefresh
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transactions/sync
+      name: transactions-sync
+      description: REST surface for transactions-sync.
+      operations:
+      - method: POST
+        name: transactionssync
+        description: Plaid Get incremental transaction updates on an Item
+        call: transactions--plaid.transactionssync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: transactions--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid transactions/ — Plaid. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: plaid-create-transaction-category-rule
+      description: Plaid Create transaction category rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsrulescreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-return-list-rules-created
+      description: Plaid Return a list of rules created for the Item associated with the access token.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsruleslist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-remove-transaction-rule
+      description: Plaid Remove transaction rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsrulesremove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-obtain-user-insights-based
+      description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsuserinsightsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-enhance-locally-held-transaction
+      description: Plaid enhance locally-held transaction data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsenhance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-investment-transactions
+      description: Plaid Get investment transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.investmentstransactionsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-transaction-data
+      description: Plaid Get transaction data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.processortransactionsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fetch-recurring-transaction-streams
+      description: Plaid Fetch recurring transaction streams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.processortransactionsrecurringget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-refresh-transaction-data
+      description: Plaid Refresh transaction data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.processortransactionsrefresh
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-incremental-transaction-updates
+      description: Plaid Get incremental transaction updates on a processor token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.processortransactionssync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-enrich-locally-held-transaction
+      description: Plaid Enrich locally-held transaction data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsenrich
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-transaction-data-2
+      description: Plaid Get transaction data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fetch-recurring-transaction-streams-2
+      description: Plaid Fetch recurring transaction streams
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsrecurringget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-refresh-transaction-data-2
+      description: Plaid Refresh transaction data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionsrefresh
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-incremental-transaction-updates-2
+      description: Plaid Get incremental transaction updates on an Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transactions--plaid.transactionssync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,160 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid institutions/ — Plaid
+  description: 'Plaid institutions/ — Plaid. 3 operations. Lead operation: Plaid Get details of all supported institutions.
+    Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: institutions--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid institutions/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: institutions-get
+      path: /institutions/get
+      operations:
+      - name: institutionsget
+        method: POST
+        description: Plaid Get details of all supported institutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: institutions-get_by_id
+      path: /institutions/get_by_id
+      operations:
+      - name: institutionsgetbyid
+        method: POST
+        description: Plaid Get details of an institution
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: institutions-search
+      path: /institutions/search
+      operations:
+      - name: institutionssearch
+        method: POST
+        description: Plaid Search institutions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: institutions--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid institutions/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/institutions/get
+      name: institutions-get
+      description: REST surface for institutions-get.
+      operations:
+      - method: POST
+        name: institutionsget
+        description: Plaid Get details of all supported institutions
+        call: institutions--plaid.institutionsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/institutions/get-by-id
+      name: institutions-get-by-id
+      description: REST surface for institutions-get_by_id.
+      operations:
+      - method: POST
+        name: institutionsgetbyid
+        description: Plaid Get details of an institution
+        call: institutions--plaid.institutionsgetbyid
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/institutions/search
+      name: institutions-search
+      description: REST surface for institutions-search.
+      operations:
+      - method: POST
+        name: institutionssearch
+        description: Plaid Search institutions
+        call: institutions--plaid.institutionssearch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: institutions--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid institutions/ — Plaid. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: plaid-get-details-all-supported
+      description: Plaid Get details of all supported institutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: institutions--plaid.institutionsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-details-institution
+      description: Plaid Get details of an institution
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: institutions--plaid.institutionsgetbyid
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-search-institutions
+      description: Plaid Search institutions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: institutions--plaid.institutionssearch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

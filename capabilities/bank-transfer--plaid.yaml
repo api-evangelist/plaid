@@ -1,0 +1,580 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid bank transfer/ — Plaid
+  description: 'Plaid bank transfer/ — Plaid. 13 operations. Lead operation: Plaid Get balance of your Bank Transfer account.
+    Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: bank-transfer--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid bank transfer/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: bank_transfer-balance-get
+      path: /bank_transfer/balance/get
+      operations:
+      - name: banktransferbalanceget
+        method: POST
+        description: Plaid Get balance of your Bank Transfer account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-cancel
+      path: /bank_transfer/cancel
+      operations:
+      - name: banktransfercancel
+        method: POST
+        description: Plaid Cancel a bank transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-create
+      path: /bank_transfer/create
+      operations:
+      - name: banktransfercreate
+        method: POST
+        description: Plaid Create a bank transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-event-list
+      path: /bank_transfer/event/list
+      operations:
+      - name: banktransfereventlist
+        method: POST
+        description: Plaid List bank transfer events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-event-sync
+      path: /bank_transfer/event/sync
+      operations:
+      - name: banktransfereventsync
+        method: POST
+        description: Plaid Sync bank transfer events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-get
+      path: /bank_transfer/get
+      operations:
+      - name: banktransferget
+        method: POST
+        description: Plaid Retrieve a bank transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-list
+      path: /bank_transfer/list
+      operations:
+      - name: banktransferlist
+        method: POST
+        description: Plaid List bank transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-migrate_account
+      path: /bank_transfer/migrate_account
+      operations:
+      - name: banktransfermigrateaccount
+        method: POST
+        description: Plaid Migrate account into Bank Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-sweep-get
+      path: /bank_transfer/sweep/get
+      operations:
+      - name: banktransfersweepget
+        method: POST
+        description: Plaid Retrieve a sweep
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: bank_transfer-sweep-list
+      path: /bank_transfer/sweep/list
+      operations:
+      - name: banktransfersweeplist
+        method: POST
+        description: Plaid List sweeps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: processor-bank_transfer-create
+      path: /processor/bank_transfer/create
+      operations:
+      - name: processorbanktransfercreate
+        method: POST
+        description: Plaid Create a bank transfer as a processor
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-bank_transfer-fire_webhook
+      path: /sandbox/bank_transfer/fire_webhook
+      operations:
+      - name: sandboxbanktransferfirewebhook
+        method: POST
+        description: Plaid Manually fire a Bank Transfer webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-bank_transfer-simulate
+      path: /sandbox/bank_transfer/simulate
+      operations:
+      - name: sandboxbanktransfersimulate
+        method: POST
+        description: Plaid Simulate a bank transfer event in Sandbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: bank-transfer--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid bank transfer/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/bank-transfer/balance/get
+      name: bank-transfer-balance-get
+      description: REST surface for bank_transfer-balance-get.
+      operations:
+      - method: POST
+        name: banktransferbalanceget
+        description: Plaid Get balance of your Bank Transfer account
+        call: bank-transfer--plaid.banktransferbalanceget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/cancel
+      name: bank-transfer-cancel
+      description: REST surface for bank_transfer-cancel.
+      operations:
+      - method: POST
+        name: banktransfercancel
+        description: Plaid Cancel a bank transfer
+        call: bank-transfer--plaid.banktransfercancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/create
+      name: bank-transfer-create
+      description: REST surface for bank_transfer-create.
+      operations:
+      - method: POST
+        name: banktransfercreate
+        description: Plaid Create a bank transfer
+        call: bank-transfer--plaid.banktransfercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/event/list
+      name: bank-transfer-event-list
+      description: REST surface for bank_transfer-event-list.
+      operations:
+      - method: POST
+        name: banktransfereventlist
+        description: Plaid List bank transfer events
+        call: bank-transfer--plaid.banktransfereventlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/event/sync
+      name: bank-transfer-event-sync
+      description: REST surface for bank_transfer-event-sync.
+      operations:
+      - method: POST
+        name: banktransfereventsync
+        description: Plaid Sync bank transfer events
+        call: bank-transfer--plaid.banktransfereventsync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/get
+      name: bank-transfer-get
+      description: REST surface for bank_transfer-get.
+      operations:
+      - method: POST
+        name: banktransferget
+        description: Plaid Retrieve a bank transfer
+        call: bank-transfer--plaid.banktransferget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/list
+      name: bank-transfer-list
+      description: REST surface for bank_transfer-list.
+      operations:
+      - method: POST
+        name: banktransferlist
+        description: Plaid List bank transfers
+        call: bank-transfer--plaid.banktransferlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/migrate-account
+      name: bank-transfer-migrate-account
+      description: REST surface for bank_transfer-migrate_account.
+      operations:
+      - method: POST
+        name: banktransfermigrateaccount
+        description: Plaid Migrate account into Bank Transfers
+        call: bank-transfer--plaid.banktransfermigrateaccount
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/sweep/get
+      name: bank-transfer-sweep-get
+      description: REST surface for bank_transfer-sweep-get.
+      operations:
+      - method: POST
+        name: banktransfersweepget
+        description: Plaid Retrieve a sweep
+        call: bank-transfer--plaid.banktransfersweepget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank-transfer/sweep/list
+      name: bank-transfer-sweep-list
+      description: REST surface for bank_transfer-sweep-list.
+      operations:
+      - method: POST
+        name: banktransfersweeplist
+        description: Plaid List sweeps
+        call: bank-transfer--plaid.banktransfersweeplist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/processor/bank-transfer/create
+      name: processor-bank-transfer-create
+      description: REST surface for processor-bank_transfer-create.
+      operations:
+      - method: POST
+        name: processorbanktransfercreate
+        description: Plaid Create a bank transfer as a processor
+        call: bank-transfer--plaid.processorbanktransfercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/bank-transfer/fire-webhook
+      name: sandbox-bank-transfer-fire-webhook
+      description: REST surface for sandbox-bank_transfer-fire_webhook.
+      operations:
+      - method: POST
+        name: sandboxbanktransferfirewebhook
+        description: Plaid Manually fire a Bank Transfer webhook
+        call: bank-transfer--plaid.sandboxbanktransferfirewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/bank-transfer/simulate
+      name: sandbox-bank-transfer-simulate
+      description: REST surface for sandbox-bank_transfer-simulate.
+      operations:
+      - method: POST
+        name: sandboxbanktransfersimulate
+        description: Plaid Simulate a bank transfer event in Sandbox
+        call: bank-transfer--plaid.sandboxbanktransfersimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: bank-transfer--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid bank transfer/ — Plaid. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: plaid-get-balance-your-bank
+      description: Plaid Get balance of your Bank Transfer account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransferbalanceget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-cancel-bank-transfer
+      description: Plaid Cancel a bank transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfercancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-bank-transfer
+      description: Plaid Create a bank transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-bank-transfer-events
+      description: Plaid List bank transfer events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfereventlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-sync-bank-transfer-events
+      description: Plaid Sync bank transfer events
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfereventsync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-bank-transfer
+      description: Plaid Retrieve a bank transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransferget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-bank-transfers
+      description: Plaid List bank transfers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransferlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-migrate-account-bank-transfers
+      description: Plaid Migrate account into Bank Transfers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfermigrateaccount
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-sweep
+      description: Plaid Retrieve a sweep
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfersweepget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-sweeps
+      description: Plaid List sweeps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.banktransfersweeplist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-bank-transfer-processor
+      description: Plaid Create a bank transfer as a processor
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.processorbanktransfercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-manually-fire-bank-transfer
+      description: Plaid Manually fire a Bank Transfer webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.sandboxbanktransferfirewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-bank-transfer-event
+      description: Plaid Simulate a bank transfer event in Sandbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: bank-transfer--plaid.sandboxbanktransfersimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

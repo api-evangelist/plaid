@@ -1,0 +1,244 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid identity verification/ — Plaid
+  description: 'Plaid identity verification/ — Plaid. 5 operations. Lead operation: Plaid Create autofill for an Identity
+    Verification. Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: identity-verification--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid identity verification/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: identity_verification-autofill-create
+      path: /identity_verification/autofill/create
+      operations:
+      - name: identityverificationautofillcreate
+        method: POST
+        description: Plaid Create autofill for an Identity Verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: identity_verification-create
+      path: /identity_verification/create
+      operations:
+      - name: identityverificationcreate
+        method: POST
+        description: Plaid Create a new Identity Verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: identity_verification-get
+      path: /identity_verification/get
+      operations:
+      - name: identityverificationget
+        method: POST
+        description: Plaid Retrieve Identity Verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: identity_verification-list
+      path: /identity_verification/list
+      operations:
+      - name: identityverificationlist
+        method: POST
+        description: Plaid List Identity Verifications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: identity_verification-retry
+      path: /identity_verification/retry
+      operations:
+      - name: identityverificationretry
+        method: POST
+        description: Plaid Retry an Identity Verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: identity-verification--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid identity verification/ — Plaid. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/identity-verification/autofill/create
+      name: identity-verification-autofill-create
+      description: REST surface for identity_verification-autofill-create.
+      operations:
+      - method: POST
+        name: identityverificationautofillcreate
+        description: Plaid Create autofill for an Identity Verification
+        call: identity-verification--plaid.identityverificationautofillcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-verification/create
+      name: identity-verification-create
+      description: REST surface for identity_verification-create.
+      operations:
+      - method: POST
+        name: identityverificationcreate
+        description: Plaid Create a new Identity Verification
+        call: identity-verification--plaid.identityverificationcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-verification/get
+      name: identity-verification-get
+      description: REST surface for identity_verification-get.
+      operations:
+      - method: POST
+        name: identityverificationget
+        description: Plaid Retrieve Identity Verification
+        call: identity-verification--plaid.identityverificationget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-verification/list
+      name: identity-verification-list
+      description: REST surface for identity_verification-list.
+      operations:
+      - method: POST
+        name: identityverificationlist
+        description: Plaid List Identity Verifications
+        call: identity-verification--plaid.identityverificationlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/identity-verification/retry
+      name: identity-verification-retry
+      description: REST surface for identity_verification-retry.
+      operations:
+      - method: POST
+        name: identityverificationretry
+        description: Plaid Retry an Identity Verification
+        call: identity-verification--plaid.identityverificationretry
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: identity-verification--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid identity verification/ — Plaid. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: plaid-create-autofill-identity-verification
+      description: Plaid Create autofill for an Identity Verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: identity-verification--plaid.identityverificationautofillcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-new-identity-verification
+      description: Plaid Create a new Identity Verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: identity-verification--plaid.identityverificationcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-identity-verification
+      description: Plaid Retrieve Identity Verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: identity-verification--plaid.identityverificationget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-identity-verifications
+      description: Plaid List Identity Verifications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: identity-verification--plaid.identityverificationlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retry-identity-verification
+      description: Plaid Retry an Identity Verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: identity-verification--plaid.identityverificationretry
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

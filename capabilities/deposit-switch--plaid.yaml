@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid deposit switch/ — Plaid
+  description: 'Plaid deposit switch/ — Plaid. 4 operations. Lead operation: Create a deposit switch without using Plaid Exchange.
+    Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: deposit-switch--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid deposit switch/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: deposit_switch-alt-create
+      path: /deposit_switch/alt/create
+      operations:
+      - name: depositswitchaltcreate
+        method: POST
+        description: Create a deposit switch without using Plaid Exchange
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: deposit_switch-create
+      path: /deposit_switch/create
+      operations:
+      - name: depositswitchcreate
+        method: POST
+        description: Plaid Create a deposit switch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: deposit_switch-get
+      path: /deposit_switch/get
+      operations:
+      - name: depositswitchget
+        method: POST
+        description: Plaid Retrieve a deposit switch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: deposit_switch-token-create
+      path: /deposit_switch/token/create
+      operations:
+      - name: depositswitchtokencreate
+        method: POST
+        description: Plaid Create a deposit switch token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: deposit-switch--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid deposit switch/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/deposit-switch/alt/create
+      name: deposit-switch-alt-create
+      description: REST surface for deposit_switch-alt-create.
+      operations:
+      - method: POST
+        name: depositswitchaltcreate
+        description: Create a deposit switch without using Plaid Exchange
+        call: deposit-switch--plaid.depositswitchaltcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deposit-switch/create
+      name: deposit-switch-create
+      description: REST surface for deposit_switch-create.
+      operations:
+      - method: POST
+        name: depositswitchcreate
+        description: Plaid Create a deposit switch
+        call: deposit-switch--plaid.depositswitchcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deposit-switch/get
+      name: deposit-switch-get
+      description: REST surface for deposit_switch-get.
+      operations:
+      - method: POST
+        name: depositswitchget
+        description: Plaid Retrieve a deposit switch
+        call: deposit-switch--plaid.depositswitchget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deposit-switch/token/create
+      name: deposit-switch-token-create
+      description: REST surface for deposit_switch-token-create.
+      operations:
+      - method: POST
+        name: depositswitchtokencreate
+        description: Plaid Create a deposit switch token
+        call: deposit-switch--plaid.depositswitchtokencreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: deposit-switch--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid deposit switch/ — Plaid. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-deposit-switch-without-using
+      description: Create a deposit switch without using Plaid Exchange
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: deposit-switch--plaid.depositswitchaltcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-deposit-switch
+      description: Plaid Create a deposit switch
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: deposit-switch--plaid.depositswitchcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-deposit-switch
+      description: Plaid Retrieve a deposit switch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: deposit-switch--plaid.depositswitchget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-deposit-switch-token
+      description: Plaid Create a deposit switch token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: deposit-switch--plaid.depositswitchtokencreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

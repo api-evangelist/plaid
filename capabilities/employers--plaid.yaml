@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid employers/ — Plaid
+  description: 'Plaid employers/ — Plaid. 1 operations. Lead operation: Plaid Search employer database. Self-contained Naftiko
+    capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: employers--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid employers/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: employers-search
+      path: /employers/search
+      operations:
+      - name: employerssearch
+        method: POST
+        description: Plaid Search employer database
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: employers--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid employers/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/employers/search
+      name: employers-search
+      description: REST surface for employers-search.
+      operations:
+      - method: POST
+        name: employerssearch
+        description: Plaid Search employer database
+        call: employers--plaid.employerssearch
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: employers--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid employers/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-search-employer-database
+      description: Plaid Search employer database
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: employers--plaid.employerssearch
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

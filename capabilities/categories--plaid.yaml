@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid categories/ — Plaid
+  description: 'Plaid categories/ — Plaid. 1 operations. Lead operation: Plaid Get categories. Self-contained Naftiko capability
+    covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: categories--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid categories/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: categories-get
+      path: /categories/get
+      operations:
+      - name: categoriesget
+        method: POST
+        description: Plaid Get categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: categories--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid categories/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/categories/get
+      name: categories-get
+      description: REST surface for categories-get.
+      operations:
+      - method: POST
+        name: categoriesget
+        description: Plaid Get categories
+        call: categories--plaid.categoriesget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: categories--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid categories/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-get-categories
+      description: Plaid Get categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: categories--plaid.categoriesget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

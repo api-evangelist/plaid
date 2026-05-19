@@ -1,0 +1,2092 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid transfer/ — Plaid
+  description: 'Plaid transfer/ — Plaid. 49 operations. Lead operation: Plaid Manually fire a Transfer webhook. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: transfer--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid transfer/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: sandbox-transfer-fire_webhook
+      path: /sandbox/transfer/fire_webhook
+      operations:
+      - name: sandboxtransferfirewebhook
+        method: POST
+        description: Plaid Manually fire a Transfer webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-ledger-deposit-simulate
+      path: /sandbox/transfer/ledger/deposit/simulate
+      operations:
+      - name: sandboxtransferledgerdepositsimulate
+        method: POST
+        description: Plaid Simulate a ledger deposit event in Sandbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-ledger-simulate_available
+      path: /sandbox/transfer/ledger/simulate_available
+      operations:
+      - name: sandboxtransferledgersimulateavailable
+        method: POST
+        description: Plaid Simulate converting pending balance to available balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-ledger-withdraw-simulate
+      path: /sandbox/transfer/ledger/withdraw/simulate
+      operations:
+      - name: sandboxtransferledgerwithdrawsimulate
+        method: POST
+        description: Plaid Simulate a ledger withdraw event in Sandbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-refund-simulate
+      path: /sandbox/transfer/refund/simulate
+      operations:
+      - name: sandboxtransferrefundsimulate
+        method: POST
+        description: Plaid Simulate a refund event in Sandbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-repayment-simulate
+      path: /sandbox/transfer/repayment/simulate
+      operations:
+      - name: sandboxtransferrepaymentsimulate
+        method: POST
+        description: Plaid Trigger the creation of a repayment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-simulate
+      path: /sandbox/transfer/simulate
+      operations:
+      - name: sandboxtransfersimulate
+        method: POST
+        description: Plaid Simulate a transfer event in Sandbox
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-sweep-simulate
+      path: /sandbox/transfer/sweep/simulate
+      operations:
+      - name: sandboxtransfersweepsimulate
+        method: POST
+        description: Plaid Simulate creating a sweep
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-test_clock-advance
+      path: /sandbox/transfer/test_clock/advance
+      operations:
+      - name: sandboxtransfertestclockadvance
+        method: POST
+        description: Plaid Advance a test clock
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-test_clock-create
+      path: /sandbox/transfer/test_clock/create
+      operations:
+      - name: sandboxtransfertestclockcreate
+        method: POST
+        description: Plaid Create a test clock
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-test_clock-get
+      path: /sandbox/transfer/test_clock/get
+      operations:
+      - name: sandboxtransfertestclockget
+        method: POST
+        description: Plaid Get a test clock
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-transfer-test_clock-list
+      path: /sandbox/transfer/test_clock/list
+      operations:
+      - name: sandboxtransfertestclocklist
+        method: POST
+        description: Plaid List test clocks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-authorization-cancel
+      path: /transfer/authorization/cancel
+      operations:
+      - name: transferauthorizationcancel
+        method: POST
+        description: Plaid Cancel a transfer authorization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-authorization-create
+      path: /transfer/authorization/create
+      operations:
+      - name: transferauthorizationcreate
+        method: POST
+        description: Plaid Create a transfer authorization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-balance-get
+      path: /transfer/balance/get
+      operations:
+      - name: transferbalanceget
+        method: POST
+        description: (Deprecated) Retrieve a balance held with Plaid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-cancel
+      path: /transfer/cancel
+      operations:
+      - name: transfercancel
+        method: POST
+        description: Plaid Cancel a transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-capabilities-get
+      path: /transfer/capabilities/get
+      operations:
+      - name: transfercapabilitiesget
+        method: POST
+        description: Plaid Get RTP eligibility information of a transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-configuration-get
+      path: /transfer/configuration/get
+      operations:
+      - name: transferconfigurationget
+        method: POST
+        description: Plaid Get transfer product configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-create
+      path: /transfer/create
+      operations:
+      - name: transfercreate
+        method: POST
+        description: Plaid Create a transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-diligence-document-upload
+      path: /transfer/diligence/document/upload
+      operations:
+      - name: transferdiligencedocumentupload
+        method: POST
+        description: Plaid Upload transfer diligence document on behalf of the originator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-diligence-submit
+      path: /transfer/diligence/submit
+      operations:
+      - name: transferdiligencesubmit
+        method: POST
+        description: Plaid Submit transfer diligence on behalf of the originator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-event-list
+      path: /transfer/event/list
+      operations:
+      - name: transfereventlist
+        method: POST
+        description: Plaid List transfer events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-event-sync
+      path: /transfer/event/sync
+      operations:
+      - name: transfereventsync
+        method: POST
+        description: Plaid Sync transfer events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-get
+      path: /transfer/get
+      operations:
+      - name: transferget
+        method: POST
+        description: Plaid Retrieve a transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-intent-create
+      path: /transfer/intent/create
+      operations:
+      - name: transferintentcreate
+        method: POST
+        description: Plaid Create a transfer intent object to invoke the Transfer UI
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-intent-get
+      path: /transfer/intent/get
+      operations:
+      - name: transferintentget
+        method: POST
+        description: Plaid Retrieve more information about a transfer intent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-ledger-deposit
+      path: /transfer/ledger/deposit
+      operations:
+      - name: transferledgerdeposit
+        method: POST
+        description: Deposit funds into a Plaid Ledger balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-ledger-distribute
+      path: /transfer/ledger/distribute
+      operations:
+      - name: transferledgerdistribute
+        method: POST
+        description: Plaid Move available balance between the ledgers of the platform and one of its originators
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-ledger-get
+      path: /transfer/ledger/get
+      operations:
+      - name: transferledgerget
+        method: POST
+        description: Retrieve Plaid Ledger balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-ledger-withdraw
+      path: /transfer/ledger/withdraw
+      operations:
+      - name: transferledgerwithdraw
+        method: POST
+        description: Withdraw funds from a Plaid Ledger balance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-list
+      path: /transfer/list
+      operations:
+      - name: transferlist
+        method: POST
+        description: Plaid List transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-metrics-get
+      path: /transfer/metrics/get
+      operations:
+      - name: transfermetricsget
+        method: POST
+        description: Plaid Get transfer product usage metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-migrate_account
+      path: /transfer/migrate_account
+      operations:
+      - name: transfermigrateaccount
+        method: POST
+        description: Plaid Migrate account into Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-originator-create
+      path: /transfer/originator/create
+      operations:
+      - name: transferoriginatorcreate
+        method: POST
+        description: Plaid Create a new originator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-originator-funding_account-update
+      path: /transfer/originator/funding_account/update
+      operations:
+      - name: transferoriginatorfundingaccountupdate
+        method: POST
+        description: Plaid Update the funding account associated with the originator
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-originator-get
+      path: /transfer/originator/get
+      operations:
+      - name: transferoriginatorget
+        method: POST
+        description: Plaid Get status of an originator's onboarding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-originator-list
+      path: /transfer/originator/list
+      operations:
+      - name: transferoriginatorlist
+        method: POST
+        description: Plaid Get status of all originators' onboarding
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-questionnaire-create
+      path: /transfer/questionnaire/create
+      operations:
+      - name: transferquestionnairecreate
+        method: POST
+        description: Generate a Plaid-hosted onboarding UI URL.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-recurring-cancel
+      path: /transfer/recurring/cancel
+      operations:
+      - name: transferrecurringcancel
+        method: POST
+        description: Plaid Cancel a recurring transfer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-recurring-create
+      path: /transfer/recurring/create
+      operations:
+      - name: transferrecurringcreate
+        method: POST
+        description: Plaid Create a recurring transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-recurring-get
+      path: /transfer/recurring/get
+      operations:
+      - name: transferrecurringget
+        method: POST
+        description: Plaid Retrieve a recurring transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-recurring-list
+      path: /transfer/recurring/list
+      operations:
+      - name: transferrecurringlist
+        method: POST
+        description: Plaid List recurring transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-refund-cancel
+      path: /transfer/refund/cancel
+      operations:
+      - name: transferrefundcancel
+        method: POST
+        description: Plaid Cancel a refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-refund-create
+      path: /transfer/refund/create
+      operations:
+      - name: transferrefundcreate
+        method: POST
+        description: Plaid Create a refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-refund-get
+      path: /transfer/refund/get
+      operations:
+      - name: transferrefundget
+        method: POST
+        description: Plaid Retrieve a refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-repayment-list
+      path: /transfer/repayment/list
+      operations:
+      - name: transferrepaymentlist
+        method: POST
+        description: Plaid Lists historical repayments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-repayment-return-list
+      path: /transfer/repayment/return/list
+      operations:
+      - name: transferrepaymentreturnlist
+        method: POST
+        description: Plaid List the returns included in a repayment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-sweep-get
+      path: /transfer/sweep/get
+      operations:
+      - name: transfersweepget
+        method: POST
+        description: Plaid Retrieve a sweep
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: transfer-sweep-list
+      path: /transfer/sweep/list
+      operations:
+      - name: transfersweeplist
+        method: POST
+        description: Plaid List sweeps
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: transfer--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid transfer/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/sandbox/transfer/fire-webhook
+      name: sandbox-transfer-fire-webhook
+      description: REST surface for sandbox-transfer-fire_webhook.
+      operations:
+      - method: POST
+        name: sandboxtransferfirewebhook
+        description: Plaid Manually fire a Transfer webhook
+        call: transfer--plaid.sandboxtransferfirewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/ledger/deposit/simulate
+      name: sandbox-transfer-ledger-deposit-simulate
+      description: REST surface for sandbox-transfer-ledger-deposit-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransferledgerdepositsimulate
+        description: Plaid Simulate a ledger deposit event in Sandbox
+        call: transfer--plaid.sandboxtransferledgerdepositsimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/ledger/simulate-available
+      name: sandbox-transfer-ledger-simulate-available
+      description: REST surface for sandbox-transfer-ledger-simulate_available.
+      operations:
+      - method: POST
+        name: sandboxtransferledgersimulateavailable
+        description: Plaid Simulate converting pending balance to available balance
+        call: transfer--plaid.sandboxtransferledgersimulateavailable
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/ledger/withdraw/simulate
+      name: sandbox-transfer-ledger-withdraw-simulate
+      description: REST surface for sandbox-transfer-ledger-withdraw-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransferledgerwithdrawsimulate
+        description: Plaid Simulate a ledger withdraw event in Sandbox
+        call: transfer--plaid.sandboxtransferledgerwithdrawsimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/refund/simulate
+      name: sandbox-transfer-refund-simulate
+      description: REST surface for sandbox-transfer-refund-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransferrefundsimulate
+        description: Plaid Simulate a refund event in Sandbox
+        call: transfer--plaid.sandboxtransferrefundsimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/repayment/simulate
+      name: sandbox-transfer-repayment-simulate
+      description: REST surface for sandbox-transfer-repayment-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransferrepaymentsimulate
+        description: Plaid Trigger the creation of a repayment
+        call: transfer--plaid.sandboxtransferrepaymentsimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/simulate
+      name: sandbox-transfer-simulate
+      description: REST surface for sandbox-transfer-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransfersimulate
+        description: Plaid Simulate a transfer event in Sandbox
+        call: transfer--plaid.sandboxtransfersimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/sweep/simulate
+      name: sandbox-transfer-sweep-simulate
+      description: REST surface for sandbox-transfer-sweep-simulate.
+      operations:
+      - method: POST
+        name: sandboxtransfersweepsimulate
+        description: Plaid Simulate creating a sweep
+        call: transfer--plaid.sandboxtransfersweepsimulate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/test-clock/advance
+      name: sandbox-transfer-test-clock-advance
+      description: REST surface for sandbox-transfer-test_clock-advance.
+      operations:
+      - method: POST
+        name: sandboxtransfertestclockadvance
+        description: Plaid Advance a test clock
+        call: transfer--plaid.sandboxtransfertestclockadvance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/test-clock/create
+      name: sandbox-transfer-test-clock-create
+      description: REST surface for sandbox-transfer-test_clock-create.
+      operations:
+      - method: POST
+        name: sandboxtransfertestclockcreate
+        description: Plaid Create a test clock
+        call: transfer--plaid.sandboxtransfertestclockcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/test-clock/get
+      name: sandbox-transfer-test-clock-get
+      description: REST surface for sandbox-transfer-test_clock-get.
+      operations:
+      - method: POST
+        name: sandboxtransfertestclockget
+        description: Plaid Get a test clock
+        call: transfer--plaid.sandboxtransfertestclockget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/transfer/test-clock/list
+      name: sandbox-transfer-test-clock-list
+      description: REST surface for sandbox-transfer-test_clock-list.
+      operations:
+      - method: POST
+        name: sandboxtransfertestclocklist
+        description: Plaid List test clocks
+        call: transfer--plaid.sandboxtransfertestclocklist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/authorization/cancel
+      name: transfer-authorization-cancel
+      description: REST surface for transfer-authorization-cancel.
+      operations:
+      - method: POST
+        name: transferauthorizationcancel
+        description: Plaid Cancel a transfer authorization
+        call: transfer--plaid.transferauthorizationcancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/authorization/create
+      name: transfer-authorization-create
+      description: REST surface for transfer-authorization-create.
+      operations:
+      - method: POST
+        name: transferauthorizationcreate
+        description: Plaid Create a transfer authorization
+        call: transfer--plaid.transferauthorizationcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/balance/get
+      name: transfer-balance-get
+      description: REST surface for transfer-balance-get.
+      operations:
+      - method: POST
+        name: transferbalanceget
+        description: (Deprecated) Retrieve a balance held with Plaid
+        call: transfer--plaid.transferbalanceget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/cancel
+      name: transfer-cancel
+      description: REST surface for transfer-cancel.
+      operations:
+      - method: POST
+        name: transfercancel
+        description: Plaid Cancel a transfer
+        call: transfer--plaid.transfercancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/capabilities/get
+      name: transfer-capabilities-get
+      description: REST surface for transfer-capabilities-get.
+      operations:
+      - method: POST
+        name: transfercapabilitiesget
+        description: Plaid Get RTP eligibility information of a transfer
+        call: transfer--plaid.transfercapabilitiesget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/configuration/get
+      name: transfer-configuration-get
+      description: REST surface for transfer-configuration-get.
+      operations:
+      - method: POST
+        name: transferconfigurationget
+        description: Plaid Get transfer product configuration
+        call: transfer--plaid.transferconfigurationget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/create
+      name: transfer-create
+      description: REST surface for transfer-create.
+      operations:
+      - method: POST
+        name: transfercreate
+        description: Plaid Create a transfer
+        call: transfer--plaid.transfercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/diligence/document/upload
+      name: transfer-diligence-document-upload
+      description: REST surface for transfer-diligence-document-upload.
+      operations:
+      - method: POST
+        name: transferdiligencedocumentupload
+        description: Plaid Upload transfer diligence document on behalf of the originator
+        call: transfer--plaid.transferdiligencedocumentupload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/diligence/submit
+      name: transfer-diligence-submit
+      description: REST surface for transfer-diligence-submit.
+      operations:
+      - method: POST
+        name: transferdiligencesubmit
+        description: Plaid Submit transfer diligence on behalf of the originator
+        call: transfer--plaid.transferdiligencesubmit
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/event/list
+      name: transfer-event-list
+      description: REST surface for transfer-event-list.
+      operations:
+      - method: POST
+        name: transfereventlist
+        description: Plaid List transfer events
+        call: transfer--plaid.transfereventlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/event/sync
+      name: transfer-event-sync
+      description: REST surface for transfer-event-sync.
+      operations:
+      - method: POST
+        name: transfereventsync
+        description: Plaid Sync transfer events
+        call: transfer--plaid.transfereventsync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/get
+      name: transfer-get
+      description: REST surface for transfer-get.
+      operations:
+      - method: POST
+        name: transferget
+        description: Plaid Retrieve a transfer
+        call: transfer--plaid.transferget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/intent/create
+      name: transfer-intent-create
+      description: REST surface for transfer-intent-create.
+      operations:
+      - method: POST
+        name: transferintentcreate
+        description: Plaid Create a transfer intent object to invoke the Transfer UI
+        call: transfer--plaid.transferintentcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/intent/get
+      name: transfer-intent-get
+      description: REST surface for transfer-intent-get.
+      operations:
+      - method: POST
+        name: transferintentget
+        description: Plaid Retrieve more information about a transfer intent
+        call: transfer--plaid.transferintentget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/ledger/deposit
+      name: transfer-ledger-deposit
+      description: REST surface for transfer-ledger-deposit.
+      operations:
+      - method: POST
+        name: transferledgerdeposit
+        description: Deposit funds into a Plaid Ledger balance
+        call: transfer--plaid.transferledgerdeposit
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/ledger/distribute
+      name: transfer-ledger-distribute
+      description: REST surface for transfer-ledger-distribute.
+      operations:
+      - method: POST
+        name: transferledgerdistribute
+        description: Plaid Move available balance between the ledgers of the platform and one of its originators
+        call: transfer--plaid.transferledgerdistribute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/ledger/get
+      name: transfer-ledger-get
+      description: REST surface for transfer-ledger-get.
+      operations:
+      - method: POST
+        name: transferledgerget
+        description: Retrieve Plaid Ledger balance
+        call: transfer--plaid.transferledgerget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/ledger/withdraw
+      name: transfer-ledger-withdraw
+      description: REST surface for transfer-ledger-withdraw.
+      operations:
+      - method: POST
+        name: transferledgerwithdraw
+        description: Withdraw funds from a Plaid Ledger balance
+        call: transfer--plaid.transferledgerwithdraw
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/list
+      name: transfer-list
+      description: REST surface for transfer-list.
+      operations:
+      - method: POST
+        name: transferlist
+        description: Plaid List transfers
+        call: transfer--plaid.transferlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/metrics/get
+      name: transfer-metrics-get
+      description: REST surface for transfer-metrics-get.
+      operations:
+      - method: POST
+        name: transfermetricsget
+        description: Plaid Get transfer product usage metrics
+        call: transfer--plaid.transfermetricsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/migrate-account
+      name: transfer-migrate-account
+      description: REST surface for transfer-migrate_account.
+      operations:
+      - method: POST
+        name: transfermigrateaccount
+        description: Plaid Migrate account into Transfers
+        call: transfer--plaid.transfermigrateaccount
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/originator/create
+      name: transfer-originator-create
+      description: REST surface for transfer-originator-create.
+      operations:
+      - method: POST
+        name: transferoriginatorcreate
+        description: Plaid Create a new originator
+        call: transfer--plaid.transferoriginatorcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/originator/funding-account/update
+      name: transfer-originator-funding-account-update
+      description: REST surface for transfer-originator-funding_account-update.
+      operations:
+      - method: POST
+        name: transferoriginatorfundingaccountupdate
+        description: Plaid Update the funding account associated with the originator
+        call: transfer--plaid.transferoriginatorfundingaccountupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/originator/get
+      name: transfer-originator-get
+      description: REST surface for transfer-originator-get.
+      operations:
+      - method: POST
+        name: transferoriginatorget
+        description: Plaid Get status of an originator's onboarding
+        call: transfer--plaid.transferoriginatorget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/originator/list
+      name: transfer-originator-list
+      description: REST surface for transfer-originator-list.
+      operations:
+      - method: POST
+        name: transferoriginatorlist
+        description: Plaid Get status of all originators' onboarding
+        call: transfer--plaid.transferoriginatorlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/questionnaire/create
+      name: transfer-questionnaire-create
+      description: REST surface for transfer-questionnaire-create.
+      operations:
+      - method: POST
+        name: transferquestionnairecreate
+        description: Generate a Plaid-hosted onboarding UI URL.
+        call: transfer--plaid.transferquestionnairecreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/recurring/cancel
+      name: transfer-recurring-cancel
+      description: REST surface for transfer-recurring-cancel.
+      operations:
+      - method: POST
+        name: transferrecurringcancel
+        description: Plaid Cancel a recurring transfer.
+        call: transfer--plaid.transferrecurringcancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/recurring/create
+      name: transfer-recurring-create
+      description: REST surface for transfer-recurring-create.
+      operations:
+      - method: POST
+        name: transferrecurringcreate
+        description: Plaid Create a recurring transfer
+        call: transfer--plaid.transferrecurringcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/recurring/get
+      name: transfer-recurring-get
+      description: REST surface for transfer-recurring-get.
+      operations:
+      - method: POST
+        name: transferrecurringget
+        description: Plaid Retrieve a recurring transfer
+        call: transfer--plaid.transferrecurringget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/recurring/list
+      name: transfer-recurring-list
+      description: REST surface for transfer-recurring-list.
+      operations:
+      - method: POST
+        name: transferrecurringlist
+        description: Plaid List recurring transfers
+        call: transfer--plaid.transferrecurringlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/refund/cancel
+      name: transfer-refund-cancel
+      description: REST surface for transfer-refund-cancel.
+      operations:
+      - method: POST
+        name: transferrefundcancel
+        description: Plaid Cancel a refund
+        call: transfer--plaid.transferrefundcancel
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/refund/create
+      name: transfer-refund-create
+      description: REST surface for transfer-refund-create.
+      operations:
+      - method: POST
+        name: transferrefundcreate
+        description: Plaid Create a refund
+        call: transfer--plaid.transferrefundcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/refund/get
+      name: transfer-refund-get
+      description: REST surface for transfer-refund-get.
+      operations:
+      - method: POST
+        name: transferrefundget
+        description: Plaid Retrieve a refund
+        call: transfer--plaid.transferrefundget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/repayment/list
+      name: transfer-repayment-list
+      description: REST surface for transfer-repayment-list.
+      operations:
+      - method: POST
+        name: transferrepaymentlist
+        description: Plaid Lists historical repayments
+        call: transfer--plaid.transferrepaymentlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/repayment/return/list
+      name: transfer-repayment-return-list
+      description: REST surface for transfer-repayment-return-list.
+      operations:
+      - method: POST
+        name: transferrepaymentreturnlist
+        description: Plaid List the returns included in a repayment
+        call: transfer--plaid.transferrepaymentreturnlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/sweep/get
+      name: transfer-sweep-get
+      description: REST surface for transfer-sweep-get.
+      operations:
+      - method: POST
+        name: transfersweepget
+        description: Plaid Retrieve a sweep
+        call: transfer--plaid.transfersweepget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/sweep/list
+      name: transfer-sweep-list
+      description: REST surface for transfer-sweep-list.
+      operations:
+      - method: POST
+        name: transfersweeplist
+        description: Plaid List sweeps
+        call: transfer--plaid.transfersweeplist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: transfer--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid transfer/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-manually-fire-transfer-webhook
+      description: Plaid Manually fire a Transfer webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferfirewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-ledger-deposit-event
+      description: Plaid Simulate a ledger deposit event in Sandbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferledgerdepositsimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-converting-pending-balance
+      description: Plaid Simulate converting pending balance to available balance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferledgersimulateavailable
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-ledger-withdraw-event
+      description: Plaid Simulate a ledger withdraw event in Sandbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferledgerwithdrawsimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-refund-event-sandbox
+      description: Plaid Simulate a refund event in Sandbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferrefundsimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-trigger-creation-repayment
+      description: Plaid Trigger the creation of a repayment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransferrepaymentsimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-transfer-event-sandbox
+      description: Plaid Simulate a transfer event in Sandbox
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfersimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-simulate-creating-sweep
+      description: Plaid Simulate creating a sweep
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfersweepsimulate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-advance-test-clock
+      description: Plaid Advance a test clock
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfertestclockadvance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-test-clock
+      description: Plaid Create a test clock
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfertestclockcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-test-clock
+      description: Plaid Get a test clock
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfertestclockget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-test-clocks
+      description: Plaid List test clocks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.sandboxtransfertestclocklist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-cancel-transfer-authorization
+      description: Plaid Cancel a transfer authorization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferauthorizationcancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-transfer-authorization
+      description: Plaid Create a transfer authorization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferauthorizationcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deprecated-retrieve-balance-held-plaid
+      description: (Deprecated) Retrieve a balance held with Plaid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferbalanceget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-cancel-transfer
+      description: Plaid Cancel a transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfercancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-rtp-eligibility-information
+      description: Plaid Get RTP eligibility information of a transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfercapabilitiesget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-transfer-product-configuration
+      description: Plaid Get transfer product configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferconfigurationget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-transfer
+      description: Plaid Create a transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-upload-transfer-diligence-document
+      description: Plaid Upload transfer diligence document on behalf of the originator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferdiligencedocumentupload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-submit-transfer-diligence-behalf
+      description: Plaid Submit transfer diligence on behalf of the originator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferdiligencesubmit
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-transfer-events
+      description: Plaid List transfer events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfereventlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-sync-transfer-events
+      description: Plaid Sync transfer events
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfereventsync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-transfer
+      description: Plaid Retrieve a transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-transfer-intent-object
+      description: Plaid Create a transfer intent object to invoke the Transfer UI
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferintentcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-more-information-about
+      description: Plaid Retrieve more information about a transfer intent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferintentget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deposit-funds-plaid-ledger-balance
+      description: Deposit funds into a Plaid Ledger balance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferledgerdeposit
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-move-available-balance-between
+      description: Plaid Move available balance between the ledgers of the platform and one of its originators
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferledgerdistribute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-plaid-ledger-balance
+      description: Retrieve Plaid Ledger balance
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferledgerget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: withdraw-funds-plaid-ledger-balance
+      description: Withdraw funds from a Plaid Ledger balance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferledgerwithdraw
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-transfers
+      description: Plaid List transfers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-transfer-product-usage
+      description: Plaid Get transfer product usage metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfermetricsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-migrate-account-transfers
+      description: Plaid Migrate account into Transfers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfermigrateaccount
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-new-originator
+      description: Plaid Create a new originator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferoriginatorcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-funding-account-associated
+      description: Plaid Update the funding account associated with the originator
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferoriginatorfundingaccountupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-status-originator-s-onboarding
+      description: Plaid Get status of an originator's onboarding
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferoriginatorget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-status-all-originators
+      description: Plaid Get status of all originators' onboarding
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferoriginatorlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-plaid-hosted-onboarding-ui
+      description: Generate a Plaid-hosted onboarding UI URL.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferquestionnairecreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-cancel-recurring-transfer
+      description: Plaid Cancel a recurring transfer.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrecurringcancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-recurring-transfer
+      description: Plaid Create a recurring transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrecurringcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-recurring-transfer
+      description: Plaid Retrieve a recurring transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrecurringget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-recurring-transfers
+      description: Plaid List recurring transfers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrecurringlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-cancel-refund
+      description: Plaid Cancel a refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrefundcancel
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-refund
+      description: Plaid Create a refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrefundcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-refund
+      description: Plaid Retrieve a refund
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrefundget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-lists-historical-repayments
+      description: Plaid Lists historical repayments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrepaymentlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-returns-included-repayment
+      description: Plaid List the returns included in a repayment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transferrepaymentreturnlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-sweep
+      description: Plaid Retrieve a sweep
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfersweepget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-sweeps
+      description: Plaid List sweeps
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: transfer--plaid.transfersweeplist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

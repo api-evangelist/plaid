@@ -1,0 +1,286 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid wallet/ — Plaid
+  description: 'Plaid wallet/ — Plaid. 6 operations. Lead operation: Plaid Create an e-wallet. Self-contained Naftiko capability
+    covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wallet--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid wallet/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: wallet-create
+      path: /wallet/create
+      operations:
+      - name: walletcreate
+        method: POST
+        description: Plaid Create an e-wallet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: wallet-get
+      path: /wallet/get
+      operations:
+      - name: walletget
+        method: POST
+        description: Plaid Fetch an e-wallet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: wallet-list
+      path: /wallet/list
+      operations:
+      - name: walletlist
+        method: POST
+        description: Plaid Fetch a list of e-wallets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: wallet-transaction-execute
+      path: /wallet/transaction/execute
+      operations:
+      - name: wallettransactionexecute
+        method: POST
+        description: Plaid Execute a transaction using an e-wallet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: wallet-transaction-get
+      path: /wallet/transaction/get
+      operations:
+      - name: wallettransactionget
+        method: POST
+        description: Plaid Fetch an e-wallet transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: wallet-transaction-list
+      path: /wallet/transaction/list
+      operations:
+      - name: wallettransactionlist
+        method: POST
+        description: Plaid List e-wallet transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: wallet--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid wallet/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/wallet/create
+      name: wallet-create
+      description: REST surface for wallet-create.
+      operations:
+      - method: POST
+        name: walletcreate
+        description: Plaid Create an e-wallet
+        call: wallet--plaid.walletcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wallet/get
+      name: wallet-get
+      description: REST surface for wallet-get.
+      operations:
+      - method: POST
+        name: walletget
+        description: Plaid Fetch an e-wallet
+        call: wallet--plaid.walletget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wallet/list
+      name: wallet-list
+      description: REST surface for wallet-list.
+      operations:
+      - method: POST
+        name: walletlist
+        description: Plaid Fetch a list of e-wallets
+        call: wallet--plaid.walletlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wallet/transaction/execute
+      name: wallet-transaction-execute
+      description: REST surface for wallet-transaction-execute.
+      operations:
+      - method: POST
+        name: wallettransactionexecute
+        description: Plaid Execute a transaction using an e-wallet
+        call: wallet--plaid.wallettransactionexecute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wallet/transaction/get
+      name: wallet-transaction-get
+      description: REST surface for wallet-transaction-get.
+      operations:
+      - method: POST
+        name: wallettransactionget
+        description: Plaid Fetch an e-wallet transaction
+        call: wallet--plaid.wallettransactionget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/wallet/transaction/list
+      name: wallet-transaction-list
+      description: REST surface for wallet-transaction-list.
+      operations:
+      - method: POST
+        name: wallettransactionlist
+        description: Plaid List e-wallet transactions
+        call: wallet--plaid.wallettransactionlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wallet--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid wallet/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-create-e-wallet
+      description: Plaid Create an e-wallet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.walletcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fetch-e-wallet
+      description: Plaid Fetch an e-wallet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.walletget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fetch-list-e-wallets
+      description: Plaid Fetch a list of e-wallets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.walletlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-execute-transaction-using-e
+      description: Plaid Execute a transaction using an e-wallet
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.wallettransactionexecute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fetch-e-wallet-transaction
+      description: Plaid Fetch an e-wallet transaction
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.wallettransactionget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-e-wallet-transactions
+      description: Plaid List e-wallet transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: wallet--plaid.wallettransactionlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

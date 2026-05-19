@@ -1,0 +1,412 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid cra/ — Plaid
+  description: 'Plaid cra/ — Plaid. 9 operations. Lead operation: Plaid Create a CRA report for income verification. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cra--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid cra/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: cra-bank_income-create
+      path: /cra/bank_income/create
+      operations:
+      - name: crabankincomecreate
+        method: POST
+        description: Plaid Create a CRA report for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-bank_income-get
+      path: /cra/bank_income/get
+      operations:
+      - name: crabankincomeget
+        method: POST
+        description: Plaid Retrieve information from the bank accounts used for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-base_report-create
+      path: /cra/base_report/create
+      operations:
+      - name: basereportcreate
+        method: POST
+        description: Plaid Create a Base Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-base_report-get
+      path: /cra/base_report/get
+      operations:
+      - name: basereportget
+        method: POST
+        description: Plaid Retrieve a Base Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-loans-applications-register
+      path: /cra/loans/applications/register
+      operations:
+      - name: craloansapplicationsregister
+        method: POST
+        description: Plaid Register loan applications and decisions.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-loans-register
+      path: /cra/loans/register
+      operations:
+      - name: craloansregister
+        method: POST
+        description: Plaid Register a list of loans to their applicants.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-loans-unregister
+      path: /cra/loans/unregister
+      operations:
+      - name: craloansunregister
+        method: POST
+        description: Plaid Unregister a list of loans.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-loans-update
+      path: /cra/loans/update
+      operations:
+      - name: craloansupdate
+        method: POST
+        description: Plaid Updates loan data.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: cra-partner_insights-get
+      path: /cra/partner_insights/get
+      operations:
+      - name: crapartnerinsightsget
+        method: POST
+        description: Plaid Retrieve cash flow insights from the bank accounts used for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: cra--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid cra/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/cra/bank-income/create
+      name: cra-bank-income-create
+      description: REST surface for cra-bank_income-create.
+      operations:
+      - method: POST
+        name: crabankincomecreate
+        description: Plaid Create a CRA report for income verification
+        call: cra--plaid.crabankincomecreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/bank-income/get
+      name: cra-bank-income-get
+      description: REST surface for cra-bank_income-get.
+      operations:
+      - method: POST
+        name: crabankincomeget
+        description: Plaid Retrieve information from the bank accounts used for income verification
+        call: cra--plaid.crabankincomeget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/base-report/create
+      name: cra-base-report-create
+      description: REST surface for cra-base_report-create.
+      operations:
+      - method: POST
+        name: basereportcreate
+        description: Plaid Create a Base Report
+        call: cra--plaid.basereportcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/base-report/get
+      name: cra-base-report-get
+      description: REST surface for cra-base_report-get.
+      operations:
+      - method: POST
+        name: basereportget
+        description: Plaid Retrieve a Base Report
+        call: cra--plaid.basereportget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/loans/applications/register
+      name: cra-loans-applications-register
+      description: REST surface for cra-loans-applications-register.
+      operations:
+      - method: POST
+        name: craloansapplicationsregister
+        description: Plaid Register loan applications and decisions.
+        call: cra--plaid.craloansapplicationsregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/loans/register
+      name: cra-loans-register
+      description: REST surface for cra-loans-register.
+      operations:
+      - method: POST
+        name: craloansregister
+        description: Plaid Register a list of loans to their applicants.
+        call: cra--plaid.craloansregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/loans/unregister
+      name: cra-loans-unregister
+      description: REST surface for cra-loans-unregister.
+      operations:
+      - method: POST
+        name: craloansunregister
+        description: Plaid Unregister a list of loans.
+        call: cra--plaid.craloansunregister
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/loans/update
+      name: cra-loans-update
+      description: REST surface for cra-loans-update.
+      operations:
+      - method: POST
+        name: craloansupdate
+        description: Plaid Updates loan data.
+        call: cra--plaid.craloansupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cra/partner-insights/get
+      name: cra-partner-insights-get
+      description: REST surface for cra-partner_insights-get.
+      operations:
+      - method: POST
+        name: crapartnerinsightsget
+        description: Plaid Retrieve cash flow insights from the bank accounts used for income verification
+        call: cra--plaid.crapartnerinsightsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cra--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid cra/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-create-cra-report-income
+      description: Plaid Create a CRA report for income verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cra--plaid.crabankincomecreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-information-bank-accounts
+      description: Plaid Retrieve information from the bank accounts used for income verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cra--plaid.crabankincomeget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-base-report
+      description: Plaid Create a Base Report
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cra--plaid.basereportcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-base-report
+      description: Plaid Retrieve a Base Report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cra--plaid.basereportget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-register-loan-applications-and
+      description: Plaid Register loan applications and decisions.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cra--plaid.craloansapplicationsregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-register-list-loans-their
+      description: Plaid Register a list of loans to their applicants.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cra--plaid.craloansregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-unregister-list-loans
+      description: Plaid Unregister a list of loans.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cra--plaid.craloansunregister
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-updates-loan-data
+      description: Plaid Updates loan data.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cra--plaid.craloansupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-cash-flow-insights
+      description: Plaid Retrieve cash flow insights from the bank accounts used for income verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: cra--plaid.crapartnerinsightsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

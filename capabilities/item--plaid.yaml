@@ -1,0 +1,622 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid item/ — Plaid
+  description: 'Plaid item/ — Plaid. 14 operations. Lead operation: Plaid Invalidate access_token. Self-contained Naftiko
+    capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: item--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid item/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: item-access_token-invalidate
+      path: /item/access_token/invalidate
+      operations:
+      - name: itemaccesstokeninvalidate
+        method: POST
+        description: Plaid Invalidate access_token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-activity-list
+      path: /item/activity/list
+      operations:
+      - name: itemactivitylist
+        method: POST
+        description: Plaid List a historical log of user consent events
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-list
+      path: /item/application/list
+      operations:
+      - name: itemapplicationlist
+        method: POST
+        description: Plaid List a user’s connected applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-scopes-update
+      path: /item/application/scopes/update
+      operations:
+      - name: itemapplicationscopesupdate
+        method: POST
+        description: Plaid Update the scopes of access for a particular application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-unlink
+      path: /item/application/unlink
+      operations:
+      - name: itemapplicationunlink
+        method: POST
+        description: Plaid Unlink a user’s connected application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-get
+      path: /item/get
+      operations:
+      - name: itemget
+        method: POST
+        description: Plaid Retrieve an Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-import
+      path: /item/import
+      operations:
+      - name: itemimport
+        method: POST
+        description: Plaid Import Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-public_token-create
+      path: /item/public_token/create
+      operations:
+      - name: itemcreatepublictoken
+        method: POST
+        description: Plaid Create public token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-public_token-exchange
+      path: /item/public_token/exchange
+      operations:
+      - name: itempublictokenexchange
+        method: POST
+        description: Plaid Exchange public token for an access token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-remove
+      path: /item/remove
+      operations:
+      - name: itemremove
+        method: POST
+        description: Plaid Remove an Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-webhook-update
+      path: /item/webhook/update
+      operations:
+      - name: itemwebhookupdate
+        method: POST
+        description: Plaid Update Webhook URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-item-fire_webhook
+      path: /sandbox/item/fire_webhook
+      operations:
+      - name: sandboxitemfirewebhook
+        method: POST
+        description: Plaid Fire a test webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-item-reset_login
+      path: /sandbox/item/reset_login
+      operations:
+      - name: sandboxitemresetlogin
+        method: POST
+        description: Plaid Force a Sandbox Item into an error state
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-item-set_verification_status
+      path: /sandbox/item/set_verification_status
+      operations:
+      - name: sandboxitemsetverificationstatus
+        method: POST
+        description: Plaid Set verification status for Sandbox account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: item--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid item/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/item/access-token/invalidate
+      name: item-access-token-invalidate
+      description: REST surface for item-access_token-invalidate.
+      operations:
+      - method: POST
+        name: itemaccesstokeninvalidate
+        description: Plaid Invalidate access_token
+        call: item--plaid.itemaccesstokeninvalidate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/activity/list
+      name: item-activity-list
+      description: REST surface for item-activity-list.
+      operations:
+      - method: POST
+        name: itemactivitylist
+        description: Plaid List a historical log of user consent events
+        call: item--plaid.itemactivitylist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/list
+      name: item-application-list
+      description: REST surface for item-application-list.
+      operations:
+      - method: POST
+        name: itemapplicationlist
+        description: Plaid List a user’s connected applications
+        call: item--plaid.itemapplicationlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/scopes/update
+      name: item-application-scopes-update
+      description: REST surface for item-application-scopes-update.
+      operations:
+      - method: POST
+        name: itemapplicationscopesupdate
+        description: Plaid Update the scopes of access for a particular application
+        call: item--plaid.itemapplicationscopesupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/unlink
+      name: item-application-unlink
+      description: REST surface for item-application-unlink.
+      operations:
+      - method: POST
+        name: itemapplicationunlink
+        description: Plaid Unlink a user’s connected application
+        call: item--plaid.itemapplicationunlink
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/get
+      name: item-get
+      description: REST surface for item-get.
+      operations:
+      - method: POST
+        name: itemget
+        description: Plaid Retrieve an Item
+        call: item--plaid.itemget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/import
+      name: item-import
+      description: REST surface for item-import.
+      operations:
+      - method: POST
+        name: itemimport
+        description: Plaid Import Item
+        call: item--plaid.itemimport
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/public-token/create
+      name: item-public-token-create
+      description: REST surface for item-public_token-create.
+      operations:
+      - method: POST
+        name: itemcreatepublictoken
+        description: Plaid Create public token
+        call: item--plaid.itemcreatepublictoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/public-token/exchange
+      name: item-public-token-exchange
+      description: REST surface for item-public_token-exchange.
+      operations:
+      - method: POST
+        name: itempublictokenexchange
+        description: Plaid Exchange public token for an access token
+        call: item--plaid.itempublictokenexchange
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/remove
+      name: item-remove
+      description: REST surface for item-remove.
+      operations:
+      - method: POST
+        name: itemremove
+        description: Plaid Remove an Item
+        call: item--plaid.itemremove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/webhook/update
+      name: item-webhook-update
+      description: REST surface for item-webhook-update.
+      operations:
+      - method: POST
+        name: itemwebhookupdate
+        description: Plaid Update Webhook URL
+        call: item--plaid.itemwebhookupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/item/fire-webhook
+      name: sandbox-item-fire-webhook
+      description: REST surface for sandbox-item-fire_webhook.
+      operations:
+      - method: POST
+        name: sandboxitemfirewebhook
+        description: Plaid Fire a test webhook
+        call: item--plaid.sandboxitemfirewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/item/reset-login
+      name: sandbox-item-reset-login
+      description: REST surface for sandbox-item-reset_login.
+      operations:
+      - method: POST
+        name: sandboxitemresetlogin
+        description: Plaid Force a Sandbox Item into an error state
+        call: item--plaid.sandboxitemresetlogin
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/item/set-verification-status
+      name: sandbox-item-set-verification-status
+      description: REST surface for sandbox-item-set_verification_status.
+      operations:
+      - method: POST
+        name: sandboxitemsetverificationstatus
+        description: Plaid Set verification status for Sandbox account
+        call: item--plaid.sandboxitemsetverificationstatus
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: item--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid item/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-invalidate-access-token
+      description: Plaid Invalidate access_token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemaccesstokeninvalidate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-historical-log-user
+      description: Plaid List a historical log of user consent events
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemactivitylist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-user-s-connected-applications
+      description: Plaid List a user’s connected applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemapplicationlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-scopes-access-particular
+      description: Plaid Update the scopes of access for a particular application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemapplicationscopesupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-unlink-user-s-connected-application
+      description: Plaid Unlink a user’s connected application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemapplicationunlink
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-item
+      description: Plaid Retrieve an Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-import-item
+      description: Plaid Import Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemimport
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-public-token
+      description: Plaid Create public token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemcreatepublictoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-exchange-public-token-access
+      description: Plaid Exchange public token for an access token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itempublictokenexchange
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-remove-item
+      description: Plaid Remove an Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemremove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-webhook-url
+      description: Plaid Update Webhook URL
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.itemwebhookupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-fire-test-webhook
+      description: Plaid Fire a test webhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: item--plaid.sandboxitemfirewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-force-sandbox-item-error
+      description: Plaid Force a Sandbox Item into an error state
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.sandboxitemresetlogin
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-set-verification-status-sandbox
+      description: Plaid Set verification status for Sandbox account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: item--plaid.sandboxitemsetverificationstatus
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

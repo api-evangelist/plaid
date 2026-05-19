@@ -1,0 +1,286 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid income/ — Plaid
+  description: 'Plaid income/ — Plaid. 6 operations. Lead operation: Plaid (Deprecated) Create an income verification instance.
+    Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: income--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid income/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: income-verification-create
+      path: /income/verification/create
+      operations:
+      - name: incomeverificationcreate
+        method: POST
+        description: Plaid (Deprecated) Create an income verification instance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: income-verification-documents-download
+      path: /income/verification/documents/download
+      operations:
+      - name: incomeverificationdocumentsdownload
+        method: POST
+        description: Plaid (Deprecated) Download the original documents used for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: income-verification-paystubs-get
+      path: /income/verification/paystubs/get
+      operations:
+      - name: incomeverificationpaystubsget
+        method: POST
+        description: Plaid (Deprecated) Retrieve information from the paystubs used for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: income-verification-precheck
+      path: /income/verification/precheck
+      operations:
+      - name: incomeverificationprecheck
+        method: POST
+        description: Plaid (Deprecated) Check digital income verification eligibility and optimize conversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: income-verification-taxforms-get
+      path: /income/verification/taxforms/get
+      operations:
+      - name: incomeverificationtaxformsget
+        method: POST
+        description: Plaid (Deprecated) Retrieve information from the tax documents used for income verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: sandbox-income-fire_webhook
+      path: /sandbox/income/fire_webhook
+      operations:
+      - name: sandboxincomefirewebhook
+        method: POST
+        description: Plaid Manually fire an Income webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: income--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid income/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/income/verification/create
+      name: income-verification-create
+      description: REST surface for income-verification-create.
+      operations:
+      - method: POST
+        name: incomeverificationcreate
+        description: Plaid (Deprecated) Create an income verification instance
+        call: income--plaid.incomeverificationcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/income/verification/documents/download
+      name: income-verification-documents-download
+      description: REST surface for income-verification-documents-download.
+      operations:
+      - method: POST
+        name: incomeverificationdocumentsdownload
+        description: Plaid (Deprecated) Download the original documents used for income verification
+        call: income--plaid.incomeverificationdocumentsdownload
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/income/verification/paystubs/get
+      name: income-verification-paystubs-get
+      description: REST surface for income-verification-paystubs-get.
+      operations:
+      - method: POST
+        name: incomeverificationpaystubsget
+        description: Plaid (Deprecated) Retrieve information from the paystubs used for income verification
+        call: income--plaid.incomeverificationpaystubsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/income/verification/precheck
+      name: income-verification-precheck
+      description: REST surface for income-verification-precheck.
+      operations:
+      - method: POST
+        name: incomeverificationprecheck
+        description: Plaid (Deprecated) Check digital income verification eligibility and optimize conversion
+        call: income--plaid.incomeverificationprecheck
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/income/verification/taxforms/get
+      name: income-verification-taxforms-get
+      description: REST surface for income-verification-taxforms-get.
+      operations:
+      - method: POST
+        name: incomeverificationtaxformsget
+        description: Plaid (Deprecated) Retrieve information from the tax documents used for income verification
+        call: income--plaid.incomeverificationtaxformsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/sandbox/income/fire-webhook
+      name: sandbox-income-fire-webhook
+      description: REST surface for sandbox-income-fire_webhook.
+      operations:
+      - method: POST
+        name: sandboxincomefirewebhook
+        description: Plaid Manually fire an Income webhook
+        call: income--plaid.sandboxincomefirewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: income--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid income/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-deprecated-create-income-verification
+      description: Plaid (Deprecated) Create an income verification instance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: income--plaid.incomeverificationcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-deprecated-download-original-documents
+      description: Plaid (Deprecated) Download the original documents used for income verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: income--plaid.incomeverificationdocumentsdownload
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-deprecated-retrieve-information-paystubs
+      description: Plaid (Deprecated) Retrieve information from the paystubs used for income verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: income--plaid.incomeverificationpaystubsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-deprecated-check-digital-income
+      description: Plaid (Deprecated) Check digital income verification eligibility and optimize conversion
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: income--plaid.incomeverificationprecheck
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-deprecated-retrieve-information-tax
+      description: Plaid (Deprecated) Retrieve information from the tax documents used for income verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: income--plaid.incomeverificationtaxformsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-manually-fire-income-webhook
+      description: Plaid Manually fire an Income webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: income--plaid.sandboxincomefirewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

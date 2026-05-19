@@ -1,0 +1,874 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid watchlist screening/ — Plaid
+  description: 'Plaid watchlist screening/ — Plaid. 20 operations. Lead operation: Plaid Create a watchlist screening for
+    an entity. Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: watchlist-screening--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid watchlist screening/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: watchlist_screening-entity-create
+      path: /watchlist_screening/entity/create
+      operations:
+      - name: watchlistscreeningentitycreate
+        method: POST
+        description: Plaid Create a watchlist screening for an entity
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-get
+      path: /watchlist_screening/entity/get
+      operations:
+      - name: watchlistscreeningentityget
+        method: POST
+        description: Plaid Get an entity screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-history-list
+      path: /watchlist_screening/entity/history/list
+      operations:
+      - name: watchlistscreeningentityhistorylist
+        method: POST
+        description: Plaid List history for entity watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-hit-list
+      path: /watchlist_screening/entity/hit/list
+      operations:
+      - name: watchlistscreeningentityhitlist
+        method: POST
+        description: Plaid List hits for entity watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-list
+      path: /watchlist_screening/entity/list
+      operations:
+      - name: watchlistscreeningentitylist
+        method: POST
+        description: Plaid List entity watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-program-get
+      path: /watchlist_screening/entity/program/get
+      operations:
+      - name: watchlistscreeningentityprogramget
+        method: POST
+        description: Plaid Get entity watchlist screening program
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-program-list
+      path: /watchlist_screening/entity/program/list
+      operations:
+      - name: watchlistscreeningentityprogramlist
+        method: POST
+        description: Plaid List entity watchlist screening programs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-review-create
+      path: /watchlist_screening/entity/review/create
+      operations:
+      - name: watchlistscreeningentityreviewcreate
+        method: POST
+        description: Plaid Create a review for an entity watchlist screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-review-list
+      path: /watchlist_screening/entity/review/list
+      operations:
+      - name: watchlistscreeningentityreviewlist
+        method: POST
+        description: Plaid List reviews for entity watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-entity-update
+      path: /watchlist_screening/entity/update
+      operations:
+      - name: watchlistscreeningentityupdate
+        method: POST
+        description: Plaid Update an entity screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-create
+      path: /watchlist_screening/individual/create
+      operations:
+      - name: watchlistscreeningindividualcreate
+        method: POST
+        description: Plaid Create a watchlist screening for a person
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-get
+      path: /watchlist_screening/individual/get
+      operations:
+      - name: watchlistscreeningindividualget
+        method: POST
+        description: Plaid Retrieve an individual watchlist screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-history-list
+      path: /watchlist_screening/individual/history/list
+      operations:
+      - name: watchlistscreeningindividualhistorylist
+        method: POST
+        description: Plaid List history for individual watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-hit-list
+      path: /watchlist_screening/individual/hit/list
+      operations:
+      - name: watchlistscreeningindividualhitlist
+        method: POST
+        description: Plaid List hits for individual watchlist screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-list
+      path: /watchlist_screening/individual/list
+      operations:
+      - name: watchlistscreeningindividuallist
+        method: POST
+        description: Plaid List Individual Watchlist Screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-program-get
+      path: /watchlist_screening/individual/program/get
+      operations:
+      - name: watchlistscreeningindividualprogramget
+        method: POST
+        description: Plaid Get individual watchlist screening program
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-program-list
+      path: /watchlist_screening/individual/program/list
+      operations:
+      - name: watchlistscreeningindividualprogramlist
+        method: POST
+        description: Plaid List individual watchlist screening programs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-review-create
+      path: /watchlist_screening/individual/review/create
+      operations:
+      - name: watchlistscreeningindividualreviewcreate
+        method: POST
+        description: Plaid Create a review for an individual watchlist screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-review-list
+      path: /watchlist_screening/individual/review/list
+      operations:
+      - name: watchlistscreeningindividualreviewlist
+        method: POST
+        description: Plaid List reviews for individual watchlist screenings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: watchlist_screening-individual-update
+      path: /watchlist_screening/individual/update
+      operations:
+      - name: watchlistscreeningindividualupdate
+        method: POST
+        description: Plaid Update individual watchlist screening
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: watchlist-screening--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid watchlist screening/ — Plaid. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/watchlist-screening/entity/create
+      name: watchlist-screening-entity-create
+      description: REST surface for watchlist_screening-entity-create.
+      operations:
+      - method: POST
+        name: watchlistscreeningentitycreate
+        description: Plaid Create a watchlist screening for an entity
+        call: watchlist-screening--plaid.watchlistscreeningentitycreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/get
+      name: watchlist-screening-entity-get
+      description: REST surface for watchlist_screening-entity-get.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityget
+        description: Plaid Get an entity screening
+        call: watchlist-screening--plaid.watchlistscreeningentityget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/history/list
+      name: watchlist-screening-entity-history-list
+      description: REST surface for watchlist_screening-entity-history-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityhistorylist
+        description: Plaid List history for entity watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningentityhistorylist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/hit/list
+      name: watchlist-screening-entity-hit-list
+      description: REST surface for watchlist_screening-entity-hit-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityhitlist
+        description: Plaid List hits for entity watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningentityhitlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/list
+      name: watchlist-screening-entity-list
+      description: REST surface for watchlist_screening-entity-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningentitylist
+        description: Plaid List entity watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningentitylist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/program/get
+      name: watchlist-screening-entity-program-get
+      description: REST surface for watchlist_screening-entity-program-get.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityprogramget
+        description: Plaid Get entity watchlist screening program
+        call: watchlist-screening--plaid.watchlistscreeningentityprogramget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/program/list
+      name: watchlist-screening-entity-program-list
+      description: REST surface for watchlist_screening-entity-program-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityprogramlist
+        description: Plaid List entity watchlist screening programs
+        call: watchlist-screening--plaid.watchlistscreeningentityprogramlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/review/create
+      name: watchlist-screening-entity-review-create
+      description: REST surface for watchlist_screening-entity-review-create.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityreviewcreate
+        description: Plaid Create a review for an entity watchlist screening
+        call: watchlist-screening--plaid.watchlistscreeningentityreviewcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/review/list
+      name: watchlist-screening-entity-review-list
+      description: REST surface for watchlist_screening-entity-review-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityreviewlist
+        description: Plaid List reviews for entity watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningentityreviewlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/entity/update
+      name: watchlist-screening-entity-update
+      description: REST surface for watchlist_screening-entity-update.
+      operations:
+      - method: POST
+        name: watchlistscreeningentityupdate
+        description: Plaid Update an entity screening
+        call: watchlist-screening--plaid.watchlistscreeningentityupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/create
+      name: watchlist-screening-individual-create
+      description: REST surface for watchlist_screening-individual-create.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualcreate
+        description: Plaid Create a watchlist screening for a person
+        call: watchlist-screening--plaid.watchlistscreeningindividualcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/get
+      name: watchlist-screening-individual-get
+      description: REST surface for watchlist_screening-individual-get.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualget
+        description: Plaid Retrieve an individual watchlist screening
+        call: watchlist-screening--plaid.watchlistscreeningindividualget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/history/list
+      name: watchlist-screening-individual-history-list
+      description: REST surface for watchlist_screening-individual-history-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualhistorylist
+        description: Plaid List history for individual watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningindividualhistorylist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/hit/list
+      name: watchlist-screening-individual-hit-list
+      description: REST surface for watchlist_screening-individual-hit-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualhitlist
+        description: Plaid List hits for individual watchlist screening
+        call: watchlist-screening--plaid.watchlistscreeningindividualhitlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/list
+      name: watchlist-screening-individual-list
+      description: REST surface for watchlist_screening-individual-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividuallist
+        description: Plaid List Individual Watchlist Screenings
+        call: watchlist-screening--plaid.watchlistscreeningindividuallist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/program/get
+      name: watchlist-screening-individual-program-get
+      description: REST surface for watchlist_screening-individual-program-get.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualprogramget
+        description: Plaid Get individual watchlist screening program
+        call: watchlist-screening--plaid.watchlistscreeningindividualprogramget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/program/list
+      name: watchlist-screening-individual-program-list
+      description: REST surface for watchlist_screening-individual-program-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualprogramlist
+        description: Plaid List individual watchlist screening programs
+        call: watchlist-screening--plaid.watchlistscreeningindividualprogramlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/review/create
+      name: watchlist-screening-individual-review-create
+      description: REST surface for watchlist_screening-individual-review-create.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualreviewcreate
+        description: Plaid Create a review for an individual watchlist screening
+        call: watchlist-screening--plaid.watchlistscreeningindividualreviewcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/review/list
+      name: watchlist-screening-individual-review-list
+      description: REST surface for watchlist_screening-individual-review-list.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualreviewlist
+        description: Plaid List reviews for individual watchlist screenings
+        call: watchlist-screening--plaid.watchlistscreeningindividualreviewlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/watchlist-screening/individual/update
+      name: watchlist-screening-individual-update
+      description: REST surface for watchlist_screening-individual-update.
+      operations:
+      - method: POST
+        name: watchlistscreeningindividualupdate
+        description: Plaid Update individual watchlist screening
+        call: watchlist-screening--plaid.watchlistscreeningindividualupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: watchlist-screening--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid watchlist screening/ — Plaid. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: plaid-create-watchlist-screening-entity
+      description: Plaid Create a watchlist screening for an entity
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentitycreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-entity-screening
+      description: Plaid Get an entity screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-history-entity-watchlist
+      description: Plaid List history for entity watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityhistorylist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-hits-entity-watchlist
+      description: Plaid List hits for entity watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityhitlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-entity-watchlist-screenings
+      description: Plaid List entity watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentitylist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-entity-watchlist-screening
+      description: Plaid Get entity watchlist screening program
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityprogramget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-entity-watchlist-screening
+      description: Plaid List entity watchlist screening programs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityprogramlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-review-entity-watchlist
+      description: Plaid Create a review for an entity watchlist screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityreviewcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-reviews-entity-watchlist
+      description: Plaid List reviews for entity watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityreviewlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-entity-screening
+      description: Plaid Update an entity screening
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningentityupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-watchlist-screening-person
+      description: Plaid Create a watchlist screening for a person
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-retrieve-individual-watchlist-screening
+      description: Plaid Retrieve an individual watchlist screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-history-individual-watchlist
+      description: Plaid List history for individual watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualhistorylist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-hits-individual-watchlist
+      description: Plaid List hits for individual watchlist screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualhitlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-individual-watchlist-screenings
+      description: Plaid List Individual Watchlist Screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividuallist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-individual-watchlist-screening
+      description: Plaid Get individual watchlist screening program
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualprogramget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-individual-watchlist-screening
+      description: Plaid List individual watchlist screening programs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualprogramlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-review-individual-watchlist
+      description: Plaid Create a review for an individual watchlist screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualreviewcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-reviews-individual-watchlist
+      description: Plaid List reviews for individual watchlist screenings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualreviewlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-individual-watchlist-screening
+      description: Plaid Update individual watchlist screening
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: watchlist-screening--plaid.watchlistscreeningindividualupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

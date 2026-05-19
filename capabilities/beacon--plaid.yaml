@@ -1,0 +1,538 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid beacon/ — Plaid
+  description: 'Plaid beacon/ — Plaid. 12 operations. Lead operation: Plaid Evaluate risk of a bank account. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: beacon--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid beacon/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: beacon-account_risk-v1-evaluate
+      path: /beacon/account_risk/v1/evaluate
+      operations:
+      - name: beaconaccountriskevaluate
+        method: POST
+        description: Plaid Evaluate risk of a bank account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-duplicate-get
+      path: /beacon/duplicate/get
+      operations:
+      - name: beaconduplicateget
+        method: POST
+        description: Plaid Get a Beacon Duplicate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-report-create
+      path: /beacon/report/create
+      operations:
+      - name: beaconreportcreate
+        method: POST
+        description: Plaid Create a Beacon Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-report-get
+      path: /beacon/report/get
+      operations:
+      - name: beaconreportget
+        method: POST
+        description: Plaid Get a Beacon Report
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-report-list
+      path: /beacon/report/list
+      operations:
+      - name: beaconreportlist
+        method: POST
+        description: Plaid List Beacon Reports for a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-report_syndication-get
+      path: /beacon/report_syndication/get
+      operations:
+      - name: beaconreportsyndicationget
+        method: POST
+        description: Plaid Get a Beacon Report Syndication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-report_syndication-list
+      path: /beacon/report_syndication/list
+      operations:
+      - name: beaconreportsyndicationlist
+        method: POST
+        description: Plaid List Beacon Report Syndications for a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-user-create
+      path: /beacon/user/create
+      operations:
+      - name: beaconusercreate
+        method: POST
+        description: Plaid Create a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-user-get
+      path: /beacon/user/get
+      operations:
+      - name: beaconuserget
+        method: POST
+        description: Plaid Get a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-user-history-list
+      path: /beacon/user/history/list
+      operations:
+      - name: beaconuserhistorylist
+        method: POST
+        description: Plaid List a Beacon User's history
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-user-review
+      path: /beacon/user/review
+      operations:
+      - name: beaconuserreview
+        method: POST
+        description: Plaid Review a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beacon-user-update
+      path: /beacon/user/update
+      operations:
+      - name: beaconuserupdate
+        method: POST
+        description: Plaid Update the identity data of a Beacon User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: beacon--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid beacon/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/beacon/account-risk/v1/evaluate
+      name: beacon-account-risk-v1-evaluate
+      description: REST surface for beacon-account_risk-v1-evaluate.
+      operations:
+      - method: POST
+        name: beaconaccountriskevaluate
+        description: Plaid Evaluate risk of a bank account
+        call: beacon--plaid.beaconaccountriskevaluate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/duplicate/get
+      name: beacon-duplicate-get
+      description: REST surface for beacon-duplicate-get.
+      operations:
+      - method: POST
+        name: beaconduplicateget
+        description: Plaid Get a Beacon Duplicate
+        call: beacon--plaid.beaconduplicateget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/report/create
+      name: beacon-report-create
+      description: REST surface for beacon-report-create.
+      operations:
+      - method: POST
+        name: beaconreportcreate
+        description: Plaid Create a Beacon Report
+        call: beacon--plaid.beaconreportcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/report/get
+      name: beacon-report-get
+      description: REST surface for beacon-report-get.
+      operations:
+      - method: POST
+        name: beaconreportget
+        description: Plaid Get a Beacon Report
+        call: beacon--plaid.beaconreportget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/report/list
+      name: beacon-report-list
+      description: REST surface for beacon-report-list.
+      operations:
+      - method: POST
+        name: beaconreportlist
+        description: Plaid List Beacon Reports for a Beacon User
+        call: beacon--plaid.beaconreportlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/report-syndication/get
+      name: beacon-report-syndication-get
+      description: REST surface for beacon-report_syndication-get.
+      operations:
+      - method: POST
+        name: beaconreportsyndicationget
+        description: Plaid Get a Beacon Report Syndication
+        call: beacon--plaid.beaconreportsyndicationget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/report-syndication/list
+      name: beacon-report-syndication-list
+      description: REST surface for beacon-report_syndication-list.
+      operations:
+      - method: POST
+        name: beaconreportsyndicationlist
+        description: Plaid List Beacon Report Syndications for a Beacon User
+        call: beacon--plaid.beaconreportsyndicationlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/user/create
+      name: beacon-user-create
+      description: REST surface for beacon-user-create.
+      operations:
+      - method: POST
+        name: beaconusercreate
+        description: Plaid Create a Beacon User
+        call: beacon--plaid.beaconusercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/user/get
+      name: beacon-user-get
+      description: REST surface for beacon-user-get.
+      operations:
+      - method: POST
+        name: beaconuserget
+        description: Plaid Get a Beacon User
+        call: beacon--plaid.beaconuserget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/user/history/list
+      name: beacon-user-history-list
+      description: REST surface for beacon-user-history-list.
+      operations:
+      - method: POST
+        name: beaconuserhistorylist
+        description: Plaid List a Beacon User's history
+        call: beacon--plaid.beaconuserhistorylist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/user/review
+      name: beacon-user-review
+      description: REST surface for beacon-user-review.
+      operations:
+      - method: POST
+        name: beaconuserreview
+        description: Plaid Review a Beacon User
+        call: beacon--plaid.beaconuserreview
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beacon/user/update
+      name: beacon-user-update
+      description: REST surface for beacon-user-update.
+      operations:
+      - method: POST
+        name: beaconuserupdate
+        description: Plaid Update the identity data of a Beacon User
+        call: beacon--plaid.beaconuserupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: beacon--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid beacon/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-evaluate-risk-bank-account
+      description: Plaid Evaluate risk of a bank account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconaccountriskevaluate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-beacon-duplicate
+      description: Plaid Get a Beacon Duplicate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconduplicateget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-beacon-report
+      description: Plaid Create a Beacon Report
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconreportcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-beacon-report
+      description: Plaid Get a Beacon Report
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconreportget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-beacon-reports-beacon
+      description: Plaid List Beacon Reports for a Beacon User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconreportlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-beacon-report-syndication
+      description: Plaid Get a Beacon Report Syndication
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconreportsyndicationget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-beacon-report-syndications
+      description: Plaid List Beacon Report Syndications for a Beacon User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconreportsyndicationlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-beacon-user
+      description: Plaid Create a Beacon User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconusercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-beacon-user
+      description: Plaid Get a Beacon User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconuserget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-beacon-user-s-history
+      description: Plaid List a Beacon User's history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconuserhistorylist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-review-beacon-user
+      description: Plaid Review a Beacon User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconuserreview
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-identity-data-beacon
+      description: Plaid Update the identity data of a Beacon User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beacon--plaid.beaconuserupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

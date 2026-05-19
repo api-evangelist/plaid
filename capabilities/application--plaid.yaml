@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid application/ — Plaid
+  description: 'Plaid application/ — Plaid. 4 operations. Lead operation: Retrieve information about a Plaid application.
+    Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: application--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid application/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: application-get
+      path: /application/get
+      operations:
+      - name: applicationget
+        method: POST
+        description: Retrieve information about a Plaid application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-list
+      path: /item/application/list
+      operations:
+      - name: itemapplicationlist
+        method: POST
+        description: Plaid List a user’s connected applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-scopes-update
+      path: /item/application/scopes/update
+      operations:
+      - name: itemapplicationscopesupdate
+        method: POST
+        description: Plaid Update the scopes of access for a particular application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: item-application-unlink
+      path: /item/application/unlink
+      operations:
+      - name: itemapplicationunlink
+        method: POST
+        description: Plaid Unlink a user’s connected application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: application--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid application/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/application/get
+      name: application-get
+      description: REST surface for application-get.
+      operations:
+      - method: POST
+        name: applicationget
+        description: Retrieve information about a Plaid application
+        call: application--plaid.applicationget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/list
+      name: item-application-list
+      description: REST surface for item-application-list.
+      operations:
+      - method: POST
+        name: itemapplicationlist
+        description: Plaid List a user’s connected applications
+        call: application--plaid.itemapplicationlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/scopes/update
+      name: item-application-scopes-update
+      description: REST surface for item-application-scopes-update.
+      operations:
+      - method: POST
+        name: itemapplicationscopesupdate
+        description: Plaid Update the scopes of access for a particular application
+        call: application--plaid.itemapplicationscopesupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/item/application/unlink
+      name: item-application-unlink
+      description: REST surface for item-application-unlink.
+      operations:
+      - method: POST
+        name: itemapplicationunlink
+        description: Plaid Unlink a user’s connected application
+        call: application--plaid.itemapplicationunlink
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: application--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid application/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: retrieve-information-about-plaid-application
+      description: Retrieve information about a Plaid application
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: application--plaid.applicationget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-user-s-connected-applications
+      description: Plaid List a user’s connected applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: application--plaid.itemapplicationlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-update-scopes-access-particular
+      description: Plaid Update the scopes of access for a particular application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: application--plaid.itemapplicationscopesupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-unlink-user-s-connected-application
+      description: Plaid Unlink a user’s connected application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: application--plaid.itemapplicationunlink
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

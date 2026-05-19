@@ -1,0 +1,286 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid beta/ — Plaid
+  description: 'Plaid beta/ — Plaid. 6 operations. Lead operation: Plaid Retrieve information from the bank accounts used
+    for employment verification. Self-contained Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: beta--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid beta/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: beta-credit-v1-bank_employment-get
+      path: /beta/credit/v1/bank_employment/get
+      operations:
+      - name: creditbankemploymentget
+        method: POST
+        description: Plaid Retrieve information from the bank accounts used for employment verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-rules-v1-create
+      path: /beta/transactions/rules/v1/create
+      operations:
+      - name: transactionsrulescreate
+        method: POST
+        description: Plaid Create transaction category rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-rules-v1-list
+      path: /beta/transactions/rules/v1/list
+      operations:
+      - name: transactionsruleslist
+        method: POST
+        description: Plaid Return a list of rules created for the Item associated with the access token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-rules-v1-remove
+      path: /beta/transactions/rules/v1/remove
+      operations:
+      - name: transactionsrulesremove
+        method: POST
+        description: Plaid Remove transaction rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-user_insights-v1-get
+      path: /beta/transactions/user_insights/v1/get
+      operations:
+      - name: transactionsuserinsightsget
+        method: POST
+        description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: beta-transactions-v1-enhance
+      path: /beta/transactions/v1/enhance
+      operations:
+      - name: transactionsenhance
+        method: POST
+        description: Plaid enhance locally-held transaction data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: beta--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid beta/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/beta/credit/v1/bank-employment/get
+      name: beta-credit-v1-bank-employment-get
+      description: REST surface for beta-credit-v1-bank_employment-get.
+      operations:
+      - method: POST
+        name: creditbankemploymentget
+        description: Plaid Retrieve information from the bank accounts used for employment verification
+        call: beta--plaid.creditbankemploymentget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/rules/v1/create
+      name: beta-transactions-rules-v1-create
+      description: REST surface for beta-transactions-rules-v1-create.
+      operations:
+      - method: POST
+        name: transactionsrulescreate
+        description: Plaid Create transaction category rule
+        call: beta--plaid.transactionsrulescreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/rules/v1/list
+      name: beta-transactions-rules-v1-list
+      description: REST surface for beta-transactions-rules-v1-list.
+      operations:
+      - method: POST
+        name: transactionsruleslist
+        description: Plaid Return a list of rules created for the Item associated with the access token.
+        call: beta--plaid.transactionsruleslist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/rules/v1/remove
+      name: beta-transactions-rules-v1-remove
+      description: REST surface for beta-transactions-rules-v1-remove.
+      operations:
+      - method: POST
+        name: transactionsrulesremove
+        description: Plaid Remove transaction rule
+        call: beta--plaid.transactionsrulesremove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/user-insights/v1/get
+      name: beta-transactions-user-insights-v1-get
+      description: REST surface for beta-transactions-user_insights-v1-get.
+      operations:
+      - method: POST
+        name: transactionsuserinsightsget
+        description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+        call: beta--plaid.transactionsuserinsightsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/beta/transactions/v1/enhance
+      name: beta-transactions-v1-enhance
+      description: REST surface for beta-transactions-v1-enhance.
+      operations:
+      - method: POST
+        name: transactionsenhance
+        description: Plaid enhance locally-held transaction data
+        call: beta--plaid.transactionsenhance
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: beta--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid beta/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: plaid-retrieve-information-bank-accounts
+      description: Plaid Retrieve information from the bank accounts used for employment verification
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beta--plaid.creditbankemploymentget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-transaction-category-rule
+      description: Plaid Create transaction category rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beta--plaid.transactionsrulescreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-return-list-rules-created
+      description: Plaid Return a list of rules created for the Item associated with the access token.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: beta--plaid.transactionsruleslist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-remove-transaction-rule
+      description: Plaid Remove transaction rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beta--plaid.transactionsrulesremove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-obtain-user-insights-based
+      description: Plaid Obtain user insights based on transactions sent through /transactions/enrich
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beta--plaid.transactionsuserinsightsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-enhance-locally-held-transaction
+      description: Plaid enhance locally-held transaction data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: beta--plaid.transactionsenhance
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

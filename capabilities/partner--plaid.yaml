@@ -1,0 +1,244 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid partner/ — Plaid
+  description: 'Plaid partner/ — Plaid. 5 operations. Lead operation: Creates a new end customer for a Plaid reseller.. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: partner--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid partner/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: partner-customer-create
+      path: /partner/customer/create
+      operations:
+      - name: partnercustomercreate
+        method: POST
+        description: Creates a new end customer for a Plaid reseller.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: partner-customer-enable
+      path: /partner/customer/enable
+      operations:
+      - name: partnercustomerenable
+        method: POST
+        description: Enables a Plaid reseller's end customer in the Production environment.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: partner-customer-get
+      path: /partner/customer/get
+      operations:
+      - name: partnercustomerget
+        method: POST
+        description: Returns a Plaid reseller's end customer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: partner-customer-oauth_institutions-get
+      path: /partner/customer/oauth_institutions/get
+      operations:
+      - name: partnercustomeroauthinstitutionsget
+        method: POST
+        description: Plaid Returns OAuth-institution registration information for a given end customer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: partner-customer-remove
+      path: /partner/customer/remove
+      operations:
+      - name: partnercustomerremove
+        method: POST
+        description: Removes a Plaid reseller's end customer.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: partner--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid partner/ — Plaid. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/partner/customer/create
+      name: partner-customer-create
+      description: REST surface for partner-customer-create.
+      operations:
+      - method: POST
+        name: partnercustomercreate
+        description: Creates a new end customer for a Plaid reseller.
+        call: partner--plaid.partnercustomercreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/customer/enable
+      name: partner-customer-enable
+      description: REST surface for partner-customer-enable.
+      operations:
+      - method: POST
+        name: partnercustomerenable
+        description: Enables a Plaid reseller's end customer in the Production environment.
+        call: partner--plaid.partnercustomerenable
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/customer/get
+      name: partner-customer-get
+      description: REST surface for partner-customer-get.
+      operations:
+      - method: POST
+        name: partnercustomerget
+        description: Returns a Plaid reseller's end customer.
+        call: partner--plaid.partnercustomerget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/customer/oauth-institutions/get
+      name: partner-customer-oauth-institutions-get
+      description: REST surface for partner-customer-oauth_institutions-get.
+      operations:
+      - method: POST
+        name: partnercustomeroauthinstitutionsget
+        description: Plaid Returns OAuth-institution registration information for a given end customer.
+        call: partner--plaid.partnercustomeroauthinstitutionsget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/customer/remove
+      name: partner-customer-remove
+      description: REST surface for partner-customer-remove.
+      operations:
+      - method: POST
+        name: partnercustomerremove
+        description: Removes a Plaid reseller's end customer.
+        call: partner--plaid.partnercustomerremove
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: partner--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid partner/ — Plaid. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: creates-new-end-customer-plaid
+      description: Creates a new end customer for a Plaid reseller.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partner--plaid.partnercustomercreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enables-plaid-reseller-s-end-customer
+      description: Enables a Plaid reseller's end customer in the Production environment.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partner--plaid.partnercustomerenable
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: returns-plaid-reseller-s-end-customer
+      description: Returns a Plaid reseller's end customer.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partner--plaid.partnercustomerget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-returns-oauth-institution-registration
+      description: Plaid Returns OAuth-institution registration information for a given end customer.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partner--plaid.partnercustomeroauthinstitutionsget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: removes-plaid-reseller-s-end-customer
+      description: Removes a Plaid reseller's end customer.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partner--plaid.partnercustomerremove
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

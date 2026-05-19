@@ -1,0 +1,538 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Plaid payment initiation/ — Plaid
+  description: 'Plaid payment initiation/ — Plaid. 12 operations. Lead operation: Plaid Create payment consent. Self-contained
+    Naftiko capability covering one Plaid business surface.'
+  tags:
+  - Plaid
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLAID_API_KEY: PLAID_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: payment-initiation--plaid
+    baseUri: https://production.plaid.com
+    description: Plaid payment initiation/ — Plaid business capability. Self-contained, no shared references.
+    resources:
+    - name: payment_initiation-consent-create
+      path: /payment_initiation/consent/create
+      operations:
+      - name: paymentinitiationconsentcreate
+        method: POST
+        description: Plaid Create payment consent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-consent-get
+      path: /payment_initiation/consent/get
+      operations:
+      - name: paymentinitiationconsentget
+        method: POST
+        description: Plaid Get payment consent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-consent-payment-execute
+      path: /payment_initiation/consent/payment/execute
+      operations:
+      - name: paymentinitiationconsentpaymentexecute
+        method: POST
+        description: Plaid Execute a single payment using consent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-consent-revoke
+      path: /payment_initiation/consent/revoke
+      operations:
+      - name: paymentinitiationconsentrevoke
+        method: POST
+        description: Plaid Revoke payment consent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-payment-create
+      path: /payment_initiation/payment/create
+      operations:
+      - name: paymentinitiationpaymentcreate
+        method: POST
+        description: Plaid Create a payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-payment-get
+      path: /payment_initiation/payment/get
+      operations:
+      - name: paymentinitiationpaymentget
+        method: POST
+        description: Plaid Get payment details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-payment-list
+      path: /payment_initiation/payment/list
+      operations:
+      - name: paymentinitiationpaymentlist
+        method: POST
+        description: Plaid List payments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-payment-reverse
+      path: /payment_initiation/payment/reverse
+      operations:
+      - name: paymentinitiationpaymentreverse
+        method: POST
+        description: Plaid Reverse an existing payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-payment-token-create
+      path: /payment_initiation/payment/token/create
+      operations:
+      - name: createpaymenttoken
+        method: POST
+        description: Plaid Create payment token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-recipient-create
+      path: /payment_initiation/recipient/create
+      operations:
+      - name: paymentinitiationrecipientcreate
+        method: POST
+        description: Plaid Create payment recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-recipient-get
+      path: /payment_initiation/recipient/get
+      operations:
+      - name: paymentinitiationrecipientget
+        method: POST
+        description: Plaid Get payment recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: payment_initiation-recipient-list
+      path: /payment_initiation/recipient/list
+      operations:
+      - name: paymentinitiationrecipientlist
+        method: POST
+        description: Plaid List payment recipients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: payment-initiation--plaid-rest
+    port: 8080
+    description: REST adapter for Plaid payment initiation/ — Plaid. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/payment-initiation/consent/create
+      name: payment-initiation-consent-create
+      description: REST surface for payment_initiation-consent-create.
+      operations:
+      - method: POST
+        name: paymentinitiationconsentcreate
+        description: Plaid Create payment consent
+        call: payment-initiation--plaid.paymentinitiationconsentcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/consent/get
+      name: payment-initiation-consent-get
+      description: REST surface for payment_initiation-consent-get.
+      operations:
+      - method: POST
+        name: paymentinitiationconsentget
+        description: Plaid Get payment consent
+        call: payment-initiation--plaid.paymentinitiationconsentget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/consent/payment/execute
+      name: payment-initiation-consent-payment-execute
+      description: REST surface for payment_initiation-consent-payment-execute.
+      operations:
+      - method: POST
+        name: paymentinitiationconsentpaymentexecute
+        description: Plaid Execute a single payment using consent
+        call: payment-initiation--plaid.paymentinitiationconsentpaymentexecute
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/consent/revoke
+      name: payment-initiation-consent-revoke
+      description: REST surface for payment_initiation-consent-revoke.
+      operations:
+      - method: POST
+        name: paymentinitiationconsentrevoke
+        description: Plaid Revoke payment consent
+        call: payment-initiation--plaid.paymentinitiationconsentrevoke
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/payment/create
+      name: payment-initiation-payment-create
+      description: REST surface for payment_initiation-payment-create.
+      operations:
+      - method: POST
+        name: paymentinitiationpaymentcreate
+        description: Plaid Create a payment
+        call: payment-initiation--plaid.paymentinitiationpaymentcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/payment/get
+      name: payment-initiation-payment-get
+      description: REST surface for payment_initiation-payment-get.
+      operations:
+      - method: POST
+        name: paymentinitiationpaymentget
+        description: Plaid Get payment details
+        call: payment-initiation--plaid.paymentinitiationpaymentget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/payment/list
+      name: payment-initiation-payment-list
+      description: REST surface for payment_initiation-payment-list.
+      operations:
+      - method: POST
+        name: paymentinitiationpaymentlist
+        description: Plaid List payments
+        call: payment-initiation--plaid.paymentinitiationpaymentlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/payment/reverse
+      name: payment-initiation-payment-reverse
+      description: REST surface for payment_initiation-payment-reverse.
+      operations:
+      - method: POST
+        name: paymentinitiationpaymentreverse
+        description: Plaid Reverse an existing payment
+        call: payment-initiation--plaid.paymentinitiationpaymentreverse
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/payment/token/create
+      name: payment-initiation-payment-token-create
+      description: REST surface for payment_initiation-payment-token-create.
+      operations:
+      - method: POST
+        name: createpaymenttoken
+        description: Plaid Create payment token
+        call: payment-initiation--plaid.createpaymenttoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/recipient/create
+      name: payment-initiation-recipient-create
+      description: REST surface for payment_initiation-recipient-create.
+      operations:
+      - method: POST
+        name: paymentinitiationrecipientcreate
+        description: Plaid Create payment recipient
+        call: payment-initiation--plaid.paymentinitiationrecipientcreate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/recipient/get
+      name: payment-initiation-recipient-get
+      description: REST surface for payment_initiation-recipient-get.
+      operations:
+      - method: POST
+        name: paymentinitiationrecipientget
+        description: Plaid Get payment recipient
+        call: payment-initiation--plaid.paymentinitiationrecipientget
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payment-initiation/recipient/list
+      name: payment-initiation-recipient-list
+      description: REST surface for payment_initiation-recipient-list.
+      operations:
+      - method: POST
+        name: paymentinitiationrecipientlist
+        description: Plaid List payment recipients
+        call: payment-initiation--plaid.paymentinitiationrecipientlist
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: payment-initiation--plaid-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Plaid payment initiation/ — Plaid. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: plaid-create-payment-consent
+      description: Plaid Create payment consent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationconsentcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-payment-consent
+      description: Plaid Get payment consent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationconsentget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-execute-single-payment-using
+      description: Plaid Execute a single payment using consent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationconsentpaymentexecute
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-revoke-payment-consent
+      description: Plaid Revoke payment consent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationconsentrevoke
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-payment
+      description: Plaid Create a payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationpaymentcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-payment-details
+      description: Plaid Get payment details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationpaymentget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-payments
+      description: Plaid List payments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationpaymentlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-reverse-existing-payment
+      description: Plaid Reverse an existing payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationpaymentreverse
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-payment-token
+      description: Plaid Create payment token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.createpaymenttoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-create-payment-recipient
+      description: Plaid Create payment recipient
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationrecipientcreate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-get-payment-recipient
+      description: Plaid Get payment recipient
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationrecipientget
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: plaid-list-payment-recipients
+      description: Plaid List payment recipients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: payment-initiation--plaid.paymentinitiationrecipientlist
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
