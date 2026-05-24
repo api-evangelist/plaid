@@ -1413,6 +1413,8 @@ common:
     sources:
     - https://plaid.com/pricing/
     updated: '2026-05-04'
+  - type: LLMsTxt
+    url: https://plaid.com/llms.txt
 created: '2024-07-07T00:00:00.000Z'
 modified: '2026-05-19'
 description: Plaid is a financial technology company that provides an API platform for businesses to connect with user's financial
