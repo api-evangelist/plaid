@@ -1,0 +1,1467 @@
+asyncapi: '2.6.0'
+info:
+  title: Plaid Webhooks
+  version: '2020-09-14'
+  description: |
+    AsyncAPI 2.6 specification for the Plaid webhook surface.
+
+    Plaid delivers asynchronous notifications via HTTP POST to the URL registered on
+    an Item (`webhook` parameter in `/link/token/create`) or configured per-product
+    in the Plaid Dashboard. Each webhook carries a JSON body identified by the
+    `webhook_type` and `webhook_code` fields and is signed with an ES256 JWT in the
+    `Plaid-Verification` HTTP header.
+
+    Webhooks delivered with a non-200 response are retried with exponential backoff
+    for up to 24 hours starting at 30 seconds.
+
+    Sources:
+      - https://plaid.com/docs/api/webhooks/
+      - https://plaid.com/docs/api/webhooks/webhook-verification/
+      - Product-specific webhook reference pages on plaid.com/docs/api/products/*
+      - Plaid OpenAPI spec (openapi/plaid-openapi-original.yml)
+  contact:
+    name: Plaid Developer Support
+    url: https://plaid.com/docs/
+  license:
+    name: Proprietary - see Plaid Master Services Agreement
+    url: https://plaid.com/legal/
+
+defaultContentType: application/json
+
+servers:
+  production:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |
+      Customer-hosted HTTPS endpoint that receives webhook POSTs from Plaid.
+      Plaid sends webhooks from a published set of static IPs documented at
+      https://plaid.com/docs/api/webhooks/#ip-addresses.
+    variables:
+      webhookUrl:
+        default: https://example.com/plaid/webhook
+        description: The fully-qualified webhook URL registered with Plaid.
+    security:
+      - plaidJwt: []
+
+channels:
+  # ---------------- ITEM ----------------
+  item/error:
+    description: Fired when an error is encountered with an Item. Resolvable via Link update mode.
+    publish:
+      operationId: onItemError
+      message:
+        $ref: '#/components/messages/ItemErrorWebhook'
+  item/loginRepaired:
+    description: Item exited ITEM_LOGIN_REQUIRED state without the user going through update mode in your app.
+    publish:
+      operationId: onItemLoginRepaired
+      message:
+        $ref: '#/components/messages/ItemLoginRepairedWebhook'
+  item/newAccountsAvailable:
+    description: Plaid detected a new account on an Item created/updated with Account Select v2.
+    publish:
+      operationId: onItemNewAccountsAvailable
+      message:
+        $ref: '#/components/messages/NewAccountsAvailableWebhook'
+  item/pendingExpiration:
+    description: An Item's access consent is expiring in 7 days (EU/UK PSD2 consent windows).
+    publish:
+      operationId: onItemPendingExpiration
+      message:
+        $ref: '#/components/messages/PendingExpirationWebhook'
+  item/userPermissionRevoked:
+    description: End user revoked Item access via my.plaid.com or the institution's OAuth consent portal.
+    publish:
+      operationId: onItemUserPermissionRevoked
+      message:
+        $ref: '#/components/messages/UserPermissionRevokedWebhook'
+  item/userAccountRevoked:
+    description: End user revoked access to a specific account on the data provider's portal (currently Chase).
+    publish:
+      operationId: onItemUserAccountRevoked
+      message:
+        $ref: '#/components/messages/UserAccountRevokedWebhook'
+  item/webhookUpdateAcknowledged:
+    description: Item webhook URL successfully updated; delivered to the newly specified URL.
+    publish:
+      operationId: onItemWebhookUpdateAcknowledged
+      message:
+        $ref: '#/components/messages/WebhookUpdateAcknowledgedWebhook'
+
+  # ---------------- TRANSACTIONS ----------------
+  transactions/syncUpdatesAvailable:
+    description: Fresh transaction changes available; fetch via /transactions/sync.
+    publish:
+      operationId: onTransactionsSyncUpdatesAvailable
+      message:
+        $ref: '#/components/messages/SyncUpdatesAvailableWebhook'
+  transactions/initialUpdate:
+    description: Initial 30-day transaction pull complete. Legacy /transactions/get listener.
+    publish:
+      operationId: onTransactionsInitialUpdate
+      message:
+        $ref: '#/components/messages/InitialUpdateWebhook'
+  transactions/historicalUpdate:
+    description: Historical transaction backfill complete (up to 2 years). Legacy /transactions/get listener.
+    publish:
+      operationId: onTransactionsHistoricalUpdate
+      message:
+        $ref: '#/components/messages/HistoricalUpdateWebhook'
+  transactions/defaultUpdate:
+    description: New transactions detected. Legacy /transactions/get listener.
+    publish:
+      operationId: onTransactionsDefaultUpdate
+      message:
+        $ref: '#/components/messages/DefaultUpdateWebhook'
+  transactions/transactionsRemoved:
+    description: Previously returned transactions have been removed.
+    publish:
+      operationId: onTransactionsRemoved
+      message:
+        $ref: '#/components/messages/TransactionsRemovedWebhook'
+  transactions/recurringTransactionsUpdate:
+    description: Recurring transaction streams added or updated; refetch /transactions/recurring/get.
+    publish:
+      operationId: onRecurringTransactionsUpdate
+      message:
+        $ref: '#/components/messages/RecurringTransactionsUpdateWebhook'
+
+  # ---------------- AUTH ----------------
+  auth/defaultUpdate:
+    description: Account or routing numbers have changed; refetch /auth/get and stop using old TANs.
+    publish:
+      operationId: onAuthDefaultUpdate
+      message:
+        $ref: '#/components/messages/AuthDefaultUpdateWebhook'
+  auth/automaticallyVerified:
+    description: Item verified via automated micro-deposits.
+    publish:
+      operationId: onAuthAutomaticallyVerified
+      message:
+        $ref: '#/components/messages/AutomaticallyVerifiedWebhook'
+  auth/verificationExpired:
+    description: Automated micro-deposit verification failed to complete within seven days.
+    publish:
+      operationId: onAuthVerificationExpired
+      message:
+        $ref: '#/components/messages/VerificationExpiredWebhook'
+  auth/smsMicrodepositsVerification:
+    description: Final status of a same-day micro-deposits verification session.
+    publish:
+      operationId: onAuthSmsMicrodepositsVerification
+      message:
+        $ref: '#/components/messages/HostedMMDVerificationWebhook'
+  auth/productPermissionsRequired:
+    description: ACCESS_NOT_GRANTED hit for Auth; put the user through update mode with `auth` in products.
+    publish:
+      operationId: onAuthProductPermissionsRequired
+      message:
+        $ref: '#/components/messages/ProductPermissionsRequiredAuthWebhook'
+  auth/bankTransfersEventsUpdate:
+    description: New ACH events available for micro-deposit verification tracking; fetch via /bank_transfer/event/sync.
+    publish:
+      operationId: onBankTransfersEventsUpdate
+      message:
+        $ref: '#/components/messages/BankTransfersEventsUpdateWebhook'
+
+  # ---------------- IDENTITY ----------------
+  identity/defaultUpdate:
+    description: Identity data change detected on an Item.
+    publish:
+      operationId: onIdentityDefaultUpdate
+      message:
+        $ref: '#/components/messages/IdentityDefaultUpdateWebhook'
+  identity/productPermissionsRequired:
+    description: ACCESS_NOT_GRANTED hit for Identity; put the user through update mode with `identity` in products.
+    publish:
+      operationId: onIdentityProductPermissionsRequired
+      message:
+        $ref: '#/components/messages/ProductPermissionsRequiredIdentityWebhook'
+
+  # ---------------- HOLDINGS ----------------
+  holdings/defaultUpdate:
+    description: New or updated holdings detected on an investment account (typically after market close).
+    publish:
+      operationId: onHoldingsDefaultUpdate
+      message:
+        $ref: '#/components/messages/HoldingsDefaultUpdateWebhook'
+
+  # ---------------- INVESTMENTS_TRANSACTIONS ----------------
+  investmentsTransactions/defaultUpdate:
+    description: New investment transactions detected.
+    publish:
+      operationId: onInvestmentsDefaultUpdate
+      message:
+        $ref: '#/components/messages/InvestmentsDefaultUpdateWebhook'
+  investmentsTransactions/historicalUpdate:
+    description: Historical investments transactions extraction complete.
+    publish:
+      operationId: onInvestmentsHistoricalUpdate
+      message:
+        $ref: '#/components/messages/InvestmentsHistoricalUpdateWebhook'
+
+  # ---------------- LIABILITIES ----------------
+  liabilities/defaultUpdate:
+    description: New or updated liabilities detected on a Liabilities Item.
+    publish:
+      operationId: onLiabilitiesDefaultUpdate
+      message:
+        $ref: '#/components/messages/LiabilitiesDefaultUpdateWebhook'
+
+  # ---------------- ASSETS ----------------
+  assets/productReady:
+    description: Asset Report ready; call /asset_report/get to retrieve.
+    publish:
+      operationId: onAssetsProductReady
+      message:
+        $ref: '#/components/messages/AssetsProductReadyWebhook'
+  assets/error:
+    description: Asset Report generation failed (ASSET_REPORT_ERROR).
+    publish:
+      operationId: onAssetsError
+      message:
+        $ref: '#/components/messages/AssetsErrorWebhook'
+
+  # ---------------- INCOME ----------------
+  income/productReady:
+    description: Plaid has finished calculating income for an Item.
+    publish:
+      operationId: onIncomeProductReady
+      message:
+        $ref: '#/components/messages/ItemProductReadyWebhook'
+  income/incomeVerification:
+    description: Income verification processing status change (Document Income flow).
+    publish:
+      operationId: onIncomeVerification
+      message:
+        $ref: '#/components/messages/IncomeVerificationStatusWebhook'
+  income/incomeVerificationRiskSignals:
+    description: Risk signals processed for documents uploaded via Document Income.
+    publish:
+      operationId: onIncomeVerificationRiskSignals
+      message:
+        $ref: '#/components/messages/IncomeVerificationRiskSignalsStatusWebhook'
+  income/bankIncomeComplete:
+    description: A CRA-enabled bank income report has completed (success or failure); call /credit/bank_income/get.
+    publish:
+      operationId: onBankIncomeComplete
+      message:
+        $ref: '#/components/messages/BankIncomeCompleteWebhook'
+  income/bankIncomeRefreshUpdate:
+    description: A change in user income has been detected; call /credit/bank_income/refresh.
+    publish:
+      operationId: onBankIncomeRefreshUpdate
+      message:
+        $ref: '#/components/messages/BankIncomeRefreshUpdateWebhook'
+  income/bankIncomeRefreshComplete:
+    description: A refreshed bank income report has finished generating.
+    publish:
+      operationId: onBankIncomeRefreshComplete
+      message:
+        $ref: '#/components/messages/BankIncomeRefreshCompleteWebhook'
+  income/incomeVerificationRefreshReconnectNeeded:
+    description: Payroll Income refresh failed because the user must re-connect their payroll account.
+    publish:
+      operationId: onIncomeVerificationRefreshReconnectNeeded
+      message:
+        $ref: '#/components/messages/IncomeVerificationRefreshReconnectNeededWebhook'
+
+  # ---------------- TRANSFER ----------------
+  transfer/eventsUpdate:
+    description: New transfer events available; fetch via /transfer/event/sync.
+    publish:
+      operationId: onTransferEventsUpdate
+      message:
+        $ref: '#/components/messages/TransferEventsUpdateWebhook'
+  transfer/recurringNewTransfer:
+    description: A new transfer of a recurring transfer has been originated.
+    publish:
+      operationId: onRecurringNewTransfer
+      message:
+        $ref: '#/components/messages/RecurringNewTransferWebhook'
+  transfer/recurringTransferSkipped:
+    description: A scheduled recurring transfer could not be created on its planned date.
+    publish:
+      operationId: onRecurringTransferSkipped
+      message:
+        $ref: '#/components/messages/RecurringTransferSkippedWebhook'
+  transfer/recurringCancelled:
+    description: A recurring transfer was cancelled by Plaid.
+    publish:
+      operationId: onRecurringCancelled
+      message:
+        $ref: '#/components/messages/RecurringCancelledWebhook'
+
+  # ---------------- SIGNAL ----------------
+  # Plaid Signal is request/response only — no documented webhook codes were found
+  # on the public reference pages at the time of this writing.
+
+  # ---------------- STATEMENTS ----------------
+  statements/refreshComplete:
+    description: A statement refresh extraction (success or failure) triggered by /statements/refresh has completed.
+    publish:
+      operationId: onStatementsRefreshComplete
+      message:
+        $ref: '#/components/messages/StatementsRefreshCompleteWebhook'
+
+  # ---------------- LAYER / LINK ----------------
+  link/sessionFinished:
+    description: A Link session ended with a final status of SUCCESS or EXITED. Used by Layer flows.
+    publish:
+      operationId: onLinkSessionFinished
+      message:
+        $ref: '#/components/messages/LinkSessionFinishedWebhook'
+  link/itemAddResult:
+    description: User successfully added a Plaid Item during a Link session; carries the public token.
+    publish:
+      operationId: onLinkItemAddResult
+      message:
+        $ref: '#/components/messages/ItemAddResultWebhook'
+  link/events:
+    description: Summary of events emitted during a Link session.
+    publish:
+      operationId: onLinkEvents
+      message:
+        $ref: '#/components/messages/LinkEventsWebhook'
+
+  # ---------------- IDENTITY VERIFICATION ----------------
+  identityVerification/statusUpdated:
+    description: An identity verification status changed (dashboard or API trigger).
+    publish:
+      operationId: onIdentityVerificationStatusUpdated
+      message:
+        $ref: '#/components/messages/IdentityVerificationStatusUpdatedWebhook'
+  identityVerification/stepUpdated:
+    description: A step in the identity verification process was completed.
+    publish:
+      operationId: onIdentityVerificationStepUpdated
+      message:
+        $ref: '#/components/messages/IdentityVerificationStepUpdatedWebhook'
+  identityVerification/retried:
+    description: An identity verification was retried (dashboard or API trigger).
+    publish:
+      operationId: onIdentityVerificationRetried
+      message:
+        $ref: '#/components/messages/IdentityVerificationRetriedWebhook'
+
+  # ---------------- MONITOR (Beacon) ----------------
+  beacon/userStatusUpdated:
+    description: A Beacon User status changed (dashboard action or Beacon Network report).
+    publish:
+      operationId: onBeaconUserStatusUpdated
+      message:
+        $ref: '#/components/messages/BeaconUserStatusUpdatedWebhook'
+  beacon/reportCreated:
+    description: A Beacon User was first reported to the Beacon Network.
+    publish:
+      operationId: onBeaconReportCreated
+      message:
+        $ref: '#/components/messages/BeaconReportCreatedWebhook'
+  beacon/reportUpdated:
+    description: An existing Beacon Report was modified or removed from the Network.
+    publish:
+      operationId: onBeaconReportUpdated
+      message:
+        $ref: '#/components/messages/BeaconReportUpdatedWebhook'
+  beacon/reportSyndicationCreated:
+    description: A Beacon Network report matched one of your Beacon Users.
+    publish:
+      operationId: onBeaconReportSyndicationCreated
+      message:
+        $ref: '#/components/messages/BeaconReportSyndicationCreatedWebhook'
+  beacon/duplicateDetected:
+    description: A Beacon User created within your organization matched one of your existing users.
+    publish:
+      operationId: onBeaconDuplicateDetected
+      message:
+        $ref: '#/components/messages/BeaconDuplicateDetectedWebhook'
+
+  # ---------------- WATCHLIST SCREENING ----------------
+  screening/statusUpdated:
+    description: An individual watchlist screening status changed (manually or via ongoing monitoring).
+    publish:
+      operationId: onScreeningStatusUpdated
+      message:
+        $ref: '#/components/messages/ScreeningStatusUpdatedWebhook'
+  entityScreening/statusUpdated:
+    description: An entity watchlist screening status changed (manually or via ongoing monitoring).
+    publish:
+      operationId: onEntityScreeningStatusUpdated
+      message:
+        $ref: '#/components/messages/EntityScreeningStatusUpdatedWebhook'
+
+components:
+  securitySchemes:
+    plaidJwt:
+      type: httpApiKey
+      in: header
+      name: Plaid-Verification
+      description: |
+        Plaid signs every webhook with a JSON Web Token (JWT) carried in the `Plaid-Verification`
+        HTTP header.
+
+        Verification procedure:
+          1. Decode the JWT header and confirm `alg` is `ES256`.
+          2. Extract the `kid` (key ID) from the JWT header.
+          3. Fetch the corresponding verification key from `/webhook_verification_key/get`.
+          4. Verify the JWT signature using the returned ECDSA P-256 public key (JWK).
+          5. Verify the `iat` (issued-at) claim is within 5 minutes of the current time.
+          6. Compute SHA-256 of the raw request body and confirm it matches the
+             `request_body_sha256` claim in the JWT payload.
+
+        Reference: https://plaid.com/docs/api/webhooks/webhook-verification/
+
+  messages:
+    # -------- ITEM --------
+    ItemErrorWebhook:
+      name: ItemErrorWebhook
+      title: ITEM / ERROR
+      summary: Fired when an error is encountered with an Item.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ItemErrorWebhook'
+    ItemLoginRepairedWebhook:
+      name: ItemLoginRepairedWebhook
+      title: ITEM / LOGIN_REPAIRED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ItemLoginRepairedWebhook'
+    NewAccountsAvailableWebhook:
+      name: NewAccountsAvailableWebhook
+      title: ITEM / NEW_ACCOUNTS_AVAILABLE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/NewAccountsAvailableWebhook'
+    PendingExpirationWebhook:
+      name: PendingExpirationWebhook
+      title: ITEM / PENDING_EXPIRATION
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PendingExpirationWebhook'
+    UserPermissionRevokedWebhook:
+      name: UserPermissionRevokedWebhook
+      title: ITEM / USER_PERMISSION_REVOKED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/UserPermissionRevokedWebhook'
+    UserAccountRevokedWebhook:
+      name: UserAccountRevokedWebhook
+      title: ITEM / USER_ACCOUNT_REVOKED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/UserAccountRevokedWebhook'
+    WebhookUpdateAcknowledgedWebhook:
+      name: WebhookUpdateAcknowledgedWebhook
+      title: ITEM / WEBHOOK_UPDATE_ACKNOWLEDGED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/WebhookUpdateAcknowledgedWebhook'
+
+    # -------- TRANSACTIONS --------
+    SyncUpdatesAvailableWebhook:
+      name: SyncUpdatesAvailableWebhook
+      title: TRANSACTIONS / SYNC_UPDATES_AVAILABLE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SyncUpdatesAvailableWebhook'
+    InitialUpdateWebhook:
+      name: InitialUpdateWebhook
+      title: TRANSACTIONS / INITIAL_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/InitialUpdateWebhook'
+    HistoricalUpdateWebhook:
+      name: HistoricalUpdateWebhook
+      title: TRANSACTIONS / HISTORICAL_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/HistoricalUpdateWebhook'
+    DefaultUpdateWebhook:
+      name: DefaultUpdateWebhook
+      title: TRANSACTIONS / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/DefaultUpdateWebhook'
+    TransactionsRemovedWebhook:
+      name: TransactionsRemovedWebhook
+      title: TRANSACTIONS / TRANSACTIONS_REMOVED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/TransactionsRemovedWebhook'
+    RecurringTransactionsUpdateWebhook:
+      name: RecurringTransactionsUpdateWebhook
+      title: TRANSACTIONS / RECURRING_TRANSACTIONS_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/RecurringTransactionsUpdateWebhook'
+
+    # -------- AUTH --------
+    AuthDefaultUpdateWebhook:
+      name: AuthDefaultUpdateWebhook
+      title: AUTH / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/AuthDefaultUpdateWebhook'
+    AutomaticallyVerifiedWebhook:
+      name: AutomaticallyVerifiedWebhook
+      title: AUTH / AUTOMATICALLY_VERIFIED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/AutomaticallyVerifiedWebhook'
+    VerificationExpiredWebhook:
+      name: VerificationExpiredWebhook
+      title: AUTH / VERIFICATION_EXPIRED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/VerificationExpiredWebhook'
+    HostedMMDVerificationWebhook:
+      name: HostedMMDVerificationWebhook
+      title: AUTH / SMS_MICRODEPOSITS_VERIFICATION
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/HostedMMDVerificationWebhook'
+    ProductPermissionsRequiredAuthWebhook:
+      name: ProductPermissionsRequiredAuthWebhook
+      title: AUTH / PRODUCT_PERMISSIONS_REQUIRED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ProductPermissionsRequiredAuthWebhook'
+    BankTransfersEventsUpdateWebhook:
+      name: BankTransfersEventsUpdateWebhook
+      title: BANK_TRANSFERS / BANK_TRANSFERS_EVENTS_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BankTransfersEventsUpdateWebhook'
+
+    # -------- IDENTITY --------
+    IdentityDefaultUpdateWebhook:
+      name: IdentityDefaultUpdateWebhook
+      title: IDENTITY / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IdentityDefaultUpdateWebhook'
+    ProductPermissionsRequiredIdentityWebhook:
+      name: ProductPermissionsRequiredIdentityWebhook
+      title: IDENTITY / PRODUCT_PERMISSIONS_REQUIRED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ProductPermissionsRequiredIdentityWebhook'
+
+    # -------- HOLDINGS / INVESTMENTS --------
+    HoldingsDefaultUpdateWebhook:
+      name: HoldingsDefaultUpdateWebhook
+      title: HOLDINGS / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/HoldingsDefaultUpdateWebhook'
+    InvestmentsDefaultUpdateWebhook:
+      name: InvestmentsDefaultUpdateWebhook
+      title: INVESTMENTS_TRANSACTIONS / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/InvestmentsDefaultUpdateWebhook'
+    InvestmentsHistoricalUpdateWebhook:
+      name: InvestmentsHistoricalUpdateWebhook
+      title: INVESTMENTS_TRANSACTIONS / HISTORICAL_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/InvestmentsHistoricalUpdateWebhook'
+
+    # -------- LIABILITIES --------
+    LiabilitiesDefaultUpdateWebhook:
+      name: LiabilitiesDefaultUpdateWebhook
+      title: LIABILITIES / DEFAULT_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LiabilitiesDefaultUpdateWebhook'
+
+    # -------- ASSETS --------
+    AssetsProductReadyWebhook:
+      name: AssetsProductReadyWebhook
+      title: ASSETS / PRODUCT_READY
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/AssetsProductReadyWebhook'
+    AssetsErrorWebhook:
+      name: AssetsErrorWebhook
+      title: ASSETS / ERROR
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/AssetsErrorWebhook'
+
+    # -------- INCOME --------
+    ItemProductReadyWebhook:
+      name: ItemProductReadyWebhook
+      title: INCOME / PRODUCT_READY
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ItemProductReadyWebhook'
+    IncomeVerificationStatusWebhook:
+      name: IncomeVerificationStatusWebhook
+      title: INCOME / INCOME_VERIFICATION
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IncomeVerificationStatusWebhook'
+    IncomeVerificationRiskSignalsStatusWebhook:
+      name: IncomeVerificationRiskSignalsStatusWebhook
+      title: INCOME / INCOME_VERIFICATION_RISK_SIGNALS
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IncomeVerificationRiskSignalsStatusWebhook'
+    BankIncomeCompleteWebhook:
+      name: BankIncomeCompleteWebhook
+      title: INCOME / BANK_INCOME_COMPLETE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BankIncomeCompleteWebhook'
+    BankIncomeRefreshUpdateWebhook:
+      name: BankIncomeRefreshUpdateWebhook
+      title: INCOME / BANK_INCOME_REFRESH_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BankIncomeRefreshUpdateWebhook'
+    BankIncomeRefreshCompleteWebhook:
+      name: BankIncomeRefreshCompleteWebhook
+      title: INCOME / BANK_INCOME_REFRESH_COMPLETE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BankIncomeRefreshCompleteWebhook'
+    IncomeVerificationRefreshReconnectNeededWebhook:
+      name: IncomeVerificationRefreshReconnectNeededWebhook
+      title: INCOME / INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IncomeVerificationRefreshReconnectNeededWebhook'
+
+    # -------- TRANSFER --------
+    TransferEventsUpdateWebhook:
+      name: TransferEventsUpdateWebhook
+      title: TRANSFER / TRANSFER_EVENTS_UPDATE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/TransferEventsUpdateWebhook'
+    RecurringNewTransferWebhook:
+      name: RecurringNewTransferWebhook
+      title: TRANSFER / RECURRING_NEW_TRANSFER
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/RecurringNewTransferWebhook'
+    RecurringTransferSkippedWebhook:
+      name: RecurringTransferSkippedWebhook
+      title: TRANSFER / RECURRING_TRANSFER_SKIPPED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/RecurringTransferSkippedWebhook'
+    RecurringCancelledWebhook:
+      name: RecurringCancelledWebhook
+      title: TRANSFER / RECURRING_CANCELLED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/RecurringCancelledWebhook'
+
+    # -------- STATEMENTS --------
+    StatementsRefreshCompleteWebhook:
+      name: StatementsRefreshCompleteWebhook
+      title: STATEMENTS / STATEMENTS_REFRESH_COMPLETE
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/StatementsRefreshCompleteWebhook'
+
+    # -------- LAYER / LINK --------
+    LinkSessionFinishedWebhook:
+      name: LinkSessionFinishedWebhook
+      title: LINK / SESSION_FINISHED (Layer)
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LinkSessionFinishedWebhook'
+    ItemAddResultWebhook:
+      name: ItemAddResultWebhook
+      title: LINK / ITEM_ADD_RESULT
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ItemAddResultWebhook'
+    LinkEventsWebhook:
+      name: LinkEventsWebhook
+      title: LINK / EVENTS
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LinkEventsWebhook'
+
+    # -------- IDENTITY VERIFICATION --------
+    IdentityVerificationStatusUpdatedWebhook:
+      name: IdentityVerificationStatusUpdatedWebhook
+      title: IDENTITY_VERIFICATION / STATUS_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IdentityVerificationStatusUpdatedWebhook'
+    IdentityVerificationStepUpdatedWebhook:
+      name: IdentityVerificationStepUpdatedWebhook
+      title: IDENTITY_VERIFICATION / STEP_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IdentityVerificationStepUpdatedWebhook'
+    IdentityVerificationRetriedWebhook:
+      name: IdentityVerificationRetriedWebhook
+      title: IDENTITY_VERIFICATION / RETRIED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/IdentityVerificationRetriedWebhook'
+
+    # -------- MONITOR (Beacon) --------
+    BeaconUserStatusUpdatedWebhook:
+      name: BeaconUserStatusUpdatedWebhook
+      title: BEACON / USER_STATUS_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BeaconUserStatusUpdatedWebhook'
+    BeaconReportCreatedWebhook:
+      name: BeaconReportCreatedWebhook
+      title: BEACON / REPORT_CREATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BeaconReportCreatedWebhook'
+    BeaconReportUpdatedWebhook:
+      name: BeaconReportUpdatedWebhook
+      title: BEACON / REPORT_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BeaconReportUpdatedWebhook'
+    BeaconReportSyndicationCreatedWebhook:
+      name: BeaconReportSyndicationCreatedWebhook
+      title: BEACON / REPORT_SYNDICATION_CREATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BeaconReportSyndicationCreatedWebhook'
+    BeaconDuplicateDetectedWebhook:
+      name: BeaconDuplicateDetectedWebhook
+      title: BEACON / DUPLICATE_DETECTED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BeaconDuplicateDetectedWebhook'
+
+    # -------- WATCHLIST SCREENING --------
+    ScreeningStatusUpdatedWebhook:
+      name: ScreeningStatusUpdatedWebhook
+      title: SCREENING / STATUS_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ScreeningStatusUpdatedWebhook'
+    EntityScreeningStatusUpdatedWebhook:
+      name: EntityScreeningStatusUpdatedWebhook
+      title: ENTITY_SCREENING / STATUS_UPDATED
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/EntityScreeningStatusUpdatedWebhook'
+
+  schemas:
+    WebhookEnvironment:
+      type: string
+      enum: [sandbox, production]
+      description: The Plaid environment the webhook originated from.
+
+    PlaidError:
+      type: object
+      nullable: true
+      description: |
+        Standard Plaid error envelope. Populated when an asynchronous operation fails.
+      properties:
+        error_type: { type: string }
+        error_code: { type: string }
+        error_code_reason: { type: string, nullable: true }
+        error_message: { type: string }
+        display_message: { type: string, nullable: true }
+        status: { type: integer, nullable: true }
+        documentation_url: { type: string, nullable: true }
+        suggested_action: { type: string, nullable: true }
+        request_id: { type: string, nullable: true }
+
+    # ---------- ITEM ----------
+    ItemErrorWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, error, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: ERROR }
+        item_id: { type: string }
+        user_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    ItemLoginRepairedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: LOGIN_REPAIRED }
+        item_id: { type: string }
+        user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    NewAccountsAvailableWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: NEW_ACCOUNTS_AVAILABLE }
+        item_id: { type: string }
+        user_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    PendingExpirationWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, consent_expiration_time, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: PENDING_EXPIRATION }
+        item_id: { type: string }
+        user_id: { type: string }
+        consent_expiration_time:
+          type: string
+          format: date-time
+          description: ISO 8601 timestamp at which Item consent will expire.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    UserPermissionRevokedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: USER_PERMISSION_REVOKED }
+        item_id: { type: string }
+        user_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    UserAccountRevokedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, account_id, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: USER_ACCOUNT_REVOKED }
+        item_id: { type: string }
+        account_id:
+          type: string
+          description: The external account ID of the affected account.
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    WebhookUpdateAcknowledgedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, new_webhook_url, environment]
+      properties:
+        webhook_type: { type: string, const: ITEM }
+        webhook_code: { type: string, const: WEBHOOK_UPDATE_ACKNOWLEDGED }
+        item_id: { type: string }
+        new_webhook_url: { type: string, format: uri }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- TRANSACTIONS ----------
+    SyncUpdatesAvailableWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, initial_update_complete, historical_update_complete, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: SYNC_UPDATES_AVAILABLE }
+        item_id: { type: string }
+        initial_update_complete:
+          type: boolean
+          description: Indicates if the initial 30-day pull is available.
+        historical_update_complete:
+          type: boolean
+          description: Indicates if the historical pull (up to 2 years) is available.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    InitialUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, new_transactions, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: INITIAL_UPDATE }
+        error:
+          type: string
+          nullable: true
+        new_transactions:
+          type: number
+          description: Number of new, unfetched transactions available.
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    HistoricalUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, new_transactions, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: HISTORICAL_UPDATE }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        new_transactions: { type: number }
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    DefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, new_transactions, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        new_transactions:
+          type: number
+          description: Number of new transactions detected since the last firing.
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    TransactionsRemovedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, removed_transactions, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: TRANSACTIONS_REMOVED }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        removed_transactions:
+          type: array
+          items: { type: string }
+          description: Transaction IDs corresponding to removed transactions.
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    RecurringTransactionsUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, account_ids, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSACTIONS }
+        webhook_code: { type: string, const: RECURRING_TRANSACTIONS_UPDATE }
+        item_id: { type: string }
+        account_ids:
+          type: array
+          items: { type: string }
+          description: Account IDs that have new or updated recurring transactions data.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- AUTH ----------
+    AuthDefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: AUTH }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        item_id: { type: string }
+        account_ids_with_updated_auth:
+          type: array
+          items: { type: string }
+          description: Account IDs whose Auth numbers changed.
+        account_ids_with_updated_auth_metadata:
+          type: object
+          additionalProperties: true
+          description: Map of account IDs to the Auth metadata fields that changed.
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    AutomaticallyVerifiedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, account_id, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: AUTH }
+        webhook_code: { type: string, const: AUTOMATICALLY_VERIFIED }
+        account_id: { type: string }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    VerificationExpiredWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, account_id, environment]
+      properties:
+        webhook_type: { type: string, const: AUTH }
+        webhook_code: { type: string, const: VERIFICATION_EXPIRED }
+        item_id: { type: string }
+        account_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    HostedMMDVerificationWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, status, item_id, account_id]
+      properties:
+        webhook_type: { type: string, const: AUTH }
+        webhook_code: { type: string, const: SMS_MICRODEPOSITS_VERIFICATION }
+        status:
+          type: string
+          enum: [MANUALLY_VERIFIED, VERIFICATION_FAILED]
+          description: Final status of the same-day micro-deposits verification.
+        item_id: { type: string }
+        account_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    ProductPermissionsRequiredAuthWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: AUTH }
+        webhook_code: { type: string, const: PRODUCT_PERMISSIONS_REQUIRED }
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BankTransfersEventsUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, environment]
+      properties:
+        webhook_type: { type: string, const: BANK_TRANSFERS }
+        webhook_code: { type: string, const: BANK_TRANSFERS_EVENTS_UPDATE }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- IDENTITY ----------
+    IdentityDefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, error, account_ids_with_updated_identity, environment]
+      properties:
+        webhook_type: { type: string, const: IDENTITY }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        item_id: { type: string }
+        account_ids_with_updated_identity:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              enum: [PHONES, ADDRESSES, EMAILS, NAMES]
+          description: Map of account_id to the identity attributes that changed.
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    ProductPermissionsRequiredIdentityWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: IDENTITY }
+        webhook_code: { type: string, const: PRODUCT_PERMISSIONS_REQUIRED }
+        item_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- HOLDINGS / INVESTMENTS ----------
+    HoldingsDefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, new_holdings, updated_holdings, environment]
+      properties:
+        webhook_type: { type: string, const: HOLDINGS }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        new_holdings: { type: number }
+        updated_holdings: { type: number }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    InvestmentsDefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, new_investments_transactions, canceled_investments_transactions, environment]
+      properties:
+        webhook_type: { type: string, const: INVESTMENTS_TRANSACTIONS }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        new_investments_transactions: { type: number }
+        canceled_investments_transactions: { type: number }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    InvestmentsHistoricalUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, new_investments_transactions, canceled_investments_transactions, environment]
+      properties:
+        webhook_type: { type: string, const: INVESTMENTS_TRANSACTIONS }
+        webhook_code: { type: string, const: HISTORICAL_UPDATE }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        new_investments_transactions: { type: number }
+        canceled_investments_transactions: { type: number }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- LIABILITIES ----------
+    LiabilitiesDefaultUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: LIABILITIES }
+        webhook_code: { type: string, const: DEFAULT_UPDATE }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        account_ids_with_new_liabilities:
+          type: array
+          items: { type: string }
+          description: Account IDs that contain newly detected liabilities.
+        account_ids_with_updated_liabilities:
+          type: object
+          additionalProperties:
+            type: array
+            items: { type: string }
+          description: Map of account_id to the liability fields that changed.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- ASSETS ----------
+    AssetsProductReadyWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, asset_report_id, environment]
+      properties:
+        webhook_type: { type: string, const: ASSETS }
+        webhook_code: { type: string, const: PRODUCT_READY }
+        asset_report_id: { type: string }
+        user_id: { type: string }
+        report_type:
+          type: string
+          enum: [full, fast]
+          description: Indicates whether the report is a `full` or `fast` Asset Report.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    AssetsErrorWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, error, asset_report_id, environment]
+      properties:
+        webhook_type: { type: string, const: ASSETS }
+        webhook_code: { type: string, const: ERROR }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        asset_report_id: { type: string }
+        user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- INCOME ----------
+    ItemProductReadyWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: PRODUCT_READY }
+        item_id: { type: string }
+        error: { $ref: '#/components/schemas/PlaidError' }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    IncomeVerificationStatusWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, verification_status, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: INCOME_VERIFICATION }
+        item_id: { type: string }
+        user_id: { type: string }
+        verification_status:
+          type: string
+          description: |
+            One of:
+              - VERIFICATION_STATUS_PROCESSING_COMPLETE
+              - VERIFICATION_STATUS_PROCESSING_FAILED
+              - VERIFICATION_STATUS_PENDING_APPROVAL (deprecated)
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    IncomeVerificationRiskSignalsStatusWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: INCOME_VERIFICATION_RISK_SIGNALS }
+        item_id: { type: string }
+        user_id: { type: string }
+        risk_signals_status:
+          type: string
+          description: '`RISK_SIGNALS_PROCESSING_COMPLETE` when fraud detection processing is finished.'
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BankIncomeCompleteWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, user_id, result, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: BANK_INCOME_COMPLETE }
+        user_id: { type: string }
+        result:
+          type: string
+          enum: [SUCCESS, FAILURE]
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BankIncomeRefreshUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, user_id, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: BANK_INCOME_REFRESH_UPDATE }
+        user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BankIncomeRefreshCompleteWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, user_id, result, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: BANK_INCOME_REFRESH_COMPLETE }
+        user_id: { type: string }
+        result:
+          type: string
+          enum: [SUCCESS, FAILURE]
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    IncomeVerificationRefreshReconnectNeededWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, user_id, environment]
+      properties:
+        webhook_type: { type: string, const: INCOME }
+        webhook_code: { type: string, const: INCOME_VERIFICATION_REFRESH_RECONNECT_NEEDED }
+        user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- TRANSFER ----------
+    TransferEventsUpdateWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSFER }
+        webhook_code: { type: string, const: TRANSFER_EVENTS_UPDATE }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    RecurringNewTransferWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, recurring_transfer_id, transfer_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSFER }
+        webhook_code: { type: string, const: RECURRING_NEW_TRANSFER }
+        recurring_transfer_id: { type: string }
+        transfer_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    RecurringTransferSkippedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, recurring_transfer_id, authorization_decision, skipped_origination_date, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSFER }
+        webhook_code: { type: string, const: RECURRING_TRANSFER_SKIPPED }
+        recurring_transfer_id: { type: string }
+        authorization_decision:
+          type: string
+          description: The transfer authorization decision (e.g. `declined`).
+        authorization_decision_rationale_code:
+          type: string
+          description: Reason code for the authorization decision (e.g. `NSF`).
+        skipped_origination_date:
+          type: string
+          format: date
+          description: The planned origination date that was skipped, in YYYY-MM-DD.
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    RecurringCancelledWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, recurring_transfer_id, environment]
+      properties:
+        webhook_type: { type: string, const: TRANSFER }
+        webhook_code: { type: string, const: RECURRING_CANCELLED }
+        recurring_transfer_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- STATEMENTS ----------
+    StatementsRefreshCompleteWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, item_id, result, environment]
+      properties:
+        webhook_type: { type: string, const: STATEMENTS }
+        webhook_code: { type: string, const: STATEMENTS_REFRESH_COMPLETE }
+        item_id: { type: string }
+        result:
+          type: string
+          enum: [SUCCESS, FAILURE]
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- LAYER / LINK ----------
+    LinkSessionFinishedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, status, link_session_id, link_token, environment]
+      properties:
+        webhook_type: { type: string, const: LINK }
+        webhook_code: { type: string, const: SESSION_FINISHED }
+        status:
+          type: string
+          enum: [SUCCESS, EXITED]
+        link_session_id: { type: string }
+        link_token: { type: string }
+        public_token:
+          type: string
+          description: Deprecated single public token; prefer public_tokens.
+          deprecated: true
+        public_tokens:
+          type: array
+          items: { type: string }
+        user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    ItemAddResultWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, link_session_id, link_token, public_token, environment]
+      properties:
+        webhook_type: { type: string, const: LINK }
+        webhook_code: { type: string, const: ITEM_ADD_RESULT }
+        link_session_id: { type: string }
+        link_token: { type: string }
+        public_token: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    LinkEventsWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, events, link_session_id, link_token]
+      properties:
+        webhook_type: { type: string, const: LINK }
+        webhook_code: { type: string, const: EVENTS }
+        events:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+            required: [event_id, timestamp, event_name, event_metadata]
+            properties:
+              event_id: { type: string }
+              timestamp: { type: string, format: date-time }
+              event_name: { type: string }
+              event_metadata:
+                type: object
+                additionalProperties: true
+        link_session_id: { type: string }
+        link_token: { type: string }
+
+    # ---------- IDENTITY VERIFICATION ----------
+    IdentityVerificationStatusUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, identity_verification_id, environment]
+      properties:
+        webhook_type: { type: string, const: IDENTITY_VERIFICATION }
+        webhook_code: { type: string, const: STATUS_UPDATED }
+        identity_verification_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    IdentityVerificationStepUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, identity_verification_id, environment]
+      properties:
+        webhook_type: { type: string, const: IDENTITY_VERIFICATION }
+        webhook_code: { type: string, const: STEP_UPDATED }
+        identity_verification_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    IdentityVerificationRetriedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, identity_verification_id, environment]
+      properties:
+        webhook_type: { type: string, const: IDENTITY_VERIFICATION }
+        webhook_code: { type: string, const: RETRIED }
+        identity_verification_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- MONITOR (Beacon) ----------
+    BeaconUserStatusUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, beacon_user_id, environment]
+      properties:
+        webhook_type: { type: string, const: BEACON }
+        webhook_code: { type: string, const: USER_STATUS_UPDATED }
+        beacon_user_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BeaconReportCreatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, beacon_report_id, environment]
+      properties:
+        webhook_type: { type: string, const: BEACON }
+        webhook_code: { type: string, const: REPORT_CREATED }
+        beacon_report_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BeaconReportUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, beacon_report_id, environment]
+      properties:
+        webhook_type: { type: string, const: BEACON }
+        webhook_code: { type: string, const: REPORT_UPDATED }
+        beacon_report_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BeaconReportSyndicationCreatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, beacon_report_syndication_id, environment]
+      properties:
+        webhook_type: { type: string, const: BEACON }
+        webhook_code: { type: string, const: REPORT_SYNDICATION_CREATED }
+        beacon_report_syndication_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    BeaconDuplicateDetectedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, beacon_duplicate_id, environment]
+      properties:
+        webhook_type: { type: string, const: BEACON }
+        webhook_code: { type: string, const: DUPLICATE_DETECTED }
+        beacon_duplicate_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    # ---------- WATCHLIST SCREENING ----------
+    ScreeningStatusUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, screening_id, environment]
+      properties:
+        webhook_type: { type: string, const: SCREENING }
+        webhook_code: { type: string, const: STATUS_UPDATED }
+        screening_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }
+
+    EntityScreeningStatusUpdatedWebhook:
+      type: object
+      additionalProperties: true
+      required: [webhook_type, webhook_code, screening_id, environment]
+      properties:
+        webhook_type: { type: string, const: ENTITY_SCREENING }
+        webhook_code: { type: string, const: STATUS_UPDATED }
+        screening_id: { type: string }
+        environment: { $ref: '#/components/schemas/WebhookEnvironment' }

@@ -607,6 +607,8 @@ apis:
     properties:
     - url: openapi/plaid-webhook-verification--openapi-original.yml
       type: OpenAPI
+    - url: asyncapi/plaid-webhooks--asyncapi-original.yml
+      type: AsyncAPI
     - url: https://plaid.com/docs/api/webhooks/webhook-verification/
       type: Documentation
     description: Plaid Webhook Verification API is a tool designed to help businesses verify the authenticity of webhook notifications
@@ -1416,7 +1418,7 @@ common:
   - type: LLMsTxt
     url: https://plaid.com/llms.txt
 created: '2024-07-07T00:00:00.000Z'
-modified: '2026-05-19'
+modified: '2026-05-30'
 description: Plaid is a financial technology company that provides an API platform for businesses to connect with user's financial
   accounts and facilitate transactions. Plaid's technology enables applications to securely access and authenticate user banking
   information, allowing them to offer services such as bank account verification, payment initiation, and personal finance
