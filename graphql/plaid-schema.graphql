@@ -1,0 +1,1427 @@
+"""
+Plaid GraphQL Schema (Conceptual)
+Derived from the Plaid REST API — https://plaid.com/docs/api/
+No native GraphQL endpoint exists; this schema models the Plaid data surface
+for tooling, catalog enrichment, and documentation purposes.
+"""
+
+# ─────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────
+
+scalar DateTime
+scalar Date
+scalar JSON
+
+# ─────────────────────────────────────────────
+# Enums
+# ─────────────────────────────────────────────
+
+enum AccountType {
+  DEPOSITORY
+  CREDIT
+  LOAN
+  INVESTMENT
+  OTHER
+}
+
+enum AccountSubtype {
+  CHECKING
+  SAVINGS
+  HSA
+  CD
+  MONEY_MARKET
+  PAYPAL
+  PREPAID
+  CASH_MANAGEMENT
+  EBT
+  CREDIT_CARD
+  AUTO
+  BUSINESS
+  COMMERCIAL
+  CONSTRUCTION
+  CONSUMER
+  HOME_EQUITY
+  LINE_OF_CREDIT
+  LOAN
+  MORTGAGE
+  OVERDRAFT
+  STUDENT
+  FOUR_01A
+  FOUR_01K
+  FOUR_03B
+  FOUR_57B
+  FIVE_29
+  BROKERAGE
+  CASH_ISA
+  EDUCATION_SAVINGS_ACCOUNT
+  FIXED_ANNUITY
+  GIC
+  HEALTH_REIMBURSEMENT_ARRANGEMENT
+  IRA
+  ISA
+  KEOGH
+  LIF
+  LIRA
+  LRIF
+  LRSP
+  NON_TAXABLE_BROKERAGE_ACCOUNT
+  OTHER_ANNUITY
+  OTHER_INSURANCE
+  PENSION
+  PRIF
+  PROFIT_SHARING_PLAN
+  RDSP
+  RESP
+  RLIF
+  RRIF
+  RRSP
+  SARSEP
+  SEP_IRA
+  SIMPLE_IRA
+  SIPP
+  STOCK_PLAN
+  TFSA
+  THRIFT_SAVINGS_PLAN
+  UGMA
+  UTMA
+  VARIABLE_ANNUITY
+}
+
+enum InvestmentAccountSubtype {
+  FOUR_01A
+  FOUR_01K
+  FOUR_03B
+  FOUR_57B
+  FIVE_29
+  BROKERAGE
+  CASH_ISA
+  EDUCATION_SAVINGS_ACCOUNT
+  FIXED_ANNUITY
+  GIC
+  HEALTH_REIMBURSEMENT_ARRANGEMENT
+  IRA
+  ISA
+  KEOGH
+  LIF
+  LIRA
+  LRIF
+  LRSP
+  NON_TAXABLE_BROKERAGE_ACCOUNT
+  OTHER_ANNUITY
+  OTHER_INSURANCE
+  PENSION
+  PRIF
+  PROFIT_SHARING_PLAN
+  RDSP
+  RESP
+  RLIF
+  RRIF
+  RRSP
+  SARSEP
+  SEP_IRA
+  SIMPLE_IRA
+  SIPP
+  STOCK_PLAN
+  TFSA
+  THRIFT_SAVINGS_PLAN
+  UGMA
+  UTMA
+  VARIABLE_ANNUITY
+}
+
+enum TransactionType {
+  DIGITAL
+  PLACE
+  SPECIAL
+  UNRESOLVED
+}
+
+enum TransactionCode {
+  ADJUSTMENT
+  ATM
+  BANK_CHARGE
+  BILL_PAYMENT
+  CASH
+  CASHBACK
+  CHEQUE
+  DIRECT_DEBIT
+  INTEREST
+  PURCHASE
+  STANDING_ORDER
+  TRANSFER
+  NULL
+}
+
+enum TransactionPaymentChannelType {
+  ONLINE
+  IN_STORE
+  OTHER
+}
+
+enum SecurityType {
+  ETF
+  MUTUAL_FUND
+  EQUITY
+  FIXED_INCOME
+  CASH
+  DERIVATIVE
+  OTHER
+}
+
+enum TransferType {
+  DEBIT
+  CREDIT
+}
+
+enum TransferNetwork {
+  ACH
+  SAME_DAY_ACH
+  RTP
+  WIRE
+}
+
+enum TransferStatus {
+  PENDING
+  POSTED
+  SETTLED
+  CANCELLED
+  FAILED
+  RETURNED
+}
+
+enum TransferAuthorizationDecision {
+  APPROVED
+  PERMITTED
+  DECLINED
+}
+
+enum VerificationStatus {
+  PENDING_AUTOMATIC_VERIFICATION
+  PENDING_MANUAL_VERIFICATION
+  AUTOMATICALLY_VERIFIED
+  MANUALLY_VERIFIED
+  VERIFICATION_EXPIRED
+  VERIFICATION_FAILED
+  DATABASE_MATCHED
+  DATABASE_INSIGHTS_PASS
+  DATABASE_INSIGHTS_PASS_WITH_CAUTION
+  DATABASE_INSIGHTS_FAIL
+}
+
+enum ConsentExpirationTime {
+  CONSENT_EXPIRATION_TIME_UNSET
+}
+
+enum IdentityVerificationStatus {
+  ACTIVE
+  SUCCESS
+  FAILED
+  EXPIRED
+  CANCELLED
+  PENDING_REVIEW
+}
+
+enum WatchlistScreeningStatus {
+  CLEARED
+  PENDING_REVIEW
+  REJECTED
+}
+
+enum BeaconUserStatus {
+  NEW
+  REVIEWED
+  REJECTED
+}
+
+enum IncomeVerificationStatus {
+  VERIFIED
+  UNVERIFIED
+}
+
+enum PlaidEnvironment {
+  SANDBOX
+  PRODUCTION
+}
+
+enum LinkTokenAccountFilter {
+  DEPOSITORY
+  CREDIT
+  LOAN
+  INVESTMENT
+}
+
+# ─────────────────────────────────────────────
+# Error
+# ─────────────────────────────────────────────
+
+"""Standardized Plaid error envelope returned on API failures."""
+type PlaidError {
+  errorType: String!
+  errorCode: String!
+  errorMessage: String!
+  displayMessage: String
+  requestId: String
+  causes: [JSON]
+  status: Int
+  documentationUrl: String
+  suggestedAction: String
+}
+
+# ─────────────────────────────────────────────
+# Institution
+# ─────────────────────────────────────────────
+
+"""A financial institution supported by Plaid."""
+type Institution {
+  institutionId: ID!
+  name: String!
+  products: [String!]!
+  countryCodes: [String!]!
+  url: String
+  primaryColor: String
+  logo: String
+  routingNumbers: [String!]
+  dtcNumbers: [String!]
+  oauthInstitution: Boolean
+  credentials: [Credential!]
+  mfa: [String!]
+}
+
+"""A login credential field required by an institution."""
+type Credential {
+  label: String!
+  name: String!
+  type: String!
+}
+
+"""Search result wrapper for institution queries."""
+type InstitutionSearch {
+  institutions: [Institution!]!
+  total: Int!
+}
+
+# ─────────────────────────────────────────────
+# Item
+# ─────────────────────────────────────────────
+
+"""
+A Plaid Item represents a login at a financial institution for one user.
+An Item may contain multiple Accounts.
+"""
+type Item {
+  itemId: ID!
+  institutionId: String
+  webhook: String
+  error: PlaidError
+  availableProducts: [String!]!
+  billedProducts: [String!]!
+  products: [String!]
+  consentedProducts: [String!]
+  consentExpirationTime: DateTime
+  updateType: String!
+  updatedAt: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Account
+# ─────────────────────────────────────────────
+
+"""A bank or financial account belonging to a Plaid Item."""
+type Account {
+  accountId: ID!
+  itemId: ID!
+  balances: AccountBalance!
+  mask: String
+  name: String!
+  officialName: String
+  type: AccountType!
+  subtype: AccountSubtype
+  verificationStatus: VerificationStatus
+  persistentAccountId: String
+  holders: [IdentityOwner!]
+}
+
+"""Real-time and available balance information for an Account."""
+type AccountBalance {
+  available: Float
+  current: Float
+  limit: Float
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+  lastUpdatedDatetime: DateTime
+}
+
+# ─────────────────────────────────────────────
+# Tokens
+# ─────────────────────────────────────────────
+
+"""A short-lived token used to initialise the Plaid Link UI."""
+type LinkToken {
+  linkToken: ID!
+  expiration: DateTime!
+  requestId: String!
+}
+
+"""A one-time public token returned by Plaid Link after user completes flow."""
+type PublicToken {
+  publicToken: String!
+}
+
+"""A long-lived access token for a Plaid Item."""
+type AccessToken {
+  accessToken: String!
+  itemId: ID!
+  requestId: String!
+}
+
+# ─────────────────────────────────────────────
+# Identity
+# ─────────────────────────────────────────────
+
+"""An owner associated with one or more accounts (KYC identity data)."""
+type IdentityOwner {
+  names: [String!]!
+  phoneNumbers: [IdentityPhoneNumber!]!
+  emails: [IdentityEmail!]!
+  addresses: [IdentityAddress!]!
+}
+
+"""A phone number associated with an identity owner."""
+type IdentityPhoneNumber {
+  data: String!
+  primary: Boolean!
+  type: String!
+}
+
+"""An email address associated with an identity owner."""
+type IdentityEmail {
+  data: String!
+  primary: Boolean!
+  type: String!
+}
+
+"""A physical address associated with an identity owner."""
+type IdentityAddress {
+  data: IdentityAddressData!
+  primary: Boolean!
+}
+
+"""Structured address fields."""
+type IdentityAddressData {
+  city: String
+  region: String
+  street: String
+  postalCode: String
+  country: String
+}
+
+# ─────────────────────────────────────────────
+# Transaction
+# ─────────────────────────────────────────────
+
+"""A single financial transaction on an account."""
+type Transaction {
+  transactionId: ID!
+  accountId: ID!
+  amount: Float!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+  date: Date!
+  authorizedDate: Date
+  authorizedDatetime: DateTime
+  datetime: DateTime
+  name: String!
+  merchantName: String
+  originalDescription: String
+  category: [String!]
+  categoryId: String
+  personalFinanceCategory: PersonalFinanceCategory
+  personalFinanceCategoryIconUrl: String
+  pending: Boolean!
+  pendingTransactionId: String
+  accountOwner: String
+  transactionCode: TransactionCode
+  paymentMeta: PaymentMeta
+  paymentChannel: TransactionPaymentChannelType
+  location: TransactionLocation
+  checkNumber: String
+  transactionType: TransactionType
+  website: String
+  logo: String
+  merchantEntityId: String
+  counterparties: [Counterparty!]
+}
+
+"""Plaid's hierarchical personal-finance category."""
+type PersonalFinanceCategory {
+  primary: String!
+  detailed: String!
+  confidenceLevel: String
+}
+
+"""Payment metadata extracted from a transaction."""
+type PaymentMeta {
+  byOrderOf: String
+  payee: String
+  payer: String
+  paymentMethod: String
+  paymentProcessor: String
+  ppdId: String
+  reason: String
+  referenceNumber: String
+}
+
+"""Geolocation metadata for a transaction."""
+type TransactionLocation {
+  address: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  lat: Float
+  lon: Float
+  storeNumber: String
+}
+
+"""A counterparty (merchant, payee, etc.) on a transaction."""
+type Counterparty {
+  name: String!
+  entityId: String
+  type: String!
+  website: String
+  logoUrl: String
+  confidenceLevel: String
+}
+
+"""A recurring transaction stream (subscription, paycheck, etc.)."""
+type TransactionStream {
+  streamId: ID!
+  accountId: ID!
+  transactionIds: [ID!]!
+  description: String!
+  merchantName: String
+  firstDate: Date!
+  lastDate: Date!
+  frequency: String!
+  transactionAmounts: StreamAmounts!
+  category: [String!]!
+  categoryId: String!
+  isActive: Boolean!
+  status: String!
+  isUserModified: Boolean
+  lastUserModifiedDatetime: DateTime
+  personalFinanceCategory: PersonalFinanceCategory
+}
+
+"""Amount statistics for a recurring transaction stream."""
+type StreamAmounts {
+  amount: Float!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+}
+
+"""A transaction enrichment category."""
+type Category {
+  categoryId: ID!
+  group: String!
+  hierarchy: [String!]!
+}
+
+# ─────────────────────────────────────────────
+# Income
+# ─────────────────────────────────────────────
+
+"""Wrapper for income verification results."""
+type IncomeVerification {
+  itemId: ID!
+  incomeVerificationId: ID!
+  status: IncomeVerificationStatus!
+}
+
+"""Payroll-sourced income data."""
+type PayrollIncome {
+  accountId: ID
+  payFrequency: String
+  payDate: Date
+  payPeriodStartDate: Date
+  payPeriodEndDate: Date
+  grossEarnings: Float
+  netEarnings: Float
+  employerName: String
+  employerAddress: IdentityAddressData
+}
+
+"""Bank-transaction-derived income data."""
+type BankIncome {
+  bankIncomeId: ID!
+  generatedTime: DateTime!
+  daysRequested: Int!
+  items: [BankIncomeItem!]!
+  warnings: [BankIncomeWarning!]
+}
+
+"""Income data for a single Plaid Item within a bank income report."""
+type BankIncomeItem {
+  itemId: ID!
+  bankIncomeSources: [BankIncomeSource!]!
+  accounts: [Account!]!
+}
+
+"""A single identified income source within bank transactions."""
+type BankIncomeSource {
+  incomeSourceId: ID!
+  incomeDescription: String!
+  incomeCategory: String!
+  incomeAmount: [BankIncomeAmount!]!
+  startDate: Date
+  endDate: Date
+  payFrequency: String
+  transactionIds: [ID!]!
+}
+
+"""Currency-denominated income amount."""
+type BankIncomeAmount {
+  amount: Float!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+}
+
+"""A warning produced during bank income analysis."""
+type BankIncomeWarning {
+  warningType: String!
+  warningCode: String!
+  cause: PlaidError
+}
+
+"""Employment verification data."""
+type Employment {
+  accountId: ID
+  employerName: String
+  title: String
+  startDate: Date
+  endDate: Date
+  city: String
+  state: String
+  country: String
+}
+
+# ─────────────────────────────────────────────
+# Assets
+# ─────────────────────────────────────────────
+
+"""A Plaid Asset Report summarising financial assets for underwriting."""
+type AssetReport {
+  assetReportId: ID!
+  assetReportToken: String!
+  clientReportId: String
+  dateGenerated: DateTime!
+  daysRequested: Int!
+  items: [AssetReportItem!]!
+  user: AssetReportUser!
+  warnings: [AssetReportWarning!]
+}
+
+"""Item-level data within an asset report."""
+type AssetReportItem {
+  itemId: ID!
+  institutionName: String!
+  institutionId: String!
+  dateLastUpdated: DateTime!
+  accounts: [AssetReportAccount!]!
+}
+
+"""Account with historical transaction data for asset reporting."""
+type AssetReportAccount {
+  accountId: ID!
+  refreshedDatetime: DateTime
+  mask: String
+  name: String!
+  officialName: String
+  type: AccountType!
+  subtype: AccountSubtype
+  balances: AccountBalance!
+  owners: [IdentityOwner!]
+  transactions: [Transaction!]
+  historicalBalances: [HistoricalBalance!]
+}
+
+"""A daily historical balance snapshot."""
+type HistoricalBalance {
+  date: Date!
+  current: Float!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+}
+
+"""Consumer metadata attached to an asset report."""
+type AssetReportUser {
+  clientUserId: String!
+  firstName: String
+  middleName: String
+  lastName: String
+  ssn: String
+  phoneNumber: String
+  email: String
+}
+
+"""A warning produced during asset report generation."""
+type AssetReportWarning {
+  warningType: String!
+  warningCode: String!
+  cause: PlaidError
+}
+
+# ─────────────────────────────────────────────
+# Investments
+# ─────────────────────────────────────────────
+
+"""A security (stock, ETF, mutual fund, etc.) tracked by Plaid."""
+type Security {
+  securityId: ID!
+  isin: String
+  cusip: String
+  sedol: String
+  institutionSecurityId: String
+  institutionId: String
+  proxySecurityId: String
+  name: String
+  tickerSymbol: String
+  isCashEquivalent: Boolean
+  type: SecurityType
+  closePrice: Float
+  closePriceAsOf: Date
+  updateDatetime: DateTime
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+  marketIdentifierCode: String
+}
+
+"""A holding within an investment account."""
+type Holding {
+  accountId: ID!
+  securityId: ID!
+  institutionPrice: Float!
+  institutionPriceAsOf: Date
+  institutionPriceDatetime: DateTime
+  institutionValue: Float!
+  costBasis: Float
+  quantity: Float!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+  vestedQuantity: Float
+  vestedInstitutionValue: Float
+}
+
+"""A transaction within an investment account."""
+type InvestmentTransaction {
+  investmentTransactionId: ID!
+  accountId: ID!
+  securityId: String
+  date: Date!
+  datetime: DateTime
+  name: String!
+  quantity: Float!
+  amount: Float!
+  price: Float!
+  fees: Float
+  type: String!
+  subtype: String!
+  isoCurrencyCode: String
+  unofficialCurrencyCode: String
+  cancelTransactionId: String
+}
+
+# ─────────────────────────────────────────────
+# Liabilities
+# ─────────────────────────────────────────────
+
+"""Mortgage liability details."""
+type Mortgage {
+  accountId: ID!
+  accountNumber: String!
+  currentLateFee: Float
+  escrowBalance: Float
+  hasPmi: Boolean
+  hasPrepaymentPenalty: Boolean
+  interestRate: MortgageInterestRate!
+  lastPaymentAmount: Float
+  lastPaymentDate: Date
+  loanTerm: String
+  loanTypeDescription: String
+  maturityDate: Date
+  nextMonthlyPayment: Float
+  nextPaymentDueDate: Date
+  originationDate: Date
+  originationPrincipalAmount: Float
+  pastDueAmount: Float
+  propertyAddress: MortgagePropertyAddress!
+  ytdInterestPaid: Float
+  ytdPrincipalPaid: Float
+}
+
+"""Interest rate on a mortgage."""
+type MortgageInterestRate {
+  percentage: Float
+  type: String
+}
+
+"""Property address for a mortgage."""
+type MortgagePropertyAddress {
+  city: String
+  country: String
+  postalCode: String
+  region: String
+  street: String
+}
+
+"""Student loan liability details."""
+type Student {
+  accountId: ID!
+  accountNumber: String
+  disbursementDates: [Date!]
+  expectedPayoffDate: Date
+  guarantor: String
+  interestRatePercentage: Float!
+  isOverdue: Boolean
+  lastPaymentAmount: Float
+  lastPaymentDate: Date
+  lastStatementBalance: Float
+  lastStatementIssueDate: Date
+  loanName: String
+  loanStatus: StudentLoanStatus!
+  minimumPaymentAmount: Float
+  nextPaymentDueDate: Date
+  originationDate: Date
+  originationPrincipalAmount: Float
+  outstandingInterestAmount: Float
+  paymentReferenceNumber: String
+  pslfStatus: PSLFStatus!
+  repaymentPlan: RepaymentPlan!
+  sequenceNumber: String
+  servicerAddress: IdentityAddressData!
+  ytdInterestPaid: Float
+  ytdPrincipalPaid: Float
+}
+
+"""Status of a student loan."""
+type StudentLoanStatus {
+  endDate: Date
+  type: String
+}
+
+"""Public Service Loan Forgiveness status."""
+type PSLFStatus {
+  estimatedEligibilityDate: Date
+  paymentsMade: Int
+  paymentsRemaining: Int
+}
+
+"""Student loan repayment plan."""
+type RepaymentPlan {
+  description: String
+  type: String
+}
+
+# ─────────────────────────────────────────────
+# Transfer
+# ─────────────────────────────────────────────
+
+"""A Plaid Transfer object representing an ACH or RTP payment."""
+type Transfer {
+  id: ID!
+  achClass: String
+  accountId: ID!
+  type: TransferType!
+  user: TransferUser!
+  amount: String!
+  isoCurrencyCode: String!
+  description: String!
+  created: DateTime!
+  status: TransferStatus!
+  network: TransferNetwork!
+  cancellable: Boolean!
+  failureReason: TransferFailureReason
+  metadata: JSON
+  originationAccountId: String
+  guaranteeDecision: String
+  guaranteeDecisionRationale: TransferGuaranteeDecisionRationale
+  sweepStatus: String
+  sweepSettlementSchedule: [SweepSettlementSchedule!]
+}
+
+"""User information attached to a transfer."""
+type TransferUser {
+  legalName: String!
+  phoneNumber: String
+  emailAddress: String
+  address: TransferUserAddress
+}
+
+"""Address for a transfer user."""
+type TransferUserAddress {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+}
+
+"""Reason a transfer failed or was returned."""
+type TransferFailureReason {
+  achReturnCode: String
+  description: String
+}
+
+"""Rationale for a guarantee decision on a transfer."""
+type TransferGuaranteeDecisionRationale {
+  code: String!
+  description: String!
+}
+
+"""Settlement schedule for sweep-based transfers."""
+type SweepSettlementSchedule {
+  sweepSettlementDate: Date!
+  defaultSettlementDate: Date!
+}
+
+"""Authorization for a proposed transfer before it is created."""
+type TransferAuthorization {
+  id: ID!
+  created: DateTime!
+  decision: TransferAuthorizationDecision!
+  decisionRationale: TransferAuthorizationDecisionRationale
+  guaranteeDecision: String
+  guaranteeDecisionRationale: TransferGuaranteeDecisionRationale
+  proposedTransfer: ProposedTransfer!
+}
+
+"""Rationale for a transfer authorization decision."""
+type TransferAuthorizationDecisionRationale {
+  code: String!
+  description: String!
+}
+
+"""A proposed transfer as submitted for authorization."""
+type ProposedTransfer {
+  achClass: String
+  accountId: ID!
+  type: TransferType!
+  user: TransferUser!
+  amount: String!
+  network: TransferNetwork!
+  originationAccountId: String
+}
+
+# ─────────────────────────────────────────────
+# Balance
+# ─────────────────────────────────────────────
+
+"""Real-time balance snapshot for an account."""
+type Balance {
+  accounts: [Account!]!
+  item: Item!
+  requestId: String!
+}
+
+# ─────────────────────────────────────────────
+# Watchlist Screening
+# ─────────────────────────────────────────────
+
+"""An individual watchlist/sanctions screening record."""
+type IndividualWatchlistScreening {
+  id: ID!
+  searchTerms: WatchlistSearchTerms!
+  assignee: String
+  status: WatchlistScreeningStatus!
+  clientUserId: String
+  auditTrail: WatchlistAuditTrail!
+}
+
+"""Search parameters used in a watchlist screening."""
+type WatchlistSearchTerms {
+  watchlistProgramId: ID!
+  legalName: String!
+  dateOfBirth: Date
+  documentNumber: String
+  country: String
+  version: Int!
+}
+
+"""Audit metadata for watchlist screening operations."""
+type WatchlistAuditTrail {
+  source: String!
+  dashboardUserId: String
+  timestamp: DateTime!
+}
+
+"""A screening hit (potential watchlist match)."""
+type WatchlistScreeningHit {
+  id: ID!
+  reviewStatus: String!
+  firstActive: DateTime!
+  inactiveAt: DateTime
+  historicalScreeningId: String
+  listCode: String!
+  plaidUid: String!
+  sourceListCode: String!
+  analysis: WatchlistScreeningHitAnalysis!
+  data: WatchlistHitData!
+}
+
+"""Analysis scores for a watchlist hit."""
+type WatchlistScreeningHitAnalysis {
+  documents: String!
+  datesOfBirth: String!
+  names: String!
+  countries: String!
+}
+
+"""Raw data from a watchlist entry that matched."""
+type WatchlistHitData {
+  dates: [WatchlistDate!]
+  documents: [WatchlistDocument!]
+  locations: [WatchlistLocation!]
+  names: [WatchlistName!]
+}
+
+"""A date associated with a watchlist entry."""
+type WatchlistDate {
+  type: String!
+  value: Date!
+}
+
+"""A document associated with a watchlist entry."""
+type WatchlistDocument {
+  type: String!
+  number: String
+}
+
+"""A location associated with a watchlist entry."""
+type WatchlistLocation {
+  type: String!
+  country: String
+  region: String
+  postal: String
+  city: String
+}
+
+"""A name variant associated with a watchlist entry."""
+type WatchlistName {
+  type: String!
+  value: String!
+}
+
+# ─────────────────────────────────────────────
+# Beacon (Fraud Network)
+# ─────────────────────────────────────────────
+
+"""A Plaid Beacon user record for fraud network signaling."""
+type BeaconUser {
+  id: ID!
+  version: Int!
+  clientUserId: String!
+  status: BeaconUserStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  auditTrail: WatchlistAuditTrail!
+  user: BeaconUserData!
+}
+
+"""PII and identity data for a Beacon user."""
+type BeaconUserData {
+  dateOfBirth: Date
+  name: BeaconUserName!
+  address: IdentityAddressData
+  emailAddress: String
+  phoneNumber: String
+  ipAddress: String
+  idNumber: BeaconUserIdNumber
+}
+
+"""Name fields for a Beacon user."""
+type BeaconUserName {
+  givenName: String!
+  familyName: String!
+}
+
+"""Government ID number for a Beacon user."""
+type BeaconUserIdNumber {
+  value: String!
+  type: String!
+}
+
+"""A Beacon account risk report."""
+type BeaconReport {
+  id: ID!
+  version: Int!
+  beaconUserId: ID!
+  createdAt: DateTime!
+  status: String!
+  auditTrail: WatchlistAuditTrail!
+  type: String!
+  fraud: BeaconFraudData
+}
+
+"""Fraud data within a Beacon report."""
+type BeaconFraudData {
+  fraudDate: Date
+  fraudType: String!
+  fraudSubtype: String
+  description: String
+}
+
+# ─────────────────────────────────────────────
+# Signal (ACH Risk Scoring)
+# ─────────────────────────────────────────────
+
+"""Plaid Signal evaluation response for an ACH transaction."""
+type SignalEvaluateResponse {
+  requestId: String!
+  scores: SignalScores!
+  core: SignalCore!
+  ruleResults: SignalRuleResults
+  warnings: [SignalWarning!]
+}
+
+"""Risk scores from Signal evaluation."""
+type SignalScores {
+  customerInitiatedReturnRisk: CustomerReturnRisk
+  bankInitiatedReturnRisk: BankReturnRisk
+}
+
+"""Customer-initiated return risk score."""
+type CustomerReturnRisk {
+  score: Int!
+  riskTier: Int!
+}
+
+"""Bank-initiated return risk score."""
+type BankReturnRisk {
+  score: Int!
+  riskTier: Int!
+}
+
+"""Core attributes used in Signal scoring."""
+type SignalCore {
+  returnRiskBand: Int
+}
+
+"""Results of custom rules applied in Signal."""
+type SignalRuleResults {
+  predictedReturnPercentage: Float
+}
+
+"""A warning generated during Signal evaluation."""
+type SignalWarning {
+  warningType: String!
+  warningCode: String!
+  warningMessage: String!
+}
+
+# ─────────────────────────────────────────────
+# Link / OAuth
+# ─────────────────────────────────────────────
+
+"""Hosted-Link delivery session."""
+type LinkDeliverySession {
+  linkDeliverySessionId: ID!
+  createdAt: DateTime!
+  completedAt: DateTime
+  status: String!
+  linkToken: String!
+}
+
+# ─────────────────────────────────────────────
+# Query Root
+# ─────────────────────────────────────────────
+
+type Query {
+  """Get metadata about a Plaid Item."""
+  item(accessToken: String!): Item
+
+  """List all accounts for a Plaid Item."""
+  accounts(accessToken: String!): [Account!]!
+
+  """Get real-time balances for all accounts linked to an Item."""
+  balance(accessToken: String!): Balance
+
+  """Get identity/KYC data for accounts."""
+  identity(accessToken: String!): [Account!]!
+
+  """Get paginated transactions for an Item."""
+  transactions(
+    accessToken: String!
+    startDate: Date!
+    endDate: Date!
+    accountIds: [ID!]
+    count: Int
+    offset: Int
+  ): [Transaction!]!
+
+  """Get recurring transaction streams for an Item."""
+  transactionsRecurring(accessToken: String!, accountIds: [ID!]): TransactionRecurringResult!
+
+  """Get all standard Plaid categories."""
+  categories: [Category!]!
+
+  """Get investment holdings for an Item."""
+  investmentsHoldings(accessToken: String!, accountIds: [ID!]): InvestmentsHoldingsResult!
+
+  """Get investment transactions for an Item."""
+  investmentsTransactions(
+    accessToken: String!
+    startDate: Date!
+    endDate: Date!
+    accountIds: [ID!]
+    count: Int
+    offset: Int
+  ): InvestmentsTransactionsResult!
+
+  """Get liabilities (mortgage, student loans) for an Item."""
+  liabilities(accessToken: String!): LiabilitiesResult!
+
+  """Get an asset report by its token."""
+  assetReport(assetReportToken: String!): AssetReport
+
+  """Get a bank income report by its ID."""
+  bankIncome(userToken: String!, bankIncomeId: ID!): BankIncome
+
+  """Search for institutions by name or product."""
+  institutionsSearch(
+    query: String!
+    products: [String!]
+    countryCodes: [String!]!
+    count: Int
+    offset: Int
+  ): InstitutionSearch!
+
+  """Get a single institution by ID."""
+  institution(institutionId: ID!, countryCodes: [String!]!): Institution
+
+  """Get a Transfer by ID."""
+  transfer(transferId: ID!): Transfer
+
+  """List Transfers."""
+  transfers(count: Int, offset: Int): [Transfer!]!
+
+  """Get a TransferAuthorization by ID."""
+  transferAuthorization(authorizationId: ID!): TransferAuthorization
+
+  """Get a Beacon user by ID."""
+  beaconUser(beaconUserId: ID!): BeaconUser
+
+  """Get a Beacon report by ID."""
+  beaconReport(beaconReportId: ID!): BeaconReport
+
+  """Get an individual watchlist screening by ID."""
+  watchlistScreening(watchlistScreeningId: ID!): IndividualWatchlistScreening
+
+  """Get Signal evaluation for an ACH transaction."""
+  signalEvaluate(
+    accessToken: String!
+    accountId: ID!
+    clientTransactionId: String!
+    amount: Float!
+  ): SignalEvaluateResponse
+
+  """Get a Link delivery session by ID."""
+  linkDeliverySession(linkDeliverySessionId: ID!): LinkDeliverySession
+}
+
+# ─────────────────────────────────────────────
+# Composite result types
+# ─────────────────────────────────────────────
+
+"""Result of a recurring transactions query."""
+type TransactionRecurringResult {
+  inflowStreams: [TransactionStream!]!
+  outflowStreams: [TransactionStream!]!
+  updatedDatetime: DateTime!
+  requestId: String!
+}
+
+"""Result of an investments holdings query."""
+type InvestmentsHoldingsResult {
+  accounts: [Account!]!
+  holdings: [Holding!]!
+  securities: [Security!]!
+  item: Item!
+  requestId: String!
+}
+
+"""Result of an investments transactions query."""
+type InvestmentsTransactionsResult {
+  accounts: [Account!]!
+  securities: [Security!]!
+  investmentTransactions: [InvestmentTransaction!]!
+  totalInvestmentTransactions: Int!
+  item: Item!
+  requestId: String!
+}
+
+"""Result of a liabilities query."""
+type LiabilitiesResult {
+  accounts: [Account!]!
+  item: Item!
+  liabilities: LiabilitiesData!
+  requestId: String!
+}
+
+"""Container for liability objects by sub-type."""
+type LiabilitiesData {
+  credit: [CreditCard!]
+  mortgage: [Mortgage!]
+  student: [Student!]
+}
+
+"""Credit-card liability details."""
+type CreditCard {
+  accountId: ID!
+  aprs: [APR!]
+  isOverdue: Boolean
+  lastPaymentAmount: Float
+  lastPaymentDate: Date
+  lastStatementBalance: Float
+  lastStatementIssueDate: Date
+  minimumPaymentAmount: Float
+  nextPaymentDueDate: Date
+}
+
+"""Annual percentage rate entry for a credit card."""
+type APR {
+  aprPercentage: Float!
+  aprType: String!
+  balanceSubjectToApr: Float
+  interestChargeAmount: Float
+}
+
+# ─────────────────────────────────────────────
+# Mutation Root
+# ─────────────────────────────────────────────
+
+type Mutation {
+  """Create a Link token to initialise Plaid Link."""
+  linkTokenCreate(
+    clientUserId: String!
+    clientName: String!
+    products: [String!]
+    countryCodes: [String!]!
+    language: String!
+    webhook: String
+    accessToken: String
+    accountFilters: [LinkTokenAccountFilter!]
+  ): LinkToken!
+
+  """Exchange a public token from Plaid Link for a long-lived access token."""
+  itemPublicTokenExchange(publicToken: String!): AccessToken!
+
+  """Remove an Item and revoke access."""
+  itemRemove(accessToken: String!): Boolean!
+
+  """Update the webhook URL for an Item."""
+  itemWebhookUpdate(accessToken: String!, webhook: String!): Item!
+
+  """Initiate a Transfer."""
+  transferCreate(
+    accessToken: String!
+    accountId: ID!
+    authorizationId: ID!
+    description: String!
+    network: TransferNetwork!
+    amount: String!
+    achClass: String
+    userLegalName: String!
+    userEmailAddress: String
+  ): Transfer!
+
+  """Authorize a proposed Transfer before creation."""
+  transferAuthorizationCreate(
+    accessToken: String!
+    accountId: ID!
+    type: TransferType!
+    network: TransferNetwork!
+    amount: String!
+    achClass: String
+    userLegalName: String!
+  ): TransferAuthorization!
+
+  """Cancel a pending Transfer."""
+  transferCancel(transferId: ID!): Boolean!
+
+  """Create a Beacon user for fraud network signaling."""
+  beaconUserCreate(
+    clientUserId: String!
+    user: BeaconUserInput!
+  ): BeaconUser!
+
+  """Review a Beacon user."""
+  beaconUserReview(beaconUserId: ID!, status: BeaconUserStatus!): BeaconUser!
+
+  """Create a Beacon fraud report."""
+  beaconReportCreate(
+    beaconUserId: ID!
+    type: String!
+    fraudDate: Date
+    fraudType: String!
+  ): BeaconReport!
+
+  """Create an individual watchlist screening."""
+  watchlistScreeningCreate(
+    watchlistProgramId: ID!
+    legalName: String!
+    dateOfBirth: Date
+    documentNumber: String
+    country: String
+    clientUserId: String
+  ): IndividualWatchlistScreening!
+
+  """Create a Link delivery (Hosted Link) session."""
+  linkDeliveryCreate(
+    linkToken: String!
+    options: LinkDeliveryOptions
+  ): LinkDeliverySession!
+}
+
+# ─────────────────────────────────────────────
+# Input types
+# ─────────────────────────────────────────────
+
+"""Input for creating a Beacon user."""
+input BeaconUserInput {
+  dateOfBirth: Date
+  name: BeaconUserNameInput!
+  address: AddressInput
+  emailAddress: String
+  phoneNumber: String
+  ipAddress: String
+  idNumber: BeaconUserIdNumberInput
+}
+
+"""Name input for a Beacon user."""
+input BeaconUserNameInput {
+  givenName: String!
+  familyName: String!
+}
+
+"""Address input shared across mutations."""
+input AddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+}
+
+"""Government ID input for a Beacon user."""
+input BeaconUserIdNumberInput {
+  value: String!
+  type: String!
+}
+
+"""Options for a Link delivery session."""
+input LinkDeliveryOptions {
+  recipientEmailAddress: String
+  senderEmailAddress: String
+  senderEmailAddressAlias: String
+}
