@@ -28,9 +28,9 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/assets/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/asset-report--plaid.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/plaid-plaid.yaml
   - url: graphql/plaid-graphql.md
     type: GraphQL
@@ -78,7 +78,7 @@ apis:
   properties:
   - url: openapi/plaid-cra--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/cra--plaid.yaml
   description: The Plaid Base Report API is a tool that allows users to access and
     analyze detailed financial data from various sources, such as bank accounts, credit
@@ -130,7 +130,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/statements/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/statements--plaid.yaml
   description: Plaid Statements API allows developers to access and retrieve bank
     statement data from their users' bank accounts. This data includes information
@@ -191,7 +191,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/items/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/item--plaid.yaml
   description: The Plaid Item API is a tool that allows developers to retrieve detailed
     information about a user's financial accounts and transactions. By connecting
@@ -218,7 +218,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/items/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/application--plaid.yaml
   description: The Plaid Application API is a financial technology tool that allows
     developers to easily access and integrate with a wealth of financial data and
@@ -244,7 +244,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/profile--plaid.yaml
   description: Plaid Profile API is a tool that allows developers to securely access
     detailed information about their users' financial profiles. By integrating this
@@ -270,7 +270,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/auth/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/auth--plaid.yaml
   description: Plaid Auth API is a powerful tool that allows developers to securely
     access and retrieve financial data from users bank accounts. By integrating with
@@ -298,7 +298,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/transactions/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/transactions--plaid.yaml
   description: Plaid Transactions API is a powerful tool that allows developers to
     access detailed, clean, and categorized transaction data from users' financial
@@ -325,7 +325,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/institutions/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/institutions--plaid.yaml
   description: Plaid Institutions API is a tool designed to make it easier for developers
     to integrate financial institutions into their applications. By using this API,
@@ -352,7 +352,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/transactions/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/categories--plaid.yaml
   description: The Plaid Categories API is a tool that provides developers with access
     to a comprehensive list of financial categories that can be used to classify transactions.
@@ -379,7 +379,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/sandbox/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/sandbox--plaid.yaml
   description: The Plaid Sandbox API is a tool that allows developers to easily test
     and experiment with the Plaid platform in a simulated environment. This API enables
@@ -409,7 +409,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/accounts/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/accounts--plaid.yaml
   description: Plaid Accounts API is a financial technology tool that enables developers
     to securely access and retrieve detailed information about a user's banking and
@@ -430,7 +430,7 @@ apis:
   properties:
   - url: openapi/plaid-identity--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/identity--plaid.yaml
   description: Needs description.
 - aid: plaid:plaid-dashboard-user-api
@@ -451,7 +451,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/account/activity/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/dashboard-user--plaid.yaml
   description: The Plaid Dashboard User API is designed to provide users with comprehensive
     access to their financial data from various institutions in one centralized location.
@@ -484,7 +484,7 @@ apis:
   properties:
   - url: openapi/plaid-identity-verification--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/identity-verification--plaid.yaml
   description: Plaid Entity Verification API is a powerful tool that allows businesses
     to verify the identity and ownership of individuals or entities with ease. With
@@ -523,7 +523,7 @@ apis:
   properties:
   - url: openapi/plaid-watchlist-screening--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/watchlist-screening--plaid.yaml
   description: Plaid Watchlist Screening API is a tool that helps companies comply
     with regulations by screening individuals and entities against various watchlists
@@ -565,7 +565,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/beacon/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/beacon--plaid.yaml
   description: Plaid Beacon API is a powerful tool that allows developers to securely
     access and share financial data with authorized third parties. By integrating
@@ -634,7 +634,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/processor-partners/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/processor--plaid.yaml
   description: The Plaid Processor API is a powerful tool that allows developers to
     easily integrate and access financial data from thousands of financial institutions.
@@ -690,7 +690,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/liabilities/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/liabilities--plaid.yaml
   description: The Plaid Liabilities API is a financial tool that allows developers
     to access detailed information about a user's liabilities, such as credit card
@@ -730,7 +730,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/payment-initiation/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/payment-initiation--plaid.yaml
   description: The Plaid Payment Initiation API allows businesses to initiate payments
     directly from their customers' bank accounts, providing a seamless and convenient
@@ -763,7 +763,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/beacon/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/user--plaid.yaml
   description: Plaid Beacon API is a powerful tool that allows developers to securely
     access and share financial data with authorized third parties. By integrating
@@ -850,7 +850,7 @@ apis:
   properties:
   - url: openapi/plaid-credit--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/credit--plaid.yaml
   description: Plaid Credit API is a financial service that allows users to access
     their credit information in real time. By connecting to various financial institutions,
@@ -886,7 +886,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/investments/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/investments--plaid.yaml
   description: Plaid Investments API is a powerful tool that allows developers to
     easily access and integrate investment data into their applications. By connecting
@@ -918,7 +918,7 @@ apis:
   properties:
   - url: openapi/plaid-deposit-switch--openapi-original.yml
     type: OpenAPI
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/deposit-switch--plaid.yaml
   description: The Plaid Deposit Switch API is a powerful tool that allows users to
     easily switch their direct deposit information from one financial institution
@@ -952,7 +952,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/link/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/link--plaid.yaml
   description: Plaid Link API is a tool designed to simplify the process of connecting
     users' financial accounts to third-party applications. By providing a secure and
@@ -1052,7 +1052,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/transfer/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/transfer--plaid.yaml
   description: Plaid Transfer API is a powerful tool that enables developers to easily
     integrate ACH (Automated Clearing House) payments into their applications. This
@@ -1093,7 +1093,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/transfer/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/bank-transfer--plaid.yaml
   description: Plaid Bank Transfer API is a service that allows developers to securely
     initiate and manage bank transfers within their applications. By integrating this
@@ -1124,7 +1124,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/income/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/employers--plaid.yaml
   description: The Plaid Employers API is a tool that allows businesses to securely
     access and verify their employees' income and employment information. By integrating
@@ -1175,7 +1175,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/income/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/income--plaid.yaml
   description: Plaid Income API is a powerful tool that allows developers to access
     and analyze a user's income information quickly and securely. By integrating this
@@ -1225,7 +1225,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/beta--plaid.yaml
   description: Plaid Beta API is a powerful tool that enables developers to access
     and utilize financial data from various institutions. By integrating with Plaid's
@@ -1265,7 +1265,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/signal/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/signal--plaid.yaml
   description: The Plaid Signal API is a powerful tool that allows developers to receive
     real-time notifications and alerts about their users' financial activities. By
@@ -1299,7 +1299,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/products/virtual-accounts/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/wallet--plaid.yaml
   description: Plaid Wallet API is a powerful tool that allows developers to easily
     integrate financial data and transaction capabilities into their apps and websites.
@@ -1347,7 +1347,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/payment-initiation/add-to-app/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/payment-profile--plaid.yaml
   description: Plaid Sandbox API is a tool provided by Plaid that allows developers
     to test and experiment with their applications in a simulated environment. The
@@ -1390,7 +1390,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/api/partner/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/partner--plaid.yaml
   description: The Plaid Partner API is a powerful tool that allows developers to
     seamlessly integrate financial services and applications with their own platforms.
@@ -1422,7 +1422,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.com/docs/link/hosted-link/
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/link-delivery--plaid.yaml
   description: Plaid Link Delivery API is a powerful tool that allows developers to
     seamlessly integrate Plaid's account linking technology into their applications.
@@ -1454,7 +1454,7 @@ apis:
     type: OpenAPI
   - url: https://plaid.github.io/core-exchange/api-versions/six-dot-zero
     type: Documentation
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/fdx--plaid.yaml
   description: Plaid FDX API is a powerful tool that allows developers to easily access
     financial data from a variety of sources, including banks, credit unions, and
@@ -1483,7 +1483,7 @@ common:
 - url: https://plaid.com/docs/sandbox/
   type: Sandbox
 - url: https://plaid.com/docs/errors/
-  type: Errors
+  type: ErrorCodes
 - url: https://plaid.com/docs/launch-checklist/
   type: Launch Checklist
 - url: https://plaid.com/docs/support/
@@ -1497,7 +1497,7 @@ common:
 - url: https://plaid.com/docs/api/versioning/
   type: Versions
 - url: https://plaid.com/docs/api/postman/
-  type: Postman Collection
+  type: PostmanCollection
 - url: https://plaid.com/docs/api/webhooks/
   type: Webhooks
 - type: Features
@@ -1521,7 +1521,7 @@ common:
   sources:
   - https://plaid.com/pricing/
   updated: '2026-05-04'
-- type: LLMsTxt
+- type: LlmsText
   url: https://plaid.com/llms.txt
 created: '2024-07-07T00:00:00.000Z'
 modified: '2026-05-30'
