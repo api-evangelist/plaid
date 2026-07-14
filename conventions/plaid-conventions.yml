@@ -1,0 +1,115 @@
+generated: '2026-07-14'
+method: searched
+source: >-
+  https://plaid.com/docs/api/ — the cross-cutting request/response conventions
+  that apply to every Plaid endpoint (not any single operation), captured from
+  the Plaid API reference and derived from openapi/plaid-openapi-original.yml.
+description: >-
+  How Plaid's REST API behaves across every operation: authentication style,
+  idempotency, pagination, request tracing, versioning, the error envelope, and
+  rate-limit signaling. These are the developer-experience / runtime-semantics
+  conventions that OpenAPI does not fully express.
+
+base_url: https://production.plaid.com
+sandbox_base_url: https://sandbox.plaid.com
+api_style: >-
+  REST over HTTPS. All endpoints are POST with a JSON request body and JSON
+  response; there are no GET/PUT/DELETE resource verbs — actions are expressed
+  as POST to named paths (e.g. /transactions/sync).
+
+authentication:
+  scheme: >-
+    API key pair sent in the JSON request body: client_id and secret. A
+    Plaid-Version header pins the dated API version. Most data endpoints also
+    require an access_token (per-Item) in the body.
+  key_types: [client_id, secret (per-environment), access_token (per-Item)]
+  note: >-
+    Plaid's OpenAPI models client_id/secret/Plaid-Version as header apiKey
+    schemes, but in practice client_id and secret are supplied in the JSON body.
+  docs: https://plaid.com/docs/api/
+  detail: authentication/plaid-authentication.yml
+
+idempotency:
+  supported: true
+  scope: Plaid Transfer (ACH) money-movement endpoints.
+  mechanism: idempotency_key field in the JSON request body.
+  applies_to:
+    - /transfer/authorization/create
+    - /transfer/create
+  detail: >-
+    Reusing the same idempotency_key with identical parameters returns the
+    original result instead of creating a duplicate transfer. General data
+    endpoints are read-style POSTs and are naturally repeatable.
+  error_type: IDEMPOTENCY_ERROR
+  docs: https://plaid.com/docs/api/products/transfer/
+
+pagination:
+  styles:
+    - name: cursor
+      used_by: /transactions/sync
+      request_params: {cursor: opaque position from the previous response, count: page size}
+      response_fields: {added: array, modified: array, removed: array, next_cursor: string, has_more: boolean}
+      description: >-
+        The recommended incremental pattern — page forward with next_cursor
+        until has_more is false; persist the cursor to resume.
+    - name: offset
+      used_by: /transactions/get
+      request_params: {options.offset: integer, options.count: page size}
+      response_fields: {transactions: array, total_transactions: integer}
+
+request_tracing:
+  request_id_field: request_id
+  description: >-
+    Every Plaid response (success or error) includes a request_id in the JSON
+    body, used for support and log lookup in the Dashboard.
+
+versioning:
+  scheme: dated versions pinned via header
+  mechanism: Plaid-Version request header (or a default pinned in the Dashboard)
+  current: '2020-09-14'
+  known_versions: ['2020-09-14', '2019-05-29', '2018-05-22', '2017-03-08']
+  changelog: changelog/plaid-changelog.yml
+  docs: https://plaid.com/docs/api/versioning/
+
+error_envelope:
+  media_type: application/json
+  rfc9457: false
+  shape: >-
+    { "error_type", "error_code", "error_message", "display_message",
+    "request_id", "causes", "status", "documentation_url",
+    "suggested_action" }
+  error_types_count: 33
+  representative_types:
+    - INVALID_REQUEST
+    - INVALID_INPUT
+    - INSTITUTION_ERROR
+    - RATE_LIMIT_EXCEEDED
+    - API_ERROR
+    - ITEM_ERROR
+    - PAYMENT_ERROR
+    - TRANSFER_ERROR
+    - IDEMPOTENCY_ERROR
+  detail: errors/plaid-decline-codes.yml
+  docs: https://plaid.com/docs/errors/
+
+rate_limits:
+  signal_status: 429
+  error_type: RATE_LIMIT_EXCEEDED
+  default_item_limit: 100 requests/day per Item (product-dependent)
+  detail: rate-limits/
+  docs: https://plaid.com/docs/errors/rate-limit-exceeded/
+
+webhooks:
+  verification: >-
+    JWT-signed webhooks — verify the plaid-verification header (a JWT) against
+    the key from /webhook_verification_key/get.
+  detail: asyncapi/plaid-webhooks--asyncapi-original.yml
+  docs: https://plaid.com/docs/api/webhooks/webhook-verification/
+
+other_conventions:
+  - name: Environments
+    detail: Separated by base URL (sandbox.plaid.com vs production.plaid.com) and per-environment secret; see sandbox/plaid-sandbox.yml.
+  - name: Item model
+    detail: An Item is a login at one institution; most calls act on an Item via its access_token.
+  - name: Amounts
+    detail: Monetary amounts are decimal strings/numbers in the account's currency (iso_currency_code / unofficial_currency_code).

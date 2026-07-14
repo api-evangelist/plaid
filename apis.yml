@@ -1478,6 +1478,20 @@ common:
   url: security/plaid-domain-security.yml
 - type: Authentication
   url: authentication/plaid-authentication.yml
+- type: Sandbox
+  url: sandbox/plaid-sandbox.yml
+- type: Conventions
+  url: conventions/plaid-conventions.yml
+- type: ChangeLog
+  url: changelog/plaid-changelog.yml
+- type: CLI
+  url: cli/plaid-cli.yml
+- type: Components
+  url: components/plaid-components.yml
+- type: DataModel
+  url: data-model/plaid-data-model.yml
+- type: DeclineCodes
+  url: errors/plaid-decline-codes.yml
 - url: https://plaid.com/blog/rss.xml
   type: Blog
 - type: GitHubOrganization

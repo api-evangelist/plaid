@@ -1,0 +1,65 @@
+generated: '2026-07-14'
+method: searched
+source: https://plaid.com/docs/resources/cli/
+description: >-
+  The official Plaid CLI command surface — an experimental first-party
+  command-line tool (released 2026-04-16) for making Plaid API calls without
+  client libraries, request objects, or response types. Captured verbatim from
+  plaid.com/docs/resources/cli. The CLI is organized around Items (logins at
+  institutions); every command supports --json for machine-readable output,
+  making it a fit for AI agents and shell scripts. Interface is experimental and
+  may change without notice.
+docs: https://plaid.com/docs/resources/cli/
+status: experimental
+install:
+  homebrew: brew install plaid/plaid-cli/plaid
+  update: brew update && brew upgrade plaid
+  binaries: GitHub Releases page (per-platform binaries)
+auth:
+  precedence: flags > environment variables > config file
+  env_vars:
+    - {name: PLAID_CLIENT_ID, purpose: Client identifier}
+    - {name: PLAID_SECRET, purpose: API secret}
+    - {name: PLAID_ENV, purpose: 'Environment selection (sandbox or production)'}
+    - {name: PLAID_ACCESS_TOKEN, purpose: Access token for requests}
+  config:
+    - plaid config set --client-id <id> --env sandbox
+    - plaid config   # view current settings (secrets masked)
+commands:
+  access_account:
+    - {name: register, description: Create a Dashboard account.}
+    - {name: login, description: Authenticate to the Dashboard.}
+    - {name: logout, description: Remove stored credentials.}
+    - {name: trial, description: Begin a Trial plan application.}
+    - {name: teams list, description: List available teams.}
+    - {name: teams choose, description: Select the active team.}
+    - {name: keys fetch, description: Refresh API keys.}
+  item_linking:
+    - {name: link, description: Create an Item via the Link interface.}
+    - {name: item list, description: Display linked Items.}
+    - {name: item get, description: Show Item details and accounts.}
+    - {name: item remove, description: Delete a linked Item.}
+    - {name: sandbox link, description: Create a test Item in Sandbox.}
+  products:
+    - {name: balance, description: Retrieve account balances.}
+    - {name: transactions list, description: Display recent transactions.}
+    - {name: transactions sync, description: Incrementally sync transactions.}
+    - {name: investments holdings, description: View holdings.}
+    - {name: investments transactions, description: Retrieve investment transactions.}
+    - {name: liabilities, description: Get credit, student loan, and mortgage data.}
+  config_utilities:
+    - {name: config, description: Display configuration status.}
+    - {name: config set, description: Modify settings.}
+    - {name: feedback, description: Report issues or suggestions.}
+global_flags:
+  - {flag: --json, description: 'Output structured JSON; diagnostics on stderr, primary result on stdout.'}
+  - {flag: --item <id-or-alias>, description: Specify the target Item.}
+  - {flag: --all, description: Query all linked Items.}
+  - {flag: --env, description: 'Select environment (sandbox or production).'}
+  - {flag: --products, description: 'Specify product scope during linking (e.g. transactions,liabilities).'}
+key_flows:
+  link_and_pull:
+    commands:
+      - plaid sandbox link --products transactions
+      - plaid transactions sync --all --json
+    description: Link a sandbox Item, then incrementally sync its transactions as JSON.

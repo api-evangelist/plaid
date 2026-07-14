@@ -1,0 +1,125 @@
+generated: '2026-07-14'
+method: searched
+source: https://plaid.com/docs/sandbox/
+description: >-
+  Plaid's Sandbox / test-data surface — the credentials, magic values, and
+  simulation tooling a developer needs to exercise the Plaid API end-to-end
+  without touching real bank accounts or moving real money. Captured verbatim
+  from plaid.com/docs/sandbox. Plaid separates environments by base URL and API
+  key/secret (each environment has its own secret); Sandbox uses synthetic data,
+  sends no emails or SMS, and exposes /sandbox/* helper endpoints that don't
+  exist in Production.
+docs:
+  - https://plaid.com/docs/sandbox/
+  - https://plaid.com/docs/sandbox/test-credentials/
+  - https://plaid.com/docs/api/sandbox/
+  - https://plaid.com/docs/transfer/sandbox/
+
+environments:
+  - name: sandbox
+    base_url: https://sandbox.plaid.com
+    notes: >-
+      Test environment with synthetic data. Uses default credentials
+      (user_good / pass_good). No emails/SMS sent. Allows http redirect URIs.
+      No OCR/image processing. Signal returns random results. OAuth consent
+      checkboxes not enforced. Each environment has its own secret.
+  - name: production
+    base_url: https://production.plaid.com
+    notes: >-
+      Live data and real institution behavior. Requires https redirect URIs.
+      Production access is gated behind a Trial or paid plan.
+
+# Sandbox institution credentials — entered into Plaid Link when connecting a
+# test institution. Passwords select behaviors, not just authenticate.
+link_credentials:
+  simple:
+    username: user_good
+    password: pass_good
+  transactions_dynamic:
+    username: user_transactions_dynamic
+    password: any
+    behavior: Generates dynamically updating transactions.
+  personas:
+    - user_ewa_user
+    - user_yuppie
+    - user_small_business
+  auth_microdeposits:
+    username: user_good
+    password: microdeposits_good
+  limited_purpose_checking:
+    username: user_limited_purpose_checking
+    password: pass_good
+  credit_and_income:
+    - {username: user_bank_income, password: '{}'}
+    - {username: user_credit_bonus, password: any}
+    - {username: user_credit_joint_account, password: any}
+    - {username: user_credit_profile_poor, password: any}
+    - {username: user_credit_profile_good, password: any}
+    - {username: user_credit_profile_excellent, password: any}
+    - {username: 'user_prism_1 … user_prism_8', password: any}
+
+mfa:
+  device_otp:
+    username: user_good
+    password: mfa_device
+    code: '1234'
+  questions:
+    username: user_good
+    password: mfa_questions_<n>_<m>
+  selections:
+    username: user_good
+    password: mfa_selections
+    answer: 'Yes'
+  multiple_selections:
+    username: user_good
+    password: mfa_selections_<n>_<m>_<o>
+
+# Force a specific Plaid error at link time by using user_good with an error
+# password of the form error_<ERROR_CODE>.
+error_simulation:
+  username: user_good
+  password_format: error_[ERROR_CODE]
+  example: error_ITEM_LOCKED
+  reference: https://plaid.com/docs/errors/
+
+test_institutions:
+  - {id: ins_109508, name: First Platypus Bank}
+
+# Sandbox-only endpoints — do not exist in Production.
+sandbox_endpoints:
+  - {path: /sandbox/public_token/create, purpose: Generate a public_token for an arbitrary institution without going through Link.}
+  - {path: /sandbox/item/reset_login, purpose: Force an Item into the ITEM_LOGIN_REQUIRED state to test re-authentication.}
+  - {path: /sandbox/item/fire_webhook, purpose: Trigger an Item webhook on demand.}
+  - {path: /sandbox/transfer/fire_webhook, purpose: Trigger a Transfer webhook on demand.}
+  - {path: /sandbox/income/fire_webhook, purpose: Trigger an Income webhook on demand.}
+  - {path: /sandbox/processor_token/create, purpose: Create a processor_token for testing processor integrations.}
+
+# Time simulation for the Transfer (ACH) product — a virtual timeline.
+test_clocks:
+  docs: https://plaid.com/docs/transfer/sandbox/
+  description: >-
+    A test_clock represents an independent timeline with a virtual_time field.
+    Advancing the clock simulates the events that would occur over the elapsed
+    time (e.g. new originations and webhooks for recurring transfers). Virtual
+    time may only move forward, never backward.
+  endpoints:
+    - {path: /sandbox/transfer/test_clock/create, purpose: Create a test clock with an initial virtual_time.}
+    - {path: /sandbox/transfer/test_clock/advance, purpose: Advance virtual_time; simulates elapsed-time events.}
+    - {path: /sandbox/transfer/test_clock/get, purpose: Retrieve a test clock.}
+    - {path: /sandbox/transfer/test_clock/list, purpose: List test clocks.}
+  recurring: >-
+    Attach via test_clock_id on /transfer/recurring/create. Advancing generates
+    new originations as if time had elapsed in Production (capped at 20
+    originations per recurring transfer per advance).
+
+transfer_simulation:
+  docs: https://plaid.com/docs/transfer/sandbox/
+  note: >-
+    Sandbox Transfer events (posted, settled, returned, etc.) and ACH return
+    codes are exercised via the /sandbox/transfer/* helpers rather than magic
+    card numbers. See errors/plaid-decline-codes.yml for the ACH return codes.
+
+cross_reference:
+  conventions: conventions/plaid-conventions.yml
+  decline_codes: errors/plaid-decline-codes.yml
+  errors: https://plaid.com/docs/errors/

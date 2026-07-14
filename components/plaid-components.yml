@@ -1,0 +1,45 @@
+generated: '2026-07-14'
+method: searched
+source: https://plaid.com/docs/link/
+description: >-
+  Plaid's embeddable, client-side UI component — Plaid Link — the drop-in module
+  users interact with to connect their financial accounts. Link manages the
+  entire authentication experience (credential validation, MFA, and bank OAuth
+  flows) and is the only supported method for connecting accounts in Production.
+  Distinct from the server-side SDK client libraries (plaid, plaid-python,
+  plaid-java, etc.) which are catalogued in the Libraries reference. Grouped by
+  platform family with the loader libraries that mount Link.
+docs:
+  - https://plaid.com/docs/link/
+  - https://plaid.com/docs/api/libraries/
+libraries:
+  - {name: react-plaid-link, registry: npm, purpose: React wrapper for the web Link SDK.}
+  - {name: react-native-plaid-link-sdk, registry: npm, purpose: React Native bindings for Link.}
+  - {name: LinkKit, platform: iOS, distribution: CocoaPods / Swift Package Manager, purpose: Native iOS Link SDK.}
+  - {name: com.plaid.link, registry: Maven, platform: Android, purpose: Native Android Link SDK.}
+
+families:
+  web:
+    description: Browser-based Link, standalone or wrapped for React.
+    components:
+      - {name: Link (Web SDK), description: The native web drop-in module that renders the account-connection flow.}
+      - {name: react-plaid-link, description: React hook/component wrapper around the web SDK.}
+  mobile:
+    description: Native mobile Link SDKs for the best in-app experience.
+    components:
+      - {name: Plaid Link iOS (LinkKit), platforms: [iOS], description: Native iOS implementation.}
+      - {name: Plaid Link Android, platforms: [Android], description: Native Android implementation.}
+      - {name: React Native SDK, platforms: [iOS, Android], description: Cross-platform mobile Link.}
+  hosted:
+    description: Plaid-hosted surface for cases where you don't control the frontend.
+    components:
+      - {name: Hosted Link, description: Plaid-hosted Link flow recommended for webviews, iFrames, or when you don't control the frontend. Delivered as a hosted URL/session (see the Link Delivery API).}
+  presentation_modes:
+    description: Optional presentation modes layered on Link.
+    components:
+      - {name: Embedded Institution Search, description: Embeds the institution-search step to increase user adoption.}
+      - {name: Multi-Item Link, description: Links multiple banks within a single Link session.}
+community_supported:
+  - Vue
+  - Flutter
+  - SolidJS

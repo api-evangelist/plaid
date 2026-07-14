@@ -1,0 +1,40 @@
+generated: '2026-07-14'
+method: searched
+source: https://plaid.com/docs/transfer/troubleshooting/
+description: >-
+  Plaid's ACH return-code taxonomy for the Transfer (ACH money-movement)
+  product — the NACHA return reasons a bank (RDFI) uses to reject or reverse an
+  ACH debit/credit. This is Plaid's payments-provider equivalent of a
+  decline-code reference: it is distinct from the API-level error taxonomy at
+  plaid.com/docs/errors (error_type/error_code), which is complemented by this
+  file. When a transfer is rejected, its status becomes "returned" and the ACH
+  return code is surfaced on the failure reason of the transfer / transfer_event.
+  Only R01 and R09 returns are retryable (via Retry 1 / Retry 2).
+docs:
+  - https://plaid.com/docs/transfer/troubleshooting/
+  - https://plaid.com/resources/ach/ach-return/
+envelope_field: >-
+  transfer.status == "returned"; the ACH return code appears on the transfer /
+  transfer_event failure reason.
+retryable_codes: [R01, R09]
+retry_semantics: >-
+  Retries are only permitted for transfers returned as R01 or R09, using a
+  description of "Retry 1" or "Retry 2".
+masked: false   # ACH return codes are administrative, not masked to a buyer as generic.
+decline_codes:
+  - {code: R01, meaning: Insufficient funds — available balance cannot cover the debit., retryable: true, action: Retry; use Same-Day ACH if submitting Friday to prevent balance drops.}
+  - {code: R02, meaning: Account closed — the account can no longer receive transactions., retryable: false, action: Prompt the user to link a different account.}
+  - {code: R03, meaning: No account / unable to locate account — the account number matches no account at the institution., retryable: true, action: Prompt the user to link a different account via Plaid Link.}
+  - {code: R04, meaning: Invalid account number — the account number structure is not valid., retryable: false, action: Re-collect account details.}
+  - {code: R05, meaning: Unauthorized debit to a consumer account using a corporate SEC code., retryable: false, action: Use the correct SEC code / authorization.}
+  - {code: R06, meaning: Returned per ODFI's request., retryable: false, action: No resubmit.}
+  - {code: R07, meaning: Authorization revoked — the customer previously authorized the debit but has since revoked it., retryable: false, action: Do not resubmit; obtain new authorization.}
+  - {code: R08, meaning: Payment stopped — the customer placed a stop-payment order on the entry., retryable: false, action: Do not resubmit.}
+  - {code: R09, meaning: Uncollected funds — funds are posted but not yet available., retryable: true, action: Retry after several days when holds release.}
+  - {code: R10, meaning: Customer advises not authorized — the customer told their bank they do not know the originator., retryable: false, action: Cannot resubmit; add proper WEB debit authorization language.}
+  - {code: R11, meaning: Customer advises entry not in accordance with the terms of the authorization., retryable: false, action: Resolve authorization terms with the customer.}
+  - {code: R29, meaning: Corporate not authorized — a corporate account holder advises the ACH debit was not authorized., retryable: false, action: Obtain corporate authorization.}
+cross_reference:
+  api_errors: https://plaid.com/docs/errors/
+  conventions: conventions/plaid-conventions.yml
+  sandbox: sandbox/plaid-sandbox.yml

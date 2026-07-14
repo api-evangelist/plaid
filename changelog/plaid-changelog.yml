@@ -1,0 +1,49 @@
+generated: '2026-07-14'
+method: searched
+source: https://plaid.com/docs/changelog/
+description: >-
+  Structured capture of Plaid's dated API changelog. Plaid versions the API by
+  date (Plaid-Version header) for backwards-incompatible changes to GA products;
+  the changelog itself is published as dated entries. This artifact records the
+  recent window of entries — the live changelog is the source of truth.
+docs: https://plaid.com/docs/changelog/
+versioning:
+  scheme: dated versions pinned via header
+  header: Plaid-Version
+  current: '2020-09-14'
+  known_versions: ['2020-09-14', '2019-05-29', '2018-05-22', '2017-03-08']
+  docs: https://plaid.com/docs/api/versioning/
+entries:
+  - date: '2026-07-09'
+    highlights:
+      - Identity Verification added map-based location visualization with risk assessment
+      - Investments now supports OpenFIGI securities data via a new figi field for immutable security tracking
+  - date: '2026-07-02'
+    highlights:
+      - Added FRAUD_TRANSACTION reason code for terminating Items due to transaction-level fraud
+      - Android SDK v6.0.0 released — rebuilt in Kotlin, ~74% smaller footprint (4.5MB to 1.2MB)
+  - date: '2026-06-18'
+    breaking:
+      - Plaid Check now requires all products be requested upfront in /link/token/create
+    highlights:
+      - Investments added tax lot details via a new tax_lots field on the holding schema
+  - date: '2026-06-16'
+    highlights:
+      - Institution Status Dashboard redesigned with personalized data and connection health rates
+      - iOS SDK v7.0.0 released with modernized session architecture and SwiftUI support
+  - date: '2026-05-20'
+    highlights:
+      - New user management endpoints — /user/products/terminate and /user/items/remove
+      - Trial plan customers now get immediate access to all OAuth institutions
+  - date: '2026-04-30'
+    highlights:
+      - Limited purpose checking accounts omitted from Link by default
+      - Sample Identities Manager for creating/managing IDV test users via the Dashboard
+  - date: '2026-04-16'
+    highlights:
+      - Plaid CLI released as an experimental command-line tool for making API calls (see cli/plaid-cli.yml)
+      - Trial plans introduced for streamlined Production access (up to 10 Items)
+  - date: '2026-03-31'
+    highlights:
+      - iOS SDK v7.0.0-beta with over 50% reduction in bundle size
+      - Personal Finance Categories v2 released with improved accuracy and granular subcategories

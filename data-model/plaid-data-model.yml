@@ -1,0 +1,52 @@
+generated: '2026-07-14'
+method: derived
+source: >-
+  Derived from the object relationships in openapi/plaid-*--openapi-original.yml
+  (id-reference fields such as item_id, account_id, access_token,
+  institution_id, transfer_id) and the Plaid API object reference
+  (plaid.com/docs/api). Captures the core entity-relationship graph behind
+  Plaid's account-connectivity and money-movement domains. The visual render of
+  the product taxonomy lives in subway/plaid-subway-map.svg; this is the
+  machine-readable graph.
+docs: https://plaid.com/docs/api/
+notation: >-
+  relationships use has_one / has_many / belongs_to with the reference field
+  name; direction is from the entity that owns the reference. Plaid ID tokens
+  are environment-scoped strings of the form <kind>-<environment>-<id>.
+
+entities:
+  - {name: Item, id_field: item_id, domain: connectivity, description: A single login/connection at one financial institution; the unit most API calls act on.}
+  - {name: AccessToken, id_format: access-<environment>-<uuid>, domain: connectivity, description: The per-Item bearer credential exchanged from a public_token; supplied on data calls.}
+  - {name: PublicToken, id_format: public-<environment>-<uuid>, domain: connectivity, description: A short-lived token returned by Link, exchanged for an access_token.}
+  - {name: LinkToken, id_format: link-<environment>-<uuid>, domain: connectivity, description: A short-lived token that configures and opens a Link session.}
+  - {name: Institution, id_field: institution_id, id_prefix: ins_, domain: connectivity, description: A financial institution Plaid connects to (e.g. ins_109508).}
+  - {name: Account, id_field: account_id, domain: connectivity, description: A depository/credit/loan/investment account within an Item.}
+  - {name: Transaction, id_field: transaction_id, domain: transactions, description: A single transaction on an account.}
+  - {name: ProcessorToken, id_format: processor-<environment>-<uuid>, domain: connectivity, description: A token issued to a processor partner for an account.}
+  - {name: Transfer, id_field: transfer_id, domain: money-movement, description: An ACH transfer initiated via the Transfer product.}
+  - {name: TransferAuthorization, id_field: authorization_id, domain: money-movement, description: A risk/eligibility decision that must precede a transfer.}
+  - {name: TransferEvent, id_field: transfer_event_id, domain: money-movement, description: A state-change event on a transfer (posted, settled, returned, etc.).}
+  - {name: Payment, id_field: payment_id, domain: payment-initiation, description: A UK/EU Payment Initiation payment.}
+  - {name: Recipient, id_field: recipient_id, domain: payment-initiation, description: A payee for Payment Initiation.}
+  - {name: AssetReport, id_field: asset_report_id, token_format: assets-<environment>-<uuid>, domain: reports, description: A point-in-time report of a user's assets across Items.}
+  - {name: User, id_field: user_id, id_prefix: user_, domain: identity, description: A Plaid user object aggregating Items for CRA/Income/Check products.}
+  - {name: Webhook, domain: platform, description: An event notification delivered for Item and product state changes.}
+
+relationships:
+  - {from: Item, to: Institution, kind: belongs_to, via: institution_id}
+  - {from: Item, to: AccessToken, kind: has_one, via: access_token}
+  - {from: Item, to: Account, kind: has_many, via: item_id}
+  - {from: PublicToken, to: AccessToken, kind: has_one, via: exchange}
+  - {from: LinkToken, to: Item, kind: has_one, via: link_session}
+  - {from: Account, to: Transaction, kind: has_many, via: account_id}
+  - {from: Account, to: ProcessorToken, kind: has_one, via: account_id}
+  - {from: Transaction, to: Account, kind: belongs_to, via: account_id}
+  - {from: Transfer, to: TransferAuthorization, kind: belongs_to, via: authorization_id}
+  - {from: Transfer, to: Account, kind: belongs_to, via: account_id}
+  - {from: Transfer, to: TransferEvent, kind: has_many, via: transfer_id}
+  - {from: Payment, to: Recipient, kind: belongs_to, via: recipient_id}
+  - {from: AssetReport, to: Item, kind: has_many, via: items}
+  - {from: User, to: Item, kind: has_many, via: user_id}
+
+interchange_hubs: [Item, Account, AccessToken, Institution]
+visual: subway/plaid-subway-map.svg
