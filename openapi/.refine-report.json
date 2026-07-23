@@ -1,0 +1,14 @@
+{
+  "provider": "plaid",
+  "sources": [
+    "plaid-plaid-api-openapi.yml"
+  ],
+  "outputs": [
+    "plaid-plaid-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
