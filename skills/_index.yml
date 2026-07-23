@@ -1,0 +1,21 @@
+generated: '2026-07-23'
+method: generated
+source: openapi/ + conventions/plaid-conventions.yml + errors/plaid-problem-types.yml
+description: >-
+  Packaged Agent Skills for Plaid's marquee flows. Each skill is grounded in
+  real operationIds verified against the OpenAPI in openapi/, and folds in the
+  cross-cutting conventions (client_id+secret+Plaid-Version auth, Transfer
+  idempotency_key, transactions cursor sync) and the Plaid error envelope.
+skills:
+  - file: plaid-link-and-fetch-accounts.md
+    name: Link a bank account and fetch accounts + balances
+    api: openapi/plaid-link--openapi.yml
+    operations: [linkTokenCreate, itemPublicTokenExchange, accountsGet, accountsBalanceGet, authGet]
+  - file: plaid-sync-transactions.md
+    name: Sync transactions incrementally with a cursor
+    api: openapi/plaid-transactions--openapi.yml
+    operations: [transactionsSync, transactionsGet]
+  - file: plaid-authorize-and-create-transfer.md
+    name: Authorize and create an ACH transfer idempotently
+    api: openapi/plaid-transfer--openapi.yml
+    operations: [transferAuthorizationCreate, transferCreate, transferGet, signalEvaluate]

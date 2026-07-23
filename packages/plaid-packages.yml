@@ -1,0 +1,76 @@
+generated: '2026-07-23'
+method: searched
+source: https://plaid.com/docs/api/libraries/
+description: >-
+  Plaid's official server-side client libraries, all generated from the public
+  plaid-openapi definition (github.com/plaid/plaid-openapi) and regularly
+  updated for breaking and non-breaking API changes, plus the front-end Plaid
+  Link SDKs used to render the account-linking UI.
+packages:
+  - language: javascript
+    registry: npm
+    name: plaid
+    url: https://www.npmjs.com/package/plaid
+    install: npm install plaid
+    repo: https://github.com/plaid/plaid-node
+    official: true
+  - language: python
+    registry: pypi
+    name: plaid-python
+    url: https://pypi.org/project/plaid-python/
+    install: pip install plaid-python
+    repo: https://github.com/plaid/plaid-python
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: plaid
+    url: https://rubygems.org/gems/plaid
+    install: gem install plaid
+    repo: https://github.com/plaid/plaid-ruby
+    official: true
+  - language: java
+    registry: maven
+    name: com.plaid:plaid-java
+    url: https://search.maven.org/artifact/com.plaid/plaid-java
+    install: "implementation 'com.plaid:plaid-java:+'"
+    repo: https://github.com/plaid/plaid-java
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/plaid/plaid-go
+    url: https://pkg.go.dev/github.com/plaid/plaid-go
+    install: go get github.com/plaid/plaid-go/v3/plaid
+    repo: https://github.com/plaid/plaid-go
+    official: true
+  - language: swift
+    registry: cocoapods-spm
+    name: LinkKit (iOS)
+    url: https://github.com/plaid/plaid-link-ios
+    install: "pod 'Plaid' / SwiftPM plaid-link-ios"
+    repo: https://github.com/plaid/plaid-link-ios
+    official: true
+    kind: front-end-link-sdk
+  - language: kotlin
+    registry: maven
+    name: com.plaid.link:sdk-core (Android)
+    url: https://github.com/plaid/plaid-link-android
+    install: "implementation 'com.plaid.link:sdk-core:+'"
+    repo: https://github.com/plaid/plaid-link-android
+    official: true
+    kind: front-end-link-sdk
+  - language: javascript
+    registry: npm
+    name: react-plaid-link
+    url: https://www.npmjs.com/package/react-plaid-link
+    install: npm install react-plaid-link
+    repo: https://github.com/plaid/react-plaid-link
+    official: true
+    kind: front-end-link-sdk
+  - language: javascript
+    registry: npm
+    name: react-native-plaid-link-sdk
+    url: https://www.npmjs.com/package/react-native-plaid-link-sdk
+    install: npm install react-native-plaid-link-sdk
+    repo: https://github.com/plaid/react-native-plaid-link-sdk
+    official: true
+    kind: front-end-link-sdk

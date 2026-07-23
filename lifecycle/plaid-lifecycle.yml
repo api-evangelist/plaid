@@ -1,0 +1,38 @@
+generated: '2026-07-23'
+method: searched
+source:
+  - https://plaid.com/docs/api/versioning/
+  - https://plaid.com/docs/changelog/
+  - https://status.plaid.com/
+description: >-
+  Plaid's API lifecycle posture: how versions are pinned, how deprecations and
+  breaking changes are communicated, the status page, and the change log.
+versioning:
+  scheme: dated-header
+  header: Plaid-Version
+  current: '2020-09-14'
+  default: pinned to the client library release date or the Dashboard-configured version
+  docs: https://plaid.com/docs/api/versioning/
+  note: >-
+    Older API versions keep working indefinitely; developers upgrade at their
+    own pace. Client libraries are pinned to the API version of their release
+    date, so updating the library changes the version in use.
+deprecation:
+  policy_url: https://plaid.com/docs/api/versioning/
+  sunset_header: false
+  model: >-
+    For GA products, breaking changes ship as a new dated version so existing
+    integrations keep working; non-breaking changes (new endpoints, optional
+    params, new response fields, new enum values, new webhook types) may land at
+    any time on the current version. Beta-product APIs may take breaking changes
+    without versioning with 30 days notice.
+  notice_period_beta: 30 days
+sla:
+  url: https://status.plaid.com/
+  note: Uptime and incident history published on the status page; contractual SLAs set per enterprise agreement.
+status_page: https://status.plaid.com/
+change_log: https://plaid.com/docs/changelog/
+deprecated_products:
+  - Bank Transfer (superseded by Transfer)
+  - Deposit Switch (legacy)
+deprecated_operations: []

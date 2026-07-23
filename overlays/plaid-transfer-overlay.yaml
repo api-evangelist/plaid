@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Plaid Transfer
+  version: 1.0.0
+generated: '2026-07-23'
+method: generated
+extends: openapi/plaid-transfer--openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 4
+      x-apievangelist-idempotency:
+        supported: true
+        field: idempotency_key
+        scope: transfer money-movement endpoints
+        detail: conventions/plaid-conventions.yml
+      x-apievangelist-conventions: conventions/plaid-conventions.yml
+      x-apievangelist-errors: errors/plaid-problem-types.yml
+      x-apievangelist-decline-codes: errors/plaid-decline-codes.yml
+      x-apievangelist-lifecycle: lifecycle/plaid-lifecycle.yml
+  - target: $.info
+    update:
+      x-apievangelist-agent-skills:
+        - skills/plaid-authorize-and-create-transfer.md

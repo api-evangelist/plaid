@@ -1,0 +1,60 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: openapi/
+description: >-
+  Plaid does not publish an official hosted/remote MCP server as of this round
+  (no server advertised in Plaid docs, the plaid GitHub org, or the public MCP
+  registries). This is a CANDIDATE tool surface DERIVED from Plaid's published
+  OpenAPI operations — one MCP tool per marquee operationId — so agents can be
+  wired to the REST API through a generated adapter. Each tool inherits its real
+  input contract from the referenced operation's parameters/requestBody. No tool
+  schemas were fabricated; every source_operation exists verbatim in the specs.
+server:
+  name: plaid
+  transport: http
+  url: null
+  published: false
+tools:
+  - name: link_token_create
+    description: Create a Link token to initialize the Plaid Link account-connection flow.
+    source_operation: openapi/plaid-link--openapi.yml#linkTokenCreate
+  - name: item_public_token_exchange
+    description: Exchange a Link public_token for a persistent access_token + item_id.
+    source_operation: openapi/plaid-item--openapi.yml#itemPublicTokenExchange
+  - name: accounts_get
+    description: Retrieve the accounts associated with an Item.
+    source_operation: openapi/plaid-accounts--openapi.yml#accountsGet
+  - name: accounts_balance_get
+    description: Fetch real-time balances for an Item's accounts.
+    source_operation: openapi/plaid-accounts--openapi.yml#accountsBalanceGet
+  - name: auth_get
+    description: Retrieve ACH account and routing numbers for bank-account verification.
+    source_operation: openapi/plaid-auth--openapi.yml#authGet
+  - name: identity_get
+    description: Retrieve account-owner identity (name, address, email, phone).
+    source_operation: openapi/plaid-identity--openapi.yml#identityGet
+  - name: identity_match
+    description: Score how well supplied identity data matches the bank's records.
+    source_operation: openapi/plaid-identity--openapi.yml#identityMatch
+  - name: transactions_sync
+    description: Incrementally sync added/modified/removed transactions with a cursor.
+    source_operation: openapi/plaid-transactions--openapi.yml#transactionsSync
+  - name: transactions_get
+    description: Retrieve transactions for an Item over a date range (offset pagination).
+    source_operation: openapi/plaid-transactions--openapi.yml#transactionsGet
+  - name: transfer_authorization_create
+    description: Authorize an ACH/RTP transfer (risk + balance check) before creating it.
+    source_operation: openapi/plaid-transfer--openapi.yml#transferAuthorizationCreate
+  - name: transfer_create
+    description: Create an authorized money-movement transfer (idempotency_key supported).
+    source_operation: openapi/plaid-transfer--openapi.yml#transferCreate
+  - name: signal_evaluate
+    description: Score the ACH-return risk of a proposed debit transaction.
+    source_operation: openapi/plaid-signal--openapi.yml#signalEvaluate
+  - name: asset_report_create
+    description: Generate an Asset Report for lending/underwriting from linked Items.
+    source_operation: openapi/plaid-asset-report--openapi.yml#assetReportCreate
+  - name: item_get
+    description: Retrieve status and metadata for an Item (institution, products, errors).
+    source_operation: openapi/plaid-item--openapi.yml#itemGet

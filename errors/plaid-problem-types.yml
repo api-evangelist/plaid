@@ -1,0 +1,85 @@
+generated: '2026-07-23'
+method: searched
+source:
+  - https://plaid.com/docs/errors/
+  - openapi/_original/plaid-openapi-original.yml
+format: plaid-error-envelope
+description: >-
+  Plaid's API-level error taxonomy. Plaid does NOT use RFC 9457
+  application/problem+json; instead every error is returned as a JSON envelope
+  keyed by error_type + error_code. This catalog captures the envelope shape and
+  the top-level error_type categories from the PlaidError schema in the OpenAPI
+  and the docs error reference. Product-specific decline reasons live in
+  errors/plaid-decline-codes.yml.
+envelope:
+  fields:
+    - error_type      # broad category (see error_types below)
+    - error_code      # specific machine-readable code
+    - error_message   # developer-facing description
+    - display_message # end-user-safe message (may be null)
+    - request_id      # correlation id for support
+    - causes          # array, for Asset Report / multi-Item errors
+    - status          # numeric HTTP-equivalent status
+    - documentation_url
+    - suggested_action
+  content_type: application/json
+  transport: >-
+    Returned with a 4xx/5xx HTTP status; the machine-readable detail is the
+    error_type/error_code pair in the body, not the HTTP status alone.
+error_types:
+  - error_type: INVALID_REQUEST
+    http_status: 400
+    meaning: The request was malformed or missing required fields / had an unexpected shape.
+  - error_type: INVALID_INPUT
+    http_status: 400
+    meaning: A field value was invalid (e.g. bad access_token, invalid credentials, unauthorized environment).
+  - error_type: INVALID_RESULT
+    http_status: 400
+    meaning: The result of the request was invalid (e.g. a check that could not be completed).
+  - error_type: INSTITUTION_ERROR
+    http_status: 400
+    meaning: The financial institution is down, in maintenance, or returned an error.
+  - error_type: RATE_LIMIT_EXCEEDED
+    http_status: 429
+    meaning: Too many requests against an Item, product, or client — back off and retry.
+  - error_type: API_ERROR
+    http_status: 500
+    meaning: An internal Plaid server error; safe to retry.
+  - error_type: ITEM_ERROR
+    http_status: 400
+    meaning: A problem with a specific Item — e.g. ITEM_LOGIN_REQUIRED, requiring re-authentication via update mode.
+  - error_type: ASSET_REPORT_ERROR
+    http_status: 400
+    meaning: An error generating or retrieving an Asset Report.
+  - error_type: RECAPTCHA_ERROR
+    http_status: 400
+    meaning: reCAPTCHA verification failed (risk / bot mitigation in Link).
+  - error_type: OAUTH_ERROR
+    http_status: 400
+    meaning: An error during the institution OAuth authorization flow.
+  - error_type: PAYMENT_ERROR
+    http_status: 400
+    meaning: An error in the Payment Initiation product.
+  - error_type: TRANSFER_ERROR
+    http_status: 400
+    meaning: An error in the Transfer (ACH/RTP) product, including insufficient funds or risk decline.
+  - error_type: BANK_TRANSFER_ERROR
+    http_status: 400
+    meaning: An error in the legacy Bank Transfer product.
+  - error_type: INCOME_VERIFICATION_ERROR
+    http_status: 400
+    meaning: An error in the Income verification product.
+  - error_type: MICRODEPOSITS_ERROR
+    http_status: 400
+    meaning: An error verifying same-day / manual micro-deposit amounts in Auth.
+  - error_type: SANDBOX_ERROR
+    http_status: 400
+    meaning: An error specific to the Sandbox environment (e.g. invalid test configuration).
+  - error_type: PARTNER_ERROR
+    http_status: 400
+    meaning: An error in a reseller / partner onboarding operation.
+notes:
+  - The Plaid OpenAPI models most endpoints with a single response schema; the
+    error envelope (PlaidError) is the canonical failure contract across all
+    products.
+  - See errors/plaid-decline-codes.yml for Transfer/Signal-level decline reasons.

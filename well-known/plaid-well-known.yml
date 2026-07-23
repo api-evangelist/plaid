@@ -1,0 +1,24 @@
+generated: '2026-07-23'
+method: searched
+description: >-
+  Probe of the /.well-known/ discovery surface on Plaid's API host
+  (production.plaid.com) and marketing/docs host (plaid.com). Plaid's REST API
+  authenticates with client_id + secret in the request body rather than OAuth,
+  so it publishes no OIDC/OAuth discovery documents; all probes returned 404 (or
+  a trailing-slash 301 that resolves to the site 404 page). Absence is valid,
+  expected data.
+hosts:
+  - host: https://production.plaid.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://plaid.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 301, note: redirects to trailing-slash 404}
+      - {path: /.well-known/oauth-authorization-server, status: 301, note: redirects to trailing-slash 404}
+      - {path: /.well-known/api-catalog, status: 301, note: redirects to trailing-slash 404}

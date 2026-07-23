@@ -1,0 +1,62 @@
+generated: '2026-07-23'
+method: derived
+source:
+  - mcp/plaid-mcp.yml
+  - openapi/
+description: >-
+  Crosswalk binding each candidate MCP tool (mcp/plaid-mcp.yml) to its backing
+  Plaid OpenAPI operationId, so every tool inherits a REAL inputSchema from the
+  spec instead of a guessed one. Plaid publishes no hosted MCP server and no
+  native public GraphQL endpoint (graphql/ holds a conceptual SDL only), so the
+  MCP surface is 1:1 derived from REST — no mcp_only tools exist, and the vast
+  remainder of Plaid's ~300 REST operations are rest_only (no candidate tool).
+surfaces:
+  openapi:
+    path: openapi/
+    operations_total: ~300
+    gated: false
+  graphql:
+    endpoint: null
+    note: conceptual SDL only (graphql/plaid-schema.graphql); not a live introspectable endpoint
+    gated: n/a
+  mcp:
+    url: null
+    note: candidate surface derived from REST; no live tools/list to introspect
+    gated: n/a
+crosswalk:
+  - {tool: link_token_create, category: link, rest: [linkTokenCreate], binding: rest, confidence: high}
+  - {tool: item_public_token_exchange, category: item, rest: [itemPublicTokenExchange], binding: rest, confidence: high}
+  - {tool: accounts_get, category: accounts, rest: [accountsGet], binding: rest, confidence: high}
+  - {tool: accounts_balance_get, category: accounts, rest: [accountsBalanceGet], binding: rest, confidence: high}
+  - {tool: auth_get, category: auth, rest: [authGet], binding: rest, confidence: high}
+  - {tool: identity_get, category: identity, rest: [identityGet], binding: rest, confidence: high}
+  - {tool: identity_match, category: identity, rest: [identityMatch], binding: rest, confidence: high}
+  - {tool: transactions_sync, category: transactions, rest: [transactionsSync], binding: rest, confidence: high}
+  - {tool: transactions_get, category: transactions, rest: [transactionsGet], binding: rest, confidence: high}
+  - {tool: transfer_authorization_create, category: transfer, rest: [transferAuthorizationCreate], binding: rest, confidence: high}
+  - {tool: transfer_create, category: transfer, rest: [transferCreate], binding: rest, confidence: high}
+  - {tool: signal_evaluate, category: signal, rest: [signalEvaluate], binding: rest, confidence: high}
+  - {tool: asset_report_create, category: assets, rest: [assetReportCreate], binding: rest, confidence: high}
+  - {tool: item_get, category: item, rest: [itemGet], binding: rest, confidence: high}
+mcp_only: []
+rest_only:
+  - capability: transfer-ledger-and-recurring
+    note: transferLedgerGet/Distribute/Deposit/Withdraw, transferRecurringGet, transferBalanceGet, and the rest of the 49-op Transfer surface have no candidate tool
+  - capability: watchlist-screening
+    note: 20 Monitor watchlist-screening operations (individual + entity programs/hits/reviews) unmapped
+  - capability: beacon
+    note: 12 Beacon fraud-network operations unmapped
+  - capability: credit-and-cra
+    note: Credit (23) + Consumer Report CRA (9) underwriting operations unmapped
+  - capability: processor-partners
+    note: 21 processor-token operations unmapped
+  - capability: sandbox-and-item-admin
+    note: sandbox simulation + Item lifecycle admin operations unmapped
+  - capability: other-products
+    note: Investments, Liabilities, Statements, Income, Payment Initiation, Virtual Accounts, Institutions, FDX Core Exchange operations unmapped
+coverage:
+  tools_named: 14
+  tools_bound: 14
+  mcp_only: 0
+  rest_ops_total: ~300
+  rest_ops_with_tool: 14

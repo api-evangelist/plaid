@@ -837,6 +837,36 @@ common:
   url: data-model/plaid-data-model.yml
 - type: DeclineCodes
   url: errors/plaid-decline-codes.yml
+- type: ErrorCatalog
+  url: errors/plaid-problem-types.yml
+- type: Packages
+  url: packages/plaid-packages.yml
+- type: SDKs
+  url: packages/plaid-packages.yml
+- type: WellKnown
+  url: well-known/plaid-well-known.yml
+- type: Conformance
+  url: conformance/plaid-conformance.yml
+- type: Compliance
+  url: security/plaid-trust-center.yml
+- type: Lifecycle
+  url: lifecycle/plaid-lifecycle.yml
+- type: Deprecation
+  url: https://plaid.com/docs/api/versioning/
+- type: Idempotency
+  url: conventions/plaid-conventions.yml
+- type: AsyncAPI
+  url: asyncapi/plaid-webhooks--asyncapi-original.yml
+- type: MCPServer
+  url: mcp/plaid-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/plaid-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/plaid-transfer-overlay.yaml
+- type: LLMsTxt
+  url: llms/plaid-llms.txt
 - type: Plans
   url: plans/plaid-plans-pricing.yml
 - type: RateLimits
