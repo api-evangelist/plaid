@@ -1,0 +1,1993 @@
+{
+  "info": {
+    "_postman_id": "9351dd66-248a-459e-8db6-557303037867",
+    "name": "Plaid item/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:33.000Z",
+    "updatedAt": "2026-07-28T02:38:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9351dd66-248a-459e-8db6-557303037867"
+  },
+  "item": [
+    {
+      "name": "item",
+      "item": [
+        {
+          "name": "activity",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List a historical log of user consent events",
+                  "id": "46a949d7-55a9-4b56-af51-4b84fb5d922e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemActivityListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/activity/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "activity",
+                        "list"
+                      ]
+                    },
+                    "description": "List a historical log of user consent events"
+                  },
+                  "response": [
+                    {
+                      "id": "02c5246e-eda5-4bec-96e9-aa36792a1099",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemActivityListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/activity/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "activity",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"activities\": [\n    {\n      \"value\": \"reference #/components/schemas/Activity not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Activity not found in the OpenAPI spec\"\n    }\n  ],\n  \"last_data_access_times\": [\n    {\n      \"value\": \"reference #/components/schemas/LastDataAccessTimes not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/LastDataAccessTimes not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"cursor\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-02c5246e-eda5-4bec-96e9-aa36792a1099"
+                    },
+                    {
+                      "id": "256add53-4244-48ed-939d-d76db800cd84",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemActivityListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/activity/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "activity",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-256add53-4244-48ed-939d-d76db800cd84"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-46a949d7-55a9-4b56-af51-4b84fb5d922e"
+                }
+              ],
+              "id": "7a151322-24b4-4003-a403-cdb17a31c5b2",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-7a151322-24b4-4003-a403-cdb17a31c5b2"
+            }
+          ],
+          "id": "a18c5acb-2495-4def-92ee-61eab547b0d9",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-a18c5acb-2495-4def-92ee-61eab547b0d9"
+        },
+        {
+          "name": "application",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List a user\u2019s connected applications",
+                  "id": "d0b7a87f-eb4f-4c9c-bfc4-d5438366f31a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/application/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "application",
+                        "list"
+                      ]
+                    },
+                    "description": "List a user\u2019s connected applications"
+                  },
+                  "response": [
+                    {
+                      "id": "240e5242-5448-4f9f-9317-ba8094e991f6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/application/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "application",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"applications\": [\n    {\n      \"value\": \"reference #/components/schemas/ConnectedApplication not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ConnectedApplication not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-240e5242-5448-4f9f-9317-ba8094e991f6"
+                    },
+                    {
+                      "id": "5f9e975d-e99e-488e-ab61-61dc02f638e4",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/application/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "application",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-5f9e975d-e99e-488e-ab61-61dc02f638e4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-d0b7a87f-eb4f-4c9c-bfc4-d5438366f31a"
+                }
+              ],
+              "id": "493464fc-8d5a-410e-b6ae-cc98ed71b9cf",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-493464fc-8d5a-410e-b6ae-cc98ed71b9cf"
+            },
+            {
+              "name": "unlink",
+              "item": [
+                {
+                  "name": "Plaid Unlink a user\u2019s connected application",
+                  "id": "79f57eff-da25-40c1-9d68-358e9c9c78b4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationUnlinkRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/application/unlink",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "application",
+                        "unlink"
+                      ]
+                    },
+                    "description": "Unlink a user\u2019s connected application. On an unlink request, Plaid will immediately revoke the Application\u2019s access to the User\u2019s data.  The User will have to redo the OAuth authentication process in order to restore functionality.\n\nThis endpoint only removes ongoing data access permissions, therefore the User will need to reach out to the Application itself in order to disable and delete their account and delete any data that the Application already received (if the Application does not do so by default).\n\nThis endpoint should be called in real time as the User is unlinking an Application, and should not be batched in order to ensure that the change is reflected as soon as possible."
+                  },
+                  "response": [
+                    {
+                      "id": "3f6f3744-4d6d-45c7-b48c-a02437738df3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationUnlinkRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/application/unlink",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "application",
+                            "unlink"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-3f6f3744-4d6d-45c7-b48c-a02437738df3"
+                    },
+                    {
+                      "id": "eafaaf07-d504-4318-8d48-5f4477ba45c2",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationUnlinkRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/application/unlink",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "application",
+                            "unlink"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-eafaaf07-d504-4318-8d48-5f4477ba45c2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-79f57eff-da25-40c1-9d68-358e9c9c78b4"
+                }
+              ],
+              "id": "608eb818-ce37-41c6-82e9-f2768d9b0ae9",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-608eb818-ce37-41c6-82e9-f2768d9b0ae9"
+            },
+            {
+              "name": "scopes",
+              "item": [
+                {
+                  "name": "update",
+                  "item": [
+                    {
+                      "name": "Plaid Update the scopes of access for a particular application",
+                      "id": "2d7d21e4-55aa-4548-856b-0b4600f051fc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationScopesUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/application/scopes/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "application",
+                            "scopes",
+                            "update"
+                          ]
+                        },
+                        "description": "Enable consumers to update product access on selected accounts for an application."
+                      },
+                      "response": [
+                        {
+                          "id": "358c64d5-f237-401c-8eee-fff88a54745b",
+                          "name": "success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationScopesUpdateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/item/application/scopes/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "item",
+                                "application",
+                                "scopes",
+                                "update"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:34.000Z",
+                          "updatedAt": "2026-07-28T02:38:34.000Z",
+                          "uid": "35240-358c64d5-f237-401c-8eee-fff88a54745b"
+                        },
+                        {
+                          "id": "d65b3537-eed3-49ec-a986-450318684f57",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ItemApplicationScopesUpdateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/item/application/scopes/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "item",
+                                "application",
+                                "scopes",
+                                "update"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:34.000Z",
+                          "updatedAt": "2026-07-28T02:38:34.000Z",
+                          "uid": "35240-d65b3537-eed3-49ec-a986-450318684f57"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-2d7d21e4-55aa-4548-856b-0b4600f051fc"
+                    }
+                  ],
+                  "id": "7813944a-5126-445f-a2dd-fe90a3ad71dd",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-7813944a-5126-445f-a2dd-fe90a3ad71dd"
+                }
+              ],
+              "id": "3e965daf-3cbb-4b20-b59c-f52c4f791e4e",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-3e965daf-3cbb-4b20-b59c-f52c4f791e4e"
+            }
+          ],
+          "id": "7cd6df03-f444-46f5-9916-3feaef2fc4b1",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-7cd6df03-f444-46f5-9916-3feaef2fc4b1"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve an Item",
+              "id": "f92c714c-3349-41ab-b39a-2c95b8751fc8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/ItemGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/item/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "item",
+                    "get"
+                  ]
+                },
+                "description": "Returns information about the status of an Item."
+              },
+              "response": [
+                {
+                  "id": "5ab2b7e4-5812-40e9-8323-5fd4d39986b2",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/ItemStatusNullable not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-5ab2b7e4-5812-40e9-8323-5fd4d39986b2"
+                },
+                {
+                  "id": "0c2fdab0-f5c8-4095-b0df-ee2ae7bd59bc",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-0c2fdab0-f5c8-4095-b0df-ee2ae7bd59bc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-f92c714c-3349-41ab-b39a-2c95b8751fc8"
+            }
+          ],
+          "id": "de2273d6-9cc9-4285-9344-0ca1c012d247",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-de2273d6-9cc9-4285-9344-0ca1c012d247"
+        },
+        {
+          "name": "remove",
+          "item": [
+            {
+              "name": "Plaid Remove an Item",
+              "id": "59408c4b-01c4-477b-9c0a-c56faa5d841e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/ItemRemoveRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/item/remove",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "item",
+                    "remove"
+                  ]
+                },
+                "description": "The `/item/remove` endpoint allows you to remove an Item. Once removed, the `access_token`, as well as any processor tokens or bank account tokens associated with the Item, is no longer valid and cannot be used to access any data that was associated with the Item.\n\nRemoving an Item does not affect any Asset Reports or Audit Copies you have already created, which will remain accessible until you remove access to them specifically using the `/asset_report/remove` endpoint.\n\nNote that in the Development environment, issuing an `/item/remove`  request will not decrement your live credential count. To increase your credential account in Development, contact Support.\n\nAlso note that for certain OAuth-based institutions, an Item removed via `/item/remove` may still show as an active connection in the institution's OAuth permission manager.\n\nAPI versions 2019-05-29 and earlier return a `removed` boolean as part of the response."
+              },
+              "response": [
+                {
+                  "id": "2f7dec83-c099-4616-92c1-d9c8f724fe73",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "remove"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-2f7dec83-c099-4616-92c1-d9c8f724fe73"
+                },
+                {
+                  "id": "cff00572-dd9c-4e71-8efc-aa56ab64d253",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "remove"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-cff00572-dd9c-4e71-8efc-aa56ab64d253"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-59408c4b-01c4-477b-9c0a-c56faa5d841e"
+            }
+          ],
+          "id": "14554180-5541-4f02-a0af-ed549363eda6",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-14554180-5541-4f02-a0af-ed549363eda6"
+        },
+        {
+          "name": "webhook",
+          "item": [
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Update Webhook URL",
+                  "id": "9bdfa4bd-1a0a-44f7-baff-223b7e134dea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemWebhookUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/webhook/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "webhook",
+                        "update"
+                      ]
+                    },
+                    "description": "The POST `/item/webhook/update` allows you to update the webhook URL associated with an Item. This request triggers a [`WEBHOOK_UPDATE_ACKNOWLEDGED`](https://plaid.com/docs/api/items/#webhook_update_acknowledged) webhook to the newly specified webhook URL."
+                  },
+                  "response": [
+                    {
+                      "id": "d41e49e1-c53f-4f9e-b77d-08bf9f16fa23",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemWebhookUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/webhook/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "webhook",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-d41e49e1-c53f-4f9e-b77d-08bf9f16fa23"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-9bdfa4bd-1a0a-44f7-baff-223b7e134dea"
+                }
+              ],
+              "id": "069962c2-81f5-4557-bdd0-5661e4dd561d",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-069962c2-81f5-4557-bdd0-5661e4dd561d"
+            }
+          ],
+          "id": "f48475f4-61b8-4cec-ae17-d00326c40cab",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-f48475f4-61b8-4cec-ae17-d00326c40cab"
+        },
+        {
+          "name": "access_token",
+          "item": [
+            {
+              "name": "invalidate",
+              "item": [
+                {
+                  "name": "Plaid Invalidate access_token",
+                  "id": "2481f829-0cd0-443c-a41b-fae37dffe452",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemAccessTokenInvalidateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/access_token/invalidate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "access_token",
+                        "invalidate"
+                      ]
+                    },
+                    "description": "By default, the `access_token` associated with an Item does not expire and should be stored in a persistent, secure manner.\n\nYou can use the `/item/access_token/invalidate` endpoint to rotate the `access_token` associated with an Item. The endpoint returns a new `access_token` and immediately invalidates the previous `access_token`.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "322b9a6b-23cf-4558-b6ad-6901b61d8a03",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemAccessTokenInvalidateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/access_token/invalidate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "access_token",
+                            "invalidate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"new_access_token\": {\n    \"value\": \"reference #/components/schemas/AccessToken not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-322b9a6b-23cf-4558-b6ad-6901b61d8a03"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-2481f829-0cd0-443c-a41b-fae37dffe452"
+                }
+              ],
+              "id": "8af0c3bf-f5a1-472d-ad8e-a71f9bfae828",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-8af0c3bf-f5a1-472d-ad8e-a71f9bfae828"
+            }
+          ],
+          "id": "f6b68a51-776e-4101-8002-97210991bed2",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-f6b68a51-776e-4101-8002-97210991bed2"
+        },
+        {
+          "name": "public_token",
+          "item": [
+            {
+              "name": "exchange",
+              "item": [
+                {
+                  "name": "Plaid Exchange public token for an access token",
+                  "id": "ce69c7a7-06ae-4835-b716-a77560e09759",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemPublicTokenExchangeRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/public_token/exchange",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "public_token",
+                        "exchange"
+                      ]
+                    },
+                    "description": "Exchange a Link `public_token` for an API `access_token`. Link hands off the `public_token` client-side via the `onSuccess` callback once a user has successfully created an Item. The `public_token` is ephemeral and expires after 30 minutes. An `access_token` does not expire, but can be revoked by calling `/item/remove`.\n\nThe response also includes an `item_id` that should be stored with the `access_token`. The `item_id` is used to identify an Item in a webhook. The `item_id` can also be retrieved by making an `/item/get` request."
+                  },
+                  "response": [
+                    {
+                      "id": "294e741f-6668-412b-8a03-70e3c1157d8d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemPublicTokenExchangeRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/public_token/exchange",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "public_token",
+                            "exchange"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"access_token\": {\n    \"value\": \"reference #/components/schemas/AccessToken not found in the OpenAPI spec\"\n  },\n  \"item_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-294e741f-6668-412b-8a03-70e3c1157d8d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-ce69c7a7-06ae-4835-b716-a77560e09759"
+                }
+              ],
+              "id": "bbb1e569-d6cc-4f9a-96cd-6a25c2d17c4c",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-bbb1e569-d6cc-4f9a-96cd-6a25c2d17c4c"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create public token",
+                  "id": "84335e4f-f647-4c8b-b76a-237c9d90d2b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemPublicTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/public_token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "public_token",
+                        "create"
+                      ]
+                    },
+                    "description": "Note: As of July 2020, the `/item/public_token/create` endpoint is deprecated. Instead, use `/link/token/create` with an `access_token` to create a Link token for use with [update mode](https://plaid.com/docs/link/update-mode).\n\nIf you need your user to take action to restore or resolve an error associated with an Item, generate a public token with the `/item/public_token/create` endpoint and then initialize Link with that `public_token`.\n\nA `public_token` is one-time use and expires after 30 minutes. You use a `public_token` to initialize Link in [update mode](https://plaid.com/docs/link/update-mode) for a particular Item. You can generate a `public_token` for an Item even if you did not use Link to create the Item originally.\n\nThe `/item/public_token/create` endpoint is **not** used to create your initial `public_token`. If you have not already received an `access_token` for a specific Item, use Link to obtain your `public_token` instead. See the [Quickstart](https://plaid.com/docs/quickstart) for more information."
+                  },
+                  "response": [
+                    {
+                      "id": "121ba035-6bcc-4c4b-a868-18b53e015300",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ItemPublicTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/item/public_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "item",
+                            "public_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"public_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"expiration\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-121ba035-6bcc-4c4b-a868-18b53e015300"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-84335e4f-f647-4c8b-b76a-237c9d90d2b7"
+                }
+              ],
+              "id": "bd4dc1cb-b7ba-46e6-80f6-a11faa8f17fc",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-bd4dc1cb-b7ba-46e6-80f6-a11faa8f17fc"
+            }
+          ],
+          "id": "3a705db8-e91d-4755-8007-6db99c0420ea",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-3a705db8-e91d-4755-8007-6db99c0420ea"
+        },
+        {
+          "name": "import",
+          "item": [
+            {
+              "name": "Plaid Import Item",
+              "id": "efeb2f95-590f-4787-b738-4595490e5b1f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/ItemImportRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/item/import",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "item",
+                    "import"
+                  ]
+                },
+                "description": "`/item/import` creates an Item via your Plaid Exchange Integration and returns an `access_token`. As part of an `/item/import` request, you will include a User ID (`user_auth.user_id`) and Authentication Token (`user_auth.auth_token`) that enable data aggregation through your Plaid Exchange API endpoints. These authentication principals are to be chosen by you.\n\nUpon creating an Item via `/item/import`, Plaid will automatically begin an extraction of that Item through the Plaid Exchange infrastructure you have already integrated."
+              },
+              "response": [
+                {
+                  "id": "e858a12c-669b-406b-9267-1db7fbc3b316",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ItemImportRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/item/import",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "item",
+                        "import"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": {\n    \"value\": \"reference #/components/schemas/AccessToken not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-e858a12c-669b-406b-9267-1db7fbc3b316"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-efeb2f95-590f-4787-b738-4595490e5b1f"
+            }
+          ],
+          "id": "87a67683-0b7c-45ba-a67e-08bf9ee83cb8",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-87a67683-0b7c-45ba-a67e-08bf9ee83cb8"
+        }
+      ],
+      "id": "c362100d-f7cb-4c8b-8034-3d86b676c3af",
+      "createdAt": "2026-07-28T02:38:34.000Z",
+      "updatedAt": "2026-07-28T02:38:34.000Z",
+      "uid": "35240-c362100d-f7cb-4c8b-8034-3d86b676c3af"
+    },
+    {
+      "name": "sandbox",
+      "item": [
+        {
+          "name": "item",
+          "item": [
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Fire a test webhook",
+                  "id": "15366ceb-9a0b-48fc-ac85-31d84543c459",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "The `/sandbox/item/fire_webhook` endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:\n\n`DEFAULT_UPDATE`: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`NEW_ACCOUNTS_AVAILABLE`: Webhook to be fired for a given Sandbox Item created with Account Select v2.\n\n`AUTH_DATA_UPDATE`: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.\n\n`SMS_MICRODEPOSITS_VERIFICATION`: Fired when a given same day micro-deposit item is verified via SMS verification.\n\n`LOGIN_REPAIRED`: Fired when an Item recovers from the `ITEM_LOGIN_REQUIRED` without the user going through update mode in your app.\n\n`RECURRING_TRANSACTIONS_UPDATE`: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`SYNC_UPDATES_AVAILABLE`: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`PRODUCT_READY`: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`ERROR`: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\nNote that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development (except for webhooks of type `TRANSFER`)."
+                  },
+                  "response": [
+                    {
+                      "id": "cd57f8db-0645-4061-8406-6a223faf8a93",
+                      "name": "success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"webhook_fired\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-cd57f8db-0645-4061-8406-6a223faf8a93"
+                    },
+                    {
+                      "id": "6c11a571-0d1c-4f50-a789-47c098b98bd3",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-6c11a571-0d1c-4f50-a789-47c098b98bd3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-15366ceb-9a0b-48fc-ac85-31d84543c459"
+                }
+              ],
+              "id": "5fb11a5f-f27f-4956-aed4-06261ecc2e70",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-5fb11a5f-f27f-4956-aed4-06261ecc2e70"
+            },
+            {
+              "name": "reset_login",
+              "item": [
+                {
+                  "name": "Plaid Force a Sandbox Item into an error state",
+                  "id": "81bfc34d-f969-4608-847e-21c5cb016460",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemResetLoginRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/reset_login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "reset_login"
+                      ]
+                    },
+                    "description": "`/sandbox/item/reset_login/` forces an Item into an `ITEM_LOGIN_REQUIRED` state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's [update mode](https://plaid.com/docs/link/update-mode) flow in the Sandbox environment.  After calling `/sandbox/item/reset_login`, You can then use Plaid Link update mode to restore the Item to a good state. An `ITEM_LOGIN_REQUIRED` webhook will also be fired after a call to this endpoint, if one is associated with the Item.\n\n\nIn the Sandbox, Items will transition to an `ITEM_LOGIN_REQUIRED` error state automatically after 30 days, even if this endpoint is not called."
+                  },
+                  "response": [
+                    {
+                      "id": "e1802b1c-7313-4489-9190-c60665ebbed5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemResetLoginRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/reset_login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "reset_login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reset_login\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-e1802b1c-7313-4489-9190-c60665ebbed5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-81bfc34d-f969-4608-847e-21c5cb016460"
+                }
+              ],
+              "id": "b5245c1e-114f-4c13-9db1-07ab66dc800c",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-b5245c1e-114f-4c13-9db1-07ab66dc800c"
+            },
+            {
+              "name": "set_verification_status",
+              "item": [
+                {
+                  "name": "Plaid Set verification status for Sandbox account",
+                  "id": "769382ec-5b97-42e6-807d-9782160faf70",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemSetVerificationStatusRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/set_verification_status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "set_verification_status"
+                      ]
+                    },
+                    "description": "The `/sandbox/item/set_verification_status` endpoint can be used to change the verification status of an Item in in the Sandbox in order to simulate the Automated Micro-deposit flow.\n\nFor more information on testing Automated Micro-deposits in Sandbox, see [Auth full coverage testing](https://plaid.com/docs/auth/coverage/testing#)."
+                  },
+                  "response": [
+                    {
+                      "id": "fa69b3c2-7e9b-4b5a-abba-83622f44eb38",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemSetVerificationStatusRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/set_verification_status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "set_verification_status"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:34.000Z",
+                      "updatedAt": "2026-07-28T02:38:34.000Z",
+                      "uid": "35240-fa69b3c2-7e9b-4b5a-abba-83622f44eb38"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:34.000Z",
+                  "updatedAt": "2026-07-28T02:38:34.000Z",
+                  "uid": "35240-769382ec-5b97-42e6-807d-9782160faf70"
+                }
+              ],
+              "id": "f8204258-32bb-41ef-a955-5039063fe7d4",
+              "createdAt": "2026-07-28T02:38:34.000Z",
+              "updatedAt": "2026-07-28T02:38:34.000Z",
+              "uid": "35240-f8204258-32bb-41ef-a955-5039063fe7d4"
+            }
+          ],
+          "id": "68de0f70-5ebf-4ea5-8b83-a2b02f577941",
+          "createdAt": "2026-07-28T02:38:34.000Z",
+          "updatedAt": "2026-07-28T02:38:34.000Z",
+          "uid": "35240-68de0f70-5ebf-4ea5-8b83-a2b02f577941"
+        }
+      ],
+      "id": "e438f6ef-5022-43e7-b6a9-318bd58a8708",
+      "createdAt": "2026-07-28T02:38:34.000Z",
+      "updatedAt": "2026-07-28T02:38:34.000Z",
+      "uid": "35240-e438f6ef-5022-43e7-b6a9-318bd58a8708"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

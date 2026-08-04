@@ -1,0 +1,347 @@
+{
+  "info": {
+    "_postman_id": "7ac7c94f-7dfa-4164-9c52-8ebf3d4d9095",
+    "name": "Plaid link delivery/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:40.000Z",
+    "updatedAt": "2026-07-28T02:38:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ac7c94f-7dfa-4164-9c52-8ebf3d4d9095"
+  },
+  "item": [
+    {
+      "name": "link_delivery",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create Hosted Link session",
+              "id": "4f5c1e75-6d58-4278-ab4b-84a3cfe49ec5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/link_delivery/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link_delivery",
+                    "create"
+                  ]
+                },
+                "description": "Use the `/link_delivery/create` endpoint to create a Hosted Link session."
+              },
+              "response": [
+                {
+                  "id": "9c772fc4-738a-4351-a1fa-4e15035ea4f2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link_delivery/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link_delivery",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"link_delivery_url\": \"<string>\",\n  \"link_delivery_session_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:41.000Z",
+                  "updatedAt": "2026-07-28T02:38:41.000Z",
+                  "uid": "35240-9c772fc4-738a-4351-a1fa-4e15035ea4f2"
+                },
+                {
+                  "id": "bf93a980-1a72-4477-a3b6-3c38d8359b0c",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link_delivery/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link_delivery",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:41.000Z",
+                  "updatedAt": "2026-07-28T02:38:41.000Z",
+                  "uid": "35240-bf93a980-1a72-4477-a3b6-3c38d8359b0c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:41.000Z",
+              "updatedAt": "2026-07-28T02:38:41.000Z",
+              "uid": "35240-4f5c1e75-6d58-4278-ab4b-84a3cfe49ec5"
+            }
+          ],
+          "id": "a2a53794-003e-4388-9666-abe3efcd862d",
+          "createdAt": "2026-07-28T02:38:41.000Z",
+          "updatedAt": "2026-07-28T02:38:41.000Z",
+          "uid": "35240-a2a53794-003e-4388-9666-abe3efcd862d"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Get Hosted Link session",
+              "id": "cacb3e5c-ee29-4dce-879e-baef76b77dda",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/link_delivery/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "link_delivery",
+                    "get"
+                  ]
+                },
+                "description": "Use the `/link_delivery/get` endpoint to get the status of a Hosted Link session."
+              },
+              "response": [
+                {
+                  "id": "d01648d8-fb0c-4c9a-a7cc-32ac91f8bbb9",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link_delivery/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link_delivery",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": {\n    \"value\": \"reference #/components/schemas/LinkDeliverySessionStatus not found in the OpenAPI spec\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"completed_at\": \"<dateTime>\",\n  \"access_tokens\": [\n    {\n      \"value\": \"reference #/components/schemas/AccessToken not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccessToken not found in the OpenAPI spec\"\n    }\n  ],\n  \"item_ids\": [\n    {\n      \"value\": \"reference #/components/schemas/ItemId not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ItemId not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:38:41.000Z",
+                  "updatedAt": "2026-07-28T02:38:41.000Z",
+                  "uid": "35240-d01648d8-fb0c-4c9a-a7cc-32ac91f8bbb9"
+                },
+                {
+                  "id": "2ccaf5f1-6328-4cb0-9e1c-882f7b7fe59b",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkDeliveryGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link_delivery/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link_delivery",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:41.000Z",
+                  "updatedAt": "2026-07-28T02:38:41.000Z",
+                  "uid": "35240-2ccaf5f1-6328-4cb0-9e1c-882f7b7fe59b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:41.000Z",
+              "updatedAt": "2026-07-28T02:38:41.000Z",
+              "uid": "35240-cacb3e5c-ee29-4dce-879e-baef76b77dda"
+            }
+          ],
+          "id": "1c209ecd-9897-49c1-9597-807a5db955ec",
+          "createdAt": "2026-07-28T02:38:41.000Z",
+          "updatedAt": "2026-07-28T02:38:41.000Z",
+          "uid": "35240-1c209ecd-9897-49c1-9597-807a5db955ec"
+        }
+      ],
+      "id": "ed21d6a9-b473-4f11-88fe-9bd9a5303476",
+      "createdAt": "2026-07-28T02:38:41.000Z",
+      "updatedAt": "2026-07-28T02:38:41.000Z",
+      "uid": "35240-ed21d6a9-b473-4f11-88fe-9bd9a5303476"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

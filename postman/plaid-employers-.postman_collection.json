@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "9c2aa369-8420-4330-9723-9704833640e5",
+    "name": "Plaid employers/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:35.000Z",
+    "updatedAt": "2026-07-28T02:37:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9c2aa369-8420-4330-9723-9704833640e5"
+  },
+  "item": [
+    {
+      "name": "employers",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Plaid Search employer database",
+              "id": "75e7a086-420f-44ec-aa52-92c57db1b60a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/EmployersSearchRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/employers/search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employers",
+                    "search"
+                  ]
+                },
+                "description": "`/employers/search` allows you the ability to search Plaid\u2019s database of known employers, for use with Deposit Switch. You can use this endpoint to look up a user's employer in order to confirm that they are supported. Users with non-supported employers can then be routed out of the Deposit Switch flow.\n\nThe data in the employer database is currently limited. As the Deposit Switch and Income products progress through their respective beta periods, more employers are being regularly added. Because the employer database is frequently updated, we recommend that you do not cache or store data from this endpoint for more than a day."
+              },
+              "response": [
+                {
+                  "id": "f74515c3-20bf-4ad1-97a0-c7911e60b693",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/EmployersSearchRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/employers/search",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employers",
+                        "search"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"employers\": [\n    {\n      \"value\": \"reference #/components/schemas/Employer not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Employer not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:36.000Z",
+                  "updatedAt": "2026-07-28T02:37:36.000Z",
+                  "uid": "35240-f74515c3-20bf-4ad1-97a0-c7911e60b693"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:36.000Z",
+              "updatedAt": "2026-07-28T02:37:36.000Z",
+              "uid": "35240-75e7a086-420f-44ec-aa52-92c57db1b60a"
+            }
+          ],
+          "id": "a6565069-379e-4c23-b9a4-58e8eb45f047",
+          "createdAt": "2026-07-28T02:37:36.000Z",
+          "updatedAt": "2026-07-28T02:37:36.000Z",
+          "uid": "35240-a6565069-379e-4c23-b9a4-58e8eb45f047"
+        }
+      ],
+      "id": "89aaf463-67be-4bea-93ad-031c1645a9d5",
+      "createdAt": "2026-07-28T02:37:36.000Z",
+      "updatedAt": "2026-07-28T02:37:36.000Z",
+      "uid": "35240-89aaf463-67be-4bea-93ad-031c1645a9d5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "info": {
+    "_postman_id": "6ab1d6c1-fe51-4f3a-9dad-fb9f99e84c6d",
+    "name": "Plaid accounts/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:44.000Z",
+    "updatedAt": "2026-07-28T02:36:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ab1d6c1-fe51-4f3a-9dad-fb9f99e84c6d"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve accounts",
+              "id": "778f0197-c163-49e2-bfa0-ed85a473c3ff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AccountsGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    "get"
+                  ]
+                },
+                "description": "The `/accounts/get` endpoint can be used to retrieve a list of accounts associated with any linked Item. Plaid will only return active bank accounts \u2014 that is, accounts that are not closed and are capable of carrying a balance.\nFor items that went through the updated account selection pane, this endpoint only returns accounts that were permissioned by the user when they initially created the Item. If a user creates a new account after the initial link, you can capture this event through the [`NEW_ACCOUNTS_AVAILABLE`](https://plaid.com/docs/api/items/#new_accounts_available) webhook and then use Link's [update mode](https://plaid.com/docs/link/update-mode/) to request that the user share this new account with you.\n\n`/accounts/get` is free to use and retrieves cached information, rather than extracting fresh information from the institution. The balance returned will reflect the balance at the time of the last successful Item update. If the Item is enabled for a regularly updating product, such as Transactions, Investments, or Liabilities, the balance will typically update about once a day, as long as the Item is healthy. If the Item is enabled only for products that do not frequently update, such as Auth or Identity, balance data may be much older.\n\nFor realtime balance information, use the paid endpoint `/accounts/balance/get` instead."
+              },
+              "response": [
+                {
+                  "id": "030fc54c-9655-4112-b02e-e634ec7c6fdd",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AccountsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"payment_risk_assessment\": {\n    \"value\": \"reference #/components/schemas/AccountsBalanceGetResponsePaymentRiskAssessment not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:44.000Z",
+                  "updatedAt": "2026-07-28T02:36:44.000Z",
+                  "uid": "35240-030fc54c-9655-4112-b02e-e634ec7c6fdd"
+                },
+                {
+                  "id": "a2d6f71c-7028-4016-b92c-50576b70a533",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AccountsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:36:44.000Z",
+                  "updatedAt": "2026-07-28T02:36:44.000Z",
+                  "uid": "35240-a2d6f71c-7028-4016-b92c-50576b70a533"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:44.000Z",
+              "updatedAt": "2026-07-28T02:36:44.000Z",
+              "uid": "35240-778f0197-c163-49e2-bfa0-ed85a473c3ff"
+            }
+          ],
+          "id": "4643b4c3-ff46-4f24-a9ff-431bc3762716",
+          "createdAt": "2026-07-28T02:36:44.000Z",
+          "updatedAt": "2026-07-28T02:36:44.000Z",
+          "uid": "35240-4643b4c3-ff46-4f24-a9ff-431bc3762716"
+        },
+        {
+          "name": "balance",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve real-time balance data",
+                  "id": "9c17ae3f-e080-4277-a804-ab37f1fe5354",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AccountsBalanceGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/balance/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "balance",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/accounts/balance/get` endpoint returns the real-time balance for each of an Item's accounts. While other endpoints, such as `/accounts/get`, return a balance object, only `/accounts/balance/get` forces the available and current balance fields to be refreshed rather than cached. This endpoint can be used for existing Items that were added via any of Plaid\u2019s other products. This endpoint can be used as long as Link has been initialized with any other product, `balance` itself is not a product that can be used to initialize Link. As this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests."
+                  },
+                  "response": [
+                    {
+                      "id": "e6fec8dc-4e8c-4166-a161-13cb0d37b5cf",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AccountsBalanceGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/balance/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "balance",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"payment_risk_assessment\": {\n    \"value\": \"reference #/components/schemas/AccountsBalanceGetResponsePaymentRiskAssessment not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:44.000Z",
+                      "updatedAt": "2026-07-28T02:36:44.000Z",
+                      "uid": "35240-e6fec8dc-4e8c-4166-a161-13cb0d37b5cf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:44.000Z",
+                  "updatedAt": "2026-07-28T02:36:44.000Z",
+                  "uid": "35240-9c17ae3f-e080-4277-a804-ab37f1fe5354"
+                }
+              ],
+              "id": "2bec3d41-afd1-47f8-ba69-c45add67ef44",
+              "createdAt": "2026-07-28T02:36:44.000Z",
+              "updatedAt": "2026-07-28T02:36:44.000Z",
+              "uid": "35240-2bec3d41-afd1-47f8-ba69-c45add67ef44"
+            }
+          ],
+          "id": "138c2c5e-f2d2-42ef-807a-d65139cce51e",
+          "createdAt": "2026-07-28T02:36:44.000Z",
+          "updatedAt": "2026-07-28T02:36:44.000Z",
+          "uid": "35240-138c2c5e-f2d2-42ef-807a-d65139cce51e"
+        }
+      ],
+      "id": "3cdb15e3-fae3-4179-a697-b3b99f0086dd",
+      "createdAt": "2026-07-28T02:36:44.000Z",
+      "updatedAt": "2026-07-28T02:36:44.000Z",
+      "uid": "35240-3cdb15e3-fae3-4179-a697-b3b99f0086dd"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

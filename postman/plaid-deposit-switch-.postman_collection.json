@@ -1,0 +1,479 @@
+{
+  "info": {
+    "_postman_id": "effb91b2-dc5a-4341-9e47-55f5562bd0df",
+    "name": "Plaid deposit switch/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:39:31.000Z",
+    "updatedAt": "2026-07-28T02:39:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-effb91b2-dc5a-4341-9e47-55f5562bd0df"
+  },
+  "item": [
+    {
+      "name": "deposit_switch",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create a deposit switch",
+              "id": "3159a41e-1622-4f75-a3bf-0ed209424a76",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/deposit_switch/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deposit_switch",
+                    "create"
+                  ]
+                },
+                "description": "This endpoint creates a deposit switch entity that will be persisted throughout the lifecycle of the switch."
+              },
+              "response": [
+                {
+                  "id": "2ad66cf7-6318-44c5-bad9-bde824fe4b5a",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deposit_switch/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deposit_switch",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"deposit_switch_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:39:31.000Z",
+                  "updatedAt": "2026-07-28T02:39:31.000Z",
+                  "uid": "35240-2ad66cf7-6318-44c5-bad9-bde824fe4b5a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:39:31.000Z",
+              "updatedAt": "2026-07-28T02:39:31.000Z",
+              "uid": "35240-3159a41e-1622-4f75-a3bf-0ed209424a76"
+            }
+          ],
+          "id": "d919272c-a615-48a8-bece-eff7494417e5",
+          "createdAt": "2026-07-28T02:39:31.000Z",
+          "updatedAt": "2026-07-28T02:39:31.000Z",
+          "uid": "35240-d919272c-a615-48a8-bece-eff7494417e5"
+        },
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a deposit switch token",
+                  "id": "cc28404d-d0d6-4b4b-a167-a2fbc5d61f0b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deposit_switch/token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deposit_switch",
+                        "token",
+                        "create"
+                      ]
+                    },
+                    "description": "In order for the end user to take action, you will need to create a public token representing the deposit switch. This token is used to initialize Link. It can be used one time and expires after 30 minutes.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "69ccf9fd-02a8-467f-ab5a-8d81428269b3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deposit_switch/token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deposit_switch",
+                            "token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"deposit_switch_token\": \"<string>\",\n  \"deposit_switch_token_expiration_time\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:39:31.000Z",
+                      "updatedAt": "2026-07-28T02:39:31.000Z",
+                      "uid": "35240-69ccf9fd-02a8-467f-ab5a-8d81428269b3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:39:31.000Z",
+                  "updatedAt": "2026-07-28T02:39:31.000Z",
+                  "uid": "35240-cc28404d-d0d6-4b4b-a167-a2fbc5d61f0b"
+                }
+              ],
+              "id": "33936b5a-08c8-4610-b262-2e6203e7dcfa",
+              "createdAt": "2026-07-28T02:39:31.000Z",
+              "updatedAt": "2026-07-28T02:39:31.000Z",
+              "uid": "35240-33936b5a-08c8-4610-b262-2e6203e7dcfa"
+            }
+          ],
+          "id": "f374c240-8094-4a6b-a9d3-d30bdc1b57a6",
+          "createdAt": "2026-07-28T02:39:31.000Z",
+          "updatedAt": "2026-07-28T02:39:31.000Z",
+          "uid": "35240-f374c240-8094-4a6b-a9d3-d30bdc1b57a6"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve a deposit switch",
+              "id": "f8f79ee0-928c-4df5-ae2b-fe13bd6522d4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/deposit_switch/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deposit_switch",
+                    "get"
+                  ]
+                },
+                "description": "This endpoint returns information related to how the user has configured their payroll allocation and the state of the switch. You can use this information to build logic related to the user's direct deposit allocation preferences."
+              },
+              "response": [
+                {
+                  "id": "a3ec1425-3523-4b61-8546-31777a0c675c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deposit_switch/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deposit_switch",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"deposit_switch_id\": \"<string>\",\n  \"target_account_id\": \"<string>\",\n  \"target_item_id\": \"<string>\",\n  \"state\": \"completed\",\n  \"account_has_multiple_allocations\": \"<boolean>\",\n  \"is_allocated_remainder\": \"<boolean>\",\n  \"percent_allocated\": \"<double>\",\n  \"amount_allocated\": \"<double>\",\n  \"date_created\": \"<date>\",\n  \"date_completed\": \"<date>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"switch_method\": \"instant\",\n  \"employer_name\": \"<string>\",\n  \"employer_id\": \"<string>\",\n  \"institution_name\": \"<string>\",\n  \"institution_id\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:39:31.000Z",
+                  "updatedAt": "2026-07-28T02:39:31.000Z",
+                  "uid": "35240-a3ec1425-3523-4b61-8546-31777a0c675c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:39:31.000Z",
+              "updatedAt": "2026-07-28T02:39:31.000Z",
+              "uid": "35240-f8f79ee0-928c-4df5-ae2b-fe13bd6522d4"
+            }
+          ],
+          "id": "7ab7d6d7-79f8-4f8c-9b84-5885db24d148",
+          "createdAt": "2026-07-28T02:39:31.000Z",
+          "updatedAt": "2026-07-28T02:39:31.000Z",
+          "uid": "35240-7ab7d6d7-79f8-4f8c-9b84-5885db24d148"
+        },
+        {
+          "name": "alt",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Create a deposit switch without using Plaid Exchange",
+                  "id": "c0dc7c7d-cc76-4b48-b078-99825596a6f7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchAltCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deposit_switch/alt/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deposit_switch",
+                        "alt",
+                        "create"
+                      ]
+                    },
+                    "description": "This endpoint provides an alternative to `/deposit_switch/create` for customers who have not yet fully integrated with Plaid Exchange. Like `/deposit_switch/create`, it creates a deposit switch entity that will be persisted throughout the lifecycle of the switch."
+                  },
+                  "response": [
+                    {
+                      "id": "b1593297-0498-47f4-8689-12c9548344d2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/DepositSwitchAltCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deposit_switch/alt/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deposit_switch",
+                            "alt",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"deposit_switch_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:39:31.000Z",
+                      "updatedAt": "2026-07-28T02:39:31.000Z",
+                      "uid": "35240-b1593297-0498-47f4-8689-12c9548344d2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:39:31.000Z",
+                  "updatedAt": "2026-07-28T02:39:31.000Z",
+                  "uid": "35240-c0dc7c7d-cc76-4b48-b078-99825596a6f7"
+                }
+              ],
+              "id": "ec90bc1f-7b7f-4372-b060-86915ffe5acf",
+              "createdAt": "2026-07-28T02:39:31.000Z",
+              "updatedAt": "2026-07-28T02:39:31.000Z",
+              "uid": "35240-ec90bc1f-7b7f-4372-b060-86915ffe5acf"
+            }
+          ],
+          "id": "f7187778-582c-48b8-b18e-744713485567",
+          "createdAt": "2026-07-28T02:39:31.000Z",
+          "updatedAt": "2026-07-28T02:39:31.000Z",
+          "uid": "35240-f7187778-582c-48b8-b18e-744713485567"
+        }
+      ],
+      "id": "0f39e2e0-32af-4594-a4ed-b6544bbc153d",
+      "createdAt": "2026-07-28T02:39:31.000Z",
+      "updatedAt": "2026-07-28T02:39:31.000Z",
+      "uid": "35240-0f39e2e0-32af-4594-a4ed-b6544bbc153d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

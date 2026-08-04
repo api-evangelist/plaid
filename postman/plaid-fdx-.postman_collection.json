@@ -1,0 +1,179 @@
+{
+  "info": {
+    "_postman_id": "616122ed-93bb-41df-8749-a2bc7f49f1c3",
+    "name": "Plaid fdx/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:39:38.000Z",
+    "updatedAt": "2026-07-28T02:39:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-616122ed-93bb-41df-8749-a2bc7f49f1c3"
+  },
+  "item": [
+    {
+      "name": "fdx",
+      "item": [
+        {
+          "name": "notifications",
+          "item": [
+            {
+              "name": "Plaid Webhook receiver for fdx notifications",
+              "id": "a885ee58-fe41-4af4-bd68-98cbbfd26720",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/FDXNotification not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/fdx/notifications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fdx",
+                    "notifications"
+                  ]
+                },
+                "description": "A generic webhook receiver endpoint for FDX Event Notifications"
+              },
+              "response": [
+                {
+                  "id": "e63e9e77-e0c5-4225-9070-55ed03010ae6",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/FDXNotification not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fdx/notifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fdx",
+                        "notifications"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:39:39.000Z",
+                  "updatedAt": "2026-07-28T02:39:39.000Z",
+                  "uid": "35240-e63e9e77-e0c5-4225-9070-55ed03010ae6"
+                },
+                {
+                  "id": "b32ae191-eaa2-499c-b0d7-f8626e917891",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/FDXNotification not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/fdx/notifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fdx",
+                        "notifications"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:39:39.000Z",
+                  "updatedAt": "2026-07-28T02:39:39.000Z",
+                  "uid": "35240-b32ae191-eaa2-499c-b0d7-f8626e917891"
+                }
+              ],
+              "createdAt": "2026-07-28T02:39:39.000Z",
+              "updatedAt": "2026-07-28T02:39:39.000Z",
+              "uid": "35240-a885ee58-fe41-4af4-bd68-98cbbfd26720"
+            }
+          ],
+          "id": "9f564cde-f995-4ebb-bcbe-ffb0f18df9ba",
+          "createdAt": "2026-07-28T02:39:39.000Z",
+          "updatedAt": "2026-07-28T02:39:39.000Z",
+          "uid": "35240-9f564cde-f995-4ebb-bcbe-ffb0f18df9ba"
+        }
+      ],
+      "id": "87552172-70d7-4442-827e-213d5f90fe82",
+      "createdAt": "2026-07-28T02:39:39.000Z",
+      "updatedAt": "2026-07-28T02:39:39.000Z",
+      "uid": "35240-87552172-70d7-4442-827e-213d5f90fe82"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

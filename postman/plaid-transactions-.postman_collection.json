@@ -1,0 +1,2558 @@
+{
+  "info": {
+    "_postman_id": "c4037e54-916d-4e2e-a976-f2c9fa3d8ece",
+    "name": "Plaid transactions/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:26.000Z",
+    "updatedAt": "2026-07-28T02:37:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c4037e54-916d-4e2e-a976-f2c9fa3d8ece"
+  },
+  "item": [
+    {
+      "name": "transactions",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Get transaction data",
+              "id": "875accaa-8d10-4df5-9274-a58670b9e1a2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    "get"
+                  ]
+                },
+                "description": "Note: All new implementations are encouraged to use `/transactions/sync` rather than `/transactions/get`. `/transactions/sync` provides the same functionality as `/transactions/get` and improves developer ease-of-use for handling transactions updates.\n\nThe `/transactions/get` endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from investments accounts, use the [Investments endpoint](https://plaid.com/docs/api/products/investments/) instead. Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in `/transactions/get`.  For more details, see [Pending and posted transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).\n\nDue to the potentially large number of transactions associated with an Item, results are paginated. Manipulate the `count` and `offset` parameters in conjunction with the `total_transactions` response body field to fetch all available transactions.\n\nData returned by `/transactions/get` will be the data available for the Item as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To find out when the Item was last updated, use the [Item Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger) or call `/item/get`; the `item.status.transactions.last_successful_update` field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, you can use the `/transactions/refresh` endpoint.\n\nNote that data may not be immediately available to `/transactions/get`. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with `transactions`, or upon the first call to `/transactions/get`, if it wasn't. To be alerted when transaction data is ready to be fetched, listen for the [`INITIAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#initial_update) and [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhooks. If no transaction history is ready when `/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error."
+              },
+              "response": [
+                {
+                  "id": "dd550e21-839d-4974-9dbd-6cb5745ff217",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"total_transactions\": \"<integer>\",\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-dd550e21-839d-4974-9dbd-6cb5745ff217"
+                },
+                {
+                  "id": "0ac65103-551f-414c-9d54-0f0be93d9fb2",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-0ac65103-551f-414c-9d54-0f0be93d9fb2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-875accaa-8d10-4df5-9274-a58670b9e1a2"
+            }
+          ],
+          "id": "3d762a77-4c5f-4973-b5a0-fbfae4702939",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-3d762a77-4c5f-4973-b5a0-fbfae4702939"
+        },
+        {
+          "name": "refresh",
+          "item": [
+            {
+              "name": "Plaid Refresh transaction data",
+              "id": "f0d6575c-485b-43ec-8376-e727fdb9b4c4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    "refresh"
+                  ]
+                },
+                "description": "`/transactions/refresh` is an optional endpoint that initiates an on-demand extraction to fetch the newest transactions for an Item. The on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Transactions-enabled Item. The Item must already have Transactions added as a product in order to call `/transactions/refresh`.\n\nIf changes to transactions are discovered after calling `/transactions/refresh`, Plaid will fire a webhook: for `/transactions/sync` users, [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) will be fired if there are any transactions updated, added, or removed. For users of both `/transactions/sync` and `/transactions/get`, [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed) will be fired if any removed transactions are detected, and [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update) will be fired if any new transactions are detected. New transactions can be fetched by calling `/transactions/get` or `/transactions/sync`.\n\nNote that the `/transactions/refresh` endpoint is not supported for Capital One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error if called on an Item from that institution.\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/transactions/refresh` is offered as an optional add-on to Transactions and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager."
+              },
+              "response": [
+                {
+                  "id": "58266fcc-fb22-4a1c-82ee-ee0a8726dbf2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-58266fcc-fb22-4a1c-82ee-ee0a8726dbf2"
+                },
+                {
+                  "id": "ca933cac-d407-4371-adf2-a808f13cfd2e",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-ca933cac-d407-4371-adf2-a808f13cfd2e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-f0d6575c-485b-43ec-8376-e727fdb9b4c4"
+            }
+          ],
+          "id": "bbbab4f5-7f76-4a75-9d2c-19948c4858ed",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-bbbab4f5-7f76-4a75-9d2c-19948c4858ed"
+        },
+        {
+          "name": "recurring",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Fetch recurring transaction streams",
+                  "id": "3b4aeca3-5a5d-45b3-9f4d-ded66cec64d3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/recurring/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "recurring",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/transactions/recurring/get` endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user\u2019s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.\n\nThis endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.\n\nThis endpoint can only be called on an Item that has already been initialized with Transactions (either during Link, by specifying it in `/link/token/create`; or after Link, by calling `/transactions/get` or `/transactions/sync`). For optimal results, we strongly recommend customers using Recurring Transactions to request at least 180 days of history when initializing items with Transactions (using the [`days_requested`](https://plaid.com/docs/api/tokens/#link-token-create-request-transactions-days-requested) option). Once all historical transactions have been fetched, call `/transactions/recurring/get` to receive the Recurring Transactions streams and subscribe to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook. To know when historical transactions have been fetched, if you are using `/transactions/sync` listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete) webhook and check that the `historical_update_complete` field in the payload is `true`. If using `/transactions/get`, listen for the [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhook.\n\nAfter the initial call, you can call `/transactions/recurring/get` endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook to be notified when new updates are available."
+                  },
+                  "response": [
+                    {
+                      "id": "a0116033-eac1-4e72-bd3f-e18606a2ad0d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/transactions/recurring/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "transactions",
+                            "recurring",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"inflow_streams\": [\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    }\n  ],\n  \"outflow_streams\": [\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    }\n  ],\n  \"updated_datetime\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-a0116033-eac1-4e72-bd3f-e18606a2ad0d"
+                    },
+                    {
+                      "id": "64323f9d-5f30-41a1-9ec1-07a0fffd0981",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/transactions/recurring/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "transactions",
+                            "recurring",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-64323f9d-5f30-41a1-9ec1-07a0fffd0981"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-3b4aeca3-5a5d-45b3-9f4d-ded66cec64d3"
+                }
+              ],
+              "id": "e1f53d26-4525-427f-9bf5-e9552e033419",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-e1f53d26-4525-427f-9bf5-e9552e033419"
+            }
+          ],
+          "id": "a857adfd-4d3c-4ad4-9bb8-48ea2b4f2ce3",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-a857adfd-4d3c-4ad4-9bb8-48ea2b4f2ce3"
+        },
+        {
+          "name": "sync",
+          "item": [
+            {
+              "name": "Plaid Get incremental transaction updates on an Item",
+              "id": "040ba307-d690-4e80-a8ba-b8271b49c136",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/sync",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    "sync"
+                  ]
+                },
+                "description": "The `/transactions/sync` endpoint allows developers to subscribe to all transactions associated with an Item and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen.\n\n`/transactions/sync` provides the same functionality as `/transactions/get` and can be used instead of `/transactions/get` to simplify the process of tracking transactions updates. To learn more about migrating from `/transactions/get`, see the [Transactions Sync migration guide](https://plaid.com/docs/transactions/sync-migration/).\n\nThis endpoint provides user-authorized transaction data for `credit`, `depository`, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from `investments` accounts, use `/investments/transactions/get` instead.\n\nReturned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.\n\nIn the first call to `/transactions/sync` for an Item, the endpoint will return all historical transactions data associated with that Item up until the time of the API call (as \"adds\"), which then generates a `next_cursor` for that Item. In subsequent calls, send the `next_cursor` to receive only the changes that have occurred since the previous call.\n\nDue to the potentially large number of transactions associated with an Item, results are paginated. The `has_more` field specifies if additional calls are necessary to fetch all available transaction updates. Call `/transactions/sync` with the new cursor, pulling all updates, until `has_more` is `false`.\n\nWhen retrieving paginated updates, track both the `next_cursor` from the latest response and the original cursor from the first call in which `has_more` was `true`; if a call to `/transactions/sync` fails due to the [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination) error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.\n\nWhenever new or updated transaction data becomes available, `/transactions/sync` will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To find out when the Item was last updated, use the [Item Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger) or call `/item/get`; the `item.status.transactions.last_successful_update` field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, use the `/transactions/refresh` endpoint.\n\nFor newly created Items, data may not be immediately available to `/transactions/sync`. Plaid begins preparing transactions data when the Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.\n\nTo be alerted when new data is available, listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) webhook."
+              },
+              "response": [
+                {
+                  "id": "540402a2-b23c-46c3-b126-ac3f5ddd7e84",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/sync",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "sync"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"added\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"modified\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"removed\": [\n    {\n      \"value\": \"reference #/components/schemas/RemovedTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/RemovedTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": \"<string>\",\n  \"has_more\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"transactions_update_status\": {\n    \"value\": \"reference #/components/schemas/TransactionsUpdateStatus not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-540402a2-b23c-46c3-b126-ac3f5ddd7e84"
+                },
+                {
+                  "id": "ca3f5e50-3516-41a6-89e8-2739ba2f83e2",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/sync",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "sync"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-ca3f5e50-3516-41a6-89e8-2739ba2f83e2"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-040ba307-d690-4e80-a8ba-b8271b49c136"
+            }
+          ],
+          "id": "aecf449e-24d4-4906-90fe-94e86f6b876e",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-aecf449e-24d4-4906-90fe-94e86f6b876e"
+        },
+        {
+          "name": "enrich",
+          "item": [
+            {
+              "name": "Plaid Enrich locally-held transaction data",
+              "id": "443e377f-4fab-472e-aba3-7715963d27ac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnrichRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/transactions/enrich",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "transactions",
+                    "enrich"
+                  ]
+                },
+                "description": "The `/transactions/enrich` endpoint enriches raw transaction data generated by your own banking products or retrieved from other non-Plaid sources."
+              },
+              "response": [
+                {
+                  "id": "ef2a24a6-d53f-4374-9e52-97f4c6a77bb3",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnrichRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/enrich",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "enrich"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"enriched_transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/ClientProvidedEnrichedTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ClientProvidedEnrichedTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-ef2a24a6-d53f-4374-9e52-97f4c6a77bb3"
+                },
+                {
+                  "id": "51102ee7-2333-49b8-a816-817e61e9df10",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnrichRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/transactions/enrich",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "transactions",
+                        "enrich"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-51102ee7-2333-49b8-a816-817e61e9df10"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-443e377f-4fab-472e-aba3-7715963d27ac"
+            }
+          ],
+          "id": "1fcbede7-6b8b-41e0-a0e0-226c7acc057a",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-1fcbede7-6b8b-41e0-a0e0-226c7acc057a"
+        }
+      ],
+      "id": "fc09db0e-bf0b-410c-ae36-22f4e87aa76b",
+      "createdAt": "2026-07-28T02:37:26.000Z",
+      "updatedAt": "2026-07-28T02:37:26.000Z",
+      "uid": "35240-fc09db0e-bf0b-410c-ae36-22f4e87aa76b"
+    },
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get transaction data",
+                  "id": "a78e6016-8223-44e8-9605-66ab2ed1cbe1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/transactions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "transactions",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/processor/transactions/get` endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in `/processor/transactions/get`.  For more details, see [Pending and posted transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).\n\nDue to the potentially large number of transactions associated with a processor token, results are paginated. Manipulate the `count` and `offset` parameters in conjunction with the `total_transactions` response body field to fetch all available transactions.\n\nData returned by `/processor/transactions/get` will be the data available for the processor token as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, you can use the `/processor/transactions/refresh` endpoint.\n\nNote that data may not be immediately available to `/processor/transactions/get`. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with `transactions`, or upon the first call to `/processor/transactions/get`, if it wasn't. If no transaction history is ready when `/processor/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "b0984d0c-f6df-4bf7-9ff6-b19655f94509",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n  },\n  \"transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"total_transactions\": \"<integer>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-b0984d0c-f6df-4bf7-9ff6-b19655f94509"
+                    },
+                    {
+                      "id": "dcff82c4-6efa-4492-b8cc-3fb5b4f2680d",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-dcff82c4-6efa-4492-b8cc-3fb5b4f2680d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-a78e6016-8223-44e8-9605-66ab2ed1cbe1"
+                }
+              ],
+              "id": "86b5a96a-dc14-4d57-bf91-4dfd82ea3ff4",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-86b5a96a-dc14-4d57-bf91-4dfd82ea3ff4"
+            },
+            {
+              "name": "sync",
+              "item": [
+                {
+                  "name": "Plaid Get incremental transaction updates on a processor token",
+                  "id": "68e40099-aa76-4300-a0f7-06dea0a8c2d6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/transactions/sync",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "transactions",
+                        "sync"
+                      ]
+                    },
+                    "description": "This endpoint replaces `/processor/transactions/get` and its associated webhooks for most common use-cases.\n\nThe `/processor/transactions/sync` endpoint allows developers to subscribe to all transactions associated with a processor token and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen. `/processor/transactions/sync` provides the same functionality as `/processor/transactions/get` and can be used instead of `/processor/transactions/get` to simplify the process of tracking transactions updates.\n\nThis endpoint provides user-authorized transaction data for `credit`, `depository`, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from `investments` accounts, use `/investments/transactions/get` instead.\n\nReturned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.\n\nIn the first call to `/processor/transactions/sync` for a processor token, the endpoint will return all historical transactions data associated with that processor token up until the time of the API call (as \"adds\"), which then generates a `next_cursor` for that processor token. In subsequent calls, send the `next_cursor` to receive only the changes that have occurred since the previous call.\n\nDue to the potentially large number of transactions associated with a processor token, results are paginated. The `has_more` field specifies if additional calls are necessary to fetch all available transaction updates. Call `/processor/transactions/sync` with the new cursor, pulling all updates, until `has_more` is `false`.\n\nWhen retrieving paginated updates, track both the `next_cursor` from the latest response and the original cursor from the first call in which `has_more` was `true`; if a call to `/processor/transactions/sync` fails when retrieving a paginated update, which can occur as a result of the [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination) error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.\n\nWhenever new or updated transaction data becomes available, `/processor/transactions/sync` will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, use the `/processor/transactions/refresh` endpoint.\n\nNote that for newly created processor tokens, data may not be immediately available to `/processor/transactions/sync`. Plaid begins preparing transactions data when the corresponding Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "a2082db5-9bfd-4d36-a774-76e9a9feb795",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n  },\n  \"added\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"modified\": [\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Transaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"removed\": [\n    {\n      \"value\": \"reference #/components/schemas/RemovedTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/RemovedTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": \"<string>\",\n  \"has_more\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"transactions_update_status\": {\n    \"value\": \"reference #/components/schemas/TransactionsUpdateStatus not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-a2082db5-9bfd-4d36-a774-76e9a9feb795"
+                    },
+                    {
+                      "id": "a6d3381b-93bc-4a89-96e2-a0e33e19e358",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsSyncRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-a6d3381b-93bc-4a89-96e2-a0e33e19e358"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-68e40099-aa76-4300-a0f7-06dea0a8c2d6"
+                }
+              ],
+              "id": "885aac76-12a7-4e4a-b1b7-601f0297508b",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-885aac76-12a7-4e4a-b1b7-601f0297508b"
+            },
+            {
+              "name": "refresh",
+              "item": [
+                {
+                  "name": "Plaid Refresh transaction data",
+                  "id": "5043b9ff-8259-4d1a-b584-22d114f6d348",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/transactions/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "transactions",
+                        "refresh"
+                      ]
+                    },
+                    "description": "`/processor/transactions/refresh` is an optional endpoint for users of the Transactions product. It initiates an on-demand extraction to fetch the newest transactions for a processor token. This on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Transactions-enabled processor token. If changes to transactions are discovered after calling `/processor/transactions/refresh`, Plaid will fire a webhook: for `/transactions/sync` users, [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) will be fired if there are any transactions updated, added, or removed. For users of both `/processor/transactions/sync` and `/processor/transactions/get`, [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed) will be fired if any removed transactions are detected, and [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update) will be fired if any new transactions are detected. New transactions can be fetched by calling `/processor/transactions/get` or `/processor/transactions/sync`. Note that the `/processor/transactions/refresh` endpoint is not supported for Capital One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error if called on a processor token from that institution.\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/processor/transactions/refresh` is offered as an add-on to Transactions and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager."
+                  },
+                  "response": [
+                    {
+                      "id": "2bc24edf-df54-479a-a640-b64d0a4ada14",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-2bc24edf-df54-479a-a640-b64d0a4ada14"
+                    },
+                    {
+                      "id": "94f229bb-1d50-4069-b57d-fc8451680e58",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-94f229bb-1d50-4069-b57d-fc8451680e58"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-5043b9ff-8259-4d1a-b584-22d114f6d348"
+                }
+              ],
+              "id": "63b50c54-6603-45ce-b18a-d9cce2f0003c",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-63b50c54-6603-45ce-b18a-d9cce2f0003c"
+            },
+            {
+              "name": "recurring",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Fetch recurring transaction streams",
+                      "id": "0b2ee73e-9f1c-4808-abfb-d796b61bba26",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/transactions/recurring/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "transactions",
+                            "recurring",
+                            "get"
+                          ]
+                        },
+                        "description": "The `/processor/transactions/recurring/get` endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user\u2019s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.\n\nThis endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.\n\nThis endpoint can only be called on a processor token that has already been initialized with Transactions (either during Link, by specifying it in `/link/token/create`; or after Link, by calling `/processor/transactions/get` or `/processor/transactions/sync`). Once all historical transactions have been fetched, call `/processor/transactions/recurring/get` to receive the Recurring Transactions streams and subscribe to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook. To know when historical transactions have been fetched, if you are using `/processor/transactions/sync` listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete) webhook and check that the `historical_update_complete` field in the payload is `true`. If using `/processor/transactions/get`, listen for the [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhook.\n\nAfter the initial call, you can call `/processor/transactions/recurring/get` endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook to be notified when new updates are available.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint."
+                      },
+                      "response": [
+                        {
+                          "id": "500c9d1a-70ff-427b-b205-d7d99630f72e",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/transactions/recurring/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "transactions",
+                                "recurring",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"inflow_streams\": [\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    }\n  ],\n  \"outflow_streams\": [\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransactionStream not found in the OpenAPI spec\"\n    }\n  ],\n  \"updated_datetime\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-500c9d1a-70ff-427b-b205-d7d99630f72e"
+                        },
+                        {
+                          "id": "b160b7d4-e7cb-490b-b5ce-475e5ef08750",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorTransactionsRecurringGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/transactions/recurring/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "transactions",
+                                "recurring",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-b160b7d4-e7cb-490b-b5ce-475e5ef08750"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-0b2ee73e-9f1c-4808-abfb-d796b61bba26"
+                    }
+                  ],
+                  "id": "cd5c6aa9-a8e0-48ad-8931-10830d55978c",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-cd5c6aa9-a8e0-48ad-8931-10830d55978c"
+                }
+              ],
+              "id": "8558e606-d6c6-4df9-ab94-75aebaafb14b",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-8558e606-d6c6-4df9-ab94-75aebaafb14b"
+            }
+          ],
+          "id": "9559b087-3994-423f-b810-64a8c8f54f1f",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-9559b087-3994-423f-b810-64a8c8f54f1f"
+        }
+      ],
+      "id": "7262d8c5-d12a-451f-a859-ac20e7f156b2",
+      "createdAt": "2026-07-28T02:37:26.000Z",
+      "updatedAt": "2026-07-28T02:37:26.000Z",
+      "uid": "35240-7262d8c5-d12a-451f-a859-ac20e7f156b2"
+    },
+    {
+      "name": "investments",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get investment transactions",
+                  "id": "d2c4cc90-44e7-4481-82e0-85548bdede99",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/transactions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "transactions",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/investments/transactions/get` endpoint allows developers to retrieve up to 24 months of user-authorized transaction data for investment accounts.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.\n\nDue to the potentially large number of investment transactions associated with an Item, results are paginated. Manipulate the count and offset parameters in conjunction with the `total_investment_transactions` response body field to fetch all available investment transactions.\n\nNote that Investments does not have a webhook to indicate when initial transaction data has loaded (unless you use the `async_update` option). Instead, if transactions data is not ready when `/investments/transactions/get` is first called, Plaid will wait for the data. For this reason, calling `/investments/transactions/get` immediately after Link may take up to one to two minutes to return.\n\nData returned by the asynchronous investments extraction flow (when `async_update` is set to true) may not be immediately available to `/investments/transactions/get`. To be alerted when the data is ready to be fetched, listen for the `HISTORICAL_UPDATE` webhook. If no investments history is ready when `/investments/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error."
+                  },
+                  "response": [
+                    {
+                      "id": "4148360c-9b1f-4bcc-84e3-c4ef0da458af",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/investments/transactions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "investments",
+                            "transactions",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"securities\": [\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    }\n  ],\n  \"investment_transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/InvestmentTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/InvestmentTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"total_investment_transactions\": \"<integer>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"is_investments_fallback_item\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-4148360c-9b1f-4bcc-84e3-c4ef0da458af"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-d2c4cc90-44e7-4481-82e0-85548bdede99"
+                }
+              ],
+              "id": "94bcf37f-7749-449e-aa7d-7796a358cbbf",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-94bcf37f-7749-449e-aa7d-7796a358cbbf"
+            }
+          ],
+          "id": "f4c4af7b-059c-43f3-b3fa-68d2e7ba5347",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-f4c4af7b-059c-43f3-b3fa-68d2e7ba5347"
+        }
+      ],
+      "id": "aa0db8af-ee29-4af5-ab61-bdd58b6093ab",
+      "createdAt": "2026-07-28T02:37:26.000Z",
+      "updatedAt": "2026-07-28T02:37:26.000Z",
+      "uid": "35240-aa0db8af-ee29-4af5-ab61-bdd58b6093ab"
+    },
+    {
+      "name": "items",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [],
+          "id": "97ae07f4-b857-441b-a14c-c12de27bb0b8",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-97ae07f4-b857-441b-a14c-c12de27bb0b8"
+        }
+      ],
+      "id": "21df3b17-d321-4291-a0d4-acb60766f34a",
+      "createdAt": "2026-07-28T02:37:26.000Z",
+      "updatedAt": "2026-07-28T02:37:26.000Z",
+      "uid": "35240-21df3b17-d321-4291-a0d4-acb60766f34a"
+    },
+    {
+      "name": "beta",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "enhance",
+                  "item": [
+                    {
+                      "name": "Plaid enhance locally-held transaction data",
+                      "id": "b88aa82a-2a2e-4675-abd0-be7d967efb6e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnhanceGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beta/transactions/v1/enhance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beta",
+                            "transactions",
+                            "v1",
+                            "enhance"
+                          ]
+                        },
+                        "description": "The `/beta/transactions/v1/enhance` endpoint enriches raw transaction data provided directly by clients.\n\nThe product is currently in beta."
+                      },
+                      "response": [
+                        {
+                          "id": "e535854b-dcca-4eb5-9fb5-94a71e594e51",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnhanceGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/v1/enhance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "v1",
+                                "enhance"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"enhanced_transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/ClientProvidedEnhancedTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/ClientProvidedEnhancedTransaction not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-e535854b-dcca-4eb5-9fb5-94a71e594e51"
+                        },
+                        {
+                          "id": "c5c407d0-c13e-4738-b875-af02dfae7d8d",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsEnhanceGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/v1/enhance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "v1",
+                                "enhance"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-c5c407d0-c13e-4738-b875-af02dfae7d8d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-b88aa82a-2a2e-4675-abd0-be7d967efb6e"
+                    }
+                  ],
+                  "id": "a4f29281-189f-48eb-8b2f-d5670899679b",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-a4f29281-189f-48eb-8b2f-d5670899679b"
+                }
+              ],
+              "id": "21126849-fadf-4065-a37c-63c55a3b360e",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-21126849-fadf-4065-a37c-63c55a3b360e"
+            },
+            {
+              "name": "rules",
+              "item": [
+                {
+                  "name": "v1",
+                  "item": [
+                    {
+                      "name": "create",
+                      "item": [
+                        {
+                          "name": "Plaid Create transaction category rule",
+                          "id": "09631454-d100-48a2-8534-6c8f9f8e987e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/rules/v1/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "rules",
+                                "v1",
+                                "create"
+                              ]
+                            },
+                            "description": "The `/transactions/rules/v1/create` endpoint creates transaction categorization rules.\n\nRules will be applied on the Item's transactions returned in `/transactions/get` response.\n\nThe product is currently in beta. To request access, contact transactions-feedback@plaid.com."
+                          },
+                          "response": [
+                            {
+                              "id": "d1acf5fb-a224-46d8-9c8a-9f73dd0044d3",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesCreateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "create"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"rule\": {\n    \"value\": \"reference #/components/schemas/TransactionsCategoryRule not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-d1acf5fb-a224-46d8-9c8a-9f73dd0044d3"
+                            },
+                            {
+                              "id": "f0fa03f6-a9a8-46fb-98e4-110f8a02b405",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesCreateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "create"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-f0fa03f6-a9a8-46fb-98e4-110f8a02b405"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-09631454-d100-48a2-8534-6c8f9f8e987e"
+                        }
+                      ],
+                      "id": "c5e93b62-6eed-44d8-85ee-f0c13146f288",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-c5e93b62-6eed-44d8-85ee-f0c13146f288"
+                    },
+                    {
+                      "name": "list",
+                      "item": [
+                        {
+                          "name": "Plaid Return a list of rules created for the Item associated with the access token.",
+                          "id": "4093547f-908d-433b-8013-fada57639e15",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/rules/v1/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "rules",
+                                "v1",
+                                "list"
+                              ]
+                            },
+                            "description": "The `/transactions/rules/v1/list` returns a list of transaction rules created for the Item associated with the access token."
+                          },
+                          "response": [
+                            {
+                              "id": "a192309f-05d0-49b7-910b-fa4d87e82a75",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesListRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/list",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "list"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"rules\": [\n    {\n      \"value\": \"reference #/components/schemas/TransactionsCategoryRule not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransactionsCategoryRule not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-a192309f-05d0-49b7-910b-fa4d87e82a75"
+                            },
+                            {
+                              "id": "3850f7e4-d33b-47e7-988b-c803b0209397",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesListRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/list",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "list"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-3850f7e4-d33b-47e7-988b-c803b0209397"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-4093547f-908d-433b-8013-fada57639e15"
+                        }
+                      ],
+                      "id": "fcaf5c33-99e5-4117-af5d-31042729d050",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-fcaf5c33-99e5-4117-af5d-31042729d050"
+                    },
+                    {
+                      "name": "remove",
+                      "item": [
+                        {
+                          "name": "Plaid Remove transaction rule",
+                          "id": "92bf8414-4ef4-46e4-8153-7fc5292d6424",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesRemoveRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/rules/v1/remove",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "rules",
+                                "v1",
+                                "remove"
+                              ]
+                            },
+                            "description": "The `/transactions/rules/v1/remove` endpoint is used to remove a transaction rule."
+                          },
+                          "response": [
+                            {
+                              "id": "e19719e3-a498-46f7-8510-3bf8ea2f13ce",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesRemoveRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/remove",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "remove"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-e19719e3-a498-46f7-8510-3bf8ea2f13ce"
+                            },
+                            {
+                              "id": "045fdcc6-1c71-4f18-9409-47806f77a3ff",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsRulesRemoveRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/rules/v1/remove",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "rules",
+                                    "v1",
+                                    "remove"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-045fdcc6-1c71-4f18-9409-47806f77a3ff"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-92bf8414-4ef4-46e4-8153-7fc5292d6424"
+                        }
+                      ],
+                      "id": "ce94fc71-efcf-4b53-8509-19279ec2155f",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-ce94fc71-efcf-4b53-8509-19279ec2155f"
+                    }
+                  ],
+                  "id": "c46193ed-8d0e-4789-a2c6-23646ee01b40",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-c46193ed-8d0e-4789-a2c6-23646ee01b40"
+                }
+              ],
+              "id": "d0203826-deb8-4148-8b1f-8868b67d4d7a",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-d0203826-deb8-4148-8b1f-8868b67d4d7a"
+            },
+            {
+              "name": "user_insights",
+              "item": [
+                {
+                  "name": "v1",
+                  "item": [
+                    {
+                      "name": "get",
+                      "item": [
+                        {
+                          "name": "Plaid Obtain user insights based on transactions sent through /transactions/enrich",
+                          "id": "c1333eca-25f9-432e-a803-bfd9154bbe57",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsUserInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/transactions/user_insights/v1/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "transactions",
+                                "user_insights",
+                                "v1",
+                                "get"
+                              ]
+                            },
+                            "description": "The `/beta/transactions/user_insights/v1/get` gets user insights for clients who have enriched data with `/transactions/enrich`.\n\nThe product is currently in beta."
+                          },
+                          "response": [
+                            {
+                              "id": "24aca9b1-7f9c-4b63-bac4-e3097e506c54",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsUserInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/user_insights/v1/get",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "user_insights",
+                                    "v1",
+                                    "get"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"user_data_overview\": {\n    \"value\": \"reference #/components/schemas/UserDataOverview not found in the OpenAPI spec\"\n  },\n  \"counterparty_insights\": {\n    \"value\": \"reference #/components/schemas/CounterpartyInsights not found in the OpenAPI spec\"\n  },\n  \"category_insights\": {\n    \"value\": \"reference #/components/schemas/CategoryInsights not found in the OpenAPI spec\"\n  },\n  \"recurring_transactions\": {\n    \"value\": \"reference #/components/schemas/RecurringTransactions not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-24aca9b1-7f9c-4b63-bac4-e3097e506c54"
+                            },
+                            {
+                              "id": "e67390ff-b435-46ed-8020-8d24341318ff",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/TransactionsUserInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/transactions/user_insights/v1/get",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "transactions",
+                                    "user_insights",
+                                    "v1",
+                                    "get"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:37:26.000Z",
+                              "updatedAt": "2026-07-28T02:37:26.000Z",
+                              "uid": "35240-e67390ff-b435-46ed-8020-8d24341318ff"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:37:26.000Z",
+                          "updatedAt": "2026-07-28T02:37:26.000Z",
+                          "uid": "35240-c1333eca-25f9-432e-a803-bfd9154bbe57"
+                        }
+                      ],
+                      "id": "15ab9809-c759-47ab-91c4-b5614a9517da",
+                      "createdAt": "2026-07-28T02:37:26.000Z",
+                      "updatedAt": "2026-07-28T02:37:26.000Z",
+                      "uid": "35240-15ab9809-c759-47ab-91c4-b5614a9517da"
+                    }
+                  ],
+                  "id": "051445d4-2cee-44d6-ac53-4631e22a26f2",
+                  "createdAt": "2026-07-28T02:37:26.000Z",
+                  "updatedAt": "2026-07-28T02:37:26.000Z",
+                  "uid": "35240-051445d4-2cee-44d6-ac53-4631e22a26f2"
+                }
+              ],
+              "id": "c5213a83-468f-49e6-8e33-a980b548a83f",
+              "createdAt": "2026-07-28T02:37:26.000Z",
+              "updatedAt": "2026-07-28T02:37:26.000Z",
+              "uid": "35240-c5213a83-468f-49e6-8e33-a980b548a83f"
+            }
+          ],
+          "id": "af8f110b-8885-4f36-86a5-f4bea5b79dec",
+          "createdAt": "2026-07-28T02:37:26.000Z",
+          "updatedAt": "2026-07-28T02:37:26.000Z",
+          "uid": "35240-af8f110b-8885-4f36-86a5-f4bea5b79dec"
+        }
+      ],
+      "id": "d3574d28-edf9-451d-b59a-bff2f5fc5854",
+      "createdAt": "2026-07-28T02:37:26.000Z",
+      "updatedAt": "2026-07-28T02:37:26.000Z",
+      "uid": "35240-d3574d28-edf9-451d-b59a-bff2f5fc5854"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

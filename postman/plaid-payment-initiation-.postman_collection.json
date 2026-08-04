@@ -1,0 +1,1386 @@
+{
+  "info": {
+    "_postman_id": "9d79f187-d426-440c-9370-36c592cbe542",
+    "name": "Plaid payment initiation/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:45.000Z",
+    "updatedAt": "2026-07-28T02:37:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9d79f187-d426-440c-9370-36c592cbe542"
+  },
+  "item": [
+    {
+      "name": "payment_initiation",
+      "item": [
+        {
+          "name": "recipient",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create payment recipient",
+                  "id": "c083defa-fad7-4193-9ecc-d9d60b62b703",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/recipient/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "recipient",
+                        "create"
+                      ]
+                    },
+                    "description": "Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA) or a non-Eurozone country [supported](https://plaid.com/global) by Plaid. For a standing order (recurring) payment, the recipient must be in the UK.\n\nIt is recommended to use `bacs` in the UK and `iban` in EU.\n\nThe endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same `recipient_id`.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "54d61322-ed7e-4b6d-a314-2fa0c83030e1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/recipient/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "recipient",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"recipient_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-54d61322-ed7e-4b6d-a314-2fa0c83030e1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-c083defa-fad7-4193-9ecc-d9d60b62b703"
+                }
+              ],
+              "id": "e3190367-1efc-4373-a31e-4a7a862a2c42",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-e3190367-1efc-4373-a31e-4a7a862a2c42"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get payment recipient",
+                  "id": "dfcc1714-8808-430c-9c6a-02e65e510236",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/recipient/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "recipient",
+                        "get"
+                      ]
+                    },
+                    "description": "Get details about a payment recipient you have previously created."
+                  },
+                  "response": [
+                    {
+                      "id": "523548ba-44ed-40f4-b0fd-e0d5100d5853",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/recipient/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "recipient",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"recipient_id\": -96567986,\n  \"name\": false,\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-523548ba-44ed-40f4-b0fd-e0d5100d5853"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-dfcc1714-8808-430c-9c6a-02e65e510236"
+                }
+              ],
+              "id": "70dbb2e7-6848-413f-9ea3-fa4c736fd839",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-70dbb2e7-6848-413f-9ea3-fa4c736fd839"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List payment recipients",
+                  "id": "d3e358a1-4637-4871-9a16-575ff8d2c22b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/recipient/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "recipient",
+                        "list"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/recipient/list` endpoint list the payment recipients that you have previously created."
+                  },
+                  "response": [
+                    {
+                      "id": "1c47422f-95a7-42cd-8075-1570b1719173",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationRecipientListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/recipient/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "recipient",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"recipients\": [\n    {\n      \"value\": \"reference #/components/schemas/PaymentInitiationRecipient not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/PaymentInitiationRecipient not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-1c47422f-95a7-42cd-8075-1570b1719173"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-d3e358a1-4637-4871-9a16-575ff8d2c22b"
+                }
+              ],
+              "id": "584baea3-0eb7-46f1-8f94-76862273c541",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-584baea3-0eb7-46f1-8f94-76862273c541"
+            }
+          ],
+          "id": "20169d45-21dd-4919-8fe2-af8e55f8c4c4",
+          "createdAt": "2026-07-28T02:37:46.000Z",
+          "updatedAt": "2026-07-28T02:37:46.000Z",
+          "uid": "35240-20169d45-21dd-4919-8fe2-af8e55f8c4c4"
+        },
+        {
+          "name": "payment",
+          "item": [
+            {
+              "name": "reverse",
+              "item": [
+                {
+                  "name": "Plaid Reverse an existing payment",
+                  "id": "cf19dcdd-15fe-4d78-b946-70e5da4d6329",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentReverseRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/payment/reverse",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "payment",
+                        "reverse"
+                      ]
+                    },
+                    "description": "Reverse a settled payment from a Plaid virtual account.\n\nThe original payment must be in a settled state to be refunded.\nTo refund partially, specify the amount as part of the request.\nIf the amount is not specified, the refund amount will be equal to all\nof the remaining payment amount that has not been refunded yet.\n\nThe refund will go back to the source account that initiated the payment.\nThe original payment must have been initiated to a Plaid virtual account\nso that this account can be used to initiate the refund.\n\nProviding counterparty information such as date of birth and address increases \nthe likelihood of refund being successful without human intervention.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "c1e1b414-387d-4fae-b5b7-ef979c417904",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentReverseRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/payment/reverse",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "payment",
+                            "reverse"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"refund_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WalletTransactionStatus not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-c1e1b414-387d-4fae-b5b7-ef979c417904"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-cf19dcdd-15fe-4d78-b946-70e5da4d6329"
+                }
+              ],
+              "id": "baa2dee6-a15e-4810-97e1-3a61fcee7f7f",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-baa2dee6-a15e-4810-97e1-3a61fcee7f7f"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a payment",
+                  "id": "67031ff0-a38e-4dc6-8626-682a8f0cc776",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/payment/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "payment",
+                        "create"
+                      ]
+                    },
+                    "description": "After creating a payment recipient, you can use the `/payment_initiation/payment/create` endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR, GBP or other chosen [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency).  If making domestic GBP-denominated payments, your recipient must have been created with BACS numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer, GBP-denominated payments will be sent via the Faster Payments network and for non-Eurozone markets typically via the local payment scheme, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer or other local payment schemes will typically arrive in one business day.\n\nStanding orders (recurring payments) must be denominated in GBP and can only be sent to recipients in the UK. Once created, standing order payments cannot be modified or canceled via the API. An end user can cancel or modify a standing order directly on their banking application or website, or by contacting the bank. Standing orders will follow the payment rules of the underlying rails (Faster Payments in UK). Payments can be sent Monday to Friday, excluding bank holidays. If the pre-arranged date falls on a weekend or bank holiday, the payment is made on the next working day. It is not possible to guarantee the exact time the payment will reach the recipient\u2019s account, although at least 90% of standing order payments are sent by 6am.\n\nIn the Development environment, payments must be below 5 GBP or other chosen [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency). For details on any payment limits in Production, contact your Plaid Account Manager."
+                  },
+                  "response": [
+                    {
+                      "id": "1e9d66e6-263e-4f8f-b8c0-9d21c3fa9e57",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/payment/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "payment",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"payment_id\": \"<string>\",\n  \"status\": {\n    \"value\": \"reference #/components/schemas/PaymentInitiationPaymentCreateStatus not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-1e9d66e6-263e-4f8f-b8c0-9d21c3fa9e57"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-67031ff0-a38e-4dc6-8626-682a8f0cc776"
+                }
+              ],
+              "id": "920ebf47-63fe-4e80-b00f-fed29884eb30",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-920ebf47-63fe-4e80-b00f-fed29884eb30"
+            },
+            {
+              "name": "token",
+              "item": [
+                {
+                  "name": "create",
+                  "item": [
+                    {
+                      "name": "Plaid Create payment token",
+                      "id": "b671c349-e29e-4755-ae33-cc05c2377c6c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/payment/token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "payment",
+                            "token",
+                            "create"
+                          ]
+                        },
+                        "description": "The `/payment_initiation/payment/token/create` endpoint has been deprecated. New Plaid customers will be unable to use this endpoint, and existing customers are encouraged to migrate to the newer, `link_token`-based flow. The recommended flow is to provide the `payment_id` to `/link/token/create`, which returns a `link_token` used to initialize Link.\n\nThe `/payment_initiation/payment/token/create` is used to create a `payment_token`, which can then be used in Link initialization to enter a payment initiation flow. You can only use a `payment_token` once. If this attempt fails, the end user aborts the flow, or the token expires, you will need to create a new payment token. Creating a new payment token does not require end user input."
+                      },
+                      "response": [
+                        {
+                          "id": "35eb5794-75d5-441f-a1de-5912f6749a0d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payment_initiation/payment/token/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payment_initiation",
+                                "payment",
+                                "token",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"payment_token\": \"<string>\",\n  \"payment_token_expiration_time\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:46.000Z",
+                          "updatedAt": "2026-07-28T02:37:46.000Z",
+                          "uid": "35240-35eb5794-75d5-441f-a1de-5912f6749a0d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-b671c349-e29e-4755-ae33-cc05c2377c6c"
+                    }
+                  ],
+                  "id": "aaee11ee-0322-423c-8e09-05b01a0cc003",
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-aaee11ee-0322-423c-8e09-05b01a0cc003"
+                }
+              ],
+              "id": "95360325-daf8-45d1-aad1-cef31235781b",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-95360325-daf8-45d1-aad1-cef31235781b"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get payment details",
+                  "id": "4355201c-688d-470c-9523-bd68d90b15a9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/payment/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "payment",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/payment/get` endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the `/payment_initiation/payment/get` endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order."
+                  },
+                  "response": [
+                    {
+                      "id": "00830509-6447-44cb-bf83-c2a5f8970a13",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/payment/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "payment",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"payment_id\": 27981859.43692659,\n  \"amount\": \"veniam mollit aliqua\",\n  \"status\": -65338658,\n  \"recipient_id\": \"id rep\",\n  \"reference\": \"ut nostrud in\",\n  \"last_status_update\": 96114547.60641575,\n  \"bacs\": 52571322.77643213,\n  \"iban\": \"quis adipisicing ullamco ipsum\"\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-00830509-6447-44cb-bf83-c2a5f8970a13"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-4355201c-688d-470c-9523-bd68d90b15a9"
+                }
+              ],
+              "id": "33398508-5b96-4da0-9259-ac95b218f901",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-33398508-5b96-4da0-9259-ac95b218f901"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List payments",
+                  "id": "83fdb02d-2d24-4545-a1fe-2fa404be4e89",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/payment/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "payment",
+                        "list"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/payment/list` endpoint can be used to retrieve all created payments. By default, the 10 most recent payments are returned. You can request more payments and paginate through the results using the optional `count` and `cursor` parameters."
+                  },
+                  "response": [
+                    {
+                      "id": "96b154ad-0631-485d-bd14-16ca5a159491",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationPaymentListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/payment/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "payment",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"payments\": [\n    {\n      \"value\": \"reference #/components/schemas/PaymentInitiationPayment not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/PaymentInitiationPayment not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-96b154ad-0631-485d-bd14-16ca5a159491"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-83fdb02d-2d24-4545-a1fe-2fa404be4e89"
+                }
+              ],
+              "id": "07dc3f3d-5942-466d-88b4-fa183b5e8caf",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-07dc3f3d-5942-466d-88b4-fa183b5e8caf"
+            }
+          ],
+          "id": "e9b3dcea-ca7c-49ff-ba9a-b5fb5ae2994d",
+          "createdAt": "2026-07-28T02:37:46.000Z",
+          "updatedAt": "2026-07-28T02:37:46.000Z",
+          "uid": "35240-e9b3dcea-ca7c-49ff-ba9a-b5fb5ae2994d"
+        },
+        {
+          "name": "consent",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create payment consent",
+                  "id": "c892830a-d925-416b-a820-9de27be21301",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/consent/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "consent",
+                        "create"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/consent/create` endpoint is used to create a payment consent, which can be used to initiate payments on behalf of the user. Payment consents are created with `UNAUTHORISED` status by default and must be authorised by the user before payments can be initiated.\n\nConsents can be limited in time and scope, and have constraints that describe limitations for payments."
+                  },
+                  "response": [
+                    {
+                      "id": "536b4716-24ac-4928-9018-a39506330f5e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/consent/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "consent",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"consent_id\": \"<string>\",\n  \"status\": {\n    \"value\": \"reference #/components/schemas/PaymentInitiationConsentStatus not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-536b4716-24ac-4928-9018-a39506330f5e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-c892830a-d925-416b-a820-9de27be21301"
+                }
+              ],
+              "id": "a1b3a912-b46b-4d9a-84d9-adc880f2fccd",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-a1b3a912-b46b-4d9a-84d9-adc880f2fccd"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get payment consent",
+                  "id": "67a84947-b99b-488e-9078-83b5bf5c5bca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/consent/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "consent",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/consent/get` endpoint can be used to check the status of a payment consent, as well as to receive basic information such as recipient and constraints."
+                  },
+                  "response": [
+                    {
+                      "id": "574f84c9-419b-4253-9c6c-c47941f1aafd",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/consent/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "consent",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-574f84c9-419b-4253-9c6c-c47941f1aafd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-67a84947-b99b-488e-9078-83b5bf5c5bca"
+                }
+              ],
+              "id": "8dd24a97-256f-473c-b1ec-a7b411c6b103",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-8dd24a97-256f-473c-b1ec-a7b411c6b103"
+            },
+            {
+              "name": "revoke",
+              "item": [
+                {
+                  "name": "Plaid Revoke payment consent",
+                  "id": "d1986f80-0d8d-4f4f-948b-4910584872d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentRevokeRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_initiation/consent/revoke",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_initiation",
+                        "consent",
+                        "revoke"
+                      ]
+                    },
+                    "description": "The `/payment_initiation/consent/revoke` endpoint can be used to revoke the payment consent. Once the consent is revoked, it is not possible to initiate payments using it."
+                  },
+                  "response": [
+                    {
+                      "id": "2f141bab-1f3a-44d1-a7c2-2d87146ecb79",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentRevokeRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/consent/revoke",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "consent",
+                            "revoke"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-2f141bab-1f3a-44d1-a7c2-2d87146ecb79"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-d1986f80-0d8d-4f4f-948b-4910584872d9"
+                }
+              ],
+              "id": "e7e600f7-7b21-431e-9c16-b5be6032827b",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-e7e600f7-7b21-431e-9c16-b5be6032827b"
+            },
+            {
+              "name": "payment",
+              "item": [
+                {
+                  "name": "execute",
+                  "item": [
+                    {
+                      "name": "Plaid Execute a single payment using consent",
+                      "id": "cf8fcb38-3ed9-49db-abaf-32b044414046",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentPaymentExecuteRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/payment_initiation/consent/payment/execute",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payment_initiation",
+                            "consent",
+                            "payment",
+                            "execute"
+                          ]
+                        },
+                        "description": "The `/payment_initiation/consent/payment/execute` endpoint can be used to execute payments using payment consent."
+                      },
+                      "response": [
+                        {
+                          "id": "2c412854-d7f8-4c67-8732-0483cf7f24a6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentInitiationConsentPaymentExecuteRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/payment_initiation/consent/payment/execute",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "payment_initiation",
+                                "consent",
+                                "payment",
+                                "execute"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"payment_id\": \"<string>\",\n  \"status\": {\n    \"value\": \"reference #/components/schemas/PaymentInitiationPaymentStatus not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:46.000Z",
+                          "updatedAt": "2026-07-28T02:37:46.000Z",
+                          "uid": "35240-2c412854-d7f8-4c67-8732-0483cf7f24a6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:46.000Z",
+                      "updatedAt": "2026-07-28T02:37:46.000Z",
+                      "uid": "35240-cf8fcb38-3ed9-49db-abaf-32b044414046"
+                    }
+                  ],
+                  "id": "abdbba31-b5dc-42eb-8b00-06578598bab5",
+                  "createdAt": "2026-07-28T02:37:46.000Z",
+                  "updatedAt": "2026-07-28T02:37:46.000Z",
+                  "uid": "35240-abdbba31-b5dc-42eb-8b00-06578598bab5"
+                }
+              ],
+              "id": "3e98fe6b-d3e2-4cbe-8c9d-8dd22ad6359c",
+              "createdAt": "2026-07-28T02:37:46.000Z",
+              "updatedAt": "2026-07-28T02:37:46.000Z",
+              "uid": "35240-3e98fe6b-d3e2-4cbe-8c9d-8dd22ad6359c"
+            }
+          ],
+          "id": "fd366df4-766a-4868-9b1f-2f09f5055b0e",
+          "createdAt": "2026-07-28T02:37:46.000Z",
+          "updatedAt": "2026-07-28T02:37:46.000Z",
+          "uid": "35240-fd366df4-766a-4868-9b1f-2f09f5055b0e"
+        }
+      ],
+      "id": "c59c3939-5391-4099-ba0d-3ca30292a95b",
+      "createdAt": "2026-07-28T02:37:46.000Z",
+      "updatedAt": "2026-07-28T02:37:46.000Z",
+      "uid": "35240-c59c3939-5391-4099-ba0d-3ca30292a95b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

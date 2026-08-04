@@ -1,0 +1,2852 @@
+{
+  "info": {
+    "_postman_id": "1462a2cd-6cbd-4f34-80aa-be412c3684b2",
+    "name": "Plaid credit/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:37.000Z",
+    "updatedAt": "2026-07-28T02:37:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1462a2cd-6cbd-4f34-80aa-be412c3684b2"
+  },
+  "item": [
+    {
+      "name": "credit",
+      "item": [
+        {
+          "name": "audit_copy_token",
+          "item": [
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Update an Audit Copy Token",
+                  "id": "27759f19-7806-42a0-aa3b-d91a95ac1f84",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/audit_copy_token/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "audit_copy_token",
+                        "update"
+                      ]
+                    },
+                    "description": "The `/credit/audit_copy_token/update` endpoint updates an existing  Audit Copy Token by adding the report tokens in the `report_tokens` field to the `audit_copy_token`. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the `report_tokens` field."
+                  },
+                  "response": [
+                    {
+                      "id": "58ebd64e-0a4b-45ac-859b-5c7e606663a1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/audit_copy_token/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "audit_copy_token",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"updated\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-58ebd64e-0a4b-45ac-859b-5c7e606663a1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-27759f19-7806-42a0-aa3b-d91a95ac1f84"
+                }
+              ],
+              "id": "ca672624-f2b3-4d87-9411-32451c27ff7e",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-ca672624-f2b3-4d87-9411-32451c27ff7e"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create Asset or Income Report Audit Copy Token",
+                  "id": "43d48f5e-05fa-4def-9130-e9889fad2f45",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/audit_copy_token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "audit_copy_token",
+                        "create"
+                      ]
+                    },
+                    "description": "Plaid can create an Audit Copy token of an Asset Report and/or Income Report to share with participating Government Sponsored Entity (GSE). If you participate in the Day 1 Certainty\u2122 program, Plaid can supply an Audit Copy token directly to Fannie Mae on your behalf. An Audit Copy token contains the same underlying data as the Asset Report and/or Income Report (result of /credit/payroll_income/get).\n\nUse the `/credit/audit_copy_token/create` endpoint to create an `audit_copy_token` and then pass that token to the GSE who needs access."
+                  },
+                  "response": [
+                    {
+                      "id": "4dfe897c-40b2-43e8-ba98-c9e1f758370b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/audit_copy_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "audit_copy_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"audit_copy_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-4dfe897c-40b2-43e8-ba98-c9e1f758370b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-43d48f5e-05fa-4def-9130-e9889fad2f45"
+                }
+              ],
+              "id": "097b7863-5cbc-489b-8578-32e1ff7de5d4",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-097b7863-5cbc-489b-8578-32e1ff7de5d4"
+            },
+            {
+              "name": "remove",
+              "item": [
+                {
+                  "name": "Plaid Remove an Audit Copy token",
+                  "id": "744fe7e7-3b87-4b24-bef1-d793ead6dd79",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/audit_copy_token/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "audit_copy_token",
+                        "remove"
+                      ]
+                    },
+                    "description": "The `/credit/audit_copy_token/remove` endpoint allows you to remove an Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token` associated with it, meaning both you and any third parties holding the token will no longer be able to use it to access Report data. Items associated with the Report data and other Audit Copies of it are not affected and will remain accessible after removing the given Audit Copy."
+                  },
+                  "response": [
+                    {
+                      "id": "f58c2630-94b5-4f50-97f4-c37378406632",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditAuditCopyTokenRemoveRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/audit_copy_token/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "audit_copy_token",
+                            "remove"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"removed\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-f58c2630-94b5-4f50-97f4-c37378406632"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-744fe7e7-3b87-4b24-bef1-d793ead6dd79"
+                }
+              ],
+              "id": "6aa6da19-6120-443b-ba59-8926d76c23b8",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-6aa6da19-6120-443b-ba59-8926d76c23b8"
+            }
+          ],
+          "id": "1cf78600-8b68-4da2-8d36-834c8c44f81f",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-1cf78600-8b68-4da2-8d36-834c8c44f81f"
+        },
+        {
+          "name": "sessions",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve Link sessions for your user",
+                  "id": "ae915bb9-0cf9-4598-b49e-ff7a9520395a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditSessionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/sessions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "sessions",
+                        "get"
+                      ]
+                    },
+                    "description": "This endpoint can be used for your end users after they complete the Link flow. This endpoint returns a list of Link sessions that your user completed, where each session includes the results from the Link flow.\n\nThese results include details about the Item that was created and some product related metadata (showing, for example, whether the user finished the bank income verification step)."
+                  },
+                  "response": [
+                    {
+                      "id": "3855d1c3-f9b8-401e-af89-bcb670ca72a5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditSessionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/sessions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "sessions",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"sessions\": [\n    {\n      \"value\": \"reference #/components/schemas/CreditSession not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CreditSession not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-3855d1c3-f9b8-401e-af89-bcb670ca72a5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-ae915bb9-0cf9-4598-b49e-ff7a9520395a"
+                }
+              ],
+              "id": "a95417b3-1c7f-4187-89bf-f0c3e2f7414d",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-a95417b3-1c7f-4187-89bf-f0c3e2f7414d"
+            }
+          ],
+          "id": "1bbe2f9c-ccf5-4a80-9b50-2b8d7ead284e",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-1bbe2f9c-ccf5-4a80-9b50-2b8d7ead284e"
+        },
+        {
+          "name": "asset_report",
+          "item": [
+            {
+              "name": "freddie_mac",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.",
+                      "id": "fb58ffab-5d9e-4673-af58-c0b302bdbba0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFreddieGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/asset_report/freddie_mac/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "asset_report",
+                            "freddie_mac",
+                            "get"
+                          ]
+                        },
+                        "description": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset Report in Freddie Mac's JSON format."
+                      },
+                      "response": [
+                        {
+                          "id": "667a1d37-8bef-4505-9dd1-bcdcfafa97df",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFreddieGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/asset_report/freddie_mac/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "asset_report",
+                                "freddie_mac",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"DEAL\": {\n    \"value\": \"reference #/components/schemas/AssetReportFreddie not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"SchemaVersion\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-667a1d37-8bef-4505-9dd1-bcdcfafa97df"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-fb58ffab-5d9e-4673-af58-c0b302bdbba0"
+                    }
+                  ],
+                  "id": "8a76521f-37c7-46c3-8032-192ee548bcd3",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-8a76521f-37c7-46c3-8032-192ee548bcd3"
+                }
+              ],
+              "id": "1ba06757-a40f-4f32-a58f-451a0fc421fe",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-1ba06757-a40f-4f32-a58f-451a0fc421fe"
+            }
+          ],
+          "id": "b37cad8d-6259-414c-a0c3-7dbf6c6293ac",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-b37cad8d-6259-414c-a0c3-7dbf6c6293ac"
+        },
+        {
+          "name": "freddie_mac",
+          "item": [
+            {
+              "name": "reports",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.",
+                      "id": "6e8cba0f-4a0f-476b-9125-1a79642eba32",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditFreddieMacReportsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/freddie_mac/reports/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "freddie_mac",
+                            "reports",
+                            "get"
+                          ]
+                        },
+                        "description": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Verification of Assets and Verification of Employment reports."
+                      },
+                      "response": [
+                        {
+                          "id": "903708cb-fbbb-496b-843a-636b248b6e0e",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditFreddieMacReportsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/freddie_mac/reports/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "freddie_mac",
+                                "reports",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"DEAL\": {\n    \"value\": \"reference #/components/schemas/CreditFreddieMacVerificationOfAssetsDeal not found in the OpenAPI spec\"\n  },\n  \"SchemaVersion\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-903708cb-fbbb-496b-843a-636b248b6e0e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-6e8cba0f-4a0f-476b-9125-1a79642eba32"
+                    }
+                  ],
+                  "id": "0126f174-f60f-4d64-9f1a-eb84be946c4b",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-0126f174-f60f-4d64-9f1a-eb84be946c4b"
+                }
+              ],
+              "id": "0868d9fb-0b4e-428f-85e1-9f2257b65bd2",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-0868d9fb-0b4e-428f-85e1-9f2257b65bd2"
+            }
+          ],
+          "id": "d2146d64-4819-4ec8-b183-15054a11be95",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-d2146d64-4819-4ec8-b183-15054a11be95"
+        },
+        {
+          "name": "bank_income",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve information from the bank accounts used for income verification",
+                  "id": "b5a4c760-48d6-45b1-b865-965aaf628f7e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/bank_income/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "bank_income",
+                        "get"
+                      ]
+                    },
+                    "description": "`/credit/bank_income/get` returns the bank income report(s) for a specified user."
+                  },
+                  "response": [
+                    {
+                      "id": "220e4ea1-74c0-4a5d-80f6-fb35f3decb5a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/bank_income/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "bank_income",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"bank_income\": [\n    {\n      \"value\": \"reference #/components/schemas/CreditBankIncome not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CreditBankIncome not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-220e4ea1-74c0-4a5d-80f6-fb35f3decb5a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-b5a4c760-48d6-45b1-b865-965aaf628f7e"
+                }
+              ],
+              "id": "8fcffd21-0341-4374-a5ed-162326b0f18b",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-8fcffd21-0341-4374-a5ed-162326b0f18b"
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve information from the bank accounts used for income verification in PDF format",
+                      "id": "0a6c5b2e-207a-4285-8330-18ca91200aee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/pdf"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomePDFGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/bank_income/pdf/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "bank_income",
+                            "pdf",
+                            "get"
+                          ]
+                        },
+                        "description": "`/credit/bank_income/pdf/get` returns the most recent bank income report for a specified user in PDF format."
+                      },
+                      "response": [
+                        {
+                          "id": "4ee1cd2e-34ac-4980-a96e-f4b862b3856e",
+                          "name": "A PDF of the Bank Income Report",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/pdf"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomePDFGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/bank_income/pdf/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "bank_income",
+                                "pdf",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/pdf"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomePDFGetResponse not found in the OpenAPI spec\"\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-4ee1cd2e-34ac-4980-a96e-f4b862b3856e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-0a6c5b2e-207a-4285-8330-18ca91200aee"
+                    }
+                  ],
+                  "id": "b21cd0ff-245b-41d6-a6ac-3eca9c2fbcea",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-b21cd0ff-245b-41d6-a6ac-3eca9c2fbcea"
+                }
+              ],
+              "id": "59a7160e-fb99-43d4-b068-2dbbfb6342a5",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-59a7160e-fb99-43d4-b068-2dbbfb6342a5"
+            },
+            {
+              "name": "refresh",
+              "item": [
+                {
+                  "name": "Plaid Refresh a user's bank income information",
+                  "id": "d2c9b47e-7791-4c5c-a4cd-6dd689c0aa35",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/bank_income/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "bank_income",
+                        "refresh"
+                      ]
+                    },
+                    "description": "`/credit/bank_income/refresh` refreshes the bank income report data for a specific user."
+                  },
+                  "response": [
+                    {
+                      "id": "62c11e80-7b7a-4565-8b57-b856a161941f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/bank_income/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "bank_income",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-62c11e80-7b7a-4565-8b57-b856a161941f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-d2c9b47e-7791-4c5c-a4cd-6dd689c0aa35"
+                }
+              ],
+              "id": "c8ce5ad9-7244-4a68-b591-d84775eb97d3",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-c8ce5ad9-7244-4a68-b591-d84775eb97d3"
+            },
+            {
+              "name": "webhook",
+              "item": [
+                {
+                  "name": "update",
+                  "item": [
+                    {
+                      "name": "Plaid Subscribe and unsubscribe to proactive notifications for a user's income profile",
+                      "id": "e2e7a10b-9c01-4f49-8a0b-abfabc999c5e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeWebhookUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/bank_income/webhook/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "bank_income",
+                            "webhook",
+                            "update"
+                          ]
+                        },
+                        "description": "`/credit/bank_income/webhook/update` allows you to subscribe or unsubscribe a user for income webhook notifications. By default, all users start out unsubscribed.\n\nIf a user is subscribed, on significant changes to the user's income profile, you will receive a `BANK_INCOME_REFRESH_UPDATE` webhook, prompting you to refresh bank income data for the user."
+                      },
+                      "response": [
+                        {
+                          "id": "72cf668a-58ac-414e-86f2-606b3d0844ce",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankIncomeWebhookUpdateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/bank_income/webhook/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "bank_income",
+                                "webhook",
+                                "update"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-72cf668a-58ac-414e-86f2-606b3d0844ce"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-e2e7a10b-9c01-4f49-8a0b-abfabc999c5e"
+                    }
+                  ],
+                  "id": "0e285fed-b8ff-4b6a-bbd7-d73a23a13df8",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-0e285fed-b8ff-4b6a-bbd7-d73a23a13df8"
+                }
+              ],
+              "id": "b413bd21-b83e-4cee-8b35-94886fab38cf",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-b413bd21-b83e-4cee-8b35-94886fab38cf"
+            }
+          ],
+          "id": "312a0f33-f9ec-4b5e-be69-d734fd0b8b8c",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-312a0f33-f9ec-4b5e-be69-d734fd0b8b8c"
+        },
+        {
+          "name": "payroll_income",
+          "item": [
+            {
+              "name": "parsing_config",
+              "item": [
+                {
+                  "name": "update",
+                  "item": [
+                    {
+                      "name": "Plaid Update the parsing configuration for a document income verification",
+                      "id": "9fe4b8be-b30b-4446-bc3d-eb5aa9f570ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeParsingConfigUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/parsing_config/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "parsing_config",
+                            "update"
+                          ]
+                        },
+                        "description": "`/credit/payroll_income/parsing_config/update` updates the parsing configuration for a document income verification."
+                      },
+                      "response": [
+                        {
+                          "id": "5a642bc9-1858-47f4-8805-e6c65bda645b",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeParsingConfigUpdateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/payroll_income/parsing_config/update",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "payroll_income",
+                                "parsing_config",
+                                "update"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-5a642bc9-1858-47f4-8805-e6c65bda645b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-9fe4b8be-b30b-4446-bc3d-eb5aa9f570ee"
+                    }
+                  ],
+                  "id": "cdcb335a-5ab7-4f31-bb25-1c58fe910e51",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-cdcb335a-5ab7-4f31-bb25-1c58fe910e51"
+                }
+              ],
+              "id": "9eed165f-2b2e-4d7e-ad1a-26dba99224b7",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-9eed165f-2b2e-4d7e-ad1a-26dba99224b7"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve a user's payroll information",
+                  "id": "35c464e2-a78b-4e22-80dd-52f780b370de",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/payroll_income/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "payroll_income",
+                        "get"
+                      ]
+                    },
+                    "description": "This endpoint gets payroll income information for a specific user, either as a result of the user connecting to their payroll provider or uploading a pay related document."
+                  },
+                  "response": [
+                    {
+                      "id": "198c2ed8-30a1-4b3d-bde4-e3f60f4bd291",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"value\": \"reference #/components/schemas/PayrollItem not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/PayrollItem not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"error\": {\n    \"error_type\": {\n      \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n    },\n    \"error_code\": \"<string>\",\n    \"error_message\": \"<string>\",\n    \"display_message\": \"<string>\",\n    \"request_id\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"documentation_url\": \"<string>\",\n    \"suggested_action\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-198c2ed8-30a1-4b3d-bde4-e3f60f4bd291"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-35c464e2-a78b-4e22-80dd-52f780b370de"
+                }
+              ],
+              "id": "e0299dfb-de90-4290-b292-6507c0c7b727",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-e0299dfb-de90-4290-b292-6507c0c7b727"
+            },
+            {
+              "name": "risk_signals",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve fraud insights for a user's manually uploaded document(s).",
+                      "id": "1d6bf95e-372c-4349-b424-4ca7520ae0eb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeRiskSignalsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/risk_signals/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "risk_signals",
+                            "get"
+                          ]
+                        },
+                        "description": "`/credit/payroll_income/risk_signals/get` can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score.\n\nTo trigger risk signal generation for an Item, call `/link/token/create` with `parsing_config` set to include `risk_signals`, or call `/credit/payroll_income/parsing_config/update`. Once risk signal generation has been triggered, `/credit/payroll_income/risk_signals/get` can be called at any time after the `INCOME_VERIFICATION_RISK_SIGNALS` webhook has been fired.\n\n`/credit/payroll_income/risk_signals/get` is offered as an add-on to Document Income and is billed separately. To request access to this endpoint, submit a product access request or contact your Plaid account manager."
+                      },
+                      "response": [
+                        {
+                          "id": "89f39a96-2f5b-405e-aed7-4a49f0aa8745",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeRiskSignalsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/payroll_income/risk_signals/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "payroll_income",
+                                "risk_signals",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"items\": [\n    {\n      \"value\": \"reference #/components/schemas/PayrollRiskSignalsItem not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/PayrollRiskSignalsItem not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"error\": {\n    \"error_type\": {\n      \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n    },\n    \"error_code\": \"<string>\",\n    \"error_message\": \"<string>\",\n    \"display_message\": \"<string>\",\n    \"request_id\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"documentation_url\": \"<string>\",\n    \"suggested_action\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-89f39a96-2f5b-405e-aed7-4a49f0aa8745"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-1d6bf95e-372c-4349-b424-4ca7520ae0eb"
+                    }
+                  ],
+                  "id": "4c43d6dc-ffea-49f7-9d79-3eaab99d1a54",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-4c43d6dc-ffea-49f7-9d79-3eaab99d1a54"
+                }
+              ],
+              "id": "72884a7d-e152-4971-ae1e-ac640565cb9c",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-72884a7d-e152-4971-ae1e-ac640565cb9c"
+            },
+            {
+              "name": "precheck",
+              "item": [
+                {
+                  "name": "Plaid Check income verification eligibility and optimize conversion",
+                  "id": "62eed00a-49f8-492f-97bb-91d22f36607d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomePrecheckRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/payroll_income/precheck",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "payroll_income",
+                        "precheck"
+                      ]
+                    },
+                    "description": "`/credit/payroll_income/precheck` is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification. If the user is eligible for digital verification, that information will be associated with the user token, and in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.\n\nWhile all request fields are optional, providing `employer` data will increase the chance of receiving a useful result.\n\nWhen testing in Sandbox, you can control the results by providing special test values in the `employer` and `access_tokens` fields. `employer_good` and `employer_bad` will result in `HIGH` and `LOW` confidence values, respectively. `employer_multi` will result in a `HIGH` confidence with multiple payroll options. Likewise, `access_good` and `access_bad` will result in `HIGH` and `LOW` confidence values, respectively. Any other value for `employer` and `access_tokens` in Sandbox will result in `UNKNOWN` confidence."
+                  },
+                  "response": [
+                    {
+                      "id": "8022ca76-f388-470a-ae27-87428a30c3c5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomePrecheckRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/precheck",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "precheck"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"confidence\": {\n    \"value\": \"reference #/components/schemas/IncomeVerificationPrecheckConfidence not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-8022ca76-f388-470a-ae27-87428a30c3c5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-62eed00a-49f8-492f-97bb-91d22f36607d"
+                }
+              ],
+              "id": "127af880-a259-4b7c-9cd5-4a2f09fa1b8c",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-127af880-a259-4b7c-9cd5-4a2f09fa1b8c"
+            },
+            {
+              "name": "refresh",
+              "item": [
+                {
+                  "name": "Plaid Refresh a digital payroll income verification",
+                  "id": "11e4e73f-ae8f-4ecd-ad66-2b0b27b31a92",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/payroll_income/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "payroll_income",
+                        "refresh"
+                      ]
+                    },
+                    "description": "`/credit/payroll_income/refresh` refreshes a given digital payroll income verification."
+                  },
+                  "response": [
+                    {
+                      "id": "e99d3dd2-9bee-45eb-a7f9-eca9df4460f2",
+                      "name": "success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"verification_refresh_status\": {\n    \"value\": \"reference #/components/schemas/CreditPayrollIncomeRefreshStatus not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-e99d3dd2-9bee-45eb-a7f9-eca9df4460f2"
+                    },
+                    {
+                      "id": "ed387964-ff27-44f8-8c48-d94440f4e5c5",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditPayrollIncomeRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/payroll_income/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "payroll_income",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-ed387964-ff27-44f8-8c48-d94440f4e5c5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-11e4e73f-ae8f-4ecd-ad66-2b0b27b31a92"
+                }
+              ],
+              "id": "d991561e-9d44-4018-9b66-2de0962dcfdd",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-d991561e-9d44-4018-9b66-2de0962dcfdd"
+            }
+          ],
+          "id": "d5331e76-d44f-483c-9101-a0874e1bf477",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-d5331e76-d44f-483c-9101-a0874e1bf477"
+        },
+        {
+          "name": "bank_statements",
+          "item": [
+            {
+              "name": "uploads",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve data for a user's uploaded bank statements",
+                      "id": "dcba7c6f-db6f-418a-b494-df1c4b45ad1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankStatementsUploadsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/bank_statements/uploads/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "bank_statements",
+                            "uploads",
+                            "get"
+                          ]
+                        },
+                        "description": "`/credit/bank_statements/uploads/get` returns parsed data from bank statements uploaded by users as part of the Document Income flow. If your account is not enabled for Document Parsing, contact your account manager to request access."
+                      },
+                      "response": [
+                        {
+                          "id": "c62dde7f-b322-4696-959c-3a09ef9a6646",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankStatementsUploadsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/bank_statements/uploads/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "bank_statements",
+                                "uploads",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"items\": [\n    {\n      \"value\": \"reference #/components/schemas/CreditBankStatementUploadItem not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CreditBankStatementUploadItem not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-c62dde7f-b322-4696-959c-3a09ef9a6646"
+                        },
+                        {
+                          "id": "69ebd7ee-d73b-407b-af39-cdfa1a229d63",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankStatementsUploadsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/bank_statements/uploads/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "bank_statements",
+                                "uploads",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-69ebd7ee-d73b-407b-af39-cdfa1a229d63"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-dcba7c6f-db6f-418a-b494-df1c4b45ad1e"
+                    }
+                  ],
+                  "id": "70a9ddf1-2c2a-4d72-80cb-69d1d85e1d16",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-70a9ddf1-2c2a-4d72-80cb-69d1d85e1d16"
+                }
+              ],
+              "id": "a3950c14-13f4-4c2a-9cf6-7ebc1ea1c943",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-a3950c14-13f4-4c2a-9cf6-7ebc1ea1c943"
+            }
+          ],
+          "id": "2bec139c-c7f2-4368-afef-e72ecfa26245",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-2bec139c-c7f2-4368-afef-e72ecfa26245"
+        },
+        {
+          "name": "employment",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve a summary of an individual's employment information",
+                  "id": "c17ee7ed-4255-4327-9290-12bade8b8e48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditEmploymentGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/employment/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "employment",
+                        "get"
+                      ]
+                    },
+                    "description": "`/credit/employment/get` returns a list of items with employment information from a user's payroll provider that was verified by an end user."
+                  },
+                  "response": [
+                    {
+                      "id": "313ae247-20dc-4478-82b1-4327a5f97044",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditEmploymentGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/employment/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "employment",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"value\": \"reference #/components/schemas/CreditEmploymentItem not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CreditEmploymentItem not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-313ae247-20dc-4478-82b1-4327a5f97044"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-c17ee7ed-4255-4327-9290-12bade8b8e48"
+                }
+              ],
+              "id": "d283bb21-c2f9-410e-a44f-3b7d77071890",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-d283bb21-c2f9-410e-a44f-3b7d77071890"
+            }
+          ],
+          "id": "aa5f9c57-cf81-46c2-99bb-acaf75510574",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-aa5f9c57-cf81-46c2-99bb-acaf75510574"
+        },
+        {
+          "name": "relay",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a relay token to share an Asset Report with a partner client",
+                  "id": "1befc4d6-d9d8-42e8-9b54-44223d759bc4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/relay/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "relay",
+                        "create"
+                      ]
+                    },
+                    "description": "Plaid can share an Asset Report directly with a participating third party on your behalf. The shared Asset Report is the exact same Asset Report originally created in `/asset_report/create`.\n\nTo grant a third party access to an Asset Report, use the `/credit/relay/create` endpoint to create a `relay_token` and then pass that token to your third party. Each third party has its own `secondary_client_id`; for example, `ce5bd328dcd34123456`. You'll need to create a separate `relay_token` for each third party that needs access to the report on your behalf."
+                  },
+                  "response": [
+                    {
+                      "id": "d64516d4-0d0d-448f-b6b4-cb3778df6319",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/relay/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "relay",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"relay_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-d64516d4-0d0d-448f-b6b4-cb3778df6319"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-1befc4d6-d9d8-42e8-9b54-44223d759bc4"
+                }
+              ],
+              "id": "985e8fb6-3f22-44e9-86e5-117469cc5ca0",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-985e8fb6-3f22-44e9-86e5-117469cc5ca0"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve the reports associated with a relay token that was shared with you",
+                  "id": "accbcf70-1bca-42ec-97d5-01da466f4753",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/relay/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "relay",
+                        "get"
+                      ]
+                    },
+                    "description": "`/credit/relay/get` allows third parties to receive a report that was shared with them, using a `relay_token` that was created by the report owner."
+                  },
+                  "response": [
+                    {
+                      "id": "ec3e9c5c-1d89-44f8-80d9-d22af44bf505",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/relay/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "relay",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"report\": {\n    \"value\": \"reference #/components/schemas/AssetReport not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-ec3e9c5c-1d89-44f8-80d9-d22af44bf505"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-accbcf70-1bca-42ec-97d5-01da466f4753"
+                }
+              ],
+              "id": "356839e0-a2c3-4b1b-aab8-a670e788a4ed",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-356839e0-a2c3-4b1b-aab8-a670e788a4ed"
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve the pdf reports associated with a relay token that was shared with you (beta)",
+                      "id": "596b2782-97b0-4a7d-96a0-24895f3a0043",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/pdf"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayPDFGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/relay/pdf/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "relay",
+                            "pdf",
+                            "get"
+                          ]
+                        },
+                        "description": "`/credit/relay/pdf/get` allows third parties to receive a pdf report that was shared with them, using a `relay_token` that was created by the report owner.\n\nThe `/credit/relay/pdf/get` endpoint retrieves the Asset Report in PDF format. Before calling `/credit/relay/pdf/get`, you must first create the Asset Report using `/credit/relay/create` and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to be retrieved.\n\nThe response to `/credit/relay/pdf/get` is the PDF binary data. The `request_id` is returned in the `Plaid-Request-ID` header.\n\n[View a sample PDF Asset Report](https://plaid.com/documents/sample-asset-report.pdf)."
+                      },
+                      "response": [
+                        {
+                          "id": "96f5d299-bd40-4448-b149-85e57a418291",
+                          "name": "A PDF of the Asset Report",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/pdf"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayPDFGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/relay/pdf/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "relay",
+                                "pdf",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/pdf"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": \"reference #/components/schemas/CreditRelayPDFGetResponse not found in the OpenAPI spec\"\n}",
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-96f5d299-bd40-4448-b149-85e57a418291"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-596b2782-97b0-4a7d-96a0-24895f3a0043"
+                    }
+                  ],
+                  "id": "65afa490-18d6-4e59-92ac-ade4ceef1de5",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-65afa490-18d6-4e59-92ac-ade4ceef1de5"
+                }
+              ],
+              "id": "ec3b9d30-925b-4d46-becc-c25deac9f882",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-ec3b9d30-925b-4d46-becc-c25deac9f882"
+            },
+            {
+              "name": "refresh",
+              "item": [
+                {
+                  "name": "Plaid Refresh a report of a relay token",
+                  "id": "b0db53ec-0595-439c-859b-01a7cf2673d2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/relay/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "relay",
+                        "refresh"
+                      ]
+                    },
+                    "description": "The `/credit/relay/refresh` endpoint allows third parties to refresh a report that was relayed to them, using a `relay_token` that was created by the report owner. A new report will be created with the original report parameters, but with the most recent data available based on the `days_requested` value of the original report."
+                  },
+                  "response": [
+                    {
+                      "id": "39bc1953-6970-4985-9667-e4a615ef97a8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayRefreshRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/relay/refresh",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "relay",
+                            "refresh"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"relay_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"asset_report_id\": {\n    \"value\": \"reference #/components/schemas/AssetReportId not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-39bc1953-6970-4985-9667-e4a615ef97a8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-b0db53ec-0595-439c-859b-01a7cf2673d2"
+                }
+              ],
+              "id": "449a724f-9fbd-41db-9331-1dcaae82a91a",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-449a724f-9fbd-41db-9331-1dcaae82a91a"
+            },
+            {
+              "name": "remove",
+              "item": [
+                {
+                  "name": "Plaid Remove relay token",
+                  "id": "0096378c-3778-4853-aa99-4d4a4e44f8df",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/credit/relay/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "credit",
+                        "relay",
+                        "remove"
+                      ]
+                    },
+                    "description": "The `/credit/relay/remove` endpoint allows you to invalidate a `relay_token`. The third party holding the token will no longer be able to access or refresh the reports which the `relay_token` gives access to. The original report, associated Items, and other relay tokens that provide access to the same report are not affected and will remain accessible after removing the given `relay_token`."
+                  },
+                  "response": [
+                    {
+                      "id": "7b6e01c2-3bdf-46b4-add1-f71427b1f6a8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CreditRelayRemoveRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/relay/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "relay",
+                            "remove"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"removed\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-7b6e01c2-3bdf-46b4-add1-f71427b1f6a8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-0096378c-3778-4853-aa99-4d4a4e44f8df"
+                }
+              ],
+              "id": "aa2d6060-b154-44d6-a48f-cac971f915bc",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-aa2d6060-b154-44d6-a48f-cac971f915bc"
+            }
+          ],
+          "id": "2a3ba745-0252-473f-b0d2-51f5118bcf83",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-2a3ba745-0252-473f-b0d2-51f5118bcf83"
+        }
+      ],
+      "id": "d95c06a9-383f-4c8d-8ec2-8a7f17b806ad",
+      "createdAt": "2026-07-28T02:37:37.000Z",
+      "updatedAt": "2026-07-28T02:37:37.000Z",
+      "uid": "35240-d95c06a9-383f-4c8d-8ec2-8a7f17b806ad"
+    },
+    {
+      "name": "beta",
+      "item": [
+        {
+          "name": "credit",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "bank_employment",
+                  "item": [
+                    {
+                      "name": "get",
+                      "item": [
+                        {
+                          "name": "Plaid Retrieve information from the bank accounts used for employment verification",
+                          "id": "94e4be76-ecb1-4e2f-9427-0b7501e8b762",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankEmploymentGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beta/credit/v1/bank_employment/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beta",
+                                "credit",
+                                "v1",
+                                "bank_employment",
+                                "get"
+                              ]
+                            },
+                            "description": "`/credit/bank_employment/get` returns the employment report(s) derived from bank transaction data for a specified user."
+                          },
+                          "response": [
+                            {
+                              "id": "10994a90-8a16-4e73-aaec-8b46d5edbd5e",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/CreditBankEmploymentGetRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/beta/credit/v1/bank_employment/get",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "beta",
+                                    "credit",
+                                    "v1",
+                                    "bank_employment",
+                                    "get"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"bank_employment_reports\": [\n    {\n      \"value\": \"reference #/components/schemas/CreditBankEmploymentReport not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CreditBankEmploymentReport not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T02:37:37.000Z",
+                              "updatedAt": "2026-07-28T02:37:37.000Z",
+                              "uid": "35240-10994a90-8a16-4e73-aaec-8b46d5edbd5e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:37:37.000Z",
+                          "updatedAt": "2026-07-28T02:37:37.000Z",
+                          "uid": "35240-94e4be76-ecb1-4e2f-9427-0b7501e8b762"
+                        }
+                      ],
+                      "id": "84aa802d-046d-4433-bddd-32f0b399aa9e",
+                      "createdAt": "2026-07-28T02:37:37.000Z",
+                      "updatedAt": "2026-07-28T02:37:37.000Z",
+                      "uid": "35240-84aa802d-046d-4433-bddd-32f0b399aa9e"
+                    }
+                  ],
+                  "id": "ad30925b-1e2c-47ac-a7bc-76f3026555e1",
+                  "createdAt": "2026-07-28T02:37:37.000Z",
+                  "updatedAt": "2026-07-28T02:37:37.000Z",
+                  "uid": "35240-ad30925b-1e2c-47ac-a7bc-76f3026555e1"
+                }
+              ],
+              "id": "afc5b8ff-52e4-4bc2-b469-f20c6f95d442",
+              "createdAt": "2026-07-28T02:37:37.000Z",
+              "updatedAt": "2026-07-28T02:37:37.000Z",
+              "uid": "35240-afc5b8ff-52e4-4bc2-b469-f20c6f95d442"
+            }
+          ],
+          "id": "6d533b11-2891-42ba-8fe9-27a7150665a8",
+          "createdAt": "2026-07-28T02:37:37.000Z",
+          "updatedAt": "2026-07-28T02:37:37.000Z",
+          "uid": "35240-6d533b11-2891-42ba-8fe9-27a7150665a8"
+        }
+      ],
+      "id": "326075ad-e857-40bb-86a0-ff7c5e930973",
+      "createdAt": "2026-07-28T02:37:37.000Z",
+      "updatedAt": "2026-07-28T02:37:37.000Z",
+      "uid": "35240-326075ad-e857-40bb-86a0-ff7c5e930973"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

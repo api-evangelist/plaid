@@ -7,8 +7,22 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://www.linkedin.com/company/plaid-",
+      "feed_url": "https://www.linkedin.com/company/plaid-",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://plaid.com/blog/",
+      "feed_url": "https://plaid.com/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "fetched": "2026-07-20T13:31:34Z",
+  "fetched": "2026-08-01T15:49:00Z",
   "post_count": 32
 }

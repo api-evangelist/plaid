@@ -1,0 +1,263 @@
+{
+  "info": {
+    "_postman_id": "0001608c-f611-4826-be34-9487ed7f3989",
+    "name": "Plaid liabilities/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:32.000Z",
+    "updatedAt": "2026-07-28T02:37:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0001608c-f611-4826-be34-9487ed7f3989"
+  },
+  "item": [
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "liabilities",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve Liabilities data",
+                  "id": "11a45732-07b7-4d84-b692-42282f308ffc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorLiabilitiesGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/liabilities/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "liabilities",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/processor/liabilities/get` endpoint returns various details about a loan or credit account. Liabilities data is available primarily for US financial institutions, with some limited coverage of Canadian institutions. Currently supported account types are account type `credit` with account subtype `credit card` or `paypal`, and account type `loan` with account subtype `student` or `mortgage`.\n\nThe types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling `/processor/liabilities/get`.\n\nNote: This request may take some time to complete if `liabilities` was not specified as an initial product when creating the processor token. This is because Plaid must communicate directly with the institution to retrieve the additional data."
+                  },
+                  "response": [
+                    {
+                      "id": "34bb4fff-987c-4d19-8090-f41f4f27b18a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorLiabilitiesGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/liabilities/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "liabilities",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n  },\n  \"liabilities\": {\n    \"value\": \"reference #/components/schemas/LiabilitiesObject not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:32.000Z",
+                      "updatedAt": "2026-07-28T02:37:32.000Z",
+                      "uid": "35240-34bb4fff-987c-4d19-8090-f41f4f27b18a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:32.000Z",
+                  "updatedAt": "2026-07-28T02:37:32.000Z",
+                  "uid": "35240-11a45732-07b7-4d84-b692-42282f308ffc"
+                }
+              ],
+              "id": "046e79a4-f58b-421d-a077-f0bf589dad93",
+              "createdAt": "2026-07-28T02:37:32.000Z",
+              "updatedAt": "2026-07-28T02:37:32.000Z",
+              "uid": "35240-046e79a4-f58b-421d-a077-f0bf589dad93"
+            }
+          ],
+          "id": "bd80d4aa-9e26-447c-9b57-b0e538ec0093",
+          "createdAt": "2026-07-28T02:37:32.000Z",
+          "updatedAt": "2026-07-28T02:37:32.000Z",
+          "uid": "35240-bd80d4aa-9e26-447c-9b57-b0e538ec0093"
+        }
+      ],
+      "id": "0f7608f4-4b04-4c46-87c7-cdb2fcdfbfbe",
+      "createdAt": "2026-07-28T02:37:32.000Z",
+      "updatedAt": "2026-07-28T02:37:32.000Z",
+      "uid": "35240-0f7608f4-4b04-4c46-87c7-cdb2fcdfbfbe"
+    },
+    {
+      "name": "liabilities",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve Liabilities data",
+              "id": "49348f52-d89b-4f7b-8c45-3ae3bd9e0ae8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/LiabilitiesGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/liabilities/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "liabilities",
+                    "get"
+                  ]
+                },
+                "description": "The `/liabilities/get` endpoint returns various details about an Item with loan or credit accounts. Liabilities data is available primarily for US financial institutions, with some limited coverage of Canadian institutions. Currently supported account types are account type `credit` with account subtype `credit card` or `paypal`, and account type `loan` with account subtype `student` or `mortgage`. To limit accounts listed in Link to types and subtypes supported by Liabilities, you can use the `account_filters` parameter when [creating a Link token](https://plaid.com/docs/api/tokens/#linktokencreate).\n\nThe types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling `/liabilities/get`.\n\nNote: This request may take some time to complete if `liabilities` was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the additional data."
+              },
+              "response": [
+                {
+                  "id": "a8b376c8-34c9-41a1-8015-66f3d86370ed",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LiabilitiesGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/liabilities/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "liabilities",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"liabilities\": {\n    \"value\": \"reference #/components/schemas/LiabilitiesObject not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:32.000Z",
+                  "updatedAt": "2026-07-28T02:37:32.000Z",
+                  "uid": "35240-a8b376c8-34c9-41a1-8015-66f3d86370ed"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:32.000Z",
+              "updatedAt": "2026-07-28T02:37:32.000Z",
+              "uid": "35240-49348f52-d89b-4f7b-8c45-3ae3bd9e0ae8"
+            }
+          ],
+          "id": "87698b74-54d0-42bf-b4f9-e36a2fab076b",
+          "createdAt": "2026-07-28T02:37:32.000Z",
+          "updatedAt": "2026-07-28T02:37:32.000Z",
+          "uid": "35240-87698b74-54d0-42bf-b4f9-e36a2fab076b"
+        }
+      ],
+      "id": "5110d81c-ef29-4ce1-b4cb-6b2ff5fff8b0",
+      "createdAt": "2026-07-28T02:37:32.000Z",
+      "updatedAt": "2026-07-28T02:37:32.000Z",
+      "uid": "35240-5110d81c-ef29-4ce1-b4cb-6b2ff5fff8b0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

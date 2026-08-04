@@ -1,0 +1,514 @@
+{
+  "info": {
+    "_postman_id": "d7d991eb-5e21-4c31-b855-e8743916a449",
+    "name": "Plaid link/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:37.000Z",
+    "updatedAt": "2026-07-28T02:38:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7d991eb-5e21-4c31-b855-e8743916a449"
+  },
+  "item": [
+    {
+      "name": "link",
+      "item": [
+        {
+          "name": "profile",
+          "item": [
+            {
+              "name": "eligibility",
+              "item": [
+                {
+                  "name": "check",
+                  "item": [
+                    {
+                      "name": "Plaid Check profile eligibility",
+                      "id": "5149ddbb-a728-4e22-bb0e-2a8feb7ca393",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/LinkProfileEligibilityCheckRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/link/profile/eligibility/check",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "link",
+                            "profile",
+                            "eligibility",
+                            "check"
+                          ]
+                        },
+                        "description": "The `/link/profile/eligibility/check` endpoint can be used to check whether a user with the\nsupplied phone number has a saved profile that satisfies customer-defined eligibility\nrequirements."
+                      },
+                      "response": [
+                        {
+                          "id": "d2e119f8-f551-473c-a605-93a671c870be",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/LinkProfileEligibilityCheckRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/link/profile/eligibility/check",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "link",
+                                "profile",
+                                "eligibility",
+                                "check"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"profile_matches\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:38.000Z",
+                          "updatedAt": "2026-07-28T02:38:38.000Z",
+                          "uid": "35240-d2e119f8-f551-473c-a605-93a671c870be"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:38.000Z",
+                      "updatedAt": "2026-07-28T02:38:38.000Z",
+                      "uid": "35240-5149ddbb-a728-4e22-bb0e-2a8feb7ca393"
+                    }
+                  ],
+                  "id": "e5808473-7433-4b72-be35-db7089002bcf",
+                  "createdAt": "2026-07-28T02:38:38.000Z",
+                  "updatedAt": "2026-07-28T02:38:38.000Z",
+                  "uid": "35240-e5808473-7433-4b72-be35-db7089002bcf"
+                }
+              ],
+              "id": "fc08fbfd-4706-486a-942c-8bcccd63b90a",
+              "createdAt": "2026-07-28T02:38:38.000Z",
+              "updatedAt": "2026-07-28T02:38:38.000Z",
+              "uid": "35240-fc08fbfd-4706-486a-942c-8bcccd63b90a"
+            }
+          ],
+          "id": "1043f748-9e98-47de-934b-49cc37b8c131",
+          "createdAt": "2026-07-28T02:38:38.000Z",
+          "updatedAt": "2026-07-28T02:38:38.000Z",
+          "uid": "35240-1043f748-9e98-47de-934b-49cc37b8c131"
+        },
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create Link Token",
+                  "id": "61dbe90c-53b4-4453-a156-835cbcae1242",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link/token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link",
+                        "token",
+                        "create"
+                      ]
+                    },
+                    "description": "The `/link/token/create` endpoint creates a `link_token`, which is required as a parameter when initializing Link. Once Link has been initialized, it returns a `public_token`, which can then be exchanged for an `access_token` via `/item/public_token/exchange` as part of the main Link flow.\n\nA `link_token` generated by `/link/token/create` is also used to initialize other Link flows, such as the update mode flow for tokens with expired credentials, or the Payment Initiation (Europe) flow."
+                  },
+                  "response": [
+                    {
+                      "id": "72c1a380-8fa9-4cbd-8a74-a3041ca2ea14",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/LinkTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/link/token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "link",
+                            "token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"link_token\": \"<string>\",\n  \"expiration\": \"<dateTime>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"hosted_link_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:38.000Z",
+                      "updatedAt": "2026-07-28T02:38:38.000Z",
+                      "uid": "35240-72c1a380-8fa9-4cbd-8a74-a3041ca2ea14"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:38.000Z",
+                  "updatedAt": "2026-07-28T02:38:38.000Z",
+                  "uid": "35240-61dbe90c-53b4-4453-a156-835cbcae1242"
+                }
+              ],
+              "id": "ec66752c-6349-4faf-a6ff-a8af35f33d24",
+              "createdAt": "2026-07-28T02:38:38.000Z",
+              "updatedAt": "2026-07-28T02:38:38.000Z",
+              "uid": "35240-ec66752c-6349-4faf-a6ff-a8af35f33d24"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get Link Token",
+                  "id": "49431c14-2010-47d1-8f34-9ee988f1967b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/LinkTokenGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/link/token/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "link",
+                        "token",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/link/token/get` endpoint gets information about a previously-created `link_token` using the\n`/link/token/create` endpoint. It can be useful for debugging purposes."
+                  },
+                  "response": [
+                    {
+                      "id": "40c2ff05-245a-444f-a7b9-3ceac5c63d7d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/LinkTokenGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/link/token/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "link",
+                            "token",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"link_token\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"expiration\": \"<dateTime>\",\n  \"metadata\": {\n    \"value\": \"reference #/components/schemas/LinkTokenGetMetadataResponse not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"link_sessions\": [\n    {\n      \"value\": \"reference #/components/schemas/LinkTokenGetSessionsResponse not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/LinkTokenGetSessionsResponse not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:38:38.000Z",
+                      "updatedAt": "2026-07-28T02:38:38.000Z",
+                      "uid": "35240-40c2ff05-245a-444f-a7b9-3ceac5c63d7d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:38.000Z",
+                  "updatedAt": "2026-07-28T02:38:38.000Z",
+                  "uid": "35240-49431c14-2010-47d1-8f34-9ee988f1967b"
+                }
+              ],
+              "id": "cf97d6b1-5769-449b-842a-7ea315ef6b6c",
+              "createdAt": "2026-07-28T02:38:38.000Z",
+              "updatedAt": "2026-07-28T02:38:38.000Z",
+              "uid": "35240-cf97d6b1-5769-449b-842a-7ea315ef6b6c"
+            }
+          ],
+          "id": "985f787d-d905-4078-b99e-6219151572e8",
+          "createdAt": "2026-07-28T02:38:38.000Z",
+          "updatedAt": "2026-07-28T02:38:38.000Z",
+          "uid": "35240-985f787d-d905-4078-b99e-6219151572e8"
+        },
+        {
+          "name": "oauth",
+          "item": [
+            {
+              "name": "correlation_id",
+              "item": [
+                {
+                  "name": "exchange",
+                  "item": [
+                    {
+                      "name": "Plaid Exchange the Link Correlation Id for a Link Token",
+                      "id": "56354e23-3bfa-4ee3-9a7f-b67cd92ba574",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/LinkOAuthCorrelationIdExchangeRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/link/oauth/correlation_id/exchange",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "link",
+                            "oauth",
+                            "correlation_id",
+                            "exchange"
+                          ]
+                        },
+                        "description": "Exchange an OAuth `link_correlation_id` for the corresponding `link_token`. The `link_correlation_id` is only available for 'payment_initiation' products and is provided to the client via the OAuth `redirect_uri` as a query parameter.\nThe `link_correlation_id` is ephemeral and expires in a brief period, after which it can no longer be exchanged for the 'link_token'."
+                      },
+                      "response": [
+                        {
+                          "id": "f76c4e36-ed90-4417-9ceb-9d8ce281bc5a",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/LinkOAuthCorrelationIdExchangeRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/link/oauth/correlation_id/exchange",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "link",
+                                "oauth",
+                                "correlation_id",
+                                "exchange"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"link_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:38.000Z",
+                          "updatedAt": "2026-07-28T02:38:38.000Z",
+                          "uid": "35240-f76c4e36-ed90-4417-9ceb-9d8ce281bc5a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:38.000Z",
+                      "updatedAt": "2026-07-28T02:38:38.000Z",
+                      "uid": "35240-56354e23-3bfa-4ee3-9a7f-b67cd92ba574"
+                    }
+                  ],
+                  "id": "60c85626-f77f-4d95-bab6-ac9004e0c1a1",
+                  "createdAt": "2026-07-28T02:38:38.000Z",
+                  "updatedAt": "2026-07-28T02:38:38.000Z",
+                  "uid": "35240-60c85626-f77f-4d95-bab6-ac9004e0c1a1"
+                }
+              ],
+              "id": "dd7a1262-1f31-40ae-b6da-83175942e5dd",
+              "createdAt": "2026-07-28T02:38:38.000Z",
+              "updatedAt": "2026-07-28T02:38:38.000Z",
+              "uid": "35240-dd7a1262-1f31-40ae-b6da-83175942e5dd"
+            }
+          ],
+          "id": "58a42293-3cb8-4003-b232-21f709f1dcfd",
+          "createdAt": "2026-07-28T02:38:38.000Z",
+          "updatedAt": "2026-07-28T02:38:38.000Z",
+          "uid": "35240-58a42293-3cb8-4003-b232-21f709f1dcfd"
+        }
+      ],
+      "id": "8d7ac5b8-3c0e-4f34-a8b0-18c9cb5f348d",
+      "createdAt": "2026-07-28T02:38:38.000Z",
+      "updatedAt": "2026-07-28T02:38:38.000Z",
+      "uid": "35240-8d7ac5b8-3c0e-4f34-a8b0-18c9cb5f348d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

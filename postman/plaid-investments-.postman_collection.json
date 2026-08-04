@@ -1,0 +1,542 @@
+{
+  "info": {
+    "_postman_id": "0502040e-8939-409d-9c06-3cbfe529f378",
+    "name": "Plaid investments/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:31.000Z",
+    "updatedAt": "2026-07-28T02:37:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0502040e-8939-409d-9c06-3cbfe529f378"
+  },
+  "item": [
+    {
+      "name": "investments",
+      "item": [
+        {
+          "name": "holdings",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get Investment holdings",
+                  "id": "852da586-d549-4cc6-ad90-c8187ac0fdc1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsHoldingsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/holdings/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "holdings",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/investments/holdings/get` endpoint allows developers to receive user-authorized stock position data for `investment`-type accounts."
+                  },
+                  "response": [
+                    {
+                      "id": "50dba9ef-92a1-436d-997c-01bc566d947b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsHoldingsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/investments/holdings/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "investments",
+                            "holdings",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"holdings\": [\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    }\n  ],\n  \"securities\": [\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"is_investments_fallback_item\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:37:31.000Z",
+                      "updatedAt": "2026-07-28T02:37:31.000Z",
+                      "uid": "35240-50dba9ef-92a1-436d-997c-01bc566d947b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:31.000Z",
+                  "updatedAt": "2026-07-28T02:37:31.000Z",
+                  "uid": "35240-852da586-d549-4cc6-ad90-c8187ac0fdc1"
+                }
+              ],
+              "id": "3b8f236e-b9fa-40e7-bf51-24259ee3bfd6",
+              "createdAt": "2026-07-28T02:37:31.000Z",
+              "updatedAt": "2026-07-28T02:37:31.000Z",
+              "uid": "35240-3b8f236e-b9fa-40e7-bf51-24259ee3bfd6"
+            }
+          ],
+          "id": "6ad13270-f93d-4177-92cf-9a7546d33ad9",
+          "createdAt": "2026-07-28T02:37:31.000Z",
+          "updatedAt": "2026-07-28T02:37:31.000Z",
+          "uid": "35240-6ad13270-f93d-4177-92cf-9a7546d33ad9"
+        },
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get investment transactions",
+                  "id": "1ded6b3b-0566-4638-842f-45d94950c392",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/transactions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "transactions",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/investments/transactions/get` endpoint allows developers to retrieve up to 24 months of user-authorized transaction data for investment accounts.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.\n\nDue to the potentially large number of investment transactions associated with an Item, results are paginated. Manipulate the count and offset parameters in conjunction with the `total_investment_transactions` response body field to fetch all available investment transactions.\n\nNote that Investments does not have a webhook to indicate when initial transaction data has loaded (unless you use the `async_update` option). Instead, if transactions data is not ready when `/investments/transactions/get` is first called, Plaid will wait for the data. For this reason, calling `/investments/transactions/get` immediately after Link may take up to one to two minutes to return.\n\nData returned by the asynchronous investments extraction flow (when `async_update` is set to true) may not be immediately available to `/investments/transactions/get`. To be alerted when the data is ready to be fetched, listen for the `HISTORICAL_UPDATE` webhook. If no investments history is ready when `/investments/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error."
+                  },
+                  "response": [
+                    {
+                      "id": "c2090a3d-2074-4285-94f3-a92b1c03848d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsTransactionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/investments/transactions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "investments",
+                            "transactions",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"securities\": [\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    }\n  ],\n  \"investment_transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/InvestmentTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/InvestmentTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"total_investment_transactions\": \"<integer>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"is_investments_fallback_item\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:37:31.000Z",
+                      "updatedAt": "2026-07-28T02:37:31.000Z",
+                      "uid": "35240-c2090a3d-2074-4285-94f3-a92b1c03848d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:31.000Z",
+                  "updatedAt": "2026-07-28T02:37:31.000Z",
+                  "uid": "35240-1ded6b3b-0566-4638-842f-45d94950c392"
+                }
+              ],
+              "id": "eb9a0dd1-a211-4f75-b53d-0059a0e06e8c",
+              "createdAt": "2026-07-28T02:37:31.000Z",
+              "updatedAt": "2026-07-28T02:37:31.000Z",
+              "uid": "35240-eb9a0dd1-a211-4f75-b53d-0059a0e06e8c"
+            }
+          ],
+          "id": "feea5063-acab-4fc8-85dd-add36745b90f",
+          "createdAt": "2026-07-28T02:37:31.000Z",
+          "updatedAt": "2026-07-28T02:37:31.000Z",
+          "uid": "35240-feea5063-acab-4fc8-85dd-add36745b90f"
+        },
+        {
+          "name": "refresh",
+          "item": [
+            {
+              "name": "Plaid Refresh investment data",
+              "id": "1c31f176-3187-41f5-8b6a-e249c82bf364",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsRefreshRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/investments/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "investments",
+                    "refresh"
+                  ]
+                },
+                "description": "`/investments/refresh` is an optional endpoint for users of the Investments product. It initiates an on-demand extraction to fetch the newest investments, holdings and investment transactions for an Item. This on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Investments-enabled Item. If changes to investments are discovered after calling `/investments/refresh`, Plaid will fire webhooks: [`HOLDINGS: DEFAULT_UPDATE`](https://plaid.com/docs/api/products/investments/#holdings-default_update) if any new holdings are detected, and [INVESTMENTS_TRANSACTIONS: DEFAULT_UPDATE](https://plaid.com/docs/api/products/investments/#investments_transactions-default_update) if any new investment transactions are detected. Updated holdings and investment transactions can be fetched by calling `/investments/holdings/get` and `/investments/transactions/get`. \"Note that the `/investments/refresh` endpoint is not supported by all institutions. If called on an Item from an institution that does not support this functionality, it will return a `PRODUCT_NOT_SUPPORTED` error.\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/investments/refresh` is offered as an add-on to Investments and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager."
+              },
+              "response": [
+                {
+                  "id": "8c9646dc-ba47-4c78-8b02-1892529723c9",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:31.000Z",
+                  "updatedAt": "2026-07-28T02:37:31.000Z",
+                  "uid": "35240-8c9646dc-ba47-4c78-8b02-1892529723c9"
+                },
+                {
+                  "id": "1ac57d71-d925-4bce-b8b5-da950df1a823",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:31.000Z",
+                  "updatedAt": "2026-07-28T02:37:31.000Z",
+                  "uid": "35240-1ac57d71-d925-4bce-b8b5-da950df1a823"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:31.000Z",
+              "updatedAt": "2026-07-28T02:37:31.000Z",
+              "uid": "35240-1c31f176-3187-41f5-8b6a-e249c82bf364"
+            }
+          ],
+          "id": "66207df3-59fb-46ad-9912-6ef3aed610f4",
+          "createdAt": "2026-07-28T02:37:31.000Z",
+          "updatedAt": "2026-07-28T02:37:31.000Z",
+          "uid": "35240-66207df3-59fb-46ad-9912-6ef3aed610f4"
+        },
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get data needed to authorize an investments transfer",
+                  "id": "642b233e-cfbe-4fd7-85dd-a2e8055a02e1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsAuthGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/auth/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "auth",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/investments/auth/get` endpoint allows developers to receive user-authorized data to facilitate the transfer of holdings"
+                  },
+                  "response": [
+                    {
+                      "id": "28292e4e-cd95-47e5-b390-07cfdc3e6424",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsAuthGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/investments/auth/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "investments",
+                            "auth",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"holdings\": [\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    }\n  ],\n  \"securities\": [\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"numbers\": {\n    \"value\": \"reference #/components/schemas/InvestmentsAuthGetNumbers not found in the OpenAPI spec\"\n  },\n  \"owners\": [\n    {\n      \"value\": \"reference #/components/schemas/InvestmentsAuthOwner not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/InvestmentsAuthOwner not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:31.000Z",
+                      "updatedAt": "2026-07-28T02:37:31.000Z",
+                      "uid": "35240-28292e4e-cd95-47e5-b390-07cfdc3e6424"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:31.000Z",
+                  "updatedAt": "2026-07-28T02:37:31.000Z",
+                  "uid": "35240-642b233e-cfbe-4fd7-85dd-a2e8055a02e1"
+                }
+              ],
+              "id": "b086b9f0-8a08-47b5-91bd-c1884ce29e0f",
+              "createdAt": "2026-07-28T02:37:31.000Z",
+              "updatedAt": "2026-07-28T02:37:31.000Z",
+              "uid": "35240-b086b9f0-8a08-47b5-91bd-c1884ce29e0f"
+            }
+          ],
+          "id": "1f1d8787-7df3-44c9-9cd4-567e4ceec7bd",
+          "createdAt": "2026-07-28T02:37:31.000Z",
+          "updatedAt": "2026-07-28T02:37:31.000Z",
+          "uid": "35240-1f1d8787-7df3-44c9-9cd4-567e4ceec7bd"
+        }
+      ],
+      "id": "f0936978-26fd-4b13-baf9-2e6dc97ad88a",
+      "createdAt": "2026-07-28T02:37:31.000Z",
+      "updatedAt": "2026-07-28T02:37:31.000Z",
+      "uid": "35240-f0936978-26fd-4b13-baf9-2e6dc97ad88a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

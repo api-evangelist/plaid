@@ -1,0 +1,633 @@
+{
+  "info": {
+    "_postman_id": "ba2c71cd-1188-4089-9918-7a31ca7442c1",
+    "name": "Plaid payment profile/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:47.000Z",
+    "updatedAt": "2026-07-28T02:37:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ba2c71cd-1188-4089-9918-7a31ca7442c1"
+  },
+  "item": [
+    {
+      "name": "sandbox",
+      "item": [
+        {
+          "name": "payment_profile",
+          "item": [
+            {
+              "name": "reset_login",
+              "item": [
+                {
+                  "name": "Plaid Reset the login of a Payment Profile",
+                  "id": "ec86532f-3512-472a-94c3-4f3a4135f653",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPaymentProfileResetLoginRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/payment_profile/reset_login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "payment_profile",
+                        "reset_login"
+                      ]
+                    },
+                    "description": "`/sandbox/payment_profile/reset_login/` forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.\n\n After calling `/sandbox/payment_profile/reset_login`, calls to the `/transfer/authorization/create` with the Payment Profile will result in a `decision_rationale` `PAYMENT_PROFILE_LOGIN_REQUIRED`. You can then use update mode for Payment Profile to restore it into a good state.\n\n In order to invoke this endpoint, you must first [create a Payment Profile](https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional) and [go through the Link flow](https://plaid.com/docs/transfer/add-to-app/#create-a-link-token)."
+                  },
+                  "response": [
+                    {
+                      "id": "082699cc-1a4a-4407-a844-4fda211061c4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPaymentProfileResetLoginRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/payment_profile/reset_login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "payment_profile",
+                            "reset_login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reset_login\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:47.000Z",
+                      "updatedAt": "2026-07-28T02:37:47.000Z",
+                      "uid": "35240-082699cc-1a4a-4407-a844-4fda211061c4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-ec86532f-3512-472a-94c3-4f3a4135f653"
+                }
+              ],
+              "id": "9abddd8e-d18c-454f-879c-7d51b883c8f5",
+              "createdAt": "2026-07-28T02:37:47.000Z",
+              "updatedAt": "2026-07-28T02:37:47.000Z",
+              "uid": "35240-9abddd8e-d18c-454f-879c-7d51b883c8f5"
+            }
+          ],
+          "id": "adce944c-4cf7-4e5b-8ff6-981e44fa0bfb",
+          "createdAt": "2026-07-28T02:37:47.000Z",
+          "updatedAt": "2026-07-28T02:37:47.000Z",
+          "uid": "35240-adce944c-4cf7-4e5b-8ff6-981e44fa0bfb"
+        }
+      ],
+      "id": "32dafd37-d294-49c8-b572-180133f33d12",
+      "createdAt": "2026-07-28T02:37:47.000Z",
+      "updatedAt": "2026-07-28T02:37:47.000Z",
+      "uid": "35240-32dafd37-d294-49c8-b572-180133f33d12"
+    },
+    {
+      "name": "payment_profile",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create payment profile",
+              "id": "0bb690a4-bb45-4166-a4e2-2b7d2ffb0d0a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payment_profile/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment_profile",
+                    "create"
+                  ]
+                },
+                "description": "Use `/payment_profile/create` endpoint to create a new payment profile.\nTo initiate the account linking experience, call `/link/token/create` and provide the `payment_profile_token` in the `transfer.payment_profile_token` field.\nYou can then use the `payment_profile_token` when creating transfers using `/transfer/authorization/create` and `/transfer/create`."
+              },
+              "response": [
+                {
+                  "id": "54ea5f6a-3194-43fa-ae41-a6a231ff80fd",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"payment_profile_token\": {\n    \"value\": \"reference #/components/schemas/PaymentProfileToken not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-54ea5f6a-3194-43fa-ae41-a6a231ff80fd"
+                },
+                {
+                  "id": "e2e053fc-7a0c-47e5-8a88-f6249c6c22ce",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-e2e053fc-7a0c-47e5-8a88-f6249c6c22ce"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:47.000Z",
+              "updatedAt": "2026-07-28T02:37:47.000Z",
+              "uid": "35240-0bb690a4-bb45-4166-a4e2-2b7d2ffb0d0a"
+            }
+          ],
+          "id": "add43f9f-c8a2-440c-99f4-68d934b532b7",
+          "createdAt": "2026-07-28T02:37:47.000Z",
+          "updatedAt": "2026-07-28T02:37:47.000Z",
+          "uid": "35240-add43f9f-c8a2-440c-99f4-68d934b532b7"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Get payment profile",
+              "id": "4b8f0b78-98b6-4495-90f4-8d34c530e71f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payment_profile/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment_profile",
+                    "get"
+                  ]
+                },
+                "description": "Use `/payment_profile/get` endpoint to get the status of a given Payment Profile."
+              },
+              "response": [
+                {
+                  "id": "c0715bd2-6fee-475a-9a82-772de5ea3bc3",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/PaymentProfileStatus not found in the OpenAPI spec\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"deleted_at\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-c0715bd2-6fee-475a-9a82-772de5ea3bc3"
+                },
+                {
+                  "id": "7e005f1c-ee1e-4231-9c66-72a99af6c129",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-7e005f1c-ee1e-4231-9c66-72a99af6c129"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:47.000Z",
+              "updatedAt": "2026-07-28T02:37:47.000Z",
+              "uid": "35240-4b8f0b78-98b6-4495-90f4-8d34c530e71f"
+            }
+          ],
+          "id": "19eec3df-b61b-41a8-ae05-6d77a9a0e79f",
+          "createdAt": "2026-07-28T02:37:47.000Z",
+          "updatedAt": "2026-07-28T02:37:47.000Z",
+          "uid": "35240-19eec3df-b61b-41a8-ae05-6d77a9a0e79f"
+        },
+        {
+          "name": "remove",
+          "item": [
+            {
+              "name": "Plaid Remove payment profile",
+              "id": "86daac16-8e30-48a8-8738-fd5be0ef686c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileRemoveRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/payment_profile/remove",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payment_profile",
+                    "remove"
+                  ]
+                },
+                "description": "Use the `/payment_profile/remove` endpoint to remove a given Payment Profile. Once it\u2019s removed, it can no longer be used to create transfers."
+              },
+              "response": [
+                {
+                  "id": "9e7fa4fb-493a-43f7-bc49-d809b8b31f23",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "remove"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-9e7fa4fb-493a-43f7-bc49-d809b8b31f23"
+                },
+                {
+                  "id": "8f3927da-1630-4dca-b619-7f64e308c631",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PaymentProfileRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/payment_profile/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payment_profile",
+                        "remove"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:47.000Z",
+                  "updatedAt": "2026-07-28T02:37:47.000Z",
+                  "uid": "35240-8f3927da-1630-4dca-b619-7f64e308c631"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:47.000Z",
+              "updatedAt": "2026-07-28T02:37:47.000Z",
+              "uid": "35240-86daac16-8e30-48a8-8738-fd5be0ef686c"
+            }
+          ],
+          "id": "b903123f-34ab-4cfc-9c9a-44e6ca919432",
+          "createdAt": "2026-07-28T02:37:47.000Z",
+          "updatedAt": "2026-07-28T02:37:47.000Z",
+          "uid": "35240-b903123f-34ab-4cfc-9c9a-44e6ca919432"
+        }
+      ],
+      "id": "c09fe0dc-7bee-4802-8016-eff74039fd22",
+      "createdAt": "2026-07-28T02:37:47.000Z",
+      "updatedAt": "2026-07-28T02:37:47.000Z",
+      "uid": "35240-c09fe0dc-7bee-4802-8016-eff74039fd22"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

@@ -1,0 +1,686 @@
+{
+  "info": {
+    "_postman_id": "7f9ef118-6617-4670-a757-e6177904304b",
+    "name": "Plaid wallet/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:48.000Z",
+    "updatedAt": "2026-07-28T02:37:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f9ef118-6617-4670-a757-e6177904304b"
+  },
+  "item": [
+    {
+      "name": "wallet",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create an e-wallet",
+              "id": "530c3d69-39b0-4903-93e0-f09ce2d8cfa2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/WalletCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wallet/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallet",
+                    "create"
+                  ]
+                },
+                "description": "Create an e-wallet. The response is the newly created e-wallet object."
+              },
+              "response": [
+                {
+                  "id": "7d34605a-adc0-485b-bf6f-c61b716fda68",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"wallet_id\": true,\n  \"balance\": false,\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-7d34605a-adc0-485b-bf6f-c61b716fda68"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-530c3d69-39b0-4903-93e0-f09ce2d8cfa2"
+            }
+          ],
+          "id": "9c8938de-e5cb-4c9c-b6f2-e74b5808a7d7",
+          "createdAt": "2026-07-28T02:37:48.000Z",
+          "updatedAt": "2026-07-28T02:37:48.000Z",
+          "uid": "35240-9c8938de-e5cb-4c9c-b6f2-e74b5808a7d7"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Fetch an e-wallet",
+              "id": "d2d1cd94-e7d8-453a-bc5e-5c0d89d21915",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/WalletGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wallet/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallet",
+                    "get"
+                  ]
+                },
+                "description": "Fetch an e-wallet. The response includes the current balance."
+              },
+              "response": [
+                {
+                  "id": "e815bef5-804e-4d11-8821-72441ef99fac",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"wallet_id\": false,\n  \"balance\": \"veniam fugiat\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-e815bef5-804e-4d11-8821-72441ef99fac"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-d2d1cd94-e7d8-453a-bc5e-5c0d89d21915"
+            }
+          ],
+          "id": "4a1620fd-e22c-4472-b40c-4a9019d96dcf",
+          "createdAt": "2026-07-28T02:37:48.000Z",
+          "updatedAt": "2026-07-28T02:37:48.000Z",
+          "uid": "35240-4a1620fd-e22c-4472-b40c-4a9019d96dcf"
+        },
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Plaid Fetch a list of e-wallets",
+              "id": "0f2e1a30-d9fc-47e4-9b77-9a1df5450218",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/WalletListRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wallet/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wallet",
+                    "list"
+                  ]
+                },
+                "description": "This endpoint lists all e-wallets in descending order of creation."
+              },
+              "response": [
+                {
+                  "id": "875ac0ca-943b-45d1-bcfc-8da353743bfb",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"wallets\": [\n    {\n      \"value\": \"reference #/components/schemas/Wallet not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Wallet not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"next_cursor\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-875ac0ca-943b-45d1-bcfc-8da353743bfb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-0f2e1a30-d9fc-47e4-9b77-9a1df5450218"
+            }
+          ],
+          "id": "e9a205a7-ee6e-45e3-b858-02e815c4c96f",
+          "createdAt": "2026-07-28T02:37:48.000Z",
+          "updatedAt": "2026-07-28T02:37:48.000Z",
+          "uid": "35240-e9a205a7-ee6e-45e3-b858-02e815c4c96f"
+        },
+        {
+          "name": "transaction",
+          "item": [
+            {
+              "name": "execute",
+              "item": [
+                {
+                  "name": "Plaid Execute a transaction using an e-wallet",
+                  "id": "b37eb4ec-417c-48c3-bf3f-7c124fee7571",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionExecuteRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/transaction/execute",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "transaction",
+                        "execute"
+                      ]
+                    },
+                    "description": "Execute a transaction using the specified e-wallet.\nSpecify the e-wallet to debit from, the counterparty to credit to, the idempotency key to prevent duplicate transactions, the amount and reference for the transaction.\nTransactions will settle in seconds to several days, depending on the underlying payment rail."
+                  },
+                  "response": [
+                    {
+                      "id": "8ab77931-5bfc-46f5-b3b4-776596bfafdc",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionExecuteRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallet/transaction/execute",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallet",
+                            "transaction",
+                            "execute"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transaction_id\": \"<string>\",\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WalletTransactionStatus not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:48.000Z",
+                      "updatedAt": "2026-07-28T02:37:48.000Z",
+                      "uid": "35240-8ab77931-5bfc-46f5-b3b4-776596bfafdc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-b37eb4ec-417c-48c3-bf3f-7c124fee7571"
+                }
+              ],
+              "id": "1c5f5995-5a06-43b5-b300-9932d56da261",
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-1c5f5995-5a06-43b5-b300-9932d56da261"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Fetch an e-wallet transaction",
+                  "id": "451a555d-e8bb-47fe-bc5d-d912a2d435fe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/transaction/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "transaction",
+                        "get"
+                      ]
+                    },
+                    "description": "Fetch a specific e-wallet transaction"
+                  },
+                  "response": [
+                    {
+                      "id": "b2af1a26-eee9-4aa1-a62c-b3ab2bd313c4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallet/transaction/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallet",
+                            "transaction",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transaction_id\": \"tempor Lorem est Ut\",\n  \"reference\": -69268342.26707621,\n  \"type\": false,\n  \"amount\": \"aute ad elit consectetur\",\n  \"counterparty\": true,\n  \"status\": \"sunt sed\",\n  \"created_at\": \"laboris in\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:48.000Z",
+                      "updatedAt": "2026-07-28T02:37:48.000Z",
+                      "uid": "35240-b2af1a26-eee9-4aa1-a62c-b3ab2bd313c4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-451a555d-e8bb-47fe-bc5d-d912a2d435fe"
+                }
+              ],
+              "id": "79be37be-d2f9-4c1d-bc9e-2402753a2b50",
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-79be37be-d2f9-4c1d-bc9e-2402753a2b50"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List e-wallet transactions",
+                  "id": "d706e097-f785-49b7-a30e-90ae93838459",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wallet/transaction/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wallet",
+                        "transaction",
+                        "list"
+                      ]
+                    },
+                    "description": "This endpoint lists the latest transactions of the specified e-wallet. Transactions are returned in descending order by the `created_at` time."
+                  },
+                  "response": [
+                    {
+                      "id": "93be3ec0-be6a-4ab6-bf64-f193b4414044",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WalletTransactionListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wallet/transaction/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wallet",
+                            "transaction",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"transactions\": [\n    {\n      \"value\": \"reference #/components/schemas/WalletTransaction not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WalletTransaction not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"next_cursor\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:48.000Z",
+                      "updatedAt": "2026-07-28T02:37:48.000Z",
+                      "uid": "35240-93be3ec0-be6a-4ab6-bf64-f193b4414044"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:48.000Z",
+                  "updatedAt": "2026-07-28T02:37:48.000Z",
+                  "uid": "35240-d706e097-f785-49b7-a30e-90ae93838459"
+                }
+              ],
+              "id": "80889cad-4ddc-427a-93ac-fe2c3ae40dbb",
+              "createdAt": "2026-07-28T02:37:48.000Z",
+              "updatedAt": "2026-07-28T02:37:48.000Z",
+              "uid": "35240-80889cad-4ddc-427a-93ac-fe2c3ae40dbb"
+            }
+          ],
+          "id": "ba6f179c-dbd4-4d3d-b126-e9fc533d7b64",
+          "createdAt": "2026-07-28T02:37:48.000Z",
+          "updatedAt": "2026-07-28T02:37:48.000Z",
+          "uid": "35240-ba6f179c-dbd4-4d3d-b126-e9fc533d7b64"
+        }
+      ],
+      "id": "42c39179-aedf-457a-a018-0df3e732f001",
+      "createdAt": "2026-07-28T02:37:48.000Z",
+      "updatedAt": "2026-07-28T02:37:48.000Z",
+      "uid": "35240-42c39179-aedf-457a-a018-0df3e732f001"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

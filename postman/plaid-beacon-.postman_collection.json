@@ -1,0 +1,1458 @@
+{
+  "info": {
+    "_postman_id": "67dca97d-fbc0-4d50-86cf-0bd62d58a8eb",
+    "name": "Plaid beacon/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:05.000Z",
+    "updatedAt": "2026-07-28T02:37:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-67dca97d-fbc0-4d50-86cf-0bd62d58a8eb"
+  },
+  "item": [
+    {
+      "name": "beacon",
+      "item": [
+        {
+          "name": "account_risk",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "evaluate",
+                  "item": [
+                    {
+                      "name": "Plaid Evaluate risk of a bank account",
+                      "id": "9893b85c-ddfe-47b2-9517-e330e28b9682",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconAccountRiskEvaluateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/account_risk/v1/evaluate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "account_risk",
+                            "v1",
+                            "evaluate"
+                          ]
+                        },
+                        "description": "Use `/beacon/account_risk/v1/evaluate` to get risk insights for a linked account."
+                      },
+                      "response": [
+                        {
+                          "id": "90adeea9-2a1e-4698-a50b-4ae2b40a0559",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconAccountRiskEvaluateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beacon/account_risk/v1/evaluate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beacon",
+                                "account_risk",
+                                "v1",
+                                "evaluate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/BeaconAccountRiskEvaluateAccount not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BeaconAccountRiskEvaluateAccount not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:37:06.000Z",
+                          "updatedAt": "2026-07-28T02:37:06.000Z",
+                          "uid": "35240-90adeea9-2a1e-4698-a50b-4ae2b40a0559"
+                        },
+                        {
+                          "id": "c976b2a4-7ca9-4da9-972e-3979c1d80af3",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconAccountRiskEvaluateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beacon/account_risk/v1/evaluate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beacon",
+                                "account_risk",
+                                "v1",
+                                "evaluate"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:06.000Z",
+                          "updatedAt": "2026-07-28T02:37:06.000Z",
+                          "uid": "35240-c976b2a4-7ca9-4da9-972e-3979c1d80af3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-9893b85c-ddfe-47b2-9517-e330e28b9682"
+                    }
+                  ],
+                  "id": "e2a53595-7ca9-4a9a-900c-7ebf1461c66d",
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-e2a53595-7ca9-4a9a-900c-7ebf1461c66d"
+                }
+              ],
+              "id": "7f6fb341-9324-4fbe-bfbe-49fa08994dfd",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-7f6fb341-9324-4fbe-bfbe-49fa08994dfd"
+            }
+          ],
+          "id": "7a94595a-2fdb-4e7a-a11e-d33134c1ff25",
+          "createdAt": "2026-07-28T02:37:06.000Z",
+          "updatedAt": "2026-07-28T02:37:06.000Z",
+          "uid": "35240-7a94595a-2fdb-4e7a-a11e-d33134c1ff25"
+        },
+        {
+          "name": "user",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a Beacon User",
+                  "id": "711ea33b-5f8b-4d11-a427-ecb8444d7e25",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/user/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "user",
+                        "create"
+                      ]
+                    },
+                    "description": "Create and scan a Beacon User against your Beacon Program, according to your program's settings.\n\nWhen you submit a new user to `/beacon/user/create`, several checks are performed immediately:\n\n  - The user's PII (provided within the `user` object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.\n\n  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud."
+                  },
+                  "response": [
+                    {
+                      "id": "21becffc-6fb5-491f-b2e5-3ae3f02154d1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/user/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "user",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"version\": \"<integer>\",\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"updated_at\": {\n    \"value\": \"reference #/components/schemas/UpdatedAtTimestamp not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/BeaconUserStatus not found in the OpenAPI spec\"\n  },\n  \"program_id\": {\n    \"value\": \"reference #/components/schemas/BeaconProgramID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/BeaconUserData not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-21becffc-6fb5-491f-b2e5-3ae3f02154d1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-711ea33b-5f8b-4d11-a427-ecb8444d7e25"
+                }
+              ],
+              "id": "9391e7df-aace-4f51-b59e-77e47a65c124",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-9391e7df-aace-4f51-b59e-77e47a65c124"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get a Beacon User",
+                  "id": "068d1ef4-f2f3-4418-8e62-d323cb2dabcd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/user/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "user",
+                        "get"
+                      ]
+                    },
+                    "description": "Fetch a Beacon User.\n\nThe Beacon User is returned with all of their associated information and a `status` based on the Beacon Network duplicate record and fraud checks.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "54e677ac-e22b-4e7a-8118-394f80a3c0c2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/user/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "user",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"version\": \"<integer>\",\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"updated_at\": {\n    \"value\": \"reference #/components/schemas/UpdatedAtTimestamp not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/BeaconUserStatus not found in the OpenAPI spec\"\n  },\n  \"program_id\": {\n    \"value\": \"reference #/components/schemas/BeaconProgramID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/BeaconUserData not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-54e677ac-e22b-4e7a-8118-394f80a3c0c2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-068d1ef4-f2f3-4418-8e62-d323cb2dabcd"
+                }
+              ],
+              "id": "96e86892-a0a0-45a2-ae0e-8da6c18d1c60",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-96e86892-a0a0-45a2-ae0e-8da6c18d1c60"
+            },
+            {
+              "name": "review",
+              "item": [
+                {
+                  "name": "Plaid Review a Beacon User",
+                  "id": "cd3c4d17-bfdc-4896-9c7a-dd48dfd36d45",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserReviewRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/user/review",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "user",
+                        "review"
+                      ]
+                    },
+                    "description": "Update the status of a Beacon User.\n\nWhen updating a Beacon User's status via this endpoint, Plaid validates that the status change is consistent with the related state for this Beacon User. Specifically, we will check:\n\n1. Whether there are any associated Beacon Reports connected to the Beacon User, and\n2. Whether there are any confirmed Beacon Report Syndications connected to the Beacon User.\n\nWhen updating a Beacon User's status to \"rejected\", we enforce that either a Beacon Report has been created for the Beacon User or a Beacon Report Syndication has been confirmed.\nWhen updating a Beacon User's status to \"cleared\", we enforce that there are no active Beacon Reports or confirmed Beacon Report Syndications associated with the user. If you previously created a Beacon Report for this user, you must delete it before updating the Beacon User's status to \"cleared\".\nThere are no restrictions on updating a Beacon User's status to \"pending_review\".\n\nIf these conditions are not met, the request will be rejected with an error explaining the issue."
+                  },
+                  "response": [
+                    {
+                      "id": "5220f26f-348c-4a6b-a24e-849a9fdca817",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserReviewRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/user/review",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "user",
+                            "review"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"version\": \"<integer>\",\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"updated_at\": {\n    \"value\": \"reference #/components/schemas/UpdatedAtTimestamp not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/BeaconUserStatus not found in the OpenAPI spec\"\n  },\n  \"program_id\": {\n    \"value\": \"reference #/components/schemas/BeaconProgramID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/BeaconUserData not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-5220f26f-348c-4a6b-a24e-849a9fdca817"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-cd3c4d17-bfdc-4896-9c7a-dd48dfd36d45"
+                }
+              ],
+              "id": "4c259b8b-6e61-46d3-a4e4-2a2e4fcbc8e4",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-4c259b8b-6e61-46d3-a4e4-2a2e4fcbc8e4"
+            },
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Update the identity data of a Beacon User",
+                  "id": "0f0ece02-dabd-498d-888d-aca415dcb0fe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/user/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "user",
+                        "update"
+                      ]
+                    },
+                    "description": "Update the identity data for a Beacon User in your Beacon Program.\n\nSimilar to `/beacon/user/create`, several checks are performed immediately when you submit a change to `/beacon/user/update`:\n\n  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.\n\n  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.\n\nPlaid maintains a version history for each Beacon User, so the Beacon User's identity data before and after the update is retained as separate versions."
+                  },
+                  "response": [
+                    {
+                      "id": "3065bf14-add5-44da-a74a-90afecbada48",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/user/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "user",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"version\": \"<integer>\",\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"updated_at\": {\n    \"value\": \"reference #/components/schemas/UpdatedAtTimestamp not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/BeaconUserStatus not found in the OpenAPI spec\"\n  },\n  \"program_id\": {\n    \"value\": \"reference #/components/schemas/BeaconProgramID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/BeaconUserData not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-3065bf14-add5-44da-a74a-90afecbada48"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-0f0ece02-dabd-498d-888d-aca415dcb0fe"
+                }
+              ],
+              "id": "7aa53d81-0884-446c-8e1d-ddf91128b4ec",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-7aa53d81-0884-446c-8e1d-ddf91128b4ec"
+            },
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List a Beacon User's history",
+                      "id": "d2edc15a-9312-42fb-a743-6aa6da3ffc43",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserHistoryListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/user/history/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "user",
+                            "history",
+                            "list"
+                          ]
+                        },
+                        "description": "List all changes to the Beacon User in reverse-chronological order."
+                      },
+                      "response": [
+                        {
+                          "id": "26d1cc91-2551-40e7-9f1b-509924d2e202",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconUserHistoryListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/beacon/user/history/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "beacon",
+                                "user",
+                                "history",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"beacon_users\": [\n    {\n      \"value\": \"reference #/components/schemas/BeaconUser not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BeaconUser not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:06.000Z",
+                          "updatedAt": "2026-07-28T02:37:06.000Z",
+                          "uid": "35240-26d1cc91-2551-40e7-9f1b-509924d2e202"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-d2edc15a-9312-42fb-a743-6aa6da3ffc43"
+                    }
+                  ],
+                  "id": "322e71f8-aeaf-42b0-a8b2-5a91e5e4e585",
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-322e71f8-aeaf-42b0-a8b2-5a91e5e4e585"
+                }
+              ],
+              "id": "095e79bf-ee4d-4c2f-b0a0-1efd450ed0b3",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-095e79bf-ee4d-4c2f-b0a0-1efd450ed0b3"
+            }
+          ],
+          "id": "4c404d41-40ee-48e4-b368-38ee8ea7b773",
+          "createdAt": "2026-07-28T02:37:06.000Z",
+          "updatedAt": "2026-07-28T02:37:06.000Z",
+          "uid": "35240-4c404d41-40ee-48e4-b368-38ee8ea7b773"
+        },
+        {
+          "name": "report",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a Beacon Report",
+                  "id": "4d7009f7-b14c-4517-b5b8-f89f42b47497",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/report/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "report",
+                        "create"
+                      ]
+                    },
+                    "description": "Create a fraud report for a given Beacon User."
+                  },
+                  "response": [
+                    {
+                      "id": "f1093588-8a28-468b-9b87-85b5c7960cc2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/report/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "report",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconReportID not found in the OpenAPI spec\"\n  },\n  \"beacon_user_id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"type\": {\n    \"value\": \"reference #/components/schemas/BeaconReportType not found in the OpenAPI spec\"\n  },\n  \"fraud_date\": {\n    \"value\": \"reference #/components/schemas/ISO8601Date not found in the OpenAPI spec\"\n  },\n  \"fraud_amount\": {\n    \"value\": \"reference #/components/schemas/FraudAmount not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-f1093588-8a28-468b-9b87-85b5c7960cc2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-4d7009f7-b14c-4517-b5b8-f89f42b47497"
+                }
+              ],
+              "id": "f5a84f1f-4eda-410d-8222-0a94fcb45cef",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-f5a84f1f-4eda-410d-8222-0a94fcb45cef"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List Beacon Reports for a Beacon User",
+                  "id": "fe82a96c-5e9a-44a1-b895-f122a97286a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/report/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "report",
+                        "list"
+                      ]
+                    },
+                    "description": "Use the `/beacon/report/list` endpoint to view all Beacon Reports you created for a specific Beacon User. The reports returned by this endpoint are exclusively reports you created for a specific user. A Beacon User can only have one active report at a time, but a new report can be created if a previous report has been deleted. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the `next_cursor` value as the `cursor` parameter in the next request."
+                  },
+                  "response": [
+                    {
+                      "id": "27f875f5-8689-4b0f-ad6c-b93857f2ed91",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/report/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "report",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"beacon_reports\": [\n    {\n      \"value\": \"reference #/components/schemas/BeaconReport not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BeaconReport not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-27f875f5-8689-4b0f-ad6c-b93857f2ed91"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-fe82a96c-5e9a-44a1-b895-f122a97286a0"
+                }
+              ],
+              "id": "cec9d5e0-2bb4-4f12-b390-a7bb1de8fe27",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-cec9d5e0-2bb4-4f12-b390-a7bb1de8fe27"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get a Beacon Report",
+                  "id": "a76ca2f8-6948-41bc-b5ed-bd1787a0dbd0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/report/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "report",
+                        "get"
+                      ]
+                    },
+                    "description": "Returns a Beacon report for a given Beacon report id."
+                  },
+                  "response": [
+                    {
+                      "id": "408f61f5-8528-4e32-97e9-6161e01958be",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/report/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "report",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconReportID not found in the OpenAPI spec\"\n  },\n  \"beacon_user_id\": {\n    \"value\": \"reference #/components/schemas/BeaconUserID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"type\": {\n    \"value\": \"reference #/components/schemas/BeaconReportType not found in the OpenAPI spec\"\n  },\n  \"fraud_date\": {\n    \"value\": \"reference #/components/schemas/ISO8601Date not found in the OpenAPI spec\"\n  },\n  \"fraud_amount\": {\n    \"value\": \"reference #/components/schemas/FraudAmount not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/BeaconAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-408f61f5-8528-4e32-97e9-6161e01958be"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-a76ca2f8-6948-41bc-b5ed-bd1787a0dbd0"
+                }
+              ],
+              "id": "ec525f88-2309-426a-a0f5-d6b5c0857f99",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-ec525f88-2309-426a-a0f5-d6b5c0857f99"
+            }
+          ],
+          "id": "beffc190-fdd7-48cd-a6f7-d37e6a82448a",
+          "createdAt": "2026-07-28T02:37:06.000Z",
+          "updatedAt": "2026-07-28T02:37:06.000Z",
+          "uid": "35240-beffc190-fdd7-48cd-a6f7-d37e6a82448a"
+        },
+        {
+          "name": "report_syndication",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List Beacon Report Syndications for a Beacon User",
+                  "id": "a7a59ada-c76c-45c0-aafd-eacc2ecd3fc8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportSyndicationListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/report_syndication/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "report_syndication",
+                        "list"
+                      ]
+                    },
+                    "description": "Use the `/beacon/report_syndication/list` endpoint to view all Beacon Reports that have been syndicated to a specific Beacon User. This endpoint returns Beacon Report Syndications which are references to Beacon Reports created either by you, or another Beacon customer, that matched the specified Beacon User. A Beacon User can have multiple active Beacon Report Syndications at once. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the `next_cursor` value as the `cursor` parameter in the next request."
+                  },
+                  "response": [
+                    {
+                      "id": "012b10e5-2ab1-4a74-b0b3-604417c990aa",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportSyndicationListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/report_syndication/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "report_syndication",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"beacon_report_syndications\": [\n    {\n      \"value\": \"reference #/components/schemas/BeaconReportSyndication not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BeaconReportSyndication not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-012b10e5-2ab1-4a74-b0b3-604417c990aa"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-a7a59ada-c76c-45c0-aafd-eacc2ecd3fc8"
+                }
+              ],
+              "id": "9bf78ce6-19b6-49e6-9c23-6ee14c522c01",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-9bf78ce6-19b6-49e6-9c23-6ee14c522c01"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get a Beacon Report Syndication",
+                  "id": "a6d3d298-60bc-458c-82e3-079aab054b77",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportSyndicationGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/report_syndication/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "report_syndication",
+                        "get"
+                      ]
+                    },
+                    "description": "Returns a Beacon Report Syndication for a given Beacon Report Syndication id."
+                  },
+                  "response": [
+                    {
+                      "id": "516f41fb-a18a-44e5-a87e-c0485755ceae",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconReportSyndicationGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/report_syndication/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "report_syndication",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconReportSyndicationID not found in the OpenAPI spec\"\n  },\n  \"report\": {\n    \"value\": \"reference #/components/schemas/BeaconReportSyndicationOriginalReport not found in the OpenAPI spec\"\n  },\n  \"analysis\": {\n    \"value\": \"reference #/components/schemas/BeaconReportSyndicationAnalysis not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-516f41fb-a18a-44e5-a87e-c0485755ceae"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-a6d3d298-60bc-458c-82e3-079aab054b77"
+                }
+              ],
+              "id": "51e82804-465b-4ca7-95da-f5600e8de73d",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-51e82804-465b-4ca7-95da-f5600e8de73d"
+            }
+          ],
+          "id": "f1e30c66-6549-4c1d-83f5-169e89fc0ed1",
+          "createdAt": "2026-07-28T02:37:06.000Z",
+          "updatedAt": "2026-07-28T02:37:06.000Z",
+          "uid": "35240-f1e30c66-6549-4c1d-83f5-169e89fc0ed1"
+        },
+        {
+          "name": "duplicate",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get a Beacon Duplicate",
+                  "id": "6b5caf12-e6bf-4b9c-b268-0532861437c1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconDuplicateGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/beacon/duplicate/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "beacon",
+                        "duplicate",
+                        "get"
+                      ]
+                    },
+                    "description": "Returns a Beacon Duplicate for a given Beacon Duplicate id.\n\nA Beacon Duplicate represents a pair of similar Beacon Users within your organization.\n\nTwo Beacon User revisions are returned for each Duplicate record in either the `beacon_user1` or `beacon_user2` response fields.\n\nThe `analysis` field in the response indicates which fields matched between `beacon_user1` and `beacon_user2`.\n"
+                  },
+                  "response": [
+                    {
+                      "id": "3944e101-527d-4e8f-b4f5-7dc0872761b4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BeaconDuplicateGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/beacon/duplicate/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "beacon",
+                            "duplicate",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/BeaconDuplicateID not found in the OpenAPI spec\"\n  },\n  \"beacon_user1\": {\n    \"value\": \"reference #/components/schemas/BeaconUserRevision not found in the OpenAPI spec\"\n  },\n  \"beacon_user2\": {\n    \"value\": \"reference #/components/schemas/BeaconUserRevision not found in the OpenAPI spec\"\n  },\n  \"analysis\": {\n    \"value\": \"reference #/components/schemas/BeaconMatchSummaryAnalysis not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:06.000Z",
+                      "updatedAt": "2026-07-28T02:37:06.000Z",
+                      "uid": "35240-3944e101-527d-4e8f-b4f5-7dc0872761b4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:06.000Z",
+                  "updatedAt": "2026-07-28T02:37:06.000Z",
+                  "uid": "35240-6b5caf12-e6bf-4b9c-b268-0532861437c1"
+                }
+              ],
+              "id": "0b5e5627-a292-46dc-a976-1ba56867a4a2",
+              "createdAt": "2026-07-28T02:37:06.000Z",
+              "updatedAt": "2026-07-28T02:37:06.000Z",
+              "uid": "35240-0b5e5627-a292-46dc-a976-1ba56867a4a2"
+            }
+          ],
+          "id": "aec00271-d8c2-4fe1-a3fb-0fc85f57f5ca",
+          "createdAt": "2026-07-28T02:37:06.000Z",
+          "updatedAt": "2026-07-28T02:37:06.000Z",
+          "uid": "35240-aec00271-d8c2-4fe1-a3fb-0fc85f57f5ca"
+        }
+      ],
+      "id": "b93038a8-0280-46d8-9803-491c3f228d8e",
+      "createdAt": "2026-07-28T02:37:06.000Z",
+      "updatedAt": "2026-07-28T02:37:06.000Z",
+      "uid": "35240-b93038a8-0280-46d8-9803-491c3f228d8e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

@@ -1,0 +1,1156 @@
+{
+  "info": {
+    "_postman_id": "7dd47264-e3a3-4016-b667-effa57975e6e",
+    "name": "Plaid asset report/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:33.000Z",
+    "updatedAt": "2026-07-28T02:37:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7dd47264-e3a3-4016-b667-effa57975e6e"
+  },
+  "item": [
+    {
+      "name": "asset_report",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create an Asset Report",
+              "id": "437c22bc-634e-4360-8ad3-c1e4cad59a65",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/asset_report/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "asset_report",
+                    "create"
+                  ]
+                },
+                "description": "The `/asset_report/create` endpoint initiates the process of creating an Asset Report, which can then be retrieved by passing the `asset_report_token` return value to the `/asset_report/get` or `/asset_report/pdf/get` endpoints.\n\nThe Asset Report takes some time to be created and is not available immediately after calling `/asset_report/create`. The exact amount of time to create the report will vary depending on how many days of history are requested and will typically range from a few seconds to about one minute. When the Asset Report is ready to be retrieved using `/asset_report/get` or `/asset_report/pdf/get`, Plaid will fire a `PRODUCT_READY` webhook. For full details of the webhook schema, see [Asset Report webhooks](https://plaid.com/docs/api/products/assets/#webhooks).\n\nThe `/asset_report/create` endpoint creates an Asset Report at a moment in time. Asset Reports are immutable. To get an updated Asset Report, use the `/asset_report/refresh` endpoint."
+              },
+              "response": [
+                {
+                  "id": "26914bd1-924c-4227-85cd-b75c57cd7a40",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"asset_report_token\": {\n    \"value\": \"reference #/components/schemas/AssetReportToken not found in the OpenAPI spec\"\n  },\n  \"asset_report_id\": {\n    \"value\": \"reference #/components/schemas/AssetReportId not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-26914bd1-924c-4227-85cd-b75c57cd7a40"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-437c22bc-634e-4360-8ad3-c1e4cad59a65"
+            }
+          ],
+          "id": "7154d3ba-922f-4c07-8693-6308074d40e5",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-7154d3ba-922f-4c07-8693-6308074d40e5"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve an Asset Report",
+              "id": "ee326923-69cd-4904-ae31-5ff1cb054130",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/asset_report/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "asset_report",
+                    "get"
+                  ]
+                },
+                "description": "The `/asset_report/get` endpoint retrieves the Asset Report in JSON format. Before calling `/asset_report/get`, you must first create the Asset Report using `/asset_report/create` (or filter an Asset Report using `/asset_report/filter`) and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to be retrieved.\n\nBy default, an Asset Report includes transaction descriptions as returned by the bank, as opposed to parsed and categorized by Plaid. You can also receive cleaned and categorized transactions, as well as additional insights like merchant name or location information. We call this an Asset Report with Insights. An Asset Report with Insights provides transaction category, location, and merchant information in addition to the transaction strings provided in a standard Asset Report. To retrieve an Asset Report with Insights, call `/asset_report/get` endpoint with `include_insights` set to `true`.\n\nFor latency-sensitive applications, you can optionally call `/asset_report/create` with `options.add_ons` set to `[\"fast_assets\"]`. This will cause Plaid to create two versions of the Asset Report: one with only current and available balance and identity information, and then later on the complete Asset Report. You will receive separate webhooks for each version of the Asset Report."
+              },
+              "response": [
+                {
+                  "id": "8e513890-0e2a-4834-9bc9-6f1e18354fbc",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"report\": {\n    \"value\": \"reference #/components/schemas/AssetReport not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-8e513890-0e2a-4834-9bc9-6f1e18354fbc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-ee326923-69cd-4904-ae31-5ff1cb054130"
+            }
+          ],
+          "id": "0da57510-4783-4374-b2e1-d15e4b3f46d7",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-0da57510-4783-4374-b2e1-d15e4b3f46d7"
+        },
+        {
+          "name": "pdf",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve a PDF Asset Report",
+                  "id": "57791038-6724-406c-8419-da9bcd8e4be6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/pdf"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportPDFGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/pdf/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "pdf",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/asset_report/pdf/get` endpoint retrieves the Asset Report in PDF format. Before calling `/asset_report/pdf/get`, you must first create the Asset Report using `/asset_report/create` (or filter an Asset Report using `/asset_report/filter`) and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to be retrieved.\n\nThe response to `/asset_report/pdf/get` is the PDF binary data. The `request_id`  is returned in the `Plaid-Request-ID` header.\n\n[View a sample PDF Asset Report](https://plaid.com/documents/sample-asset-report.pdf)."
+                  },
+                  "response": [
+                    {
+                      "id": "b9389469-cb5e-43a6-96fa-9c960d15c0ec",
+                      "name": "A PDF of the Asset Report",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/pdf"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportPDFGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/asset_report/pdf/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "asset_report",
+                            "pdf",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/pdf"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": \"reference #/components/schemas/AssetReportPDFGetResponse not found in the OpenAPI spec\"\n}",
+                      "createdAt": "2026-07-28T02:37:34.000Z",
+                      "updatedAt": "2026-07-28T02:37:34.000Z",
+                      "uid": "35240-b9389469-cb5e-43a6-96fa-9c960d15c0ec"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-57791038-6724-406c-8419-da9bcd8e4be6"
+                }
+              ],
+              "id": "33dcc07c-eac6-48c5-87a9-ce3f9ab998a5",
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-33dcc07c-eac6-48c5-87a9-ce3f9ab998a5"
+            }
+          ],
+          "id": "57601868-6ea9-43bf-8f2e-c966579a387b",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-57601868-6ea9-43bf-8f2e-c966579a387b"
+        },
+        {
+          "name": "refresh",
+          "item": [
+            {
+              "name": "Plaid Refresh an Asset Report",
+              "id": "4a5cdefd-69cd-41e6-86c1-2a35404df8ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportRefreshRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/asset_report/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "asset_report",
+                    "refresh"
+                  ]
+                },
+                "description": "An Asset Report is an immutable snapshot of a user's assets. In order to \"refresh\" an Asset Report you created previously, you can use the `/asset_report/refresh` endpoint to create a new Asset Report based on the old one, but with the most recent data available.\n\nThe new Asset Report will contain the same Items as the original Report, as well as the same filters applied by any call to `/asset_report/filter`. By default, the new Asset Report will also use the same parameters you submitted with your original `/asset_report/create` request, but the original `days_requested` value and the values of any parameters in the `options` object can be overridden with new values. To change these arguments, simply supply new values for them in your request to `/asset_report/refresh`. Submit an empty string (\"\") for any previously-populated fields you would like set as empty."
+              },
+              "response": [
+                {
+                  "id": "e9fba2fb-bf0d-49ee-bce9-77f7c7ff6139",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"asset_report_id\": {\n    \"value\": \"reference #/components/schemas/AssetReportId not found in the OpenAPI spec\"\n  },\n  \"asset_report_token\": {\n    \"value\": \"reference #/components/schemas/AssetReportToken not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-e9fba2fb-bf0d-49ee-bce9-77f7c7ff6139"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-4a5cdefd-69cd-41e6-86c1-2a35404df8ea"
+            }
+          ],
+          "id": "4d8c206b-908b-4c03-8ecb-d44591b12512",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-4d8c206b-908b-4c03-8ecb-d44591b12512"
+        },
+        {
+          "name": "filter",
+          "item": [
+            {
+              "name": "Plaid Filter Asset Report",
+              "id": "9fc2dfd1-be22-4576-a7e3-fbf20207aa7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFilterRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/asset_report/filter",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "asset_report",
+                    "filter"
+                  ]
+                },
+                "description": "By default, an Asset Report will contain all of the accounts on a given Item. In some cases, you may not want the Asset Report to contain all accounts. For example, you might have the end user choose which accounts are relevant in Link using the Account Select view, which you can enable in the dashboard. Or, you might always exclude certain account types or subtypes, which you can identify by using the `/accounts/get` endpoint. To narrow an Asset Report to only a subset of accounts, use the `/asset_report/filter` endpoint.\n\nTo exclude certain Accounts from an Asset Report, first use the `/asset_report/create` endpoint to create the report, then send the `asset_report_token` along with a list of `account_ids` to exclude to the `/asset_report/filter` endpoint, to create a new Asset Report which contains only a subset of the original Asset Report's data.\n\nBecause Asset Reports are immutable, calling `/asset_report/filter` does not alter the original Asset Report in any way; rather, `/asset_report/filter` creates a new Asset Report with a new token and id. Asset Reports created via `/asset_report/filter` do not contain new Asset data, and are not billed.\n\nPlaid will fire a [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook once generation of the filtered Asset Report has completed."
+              },
+              "response": [
+                {
+                  "id": "82f20014-d7ef-46fc-a034-89e79bf99306",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFilterRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/filter",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "filter"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"asset_report_token\": {\n    \"value\": \"reference #/components/schemas/AssetReportToken not found in the OpenAPI spec\"\n  },\n  \"asset_report_id\": {\n    \"value\": \"reference #/components/schemas/AssetReportId not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-82f20014-d7ef-46fc-a034-89e79bf99306"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-9fc2dfd1-be22-4576-a7e3-fbf20207aa7a"
+            }
+          ],
+          "id": "62088bb3-8d74-4abd-b24e-7f8c66b3124b",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-62088bb3-8d74-4abd-b24e-7f8c66b3124b"
+        },
+        {
+          "name": "remove",
+          "item": [
+            {
+              "name": "Plaid Delete an Asset Report",
+              "id": "764696ef-f454-44c6-9d31-393f0872db07",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportRemoveRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/asset_report/remove",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "asset_report",
+                    "remove"
+                  ]
+                },
+                "description": "The `/item/remove` endpoint allows you to invalidate an `access_token`, meaning you will not be able to create new Asset Reports with it. Removing an Item does not affect any Asset Reports or Audit Copies you have already created, which will remain accessible until you remove them specifically.\n\nThe `/asset_report/remove` endpoint allows you to remove access to an Asset Report. Removing an Asset Report invalidates its `asset_report_token`, meaning you will no longer be able to use it to access Report data or create new Audit Copies. Removing an Asset Report does not affect the underlying Items, but does invalidate any `audit_copy_tokens` associated with the Asset Report."
+              },
+              "response": [
+                {
+                  "id": "afd8eb97-54ba-44d9-b6a2-a82f54ef0fc3",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "remove"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"removed\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-afd8eb97-54ba-44d9-b6a2-a82f54ef0fc3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-764696ef-f454-44c6-9d31-393f0872db07"
+            }
+          ],
+          "id": "42d2fea6-8439-4319-9f73-1a86c977dedc",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-42d2fea6-8439-4319-9f73-1a86c977dedc"
+        },
+        {
+          "name": "audit_copy",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create Asset Report Audit Copy",
+                  "id": "26a16426-f89a-460e-9a34-dead55103170",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/audit_copy/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "audit_copy",
+                        "create"
+                      ]
+                    },
+                    "description": "Plaid can provide an Audit Copy of any Asset Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy directly to Fannie Mae on your behalf if you participate in the Day 1 Certainty\u2122 program. An Audit Copy contains the same underlying data as the Asset Report.\n\nTo grant access to an Audit Copy, use the `/asset_report/audit_copy/create` endpoint to create an `audit_copy_token` and then pass that token to the third party who needs access. Each third party has its own `auditor_id`, for example `fannie_mae`. You\u2019ll need to create a separate Audit Copy for each third party to whom you want to grant access to the Report."
+                  },
+                  "response": [
+                    {
+                      "id": "0aa474e2-17b0-44a2-9cf2-3b0475a13bcc",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/asset_report/audit_copy/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "asset_report",
+                            "audit_copy",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"audit_copy_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:34.000Z",
+                      "updatedAt": "2026-07-28T02:37:34.000Z",
+                      "uid": "35240-0aa474e2-17b0-44a2-9cf2-3b0475a13bcc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-26a16426-f89a-460e-9a34-dead55103170"
+                }
+              ],
+              "id": "b27f3067-0311-4d9d-a2b2-9169744448a2",
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-b27f3067-0311-4d9d-a2b2-9169744448a2"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve an Asset Report Audit Copy",
+                  "id": "b9c34bcf-2e63-49b4-a6b7-226bbdeed4e3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/audit_copy/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "audit_copy",
+                        "get"
+                      ]
+                    },
+                    "description": "`/asset_report/audit_copy/get` allows auditors to get a copy of an Asset Report that was previously shared via the `/asset_report/audit_copy/create` endpoint.  The caller of `/asset_report/audit_copy/create` must provide the `audit_copy_token` to the auditor.  This token can then be used to call `/asset_report/audit_copy/create`."
+                  },
+                  "response": [
+                    {
+                      "id": "4d7c5027-c9f1-40ad-b005-58c52c0b8228",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/asset_report/audit_copy/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "asset_report",
+                            "audit_copy",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"report\": {\n    \"value\": \"reference #/components/schemas/AssetReport not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:34.000Z",
+                      "updatedAt": "2026-07-28T02:37:34.000Z",
+                      "uid": "35240-4d7c5027-c9f1-40ad-b005-58c52c0b8228"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-b9c34bcf-2e63-49b4-a6b7-226bbdeed4e3"
+                }
+              ],
+              "id": "09205a40-fe88-4d53-81bd-0b1d4c806f36",
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-09205a40-fe88-4d53-81bd-0b1d4c806f36"
+            },
+            {
+              "name": "remove",
+              "item": [
+                {
+                  "name": "Plaid Remove Asset Report Audit Copy",
+                  "id": "1751b3e3-a943-4391-b0c3-9ba13ed2cde0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/asset_report/audit_copy/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "asset_report",
+                        "audit_copy",
+                        "remove"
+                      ]
+                    },
+                    "description": "The `/asset_report/audit_copy/remove` endpoint allows you to remove an Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token` associated with it, meaning both you and any third parties holding the token will no longer be able to use it to access Report data. Items associated with the Asset Report, the Asset Report itself and other Audit Copies of it are not affected and will remain accessible after removing the given Audit Copy."
+                  },
+                  "response": [
+                    {
+                      "id": "ae8ff8fc-faa4-408f-9010-13324ad8f243",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportAuditCopyRemoveRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/asset_report/audit_copy/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "asset_report",
+                            "audit_copy",
+                            "remove"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"removed\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:34.000Z",
+                      "updatedAt": "2026-07-28T02:37:34.000Z",
+                      "uid": "35240-ae8ff8fc-faa4-408f-9010-13324ad8f243"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-1751b3e3-a943-4391-b0c3-9ba13ed2cde0"
+                }
+              ],
+              "id": "15f21bc6-11c0-4797-9bb9-a9da41b29c9f",
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-15f21bc6-11c0-4797-9bb9-a9da41b29c9f"
+            }
+          ],
+          "id": "97b062a0-4a45-496f-a457-c87d24fec422",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-97b062a0-4a45-496f-a457-c87d24fec422"
+        }
+      ],
+      "id": "5ab75a95-f281-461b-971e-15245af97bc2",
+      "createdAt": "2026-07-28T02:37:34.000Z",
+      "updatedAt": "2026-07-28T02:37:34.000Z",
+      "uid": "35240-5ab75a95-f281-461b-971e-15245af97bc2"
+    },
+    {
+      "name": "credit",
+      "item": [
+        {
+          "name": "asset_report",
+          "item": [
+            {
+              "name": "freddie_mac",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.",
+                      "id": "479cba84-8263-4e8a-a9f2-20475efaeef2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFreddieGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/credit/asset_report/freddie_mac/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "credit",
+                            "asset_report",
+                            "freddie_mac",
+                            "get"
+                          ]
+                        },
+                        "description": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset Report in Freddie Mac's JSON format."
+                      },
+                      "response": [
+                        {
+                          "id": "c2af4fd3-cd77-426a-ba61-991350b3ff3d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/AssetReportFreddieGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/credit/asset_report/freddie_mac/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "credit",
+                                "asset_report",
+                                "freddie_mac",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"DEAL\": {\n    \"value\": \"reference #/components/schemas/AssetReportFreddie not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"SchemaVersion\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:37:34.000Z",
+                          "updatedAt": "2026-07-28T02:37:34.000Z",
+                          "uid": "35240-c2af4fd3-cd77-426a-ba61-991350b3ff3d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:34.000Z",
+                      "updatedAt": "2026-07-28T02:37:34.000Z",
+                      "uid": "35240-479cba84-8263-4e8a-a9f2-20475efaeef2"
+                    }
+                  ],
+                  "id": "9496a8c4-fcfc-4453-bdc2-a9427f108fde",
+                  "createdAt": "2026-07-28T02:37:34.000Z",
+                  "updatedAt": "2026-07-28T02:37:34.000Z",
+                  "uid": "35240-9496a8c4-fcfc-4453-bdc2-a9427f108fde"
+                }
+              ],
+              "id": "020afa9b-3b64-48d5-9660-71ccdd8c2fa4",
+              "createdAt": "2026-07-28T02:37:34.000Z",
+              "updatedAt": "2026-07-28T02:37:34.000Z",
+              "uid": "35240-020afa9b-3b64-48d5-9660-71ccdd8c2fa4"
+            }
+          ],
+          "id": "19c9076a-e0d2-4af6-a822-3e25b5f867f8",
+          "createdAt": "2026-07-28T02:37:34.000Z",
+          "updatedAt": "2026-07-28T02:37:34.000Z",
+          "uid": "35240-19c9076a-e0d2-4af6-a822-3e25b5f867f8"
+        }
+      ],
+      "id": "39428475-5666-4ea2-be3f-4e5ff3e9e46f",
+      "createdAt": "2026-07-28T02:37:34.000Z",
+      "updatedAt": "2026-07-28T02:37:34.000Z",
+      "uid": "35240-39428475-5666-4ea2-be3f-4e5ff3e9e46f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

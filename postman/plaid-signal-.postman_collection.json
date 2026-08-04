@@ -1,0 +1,1379 @@
+{
+  "info": {
+    "_postman_id": "078377e6-0037-4df9-871a-ff997fdebd99",
+    "name": "Plaid signal/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:11.000Z",
+    "updatedAt": "2026-07-28T02:37:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-078377e6-0037-4df9-871a-ff997fdebd99"
+  },
+  "item": [
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "signal",
+          "item": [
+            {
+              "name": "evaluate",
+              "item": [
+                {
+                  "name": "Plaid Evaluate a planned ACH transaction",
+                  "id": "327f2e04-9cc0-4e8d-a765-39ea7296ccf1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/signal/evaluate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "signal",
+                        "evaluate"
+                      ]
+                    },
+                    "description": "Use `/processor/signal/evaluate` to evaluate a planned ACH transaction as a processor to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.\n\nIn order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If `/processor/signal/evaluate` is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to our error documentation on [item errors](/docs/errors/item/) and [Link in Update Mode](/docs/link/update-mode/).\n\nNote: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time. To reduce this latency, you can call `/signal/prepare` on the Item before you need to request Signal data."
+                  },
+                  "response": [
+                    {
+                      "id": "3c2835a8-975c-4e0d-acdb-cb3e7a7532b8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/evaluate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "evaluate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"scores\": {\n    \"value\": \"reference #/components/schemas/SignalScores not found in the OpenAPI spec\"\n  },\n  \"core_attributes\": {\n    \"value\": \"reference #/components/schemas/SignalEvaluateCoreAttributes not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/SignalWarning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/SignalWarning not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-3c2835a8-975c-4e0d-acdb-cb3e7a7532b8"
+                    },
+                    {
+                      "id": "02cb11f3-2840-4d41-85be-575e8739a081",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/evaluate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "evaluate"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-02cb11f3-2840-4d41-85be-575e8739a081"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-327f2e04-9cc0-4e8d-a765-39ea7296ccf1"
+                }
+              ],
+              "id": "9b121eed-8f40-4fd7-9eb2-7071ff9d1a5a",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-9b121eed-8f40-4fd7-9eb2-7071ff9d1a5a"
+            },
+            {
+              "name": "decision",
+              "item": [
+                {
+                  "name": "report",
+                  "item": [
+                    {
+                      "name": "Plaid Report whether you initiated an ACH transaction",
+                      "id": "3f6e9c45-de39-4baf-93e6-1cc48f61be26",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/decision/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "decision",
+                            "report"
+                          ]
+                        },
+                        "description": "After calling `/processor/signal/evaluate`, call `/processor/signal/decision/report` to report whether the transaction was initiated.\n\nIf you are using the [Plaid Transfer product](https://www.plaid.com/docs/transfer) to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was initiated."
+                      },
+                      "response": [
+                        {
+                          "id": "dc99d0af-328c-4862-a785-a98805168a2f",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/signal/decision/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "signal",
+                                "decision",
+                                "report"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:11.000Z",
+                          "updatedAt": "2026-07-28T02:37:11.000Z",
+                          "uid": "35240-dc99d0af-328c-4862-a785-a98805168a2f"
+                        },
+                        {
+                          "id": "f0c10134-65f8-4d33-9178-3a797dedbe29",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/signal/decision/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "signal",
+                                "decision",
+                                "report"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:11.000Z",
+                          "updatedAt": "2026-07-28T02:37:11.000Z",
+                          "uid": "35240-f0c10134-65f8-4d33-9178-3a797dedbe29"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-3f6e9c45-de39-4baf-93e6-1cc48f61be26"
+                    }
+                  ],
+                  "id": "d5a74697-1e8e-4b97-848d-681693b0237c",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-d5a74697-1e8e-4b97-848d-681693b0237c"
+                }
+              ],
+              "id": "a04a3026-1ca5-4599-8c3d-c281a8129597",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-a04a3026-1ca5-4599-8c3d-c281a8129597"
+            },
+            {
+              "name": "return",
+              "item": [
+                {
+                  "name": "report",
+                  "item": [
+                    {
+                      "name": "Plaid Report a return for an ACH transaction",
+                      "id": "ca9d5173-cff4-4c7f-b8fe-b5bd9636f8ff",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/return/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "return",
+                            "report"
+                          ]
+                        },
+                        "description": "Call the `/processor/signal/return/report` endpoint to report a returned transaction that was previously sent to the `/processor/signal/evaluate` endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.\n\nIf you are using the [Plaid Transfer product](https://www.plaid.com/docs/transfer) to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was returned."
+                      },
+                      "response": [
+                        {
+                          "id": "6b686795-6eda-493f-9cb7-a1d4db1aaccd",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/signal/return/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "signal",
+                                "return",
+                                "report"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:11.000Z",
+                          "updatedAt": "2026-07-28T02:37:11.000Z",
+                          "uid": "35240-6b686795-6eda-493f-9cb7-a1d4db1aaccd"
+                        },
+                        {
+                          "id": "48880abc-93b3-4f9f-ad17-54c152a5ca11",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/processor/signal/return/report",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "processor",
+                                "signal",
+                                "return",
+                                "report"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:11.000Z",
+                          "updatedAt": "2026-07-28T02:37:11.000Z",
+                          "uid": "35240-48880abc-93b3-4f9f-ad17-54c152a5ca11"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-ca9d5173-cff4-4c7f-b8fe-b5bd9636f8ff"
+                    }
+                  ],
+                  "id": "eb7f3073-4cdc-4197-9547-e18bfa17f7a3",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-eb7f3073-4cdc-4197-9547-e18bfa17f7a3"
+                }
+              ],
+              "id": "755f94a5-c5a4-48d5-a62a-89ab836ffd21",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-755f94a5-c5a4-48d5-a62a-89ab836ffd21"
+            },
+            {
+              "name": "prepare",
+              "item": [
+                {
+                  "name": "Plaid Opt-in a processor token to Signal",
+                  "id": "99048c35-f085-418b-85bc-d2df03f9b38d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/signal/prepare",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "signal",
+                        "prepare"
+                      ]
+                    },
+                    "description": "When a processor token is not initialized with Signal, call `/processor/signal/prepare` to opt-in that processor token to the Signal data collection process, which will improve the accuracy of the Signal score.\n\nIf this endpoint is called with a processor token that is already initialized with Signal, it will return a 200 response and will not modify the processor token."
+                  },
+                  "response": [
+                    {
+                      "id": "1fe8a792-256b-4435-a4fa-f595ab544aee",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/prepare",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "prepare"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-1fe8a792-256b-4435-a4fa-f595ab544aee"
+                    },
+                    {
+                      "id": "1d82de51-ba50-410f-ae50-7982604bba08",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorSignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/signal/prepare",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "signal",
+                            "prepare"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-1d82de51-ba50-410f-ae50-7982604bba08"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-99048c35-f085-418b-85bc-d2df03f9b38d"
+                }
+              ],
+              "id": "46f76b9c-3f7c-4cc5-8d38-5b0a3c86af46",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-46f76b9c-3f7c-4cc5-8d38-5b0a3c86af46"
+            }
+          ],
+          "id": "c17543b3-2c94-4a31-bb65-4731534e07e3",
+          "createdAt": "2026-07-28T02:37:11.000Z",
+          "updatedAt": "2026-07-28T02:37:11.000Z",
+          "uid": "35240-c17543b3-2c94-4a31-bb65-4731534e07e3"
+        }
+      ],
+      "id": "26bb622c-8bfb-4d3b-b5c9-899713a0120d",
+      "createdAt": "2026-07-28T02:37:11.000Z",
+      "updatedAt": "2026-07-28T02:37:11.000Z",
+      "uid": "35240-26bb622c-8bfb-4d3b-b5c9-899713a0120d"
+    },
+    {
+      "name": "signal",
+      "item": [
+        {
+          "name": "evaluate",
+          "item": [
+            {
+              "name": "Plaid Evaluate a planned ACH transaction",
+              "id": "f04bbc41-3804-4cf6-8323-6e3a183f5265",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/SignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signal/evaluate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signal",
+                    "evaluate"
+                  ]
+                },
+                "description": "Use `/signal/evaluate` to evaluate a planned ACH transaction to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.\n\nIn order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If `/signal/evaluate` is called on the same transaction multiple times within a 24-hour period, cached results may be returned. For more information please refer to the error documentation on [Item errors](/docs/errors/item/) and [Link in Update Mode](/docs/link/update-mode/).\n\nNote: This request may take some time to complete if Signal is being added to an existing Item. This is because Plaid must communicate directly with the institution when retrieving the data for the first time."
+              },
+              "response": [
+                {
+                  "id": "d0c7d18f-141e-4ae7-a1f1-34df7cfe400c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/evaluate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "evaluate"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"scores\": {\n    \"value\": \"reference #/components/schemas/SignalScores not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/SignalWarning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/SignalWarning not found in the OpenAPI spec\"\n    }\n  ],\n  \"core_attributes\": {\n    \"value\": \"reference #/components/schemas/SignalEvaluateCoreAttributes not found in the OpenAPI spec\"\n  },\n  \"risk_profile\": {\n    \"value\": \"reference #/components/schemas/RiskProfile not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-d0c7d18f-141e-4ae7-a1f1-34df7cfe400c"
+                },
+                {
+                  "id": "56c98255-60b4-423b-b59b-d0181077c512",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalEvaluateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/evaluate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "evaluate"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-56c98255-60b4-423b-b59b-d0181077c512"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-f04bbc41-3804-4cf6-8323-6e3a183f5265"
+            }
+          ],
+          "id": "08e8807c-7cb5-47eb-a782-9f4215764e06",
+          "createdAt": "2026-07-28T02:37:11.000Z",
+          "updatedAt": "2026-07-28T02:37:11.000Z",
+          "uid": "35240-08e8807c-7cb5-47eb-a782-9f4215764e06"
+        },
+        {
+          "name": "decision",
+          "item": [
+            {
+              "name": "report",
+              "item": [
+                {
+                  "name": "Plaid Report whether you initiated an ACH transaction",
+                  "id": "48230ece-ded4-42d9-a46e-55a7fea01fb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/decision/report",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "decision",
+                        "report"
+                      ]
+                    },
+                    "description": "After calling `/signal/evaluate`, call `/signal/decision/report` to report whether the transaction was initiated."
+                  },
+                  "response": [
+                    {
+                      "id": "063a093e-6e9d-4f2a-81fd-c5700fe8bada",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signal/decision/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signal",
+                            "decision",
+                            "report"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-063a093e-6e9d-4f2a-81fd-c5700fe8bada"
+                    },
+                    {
+                      "id": "559d04ab-f4c6-4850-8558-e5c9d1ea1d55",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SignalDecisionReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signal/decision/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signal",
+                            "decision",
+                            "report"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-559d04ab-f4c6-4850-8558-e5c9d1ea1d55"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-48230ece-ded4-42d9-a46e-55a7fea01fb5"
+                }
+              ],
+              "id": "33a9fa68-3db8-40ae-9ed7-11f24c09b0b6",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-33a9fa68-3db8-40ae-9ed7-11f24c09b0b6"
+            }
+          ],
+          "id": "67f38cf7-6eb7-488f-bdd9-ad3e84d48c6d",
+          "createdAt": "2026-07-28T02:37:11.000Z",
+          "updatedAt": "2026-07-28T02:37:11.000Z",
+          "uid": "35240-67f38cf7-6eb7-488f-bdd9-ad3e84d48c6d"
+        },
+        {
+          "name": "return",
+          "item": [
+            {
+              "name": "report",
+              "item": [
+                {
+                  "name": "Plaid Report a return for an ACH transaction",
+                  "id": "adfa8941-b265-4354-a124-5e102d644fcc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/return/report",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "return",
+                        "report"
+                      ]
+                    },
+                    "description": "Call the `/signal/return/report` endpoint to report a returned transaction that was previously sent to the `/signal/evaluate` endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio."
+                  },
+                  "response": [
+                    {
+                      "id": "bf21ca70-f1b1-43c8-a6e1-8178942bb88c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signal/return/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signal",
+                            "return",
+                            "report"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-bf21ca70-f1b1-43c8-a6e1-8178942bb88c"
+                    },
+                    {
+                      "id": "fbf88649-eb2d-4832-95dd-301077e05247",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SignalReturnReportRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/signal/return/report",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "signal",
+                            "return",
+                            "report"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:11.000Z",
+                      "updatedAt": "2026-07-28T02:37:11.000Z",
+                      "uid": "35240-fbf88649-eb2d-4832-95dd-301077e05247"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-adfa8941-b265-4354-a124-5e102d644fcc"
+                }
+              ],
+              "id": "f764bf30-e033-49fb-9184-ced3c39feaaf",
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-f764bf30-e033-49fb-9184-ced3c39feaaf"
+            }
+          ],
+          "id": "2ecfa23a-9501-49f5-83a9-4a14b7ba55fe",
+          "createdAt": "2026-07-28T02:37:11.000Z",
+          "updatedAt": "2026-07-28T02:37:11.000Z",
+          "uid": "35240-2ecfa23a-9501-49f5-83a9-4a14b7ba55fe"
+        },
+        {
+          "name": "prepare",
+          "item": [
+            {
+              "name": "Plaid Opt-in an Item to Signal",
+              "id": "03678e70-191b-4d9b-bdab-90ba4af9b51d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/SignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/signal/prepare",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signal",
+                    "prepare"
+                  ]
+                },
+                "description": "When Link is not initialized with Signal, call `/signal/prepare` to opt-in that Item to the Signal data collection process, developing a Signal score.\n\nIf run on an Item that is already initialized with Signal, this endpoint will return a 200 response and will not modify the Item."
+              },
+              "response": [
+                {
+                  "id": "3764bfc3-2b0b-4ce2-9c26-b74649e3fef2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/prepare",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "prepare"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-3764bfc3-2b0b-4ce2-9c26-b74649e3fef2"
+                },
+                {
+                  "id": "3ba77eda-3816-4aad-8cd0-8435ad26e24e",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SignalPrepareRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/signal/prepare",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "signal",
+                        "prepare"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:11.000Z",
+                  "updatedAt": "2026-07-28T02:37:11.000Z",
+                  "uid": "35240-3ba77eda-3816-4aad-8cd0-8435ad26e24e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:11.000Z",
+              "updatedAt": "2026-07-28T02:37:11.000Z",
+              "uid": "35240-03678e70-191b-4d9b-bdab-90ba4af9b51d"
+            }
+          ],
+          "id": "1810eee7-c44a-49b6-b443-754c9e1ba848",
+          "createdAt": "2026-07-28T02:37:11.000Z",
+          "updatedAt": "2026-07-28T02:37:11.000Z",
+          "uid": "35240-1810eee7-c44a-49b6-b443-754c9e1ba848"
+        }
+      ],
+      "id": "bc72ff76-5217-43d8-b072-41147359d52f",
+      "createdAt": "2026-07-28T02:37:11.000Z",
+      "updatedAt": "2026-07-28T02:37:11.000Z",
+      "uid": "35240-bc72ff76-5217-43d8-b072-41147359d52f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

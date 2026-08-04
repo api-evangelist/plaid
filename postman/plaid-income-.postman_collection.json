@@ -1,0 +1,850 @@
+{
+  "info": {
+    "_postman_id": "09118678-586f-4919-acec-150c696dc908",
+    "name": "Plaid income/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:34.000Z",
+    "updatedAt": "2026-07-28T02:37:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-09118678-586f-4919-acec-150c696dc908"
+  },
+  "item": [
+    {
+      "name": "income",
+      "item": [
+        {
+          "name": "verification",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid (Deprecated) Create an income verification instance",
+                  "id": "a615dcd9-d901-4dce-8dc9-17185d689cec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/income/verification/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "income",
+                        "verification",
+                        "create"
+                      ]
+                    },
+                    "description": "`/income/verification/create` begins the income verification process by returning an `income_verification_id`. You can then provide the `income_verification_id` to `/link/token/create` under the `income_verification` parameter in order to create a Link instance that will prompt the user to go through the income verification flow. Plaid will fire an `INCOME` webhook once the user completes the Payroll Income flow, or when the uploaded documents in the Document Income flow have finished processing. "
+                  },
+                  "response": [
+                    {
+                      "id": "a5d12243-0341-4cf1-9382-3b93851afadc",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/income/verification/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "income",
+                            "verification",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"income_verification_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-a5d12243-0341-4cf1-9382-3b93851afadc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-a615dcd9-d901-4dce-8dc9-17185d689cec"
+                }
+              ],
+              "id": "78a4a4f2-1e15-4409-9c6d-6e1f70d574ce",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-78a4a4f2-1e15-4409-9c6d-6e1f70d574ce"
+            },
+            {
+              "name": "paystubs",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid (Deprecated) Retrieve information from the paystubs used for income verification",
+                      "id": "69bc8a59-18a7-4494-9fc2-bf2d8e1b1fa9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationPaystubsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/income/verification/paystubs/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "income",
+                            "verification",
+                            "paystubs",
+                            "get"
+                          ]
+                        },
+                        "description": "`/income/verification/paystubs/get` returns the information collected from the paystubs that were used to verify an end user's income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead."
+                      },
+                      "response": [
+                        {
+                          "id": "cd8055eb-66c0-48f6-89a2-251b4bca8763",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationPaystubsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/income/verification/paystubs/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "income",
+                                "verification",
+                                "paystubs",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"paystubs\": [\n    {\n      \"value\": \"reference #/components/schemas/Paystub not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Paystub not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"document_metadata\": [\n    {\n      \"value\": \"reference #/components/schemas/DocumentMetadata not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/DocumentMetadata not found in the OpenAPI spec\"\n    }\n  ],\n  \"error\": {\n    \"error_type\": {\n      \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n    },\n    \"error_code\": \"<string>\",\n    \"error_message\": \"<string>\",\n    \"display_message\": \"<string>\",\n    \"request_id\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"documentation_url\": \"<string>\",\n    \"suggested_action\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:35.000Z",
+                          "updatedAt": "2026-07-28T02:37:35.000Z",
+                          "uid": "35240-cd8055eb-66c0-48f6-89a2-251b4bca8763"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-69bc8a59-18a7-4494-9fc2-bf2d8e1b1fa9"
+                    }
+                  ],
+                  "id": "2f14e5b4-dff9-45da-9c43-8a27f410491b",
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-2f14e5b4-dff9-45da-9c43-8a27f410491b"
+                }
+              ],
+              "id": "1019d47e-a443-4f8d-8086-7669b556b057",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-1019d47e-a443-4f8d-8086-7669b556b057"
+            },
+            {
+              "name": "documents",
+              "item": [
+                {
+                  "name": "download",
+                  "item": [
+                    {
+                      "name": "Plaid (Deprecated) Download the original documents used for income verification",
+                      "id": "cc223c21-ae47-48bf-a1d3-076ceb869d57",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/zip"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationDocumentsDownloadRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/income/verification/documents/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "income",
+                            "verification",
+                            "documents",
+                            "download"
+                          ]
+                        },
+                        "description": "`/income/verification/documents/download` provides the ability to download the source documents associated with the verification.\n\nIf Document Income was used, the documents will be those the user provided in Link. For Payroll Income, the most recent files available\nfor download from the payroll provider will be available from this endpoint.\n\nThe response to `/income/verification/documents/download` is a ZIP file in binary data. If a `document_id` is passed, a single document will be contained in this file.\nIf not, the response will contain all documents associated with the verification.\n\nThe `request_id` is returned in the `Plaid-Request-ID` header."
+                      },
+                      "response": [
+                        {
+                          "id": "974d5451-468d-4d43-9fe8-2e458e48e0a4",
+                          "name": "A ZIP file containing source documents(s) used as the basis for income verification.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/zip"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationDocumentsDownloadRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/income/verification/documents/download",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "income",
+                                "verification",
+                                "documents",
+                                "download"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/zip"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<binary>",
+                          "createdAt": "2026-07-28T02:37:35.000Z",
+                          "updatedAt": "2026-07-28T02:37:35.000Z",
+                          "uid": "35240-974d5451-468d-4d43-9fe8-2e458e48e0a4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-cc223c21-ae47-48bf-a1d3-076ceb869d57"
+                    }
+                  ],
+                  "id": "e5e18d6f-f737-4ac5-a92a-b2bf2d6bc427",
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-e5e18d6f-f737-4ac5-a92a-b2bf2d6bc427"
+                }
+              ],
+              "id": "6e759940-2428-45a1-9149-420dd6ad3d0e",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-6e759940-2428-45a1-9149-420dd6ad3d0e"
+            },
+            {
+              "name": "taxforms",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid (Deprecated) Retrieve information from the tax documents used for income verification",
+                      "id": "ac0ff40f-89a9-422c-8bcc-9428bc7548b2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationTaxformsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/income/verification/taxforms/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "income",
+                            "verification",
+                            "taxforms",
+                            "get"
+                          ]
+                        },
+                        "description": "`/income/verification/taxforms/get` returns the information collected from forms that were used to verify an end user''s income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead."
+                      },
+                      "response": [
+                        {
+                          "id": "ac09ec0b-389e-42ae-bf34-e80a47ab94f5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationTaxformsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/income/verification/taxforms/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "income",
+                                "verification",
+                                "taxforms",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"taxforms\": [\n    {\n      \"value\": \"reference #/components/schemas/Taxform not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Taxform not found in the OpenAPI spec\"\n    }\n  ],\n  \"document_metadata\": [\n    {\n      \"value\": \"reference #/components/schemas/DocumentMetadata not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/DocumentMetadata not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"error\": {\n    \"error_type\": {\n      \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n    },\n    \"error_code\": \"<string>\",\n    \"error_message\": \"<string>\",\n    \"display_message\": \"<string>\",\n    \"request_id\": \"<string>\",\n    \"status\": \"<integer>\",\n    \"documentation_url\": \"<string>\",\n    \"suggested_action\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:35.000Z",
+                          "updatedAt": "2026-07-28T02:37:35.000Z",
+                          "uid": "35240-ac09ec0b-389e-42ae-bf34-e80a47ab94f5"
+                        },
+                        {
+                          "id": "d85ac505-349f-465d-a155-818da4d5afb7",
+                          "name": "Error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationTaxformsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/income/verification/taxforms/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "income",
+                                "verification",
+                                "taxforms",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:37:35.000Z",
+                          "updatedAt": "2026-07-28T02:37:35.000Z",
+                          "uid": "35240-d85ac505-349f-465d-a155-818da4d5afb7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-ac0ff40f-89a9-422c-8bcc-9428bc7548b2"
+                    }
+                  ],
+                  "id": "8857ccab-9729-46fd-8d62-de01d08d2a2f",
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-8857ccab-9729-46fd-8d62-de01d08d2a2f"
+                }
+              ],
+              "id": "7fce05ea-0fe6-48e9-aab0-39bd2af2b241",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-7fce05ea-0fe6-48e9-aab0-39bd2af2b241"
+            },
+            {
+              "name": "precheck",
+              "item": [
+                {
+                  "name": "Plaid (Deprecated) Check digital income verification eligibility and optimize conversion",
+                  "id": "8ebc4a01-827b-44e8-bafc-6862d16c2f42",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationPrecheckRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/income/verification/precheck",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "income",
+                        "verification",
+                        "precheck"
+                      ]
+                    },
+                    "description": "`/income/verification/precheck` is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification and returns a `precheck_id` that can be provided to `/link/token/create`. If the user is eligible for digital verification, providing the `precheck_id` in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the `precheck_id` can still be provided to `/link/token/create` and the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.\n\nWhile all request fields are optional, providing either `employer` or `transactions_access_tokens` data will increase the chance of receiving a useful result.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/precheck` instead."
+                  },
+                  "response": [
+                    {
+                      "id": "85dd05f8-725e-4461-a646-2389ec12aefc",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IncomeVerificationPrecheckRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/income/verification/precheck",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "income",
+                            "verification",
+                            "precheck"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"precheck_id\": \"<string>\",\n  \"confidence\": {\n    \"value\": \"reference #/components/schemas/IncomeVerificationPrecheckConfidence not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-85dd05f8-725e-4461-a646-2389ec12aefc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-8ebc4a01-827b-44e8-bafc-6862d16c2f42"
+                }
+              ],
+              "id": "1b7b40d4-1bc5-430f-b20c-c25f60817ccc",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-1b7b40d4-1bc5-430f-b20c-c25f60817ccc"
+            }
+          ],
+          "id": "38ddd09a-355e-4f13-8eed-38a8393eb232",
+          "createdAt": "2026-07-28T02:37:35.000Z",
+          "updatedAt": "2026-07-28T02:37:35.000Z",
+          "uid": "35240-38ddd09a-355e-4f13-8eed-38a8393eb232"
+        }
+      ],
+      "id": "2bd06d35-18c7-4e9f-a9f4-1a51edca2e91",
+      "createdAt": "2026-07-28T02:37:35.000Z",
+      "updatedAt": "2026-07-28T02:37:35.000Z",
+      "uid": "35240-2bd06d35-18c7-4e9f-a9f4-1a51edca2e91"
+    },
+    {
+      "name": "sandbox",
+      "item": [
+        {
+          "name": "income",
+          "item": [
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire an Income webhook",
+                  "id": "990719f6-3a0c-4450-90ce-1981bbc04927",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "income",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/income/fire_webhook` endpoint to manually trigger a Payroll or Document Income webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "681f45b8-ad90-4e07-91b0-0feecfcceee3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-681f45b8-ad90-4e07-91b0-0feecfcceee3"
+                    },
+                    {
+                      "id": "c61abbde-168e-4e72-9fa0-1085873fdc6a",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:35.000Z",
+                      "updatedAt": "2026-07-28T02:37:35.000Z",
+                      "uid": "35240-c61abbde-168e-4e72-9fa0-1085873fdc6a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:35.000Z",
+                  "updatedAt": "2026-07-28T02:37:35.000Z",
+                  "uid": "35240-990719f6-3a0c-4450-90ce-1981bbc04927"
+                }
+              ],
+              "id": "cf753a4e-1087-43b2-8386-2d95598c762c",
+              "createdAt": "2026-07-28T02:37:35.000Z",
+              "updatedAt": "2026-07-28T02:37:35.000Z",
+              "uid": "35240-cf753a4e-1087-43b2-8386-2d95598c762c"
+            }
+          ],
+          "id": "e70c8b08-7b04-4365-a5c9-072420cee5c0",
+          "createdAt": "2026-07-28T02:37:35.000Z",
+          "updatedAt": "2026-07-28T02:37:35.000Z",
+          "uid": "35240-e70c8b08-7b04-4365-a5c9-072420cee5c0"
+        }
+      ],
+      "id": "b72538bb-5052-4af5-8282-0581d1d8dcc2",
+      "createdAt": "2026-07-28T02:37:35.000Z",
+      "updatedAt": "2026-07-28T02:37:35.000Z",
+      "uid": "35240-b72538bb-5052-4af5-8282-0581d1d8dcc2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

@@ -1,0 +1,1110 @@
+{
+  "info": {
+    "_postman_id": "37ce078a-9fc7-4857-a2e9-12bfd176f346",
+    "name": "Plaid cra/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:38.000Z",
+    "updatedAt": "2026-07-28T02:37:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-37ce078a-9fc7-4857-a2e9-12bfd176f346"
+  },
+  "item": [
+    {
+      "name": "cra",
+      "item": [
+        {
+          "name": "base_report",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve a Base Report",
+                  "id": "7f381fdd-a961-4d40-9fda-87dcb4ca57be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BaseReportGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/base_report/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "base_report",
+                        "get"
+                      ]
+                    },
+                    "description": "This endpoint allows the customer to retrieve a Base Report. Customers should pass in the `user_token` created in `/link/token/create`."
+                  },
+                  "response": [
+                    {
+                      "id": "1cb9ec9a-17af-4251-8b2c-e849430ce140",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BaseReportGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/base_report/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "base_report",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"report\": {\n    \"value\": \"reference #/components/schemas/BaseReport not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/BaseReportWarning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BaseReportWarning not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-1cb9ec9a-17af-4251-8b2c-e849430ce140"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-7f381fdd-a961-4d40-9fda-87dcb4ca57be"
+                }
+              ],
+              "id": "609c3336-6d8e-4291-9297-cc02b04716d3",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-609c3336-6d8e-4291-9297-cc02b04716d3"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a Base Report",
+                  "id": "4d511cd1-fd38-42ad-9e9c-be9a30b2589d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BaseReportCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/base_report/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "base_report",
+                        "create"
+                      ]
+                    },
+                    "description": "This endpoint allows the customer to create a Base Report by passing in a user token. The Base Report will be generated based on the most recently linked item from the user token."
+                  },
+                  "response": [
+                    {
+                      "id": "f966dd9e-8be8-4aab-86f4-41f87ba39ebe",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BaseReportCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/base_report/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "base_report",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-f966dd9e-8be8-4aab-86f4-41f87ba39ebe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-4d511cd1-fd38-42ad-9e9c-be9a30b2589d"
+                }
+              ],
+              "id": "9e7f1d1d-cb7c-4174-8fa8-027ee0a0bd5b",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-9e7f1d1d-cb7c-4174-8fa8-027ee0a0bd5b"
+            }
+          ],
+          "id": "280fd295-347c-4f55-8e1a-005924941cd7",
+          "createdAt": "2026-07-28T02:37:38.000Z",
+          "updatedAt": "2026-07-28T02:37:38.000Z",
+          "uid": "35240-280fd295-347c-4f55-8e1a-005924941cd7"
+        },
+        {
+          "name": "bank_income",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve information from the bank accounts used for income verification",
+                  "id": "0b196b58-10c7-4f34-b5aa-fffe85f8962d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CraBankIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/bank_income/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "bank_income",
+                        "get"
+                      ]
+                    },
+                    "description": "`/cra/bank_income/get` returns the bank income report(s) for a specified user."
+                  },
+                  "response": [
+                    {
+                      "id": "387c7f39-1f4d-40b8-90fb-b9b5852fb0d7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraBankIncomeGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/bank_income/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "bank_income",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"bank_income\": [\n    {\n      \"value\": \"reference #/components/schemas/CraBankIncome not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CraBankIncome not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-387c7f39-1f4d-40b8-90fb-b9b5852fb0d7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-0b196b58-10c7-4f34-b5aa-fffe85f8962d"
+                }
+              ],
+              "id": "e089aec4-76f4-46fe-a50d-9afc99f61c2a",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-e089aec4-76f4-46fe-a50d-9afc99f61c2a"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a CRA report for income verification",
+                  "id": "f7787a6e-3ae9-4bf8-9fc1-ccbb59897ca4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CraBankIncomeCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/bank_income/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "bank_income",
+                        "create"
+                      ]
+                    },
+                    "description": "`/cra/bank_income/create` creates a CRA report for income verification"
+                  },
+                  "response": [
+                    {
+                      "id": "c292bae1-3726-41a6-b3b7-bfaf9f11a6cb",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraBankIncomeCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/bank_income/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "bank_income",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"Excepteur01\": \"nulla\",\n  \"dolore_32\": true\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-c292bae1-3726-41a6-b3b7-bfaf9f11a6cb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-f7787a6e-3ae9-4bf8-9fc1-ccbb59897ca4"
+                }
+              ],
+              "id": "1a74db88-deac-483d-af91-c674ed43863a",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-1a74db88-deac-483d-af91-c674ed43863a"
+            }
+          ],
+          "id": "f2104dff-e0e2-4088-9d8b-d61b58659010",
+          "createdAt": "2026-07-28T02:37:38.000Z",
+          "updatedAt": "2026-07-28T02:37:38.000Z",
+          "uid": "35240-f2104dff-e0e2-4088-9d8b-d61b58659010"
+        },
+        {
+          "name": "partner_insights",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve cash flow insights from the bank accounts used for income verification",
+                  "id": "38a28189-cdc0-49bd-93a9-92fa68c68277",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CraPartnerInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/partner_insights/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "partner_insights",
+                        "get"
+                      ]
+                    },
+                    "description": "`/cra/partner_insights/get` returns cash flow insights for a specified user."
+                  },
+                  "response": [
+                    {
+                      "id": "b6feead5-e607-4a26-ad27-e1138419364f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraPartnerInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/partner_insights/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "partner_insights",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"report\": [\n    {\n      \"value\": \"reference #/components/schemas/CraPartnerInsights not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/CraPartnerInsights not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-b6feead5-e607-4a26-ad27-e1138419364f"
+                    },
+                    {
+                      "id": "3eaba50c-393e-4f3a-98c6-1b7bb1afcbfe",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraPartnerInsightsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/partner_insights/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "partner_insights",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-3eaba50c-393e-4f3a-98c6-1b7bb1afcbfe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-38a28189-cdc0-49bd-93a9-92fa68c68277"
+                }
+              ],
+              "id": "a1578a93-ecb7-44eb-a9e5-a674ab104793",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-a1578a93-ecb7-44eb-a9e5-a674ab104793"
+            }
+          ],
+          "id": "3aa94422-3587-482a-816b-eb1c3bec4eae",
+          "createdAt": "2026-07-28T02:37:38.000Z",
+          "updatedAt": "2026-07-28T02:37:38.000Z",
+          "uid": "35240-3aa94422-3587-482a-816b-eb1c3bec4eae"
+        },
+        {
+          "name": "loans",
+          "item": [
+            {
+              "name": "applications",
+              "item": [
+                {
+                  "name": "register",
+                  "item": [
+                    {
+                      "name": "Plaid Register loan applications and decisions.",
+                      "id": "e7a1b81a-354e-4881-acc2-7b3da66a1c8d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansApplicationsRegisterRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/loans/applications/register",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "loans",
+                            "applications",
+                            "register"
+                          ]
+                        },
+                        "description": "`/cra/loans/applications/register` registers loan applications and decisions."
+                      },
+                      "response": [
+                        {
+                          "id": "d75f58f3-46d8-4db8-b485-99dbfcd4b5e5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansApplicationsRegisterRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/cra/loans/applications/register",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cra",
+                                "loans",
+                                "applications",
+                                "register"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:37:38.000Z",
+                          "updatedAt": "2026-07-28T02:37:38.000Z",
+                          "uid": "35240-d75f58f3-46d8-4db8-b485-99dbfcd4b5e5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-e7a1b81a-354e-4881-acc2-7b3da66a1c8d"
+                    }
+                  ],
+                  "id": "036af7db-f305-4f42-97ff-2da67910d5cf",
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-036af7db-f305-4f42-97ff-2da67910d5cf"
+                }
+              ],
+              "id": "0a0d8b9e-fadf-4c54-8b1e-44396045ca8e",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-0a0d8b9e-fadf-4c54-8b1e-44396045ca8e"
+            },
+            {
+              "name": "register",
+              "item": [
+                {
+                  "name": "Plaid Register a list of loans to their applicants.",
+                  "id": "b888fcc6-5da5-46f4-95d2-fe7df581b34b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CRALoansRegisterRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/loans/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "loans",
+                        "register"
+                      ]
+                    },
+                    "description": "`/cra/loans/register` registers a list of loans to their applicants."
+                  },
+                  "response": [
+                    {
+                      "id": "c05c51f2-baa4-4333-a696-e7166a130365",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CRALoansRegisterRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/loans/register",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "loans",
+                            "register"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-c05c51f2-baa4-4333-a696-e7166a130365"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-b888fcc6-5da5-46f4-95d2-fe7df581b34b"
+                }
+              ],
+              "id": "791f6c28-4d95-48f5-99dc-4ff382038ee8",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-791f6c28-4d95-48f5-99dc-4ff382038ee8"
+            },
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Updates loan data.",
+                  "id": "a86724cd-45d3-41cc-abd9-f32c3c10e658",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/loans/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "loans",
+                        "update"
+                      ]
+                    },
+                    "description": "`/cra/loans/update` updates loan information such as the status and payment history."
+                  },
+                  "response": [
+                    {
+                      "id": "b3b1b560-0b2b-4579-922d-284bb4fdd91e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/loans/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "loans",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-b3b1b560-0b2b-4579-922d-284bb4fdd91e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-a86724cd-45d3-41cc-abd9-f32c3c10e658"
+                }
+              ],
+              "id": "30dc2308-726e-4ca5-bfc9-ba61bc0eb7dc",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-30dc2308-726e-4ca5-bfc9-ba61bc0eb7dc"
+            },
+            {
+              "name": "unregister",
+              "item": [
+                {
+                  "name": "Plaid Unregister a list of loans.",
+                  "id": "9ba1b43c-27c8-4b37-8df4-66c271e8e013",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansUnregisterRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cra/loans/unregister",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cra",
+                        "loans",
+                        "unregister"
+                      ]
+                    },
+                    "description": "`/cra/loans/unregister` indicates the loans have reached a final status and no further updates are expected."
+                  },
+                  "response": [
+                    {
+                      "id": "d21ecade-eb76-4208-8a14-02b0f77506fb",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/CraLoansUnregisterRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/cra/loans/unregister",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cra",
+                            "loans",
+                            "unregister"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:38.000Z",
+                      "updatedAt": "2026-07-28T02:37:38.000Z",
+                      "uid": "35240-d21ecade-eb76-4208-8a14-02b0f77506fb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:38.000Z",
+                  "updatedAt": "2026-07-28T02:37:38.000Z",
+                  "uid": "35240-9ba1b43c-27c8-4b37-8df4-66c271e8e013"
+                }
+              ],
+              "id": "d557224e-a4f3-4c5a-b6d0-661853ea2f04",
+              "createdAt": "2026-07-28T02:37:38.000Z",
+              "updatedAt": "2026-07-28T02:37:38.000Z",
+              "uid": "35240-d557224e-a4f3-4c5a-b6d0-661853ea2f04"
+            }
+          ],
+          "id": "a14f78cd-6a3d-4e15-b2e9-2c3f7360111c",
+          "createdAt": "2026-07-28T02:37:38.000Z",
+          "updatedAt": "2026-07-28T02:37:38.000Z",
+          "uid": "35240-a14f78cd-6a3d-4e15-b2e9-2c3f7360111c"
+        }
+      ],
+      "id": "929efa23-9268-4e09-a177-2e19cee6ae74",
+      "createdAt": "2026-07-28T02:37:38.000Z",
+      "updatedAt": "2026-07-28T02:37:38.000Z",
+      "uid": "35240-929efa23-9268-4e09-a177-2e19cee6ae74"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

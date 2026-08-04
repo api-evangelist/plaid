@@ -1,0 +1,506 @@
+{
+  "info": {
+    "_postman_id": "eabc3b8a-2291-4654-b12d-2b51a1e2db7b",
+    "name": "Plaid institutions/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:32.000Z",
+    "updatedAt": "2026-07-28T02:38:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eabc3b8a-2291-4654-b12d-2b51a1e2db7b"
+  },
+  "item": [
+    {
+      "name": "institutions",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Get details of all supported institutions",
+              "id": "6e6ee3b0-b526-4af4-8e6c-5ecc78b5a5a7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/institutions/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions",
+                    "get"
+                  ]
+                },
+                "description": "Returns a JSON response containing details on all financial institutions currently supported by Plaid. Because Plaid supports thousands of institutions, results are paginated.\n\nIf there is no overlap between an institution\u2019s enabled products and a client\u2019s enabled products, then the institution will be filtered out from the response. As a result, the number of institutions returned may not match the count specified in the call."
+              },
+              "response": [
+                {
+                  "id": "75181b02-79c1-4590-bfc4-b1bde739444b",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"institutions\": [\n    {\n      \"value\": \"reference #/components/schemas/Institution not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Institution not found in the OpenAPI spec\"\n    }\n  ],\n  \"total\": \"<integer>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-75181b02-79c1-4590-bfc4-b1bde739444b"
+                },
+                {
+                  "id": "19c4a9ee-a2f2-4fcf-bc21-83f054c7fa7f",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-19c4a9ee-a2f2-4fcf-bc21-83f054c7fa7f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:33.000Z",
+              "updatedAt": "2026-07-28T02:38:33.000Z",
+              "uid": "35240-6e6ee3b0-b526-4af4-8e6c-5ecc78b5a5a7"
+            }
+          ],
+          "id": "49cf0ecb-b5b1-427c-9dba-3f1d647140b1",
+          "createdAt": "2026-07-28T02:38:33.000Z",
+          "updatedAt": "2026-07-28T02:38:33.000Z",
+          "uid": "35240-49cf0ecb-b5b1-427c-9dba-3f1d647140b1"
+        },
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Plaid Search institutions",
+              "id": "830c3f3a-7dce-47ba-b809-85cf46f2a73e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsSearchRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/institutions/search",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions",
+                    "search"
+                  ]
+                },
+                "description": "Returns a JSON response containing details for institutions that match the query parameters, up to a maximum of ten institutions per query.\n\nVersioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` parameters to authenticate to this endpoint. The `public_key` parameter has since been deprecated; all customers are encouraged to use `client_id` and `secret` instead.\n"
+              },
+              "response": [
+                {
+                  "id": "058a451d-10e2-4f04-b9d2-3d843cebd9f5",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsSearchRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/search",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "search"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"institutions\": [\n    {\n      \"value\": \"reference #/components/schemas/Institution not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Institution not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-058a451d-10e2-4f04-b9d2-3d843cebd9f5"
+                },
+                {
+                  "id": "2e5f4bd6-076b-434c-b91f-12f191ae3af6",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsSearchRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/search",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "search"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-2e5f4bd6-076b-434c-b91f-12f191ae3af6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:33.000Z",
+              "updatedAt": "2026-07-28T02:38:33.000Z",
+              "uid": "35240-830c3f3a-7dce-47ba-b809-85cf46f2a73e"
+            }
+          ],
+          "id": "c9e0dd2e-239d-4140-8963-56afecad8a06",
+          "createdAt": "2026-07-28T02:38:33.000Z",
+          "updatedAt": "2026-07-28T02:38:33.000Z",
+          "uid": "35240-c9e0dd2e-239d-4140-8963-56afecad8a06"
+        },
+        {
+          "name": "get_by_id",
+          "item": [
+            {
+              "name": "Plaid Get details of an institution",
+              "id": "7e785993-9296-4c00-98ab-d2b7531b70b5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetByIdRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/institutions/get_by_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "institutions",
+                    "get_by_id"
+                  ]
+                },
+                "description": "Returns a JSON response containing details on a specified financial institution currently supported by Plaid.\n\nVersioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` to authenticate to this endpoint. The `public_key` has been deprecated; all customers are encouraged to use `client_id` and `secret` instead.\n"
+              },
+              "response": [
+                {
+                  "id": "6975798e-ff28-4a98-adf5-aed428518881",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetByIdRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/get_by_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "get_by_id"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"institution\": {\n    \"value\": \"reference #/components/schemas/Institution not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-6975798e-ff28-4a98-adf5-aed428518881"
+                },
+                {
+                  "id": "af0d653d-dbdf-40c2-a5fb-b90ce50bb133",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InstitutionsGetByIdRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/institutions/get_by_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "institutions",
+                        "get_by_id"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:38:33.000Z",
+                  "updatedAt": "2026-07-28T02:38:33.000Z",
+                  "uid": "35240-af0d653d-dbdf-40c2-a5fb-b90ce50bb133"
+                }
+              ],
+              "createdAt": "2026-07-28T02:38:33.000Z",
+              "updatedAt": "2026-07-28T02:38:33.000Z",
+              "uid": "35240-7e785993-9296-4c00-98ab-d2b7531b70b5"
+            }
+          ],
+          "id": "c02b03e2-de57-48c5-9352-fa2eaeb3e265",
+          "createdAt": "2026-07-28T02:38:33.000Z",
+          "updatedAt": "2026-07-28T02:38:33.000Z",
+          "uid": "35240-c02b03e2-de57-48c5-9352-fa2eaeb3e265"
+        }
+      ],
+      "id": "f7c0b0e6-f9b6-4f71-bf6f-ec9929ca4bec",
+      "createdAt": "2026-07-28T02:38:33.000Z",
+      "updatedAt": "2026-07-28T02:38:33.000Z",
+      "uid": "35240-f7c0b0e6-f9b6-4f71-bf6f-ec9929ca4bec"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

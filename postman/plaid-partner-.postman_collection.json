@@ -1,0 +1,860 @@
+{
+  "info": {
+    "_postman_id": "aa7038ab-b4ed-48cf-9bca-ea3a405c98d8",
+    "name": "Plaid partner/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:49.000Z",
+    "updatedAt": "2026-07-28T02:38:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa7038ab-b4ed-48cf-9bca-ea3a405c98d8"
+  },
+  "item": [
+    {
+      "name": "partner",
+      "item": [
+        {
+          "name": "customer",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Creates a new end customer for a Plaid reseller.",
+                  "id": "e73e457a-5eef-4c56-893a-0e411522b9ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/customer/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "customer",
+                        "create"
+                      ]
+                    },
+                    "description": "The `/partner/customer/create` endpoint is used by reseller partners to create end customers."
+                  },
+                  "response": [
+                    {
+                      "id": "4233fb24-92b2-4271-8a2a-4da60dcbed3e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"end_customer\": {\n    \"value\": \"reference #/components/schemas/PartnerEndCustomerWithSecrets not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"cillum__a9\": 49646186,\n  \"esse_e45\": true\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-4233fb24-92b2-4271-8a2a-4da60dcbed3e"
+                    },
+                    {
+                      "id": "021a5f76-3b7d-41d6-8011-fc65d886eb75",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-021a5f76-3b7d-41d6-8011-fc65d886eb75"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:49.000Z",
+                  "updatedAt": "2026-07-28T02:38:49.000Z",
+                  "uid": "35240-e73e457a-5eef-4c56-893a-0e411522b9ca"
+                }
+              ],
+              "id": "af20a043-c1c5-469a-b948-4427e969a9a9",
+              "createdAt": "2026-07-28T02:38:49.000Z",
+              "updatedAt": "2026-07-28T02:38:49.000Z",
+              "uid": "35240-af20a043-c1c5-469a-b948-4427e969a9a9"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Returns a Plaid reseller's end customer.",
+                  "id": "a3f35c45-f400-48c8-9f90-d96f88ddd5cc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/customer/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "customer",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/partner/customer/get` endpoint is used by reseller partners to retrieve data about a single end customer."
+                  },
+                  "response": [
+                    {
+                      "id": "79734ed1-1d70-4ff3-af0d-e6008ca1b43c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"end_customer\": {\n    \"value\": \"reference #/components/schemas/PartnerEndCustomer not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"dolore_6fa\": 35545801,\n  \"proident3\": -63305583.02933667\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-79734ed1-1d70-4ff3-af0d-e6008ca1b43c"
+                    },
+                    {
+                      "id": "6819f952-a86c-4e4e-82b8-ef566712d13c",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-6819f952-a86c-4e4e-82b8-ef566712d13c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:49.000Z",
+                  "updatedAt": "2026-07-28T02:38:49.000Z",
+                  "uid": "35240-a3f35c45-f400-48c8-9f90-d96f88ddd5cc"
+                }
+              ],
+              "id": "96251f4b-1a11-452c-bb44-ad8f5e044d05",
+              "createdAt": "2026-07-28T02:38:49.000Z",
+              "updatedAt": "2026-07-28T02:38:49.000Z",
+              "uid": "35240-96251f4b-1a11-452c-bb44-ad8f5e044d05"
+            },
+            {
+              "name": "enable",
+              "item": [
+                {
+                  "name": "Enables a Plaid reseller's end customer in the Production environment.",
+                  "id": "3d7447ce-c49d-42e5-b372-59320ea34150",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerEnableRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/customer/enable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "customer",
+                        "enable"
+                      ]
+                    },
+                    "description": "The `/partner/customer/enable` endpoint is used by reseller partners to enable an end customer in the Production environment."
+                  },
+                  "response": [
+                    {
+                      "id": "f8760929-a968-4d9d-93e9-11808ee9201d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerEnableRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "enable"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"production_secret\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"exercitationf\": -31844170\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-f8760929-a968-4d9d-93e9-11808ee9201d"
+                    },
+                    {
+                      "id": "94484a57-7ae4-4fc8-a72f-aa63ad3ed158",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerEnableRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "enable"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-94484a57-7ae4-4fc8-a72f-aa63ad3ed158"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:49.000Z",
+                  "updatedAt": "2026-07-28T02:38:49.000Z",
+                  "uid": "35240-3d7447ce-c49d-42e5-b372-59320ea34150"
+                }
+              ],
+              "id": "eead4ac5-b8aa-4d77-a4b0-28e9b6bde61a",
+              "createdAt": "2026-07-28T02:38:49.000Z",
+              "updatedAt": "2026-07-28T02:38:49.000Z",
+              "uid": "35240-eead4ac5-b8aa-4d77-a4b0-28e9b6bde61a"
+            },
+            {
+              "name": "remove",
+              "item": [
+                {
+                  "name": "Removes a Plaid reseller's end customer.",
+                  "id": "8c719f65-43e1-47c0-b107-6bb62738cb9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerRemoveRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner/customer/remove",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner",
+                        "customer",
+                        "remove"
+                      ]
+                    },
+                    "description": "The `/partner/customer/remove` endpoint is used by reseller partners to remove an end customer. Removing an end customer will remove it from view in the Plaid Dashboard and deactivate its API keys. This endpoint can only be used to remove an end customer that has not yet been enabled in Production."
+                  },
+                  "response": [
+                    {
+                      "id": "86158972-99d9-4e80-8523-d9ffd46d9df5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerRemoveRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "remove"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"incididunt_deb\": -42921267,\n  \"tempor07a\": \"magna sunt ex\"\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-86158972-99d9-4e80-8523-d9ffd46d9df5"
+                    },
+                    {
+                      "id": "9bc86423-ed0e-4f57-a34c-e741fa4c8611",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerRemoveRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "remove"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-9bc86423-ed0e-4f57-a34c-e741fa4c8611"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:49.000Z",
+                  "updatedAt": "2026-07-28T02:38:49.000Z",
+                  "uid": "35240-8c719f65-43e1-47c0-b107-6bb62738cb9a"
+                }
+              ],
+              "id": "cae57372-2f65-4085-968a-448a15bfbe68",
+              "createdAt": "2026-07-28T02:38:49.000Z",
+              "updatedAt": "2026-07-28T02:38:49.000Z",
+              "uid": "35240-cae57372-2f65-4085-968a-448a15bfbe68"
+            },
+            {
+              "name": "oauth_institutions",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Returns OAuth-institution registration information for a given end customer.",
+                      "id": "90fe5824-b7f6-43be-bd9e-b09cb96c7b3b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerOAuthInstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/partner/customer/oauth_institutions/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner",
+                            "customer",
+                            "oauth_institutions",
+                            "get"
+                          ]
+                        },
+                        "description": "The `/partner/customer/oauth_institutions/get` endpoint is used by reseller partners to retrieve OAuth-institution registration information about a single end customer. To learn how to set up a webhook to listen to status update events, visit the [reseller documentation](https://plaid.com/docs/account/resellers/#enabling-end-customers)."
+                      },
+                      "response": [
+                        {
+                          "id": "f8b0eb51-e50e-4df6-9ef8-a9574c804ca4",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerOAuthInstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/partner/customer/oauth_institutions/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner",
+                                "customer",
+                                "oauth_institutions",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flowdown_status\": {\n    \"value\": \"reference #/components/schemas/PartnerEndCustomerFlowdownStatus not found in the OpenAPI spec\"\n  },\n  \"questionnaire_status\": {\n    \"value\": \"reference #/components/schemas/PartnerEndCustomerQuestionnaireStatus not found in the OpenAPI spec\"\n  },\n  \"institutions\": [\n    {\n      \"value\": \"reference #/components/schemas/PartnerEndCustomerOAuthInstitution not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/PartnerEndCustomerOAuthInstitution not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"ead_a\": \"Duis sint magna consequat\",\n  \"laborumf\": -97765055.03351171\n}",
+                          "createdAt": "2026-07-28T02:38:49.000Z",
+                          "updatedAt": "2026-07-28T02:38:49.000Z",
+                          "uid": "35240-f8b0eb51-e50e-4df6-9ef8-a9574c804ca4"
+                        },
+                        {
+                          "id": "f722cfd3-31a5-4315-aa6b-f093f99762f2",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/PartnerCustomerOAuthInstitutionsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/partner/customer/oauth_institutions/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner",
+                                "customer",
+                                "oauth_institutions",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:49.000Z",
+                          "updatedAt": "2026-07-28T02:38:49.000Z",
+                          "uid": "35240-f722cfd3-31a5-4315-aa6b-f093f99762f2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:49.000Z",
+                      "updatedAt": "2026-07-28T02:38:49.000Z",
+                      "uid": "35240-90fe5824-b7f6-43be-bd9e-b09cb96c7b3b"
+                    }
+                  ],
+                  "id": "9057664d-1281-42e3-9311-044c3fae67db",
+                  "createdAt": "2026-07-28T02:38:49.000Z",
+                  "updatedAt": "2026-07-28T02:38:49.000Z",
+                  "uid": "35240-9057664d-1281-42e3-9311-044c3fae67db"
+                }
+              ],
+              "id": "b6c3b43c-d470-4dab-b9d5-ab347fc5a7b6",
+              "createdAt": "2026-07-28T02:38:49.000Z",
+              "updatedAt": "2026-07-28T02:38:49.000Z",
+              "uid": "35240-b6c3b43c-d470-4dab-b9d5-ab347fc5a7b6"
+            }
+          ],
+          "id": "80244143-75f6-4429-86a1-4071130611c0",
+          "createdAt": "2026-07-28T02:38:49.000Z",
+          "updatedAt": "2026-07-28T02:38:49.000Z",
+          "uid": "35240-80244143-75f6-4429-86a1-4071130611c0"
+        }
+      ],
+      "id": "0a69a601-e1c7-4b16-8cc1-748ce185dffb",
+      "createdAt": "2026-07-28T02:38:49.000Z",
+      "updatedAt": "2026-07-28T02:38:49.000Z",
+      "uid": "35240-0a69a601-e1c7-4b16-8cc1-748ce185dffb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

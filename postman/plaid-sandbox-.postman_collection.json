@@ -1,0 +1,3776 @@
+{
+  "info": {
+    "_postman_id": "adcffaa8-41ac-4f49-98b7-bfb37b8304c1",
+    "name": "Plaid sandbox/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:38:50.000Z",
+    "updatedAt": "2026-07-28T02:38:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-adcffaa8-41ac-4f49-98b7-bfb37b8304c1"
+  },
+  "item": [
+    {
+      "name": "sandbox",
+      "item": [
+        {
+          "name": "processor_token",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a test Item and processor token",
+                  "id": "1ac753de-e635-4e14-8068-0cdbccfecc37",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxProcessorTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/processor_token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "processor_token",
+                        "create"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/processor_token/create` endpoint to create a valid `processor_token` for an arbitrary institution ID and test credentials. The created `processor_token` corresponds to a new Sandbox Item. You can then use this `processor_token` with the `/processor/` API endpoints in Sandbox. You can also use `/sandbox/processor_token/create` with the [`user_custom` test username](https://plaid.com/docs/sandbox/user-custom) to generate a test account with custom data."
+                  },
+                  "response": [
+                    {
+                      "id": "04b44a6a-b609-464d-bc2c-b3a9ab87e3ed",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxProcessorTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/processor_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "processor_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"processor_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-04b44a6a-b609-464d-bc2c-b3a9ab87e3ed"
+                    },
+                    {
+                      "id": "ebee5a5e-2ac2-442e-84ee-195941f66ac4",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxProcessorTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/processor_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "processor_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-ebee5a5e-2ac2-442e-84ee-195941f66ac4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-1ac753de-e635-4e14-8068-0cdbccfecc37"
+                }
+              ],
+              "id": "fdff4e26-c30e-4161-babe-359b55cb6033",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-fdff4e26-c30e-4161-babe-359b55cb6033"
+            }
+          ],
+          "id": "d1be0993-ec7c-45ad-8d1b-870061fe1f61",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-d1be0993-ec7c-45ad-8d1b-870061fe1f61"
+        },
+        {
+          "name": "public_token",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a test Item",
+                  "id": "034a9b33-46ef-4c15-95fa-8dec03eab8fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPublicTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/public_token/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "public_token",
+                        "create"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/public_token/create` endpoint to create a valid `public_token`  for an arbitrary institution ID, initial products, and test credentials. The created `public_token` maps to a new Sandbox Item. You can then call `/item/public_token/exchange` to exchange the `public_token` for an `access_token` and perform all API actions. `/sandbox/public_token/create` can also be used with the [`user_custom` test username](https://plaid.com/docs/sandbox/user-custom) to generate a test account with custom data. `/sandbox/public_token/create` cannot be used with OAuth institutions."
+                  },
+                  "response": [
+                    {
+                      "id": "a8baf73d-7757-4ff4-97ba-179930d013ee",
+                      "name": "success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPublicTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/public_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "public_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"public_token\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-a8baf73d-7757-4ff4-97ba-179930d013ee"
+                    },
+                    {
+                      "id": "95ee6214-9f49-4ed7-85a3-d12230a18c9b",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPublicTokenCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/public_token/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "public_token",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-95ee6214-9f49-4ed7-85a3-d12230a18c9b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-034a9b33-46ef-4c15-95fa-8dec03eab8fc"
+                }
+              ],
+              "id": "227acda8-4889-4944-8d8c-98c4efb616e0",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-227acda8-4889-4944-8d8c-98c4efb616e0"
+            }
+          ],
+          "id": "66f494ff-bb46-43c4-b4c4-1525e48bd6cf",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-66f494ff-bb46-43c4-b4c4-1525e48bd6cf"
+        },
+        {
+          "name": "item",
+          "item": [
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Fire a test webhook",
+                  "id": "cfb429e0-a48f-4238-8ea3-966e15e02834",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "The `/sandbox/item/fire_webhook` endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:\n\n`DEFAULT_UPDATE`: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`NEW_ACCOUNTS_AVAILABLE`: Webhook to be fired for a given Sandbox Item created with Account Select v2.\n\n`AUTH_DATA_UPDATE`: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.\n\n`SMS_MICRODEPOSITS_VERIFICATION`: Fired when a given same day micro-deposit item is verified via SMS verification.\n\n`LOGIN_REPAIRED`: Fired when an Item recovers from the `ITEM_LOGIN_REQUIRED` without the user going through update mode in your app.\n\n`RECURRING_TRANSACTIONS_UPDATE`: Recurring Transactions webhook to be fired for a given Sandbox Item. If the Item does not support Recurring Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`SYNC_UPDATES_AVAILABLE`: Transactions webhook to be fired for a given Sandbox Item.  If the Item does not support Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`PRODUCT_READY`: Assets webhook to be fired when a given asset report has been successfully generated. If the Item does not support Assets, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\n`ERROR`: Assets webhook to be fired when asset report generation has failed. If the Item does not support Assets, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.\n\nNote that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development (except for webhooks of type `TRANSFER`)."
+                  },
+                  "response": [
+                    {
+                      "id": "685c34ea-5bc7-4243-8bee-5e7dcb790e5e",
+                      "name": "success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"webhook_fired\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-685c34ea-5bc7-4243-8bee-5e7dcb790e5e"
+                    },
+                    {
+                      "id": "6741c9dc-d001-4603-a0ba-f31f9917ba90",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-6741c9dc-d001-4603-a0ba-f31f9917ba90"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-cfb429e0-a48f-4238-8ea3-966e15e02834"
+                }
+              ],
+              "id": "d0040800-863a-4bb3-9394-ebad115a9ca2",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-d0040800-863a-4bb3-9394-ebad115a9ca2"
+            },
+            {
+              "name": "reset_login",
+              "item": [
+                {
+                  "name": "Plaid Force a Sandbox Item into an error state",
+                  "id": "cdd48921-9d1d-4555-95f0-33c01522f35f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemResetLoginRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/reset_login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "reset_login"
+                      ]
+                    },
+                    "description": "`/sandbox/item/reset_login/` forces an Item into an `ITEM_LOGIN_REQUIRED` state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's [update mode](https://plaid.com/docs/link/update-mode) flow in the Sandbox environment.  After calling `/sandbox/item/reset_login`, You can then use Plaid Link update mode to restore the Item to a good state. An `ITEM_LOGIN_REQUIRED` webhook will also be fired after a call to this endpoint, if one is associated with the Item.\n\n\nIn the Sandbox, Items will transition to an `ITEM_LOGIN_REQUIRED` error state automatically after 30 days, even if this endpoint is not called."
+                  },
+                  "response": [
+                    {
+                      "id": "9de02ca4-36a9-4a65-b0a6-528cdc1bd175",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemResetLoginRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/reset_login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "reset_login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reset_login\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-9de02ca4-36a9-4a65-b0a6-528cdc1bd175"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-cdd48921-9d1d-4555-95f0-33c01522f35f"
+                }
+              ],
+              "id": "590f2cdc-d0aa-444e-a930-abd77c1cfc20",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-590f2cdc-d0aa-444e-a930-abd77c1cfc20"
+            },
+            {
+              "name": "set_verification_status",
+              "item": [
+                {
+                  "name": "Plaid Set verification status for Sandbox account",
+                  "id": "880f56e7-b4b7-4f34-872c-d4976b57ab62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemSetVerificationStatusRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/item/set_verification_status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "item",
+                        "set_verification_status"
+                      ]
+                    },
+                    "description": "The `/sandbox/item/set_verification_status` endpoint can be used to change the verification status of an Item in in the Sandbox in order to simulate the Automated Micro-deposit flow.\n\nFor more information on testing Automated Micro-deposits in Sandbox, see [Auth full coverage testing](https://plaid.com/docs/auth/coverage/testing#)."
+                  },
+                  "response": [
+                    {
+                      "id": "cbf506b0-38fa-4bef-bb58-8c117ad45595",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxItemSetVerificationStatusRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/item/set_verification_status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "item",
+                            "set_verification_status"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-cbf506b0-38fa-4bef-bb58-8c117ad45595"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-880f56e7-b4b7-4f34-872c-d4976b57ab62"
+                }
+              ],
+              "id": "e61b475c-f596-44c5-b342-052c904c23db",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-e61b475c-f596-44c5-b342-052c904c23db"
+            }
+          ],
+          "id": "0fedb8ef-a019-4861-9378-097b3b045e9d",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-0fedb8ef-a019-4861-9378-097b3b045e9d"
+        },
+        {
+          "name": "bank_transfer",
+          "item": [
+            {
+              "name": "simulate",
+              "item": [
+                {
+                  "name": "Plaid Simulate a bank transfer event in Sandbox",
+                  "id": "d8ce9ffe-5e9c-42e4-8f54-4aec25f92a08",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "bank_transfer",
+                        "simulate"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/bank_transfer/simulate` endpoint to simulate a bank transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/bank_transfer/event/sync` or `/bank_transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+                  },
+                  "response": [
+                    {
+                      "id": "7bde9718-fc54-4a65-bbed-fa70f920bbbb",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-7bde9718-fc54-4a65-bbed-fa70f920bbbb"
+                    },
+                    {
+                      "id": "8766ecce-419a-43af-af1d-7910a6325647",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-8766ecce-419a-43af-af1d-7910a6325647"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-d8ce9ffe-5e9c-42e4-8f54-4aec25f92a08"
+                }
+              ],
+              "id": "0ad10bd7-3d9b-4197-915c-d49a142b7226",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-0ad10bd7-3d9b-4197-915c-d49a142b7226"
+            },
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire a Bank Transfer webhook",
+                  "id": "79280b95-7a45-48c8-b67f-edc953ffe664",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "bank_transfer",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/bank_transfer/fire_webhook` endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "9e45517f-52a7-4b63-908f-41ccff4b389e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-9e45517f-52a7-4b63-908f-41ccff4b389e"
+                    },
+                    {
+                      "id": "4bd5392a-5377-473e-95ff-44c6af2b227b",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-4bd5392a-5377-473e-95ff-44c6af2b227b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-79280b95-7a45-48c8-b67f-edc953ffe664"
+                }
+              ],
+              "id": "ef5289e8-7619-41b7-837e-1a3488230112",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-ef5289e8-7619-41b7-837e-1a3488230112"
+            }
+          ],
+          "id": "e856cb6c-ff0e-47ce-ace4-5eb1655cfa94",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-e856cb6c-ff0e-47ce-ace4-5eb1655cfa94"
+        },
+        {
+          "name": "transfer",
+          "item": [
+            {
+              "name": "sweep",
+              "item": [
+                {
+                  "name": "simulate",
+                  "item": [
+                    {
+                      "name": "Plaid Simulate creating a sweep",
+                      "id": "eb79ebfd-8535-4735-8ff2-edf205439bb4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSweepSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/sweep/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "sweep",
+                            "simulate"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/sweep/simulate` endpoint to create a sweep and associated events in the Sandbox environment. Upon calling this endpoint, all transfers with a sweep status of `swept` will become `swept_settled`, all `posted` or `pending` transfers with a sweep status of `unswept` will become `swept`, and all `returned` transfers with a sweep status of `swept` will become `return_swept`."
+                      },
+                      "response": [
+                        {
+                          "id": "41a78f8d-24ba-4902-810c-ef065d0bea26",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSweepSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/sweep/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "sweep",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"sweep\": {\n    \"value\": \"reference #/components/schemas/SimulatedTransferSweep not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-41a78f8d-24ba-4902-810c-ef065d0bea26"
+                        },
+                        {
+                          "id": "314a0819-690c-410e-ae53-8bc20cbf7853",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSweepSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/sweep/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "sweep",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-314a0819-690c-410e-ae53-8bc20cbf7853"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-eb79ebfd-8535-4735-8ff2-edf205439bb4"
+                    }
+                  ],
+                  "id": "592ba0fe-b788-404f-88cc-cb4dd7118f79",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-592ba0fe-b788-404f-88cc-cb4dd7118f79"
+                }
+              ],
+              "id": "92176fbc-05af-4861-90ae-ce8e1853d2db",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-92176fbc-05af-4861-90ae-ce8e1853d2db"
+            },
+            {
+              "name": "simulate",
+              "item": [
+                {
+                  "name": "Plaid Simulate a transfer event in Sandbox",
+                  "id": "ac79d018-cd3f-47bd-ac5f-063628a96cf7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/transfer/simulate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "transfer",
+                        "simulate"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/transfer/simulate` endpoint to simulate a transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/transfer/event/sync` or `/transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+                  },
+                  "response": [
+                    {
+                      "id": "ef8218fe-775f-43fe-92f5-ead0456ba456",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-ef8218fe-775f-43fe-92f5-ead0456ba456"
+                    },
+                    {
+                      "id": "5e19a75f-34eb-4f7f-96c3-7f9cb520fc53",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-5e19a75f-34eb-4f7f-96c3-7f9cb520fc53"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-ac79d018-cd3f-47bd-ac5f-063628a96cf7"
+                }
+              ],
+              "id": "21991868-1c72-4812-9702-ad96b449e951",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-21991868-1c72-4812-9702-ad96b449e951"
+            },
+            {
+              "name": "refund",
+              "item": [
+                {
+                  "name": "simulate",
+                  "item": [
+                    {
+                      "name": "Plaid Simulate a refund event in Sandbox",
+                      "id": "b550fbc2-641a-4f22-8c03-495c29fdde39",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRefundSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/refund/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "refund",
+                            "simulate"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/refund/simulate` endpoint to simulate a refund event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/transfer/event/sync` or `/transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+                      },
+                      "response": [
+                        {
+                          "id": "0d1236d2-df2e-40e8-8ceb-144e2fca33b9",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRefundSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/refund/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "refund",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-0d1236d2-df2e-40e8-8ceb-144e2fca33b9"
+                        },
+                        {
+                          "id": "d0d4bdb6-1110-44dd-b78f-6bebac11b63a",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRefundSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/refund/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "refund",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-d0d4bdb6-1110-44dd-b78f-6bebac11b63a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-b550fbc2-641a-4f22-8c03-495c29fdde39"
+                    }
+                  ],
+                  "id": "1aff36ea-3ed2-4936-92d0-12bc52351cd2",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-1aff36ea-3ed2-4936-92d0-12bc52351cd2"
+                }
+              ],
+              "id": "70b43137-45ab-4c92-b8ea-de3d73c9973d",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-70b43137-45ab-4c92-b8ea-de3d73c9973d"
+            },
+            {
+              "name": "ledger",
+              "item": [
+                {
+                  "name": "simulate_available",
+                  "item": [
+                    {
+                      "name": "Plaid Simulate converting pending balance to available balance",
+                      "id": "a7bd4b4a-f73b-4f6e-bb25-d56968278eab",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerSimulateAvailableRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/ledger/simulate_available",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "ledger",
+                            "simulate_available"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/ledger/simulate_available` endpoint to simulate converting pending balance to available balance for all originators in the Sandbox environment."
+                      },
+                      "response": [
+                        {
+                          "id": "e34a552c-d380-439b-a5fb-65c85163e198",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerSimulateAvailableRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/ledger/simulate_available",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "ledger",
+                                "simulate_available"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-e34a552c-d380-439b-a5fb-65c85163e198"
+                        },
+                        {
+                          "id": "a72bb118-95e5-4a5f-84c6-ba99fa7fe81e",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerSimulateAvailableRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/ledger/simulate_available",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "ledger",
+                                "simulate_available"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-a72bb118-95e5-4a5f-84c6-ba99fa7fe81e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-a7bd4b4a-f73b-4f6e-bb25-d56968278eab"
+                    }
+                  ],
+                  "id": "ac36107e-b7aa-4303-b705-338910b67b53",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-ac36107e-b7aa-4303-b705-338910b67b53"
+                },
+                {
+                  "name": "deposit",
+                  "item": [
+                    {
+                      "name": "simulate",
+                      "item": [
+                        {
+                          "name": "Plaid Simulate a ledger deposit event in Sandbox",
+                          "id": "8fb067e9-39f9-4682-825b-482df77b9bf4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerDepositSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/ledger/deposit/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "ledger",
+                                "deposit",
+                                "simulate"
+                              ]
+                            },
+                            "description": "Use the `/sandbox/transfer/ledger/deposit/simulate` endpoint to simulate a ledger deposit event in the Sandbox environment."
+                          },
+                          "response": [
+                            {
+                              "id": "8abc08ec-61c0-4aeb-89fd-b4f248adb29b",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerDepositSimulateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sandbox/transfer/ledger/deposit/simulate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sandbox",
+                                    "transfer",
+                                    "ledger",
+                                    "deposit",
+                                    "simulate"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:38:50.000Z",
+                              "updatedAt": "2026-07-28T02:38:50.000Z",
+                              "uid": "35240-8abc08ec-61c0-4aeb-89fd-b4f248adb29b"
+                            },
+                            {
+                              "id": "f3d90904-43b6-4960-9308-0d7744ffa5bd",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerDepositSimulateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sandbox/transfer/ledger/deposit/simulate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sandbox",
+                                    "transfer",
+                                    "ledger",
+                                    "deposit",
+                                    "simulate"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:38:50.000Z",
+                              "updatedAt": "2026-07-28T02:38:50.000Z",
+                              "uid": "35240-f3d90904-43b6-4960-9308-0d7744ffa5bd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-8fb067e9-39f9-4682-825b-482df77b9bf4"
+                        }
+                      ],
+                      "id": "57faae04-2f4b-4441-acd1-a15029229ea8",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-57faae04-2f4b-4441-acd1-a15029229ea8"
+                    }
+                  ],
+                  "id": "96a4a87a-678a-4e58-babb-726eac3a16f5",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-96a4a87a-678a-4e58-babb-726eac3a16f5"
+                },
+                {
+                  "name": "withdraw",
+                  "item": [
+                    {
+                      "name": "simulate",
+                      "item": [
+                        {
+                          "name": "Plaid Simulate a ledger withdraw event in Sandbox",
+                          "id": "9b1d7f8c-8364-4097-8d9a-450764262863",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/ledger/withdraw/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "ledger",
+                                "withdraw",
+                                "simulate"
+                              ]
+                            },
+                            "description": "Use the `/sandbox/transfer/ledger/withdraw/simulate` endpoint to simulate a ledger withdraw event in the Sandbox environment."
+                          },
+                          "response": [
+                            {
+                              "id": "40a652f3-a524-4290-8d45-f69a8cceff5a",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sandbox/transfer/ledger/withdraw/simulate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sandbox",
+                                    "transfer",
+                                    "ledger",
+                                    "withdraw",
+                                    "simulate"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                              "createdAt": "2026-07-28T02:38:50.000Z",
+                              "updatedAt": "2026-07-28T02:38:50.000Z",
+                              "uid": "35240-40a652f3-a524-4290-8d45-f69a8cceff5a"
+                            },
+                            {
+                              "id": "35257d4f-958f-4230-8756-c70dd357b9f2",
+                              "name": "Error response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferLedgerWithdrawSimulateRequest not found in the OpenAPI spec\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/sandbox/transfer/ledger/withdraw/simulate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "sandbox",
+                                    "transfer",
+                                    "ledger",
+                                    "withdraw",
+                                    "simulate"
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:38:50.000Z",
+                              "updatedAt": "2026-07-28T02:38:50.000Z",
+                              "uid": "35240-35257d4f-958f-4230-8756-c70dd357b9f2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-9b1d7f8c-8364-4097-8d9a-450764262863"
+                        }
+                      ],
+                      "id": "9f8b9b7c-ab0b-4ee9-8a9d-baf11a0121f9",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-9f8b9b7c-ab0b-4ee9-8a9d-baf11a0121f9"
+                    }
+                  ],
+                  "id": "5e2073fd-fb19-4d8f-afce-fd9c144026b2",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-5e2073fd-fb19-4d8f-afce-fd9c144026b2"
+                }
+              ],
+              "id": "f3c6b208-f652-4896-88d1-fbc6e9340220",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-f3c6b208-f652-4896-88d1-fbc6e9340220"
+            },
+            {
+              "name": "repayment",
+              "item": [
+                {
+                  "name": "simulate",
+                  "item": [
+                    {
+                      "name": "Plaid Trigger the creation of a repayment",
+                      "id": "8afb1dbc-c42e-4697-89d7-d57c646e1de8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRepaymentSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/repayment/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "repayment",
+                            "simulate"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/repayment/simulate` endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned."
+                      },
+                      "response": [
+                        {
+                          "id": "fdbb1d5e-3a78-4aa8-89d1-82b4ebbbec32",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRepaymentSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/repayment/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "repayment",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-fdbb1d5e-3a78-4aa8-89d1-82b4ebbbec32"
+                        },
+                        {
+                          "id": "9f0f49ff-1d97-4fe3-bbe3-c21bcc9f89b7",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferRepaymentSimulateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/repayment/simulate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "repayment",
+                                "simulate"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-9f0f49ff-1d97-4fe3-bbe3-c21bcc9f89b7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-8afb1dbc-c42e-4697-89d7-d57c646e1de8"
+                    }
+                  ],
+                  "id": "11026134-7090-4206-a063-e95865db8720",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-11026134-7090-4206-a063-e95865db8720"
+                }
+              ],
+              "id": "60cf0509-64f0-4ec4-9d66-7609c6d450f6",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-60cf0509-64f0-4ec4-9d66-7609c6d450f6"
+            },
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire a Transfer webhook",
+                  "id": "c56ce92a-6222-4522-a12d-d54a498e0fed",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/transfer/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "transfer",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/transfer/fire_webhook` endpoint to manually trigger a `TRANSFER_EVENTS_UPDATE` webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "9186fb18-75c9-40c8-9fb0-f35b2a60a5bd",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-9186fb18-75c9-40c8-9fb0-f35b2a60a5bd"
+                    },
+                    {
+                      "id": "95e4d05f-b55f-4843-956d-0a68f114c729",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-95e4d05f-b55f-4843-956d-0a68f114c729"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-c56ce92a-6222-4522-a12d-d54a498e0fed"
+                }
+              ],
+              "id": "42ec8be5-53e7-4ead-be95-2b414d7597b6",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-42ec8be5-53e7-4ead-be95-2b414d7597b6"
+            },
+            {
+              "name": "test_clock",
+              "item": [
+                {
+                  "name": "create",
+                  "item": [
+                    {
+                      "name": "Plaid Create a test clock",
+                      "id": "234d6e90-3df3-4803-bc41-174e3faa4827",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/test_clock/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "test_clock",
+                            "create"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/test_clock/create` endpoint to create a `test_clock` in the Sandbox environment.\n\nA test clock object represents an independent timeline and has a `virtual_time` field indicating the current timestamp of the timeline. Test clocks are used for testing recurring transfers in Sandbox.\n\nA test clock can be associated with up to 5 recurring transfers."
+                      },
+                      "response": [
+                        {
+                          "id": "3b07f484-3df0-42d5-9a67-4d381d4e453c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"test_clock\": {\n    \"value\": \"reference #/components/schemas/TransferTestClock not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-3b07f484-3df0-42d5-9a67-4d381d4e453c"
+                        },
+                        {
+                          "id": "6c52b6b8-ecb7-42bf-9fbb-fc450506fd9a",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-6c52b6b8-ecb7-42bf-9fbb-fc450506fd9a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-234d6e90-3df3-4803-bc41-174e3faa4827"
+                    }
+                  ],
+                  "id": "5dd52a0c-0bd6-461c-aef9-e9595251fe12",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-5dd52a0c-0bd6-461c-aef9-e9595251fe12"
+                },
+                {
+                  "name": "advance",
+                  "item": [
+                    {
+                      "name": "Plaid Advance a test clock",
+                      "id": "40be7f7a-0a21-4fb4-99e9-423e4d4ed815",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockAdvanceRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/test_clock/advance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "test_clock",
+                            "advance"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/test_clock/advance` endpoint to advance a `test_clock` in the Sandbox environment.\n\nA test clock object represents an independent timeline and has a `virtual_time` field indicating the current timestamp of the timeline. A test clock can be advanced by incrementing `virtual_time`, but may never go back to a lower `virtual_time`.\n\nIf a test clock is advanced, we will simulate the changes that ought to occur during the time that elapsed.\n\nFor example, a client creates a weekly recurring transfer with a test clock set at t. When the client advances the test clock by setting `virtual_time` = t + 15 days, 2 new originations should be created, along with the webhook events.\n\nThe advancement of the test clock from its current `virtual_time` should be limited such that there are no more than 20 originations resulting from the advance operation on each `recurring_transfer` associated with the `test_clock`.\n\nFor example, if the recurring transfer associated with this test clock originates once every 4 weeks, you can advance the `virtual_time` up to 80 weeks on each API call."
+                      },
+                      "response": [
+                        {
+                          "id": "3975642e-9a22-47cd-b683-f94ab5ed855d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockAdvanceRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "advance"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-3975642e-9a22-47cd-b683-f94ab5ed855d"
+                        },
+                        {
+                          "id": "16ada6de-bc51-4626-9d6d-1a0f48152810",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockAdvanceRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "advance"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-16ada6de-bc51-4626-9d6d-1a0f48152810"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-40be7f7a-0a21-4fb4-99e9-423e4d4ed815"
+                    }
+                  ],
+                  "id": "484fc43e-7a39-4334-b726-c9e639e06c57",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-484fc43e-7a39-4334-b726-c9e639e06c57"
+                },
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Get a test clock",
+                      "id": "4ffcd45e-f0a0-40bb-81c8-3ca4f7cbc433",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/test_clock/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "test_clock",
+                            "get"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/test_clock/get` endpoint to get a `test_clock` in the Sandbox environment."
+                      },
+                      "response": [
+                        {
+                          "id": "936add2a-8805-41af-ba48-6951b2423f05",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"test_clock\": {\n    \"value\": \"reference #/components/schemas/TransferTestClock not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-936add2a-8805-41af-ba48-6951b2423f05"
+                        },
+                        {
+                          "id": "e1816fd1-b42b-4be9-849e-15b599de46f3",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-e1816fd1-b42b-4be9-849e-15b599de46f3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-4ffcd45e-f0a0-40bb-81c8-3ca4f7cbc433"
+                    }
+                  ],
+                  "id": "c47917a9-d574-4336-ac95-4d741b2d9a7b",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-c47917a9-d574-4336-ac95-4d741b2d9a7b"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List test clocks",
+                      "id": "89be36d5-dcf2-4065-abd2-1a1cebc454b1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/transfer/test_clock/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "transfer",
+                            "test_clock",
+                            "list"
+                          ]
+                        },
+                        "description": "Use the `/sandbox/transfer/test_clock/list` endpoint to see a list of all your test clocks in the Sandbox environment, by ascending `virtual_time`. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired test clocks."
+                      },
+                      "response": [
+                        {
+                          "id": "9c0acfd3-f2b7-4b6d-b057-271aa7c16ae6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"test_clocks\": [\n    {\n      \"value\": \"reference #/components/schemas/TransferTestClock not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TransferTestClock not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-9c0acfd3-f2b7-4b6d-b057-271aa7c16ae6"
+                        },
+                        {
+                          "id": "e46f05db-edac-4840-abfe-2a831a4acedc",
+                          "name": "Error response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxTransferTestClockListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/sandbox/transfer/test_clock/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "sandbox",
+                                "transfer",
+                                "test_clock",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:38:50.000Z",
+                          "updatedAt": "2026-07-28T02:38:50.000Z",
+                          "uid": "35240-e46f05db-edac-4840-abfe-2a831a4acedc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-89be36d5-dcf2-4065-abd2-1a1cebc454b1"
+                    }
+                  ],
+                  "id": "37a6a5d8-be40-4579-96e3-472d11ba4876",
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-37a6a5d8-be40-4579-96e3-472d11ba4876"
+                }
+              ],
+              "id": "69f13c4e-1968-4c3a-98d0-f2109a2df7ab",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-69f13c4e-1968-4c3a-98d0-f2109a2df7ab"
+            }
+          ],
+          "id": "4fa6fe52-369b-468f-9d8f-c02830fc219c",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-4fa6fe52-369b-468f-9d8f-c02830fc219c"
+        },
+        {
+          "name": "payment_profile",
+          "item": [
+            {
+              "name": "reset_login",
+              "item": [
+                {
+                  "name": "Plaid Reset the login of a Payment Profile",
+                  "id": "5c5af3fb-3b9c-4465-9248-77c7dc8b02bb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPaymentProfileResetLoginRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/payment_profile/reset_login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "payment_profile",
+                        "reset_login"
+                      ]
+                    },
+                    "description": "`/sandbox/payment_profile/reset_login/` forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.\n\n After calling `/sandbox/payment_profile/reset_login`, calls to the `/transfer/authorization/create` with the Payment Profile will result in a `decision_rationale` `PAYMENT_PROFILE_LOGIN_REQUIRED`. You can then use update mode for Payment Profile to restore it into a good state.\n\n In order to invoke this endpoint, you must first [create a Payment Profile](https://plaid.com/docs/transfer/add-to-app/#create-a-payment-profile-optional) and [go through the Link flow](https://plaid.com/docs/transfer/add-to-app/#create-a-link-token)."
+                  },
+                  "response": [
+                    {
+                      "id": "d828f290-d9d7-427a-acd8-2b2f93796ceb",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxPaymentProfileResetLoginRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/payment_profile/reset_login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "payment_profile",
+                            "reset_login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reset_login\": \"<boolean>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-d828f290-d9d7-427a-acd8-2b2f93796ceb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-5c5af3fb-3b9c-4465-9248-77c7dc8b02bb"
+                }
+              ],
+              "id": "4a49ecb3-b6d1-4d2c-8302-be7dc46b8119",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-4a49ecb3-b6d1-4d2c-8302-be7dc46b8119"
+            }
+          ],
+          "id": "0f9bdfcf-9a48-4bc4-bb66-e2754fd49777",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-0f9bdfcf-9a48-4bc4-bb66-e2754fd49777"
+        },
+        {
+          "name": "income",
+          "item": [
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire an Income webhook",
+                  "id": "f9ac95b2-7d4e-46d0-8a6a-1e5c8aed2c44",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "income",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/income/fire_webhook` endpoint to manually trigger a Payroll or Document Income webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "1add6c34-430f-4da8-894b-c6cca7eb43ac",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-1add6c34-430f-4da8-894b-c6cca7eb43ac"
+                    },
+                    {
+                      "id": "69631716-907c-444b-825f-f0cff8aac3d1",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-69631716-907c-444b-825f-f0cff8aac3d1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-f9ac95b2-7d4e-46d0-8a6a-1e5c8aed2c44"
+                }
+              ],
+              "id": "38f991ba-4bb3-416a-afae-9b567c037442",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-38f991ba-4bb3-416a-afae-9b567c037442"
+            }
+          ],
+          "id": "b8fd96f2-3b9b-4784-937f-4a2632ff4bbb",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-b8fd96f2-3b9b-4784-937f-4a2632ff4bbb"
+        },
+        {
+          "name": "bank_income",
+          "item": [
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire a bank income webhook in sandbox",
+                  "id": "36bc9231-16a1-485b-a250-3327c14a6d80",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/bank_income/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "bank_income",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/bank_income/fire_webhook` endpoint to manually trigger a Bank Income webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "46112aac-1c3e-4bc8-a7f2-85c6df3990bf",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-46112aac-1c3e-4bc8-a7f2-85c6df3990bf"
+                    },
+                    {
+                      "id": "99df6250-5de3-4285-98e4-40572db708bb",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankIncomeFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_income/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_income",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-99df6250-5de3-4285-98e4-40572db708bb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-36bc9231-16a1-485b-a250-3327c14a6d80"
+                }
+              ],
+              "id": "f3de28ed-c345-446e-8808-1ef5f808971a",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-f3de28ed-c345-446e-8808-1ef5f808971a"
+            }
+          ],
+          "id": "d5b523f0-7e9b-42c3-a370-c604f6959ae2",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-d5b523f0-7e9b-42c3-a370-c604f6959ae2"
+        },
+        {
+          "name": "oauth",
+          "item": [
+            {
+              "name": "select_accounts",
+              "item": [
+                {
+                  "name": "Plaid Save the selected accounts when connecting to the Platypus Oauth institution",
+                  "id": "56fb0f4f-0f78-432d-bdec-ee1a883cf71a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxOauthSelectAccountsRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/oauth/select_accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "oauth",
+                        "select_accounts"
+                      ]
+                    },
+                    "description": "Save the selected accounts when connecting to the Platypus Oauth institution"
+                  },
+                  "response": [
+                    {
+                      "id": "666d029f-85d6-47a3-8f0b-5fd62eabe2de",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxOauthSelectAccountsRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/oauth/select_accounts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "oauth",
+                            "select_accounts"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"exercitation_271\": -79023737.21615148,\n  \"proident_c\": 15801735.068798006,\n  \"exercitation_d\": -15819254,\n  \"nostruddf_\": -60563720\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-666d029f-85d6-47a3-8f0b-5fd62eabe2de"
+                    },
+                    {
+                      "id": "0f663dad-cb30-4515-8487-ae0b7d884507",
+                      "name": "Error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxOauthSelectAccountsRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/oauth/select_accounts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "oauth",
+                            "select_accounts"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:38:50.000Z",
+                      "updatedAt": "2026-07-28T02:38:50.000Z",
+                      "uid": "35240-0f663dad-cb30-4515-8487-ae0b7d884507"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:38:50.000Z",
+                  "updatedAt": "2026-07-28T02:38:50.000Z",
+                  "uid": "35240-56fb0f4f-0f78-432d-bdec-ee1a883cf71a"
+                }
+              ],
+              "id": "109d8767-e156-4cf8-948a-0ad33a8262cd",
+              "createdAt": "2026-07-28T02:38:50.000Z",
+              "updatedAt": "2026-07-28T02:38:50.000Z",
+              "uid": "35240-109d8767-e156-4cf8-948a-0ad33a8262cd"
+            }
+          ],
+          "id": "fb7a616f-7eb4-4e6e-b6af-74821b91caf8",
+          "createdAt": "2026-07-28T02:38:50.000Z",
+          "updatedAt": "2026-07-28T02:38:50.000Z",
+          "uid": "35240-fb7a616f-7eb4-4e6e-b6af-74821b91caf8"
+        }
+      ],
+      "id": "97705e0b-1360-4e0c-a03a-221b44c9f36b",
+      "createdAt": "2026-07-28T02:38:50.000Z",
+      "updatedAt": "2026-07-28T02:38:50.000Z",
+      "uid": "35240-97705e0b-1360-4e0c-a03a-221b44c9f36b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

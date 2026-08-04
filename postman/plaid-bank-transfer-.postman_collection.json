@@ -1,0 +1,2183 @@
+{
+  "info": {
+    "_postman_id": "dfe15146-2ba2-487f-a80c-9cd23a00dd64",
+    "name": "Plaid bank transfer/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:24.000Z",
+    "updatedAt": "2026-07-28T02:37:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dfe15146-2ba2-487f-a80c-9cd23a00dd64"
+  },
+  "item": [
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "bank_transfer",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a bank transfer as a processor",
+                  "id": "cee9bdce-35fc-4500-bd9b-c56fd87d46ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorBankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/bank_transfer/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "bank_transfer",
+                        "create"
+                      ]
+                    },
+                    "description": "Use the `/processor/bank_transfer/create` endpoint to initiate a new bank transfer as a processor"
+                  },
+                  "response": [
+                    {
+                      "id": "33e1baf2-8529-40eb-add8-9b8e34815a07",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorBankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/bank_transfer/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "bank_transfer",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"bank_transfer\": {\n    \"value\": \"reference #/components/schemas/BankTransfer not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-33e1baf2-8529-40eb-add8-9b8e34815a07"
+                    },
+                    {
+                      "id": "c1d26893-f4ce-4741-9bd7-39a0d6cb0346",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorBankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/bank_transfer/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "bank_transfer",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-c1d26893-f4ce-4741-9bd7-39a0d6cb0346"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-cee9bdce-35fc-4500-bd9b-c56fd87d46ef"
+                }
+              ],
+              "id": "a13ffbe8-5aa4-44a7-96d5-78b5f87bfa5f",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-a13ffbe8-5aa4-44a7-96d5-78b5f87bfa5f"
+            }
+          ],
+          "id": "5b995893-e69a-4828-99aa-398b07f486b9",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-5b995893-e69a-4828-99aa-398b07f486b9"
+        }
+      ],
+      "id": "dae765cf-b38c-4c2e-b5c8-f592ebc26e6f",
+      "createdAt": "2026-07-28T02:37:25.000Z",
+      "updatedAt": "2026-07-28T02:37:25.000Z",
+      "uid": "35240-dae765cf-b38c-4c2e-b5c8-f592ebc26e6f"
+    },
+    {
+      "name": "bank_transfer",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve a bank transfer",
+              "id": "fd42925a-9fe5-42f1-932d-bc0991d9b1ce",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_transfer/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_transfer",
+                    "get"
+                  ]
+                },
+                "description": "The `/bank_transfer/get` fetches information about the bank transfer corresponding to the given `bank_transfer_id`."
+              },
+              "response": [
+                {
+                  "id": "239f8467-bcbf-4096-9fb2-92b97bf036e0",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"bank_transfer\": {\n    \"value\": \"reference #/components/schemas/BankTransfer not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-239f8467-bcbf-4096-9fb2-92b97bf036e0"
+                },
+                {
+                  "id": "22b0123f-69bf-4891-97da-83007fb10aea",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-22b0123f-69bf-4891-97da-83007fb10aea"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-fd42925a-9fe5-42f1-932d-bc0991d9b1ce"
+            }
+          ],
+          "id": "93bfb001-df7d-439a-b027-60327249e851",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-93bfb001-df7d-439a-b027-60327249e851"
+        },
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create a bank transfer",
+              "id": "5eb7cb81-0a18-48db-a391-246d6af27ea3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_transfer/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_transfer",
+                    "create"
+                  ]
+                },
+                "description": "Use the `/bank_transfer/create` endpoint to initiate a new bank transfer."
+              },
+              "response": [
+                {
+                  "id": "cc3502de-0f1d-4bd2-b11c-0dbe588a52d0",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"bank_transfer\": {\n    \"value\": \"reference #/components/schemas/BankTransfer not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-cc3502de-0f1d-4bd2-b11c-0dbe588a52d0"
+                },
+                {
+                  "id": "9e71c678-77b4-488f-81d7-b839ff4ed95d",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-9e71c678-77b4-488f-81d7-b839ff4ed95d"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-5eb7cb81-0a18-48db-a391-246d6af27ea3"
+            }
+          ],
+          "id": "f563cbcf-f855-4134-bf6e-4ae0bb09d74a",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-f563cbcf-f855-4134-bf6e-4ae0bb09d74a"
+        },
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Plaid List bank transfers",
+              "id": "05720e8e-f48d-4a94-abd9-7bbdc569981b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferListRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_transfer/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_transfer",
+                    "list"
+                  ]
+                },
+                "description": "Use the `/bank_transfer/list` endpoint to see a list of all your bank transfers and their statuses. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired bank transfers.\n"
+              },
+              "response": [
+                {
+                  "id": "db464725-1960-438a-9c14-49151cba1ce2",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"bank_transfers\": [\n    {\n      \"value\": \"reference #/components/schemas/BankTransfer not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BankTransfer not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-db464725-1960-438a-9c14-49151cba1ce2"
+                },
+                {
+                  "id": "30a8cacd-85ef-450b-9208-e557b51c48ca",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-30a8cacd-85ef-450b-9208-e557b51c48ca"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-05720e8e-f48d-4a94-abd9-7bbdc569981b"
+            }
+          ],
+          "id": "0b54d8d2-0c52-4779-9191-25de103d18fb",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-0b54d8d2-0c52-4779-9191-25de103d18fb"
+        },
+        {
+          "name": "cancel",
+          "item": [
+            {
+              "name": "Plaid Cancel a bank transfer",
+              "id": "ff76e655-ff21-41df-be78-b0a4cc676556",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCancelRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_transfer/cancel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_transfer",
+                    "cancel"
+                  ]
+                },
+                "description": "Use the `/bank_transfer/cancel` endpoint to cancel a bank transfer.  A transfer is eligible for cancelation if the `cancellable` property returned by `/bank_transfer/get` is `true`."
+              },
+              "response": [
+                {
+                  "id": "cbf93366-6825-4f09-9de2-7c1734567c83",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCancelRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "cancel"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-cbf93366-6825-4f09-9de2-7c1734567c83"
+                },
+                {
+                  "id": "007faf89-52bc-4f4c-88cd-3a63b6bbfd31",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferCancelRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "cancel"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-007faf89-52bc-4f4c-88cd-3a63b6bbfd31"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-ff76e655-ff21-41df-be78-b0a4cc676556"
+            }
+          ],
+          "id": "b19b0efb-f592-4b62-87ea-3ba198dbd145",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-b19b0efb-f592-4b62-87ea-3ba198dbd145"
+        },
+        {
+          "name": "event",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List bank transfer events",
+                  "id": "66ac219d-eed6-4f79-9b5a-40f9beff23e0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/event/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "event",
+                        "list"
+                      ]
+                    },
+                    "description": "Use the `/bank_transfer/event/list` endpoint to get a list of Plaid-initiated ACH or bank transfer events based on specified filter criteria. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see [micro-deposit events](https://plaid.com/docs/auth/coverage/microdeposit-events/)."
+                  },
+                  "response": [
+                    {
+                      "id": "ee6f1d38-25e8-4d9f-8656-e5c0c00d37a1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/event/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "event",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"bank_transfer_events\": [\n    {\n      \"value\": \"reference #/components/schemas/BankTransferEvent not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BankTransferEvent not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-ee6f1d38-25e8-4d9f-8656-e5c0c00d37a1"
+                    },
+                    {
+                      "id": "71803c35-4b80-493c-8cb6-795ba9820440",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/event/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "event",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-71803c35-4b80-493c-8cb6-795ba9820440"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-66ac219d-eed6-4f79-9b5a-40f9beff23e0"
+                }
+              ],
+              "id": "b683ec12-7c2c-45d2-a601-8f6e74eadc7a",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-b683ec12-7c2c-45d2-a601-8f6e74eadc7a"
+            },
+            {
+              "name": "sync",
+              "item": [
+                {
+                  "name": "Plaid Sync bank transfer events",
+                  "id": "9243cf76-f29e-4b6c-9883-ae7d790a6c8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventSyncRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/event/sync",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "event",
+                        "sync"
+                      ]
+                    },
+                    "description": "`/bank_transfer/event/sync` allows you to request up to the next 25 Plaid-initiated bank transfer events that happened after a specific `event_id`. When using Auth with micro-deposit verification enabled, this endpoint can be used to fetch status updates on ACH micro-deposits. For more details, see [micro-deposit events](https://www.plaid.com/docs/auth/coverage/microdeposit-events/)."
+                  },
+                  "response": [
+                    {
+                      "id": "e70ae8eb-7579-4904-b56c-348a723788b3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventSyncRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/event/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "event",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"bank_transfer_events\": [\n    {\n      \"value\": \"reference #/components/schemas/BankTransferEvent not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BankTransferEvent not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-e70ae8eb-7579-4904-b56c-348a723788b3"
+                    },
+                    {
+                      "id": "ff8d2e1c-1d9e-4351-aca2-b07eb4661a83",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferEventSyncRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/event/sync",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "event",
+                            "sync"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-ff8d2e1c-1d9e-4351-aca2-b07eb4661a83"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-9243cf76-f29e-4b6c-9883-ae7d790a6c8a"
+                }
+              ],
+              "id": "1a7d8ffb-08ba-470e-90f5-b634c9afbd40",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-1a7d8ffb-08ba-470e-90f5-b634c9afbd40"
+            }
+          ],
+          "id": "a74c6d3f-94e3-4f79-ad15-b63c5609847b",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-a74c6d3f-94e3-4f79-ad15-b63c5609847b"
+        },
+        {
+          "name": "sweep",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve a sweep",
+                  "id": "3d51e3c9-3c60-4548-8603-bc5903f86566",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/sweep/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "sweep",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/bank_transfer/sweep/get` endpoint fetches information about the sweep corresponding to the given `sweep_id`."
+                  },
+                  "response": [
+                    {
+                      "id": "37dfc436-f5a0-4d91-a577-3dc445fcd0a1",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/sweep/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "sweep",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"sweep\": {\n    \"value\": \"reference #/components/schemas/BankTransferSweep not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-37dfc436-f5a0-4d91-a577-3dc445fcd0a1"
+                    },
+                    {
+                      "id": "ded9ae26-8704-4449-be3f-0b557a4b7a06",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/sweep/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "sweep",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-ded9ae26-8704-4449-be3f-0b557a4b7a06"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-3d51e3c9-3c60-4548-8603-bc5903f86566"
+                }
+              ],
+              "id": "36b31d3f-7143-45f1-ab0c-bb83f35a4d37",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-36b31d3f-7143-45f1-ab0c-bb83f35a4d37"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List sweeps",
+                  "id": "fd2596a4-4f3b-41cf-9924-bd43140f197d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/sweep/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "sweep",
+                        "list"
+                      ]
+                    },
+                    "description": "The `/bank_transfer/sweep/list` endpoint fetches information about the sweeps matching the given filters."
+                  },
+                  "response": [
+                    {
+                      "id": "24d2bc87-a0a4-4b43-9664-ed8cc20a24a0",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/sweep/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "sweep",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"sweeps\": [\n    {\n      \"value\": \"reference #/components/schemas/BankTransferSweep not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/BankTransferSweep not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-24d2bc87-a0a4-4b43-9664-ed8cc20a24a0"
+                    },
+                    {
+                      "id": "eba09e39-4947-4ff1-b529-b05db9c67cf7",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferSweepListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/sweep/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "sweep",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-eba09e39-4947-4ff1-b529-b05db9c67cf7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-fd2596a4-4f3b-41cf-9924-bd43140f197d"
+                }
+              ],
+              "id": "a69d8e1f-ac1e-461b-af6b-b22f0d680b39",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-a69d8e1f-ac1e-461b-af6b-b22f0d680b39"
+            }
+          ],
+          "id": "04a8435b-d898-4cfa-95d5-1ab7793ca736",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-04a8435b-d898-4cfa-95d5-1ab7793ca736"
+        },
+        {
+          "name": "balance",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get balance of your Bank Transfer account",
+                  "id": "fd1b6c60-3b7d-4aad-9a0f-695409ed6640",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferBalanceGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/balance/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "balance",
+                        "get"
+                      ]
+                    },
+                    "description": "Use the `/bank_transfer/balance/get` endpoint to see the available balance in your bank transfer account. Debit transfers increase this balance once their status is posted. Credit transfers decrease this balance when they are created.\n\nThe transactable balance shows the amount in your account that you are able to use for transfers, and is essentially your available balance minus your minimum balance.\n\nNote that this endpoint can only be used with FBO accounts, when using Bank Transfers in the Full Service configuration. It cannot be used on your own account when using Bank Transfers in the BTS Platform configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "e017e93f-6d04-4101-b4b0-3140105a4354",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferBalanceGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/balance/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "balance",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"balance\": {\n    \"value\": \"reference #/components/schemas/BankTransferBalance not found in the OpenAPI spec\"\n  },\n  \"origination_account_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-e017e93f-6d04-4101-b4b0-3140105a4354"
+                    },
+                    {
+                      "id": "35b3f4fe-feed-42c8-ad31-bcfd40999b0c",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferBalanceGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/bank_transfer/balance/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank_transfer",
+                            "balance",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-35b3f4fe-feed-42c8-ad31-bcfd40999b0c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-fd1b6c60-3b7d-4aad-9a0f-695409ed6640"
+                }
+              ],
+              "id": "4b7dfeaa-3b4c-4cb2-a52d-e9c83bbc6ebb",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-4b7dfeaa-3b4c-4cb2-a52d-e9c83bbc6ebb"
+            }
+          ],
+          "id": "e3c1d872-e8a8-4145-b7c5-9bbe5c06d69a",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-e3c1d872-e8a8-4145-b7c5-9bbe5c06d69a"
+        },
+        {
+          "name": "migrate_account",
+          "item": [
+            {
+              "name": "Plaid Migrate account into Bank Transfers",
+              "id": "fec6d648-c03c-4915-b500-eee481b5ea55",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferMigrateAccountRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bank_transfer/migrate_account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank_transfer",
+                    "migrate_account"
+                  ]
+                },
+                "description": "As an alternative to adding Items via Link, you can also use the `/bank_transfer/migrate_account` endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as `/accounts/balance/get`, and can only be used with Bank Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to `/bank_transfer/migrate_account` is not enabled by default; to obtain access, contact your Plaid Account Manager."
+              },
+              "response": [
+                {
+                  "id": "4a4c9596-f5e9-41c3-8eb7-e22ae9a607f6",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferMigrateAccountRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/migrate_account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "migrate_account"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-4a4c9596-f5e9-41c3-8eb7-e22ae9a607f6"
+                },
+                {
+                  "id": "04256434-3ead-4ab2-82e6-b5ebabde7ab3",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/BankTransferMigrateAccountRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bank_transfer/migrate_account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank_transfer",
+                        "migrate_account"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-04256434-3ead-4ab2-82e6-b5ebabde7ab3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-fec6d648-c03c-4915-b500-eee481b5ea55"
+            }
+          ],
+          "id": "79ab4580-9103-4272-82da-e7c866534c33",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-79ab4580-9103-4272-82da-e7c866534c33"
+        }
+      ],
+      "id": "39bdc3fd-0522-4a62-9a62-93f1260f2b9d",
+      "createdAt": "2026-07-28T02:37:25.000Z",
+      "updatedAt": "2026-07-28T02:37:25.000Z",
+      "uid": "35240-39bdc3fd-0522-4a62-9a62-93f1260f2b9d"
+    },
+    {
+      "name": "sandbox",
+      "item": [
+        {
+          "name": "bank_transfer",
+          "item": [
+            {
+              "name": "simulate",
+              "item": [
+                {
+                  "name": "Plaid Simulate a bank transfer event in Sandbox",
+                  "id": "9ba4ae9d-b159-47c1-8ca3-f53a0634e072",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "bank_transfer",
+                        "simulate"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/bank_transfer/simulate` endpoint to simulate a bank transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/bank_transfer/event/sync` or `/bank_transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+                  },
+                  "response": [
+                    {
+                      "id": "b2497340-e2a8-4197-9955-1a7a93704da7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-b2497340-e2a8-4197-9955-1a7a93704da7"
+                    },
+                    {
+                      "id": "566ef1a8-1735-4b67-9f97-b7d0387a58de",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferSimulateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/simulate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "simulate"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-566ef1a8-1735-4b67-9f97-b7d0387a58de"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-9ba4ae9d-b159-47c1-8ca3-f53a0634e072"
+                }
+              ],
+              "id": "1637668a-3297-4860-8a81-e0051276b4ae",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-1637668a-3297-4860-8a81-e0051276b4ae"
+            },
+            {
+              "name": "fire_webhook",
+              "item": [
+                {
+                  "name": "Plaid Manually fire a Bank Transfer webhook",
+                  "id": "b3c8477d-5afb-41c5-aaca-8938d1c4d475",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sandbox",
+                        "bank_transfer",
+                        "fire_webhook"
+                      ]
+                    },
+                    "description": "Use the `/sandbox/bank_transfer/fire_webhook` endpoint to manually trigger a Bank Transfers webhook in the Sandbox environment."
+                  },
+                  "response": [
+                    {
+                      "id": "2883e628-1f23-4f78-9af2-e07e28b27194",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-2883e628-1f23-4f78-9af2-e07e28b27194"
+                    },
+                    {
+                      "id": "a69f8daa-bff8-4496-aaad-93e0507d23e3",
+                      "name": "Error response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/SandboxBankTransferFireWebhookRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/sandbox/bank_transfer/fire_webhook",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "sandbox",
+                            "bank_transfer",
+                            "fire_webhook"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:37:25.000Z",
+                      "updatedAt": "2026-07-28T02:37:25.000Z",
+                      "uid": "35240-a69f8daa-bff8-4496-aaad-93e0507d23e3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:37:25.000Z",
+                  "updatedAt": "2026-07-28T02:37:25.000Z",
+                  "uid": "35240-b3c8477d-5afb-41c5-aaca-8938d1c4d475"
+                }
+              ],
+              "id": "66d7e0e1-f2d1-495e-a0a7-01ca8da90ab8",
+              "createdAt": "2026-07-28T02:37:25.000Z",
+              "updatedAt": "2026-07-28T02:37:25.000Z",
+              "uid": "35240-66d7e0e1-f2d1-495e-a0a7-01ca8da90ab8"
+            }
+          ],
+          "id": "bae1ce59-25bb-4918-9e65-1ae2e4e75be2",
+          "createdAt": "2026-07-28T02:37:25.000Z",
+          "updatedAt": "2026-07-28T02:37:25.000Z",
+          "uid": "35240-bae1ce59-25bb-4918-9e65-1ae2e4e75be2"
+        }
+      ],
+      "id": "c3c9e4f9-5464-4e63-9a90-71b4ba0d68fb",
+      "createdAt": "2026-07-28T02:37:25.000Z",
+      "updatedAt": "2026-07-28T02:37:25.000Z",
+      "uid": "35240-c3c9e4f9-5464-4e63-9a90-71b4ba0d68fb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

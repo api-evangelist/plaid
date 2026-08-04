@@ -1,0 +1,350 @@
+{
+  "info": {
+    "_postman_id": "196176e6-4e7a-465f-b4d6-bcd47ef55d05",
+    "name": "Plaid statements/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:44.000Z",
+    "updatedAt": "2026-07-28T02:37:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-196176e6-4e7a-465f-b4d6-bcd47ef55d05"
+  },
+  "item": [
+    {
+      "name": "statements",
+      "item": [
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Plaid Retrieve a list of all statements associated with an item.",
+              "id": "569b7dd3-9b5b-483d-b685-9d799754c392",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsListRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/statements/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "statements",
+                    "list"
+                  ]
+                },
+                "description": "The `/statements/list` endpoint retrieves a list of all statements associated with an item."
+              },
+              "response": [
+                {
+                  "id": "d600b32d-2eba-4059-be7b-c6f8b37d3e71",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/statements/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "statements",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/StatementsAccount not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/StatementsAccount not found in the OpenAPI spec\"\n    }\n  ],\n  \"institution_id\": \"<string>\",\n  \"institution_name\": \"<string>\",\n  \"item_id\": \"<string>\",\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:45.000Z",
+                  "updatedAt": "2026-07-28T02:37:45.000Z",
+                  "uid": "35240-d600b32d-2eba-4059-be7b-c6f8b37d3e71"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:45.000Z",
+              "updatedAt": "2026-07-28T02:37:45.000Z",
+              "uid": "35240-569b7dd3-9b5b-483d-b685-9d799754c392"
+            }
+          ],
+          "id": "58826941-d495-4cb0-898a-89ff551a64bb",
+          "createdAt": "2026-07-28T02:37:45.000Z",
+          "updatedAt": "2026-07-28T02:37:45.000Z",
+          "uid": "35240-58826941-d495-4cb0-898a-89ff551a64bb"
+        },
+        {
+          "name": "download",
+          "item": [
+            {
+              "name": "Plaid Retrieve a single statement.",
+              "id": "1a407140-c988-40f9-ad51-35e6bee7959a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsDownloadRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/statements/download",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "statements",
+                    "download"
+                  ]
+                },
+                "description": "The `/statements/download` endpoint retrieves a single statement PDF in binary format.  The response will contain a `Plaid-Content-Hash` header containing a SHA 256 checksum of the statement. This can be used to verify that the file being sent by Plaid is the same file that was downloaded to your system."
+              },
+              "response": [
+                {
+                  "id": "c4f4a03e-b61a-413f-a0db-4898fcee6b22",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsDownloadRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/statements/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "statements",
+                        "download"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<binary>",
+                  "createdAt": "2026-07-28T02:37:45.000Z",
+                  "updatedAt": "2026-07-28T02:37:45.000Z",
+                  "uid": "35240-c4f4a03e-b61a-413f-a0db-4898fcee6b22"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:45.000Z",
+              "updatedAt": "2026-07-28T02:37:45.000Z",
+              "uid": "35240-1a407140-c988-40f9-ad51-35e6bee7959a"
+            }
+          ],
+          "id": "076521be-0e2a-4542-a243-8aea505c8fd8",
+          "createdAt": "2026-07-28T02:37:45.000Z",
+          "updatedAt": "2026-07-28T02:37:45.000Z",
+          "uid": "35240-076521be-0e2a-4542-a243-8aea505c8fd8"
+        },
+        {
+          "name": "refresh",
+          "item": [
+            {
+              "name": "Plaid Refresh statements data.",
+              "id": "6407f36b-02d8-4ac0-9b8a-8c5168429729",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsRefreshRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/statements/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "statements",
+                    "refresh"
+                  ]
+                },
+                "description": "`/statements/refresh` initiates an on-demand extraction to fetch the statements for the provided dates."
+              },
+              "response": [
+                {
+                  "id": "ba1ba07a-fe53-46de-8b16-045af6c00fa9",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/StatementsRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/statements/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "statements",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:45.000Z",
+                  "updatedAt": "2026-07-28T02:37:45.000Z",
+                  "uid": "35240-ba1ba07a-fe53-46de-8b16-045af6c00fa9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:45.000Z",
+              "updatedAt": "2026-07-28T02:37:45.000Z",
+              "uid": "35240-6407f36b-02d8-4ac0-9b8a-8c5168429729"
+            }
+          ],
+          "id": "92c5097a-3377-452f-a019-b45666cba368",
+          "createdAt": "2026-07-28T02:37:45.000Z",
+          "updatedAt": "2026-07-28T02:37:45.000Z",
+          "uid": "35240-92c5097a-3377-452f-a019-b45666cba368"
+        }
+      ],
+      "id": "5bb29b77-8b3f-4bb7-a3a7-d9e8471e8dea",
+      "createdAt": "2026-07-28T02:37:45.000Z",
+      "updatedAt": "2026-07-28T02:37:45.000Z",
+      "uid": "35240-5bb29b77-8b3f-4bb7-a3a7-d9e8471e8dea"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

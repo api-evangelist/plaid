@@ -1,0 +1,442 @@
+{
+  "info": {
+    "_postman_id": "daecdd29-5212-42c0-94f8-41a38b107fa8",
+    "name": "Plaid auth/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:43.000Z",
+    "updatedAt": "2026-07-28T02:36:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-daecdd29-5212-42c0-94f8-41a38b107fa8"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve auth data",
+              "id": "67affa05-5312-4cf2-9a4d-9dd9d10cbfe6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/AuthGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "get"
+                  ]
+                },
+                "description": "The `/auth/get` endpoint returns the bank account and bank identification numbers (such as routing numbers, for US accounts) associated with an Item's checking and savings accounts, along with high-level account data and balances when available.\n\nNote: This request may take some time to complete if `auth` was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.\n\nVersioning note: In API version 2017-03-08, the schema of the `numbers` object returned by this endpoint is substantially different. For details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2018-05-22)."
+              },
+              "response": [
+                {
+                  "id": "03b6f319-b3a0-46d4-8428-10bfde721601",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AuthGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"numbers\": {\n    \"value\": \"reference #/components/schemas/AuthGetNumbers not found in the OpenAPI spec\"\n  },\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:43.000Z",
+                  "updatedAt": "2026-07-28T02:36:43.000Z",
+                  "uid": "35240-03b6f319-b3a0-46d4-8428-10bfde721601"
+                },
+                {
+                  "id": "0a338b55-800c-4ccd-9845-7efd17cf76b4",
+                  "name": "Default error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/AuthGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:36:43.000Z",
+                  "updatedAt": "2026-07-28T02:36:43.000Z",
+                  "uid": "35240-0a338b55-800c-4ccd-9845-7efd17cf76b4"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:43.000Z",
+              "updatedAt": "2026-07-28T02:36:43.000Z",
+              "uid": "35240-67affa05-5312-4cf2-9a4d-9dd9d10cbfe6"
+            }
+          ],
+          "id": "ceb47611-bb8f-41d7-9656-61645b904262",
+          "createdAt": "2026-07-28T02:36:43.000Z",
+          "updatedAt": "2026-07-28T02:36:43.000Z",
+          "uid": "35240-ceb47611-bb8f-41d7-9656-61645b904262"
+        }
+      ],
+      "id": "168a577e-1d29-45d0-bd62-b5288c7eada7",
+      "createdAt": "2026-07-28T02:36:43.000Z",
+      "updatedAt": "2026-07-28T02:36:43.000Z",
+      "uid": "35240-168a577e-1d29-45d0-bd62-b5288c7eada7"
+    },
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve Auth data",
+                  "id": "b76e0b2a-bca4-4832-b781-af8dae56dc2b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorAuthGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/auth/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "auth",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/processor/auth/get` endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that''s associated with a given `processor_token`. The endpoint also returns high-level account data and balances when available.\n\nVersioning note: API versions 2019-05-29 and earlier use a different schema for the `numbers` object returned by this endpoint. For details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2020-09-14).\n"
+                  },
+                  "response": [
+                    {
+                      "id": "fd8971e2-113b-4c99-ad0c-c1cf952f44a6",
+                      "name": "success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorAuthGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/auth/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "auth",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  },\n  \"numbers\": {\n    \"value\": \"reference #/components/schemas/ProcessorNumber not found in the OpenAPI spec\"\n  },\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:43.000Z",
+                      "updatedAt": "2026-07-28T02:36:43.000Z",
+                      "uid": "35240-fd8971e2-113b-4c99-ad0c-c1cf952f44a6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:43.000Z",
+                  "updatedAt": "2026-07-28T02:36:43.000Z",
+                  "uid": "35240-b76e0b2a-bca4-4832-b781-af8dae56dc2b"
+                }
+              ],
+              "id": "14649fbd-1a16-4ca1-929a-e3a90116bb3f",
+              "createdAt": "2026-07-28T02:36:43.000Z",
+              "updatedAt": "2026-07-28T02:36:43.000Z",
+              "uid": "35240-14649fbd-1a16-4ca1-929a-e3a90116bb3f"
+            }
+          ],
+          "id": "994a360b-0f4d-4125-8438-6f512a6cdce3",
+          "createdAt": "2026-07-28T02:36:43.000Z",
+          "updatedAt": "2026-07-28T02:36:43.000Z",
+          "uid": "35240-994a360b-0f4d-4125-8438-6f512a6cdce3"
+        }
+      ],
+      "id": "c5eb43f5-6eff-4fbd-8af3-c637503a1af4",
+      "createdAt": "2026-07-28T02:36:43.000Z",
+      "updatedAt": "2026-07-28T02:36:43.000Z",
+      "uid": "35240-c5eb43f5-6eff-4fbd-8af3-c637503a1af4"
+    },
+    {
+      "name": "investments",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get data needed to authorize an investments transfer",
+                  "id": "5839dc6f-fb75-4c90-9454-d28fefc92eb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsAuthGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/investments/auth/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "investments",
+                        "auth",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/investments/auth/get` endpoint allows developers to receive user-authorized data to facilitate the transfer of holdings"
+                  },
+                  "response": [
+                    {
+                      "id": "419b249b-ffee-4d00-a521-188273ae397b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/InvestmentsAuthGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/investments/auth/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "investments",
+                            "auth",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountBase not found in the OpenAPI spec\"\n    }\n  ],\n  \"holdings\": [\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Holding not found in the OpenAPI spec\"\n    }\n  ],\n  \"securities\": [\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Security not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"numbers\": {\n    \"value\": \"reference #/components/schemas/InvestmentsAuthGetNumbers not found in the OpenAPI spec\"\n  },\n  \"owners\": [\n    {\n      \"value\": \"reference #/components/schemas/InvestmentsAuthOwner not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/InvestmentsAuthOwner not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:43.000Z",
+                      "updatedAt": "2026-07-28T02:36:43.000Z",
+                      "uid": "35240-419b249b-ffee-4d00-a521-188273ae397b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:43.000Z",
+                  "updatedAt": "2026-07-28T02:36:43.000Z",
+                  "uid": "35240-5839dc6f-fb75-4c90-9454-d28fefc92eb5"
+                }
+              ],
+              "id": "f3273793-ff1d-4005-a40e-6d9a65626bfa",
+              "createdAt": "2026-07-28T02:36:43.000Z",
+              "updatedAt": "2026-07-28T02:36:43.000Z",
+              "uid": "35240-f3273793-ff1d-4005-a40e-6d9a65626bfa"
+            }
+          ],
+          "id": "47512acc-927a-469d-891d-53f15f38e2d3",
+          "createdAt": "2026-07-28T02:36:43.000Z",
+          "updatedAt": "2026-07-28T02:36:43.000Z",
+          "uid": "35240-47512acc-927a-469d-891d-53f15f38e2d3"
+        }
+      ],
+      "id": "236a0a0d-acee-4049-a6b6-ed086cb034e2",
+      "createdAt": "2026-07-28T02:36:43.000Z",
+      "updatedAt": "2026-07-28T02:36:43.000Z",
+      "uid": "35240-236a0a0d-acee-4049-a6b6-ed086cb034e2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

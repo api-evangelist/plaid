@@ -1,0 +1,575 @@
+{
+  "info": {
+    "_postman_id": "216592c2-6d09-4723-8d31-999114f29e58",
+    "name": "Plaid identity verification/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:48.000Z",
+    "updatedAt": "2026-07-28T02:36:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-216592c2-6d09-4723-8d31-999114f29e58"
+  },
+  "item": [
+    {
+      "name": "identity_verification",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "Plaid Create a new Identity Verification",
+              "id": "46ced590-671c-4234-8821-8140880ae9fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationCreateRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity_verification/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity_verification",
+                    "create"
+                  ]
+                },
+                "description": "Create a new Identity Verification for the user specified by the `client_user_id` field. The requirements and behavior of the verification are determined by the `template_id` provided.\nIf you don't know whether the associated user already has an active Identity Verification, you can specify `\"is_idempotent\": true` in the request body. With idempotency enabled, a new Identity Verification will only be created if one does not already exist for the associated `client_user_id` and `template_id`. If an Identity Verification is found, it will be returned unmodified with an `200 OK` HTTP status code.\n\nYou can also use this endpoint to supply information you already have collected about the user; if any of these fields are specified, the screens prompting the user to enter them will be skipped during the Link flow.\n"
+              },
+              "response": [
+                {
+                  "id": "173ed78f-209f-4d3c-ba6d-874685ed98e8",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity_verification/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity_verification",
+                        "create"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"completed_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"previous_attempt_id\": {\n    \"value\": \"reference #/components/schemas/PreviousIdentityVerificationAttemptID not found in the OpenAPI spec\"\n  },\n  \"shareable_url\": {\n    \"value\": \"reference #/components/schemas/ShareableURL not found in the OpenAPI spec\"\n  },\n  \"template\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationTemplateReference not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationUserData not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStatus not found in the OpenAPI spec\"\n  },\n  \"steps\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStepSummary not found in the OpenAPI spec\"\n  },\n  \"documentary_verification\": {\n    \"value\": \"reference #/components/schemas/DocumentaryVerification not found in the OpenAPI spec\"\n  },\n  \"selfie_check\": {\n    \"value\": \"reference #/components/schemas/SelfieCheck not found in the OpenAPI spec\"\n  },\n  \"kyc_check\": {\n    \"value\": \"reference #/components/schemas/KYCCheckDetails not found in the OpenAPI spec\"\n  },\n  \"risk_check\": {\n    \"value\": \"reference #/components/schemas/RiskCheckDetails not found in the OpenAPI spec\"\n  },\n  \"watchlist_screening_id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualIDNullable not found in the OpenAPI spec\"\n  },\n  \"redacted_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:49.000Z",
+                  "updatedAt": "2026-07-28T02:36:49.000Z",
+                  "uid": "35240-173ed78f-209f-4d3c-ba6d-874685ed98e8"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:49.000Z",
+              "updatedAt": "2026-07-28T02:36:49.000Z",
+              "uid": "35240-46ced590-671c-4234-8821-8140880ae9fe"
+            }
+          ],
+          "id": "eb165d1b-35b3-4056-a891-b7213d9133d9",
+          "createdAt": "2026-07-28T02:36:49.000Z",
+          "updatedAt": "2026-07-28T02:36:49.000Z",
+          "uid": "35240-eb165d1b-35b3-4056-a891-b7213d9133d9"
+        },
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve Identity Verification",
+              "id": "e8d07160-6f19-4134-b94b-4bb14e4811b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity_verification/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity_verification",
+                    "get"
+                  ]
+                },
+                "description": "Retrieve a previously created Identity Verification."
+              },
+              "response": [
+                {
+                  "id": "01065339-d337-401b-9fc0-9d2f076d16bc",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity_verification/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity_verification",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"completed_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"previous_attempt_id\": {\n    \"value\": \"reference #/components/schemas/PreviousIdentityVerificationAttemptID not found in the OpenAPI spec\"\n  },\n  \"shareable_url\": {\n    \"value\": \"reference #/components/schemas/ShareableURL not found in the OpenAPI spec\"\n  },\n  \"template\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationTemplateReference not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationUserData not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStatus not found in the OpenAPI spec\"\n  },\n  \"steps\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStepSummary not found in the OpenAPI spec\"\n  },\n  \"documentary_verification\": {\n    \"value\": \"reference #/components/schemas/DocumentaryVerification not found in the OpenAPI spec\"\n  },\n  \"selfie_check\": {\n    \"value\": \"reference #/components/schemas/SelfieCheck not found in the OpenAPI spec\"\n  },\n  \"kyc_check\": {\n    \"value\": \"reference #/components/schemas/KYCCheckDetails not found in the OpenAPI spec\"\n  },\n  \"risk_check\": {\n    \"value\": \"reference #/components/schemas/RiskCheckDetails not found in the OpenAPI spec\"\n  },\n  \"watchlist_screening_id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualIDNullable not found in the OpenAPI spec\"\n  },\n  \"redacted_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:49.000Z",
+                  "updatedAt": "2026-07-28T02:36:49.000Z",
+                  "uid": "35240-01065339-d337-401b-9fc0-9d2f076d16bc"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:49.000Z",
+              "updatedAt": "2026-07-28T02:36:49.000Z",
+              "uid": "35240-e8d07160-6f19-4134-b94b-4bb14e4811b2"
+            }
+          ],
+          "id": "6c98c32b-6ca0-491a-b298-eff5d0f787b7",
+          "createdAt": "2026-07-28T02:36:49.000Z",
+          "updatedAt": "2026-07-28T02:36:49.000Z",
+          "uid": "35240-6c98c32b-6ca0-491a-b298-eff5d0f787b7"
+        },
+        {
+          "name": "list",
+          "item": [
+            {
+              "name": "Plaid List Identity Verifications",
+              "id": "f42fe3a4-77fc-4162-82b9-3e1b1e1ff554",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationListRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity_verification/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity_verification",
+                    "list"
+                  ]
+                },
+                "description": "Filter and list Identity Verifications created by your account"
+              },
+              "response": [
+                {
+                  "id": "c5105ad5-3b98-432c-8280-ad64ac33bf65",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity_verification/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity_verification",
+                        "list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"identity_verifications\": [\n    {\n      \"value\": \"reference #/components/schemas/IdentityVerification not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/IdentityVerification not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:49.000Z",
+                  "updatedAt": "2026-07-28T02:36:49.000Z",
+                  "uid": "35240-c5105ad5-3b98-432c-8280-ad64ac33bf65"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:49.000Z",
+              "updatedAt": "2026-07-28T02:36:49.000Z",
+              "uid": "35240-f42fe3a4-77fc-4162-82b9-3e1b1e1ff554"
+            }
+          ],
+          "id": "9fcbdf35-d0d1-407f-be7e-3daaae304749",
+          "createdAt": "2026-07-28T02:36:49.000Z",
+          "updatedAt": "2026-07-28T02:36:49.000Z",
+          "uid": "35240-9fcbdf35-d0d1-407f-be7e-3daaae304749"
+        },
+        {
+          "name": "retry",
+          "item": [
+            {
+              "name": "Plaid Retry an Identity Verification",
+              "id": "51f06875-85d1-4a19-8a05-facf7756725c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationRetryRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity_verification/retry",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity_verification",
+                    "retry"
+                  ]
+                },
+                "description": "Allow a customer to retry their Identity Verification"
+              },
+              "response": [
+                {
+                  "id": "83d33e36-91dd-4ce7-ab1d-45667987b7a6",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationRetryRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity_verification/retry",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity_verification",
+                        "retry"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationID not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"completed_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"previous_attempt_id\": {\n    \"value\": \"reference #/components/schemas/PreviousIdentityVerificationAttemptID not found in the OpenAPI spec\"\n  },\n  \"shareable_url\": {\n    \"value\": \"reference #/components/schemas/ShareableURL not found in the OpenAPI spec\"\n  },\n  \"template\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationTemplateReference not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationUserData not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStatus not found in the OpenAPI spec\"\n  },\n  \"steps\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationStepSummary not found in the OpenAPI spec\"\n  },\n  \"documentary_verification\": {\n    \"value\": \"reference #/components/schemas/DocumentaryVerification not found in the OpenAPI spec\"\n  },\n  \"selfie_check\": {\n    \"value\": \"reference #/components/schemas/SelfieCheck not found in the OpenAPI spec\"\n  },\n  \"kyc_check\": {\n    \"value\": \"reference #/components/schemas/KYCCheckDetails not found in the OpenAPI spec\"\n  },\n  \"risk_check\": {\n    \"value\": \"reference #/components/schemas/RiskCheckDetails not found in the OpenAPI spec\"\n  },\n  \"watchlist_screening_id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualIDNullable not found in the OpenAPI spec\"\n  },\n  \"redacted_at\": {\n    \"value\": \"reference #/components/schemas/TimestampNullable not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:49.000Z",
+                  "updatedAt": "2026-07-28T02:36:49.000Z",
+                  "uid": "35240-83d33e36-91dd-4ce7-ab1d-45667987b7a6"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:49.000Z",
+              "updatedAt": "2026-07-28T02:36:49.000Z",
+              "uid": "35240-51f06875-85d1-4a19-8a05-facf7756725c"
+            }
+          ],
+          "id": "1e5170e7-26d1-4668-a2b2-412f090817ba",
+          "createdAt": "2026-07-28T02:36:49.000Z",
+          "updatedAt": "2026-07-28T02:36:49.000Z",
+          "uid": "35240-1e5170e7-26d1-4668-a2b2-412f090817ba"
+        },
+        {
+          "name": "autofill",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create autofill for an Identity Verification",
+                  "id": "1320e8ab-dfb1-4c8b-8bb3-8ca63763e3a8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationAutofillCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity_verification/autofill/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity_verification",
+                        "autofill",
+                        "create"
+                      ]
+                    },
+                    "description": "Try to autofill an Identity Verification based of the provided phone number, date of birth and country of residence."
+                  },
+                  "response": [
+                    {
+                      "id": "d2f21a95-5cbb-4e57-88e4-360e6ce044c8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityVerificationAutofillCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identity_verification/autofill/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identity_verification",
+                            "autofill",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationAutofillStatus not found in the OpenAPI spec\"\n  },\n  \"user\": {\n    \"value\": \"reference #/components/schemas/IdentityVerificationAutofillUserData not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:49.000Z",
+                      "updatedAt": "2026-07-28T02:36:49.000Z",
+                      "uid": "35240-d2f21a95-5cbb-4e57-88e4-360e6ce044c8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:49.000Z",
+                  "updatedAt": "2026-07-28T02:36:49.000Z",
+                  "uid": "35240-1320e8ab-dfb1-4c8b-8bb3-8ca63763e3a8"
+                }
+              ],
+              "id": "27ef00a3-06ae-408a-aa73-38c876f29a21",
+              "createdAt": "2026-07-28T02:36:49.000Z",
+              "updatedAt": "2026-07-28T02:36:49.000Z",
+              "uid": "35240-27ef00a3-06ae-408a-aa73-38c876f29a21"
+            }
+          ],
+          "id": "6f321fe5-5114-4f79-a807-f43cb2990d32",
+          "createdAt": "2026-07-28T02:36:49.000Z",
+          "updatedAt": "2026-07-28T02:36:49.000Z",
+          "uid": "35240-6f321fe5-5114-4f79-a807-f43cb2990d32"
+        }
+      ],
+      "id": "5efb3ad0-fb69-4643-bd41-ce804bb29653",
+      "createdAt": "2026-07-28T02:36:49.000Z",
+      "updatedAt": "2026-07-28T02:36:49.000Z",
+      "uid": "35240-5efb3ad0-fb69-4643-bd41-ce804bb29653"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

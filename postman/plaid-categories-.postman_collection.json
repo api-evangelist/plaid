@@ -1,0 +1,188 @@
+{
+  "info": {
+    "_postman_id": "f3d4f857-8f2e-494c-9712-0d7f02c53d50",
+    "name": "Plaid categories/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:37:28.000Z",
+    "updatedAt": "2026-07-28T02:37:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f3d4f857-8f2e-494c-9712-0d7f02c53d50"
+  },
+  "item": [
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Get categories",
+              "id": "90b68e62-72b8-49c2-a14b-57384b0b284d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/CategoriesGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/categories/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "categories",
+                    "get"
+                  ]
+                },
+                "description": "Send a request to the `/categories/get` endpoint to get detailed information on categories returned by Plaid. This endpoint does not require authentication.\n\nAll implementations are recommended to use the newer `personal_finance_category` taxonomy instead of the older `category` taxonomy supported by this endpoint. The [`personal_finance_category taxonomy` CSV file](https://plaid.com/documents/transactions-personal-finance-category-taxonomy.csv) is available for download and is not accessible via API."
+              },
+              "response": [
+                {
+                  "id": "66204264-c1d8-4850-aa40-06be70e0d816",
+                  "name": "success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CategoriesGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"categories\": [\n    {\n      \"value\": \"reference #/components/schemas/Category not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Category not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:37:29.000Z",
+                  "updatedAt": "2026-07-28T02:37:29.000Z",
+                  "uid": "35240-66204264-c1d8-4850-aa40-06be70e0d816"
+                },
+                {
+                  "id": "b9b1740b-b9ed-4b24-9566-aca193df0c92",
+                  "name": "Error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/CategoriesGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/categories/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "categories",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:37:29.000Z",
+                  "updatedAt": "2026-07-28T02:37:29.000Z",
+                  "uid": "35240-b9b1740b-b9ed-4b24-9566-aca193df0c92"
+                }
+              ],
+              "createdAt": "2026-07-28T02:37:29.000Z",
+              "updatedAt": "2026-07-28T02:37:29.000Z",
+              "uid": "35240-90b68e62-72b8-49c2-a14b-57384b0b284d"
+            }
+          ],
+          "id": "efe70653-43a6-4474-8fa3-f0a1ec173368",
+          "createdAt": "2026-07-28T02:37:29.000Z",
+          "updatedAt": "2026-07-28T02:37:29.000Z",
+          "uid": "35240-efe70653-43a6-4474-8fa3-f0a1ec173368"
+        }
+      ],
+      "id": "16df9c4f-06ad-4330-9d5b-5ec19c38c5b0",
+      "createdAt": "2026-07-28T02:37:29.000Z",
+      "updatedAt": "2026-07-28T02:37:29.000Z",
+      "uid": "35240-16df9c4f-06ad-4330-9d5b-5ec19c38c5b0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

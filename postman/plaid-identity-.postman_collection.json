@@ -1,0 +1,767 @@
+{
+  "info": {
+    "_postman_id": "8a8e4a3b-ab8d-4a37-b856-316cacce11c7",
+    "name": "Plaid identity/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:45.000Z",
+    "updatedAt": "2026-07-28T02:36:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8a8e4a3b-ab8d-4a37-b856-316cacce11c7"
+  },
+  "item": [
+    {
+      "name": "identity",
+      "item": [
+        {
+          "name": "get",
+          "item": [
+            {
+              "name": "Plaid Retrieve identity data",
+              "id": "120d7299-8cb3-4fd6-9a3d-e1c0b6238ef1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityGetRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity/get",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity",
+                    "get"
+                  ]
+                },
+                "description": "The `/identity/get` endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses. Only name data is guaranteed to be returned; other fields will be empty arrays if not provided by the institution.\n\nThis request may take some time to complete if identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.\n\nNote: In API versions 2018-05-22 and earlier, the `owners` object is not returned, and instead identity information is returned in the top level `identity` object. For more details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2019-05-29)."
+              },
+              "response": [
+                {
+                  "id": "23ca44f3-0589-45f7-ae3d-25eae7fd1d1a",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity",
+                        "get"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentity not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentity not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-23ca44f3-0589-45f7-ae3d-25eae7fd1d1a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-120d7299-8cb3-4fd6-9a3d-e1c0b6238ef1"
+            }
+          ],
+          "id": "82a399eb-e310-4d84-b364-dd0f71cbcc1f",
+          "createdAt": "2026-07-28T02:36:45.000Z",
+          "updatedAt": "2026-07-28T02:36:45.000Z",
+          "uid": "35240-82a399eb-e310-4d84-b364-dd0f71cbcc1f"
+        },
+        {
+          "name": "documents",
+          "item": [
+            {
+              "name": "uploads",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Returns uploaded document identity",
+                      "id": "cd486998-607b-4b2f-8f4a-9d39a14356a1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityDocumentsUploadsGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identity/documents/uploads/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identity",
+                            "documents",
+                            "uploads",
+                            "get"
+                          ]
+                        },
+                        "description": "Use `/identity/documents/uploads/get` to retrieve document uploaded identity."
+                      },
+                      "response": [
+                        {
+                          "id": "67f91935-405e-416a-b16e-e5f4694a076c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityDocumentsUploadsGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/identity/documents/uploads/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "identity",
+                                "documents",
+                                "uploads",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentityDocumentUpload not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentityDocumentUpload not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:45.000Z",
+                          "updatedAt": "2026-07-28T02:36:45.000Z",
+                          "uid": "35240-67f91935-405e-416a-b16e-e5f4694a076c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:45.000Z",
+                      "updatedAt": "2026-07-28T02:36:45.000Z",
+                      "uid": "35240-cd486998-607b-4b2f-8f4a-9d39a14356a1"
+                    }
+                  ],
+                  "id": "1569d443-de85-47c5-ac18-1969dabc46cf",
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-1569d443-de85-47c5-ac18-1969dabc46cf"
+                }
+              ],
+              "id": "fe3dc3a9-a646-4b40-9584-28c18983e25c",
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-fe3dc3a9-a646-4b40-9584-28c18983e25c"
+            }
+          ],
+          "id": "98c6a212-87ac-4adb-a518-81cfec1b2611",
+          "createdAt": "2026-07-28T02:36:45.000Z",
+          "updatedAt": "2026-07-28T02:36:45.000Z",
+          "uid": "35240-98c6a212-87ac-4adb-a518-81cfec1b2611"
+        },
+        {
+          "name": "match",
+          "item": [
+            {
+              "name": "Plaid Retrieve identity match score",
+              "id": "0e6db87b-f373-45f3-90e5-219cbd48c5a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityMatchRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity/match",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity",
+                    "match"
+                  ]
+                },
+                "description": "The `/identity/match` endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.\n\nFields within the `balances` object will always be null when retrieved by `/identity/match`. Instead, use the free `/accounts/get` endpoint to request balance cached data, or `/accounts/balance/get` for real-time data.\n\nThis request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data."
+              },
+              "response": [
+                {
+                  "id": "228bd8f3-faa8-4117-bb3f-2202ec8b0793",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityMatchRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity/match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity",
+                        "match"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"accounts\": [\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentityMatchScore not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/AccountIdentityMatchScore not found in the OpenAPI spec\"\n    }\n  ],\n  \"item\": {\n    \"value\": \"reference #/components/schemas/Item not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-228bd8f3-faa8-4117-bb3f-2202ec8b0793"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-0e6db87b-f373-45f3-90e5-219cbd48c5a0"
+            }
+          ],
+          "id": "db0c7710-a499-4b8c-b666-dc28fb2ea8ec",
+          "createdAt": "2026-07-28T02:36:45.000Z",
+          "updatedAt": "2026-07-28T02:36:45.000Z",
+          "uid": "35240-db0c7710-a499-4b8c-b666-dc28fb2ea8ec"
+        },
+        {
+          "name": "refresh",
+          "item": [
+            {
+              "name": "Plaid Refresh identity data",
+              "id": "821b7b32-fe59-4269-b0af-c5663f061432",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityRefreshRequest not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/identity/refresh",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "identity",
+                    "refresh"
+                  ]
+                },
+                "description": "`/identity/refresh` is an optional endpoint for users of the Identity product. It initiates an on-demand extraction to fetch the most up to date Identity information from the Financial Institution. This on-demand extraction takes place in addition to the periodic extractions that automatically occur for any Identity-enabled Item. If changes to Identity are discovered after calling `/identity/refresh`, Plaid will fire a webhook [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/identity/#default_update).\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/identity/refresh` is offered as an add-on to Identity and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager."
+              },
+              "response": [
+                {
+                  "id": "c16098ee-e6d2-4eb8-88df-cb0d31b40cde",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-c16098ee-e6d2-4eb8-88df-cb0d31b40cde"
+                },
+                {
+                  "id": "abf8bb5b-fa22-4d39-a31f-c0e3135b918b",
+                  "name": "Error response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/IdentityRefreshRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identity/refresh",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identity",
+                        "refresh"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\",\n  \"display_message\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"documentation_url\": \"<string>\",\n  \"suggested_action\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-abf8bb5b-fa22-4d39-a31f-c0e3135b918b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-821b7b32-fe59-4269-b0af-c5663f061432"
+            }
+          ],
+          "id": "2598b5d9-6405-48f0-8ae0-a5156c65b7b0",
+          "createdAt": "2026-07-28T02:36:45.000Z",
+          "updatedAt": "2026-07-28T02:36:45.000Z",
+          "uid": "35240-2598b5d9-6405-48f0-8ae0-a5156c65b7b0"
+        }
+      ],
+      "id": "0ca7a2c6-8f37-4cc9-a4f4-f945869de9c9",
+      "createdAt": "2026-07-28T02:36:45.000Z",
+      "updatedAt": "2026-07-28T02:36:45.000Z",
+      "uid": "35240-0ca7a2c6-8f37-4cc9-a4f4-f945869de9c9"
+    },
+    {
+      "name": "processor",
+      "item": [
+        {
+          "name": "identity",
+          "item": [
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve Identity data",
+                  "id": "8b2aeb39-96f5-4748-a557-079c2a201863",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorIdentityGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/identity/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "identity",
+                        "get"
+                      ]
+                    },
+                    "description": "The `/processor/identity/get` endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses."
+                  },
+                  "response": [
+                    {
+                      "id": "3cb7cdb0-b056-4b74-9f8d-4ce292c1034f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorIdentityGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/identity/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "identity",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountIdentity not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:45.000Z",
+                      "updatedAt": "2026-07-28T02:36:45.000Z",
+                      "uid": "35240-3cb7cdb0-b056-4b74-9f8d-4ce292c1034f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-8b2aeb39-96f5-4748-a557-079c2a201863"
+                }
+              ],
+              "id": "57ac20ac-248b-4966-8d90-7fbb41833dff",
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-57ac20ac-248b-4966-8d90-7fbb41833dff"
+            },
+            {
+              "name": "match",
+              "item": [
+                {
+                  "name": "Plaid Retrieve identity match score",
+                  "id": "b0daa53d-5b20-4fcd-b9c6-52d4f5db2cdd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorIdentityMatchRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/processor/identity/match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "processor",
+                        "identity",
+                        "match"
+                      ]
+                    },
+                    "description": "The `/processor/identity/match` endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.\n\nFields within the `balances` object will always be null when retrieved by `/identity/match`. Instead, use the free `/accounts/get` endpoint to request balance cached data, or `/accounts/balance/get` for real-time data.\n\nThis request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data."
+                  },
+                  "response": [
+                    {
+                      "id": "fad79d1c-6fb8-4015-9dcb-cd9d39a36ccf",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/ProcessorIdentityMatchRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/processor/identity/match",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "processor",
+                            "identity",
+                            "match"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"account\": {\n    \"value\": \"reference #/components/schemas/AccountIdentityMatchScore not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:45.000Z",
+                      "updatedAt": "2026-07-28T02:36:45.000Z",
+                      "uid": "35240-fad79d1c-6fb8-4015-9dcb-cd9d39a36ccf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:45.000Z",
+                  "updatedAt": "2026-07-28T02:36:45.000Z",
+                  "uid": "35240-b0daa53d-5b20-4fcd-b9c6-52d4f5db2cdd"
+                }
+              ],
+              "id": "0c55b2dc-7ae8-4673-8d44-5ea84ab3a6ea",
+              "createdAt": "2026-07-28T02:36:45.000Z",
+              "updatedAt": "2026-07-28T02:36:45.000Z",
+              "uid": "35240-0c55b2dc-7ae8-4673-8d44-5ea84ab3a6ea"
+            }
+          ],
+          "id": "a0e4db0c-2799-406f-86ea-6c97fdbad2e6",
+          "createdAt": "2026-07-28T02:36:45.000Z",
+          "updatedAt": "2026-07-28T02:36:45.000Z",
+          "uid": "35240-a0e4db0c-2799-406f-86ea-6c97fdbad2e6"
+        }
+      ],
+      "id": "53504314-095c-4bef-9711-0f815686d4f4",
+      "createdAt": "2026-07-28T02:36:45.000Z",
+      "updatedAt": "2026-07-28T02:36:45.000Z",
+      "uid": "35240-53504314-095c-4bef-9711-0f815686d4f4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}

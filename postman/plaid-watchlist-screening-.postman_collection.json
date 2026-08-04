@@ -1,0 +1,2323 @@
+{
+  "info": {
+    "_postman_id": "62768f67-1a33-430b-b0a4-b25ec091846f",
+    "name": "Plaid watchlist screening/",
+    "description": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:36:58.000Z",
+    "updatedAt": "2026-07-28T02:36:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-62768f67-1a33-430b-b0a4-b25ec091846f"
+  },
+  "item": [
+    {
+      "name": "watchlist_screening",
+      "item": [
+        {
+          "name": "entity",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a watchlist screening for an entity",
+                  "id": "8bd6f63d-47a7-44e9-b829-6d7638ca0cf1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/entity/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "entity",
+                        "create"
+                      ]
+                    },
+                    "description": "Create a new entity watchlist screening to check your customer against watchlists defined in the associated entity watchlist program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time."
+                  },
+                  "response": [
+                    {
+                      "id": "bbba1422-8691-48fc-b221-1b4c26beb112",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-bbba1422-8691-48fc-b221-1b4c26beb112"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-8bd6f63d-47a7-44e9-b829-6d7638ca0cf1"
+                }
+              ],
+              "id": "3a97d25b-1e41-4ffd-a0d4-b176f3537d0c",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-3a97d25b-1e41-4ffd-a0d4-b176f3537d0c"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Get an entity screening",
+                  "id": "48c77be3-fe3f-4ae7-9aaa-ce8f9fc79d6c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/entity/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "entity",
+                        "get"
+                      ]
+                    },
+                    "description": "Retrieve an entity watchlist screening."
+                  },
+                  "response": [
+                    {
+                      "id": "532c43e0-f42c-4cfb-be66-b20c9f059e6b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-532c43e0-f42c-4cfb-be66-b20c9f059e6b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-48c77be3-fe3f-4ae7-9aaa-ce8f9fc79d6c"
+                }
+              ],
+              "id": "43772aa9-c251-4944-87ed-07da898a4724",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-43772aa9-c251-4944-87ed-07da898a4724"
+            },
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List history for entity watchlist screenings",
+                      "id": "cfc2ac68-892c-46f4-abd8-e77660b3a2c2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityHistoryListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/history/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "history",
+                            "list"
+                          ]
+                        },
+                        "description": "List all changes to the entity watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned."
+                      },
+                      "response": [
+                        {
+                          "id": "34201154-aca0-4c72-9493-d96e8532b008",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityHistoryListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/history/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "history",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"entity_watchlist_screenings\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreening not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreening not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-34201154-aca0-4c72-9493-d96e8532b008"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-cfc2ac68-892c-46f4-abd8-e77660b3a2c2"
+                    }
+                  ],
+                  "id": "13c312ef-1d40-4ff2-9543-8194e0e0a1b6",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-13c312ef-1d40-4ff2-9543-8194e0e0a1b6"
+                }
+              ],
+              "id": "a78f5b97-6d69-471c-beeb-cd7fbfb7590a",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-a78f5b97-6d69-471c-beeb-cd7fbfb7590a"
+            },
+            {
+              "name": "hit",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List hits for entity watchlist screenings",
+                      "id": "4712190d-5b54-4467-b064-05148426f74b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityHitListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/hit/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "hit",
+                            "list"
+                          ]
+                        },
+                        "description": "List all hits for the entity watchlist screening."
+                      },
+                      "response": [
+                        {
+                          "id": "14213c90-adef-4c57-a42d-2296c66e12de",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityHitListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/hit/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "hit",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"entity_watchlist_screening_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHit not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHit not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-14213c90-adef-4c57-a42d-2296c66e12de"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-4712190d-5b54-4467-b064-05148426f74b"
+                    }
+                  ],
+                  "id": "e87d9af8-eb40-4c62-9410-d0905d43d0da",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-e87d9af8-eb40-4c62-9410-d0905d43d0da"
+                }
+              ],
+              "id": "41b0561c-22a2-41d9-8bd5-8e42b3d8f62e",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-41b0561c-22a2-41d9-8bd5-8e42b3d8f62e"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List entity watchlist screenings",
+                  "id": "8f68e986-cd47-4ef3-8ee5-b9c3d80c7903",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/entity/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "entity",
+                        "list"
+                      ]
+                    },
+                    "description": "List all entity screenings."
+                  },
+                  "response": [
+                    {
+                      "id": "9316b2e8-8525-4009-bf04-05594d5035a9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"entity_watchlist_screenings\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreening not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreening not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-9316b2e8-8525-4009-bf04-05594d5035a9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-8f68e986-cd47-4ef3-8ee5-b9c3d80c7903"
+                }
+              ],
+              "id": "0dd790cc-baf1-40a9-a8e0-4f9960d6c681",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-0dd790cc-baf1-40a9-a8e0-4f9960d6c681"
+            },
+            {
+              "name": "program",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Get entity watchlist screening program",
+                      "id": "320c06be-9741-4e95-ad26-27e0436d5af3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityProgramGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/program/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "program",
+                            "get"
+                          ]
+                        },
+                        "description": "Get an entity watchlist screening program"
+                      },
+                      "response": [
+                        {
+                          "id": "490090cc-fafe-41eb-a1e9-394c8a011b47",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityProgramGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/program/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "program",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistProgramID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"is_rescanning_enabled\": \"<boolean>\",\n  \"lists_enabled\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistCode not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistCode not found in the OpenAPI spec\"\n    }\n  ],\n  \"name\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningProgramName not found in the OpenAPI spec\"\n  },\n  \"name_sensitivity\": {\n    \"value\": \"reference #/components/schemas/ProgramNameSensitivity not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"is_archived\": {\n    \"value\": \"reference #/components/schemas/ProgramArchived not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-490090cc-fafe-41eb-a1e9-394c8a011b47"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-320c06be-9741-4e95-ad26-27e0436d5af3"
+                    }
+                  ],
+                  "id": "37b54278-3d26-4ed6-b462-ab2e60dc3fb5",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-37b54278-3d26-4ed6-b462-ab2e60dc3fb5"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List entity watchlist screening programs",
+                      "id": "1f43e1d1-3397-410c-855c-f9a6752812e3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityProgramListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/program/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "program",
+                            "list"
+                          ]
+                        },
+                        "description": "List all entity watchlist screening programs"
+                      },
+                      "response": [
+                        {
+                          "id": "bf5e0f46-59dc-4570-a181-7dc8a5f73504",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityProgramListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/program/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "program",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"entity_watchlist_programs\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistProgram not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistProgram not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-bf5e0f46-59dc-4570-a181-7dc8a5f73504"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-1f43e1d1-3397-410c-855c-f9a6752812e3"
+                    }
+                  ],
+                  "id": "6f7c1a4a-3cef-44d7-b549-ff1415e15272",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-6f7c1a4a-3cef-44d7-b549-ff1415e15272"
+                }
+              ],
+              "id": "698ac43e-1569-49be-ba50-deb5a74b23c5",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-698ac43e-1569-49be-ba50-deb5a74b23c5"
+            },
+            {
+              "name": "review",
+              "item": [
+                {
+                  "name": "create",
+                  "item": [
+                    {
+                      "name": "Plaid Create a review for an entity watchlist screening",
+                      "id": "c1f885b5-d09a-4c09-8c46-1332429f65bf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityReviewCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/review/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "review",
+                            "create"
+                          ]
+                        },
+                        "description": "Create a review for an entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+                      },
+                      "response": [
+                        {
+                          "id": "6c3ba7ae-80d3-456b-b20c-873b4250cb2b",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityReviewCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/review/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "review",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningReviewID not found in the OpenAPI spec\"\n  },\n  \"confirmed_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHitID not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHitID not found in the OpenAPI spec\"\n    }\n  ],\n  \"dismissed_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHitID not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningHitID not found in the OpenAPI spec\"\n    }\n  ],\n  \"comment\": {\n    \"value\": \"reference #/components/schemas/ReviewComment not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-6c3ba7ae-80d3-456b-b20c-873b4250cb2b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-c1f885b5-d09a-4c09-8c46-1332429f65bf"
+                    }
+                  ],
+                  "id": "548d1712-fe4c-438d-86ee-4d2b1b062dab",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-548d1712-fe4c-438d-86ee-4d2b1b062dab"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List reviews for entity watchlist screenings",
+                      "id": "8d97f552-68eb-4830-92b3-eb46561b00f3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityReviewListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/review/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "review",
+                            "list"
+                          ]
+                        },
+                        "description": "List all reviews for a particular entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+                      },
+                      "response": [
+                        {
+                          "id": "6f04031f-81b9-4558-9a59-17a5fef65711",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityReviewListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/entity/review/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "entity",
+                                "review",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"entity_watchlist_screening_reviews\": [\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningReview not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/EntityWatchlistScreeningReview not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-6f04031f-81b9-4558-9a59-17a5fef65711"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-8d97f552-68eb-4830-92b3-eb46561b00f3"
+                    }
+                  ],
+                  "id": "4c075e9f-2d5f-40f6-a18e-bfc37ff9dae7",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-4c075e9f-2d5f-40f6-a18e-bfc37ff9dae7"
+                }
+              ],
+              "id": "ca3d95e3-2be0-4bba-b73a-b64964b4c1fc",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-ca3d95e3-2be0-4bba-b73a-b64964b4c1fc"
+            },
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Update an entity screening",
+                  "id": "6041cd5f-6c50-4665-9dae-99d343a1cfa8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/entity/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "entity",
+                        "update"
+                      ]
+                    },
+                    "description": "Update an entity watchlist screening."
+                  },
+                  "response": [
+                    {
+                      "id": "e808d6af-1153-4d4c-9a69-d4eb1810faa9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningEntityUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/entity/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "entity",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/EntityWatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-e808d6af-1153-4d4c-9a69-d4eb1810faa9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-6041cd5f-6c50-4665-9dae-99d343a1cfa8"
+                }
+              ],
+              "id": "b9c53935-5cf3-440f-91f7-1309eccbcef5",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-b9c53935-5cf3-440f-91f7-1309eccbcef5"
+            }
+          ],
+          "id": "46e15fe2-04a1-445e-bdcc-8ce22ac9258a",
+          "createdAt": "2026-07-28T02:36:59.000Z",
+          "updatedAt": "2026-07-28T02:36:59.000Z",
+          "uid": "35240-46e15fe2-04a1-445e-bdcc-8ce22ac9258a"
+        },
+        {
+          "name": "individual",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Plaid Create a watchlist screening for a person",
+                  "id": "1304abad-8dd5-4283-aead-add53712f30e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualCreateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/individual/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "individual",
+                        "create"
+                      ]
+                    },
+                    "description": "Create a new Watchlist Screening to check your customer against watchlists defined in the associated Watchlist Program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time."
+                  },
+                  "response": [
+                    {
+                      "id": "30341958-7742-4d16-b898-4b6796e18b63",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "create"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-30341958-7742-4d16-b898-4b6796e18b63"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-1304abad-8dd5-4283-aead-add53712f30e"
+                }
+              ],
+              "id": "4e902d0f-256d-43fb-9f2f-7c62dc611e66",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-4e902d0f-256d-43fb-9f2f-7c62dc611e66"
+            },
+            {
+              "name": "get",
+              "item": [
+                {
+                  "name": "Plaid Retrieve an individual watchlist screening",
+                  "id": "43c7cc7a-9fc0-4abd-8354-588dcc7f970b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualGetRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/individual/get",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "individual",
+                        "get"
+                      ]
+                    },
+                    "description": "Retrieve a previously created individual watchlist screening"
+                  },
+                  "response": [
+                    {
+                      "id": "fca543be-d1fe-45d8-a878-bb9d0f36a933",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "get"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-fca543be-d1fe-45d8-a878-bb9d0f36a933"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-43c7cc7a-9fc0-4abd-8354-588dcc7f970b"
+                }
+              ],
+              "id": "babbc0bd-ad27-4531-9344-6a7748db61f9",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-babbc0bd-ad27-4531-9344-6a7748db61f9"
+            },
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List history for individual watchlist screenings",
+                      "id": "31079c49-3dbe-42b3-aef2-aad69aea6fa2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualHistoryListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/history/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "history",
+                            "list"
+                          ]
+                        },
+                        "description": "List all changes to the individual watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned."
+                      },
+                      "response": [
+                        {
+                          "id": "69d6b015-03d4-4072-acda-dc74ff898d65",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualHistoryListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/history/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "history",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"watchlist_screenings\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningIndividual not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningIndividual not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-69d6b015-03d4-4072-acda-dc74ff898d65"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-31079c49-3dbe-42b3-aef2-aad69aea6fa2"
+                    }
+                  ],
+                  "id": "13c8698a-419c-4e83-b03c-39edc6f9b772",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-13c8698a-419c-4e83-b03c-39edc6f9b772"
+                }
+              ],
+              "id": "8e832443-9ebd-4ef2-b9fe-cb28acdbb9e0",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-8e832443-9ebd-4ef2-b9fe-cb28acdbb9e0"
+            },
+            {
+              "name": "hit",
+              "item": [
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List hits for individual watchlist screening",
+                      "id": "a24f1c5f-8c15-4d06-920e-2edf2e1f913b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualHitListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/hit/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "hit",
+                            "list"
+                          ]
+                        },
+                        "description": "List all hits found by Plaid for a particular individual watchlist screening."
+                      },
+                      "response": [
+                        {
+                          "id": "02ab1286-8974-48b0-a9f8-1a598cc423ab",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualHitListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/hit/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "hit",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"watchlist_screening_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHit not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHit not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-02ab1286-8974-48b0-a9f8-1a598cc423ab"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-a24f1c5f-8c15-4d06-920e-2edf2e1f913b"
+                    }
+                  ],
+                  "id": "7bda3fc9-c82a-47fb-9ed5-073654cccc62",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-7bda3fc9-c82a-47fb-9ed5-073654cccc62"
+                }
+              ],
+              "id": "4b2e9e96-ced6-4ce6-8aa2-b1b9a62a8260",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-4b2e9e96-ced6-4ce6-8aa2-b1b9a62a8260"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "Plaid List Individual Watchlist Screenings",
+                  "id": "e2fce9ab-53e0-4f3b-9fe1-9af31b36269c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualListRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/individual/list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "individual",
+                        "list"
+                      ]
+                    },
+                    "description": "List previously created watchlist screenings for individuals"
+                  },
+                  "response": [
+                    {
+                      "id": "8a89d4a4-ac14-4f54-ba18-12fa300eda3b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "list"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"watchlist_screenings\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningIndividual not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningIndividual not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-8a89d4a4-ac14-4f54-ba18-12fa300eda3b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-e2fce9ab-53e0-4f3b-9fe1-9af31b36269c"
+                }
+              ],
+              "id": "46667b7d-9c76-4754-ba2a-826b30cc93ed",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-46667b7d-9c76-4754-ba2a-826b30cc93ed"
+            },
+            {
+              "name": "program",
+              "item": [
+                {
+                  "name": "get",
+                  "item": [
+                    {
+                      "name": "Plaid Get individual watchlist screening program",
+                      "id": "3369bd54-44ea-4986-b396-ca07dc015e8f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualProgramGetRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/program/get",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "program",
+                            "get"
+                          ]
+                        },
+                        "description": "Get an individual watchlist screening program"
+                      },
+                      "response": [
+                        {
+                          "id": "55593380-05db-4531-92f0-e8b27be2e23f",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualProgramGetRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/program/get",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "program",
+                                "get"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/WatchlistProgramID not found in the OpenAPI spec\"\n  },\n  \"created_at\": {\n    \"value\": \"reference #/components/schemas/Timestamp not found in the OpenAPI spec\"\n  },\n  \"is_rescanning_enabled\": \"<boolean>\",\n  \"lists_enabled\": [\n    {\n      \"value\": \"reference #/components/schemas/IndividualWatchlistCode not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/IndividualWatchlistCode not found in the OpenAPI spec\"\n    }\n  ],\n  \"name\": {\n    \"value\": \"reference #/components/schemas/IndividualWatchlistScreeningProgramName not found in the OpenAPI spec\"\n  },\n  \"name_sensitivity\": {\n    \"value\": \"reference #/components/schemas/ProgramNameSensitivity not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"is_archived\": {\n    \"value\": \"reference #/components/schemas/ProgramArchived not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-55593380-05db-4531-92f0-e8b27be2e23f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-3369bd54-44ea-4986-b396-ca07dc015e8f"
+                    }
+                  ],
+                  "id": "b81e742f-d801-49ba-bda3-d838fde737dd",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-b81e742f-d801-49ba-bda3-d838fde737dd"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List individual watchlist screening programs",
+                      "id": "c069e6d0-8100-473f-9cc8-236aff9b7d14",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualProgramListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/program/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "program",
+                            "list"
+                          ]
+                        },
+                        "description": "List all individual watchlist screening programs"
+                      },
+                      "response": [
+                        {
+                          "id": "7485a8d2-dcc2-4124-bf64-89df9d801809",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualProgramListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/program/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "program",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"watchlist_programs\": [\n    {\n      \"value\": \"reference #/components/schemas/IndividualWatchlistProgram not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/IndividualWatchlistProgram not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-7485a8d2-dcc2-4124-bf64-89df9d801809"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-c069e6d0-8100-473f-9cc8-236aff9b7d14"
+                    }
+                  ],
+                  "id": "0f9cf61d-8eae-45ed-817d-b08071238749",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-0f9cf61d-8eae-45ed-817d-b08071238749"
+                }
+              ],
+              "id": "745929af-34f8-473a-8a63-fd29d88a3f7b",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-745929af-34f8-473a-8a63-fd29d88a3f7b"
+            },
+            {
+              "name": "review",
+              "item": [
+                {
+                  "name": "create",
+                  "item": [
+                    {
+                      "name": "Plaid Create a review for an individual watchlist screening",
+                      "id": "8eaae2ec-9b68-4a45-8ea2-c75253971eb5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualReviewCreateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/review/create",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "review",
+                            "create"
+                          ]
+                        },
+                        "description": "Create a review for the individual watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+                      },
+                      "response": [
+                        {
+                          "id": "f6a251da-e528-49ed-b36f-ad276ee6ba4f",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualReviewCreateRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/review/create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "review",
+                                "create"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningReviewID not found in the OpenAPI spec\"\n  },\n  \"confirmed_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHitID not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHitID not found in the OpenAPI spec\"\n    }\n  ],\n  \"dismissed_hits\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHitID not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningHitID not found in the OpenAPI spec\"\n    }\n  ],\n  \"comment\": {\n    \"value\": \"reference #/components/schemas/ReviewComment not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-f6a251da-e528-49ed-b36f-ad276ee6ba4f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-8eaae2ec-9b68-4a45-8ea2-c75253971eb5"
+                    }
+                  ],
+                  "id": "51fa151f-38c9-49a6-adff-6237baa67602",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-51fa151f-38c9-49a6-adff-6237baa67602"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "Plaid List reviews for individual watchlist screenings",
+                      "id": "6c733bba-b746-414c-8b82-bc68a31962e1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualReviewListRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/review/list",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "review",
+                            "list"
+                          ]
+                        },
+                        "description": "List all reviews for the individual watchlist screening."
+                      },
+                      "response": [
+                        {
+                          "id": "1148285e-ac35-4a6d-a5a3-e5b86ac9e3f5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualReviewListRequest not found in the OpenAPI spec\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/watchlist_screening/individual/review/list",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "watchlist_screening",
+                                "individual",
+                                "review",
+                                "list"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"watchlist_screening_reviews\": [\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningReview not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/WatchlistScreeningReview not found in the OpenAPI spec\"\n    }\n  ],\n  \"next_cursor\": {\n    \"value\": \"reference #/components/schemas/Cursor not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:36:59.000Z",
+                          "updatedAt": "2026-07-28T02:36:59.000Z",
+                          "uid": "35240-1148285e-ac35-4a6d-a5a3-e5b86ac9e3f5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-6c733bba-b746-414c-8b82-bc68a31962e1"
+                    }
+                  ],
+                  "id": "6d6e23b3-4568-4bed-810b-334d4fc64c05",
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-6d6e23b3-4568-4bed-810b-334d4fc64c05"
+                }
+              ],
+              "id": "0096e539-803d-4abf-b08c-9881762fa100",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-0096e539-803d-4abf-b08c-9881762fa100"
+            },
+            {
+              "name": "update",
+              "item": [
+                {
+                  "name": "Plaid Update individual watchlist screening",
+                  "id": "ffde1712-d756-4bc7-8532-7c9485c4e275",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualUpdateRequest not found in the OpenAPI spec\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/watchlist_screening/individual/update",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "watchlist_screening",
+                        "individual",
+                        "update"
+                      ]
+                    },
+                    "description": "Update a specific individual watchlist screening. This endpoint can be used to add additional customer information, correct outdated information, add a reference id, assign the individual to a reviewer, and update which program it is associated with. Please note that you may not update `search_terms` and `status` at the same time since editing `search_terms` may trigger an automatic `status` change."
+                  },
+                  "response": [
+                    {
+                      "id": "843dcc0f-f950-40e1-b3a8-d88f3c5225ea",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualUpdateRequest not found in the OpenAPI spec\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/watchlist_screening/individual/update",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "watchlist_screening",
+                            "individual",
+                            "update"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningIndividualID not found in the OpenAPI spec\"\n  },\n  \"search_terms\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningSearchTerms not found in the OpenAPI spec\"\n  },\n  \"assignee\": {\n    \"value\": \"reference #/components/schemas/DashboardUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"status\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningStatus not found in the OpenAPI spec\"\n  },\n  \"client_user_id\": {\n    \"value\": \"reference #/components/schemas/ClientUserIDNullable not found in the OpenAPI spec\"\n  },\n  \"audit_trail\": {\n    \"value\": \"reference #/components/schemas/WatchlistScreeningAuditTrail not found in the OpenAPI spec\"\n  },\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:36:59.000Z",
+                      "updatedAt": "2026-07-28T02:36:59.000Z",
+                      "uid": "35240-843dcc0f-f950-40e1-b3a8-d88f3c5225ea"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:36:59.000Z",
+                  "updatedAt": "2026-07-28T02:36:59.000Z",
+                  "uid": "35240-ffde1712-d756-4bc7-8532-7c9485c4e275"
+                }
+              ],
+              "id": "6ad1aca1-0580-4162-8065-e81a053e7a2e",
+              "createdAt": "2026-07-28T02:36:59.000Z",
+              "updatedAt": "2026-07-28T02:36:59.000Z",
+              "uid": "35240-6ad1aca1-0580-4162-8065-e81a053e7a2e"
+            }
+          ],
+          "id": "703cbcd4-a608-4532-aea9-d9ee1ef0efa4",
+          "createdAt": "2026-07-28T02:36:59.000Z",
+          "updatedAt": "2026-07-28T02:36:59.000Z",
+          "uid": "35240-703cbcd4-a608-4532-aea9-d9ee1ef0efa4"
+        }
+      ],
+      "id": "78aec7ad-4b5f-41f7-8e36-0224cce9df4e",
+      "createdAt": "2026-07-28T02:36:59.000Z",
+      "updatedAt": "2026-07-28T02:36:59.000Z",
+      "uid": "35240-78aec7ad-4b5f-41f7-8e36-0224cce9df4e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://production.plaid.com"
+    }
+  ]
+}
