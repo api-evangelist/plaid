@@ -853,7 +853,7 @@ common:
   url: security/plaid-trust-center.yml
 - type: Lifecycle
   url: lifecycle/plaid-lifecycle.yml
-- type: Deprecation
+- type: DeprecationPolicy
   url: https://plaid.com/docs/api/versioning/
 - type: Idempotency
   url: conventions/plaid-conventions.yml
@@ -863,7 +863,7 @@ common:
   url: mcp/plaid-mcp.yml
 - type: ToolCrosswalk
   url: mcp/plaid-tool-crosswalk.yml
-- type: AgentSkill
+- type: AgentSkills
   url: skills/_index.yml
 - type: Overlay
   url: overlays/plaid-transfer-overlay.yaml
