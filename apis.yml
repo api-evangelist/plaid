@@ -20,6 +20,18 @@ tags:
 - Data Aggregation
 - Payments
 - United States
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -769,6 +781,8 @@ apis:
   - type: Documentation
     url: https://plaid.com/docs/api/
 common:
+- type: AgentSkill
+  url: skills/plaid-authorize-and-create-transfer.md
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/plaid/overview
 - type: Website
