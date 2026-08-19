@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid signal/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Evaluate a planned ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/processor/signal/evaluate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use `/processor/signal/evaluate` to evaluate a planned ACH transaction as a processor to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.\n\nIn order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the unde"
+        },
+        {
+          "info": {
+            "name": "Plaid Report whether you initiated an ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/processor/signal/decision/report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After calling `/processor/signal/evaluate`, call `/processor/signal/decision/report` to report whether the transaction was initiated.\n\nIf you are using the [Plaid Transfer product](https://www.plaid.com/docs/transfer) to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was initiated."
+        },
+        {
+          "info": {
+            "name": "Plaid Report a return for an ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/processor/signal/return/report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Call the `/processor/signal/return/report` endpoint to report a returned transaction that was previously sent to the `/processor/signal/evaluate` endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio.\n\nIf you are using the [Plaid Transfer product](https://www.plaid.com/docs/transfer) to create transfers, it is not necessary to use this endpoint, as Plaid already knows whether the transfer was returned."
+        },
+        {
+          "info": {
+            "name": "Plaid Opt-in a processor token to Signal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/processor/signal/prepare",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When a processor token is not initialized with Signal, call `/processor/signal/prepare` to opt-in that processor token to the Signal data collection process, which will improve the accuracy of the Signal score.\n\nIf this endpoint is called with a processor token that is already initialized with Signal, it will return a 200 response and will not modify the processor token."
+        },
+        {
+          "info": {
+            "name": "Plaid Evaluate a planned ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/signal/evaluate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use `/signal/evaluate` to evaluate a planned ACH transaction to get a return risk assessment (such as a risk score and risk tier) and additional risk signals.\n\nIn order to obtain a valid score for an ACH transaction, Plaid must have an access token for the account, and the Item must be healthy (receiving product updates) or have recently been in a healthy state. If the transaction does not meet eligibility requirements, an error will be returned corresponding to the underlying cause. If `/signal"
+        },
+        {
+          "info": {
+            "name": "Plaid Report whether you initiated an ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/signal/decision/report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After calling `/signal/evaluate`, call `/signal/decision/report` to report whether the transaction was initiated."
+        },
+        {
+          "info": {
+            "name": "Plaid Report a return for an ACH transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/signal/return/report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Call the `/signal/return/report` endpoint to report a returned transaction that was previously sent to the `/signal/evaluate` endpoint. Your feedback will be used by the model to incorporate the latest risk trend in your portfolio."
+        },
+        {
+          "info": {
+            "name": "Plaid Opt-in an Item to Signal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/signal/prepare",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When Link is not initialized with Signal, call `/signal/prepare` to opt-in that Item to the Signal data collection process, developing a Signal score.\n\nIf run on an Item that is already initialized with Signal, this endpoint will return a 200 response and will not modify the Item."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

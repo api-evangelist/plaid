@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "c13d0ca4-3bcd-457a-a613-c46d2021b940",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16936ee9-3ecf-4bc3-8424-f0af94afce25",
+          "name": "Plaid Retrieve auth data",
+          "request": {
+            "name": "Plaid Retrieve auth data",
+            "description": {
+              "content": "The `/auth/get` endpoint returns the bank account and bank identification numbers (such as routing numbers, for US accounts) associated with an Item's checking and savings accounts, along with high-level account data and balances when available.\n\nNote: This request may take some time to complete if `auth` was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.\n\nVersioning note: In API version 2017-03-08, the schema of the `numbers` object returned by this endpoint is substantially different. For details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2018-05-22).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7b3fff4-0374-446f-a7a3-874ec245527c",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"limit\": null,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"9606\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"numbers\": {\n    \"ach\": [\n      {\n        \"account\": \"9900009606\",\n        \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n        \"routing\": \"011401533\",\n        \"wire_routing\": \"021000021\"\n      }\n    ],\n    \"eft\": [\n      {\n        \"account\": \"111122223333\",\n        \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n        \"institution\": \"021\",\n        \"branch\": \"01140\"\n      }\n    ],\n    \"international\": [\n      {\n        \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n        \"bic\": \"NWBKGB21\",\n        \"iban\": \"GB29NWBK60161331926819\"\n      }\n    ],\n    \"bacs\": [\n      {\n        \"account\": \"31926819\",\n        \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n        \"sort_code\": \"601613\"\n      }\n    ]\n  },\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"identity\",\n      \"payment_initiation\",\n      \"transactions\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_117650\",\n    \"item_id\": \"DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"m8MDnv9okwxFNBV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72b417cd-75c2-4649-91f6-fc4f09cf2c52",
+              "name": "Default error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 1541,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "888499ad-e7ea-4cb6-ac44-f28117c64340",
+          "name": "Plaid Retrieve Auth data",
+          "request": {
+            "name": "Plaid Retrieve Auth data",
+            "description": {
+              "content": "The `/processor/auth/get` endpoint returns the bank account and bank identification number (such as the routing number, for US accounts), for a checking or savings account that''s associated with a given `processor_token`. The endpoint also returns high-level account data and balances when available.\n\nVersioning note: API versions 2019-05-29 and earlier use a different schema for the `numbers` object returned by this endpoint. For details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2020-09-14).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "auth",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cda44fd9-a41d-4888-b73f-1063cfe54a27",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "auth",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n    \"balances\": {\n      \"available\": 100,\n      \"current\": 110,\n      \"iso_currency_code\": \"USD\",\n      \"limit\": null,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"0000\",\n    \"name\": \"Plaid Checking\",\n    \"official_name\": \"Plaid Gold Checking\",\n    \"subtype\": \"checking\",\n    \"type\": \"depository\"\n  },\n  \"numbers\": {\n    \"ach\": {\n      \"account\": \"9900009606\",\n      \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n      \"routing\": \"011401533\",\n      \"wire_routing\": \"021000021\"\n    },\n    \"eft\": {\n      \"account\": \"111122223333\",\n      \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n      \"institution\": \"021\",\n      \"branch\": \"01140\"\n    },\n    \"international\": {\n      \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n      \"bic\": \"NWBKGB21\",\n      \"iban\": \"GB29NWBK60161331926819\"\n    },\n    \"bacs\": {\n      \"account\": \"31926819\",\n      \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n      \"sort_code\": \"601613\"\n    }\n  },\n  \"request_id\": \"1zlMf\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c27c84e6-06e8-4e1d-a789-4e4c162ffaa3",
+          "name": "Plaid Get data needed to authorize an investments transfer",
+          "request": {
+            "name": "Plaid Get data needed to authorize an investments transfer",
+            "description": {
+              "content": "The `/investments/auth/get` endpoint allows developers to receive user-authorized data to facilitate the transfer of holdings",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "investments",
+                "auth",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc1ec822-afaa-409f-9c96-5f97507c97b1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "investments",
+                    "auth",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g\",\n      \"balances\": {\n        \"available\": 43200,\n        \"current\": 43200,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"4444\",\n      \"name\": \"Plaid Money Market\",\n      \"official_name\": \"Plaid Platinum Standard 1.85% Interest Money Market\",\n      \"subtype\": \"money market\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 110.01,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"5555\",\n      \"name\": \"Plaid IRA\",\n      \"official_name\": null,\n      \"subtype\": \"ira\",\n      \"type\": \"investment\"\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 23631.9805,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"6666\",\n      \"name\": \"Plaid Roth IRA\",\n      \"official_name\": null,\n      \"subtype\": \"roth\",\n      \"type\": \"investment\"\n    }\n  ],\n  \"holdings\": [\n    {\n      \"account_id\": \"JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1\",\n      \"cost_basis\": 1,\n      \"institution_price\": 1,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 0.01,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 0.01,\n      \"security_id\": \"d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"cost_basis\": 1.5,\n      \"institution_price\": 2.11,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 2.11,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 1,\n      \"security_id\": \"KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"cost_basis\": 10,\n      \"institution_price\": 10.42,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 20.84,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 2,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1\",\n      \"cost_basis\": 0.01,\n      \"institution_price\": 0.011,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 110,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 10000,\n      \"security_id\": \"8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"cost_basis\": 23,\n      \"institution_price\": 27,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 636.309,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 23.567,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"cost_basis\": 15,\n      \"institution_price\": 13.73,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 1373.6865,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 100.05,\n      \"security_id\": \"nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"cost_basis\": 1,\n      \"institution_price\": 1,\n      \"institution_price_as_of\": \"2021-04-13\",\n      \"institution_price_datetime\": null,\n      \"institution_value\": 12345.67,\n      \"iso_currency_code\": \"USD\",\n      \"quantity\": 12345.67,\n      \"security_id\": \"d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are\",\n      \"unofficial_currency_code\": null\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"identity\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"investments_auth\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"4z9LPae1nRHWy8pvg9jrsgbRP4ZNQvIdbLq7g\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"numbers\": {\n    \"acats\": [\n      {\n        \"account\": \"TR4444\",\n        \"account_id\": \"5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g\",\n        \"dtc_numbers\": []\n      },\n      {\n        \"account\": \"TR5555\",\n        \"account_id\": \"JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1\",\n        \"dtc_numbers\": []\n      },\n      {\n        \"account\": \"TR6666\",\n        \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n        \"dtc_numbers\": []\n      }\n    ],\n    \"aton\": []\n  },\n  \"request_id\": \"l68wb8zpS0hqmsJ\",\n  \"owners\": [\n    {\n      \"account_id\": \"5Bvpj4QknlhVWk7GygpwfVKdd133GoCxB814g\",\n      \"names\": [\n        \"Alberta Bobbeth Charleson\"\n      ]\n    },\n    {\n      \"account_id\": \"JqMLm4rJwpF6gMPJwBqdh9ZjjPvvpDcb7kDK1\",\n      \"names\": [\n        \"Alberta Bobbeth Charleson\"\n      ]\n    },\n    {\n      \"account_id\": \"k67E4xKvMlhmleEa4pg9hlwGGNnnEeixPolGm\",\n      \"names\": [\n        \"Alberta Bobbeth Charleson\"\n      ]\n    }\n  ],\n  \"securities\": [\n    {\n      \"close_price\": 0.011,\n      \"close_price_as_of\": \"2021-04-13\",\n      \"cusip\": null,\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": null,\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Nflx Feb 01'18 $355 Call\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"8E4L9XLl6MudjEpwPAAgivmdZRdBPJuvMPlPb\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"NFLX180201C00355000\",\n      \"type\": \"derivative\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": {\n        \"contract_type\": \"call\",\n        \"expiration_date\": \"2018-02-01\",\n        \"strike_price\": 355,\n        \"underlying_security_ticker\": \"NFLX\"\n      }\n    },\n    {\n      \"close_price\": 27,\n      \"close_price_as_of\": null,\n      \"cusip\": \"577130834\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US5771308344\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Matthews Pacific Tiger Fund Insti Class\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"MIPTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 2.11,\n      \"close_price_as_of\": null,\n      \"cusip\": \"00448Q201\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US00448Q2012\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Achillion Pharmaceuticals Inc.\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"KDwjlXj1Rqt58dVvmzRguxJybmyQL8FgeWWAy\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"ACHN\",\n      \"type\": \"equity\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 10.42,\n      \"close_price_as_of\": null,\n      \"cusip\": \"258620103\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US2586201038\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"DoubleLine Total Return Bond Fund\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"DBLTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 1,\n      \"close_price_as_of\": null,\n      \"cusip\": null,\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": true,\n      \"isin\": null,\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"U S Dollar\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"d6ePmbPxgWCWmMVv66q9iPV94n91vMtov5Are\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"USD\",\n      \"type\": \"cash\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": null,\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 13.73,\n      \"close_price_as_of\": null,\n      \"cusip\": null,\n      \"institution_id\": \"ins_3\",\n      \"institution_security_id\": \"NHX105509\",\n      \"is_cash_equivalent\": false,\n      \"isin\": null,\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"NH PORTFOLIO 1055 (FIDELITY INDEX)\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"nnmo8doZ4lfKNEDe3mPJipLGkaGw3jfPrpxoN\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"NHX105509\",\n      \"type\": \"etf\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b73e495f-ee1e-4bb9-8260-5b16617f5a1e",
+    "name": "Plaid auth/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

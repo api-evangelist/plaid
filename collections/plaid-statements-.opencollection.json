@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid statements/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Retrieve a list of all statements associated with an item.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/statements/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/statements/list` endpoint retrieves a list of all statements associated with an item."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a single statement.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/statements/download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/statements/download` endpoint retrieves a single statement PDF in binary format.  The response will contain a `Plaid-Content-Hash` header containing a SHA 256 checksum of the statement. This can be used to verify that the file being sent by Plaid is the same file that was downloaded to your system."
+        },
+        {
+          "info": {
+            "name": "Plaid Refresh statements data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/statements/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/statements/refresh` initiates an on-demand extraction to fetch the statements for the provided dates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

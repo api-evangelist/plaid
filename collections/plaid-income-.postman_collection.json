@@ -1,0 +1,699 @@
+{
+  "item": [
+    {
+      "id": "aa85e454-b50c-4704-8d36-8a419578cfaa",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bec6d1db-dae5-4323-b74b-6aacb04f8808",
+          "name": "Plaid (Deprecated) Create an income verification instance",
+          "request": {
+            "name": "Plaid (Deprecated) Create an income verification instance",
+            "description": {
+              "content": "`/income/verification/create` begins the income verification process by returning an `income_verification_id`. You can then provide the `income_verification_id` to `/link/token/create` under the `income_verification` parameter in order to create a Link instance that will prompt the user to go through the income verification flow. Plaid will fire an `INCOME` webhook once the user completes the Payroll Income flow, or when the uploaded documents in the Document Income flow have finished processing. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "income",
+                "verification",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02761b62-b037-4743-b52c-869868de9d13",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"income_verification_id\": \"f2a826d7-25cf-483b-a124-c40beb64b732\",\n  \"request_id\": \"lMjeOeu9X1VUh1F\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6e74f5b-27b7-46ba-8eb3-49fc0f960b26",
+          "name": "Plaid (Deprecated) Retrieve information from the paystubs used for income verification",
+          "request": {
+            "name": "Plaid (Deprecated) Retrieve information from the paystubs used for income verification",
+            "description": {
+              "content": "`/income/verification/paystubs/get` returns the information collected from the paystubs that were used to verify an end user's income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "income",
+                "verification",
+                "paystubs",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d04603fd-1081-4320-965a-2932a6ee2598",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "paystubs",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"document_metadata\": [\n    {\n      \"doc_id\": \"2jkflanbd\",\n      \"doc_type\": \"DOCUMENT_TYPE_PAYSTUB\",\n      \"name\": \"paystub.pdf\",\n      \"status\": \"DOCUMENT_STATUS_PROCESSING_COMPLETE\"\n    }\n  ],\n  \"paystubs\": [\n    {\n      \"deductions\": {\n        \"breakdown\": [\n          {\n            \"current_amount\": 123.45,\n            \"description\": \"taxes\",\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null,\n            \"ytd_amount\": 246.9\n          }\n        ],\n        \"total\": {\n          \"current_amount\": 123.45,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null,\n          \"ytd_amount\": 246.9\n        }\n      },\n      \"doc_id\": \"2jkflanbd\",\n      \"earnings\": {\n        \"breakdown\": [\n          {\n            \"canonical_description\": \"REGULAR PAY\",\n            \"current_amount\": 200.22,\n            \"description\": \"salary earned\",\n            \"hours\": 80,\n            \"iso_currency_code\": \"USD\",\n            \"rate\": null,\n            \"unofficial_currency_code\": null,\n            \"ytd_amount\": 400.44\n          },\n          {\n            \"canonical_desription\": \"BONUS\",\n            \"current_amount\": 100,\n            \"description\": \"bonus earned\",\n            \"hours\": null,\n            \"iso_currency_code\": \"USD\",\n            \"rate\": null,\n            \"unofficial_currency_code\": null,\n            \"ytd_amount\": 100\n          }\n        ],\n        \"total\": {\n          \"current_amount\": 300.22,\n          \"hours\": 160,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null,\n          \"ytd_amount\": 500.44\n        }\n      },\n      \"employee\": {\n        \"address\": {\n          \"city\": \"SAN FRANCISCO\",\n          \"country\": \"US\",\n          \"postal_code\": \"94133\",\n          \"region\": \"CA\",\n          \"street\": \"2140 TAYLOR ST\"\n        },\n        \"name\": \"ANNA CHARLESTON\",\n        \"marital_status\": \"single\",\n        \"taxpayer_id\": {\n          \"id_type\": \"SSN\",\n          \"id_mask\": \"3333\"\n        }\n      },\n      \"employer\": {\n        \"name\": \"PLAID INC\",\n        \"address\": {\n          \"city\": \"SAN FRANCISCO\",\n          \"country\": \"US\",\n          \"postal_code\": \"94111\",\n          \"region\": \"CA\",\n          \"street\": \"1098 HARRISON ST\"\n        }\n      },\n      \"net_pay\": {\n        \"current_amount\": 123.34,\n        \"description\": \"TOTAL NET PAY\",\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null,\n        \"ytd_amount\": 253.54\n      },\n      \"pay_period_details\": {\n        \"check_amount\": 1490.21,\n        \"distribution_breakdown\": [\n          {\n            \"account_name\": \"Big time checking\",\n            \"bank_name\": \"bank of plaid\",\n            \"current_amount\": 176.77,\n            \"iso_currency_code\": \"USD\",\n            \"mask\": \"1223\",\n            \"type\": \"checking\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"end_date\": \"2020-12-15\",\n        \"gross_earnings\": 4500,\n        \"pay_date\": \"2020-12-15\",\n        \"start_date\": \"2020-12-01\",\n        \"pay_frequency\": \"PAY_FREQUENCY_BIWEEKLY\"\n      }\n    }\n  ],\n  \"request_id\": \"2pxQ59buGdsHRef\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5950ce5e-ab70-49ea-a635-34e51a306be8",
+          "name": "Plaid (Deprecated) Download the original documents used for income verification",
+          "request": {
+            "name": "Plaid (Deprecated) Download the original documents used for income verification",
+            "description": {
+              "content": "`/income/verification/documents/download` provides the ability to download the source documents associated with the verification.\n\nIf Document Income was used, the documents will be those the user provided in Link. For Payroll Income, the most recent files available\nfor download from the payroll provider will be available from this endpoint.\n\nThe response to `/income/verification/documents/download` is a ZIP file in binary data. If a `document_id` is passed, a single document will be contained in this file.\nIf not, the response will contain all documents associated with the verification.\n\nThe `request_id` is returned in the `Plaid-Request-ID` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "income",
+                "verification",
+                "documents",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/zip"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc58a5a9-3a47-443d-adbe-eea7c64226c5",
+              "name": "A ZIP file containing source documents(s) used as the basis for income verification.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "documents",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/zip"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/zip"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90f7b3bc-459d-4408-b394-53b8b27181da",
+          "name": "Plaid (Deprecated) Retrieve information from the tax documents used for income verification",
+          "request": {
+            "name": "Plaid (Deprecated) Retrieve information from the tax documents used for income verification",
+            "description": {
+              "content": "`/income/verification/taxforms/get` returns the information collected from forms that were used to verify an end user''s income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "income",
+                "verification",
+                "taxforms",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af7e7120-0647-466f-9cc3-fb60bc534869",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "taxforms",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"document_metadata\": [\n    {\n      \"doc_id\": \"q5Ypbbr03p\",\n      \"doc_type\": \"DOCUMENT_TYPE_US_TAX_W2\",\n      \"name\": \"my_w2.pdf\",\n      \"status\": \"DOCUMENT_STATUS_PROCESSING_COMPLETE\"\n    }\n  ],\n  \"request_id\": \"73W7sz8nIP8Mgck\",\n  \"taxforms\": [\n    {\n      \"document_type\": \"W2\",\n      \"w2\": {\n        \"allocated_tips\": \"1000\",\n        \"box_12\": [\n          {\n            \"amount\": \"200\",\n            \"code\": \"AA\"\n          }\n        ],\n        \"box_9\": \"box9\",\n        \"dependent_care_benefits\": \"1000\",\n        \"employee\": {\n          \"address\": {\n            \"city\": \"San Francisco\",\n            \"country\": \"US\",\n            \"postal_code\": \"94103\",\n            \"region\": \"CA\",\n            \"street\": \"1234 Grand St\"\n          },\n          \"name\": \"Josie Georgia Harrison\",\n          \"marital_status\": \"single\",\n          \"taxpayer_id\": {\n            \"id_type\": \"SSN\",\n            \"id_mask\": \"1234\"\n          }\n        },\n        \"employer\": {\n          \"address\": {\n            \"city\": \"New York\",\n            \"country\": \"US\",\n            \"postal_code\": \"10010\",\n            \"region\": \"NY\",\n            \"street\": \"456 Main St\"\n          },\n          \"name\": \"Acme Inc\"\n        },\n        \"employee_id_number\": \"12-1234567\",\n        \"federal_income_tax_withheld\": \"1000\",\n        \"medicare_tax_withheld\": \"1000\",\n        \"medicare_wages_and_tips\": \"1000\",\n        \"nonqualified_plans\": \"1000\",\n        \"other\": \"other\",\n        \"retirement_plan\": \"CHECKED\",\n        \"social_security_tax_withheld\": \"1000\",\n        \"social_security_tips\": \"1000\",\n        \"social_security_wages\": \"1000\",\n        \"state_and_local_wages\": [\n          {\n            \"employer_state_id_number\": \"11111111111AAA\",\n            \"local_income_tax\": \"200\",\n            \"local_wages_tips\": \"200\",\n            \"locality_name\": \"local\",\n            \"state\": \"UT\",\n            \"state_income_tax\": \"200\",\n            \"state_wages_tips\": \"200\"\n          }\n        ],\n        \"statutory_employee\": \"CHECKED\",\n        \"tax_year\": \"2020\",\n        \"third_party_sick_pay\": \"CHECKED\",\n        \"wages_tips_other_comp\": \"1000\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a5f77c9-f06c-4208-b759-f2dbabd2720d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "taxforms",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 4836,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9aa83312-3896-4620-80fd-f6d7d28d380d",
+          "name": "Plaid (Deprecated) Check digital income verification eligibility and optimize conversion",
+          "request": {
+            "name": "Plaid (Deprecated) Check digital income verification eligibility and optimize conversion",
+            "description": {
+              "content": "`/income/verification/precheck` is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification and returns a `precheck_id` that can be provided to `/link/token/create`. If the user is eligible for digital verification, providing the `precheck_id` in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the `precheck_id` can still be provided to `/link/token/create` and the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.\n\nWhile all request fields are optional, providing either `employer` or `transactions_access_tokens` data will increase the chance of receiving a useful result.\n\nThis endpoint has been deprecated; new integrations should use `/credit/payroll_income/precheck` instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "income",
+                "verification",
+                "precheck"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7b254fd-9e10-4e78-81d4-0af0ab218aeb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "income",
+                    "verification",
+                    "precheck"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"lMjeOeu9X1VUh1F\",\n  \"precheck_id\": \"n9elqYlvYm\",\n  \"confidence\": \"HIGH\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09f0feb4-7f9f-4f98-b757-7fabdc3afb5d",
+          "name": "Plaid Manually fire an Income webhook",
+          "request": {
+            "name": "Plaid Manually fire an Income webhook",
+            "description": {
+              "content": "Use the `/sandbox/income/fire_webhook` endpoint to manually trigger a Payroll or Document Income webhook in the Sandbox environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sandbox",
+                "income",
+                "fire_webhook"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "403b0834-50ba-497b-9fd3-fde36e0f10f6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sandbox",
+                    "income",
+                    "fire_webhook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"mdqfuVxeoza6mhu\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b6e6f64-5826-4bbd-8fb5-ac7ac6759ae5",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sandbox",
+                    "income",
+                    "fire_webhook"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 5672,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f55bbcc9-84d4-4b7e-bda6-ed842133c464",
+    "name": "Plaid income/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

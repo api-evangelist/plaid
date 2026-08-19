@@ -1,0 +1,264 @@
+{
+  "item": [
+    {
+      "id": "c8fffe4f-fc55-435f-8e0e-f2831a68a560",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5e09428-1582-4d37-a71f-7a79aa753635",
+          "name": "Plaid Retrieve accounts",
+          "request": {
+            "name": "Plaid Retrieve accounts",
+            "description": {
+              "content": "The `/accounts/get` endpoint can be used to retrieve a list of accounts associated with any linked Item. Plaid will only return active bank accounts — that is, accounts that are not closed and are capable of carrying a balance.\nFor items that went through the updated account selection pane, this endpoint only returns accounts that were permissioned by the user when they initially created the Item. If a user creates a new account after the initial link, you can capture this event through the [`NEW_ACCOUNTS_AVAILABLE`](https://plaid.com/docs/api/items/#new_accounts_available) webhook and then use Link's [update mode](https://plaid.com/docs/link/update-mode/) to request that the user share this new account with you.\n\n`/accounts/get` is free to use and retrieves cached information, rather than extracting fresh information from the institution. The balance returned will reflect the balance at the time of the last successful Item update. If the Item is enabled for a regularly updating product, such as Transactions, Investments, or Liabilities, the balance will typically update about once a day, as long as the Item is healthy. If the Item is enabled only for products that do not frequently update, such as Auth or Identity, balance data may be much older.\n\nFor realtime balance information, use the paid endpoint `/accounts/balance/get` instead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1679ce24-a104-4e70-beb9-b8de60ae8b21",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"string\",\n  \"secret\": \"string\",\n  \"access_token\": \"string\",\n  \"options\": {\n    \"account_ids\": [\n      \"string\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"blgvvBlXw3cq5GMPwqB6s6q4dLKB9WcVqGDGo\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"persistent_account_id\": \"8cfb8beb89b774ee43b090625f0d61d0814322b43bff984eaf60386e\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"6PdjjRP6LmugpBy5NgQvUqpRXMWxzktg3rwrk\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 23631.9805,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"6666\",\n      \"name\": \"Plaid 401k\",\n      \"official_name\": null,\n      \"subtype\": \"401k\",\n      \"type\": \"investment\"\n    },\n    {\n      \"account_id\": \"XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 65262,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"7777\",\n      \"name\": \"Plaid Student Loan\",\n      \"official_name\": null,\n      \"subtype\": \"student\",\n      \"type\": \"loan\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"identity\",\n      \"payment_initiation\",\n      \"transactions\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_117650\",\n    \"item_id\": \"DWVAAPWq4RHGlEaNyGKRTAnPLaEmo8Cvq7na6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"bkVE1BHWMAZ9Rnr\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af2c713e-961a-4ad5-851a-22210bcefce6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"string\",\n  \"secret\": \"string\",\n  \"access_token\": \"string\",\n  \"options\": {\n    \"account_ids\": [\n      \"string\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 8689,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eec55764-45ff-4a53-8e48-331b6b580c0f",
+          "name": "Plaid Retrieve real-time balance data",
+          "request": {
+            "name": "Plaid Retrieve real-time balance data",
+            "description": {
+              "content": "The `/accounts/balance/get` endpoint returns the real-time balance for each of an Item's accounts. While other endpoints, such as `/accounts/get`, return a balance object, only `/accounts/balance/get` forces the available and current balance fields to be refreshed rather than cached. This endpoint can be used for existing Items that were added via any of Plaid’s other products. This endpoint can be used as long as Link has been initialized with any other product, `balance` itself is not a product that can be used to initialize Link. As this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "balance",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "865bad45-466e-4b66-9dbc-7d20edff54b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "balance",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"access_token\": \"string\",\n  \"secret\": \"string\",\n  \"client_id\": \"string\",\n  \"options\": {\n    \"account_ids\": [\n      \"string\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"persistent_account_id\": \"8cfb8beb89b774ee43b090625f0d61d0814322b43bff984eaf60386e\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 410,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": 2000,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"3333\",\n      \"name\": \"Plaid Credit Card\",\n      \"official_name\": \"Plaid Diamond 12.5% APR Interest Credit Card\",\n      \"subtype\": \"credit card\",\n      \"type\": \"credit\"\n    },\n    {\n      \"account_id\": \"Pp1Vpkl9w8sajvK6oEEKtr7vZxBnGpf7LxxLE\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 65262,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"7777\",\n      \"name\": \"Plaid Student Loan\",\n      \"official_name\": null,\n      \"subtype\": \"student\",\n      \"type\": \"loan\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"identity\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"qk5Bxes3gDfv4F2\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "53e16d24-b297-40ce-87aa-513e2f63603a",
+    "name": "Plaid accounts/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

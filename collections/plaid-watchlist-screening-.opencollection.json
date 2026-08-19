@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid watchlist screening/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Create a watchlist screening for an entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new entity watchlist screening to check your customer against watchlists defined in the associated entity watchlist program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time."
+        },
+        {
+          "info": {
+            "name": "Plaid Get an entity screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve an entity watchlist screening."
+        },
+        {
+          "info": {
+            "name": "Plaid List history for entity watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/history/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all changes to the entity watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned."
+        },
+        {
+          "info": {
+            "name": "Plaid List hits for entity watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/hit/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all hits for the entity watchlist screening."
+        },
+        {
+          "info": {
+            "name": "Plaid List entity watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all entity screenings."
+        },
+        {
+          "info": {
+            "name": "Plaid Get entity watchlist screening program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/program/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an entity watchlist screening program"
+        },
+        {
+          "info": {
+            "name": "Plaid List entity watchlist screening programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/program/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all entity watchlist screening programs"
+        },
+        {
+          "info": {
+            "name": "Plaid Create a review for an entity watchlist screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/review/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a review for an entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+        },
+        {
+          "info": {
+            "name": "Plaid List reviews for entity watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/review/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all reviews for a particular entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+        },
+        {
+          "info": {
+            "name": "Plaid Update an entity screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/entity/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an entity watchlist screening."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a watchlist screening for a person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Watchlist Screening to check your customer against watchlists defined in the associated Watchlist Program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve an individual watchlist screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve a previously created individual watchlist screening"
+        },
+        {
+          "info": {
+            "name": "Plaid List history for individual watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/history/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all changes to the individual watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned."
+        },
+        {
+          "info": {
+            "name": "Plaid List hits for individual watchlist screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/hit/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all hits found by Plaid for a particular individual watchlist screening."
+        },
+        {
+          "info": {
+            "name": "Plaid List Individual Watchlist Screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List previously created watchlist screenings for individuals"
+        },
+        {
+          "info": {
+            "name": "Plaid Get individual watchlist screening program",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/program/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an individual watchlist screening program"
+        },
+        {
+          "info": {
+            "name": "Plaid List individual watchlist screening programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/program/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all individual watchlist screening programs"
+        },
+        {
+          "info": {
+            "name": "Plaid Create a review for an individual watchlist screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/review/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a review for the individual watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid."
+        },
+        {
+          "info": {
+            "name": "Plaid List reviews for individual watchlist screenings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/review/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all reviews for the individual watchlist screening."
+        },
+        {
+          "info": {
+            "name": "Plaid Update individual watchlist screening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/watchlist_screening/individual/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a specific individual watchlist screening. This endpoint can be used to add additional customer information, correct outdated information, add a reference id, assign the individual to a reviewer, and update which program it is associated with. Please note that you may not update `search_terms` and `status` at the same time since editing `search_terms` may trigger an automatic `status` change."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

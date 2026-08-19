@@ -1,0 +1,363 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid credit/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Update an Audit Copy Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/audit_copy_token/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/credit/audit_copy_token/update` endpoint updates an existing  Audit Copy Token by adding the report tokens in the `report_tokens` field to the `audit_copy_token`. If the Audit Copy Token already contains a report of a certain type, it will be replaced with the token provided in the `report_tokens` field."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve Link sessions for your user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/sessions/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint can be used for your end users after they complete the Link flow. This endpoint returns a list of Link sessions that your user completed, where each session includes the results from the Link flow.\n\nThese results include details about the Item that was created and some product related metadata (showing, for example, whether the user finished the bank income verification step)."
+        },
+        {
+          "info": {
+            "name": "Plaid Create Asset or Income Report Audit Copy Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/audit_copy_token/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Plaid can create an Audit Copy token of an Asset Report and/or Income Report to share with participating Government Sponsored Entity (GSE). If you participate in the Day 1 Certainty™ program, Plaid can supply an Audit Copy token directly to Fannie Mae on your behalf. An Audit Copy token contains the same underlying data as the Asset Report and/or Income Report (result of /credit/payroll_income/get).\n\nUse the `/credit/audit_copy_token/create` endpoint to create an `audit_copy_token` and then pass"
+        },
+        {
+          "info": {
+            "name": "Plaid Remove an Audit Copy token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/audit_copy_token/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/credit/audit_copy_token/remove` endpoint allows you to remove an Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token` associated with it, meaning both you and any third parties holding the token will no longer be able to use it to access Report data. Items associated with the Report data and other Audit Copies of it are not affected and will remain accessible after removing the given Audit Copy."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/asset_report/freddie_mac/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset Report in Freddie Mac's JSON format."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve an Asset Report with Freddie Mac format (aka VOA - Verification Of Assets), and a Verification Of Employment (VOE) report if this one is available. Only Freddie Mac can use this endpoint.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/freddie_mac/reports/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Verification of Assets and Verification of Employment reports."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve information from the bank accounts used for employment verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beta/credit/v1/bank_employment/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_employment/get` returns the employment report(s) derived from bank transaction data for a specified user."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve information from the bank accounts used for income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/bank_income/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_income/get` returns the bank income report(s) for a specified user."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve information from the bank accounts used for income verification in PDF format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/bank_income/pdf/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_income/pdf/get` returns the most recent bank income report for a specified user in PDF format."
+        },
+        {
+          "info": {
+            "name": "Plaid Refresh a user's bank income information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/bank_income/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_income/refresh` refreshes the bank income report data for a specific user."
+        },
+        {
+          "info": {
+            "name": "Plaid Subscribe and unsubscribe to proactive notifications for a user's income profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/bank_income/webhook/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_income/webhook/update` allows you to subscribe or unsubscribe a user for income webhook notifications. By default, all users start out unsubscribed.\n\nIf a user is subscribed, on significant changes to the user's income profile, you will receive a `BANK_INCOME_REFRESH_UPDATE` webhook, prompting you to refresh bank income data for the user."
+        },
+        {
+          "info": {
+            "name": "Plaid Update the parsing configuration for a document income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/payroll_income/parsing_config/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/payroll_income/parsing_config/update` updates the parsing configuration for a document income verification."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve data for a user's uploaded bank statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/bank_statements/uploads/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/bank_statements/uploads/get` returns parsed data from bank statements uploaded by users as part of the Document Income flow. If your account is not enabled for Document Parsing, contact your account manager to request access."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a user's payroll information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/payroll_income/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint gets payroll income information for a specific user, either as a result of the user connecting to their payroll provider or uploading a pay related document."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve fraud insights for a user's manually uploaded document(s).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/payroll_income/risk_signals/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/payroll_income/risk_signals/get` can be used as part of the Document Income flow to assess a user-uploaded document for signs of potential fraud or tampering. It returns a risk score for each uploaded document that indicates the likelihood of the document being fraudulent, in addition to details on the individual risk signals contributing to the score.\n\nTo trigger risk signal generation for an Item, call `/link/token/create` with `parsing_config` set to include `risk_signals`, or call `"
+        },
+        {
+          "info": {
+            "name": "Plaid Check income verification eligibility and optimize conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/payroll_income/precheck",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/payroll_income/precheck` is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification. If the user is eligible for digital verification, that information will be associated with the user token, and in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the user can still use the income "
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a summary of an individual's employment information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/employment/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/employment/get` returns a list of items with employment information from a user's payroll provider that was verified by an end user."
+        },
+        {
+          "info": {
+            "name": "Plaid Refresh a digital payroll income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/payroll_income/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/payroll_income/refresh` refreshes a given digital payroll income verification."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a relay token to share an Asset Report with a partner client",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/relay/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Plaid can share an Asset Report directly with a participating third party on your behalf. The shared Asset Report is the exact same Asset Report originally created in `/asset_report/create`.\n\nTo grant a third party access to an Asset Report, use the `/credit/relay/create` endpoint to create a `relay_token` and then pass that token to your third party. Each third party has its own `secondary_client_id`; for example, `ce5bd328dcd34123456`. You'll need to create a separate `relay_token` for each th"
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve the reports associated with a relay token that was shared with you",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/relay/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/relay/get` allows third parties to receive a report that was shared with them, using a `relay_token` that was created by the report owner."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve the pdf reports associated with a relay token that was shared with you (beta)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/relay/pdf/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/credit/relay/pdf/get` allows third parties to receive a pdf report that was shared with them, using a `relay_token` that was created by the report owner.\n\nThe `/credit/relay/pdf/get` endpoint retrieves the Asset Report in PDF format. Before calling `/credit/relay/pdf/get`, you must first create the Asset Report using `/credit/relay/create` and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to b"
+        },
+        {
+          "info": {
+            "name": "Plaid Refresh a report of a relay token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/relay/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/credit/relay/refresh` endpoint allows third parties to refresh a report that was relayed to them, using a `relay_token` that was created by the report owner. A new report will be created with the original report parameters, but with the most recent data available based on the `days_requested` value of the original report."
+        },
+        {
+          "info": {
+            "name": "Plaid Remove relay token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/credit/relay/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/credit/relay/remove` endpoint allows you to invalidate a `relay_token`. The third party holding the token will no longer be able to access or refresh the reports which the `relay_token` gives access to. The original report, associated Items, and other relay tokens that provide access to the same report are not affected and will remain accessible after removing the given `relay_token`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

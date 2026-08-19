@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid investments/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Get Investment holdings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/investments/holdings/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/investments/holdings/get` endpoint allows developers to receive user-authorized stock position data for `investment`-type accounts."
+        },
+        {
+          "info": {
+            "name": "Plaid Get investment transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/investments/transactions/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/investments/transactions/get` endpoint allows developers to retrieve up to 24 months of user-authorized transaction data for investment accounts.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.\n\nDue to the potentially large number of investment transactions associated with an Item, results are paginated. Manipulate the count and offset parameters in conjunction with the `total_investment_transactions` respons"
+        },
+        {
+          "info": {
+            "name": "Plaid Refresh investment data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/investments/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/investments/refresh` is an optional endpoint for users of the Investments product. It initiates an on-demand extraction to fetch the newest investments, holdings and investment transactions for an Item. This on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Investments-enabled Item. If changes to investments are discovered after calling `/investments/refresh`, Plaid will fire webhooks: [`HOLDINGS: DEFAULT_UPDATE`"
+        },
+        {
+          "info": {
+            "name": "Plaid Get data needed to authorize an investments transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/investments/auth/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/investments/auth/get` endpoint allows developers to receive user-authorized data to facilitate the transfer of holdings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1176 @@
+{
+  "item": [
+    {
+      "id": "52c55e9a-1958-4d16-aec4-5f946674e3d7",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9142acda-20bc-477e-ab47-31a34534a239",
+          "name": "Plaid Create payment recipient",
+          "request": {
+            "name": "Plaid Create payment recipient",
+            "description": {
+              "content": "Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA) or a non-Eurozone country [supported](https://plaid.com/global) by Plaid. For a standing order (recurring) payment, the recipient must be in the UK.\n\nIt is recommended to use `bacs` in the UK and `iban` in EU.\n\nThe endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same `recipient_id`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "recipient",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1490d054-0753-4812-b08a-8a0024fd5a10",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "recipient",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recipient_id\": \"recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5e58315-904a-4b4c-bc91-b447c2832b07",
+          "name": "Plaid Reverse an existing payment",
+          "request": {
+            "name": "Plaid Reverse an existing payment",
+            "description": {
+              "content": "Reverse a settled payment from a Plaid virtual account.\n\nThe original payment must be in a settled state to be refunded.\nTo refund partially, specify the amount as part of the request.\nIf the amount is not specified, the refund amount will be equal to all\nof the remaining payment amount that has not been refunded yet.\n\nThe refund will go back to the source account that initiated the payment.\nThe original payment must have been initiated to a Plaid virtual account\nso that this account can be used to initiate the refund.\n\nProviding counterparty information such as date of birth and address increases \nthe likelihood of refund being successful without human intervention.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "payment",
+                "reverse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d057213e-4715-4a9f-bd82-40ab1d3a5f3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "payment",
+                    "reverse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refund_id\": \"wallet-transaction-id-production-c5f8cd31-6cae-4cad-9b0d-f7c10be9cc4b\",\n  \"request_id\": \"HtlKzBX0fMeF7mU\",\n  \"status\": \"INITIATED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02547a76-e061-4183-b8e7-4e3e749cc2de",
+          "name": "Plaid Get payment recipient",
+          "request": {
+            "name": "Plaid Get payment recipient",
+            "description": {
+              "content": "Get details about a payment recipient you have previously created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "recipient",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "078ecd9b-712e-4354-acb1-4bfafb621d18",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "recipient",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recipient_id\": \"recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"name\": \"Wonder Wallet\",\n  \"iban\": \"GB29NWBK60161331926819\",\n  \"address\": {\n    \"street\": [\n      \"96 Guild Street\",\n      \"9th Floor\"\n    ],\n    \"city\": \"London\",\n    \"postal_code\": \"SE14 8JW\",\n    \"country\": \"GB\"\n  },\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38ea020a-4e6d-44d0-a445-1f776b6697fb",
+          "name": "Plaid List payment recipients",
+          "request": {
+            "name": "Plaid List payment recipients",
+            "description": {
+              "content": "The `/payment_initiation/recipient/list` endpoint list the payment recipients that you have previously created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "recipient",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c269f48-0fd1-4fe4-bd16-b5c67465707f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "recipient",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recipients\": [\n    {\n      \"recipient_id\": \"recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6\",\n      \"name\": \"Wonder Wallet\",\n      \"iban\": \"GB29NWBK60161331926819\",\n      \"address\": {\n        \"street\": [\n          \"96 Guild Street\",\n          \"9th Floor\"\n        ],\n        \"city\": \"London\",\n        \"postal_code\": \"SE14 8JW\",\n        \"country\": \"GB\"\n      }\n    }\n  ],\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff7ae8b1-c4de-4d7a-a26d-d556bc2daeb1",
+          "name": "Plaid Create a payment",
+          "request": {
+            "name": "Plaid Create a payment",
+            "description": {
+              "content": "After creating a payment recipient, you can use the `/payment_initiation/payment/create` endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR, GBP or other chosen [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency).  If making domestic GBP-denominated payments, your recipient must have been created with BACS numbers. In general, EUR-denominated payments will be sent via SEPA Credit Transfer, GBP-denominated payments will be sent via the Faster Payments network and for non-Eurozone markets typically via the local payment scheme, but the payment network used will be determined by the institution. Payments sent via Faster Payments will typically arrive immediately, while payments sent via SEPA Credit Transfer or other local payment schemes will typically arrive in one business day.\n\nStanding orders (recurring payments) must be denominated in GBP and can only be sent to recipients in the UK. Once created, standing order payments cannot be modified or canceled via the API. An end user can cancel or modify a standing order directly on their banking application or website, or by contacting the bank. Standing orders will follow the payment rules of the underlying rails (Faster Payments in UK). Payments can be sent Monday to Friday, excluding bank holidays. If the pre-arranged date falls on a weekend or bank holiday, the payment is made on the next working day. It is not possible to guarantee the exact time the payment will reach the recipient’s account, although at least 90% of standing order payments are sent by 6am.\n\nIn the Development environment, payments must be below 5 GBP or other chosen [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency). For details on any payment limits in Production, contact your Plaid Account Manager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "payment",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0064cc72-a7c4-499f-89fc-67d63be13aa9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "payment",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n  \"status\": \"PAYMENT_STATUS_INPUT_NEEDED\",\n  \"request_id\": \"4ciYVmesrySiUAB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2783e3da-6398-41b1-89f3-fc0a907c9249",
+          "name": "Plaid Create payment token",
+          "request": {
+            "name": "Plaid Create payment token",
+            "description": {
+              "content": "The `/payment_initiation/payment/token/create` endpoint has been deprecated. New Plaid customers will be unable to use this endpoint, and existing customers are encouraged to migrate to the newer, `link_token`-based flow. The recommended flow is to provide the `payment_id` to `/link/token/create`, which returns a `link_token` used to initialize Link.\n\nThe `/payment_initiation/payment/token/create` is used to create a `payment_token`, which can then be used in Link initialization to enter a payment initiation flow. You can only use a `payment_token` once. If this attempt fails, the end user aborts the flow, or the token expires, you will need to create a new payment token. Creating a new payment token does not require end user input.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "payment",
+                "token",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "000492a1-f6b7-4dda-9230-43a80ccd3329",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "payment",
+                    "token",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_token\": \"payment-token-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n  \"payment_token_expiration_time\": \"2020-01-01T00:00:00Z\",\n  \"request_id\": \"4ciYVmesrySiUAB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32942ad4-2dd5-400c-9bf4-2d1884c82dc5",
+          "name": "Plaid Create payment consent",
+          "request": {
+            "name": "Plaid Create payment consent",
+            "description": {
+              "content": "The `/payment_initiation/consent/create` endpoint is used to create a payment consent, which can be used to initiate payments on behalf of the user. Payment consents are created with `UNAUTHORISED` status by default and must be authorised by the user before payments can be initiated.\n\nConsents can be limited in time and scope, and have constraints that describe limitations for payments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "consent",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15464620-a001-4f0a-b346-3617fd2a7bf6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "consent",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"consent_id\": \"consent-id-production-feca8a7a-5491-4444-9999-f3062bb735d3\",\n  \"status\": \"UNAUTHORISED\",\n  \"request_id\": \"4ciYmmesdqSiUAB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fa226a7-1aae-4096-86ab-6ff2826f620e",
+          "name": "Plaid Get payment consent",
+          "request": {
+            "name": "Plaid Get payment consent",
+            "description": {
+              "content": "The `/payment_initiation/consent/get` endpoint can be used to check the status of a payment consent, as well as to receive basic information such as recipient and constraints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "consent",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8e15030-a18e-44b8-ab01-3f6d539ae8a8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "consent",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"4ciYuuesdqSiUAB\",\n  \"consent_id\": \"consent-id-production-feca8a7a-5491-4aef-9298-f3062bb735d3\",\n  \"status\": \"AUTHORISED\",\n  \"created_at\": \"2021-10-30T15:26:48Z\",\n  \"recipient_id\": \"recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"reference\": \"ref-00001\",\n  \"constraints\": {\n    \"valid_date_time\": {\n      \"from\": \"2021-12-25T11:12:13Z\",\n      \"to\": \"2022-12-31T15:26:48Z\"\n    },\n    \"max_payment_amount\": {\n      \"currency\": \"GBP\",\n      \"value\": 100\n    },\n    \"periodic_amounts\": [\n      {\n        \"amount\": {\n          \"currency\": \"GBP\",\n          \"value\": 300\n        },\n        \"interval\": \"WEEK\",\n        \"alignment\": \"CALENDAR\"\n      }\n    ]\n  },\n  \"scopes\": [\n    \"ME_TO_ME\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee1a18a5-d770-4f5e-a037-461ed713138d",
+          "name": "Plaid Revoke payment consent",
+          "request": {
+            "name": "Plaid Revoke payment consent",
+            "description": {
+              "content": "The `/payment_initiation/consent/revoke` endpoint can be used to revoke the payment consent. Once the consent is revoked, it is not possible to initiate payments using it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "consent",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40bc5c21-f83d-457d-b3b5-e08f7bf1d43a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "consent",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"4ciYaaesdqSiUAB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab6fe615-bf17-46ea-8c8c-6d3db99d5399",
+          "name": "Plaid Execute a single payment using consent",
+          "request": {
+            "name": "Plaid Execute a single payment using consent",
+            "description": {
+              "content": "The `/payment_initiation/consent/payment/execute` endpoint can be used to execute payments using payment consent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "consent",
+                "payment",
+                "execute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2065e200-31f4-4a2a-a783-c180870370f3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "consent",
+                    "payment",
+                    "execute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n  \"request_id\": \"4ciYccesdqSiUAB\",\n  \"status\": \"PAYMENT_STATUS_INITIATED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3763032-81a0-4b1e-9605-367b03839044",
+          "name": "Plaid Get payment details",
+          "request": {
+            "name": "Plaid Get payment details",
+            "description": {
+              "content": "The `/payment_initiation/payment/get` endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the `/payment_initiation/payment/get` endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "payment",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0fa60326-e675-4203-b5ff-85dcd77948c9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "payment",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment_id\": \"payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n  \"payment_token\": \"payment-token-sandbox-c6a26505-42b4-46fe-8ecf-bf9edcafbebb\",\n  \"reference\": \"Account Funding 99744\",\n  \"amount\": {\n    \"currency\": \"GBP\",\n    \"value\": 100\n  },\n  \"status\": \"PAYMENT_STATUS_INPUT_NEEDED\",\n  \"last_status_update\": \"2019-11-06T21:10:52Z\",\n  \"recipient_id\": \"recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"bacs\": {\n    \"account\": \"31926819\",\n    \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n    \"sort_code\": \"601613\"\n  },\n  \"iban\": null,\n  \"request_id\": \"aEAQmewMzlVa1k6\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65845094-6d38-4c9b-ba8e-7daa6846afee",
+          "name": "Plaid List payments",
+          "request": {
+            "name": "Plaid List payments",
+            "description": {
+              "content": "The `/payment_initiation/payment/list` endpoint can be used to retrieve all created payments. By default, the 10 most recent payments are returned. You can request more payments and paginate through the results using the optional `count` and `cursor` parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment_initiation",
+                "payment",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59717e47-ac6d-45ed-af7a-01bb0f526523",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment_initiation",
+                    "payment",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payments\": [\n    {\n      \"payment_id\": \"payment-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n      \"reference\": \"Account Funding 99744\",\n      \"amount\": {\n        \"currency\": \"GBP\",\n        \"value\": 100\n      },\n      \"status\": \"PAYMENT_STATUS_INPUT_NEEDED\",\n      \"last_status_update\": \"2019-11-06T21:10:52Z\",\n      \"recipient_id\": \"recipient-id-sandbox-9b6b4679-914b-445b-9450-efbdb80296f6\",\n      \"bacs\": {\n        \"account\": \"31926819\",\n        \"account_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n        \"sort_code\": \"601613\"\n      },\n      \"iban\": null\n    }\n  ],\n  \"next_cursor\": \"2020-01-01T00:00:00Z\",\n  \"request_id\": \"aEAQmewMzlVa1k6\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e92a2a25-9921-4572-ba95-950f2bf769b8",
+    "name": "Plaid payment initiation/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "item": [
+    {
+      "id": "47ce0e54-6059-4df3-8b2e-d05dfe46ff48",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "120c86b4-6655-4177-906f-f82eaaa4dfbe",
+          "name": "Plaid Webhook receiver for fdx notifications",
+          "request": {
+            "name": "Plaid Webhook receiver for fdx notifications",
+            "description": {
+              "content": "A generic webhook receiver endpoint for FDX Event Notifications",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fdx",
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4cf2d814-7253-4fe7-b6f3-f624e7da5451",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52389f09-6a3b-418b-a5be-305a86da5883",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fdx",
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 9387,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c82c2d06-e8af-4d3d-9828-2690b6f359dc",
+    "name": "Plaid fdx/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

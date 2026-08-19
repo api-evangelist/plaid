@@ -1,0 +1,2105 @@
+{
+  "item": [
+    {
+      "id": "f727a800-7047-4c05-96b0-71b02fde4e22",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b52f92cd-b2e2-4f2e-847f-2ea0cd325e49",
+          "name": "Plaid Get transaction data",
+          "request": {
+            "name": "Plaid Get transaction data",
+            "description": {
+              "content": "Note: All new implementations are encouraged to use `/transactions/sync` rather than `/transactions/get`. `/transactions/sync` provides the same functionality as `/transactions/get` and improves developer ease-of-use for handling transactions updates.\n\nThe `/transactions/get` endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from investments accounts, use the [Investments endpoint](https://plaid.com/docs/api/products/investments/) instead. Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in `/transactions/get`.  For more details, see [Pending and posted transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).\n\nDue to the potentially large number of transactions associated with an Item, results are paginated. Manipulate the `count` and `offset` parameters in conjunction with the `total_transactions` response body field to fetch all available transactions.\n\nData returned by `/transactions/get` will be the data available for the Item as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To find out when the Item was last updated, use the [Item Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger) or call `/item/get`; the `item.status.transactions.last_successful_update` field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, you can use the `/transactions/refresh` endpoint.\n\nNote that data may not be immediately available to `/transactions/get`. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with `transactions`, or upon the first call to `/transactions/get`, if it wasn't. To be alerted when transaction data is ready to be fetched, listen for the [`INITIAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#initial_update) and [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhooks. If no transaction history is ready when `/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0863142c-c9d2-40df-903e-ffb14e3b3876",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 110.94,\n        \"current\": 110.94,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"transactions\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 28.34,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Food and Drink\",\n        \"Restaurants\",\n        \"Fast Food\"\n      ],\n      \"category_id\": \"13005032\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"DoorDash\",\n          \"type\": \"marketplace\",\n          \"logo_url\": \"https://plaid-counterparty-logos.plaid.com/doordash_1.png\",\n          \"website\": \"doordash.com\",\n          \"entity_id\": \"YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm\",\n          \"confidence_level\": \"HIGH\"\n        },\n        {\n          \"name\": \"Burger King\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n          \"website\": \"burgerking.com\",\n          \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-28\",\n      \"datetime\": \"2023-09-28T15:10:09Z\",\n      \"authorized_date\": \"2023-09-27\",\n      \"authorized_datetime\": \"2023-09-27T08:01:58Z\",\n      \"location\": {\n        \"address\": null,\n        \"city\": null,\n        \"region\": null,\n        \"postal_code\": null,\n        \"country\": null,\n        \"lat\": null,\n        \"lon\": null,\n        \"store_number\": null\n      },\n      \"name\": \"Dd Doordash Burgerkin\",\n      \"merchant_name\": \"Burger King\",\n      \"merchant_entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n      \"website\": \"burgerking.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"online\",\n      \"pending\": true,\n      \"pending_transaction_id\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"FOOD_AND_DRINK\",\n        \"detailed\": \"FOOD_AND_DRINK_FAST_FOOD\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png\",\n      \"transaction_id\": \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"digital\"\n    },\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 72.1,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Shops\",\n        \"Supermarkets and Groceries\"\n      ],\n      \"category_id\": \"19046000\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"Walmart\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n          \"website\": \"walmart.com\",\n          \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-24\",\n      \"datetime\": \"2023-09-24T11:01:01Z\",\n      \"authorized_date\": \"2023-09-22\",\n      \"authorized_datetime\": \"2023-09-22T10:34:50Z\",\n      \"location\": {\n        \"address\": \"13425 Community Rd\",\n        \"city\": \"Poway\",\n        \"region\": \"CA\",\n        \"postal_code\": \"92064\",\n        \"country\": \"US\",\n        \"lat\": 32.959068,\n        \"lon\": -117.037666,\n        \"store_number\": \"1700\"\n      },\n      \"name\": \"PURCHASE WM SUPERCENTER #1700\",\n      \"merchant_name\": \"Walmart\",\n      \"merchant_entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n      \"website\": \"walmart.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"in store\",\n      \"pending\": false,\n      \"pending_transaction_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n      \"transaction_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"place\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"identity\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"total_transactions\": 1,\n  \"request_id\": \"45QSn\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c341d789-af8a-4b32-93fd-468a25da2a63",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 7064,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e092862-7212-4ac4-894c-b49e72049409",
+          "name": "Plaid Refresh transaction data",
+          "request": {
+            "name": "Plaid Refresh transaction data",
+            "description": {
+              "content": "`/transactions/refresh` is an optional endpoint that initiates an on-demand extraction to fetch the newest transactions for an Item. The on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Transactions-enabled Item. The Item must already have Transactions added as a product in order to call `/transactions/refresh`.\n\nIf changes to transactions are discovered after calling `/transactions/refresh`, Plaid will fire a webhook: for `/transactions/sync` users, [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) will be fired if there are any transactions updated, added, or removed. For users of both `/transactions/sync` and `/transactions/get`, [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed) will be fired if any removed transactions are detected, and [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update) will be fired if any new transactions are detected. New transactions can be fetched by calling `/transactions/get` or `/transactions/sync`.\n\nNote that the `/transactions/refresh` endpoint is not supported for Capital One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error if called on an Item from that institution.\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/transactions/refresh` is offered as an optional add-on to Transactions and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7fcdbc7-c25b-4ff0-8814-15cded745ba2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"1vwmF5TBQwiqfwP\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82939aff-e661-49d1-86e4-e3594a0e5d82",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f93d8386-06ae-4b4c-8566-176f8db4619f",
+          "name": "Plaid Fetch recurring transaction streams",
+          "request": {
+            "name": "Plaid Fetch recurring transaction streams",
+            "description": {
+              "content": "The `/transactions/recurring/get` endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user’s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.\n\nThis endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.\n\nThis endpoint can only be called on an Item that has already been initialized with Transactions (either during Link, by specifying it in `/link/token/create`; or after Link, by calling `/transactions/get` or `/transactions/sync`). For optimal results, we strongly recommend customers using Recurring Transactions to request at least 180 days of history when initializing items with Transactions (using the [`days_requested`](https://plaid.com/docs/api/tokens/#link-token-create-request-transactions-days-requested) option). Once all historical transactions have been fetched, call `/transactions/recurring/get` to receive the Recurring Transactions streams and subscribe to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook. To know when historical transactions have been fetched, if you are using `/transactions/sync` listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete) webhook and check that the `historical_update_complete` field in the payload is `true`. If using `/transactions/get`, listen for the [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhook.\n\nAfter the initial call, you can call `/transactions/recurring/get` endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook to be notified when new updates are available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "recurring",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7e000283-14f7-42a0-9abf-33bcc2546f41",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "recurring",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updated_datetime\": \"2022-05-01T00:00:00Z\",\n  \"inflow_streams\": [\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"stream_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"category\": [\n        \"Transfer\",\n        \"Payroll\"\n      ],\n      \"category_id\": \"21009000\",\n      \"description\": \"Platypus Payroll\",\n      \"merchant_name\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"INCOME\",\n        \"detailed\": \"INCOME_WAGES\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-02-28\",\n      \"last_date\": \"2022-04-30\",\n      \"frequency\": \"SEMI_MONTHLY\",\n      \"transaction_ids\": [\n        \"nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw\",\n        \"EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL\",\n        \"ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd\",\n        \"QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK\",\n        \"uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF\"\n      ],\n      \"average_amount\": {\n        \"amount\": -800,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": -1000,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": true,\n      \"last_user_modified_datetime\": \"2023-01-19T10:34:50Z\"\n    }\n  ],\n  \"outflow_streams\": [\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff\",\n      \"stream_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd\",\n      \"category\": [\n        \"Service\",\n        \"Utilities\",\n        \"Electric\"\n      ],\n      \"category_id\": \"18068005\",\n      \"description\": \"ConEd Bill Payment\",\n      \"merchant_name\": \"ConEd\",\n      \"personal_finance_category\": {\n        \"primary\": \"RENT_AND_UTILITIES\",\n        \"detailed\": \"RENT_AND_UTILITIES_GAS_AND_ELECTRICITY\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-02-04\",\n      \"last_date\": \"2022-05-02\",\n      \"frequency\": \"MONTHLY\",\n      \"transaction_ids\": [\n        \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n        \"HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR\",\n        \"jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L\",\n        \"CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l\"\n      ],\n      \"average_amount\": {\n        \"amount\": 85,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": 100,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": false\n    },\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff\",\n      \"stream_id\": \"SrBNJZDuUMweodmPmSOeOImwsWt53ZXfJQAfC\",\n      \"category\": [\n        \"Shops\",\n        \"Warehouses and Wholesale Stores\"\n      ],\n      \"category_id\": \"19051000\",\n      \"description\": \"Costco Annual Membership\",\n      \"merchant_name\": \"Costco\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-01-23\",\n      \"last_date\": \"2023-01-22\",\n      \"frequency\": \"ANNUALLY\",\n      \"transaction_ids\": [\n        \"yqEBJ72cS4jFwcpxJcDuQr94oAQ1R1lMC33D4\",\n        \"Kz5Hm3cZCgpn4tMEKUGAGD6kAcxMBsEZDSwJJ\"\n      ],\n      \"average_amount\": {\n        \"amount\": 120,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": 120,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": true,\n      \"last_user_modified_datetime\": \"2023-01-19T10:34:50Z\"\n    }\n  ],\n  \"request_id\": \"tbFyCEqkU775ZGG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05af26c7-011a-4f68-9fc9-f611073a9c69",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "recurring",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "607154a7-5cae-4438-8527-0a4ab416c208",
+          "name": "Plaid Get incremental transaction updates on an Item",
+          "request": {
+            "name": "Plaid Get incremental transaction updates on an Item",
+            "description": {
+              "content": "The `/transactions/sync` endpoint allows developers to subscribe to all transactions associated with an Item and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen.\n\n`/transactions/sync` provides the same functionality as `/transactions/get` and can be used instead of `/transactions/get` to simplify the process of tracking transactions updates. To learn more about migrating from `/transactions/get`, see the [Transactions Sync migration guide](https://plaid.com/docs/transactions/sync-migration/).\n\nThis endpoint provides user-authorized transaction data for `credit`, `depository`, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from `investments` accounts, use `/investments/transactions/get` instead.\n\nReturned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.\n\nIn the first call to `/transactions/sync` for an Item, the endpoint will return all historical transactions data associated with that Item up until the time of the API call (as \"adds\"), which then generates a `next_cursor` for that Item. In subsequent calls, send the `next_cursor` to receive only the changes that have occurred since the previous call.\n\nDue to the potentially large number of transactions associated with an Item, results are paginated. The `has_more` field specifies if additional calls are necessary to fetch all available transaction updates. Call `/transactions/sync` with the new cursor, pulling all updates, until `has_more` is `false`.\n\nWhen retrieving paginated updates, track both the `next_cursor` from the latest response and the original cursor from the first call in which `has_more` was `true`; if a call to `/transactions/sync` fails due to the [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination) error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.\n\nWhenever new or updated transaction data becomes available, `/transactions/sync` will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To find out when the Item was last updated, use the [Item Debugger](https://plaid.com/docs/account/activity/#troubleshooting-with-item-debugger) or call `/item/get`; the `item.status.transactions.last_successful_update` field will show the timestamp of the most recent successful update. To force Plaid to check for new transactions, use the `/transactions/refresh` endpoint.\n\nFor newly created Items, data may not be immediately available to `/transactions/sync`. Plaid begins preparing transactions data when the Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.\n\nTo be alerted when new data is available, listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) webhook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b6291616-6fd3-48c7-bb3c-a03ee7321f95",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 110.94,\n        \"current\": 110.94,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"added\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 72.1,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Shops\",\n        \"Supermarkets and Groceries\"\n      ],\n      \"category_id\": \"19046000\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"Walmart\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n          \"website\": \"walmart.com\",\n          \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-24\",\n      \"datetime\": \"2023-09-24T11:01:01Z\",\n      \"authorized_date\": \"2023-09-22\",\n      \"authorized_datetime\": \"2023-09-22T10:34:50Z\",\n      \"location\": {\n        \"address\": \"13425 Community Rd\",\n        \"city\": \"Poway\",\n        \"region\": \"CA\",\n        \"postal_code\": \"92064\",\n        \"country\": \"US\",\n        \"lat\": 32.959068,\n        \"lon\": -117.037666,\n        \"store_number\": \"1700\"\n      },\n      \"name\": \"PURCHASE WM SUPERCENTER #1700\",\n      \"merchant_name\": \"Walmart\",\n      \"merchant_entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n      \"website\": \"walmart.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"in store\",\n      \"pending\": false,\n      \"pending_transaction_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n      \"transaction_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"place\"\n    }\n  ],\n  \"modified\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 28.34,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Food and Drink\",\n        \"Restaurants\",\n        \"Fast Food\"\n      ],\n      \"category_id\": \"13005032\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"DoorDash\",\n          \"type\": \"marketplace\",\n          \"logo_url\": \"https://plaid-counterparty-logos.plaid.com/doordash_1.png\",\n          \"website\": \"doordash.com\",\n          \"entity_id\": \"YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm\",\n          \"confidence_level\": \"HIGH\"\n        },\n        {\n          \"name\": \"Burger King\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n          \"website\": \"burgerking.com\",\n          \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-28\",\n      \"datetime\": \"2023-09-28T15:10:09Z\",\n      \"authorized_date\": \"2023-09-27\",\n      \"authorized_datetime\": \"2023-09-27T08:01:58Z\",\n      \"location\": {\n        \"address\": null,\n        \"city\": null,\n        \"region\": null,\n        \"postal_code\": null,\n        \"country\": null,\n        \"lat\": null,\n        \"lon\": null,\n        \"store_number\": null\n      },\n      \"name\": \"Dd Doordash Burgerkin\",\n      \"merchant_name\": \"Burger King\",\n      \"merchant_entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n      \"website\": \"burgerking.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"online\",\n      \"pending\": true,\n      \"pending_transaction_id\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"FOOD_AND_DRINK\",\n        \"detailed\": \"FOOD_AND_DRINK_FAST_FOOD\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png\",\n      \"transaction_id\": \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"digital\"\n    }\n  ],\n  \"removed\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"transaction_id\": \"CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l\"\n    }\n  ],\n  \"next_cursor\": \"tVUUL15lYQN5rBnfDIc1I8xudpGdIlw9nsgeXWvhOfkECvUeR663i3Dt1uf/94S8ASkitgLcIiOSqNwzzp+bh89kirazha5vuZHBb2ZA5NtCDkkV\",\n  \"has_more\": false,\n  \"request_id\": \"Wvhy9PZHQLV8njG\",\n  \"transactions_update_status\": \"HISTORICAL_UPDATE_COMPLETE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08620d66-ea55-4706-acea-08899aa8dee3",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6f6179e-a09c-40d2-944f-87b8235edc12",
+          "name": "Plaid Enrich locally-held transaction data",
+          "request": {
+            "name": "Plaid Enrich locally-held transaction data",
+            "description": {
+              "content": "The `/transactions/enrich` endpoint enriches raw transaction data generated by your own banking products or retrieved from other non-Plaid sources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions",
+                "enrich"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2504e9b3-6518-48f0-ab73-17d6580ce5cc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "enrich"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enriched_transactions\": [\n    {\n      \"id\": \"6135818adda16500147e7c1d\",\n      \"description\": \"PURCHASE WM SUPERCENTER #1700\",\n      \"amount\": 72.1,\n      \"direction\": \"OUTFLOW\",\n      \"iso_currency_code\": \"USD\",\n      \"enrichments\": {\n        \"counterparties\": [\n          {\n            \"name\": \"Walmart\",\n            \"type\": \"merchant\",\n            \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n            \"website\": \"walmart.com\",\n            \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n            \"confidence_level\": \"VERY_HIGH\",\n            \"phone_number\": \"+18009256278\"\n          }\n        ],\n        \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n        \"location\": {\n          \"address\": \"13425 Community Rd\",\n          \"city\": \"Poway\",\n          \"region\": \"CA\",\n          \"postal_code\": \"92064\",\n          \"country\": \"US\",\n          \"store_number\": \"1700\",\n          \"lat\": 32.959068,\n          \"lon\": -117.037666\n        },\n        \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n        \"merchant_name\": \"Walmart\",\n        \"payment_channel\": \"in store\",\n        \"personal_finance_category\": {\n          \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n          \"primary\": \"GENERAL_MERCHANDISE\",\n          \"confidence_level\": \"VERY_HIGH\"\n        },\n        \"phone_number\": \"+18009256278\",\n        \"recurrence\": {\n          \"is_recurring\": false\n        },\n        \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n        \"website\": \"walmart.com\"\n      }\n    },\n    {\n      \"id\": \"3958434bhde9384bcmeo3401\",\n      \"description\": \"DD DOORDASH BURGERKIN 855-123-4567 CA\",\n      \"amount\": 28.34,\n      \"direction\": \"OUTFLOW\",\n      \"iso_currency_code\": \"USD\",\n      \"enrichments\": {\n        \"counterparties\": [\n          {\n            \"name\": \"DoorDash\",\n            \"type\": \"marketplace\",\n            \"logo_url\": \"https://plaid-counterparty-logos.plaid.com/doordash_1.png\",\n            \"website\": \"doordash.com\",\n            \"entity_id\": \"YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm\",\n            \"confidence_level\": \"VERY_HIGH\",\n            \"phone_number\": \"+18001234567\"\n          },\n          {\n            \"name\": \"Burger King\",\n            \"type\": \"merchant\",\n            \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n            \"website\": \"burgerking.com\",\n            \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n            \"confidence_level\": \"VERY_HIGH\",\n            \"phone_number\": null\n          }\n        ],\n        \"location\": {\n          \"address\": null,\n          \"city\": null,\n          \"region\": null,\n          \"postal_code\": null,\n          \"country\": null,\n          \"store_number\": null,\n          \"lat\": null,\n          \"lon\": null\n        },\n        \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n        \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n        \"merchant_name\": \"Burger King\",\n        \"payment_channel\": \"online\",\n        \"personal_finance_category\": {\n          \"detailed\": \"FOOD_AND_DRINK_FAST_FOOD\",\n          \"primary\": \"FOOD_AND_DRINK\",\n          \"confidence_level\": \"VERY_HIGH\"\n        },\n        \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png\",\n        \"phone_number\": null,\n        \"recurrence\": {\n          \"is_recurring\": false\n        },\n        \"website\": \"burgerking.com\"\n      }\n    }\n  ],\n  \"request_id\": \"Wvhy9PZHQLV8njG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f693bf3f-9f1f-4e36-a65c-bcf3d079f4cb",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions",
+                    "enrich"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65acef4d-d6af-497f-aa2b-867d1d63850b",
+          "name": "Plaid Get transaction data",
+          "request": {
+            "name": "Plaid Get transaction data",
+            "description": {
+              "content": "The `/processor/transactions/get` endpoint allows developers to receive user-authorized transaction data for credit, depository, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). Transaction data is standardized across financial institutions, and in many cases transactions are linked to a clean name, entity type, location, and category. Similarly, account data is standardized and returned with a clean name, number, balance, and other meta information where available.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.  Transactions are not immutable and can also be removed altogether by the institution; a removed transaction will no longer appear in `/processor/transactions/get`.  For more details, see [Pending and posted transactions](https://plaid.com/docs/transactions/transactions-data/#pending-and-posted-transactions).\n\nDue to the potentially large number of transactions associated with a processor token, results are paginated. Manipulate the `count` and `offset` parameters in conjunction with the `total_transactions` response body field to fetch all available transactions.\n\nData returned by `/processor/transactions/get` will be the data available for the processor token as of the most recent successful check for new transactions. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, you can use the `/processor/transactions/refresh` endpoint.\n\nNote that data may not be immediately available to `/processor/transactions/get`. Plaid will begin to prepare transactions data upon Item link, if Link was initialized with `transactions`, or upon the first call to `/processor/transactions/get`, if it wasn't. If no transaction history is ready when `/processor/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "transactions",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "700db87d-4fbf-49b1-a412-ae20dd86ea9b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n    \"balances\": {\n      \"available\": 110.94,\n      \"current\": 110.94,\n      \"iso_currency_code\": \"USD\",\n      \"limit\": null,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"0000\",\n    \"name\": \"Plaid Checking\",\n    \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n    \"subtype\": \"checking\",\n    \"type\": \"depository\"\n  },\n  \"transactions\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 28.34,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Food and Drink\",\n        \"Restaurants\",\n        \"Fast Food\"\n      ],\n      \"category_id\": \"13005032\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"DoorDash\",\n          \"type\": \"marketplace\",\n          \"logo_url\": \"https://plaid-counterparty-logos.plaid.com/doordash_1.png\",\n          \"website\": \"doordash.com\",\n          \"entity_id\": \"YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm\",\n          \"confidence_level\": \"HIGH\"\n        },\n        {\n          \"name\": \"Burger King\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n          \"website\": \"burgerking.com\",\n          \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-28\",\n      \"datetime\": \"2023-09-28T15:10:09Z\",\n      \"authorized_date\": \"2023-09-27\",\n      \"authorized_datetime\": \"2023-09-27T08:01:58Z\",\n      \"location\": {\n        \"address\": null,\n        \"city\": null,\n        \"region\": null,\n        \"postal_code\": null,\n        \"country\": null,\n        \"lat\": null,\n        \"lon\": null,\n        \"store_number\": null\n      },\n      \"name\": \"Dd Doordash Burgerkin\",\n      \"merchant_name\": \"Burger King\",\n      \"merchant_entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n      \"website\": \"burgerking.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"online\",\n      \"pending\": true,\n      \"pending_transaction_id\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"FOOD_AND_DRINK\",\n        \"detailed\": \"FOOD_AND_DRINK_FAST_FOOD\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png\",\n      \"transaction_id\": \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"digital\"\n    },\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 72.1,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Shops\",\n        \"Supermarkets and Groceries\"\n      ],\n      \"category_id\": \"19046000\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"Walmart\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n          \"website\": \"walmart.com\",\n          \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-24\",\n      \"datetime\": \"2023-09-24T11:01:01Z\",\n      \"authorized_date\": \"2023-09-22\",\n      \"authorized_datetime\": \"2023-09-22T10:34:50Z\",\n      \"location\": {\n        \"address\": \"13425 Community Rd\",\n        \"city\": \"Poway\",\n        \"region\": \"CA\",\n        \"postal_code\": \"92064\",\n        \"country\": \"US\",\n        \"lat\": 32.959068,\n        \"lon\": -117.037666,\n        \"store_number\": \"1700\"\n      },\n      \"name\": \"PURCHASE WM SUPERCENTER #1700\",\n      \"merchant_name\": \"Walmart\",\n      \"merchant_entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n      \"website\": \"walmart.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"in store\",\n      \"pending\": false,\n      \"pending_transaction_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n      \"transaction_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"place\"\n    }\n  ],\n  \"total_transactions\": 1,\n  \"request_id\": \"Wvhy9PZHQLV8njG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4da1a7a-50ac-4d68-b456-3f9dbd49de45",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25b3ce97-e6a3-4d73-9d8c-43b393eccc64",
+          "name": "Plaid Get incremental transaction updates on a processor token",
+          "request": {
+            "name": "Plaid Get incremental transaction updates on a processor token",
+            "description": {
+              "content": "This endpoint replaces `/processor/transactions/get` and its associated webhooks for most common use-cases.\n\nThe `/processor/transactions/sync` endpoint allows developers to subscribe to all transactions associated with a processor token and get updates synchronously in a stream-like manner, using a cursor to track which updates have already been seen. `/processor/transactions/sync` provides the same functionality as `/processor/transactions/get` and can be used instead of `/processor/transactions/get` to simplify the process of tracking transactions updates.\n\nThis endpoint provides user-authorized transaction data for `credit`, `depository`, and some loan-type accounts (only those with account subtype `student`; coverage may be limited). For transaction history from `investments` accounts, use `/investments/transactions/get` instead.\n\nReturned transactions data is grouped into three types of update, indicating whether the transaction was added, removed, or modified since the last call to the API.\n\nIn the first call to `/processor/transactions/sync` for a processor token, the endpoint will return all historical transactions data associated with that processor token up until the time of the API call (as \"adds\"), which then generates a `next_cursor` for that processor token. In subsequent calls, send the `next_cursor` to receive only the changes that have occurred since the previous call.\n\nDue to the potentially large number of transactions associated with a processor token, results are paginated. The `has_more` field specifies if additional calls are necessary to fetch all available transaction updates. Call `/processor/transactions/sync` with the new cursor, pulling all updates, until `has_more` is `false`.\n\nWhen retrieving paginated updates, track both the `next_cursor` from the latest response and the original cursor from the first call in which `has_more` was `true`; if a call to `/processor/transactions/sync` fails when retrieving a paginated update, which can occur as a result of the [`TRANSACTIONS_SYNC_MUTATION_DURING_PAGINATION`](https://plaid.com/docs/errors/transactions/#transactions_sync_mutation_during_pagination) error, the entire pagination request loop must be restarted beginning with the cursor for the first page of the update, rather than retrying only the single request that failed.\n\nWhenever new or updated transaction data becomes available, `/processor/transactions/sync` will provide these updates. Plaid typically checks for new data multiple times a day, but these checks may occur less frequently, such as once a day, depending on the institution. To force Plaid to check for new transactions, use the `/processor/transactions/refresh` endpoint.\n\nNote that for newly created processor tokens, data may not be immediately available to `/processor/transactions/sync`. Plaid begins preparing transactions data when the corresponding Item is created, but the process can take anywhere from a few seconds to several minutes to complete, depending on the number of transactions available.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "transactions",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad508775-e227-420c-920b-66b331dbeb1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n    \"balances\": {\n      \"available\": 110.94,\n      \"current\": 110.94,\n      \"iso_currency_code\": \"USD\",\n      \"limit\": null,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"0000\",\n    \"name\": \"Plaid Checking\",\n    \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n    \"subtype\": \"checking\",\n    \"type\": \"depository\"\n  },\n  \"added\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 72.1,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Shops\",\n        \"Supermarkets and Groceries\"\n      ],\n      \"category_id\": \"19046000\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"Walmart\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n          \"website\": \"walmart.com\",\n          \"entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-24\",\n      \"datetime\": \"2023-09-24T11:01:01Z\",\n      \"authorized_date\": \"2023-09-22\",\n      \"authorized_datetime\": \"2023-09-22T10:34:50Z\",\n      \"location\": {\n        \"address\": \"13425 Community Rd\",\n        \"city\": \"Poway\",\n        \"region\": \"CA\",\n        \"postal_code\": \"92064\",\n        \"country\": \"US\",\n        \"lat\": 32.959068,\n        \"lon\": -117.037666,\n        \"store_number\": \"1700\"\n      },\n      \"name\": \"PURCHASE WM SUPERCENTER #1700\",\n      \"merchant_name\": \"Walmart\",\n      \"merchant_entity_id\": \"O5W5j4dN9OR3E6ypQmjdkWZZRoXEzVMz2ByWM\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/walmart_1100.png\",\n      \"website\": \"walmart.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"in store\",\n      \"pending\": false,\n      \"pending_transaction_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n      \"transaction_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"place\"\n    }\n  ],\n  \"modified\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"account_owner\": null,\n      \"amount\": 28.34,\n      \"iso_currency_code\": \"USD\",\n      \"unofficial_currency_code\": null,\n      \"category\": [\n        \"Food and Drink\",\n        \"Restaurants\",\n        \"Fast Food\"\n      ],\n      \"category_id\": \"13005032\",\n      \"check_number\": null,\n      \"counterparties\": [\n        {\n          \"name\": \"DoorDash\",\n          \"type\": \"marketplace\",\n          \"logo_url\": \"https://plaid-counterparty-logos.plaid.com/doordash_1.png\",\n          \"website\": \"doordash.com\",\n          \"entity_id\": \"YNRJg5o2djJLv52nBA1Yn1KpL858egYVo4dpm\",\n          \"confidence_level\": \"HIGH\"\n        },\n        {\n          \"name\": \"Burger King\",\n          \"type\": \"merchant\",\n          \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n          \"website\": \"burgerking.com\",\n          \"entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n          \"confidence_level\": \"VERY_HIGH\"\n        }\n      ],\n      \"date\": \"2023-09-28\",\n      \"datetime\": \"2023-09-28T15:10:09Z\",\n      \"authorized_date\": \"2023-09-27\",\n      \"authorized_datetime\": \"2023-09-27T08:01:58Z\",\n      \"location\": {\n        \"address\": null,\n        \"city\": null,\n        \"region\": null,\n        \"postal_code\": null,\n        \"country\": null,\n        \"lat\": null,\n        \"lon\": null,\n        \"store_number\": null\n      },\n      \"name\": \"Dd Doordash Burgerkin\",\n      \"merchant_name\": \"Burger King\",\n      \"merchant_entity_id\": \"mVrw538wamwdm22mK8jqpp7qd5br0eeV9o4a1\",\n      \"logo_url\": \"https://plaid-merchant-logos.plaid.com/burger_king_155.png\",\n      \"website\": \"burgerking.com\",\n      \"payment_meta\": {\n        \"by_order_of\": null,\n        \"payee\": null,\n        \"payer\": null,\n        \"payment_method\": null,\n        \"payment_processor\": null,\n        \"ppd_id\": null,\n        \"reason\": null,\n        \"reference_number\": null\n      },\n      \"payment_channel\": \"online\",\n      \"pending\": true,\n      \"pending_transaction_id\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"FOOD_AND_DRINK\",\n        \"detailed\": \"FOOD_AND_DRINK_FAST_FOOD\",\n        \"confidence_level\": \"VERY_HIGH\"\n      },\n      \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_FOOD_AND_DRINK.png\",\n      \"transaction_id\": \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n      \"transaction_code\": null,\n      \"transaction_type\": \"digital\"\n    }\n  ],\n  \"removed\": [\n    {\n      \"transaction_id\": \"CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l\",\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\"\n    }\n  ],\n  \"next_cursor\": \"tVUUL15lYQN5rBnfDIc1I8xudpGdIlw9nsgeXWvhOfkECvUeR663i3Dt1uf/94S8ASkitgLcIiOSqNwzzp+bh89kirazha5vuZHBb2ZA5NtCDkkV\",\n  \"has_more\": false,\n  \"request_id\": \"45QSn\",\n  \"transactions_update_status\": \"HISTORICAL_UPDATE_COMPLETE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b450686b-064a-45dc-8f01-2f1cea5389a5",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7db06b89-d0c2-4f4f-ac5e-f31364e44c07",
+          "name": "Plaid Refresh transaction data",
+          "request": {
+            "name": "Plaid Refresh transaction data",
+            "description": {
+              "content": "`/processor/transactions/refresh` is an optional endpoint for users of the Transactions product. It initiates an on-demand extraction to fetch the newest transactions for a processor token. This on-demand extraction takes place in addition to the periodic extractions that automatically occur one or more times per day for any Transactions-enabled processor token. If changes to transactions are discovered after calling `/processor/transactions/refresh`, Plaid will fire a webhook: for `/transactions/sync` users, [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#sync_updates_available) will be fired if there are any transactions updated, added, or removed. For users of both `/processor/transactions/sync` and `/processor/transactions/get`, [`TRANSACTIONS_REMOVED`](https://plaid.com/docs/api/products/transactions/#transactions_removed) will be fired if any removed transactions are detected, and [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/transactions/#default_update) will be fired if any new transactions are detected. New transactions can be fetched by calling `/processor/transactions/get` or `/processor/transactions/sync`. Note that the `/processor/transactions/refresh` endpoint is not supported for Capital One (`ins_128026`) and will result in a `PRODUCTS_NOT_SUPPORTED` error if called on a processor token from that institution.\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/processor/transactions/refresh` is offered as an add-on to Transactions and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "transactions",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75f94a59-3181-449a-8420-cc758559145b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"1vwmF5TBQwiqfwP\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8fa5f582-73a5-4575-a731-8bef51073de9",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d2712c1-3e97-4999-ab20-515133cf255d",
+          "name": "Plaid Fetch recurring transaction streams",
+          "request": {
+            "name": "Plaid Fetch recurring transaction streams",
+            "description": {
+              "content": "The `/processor/transactions/recurring/get` endpoint allows developers to receive a summary of the recurring outflow and inflow streams (expenses and deposits) from a user’s checking, savings or credit card accounts. Additionally, Plaid provides key insights about each recurring stream including the category, merchant, last amount, and more. Developers can use these insights to build tools and experiences that help their users better manage cash flow, monitor subscriptions, reduce spend, and stay on track with bill payments.\n\nThis endpoint is offered as an add-on to Transactions. To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.\n\nThis endpoint can only be called on a processor token that has already been initialized with Transactions (either during Link, by specifying it in `/link/token/create`; or after Link, by calling `/processor/transactions/get` or `/processor/transactions/sync`). Once all historical transactions have been fetched, call `/processor/transactions/recurring/get` to receive the Recurring Transactions streams and subscribe to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook. To know when historical transactions have been fetched, if you are using `/processor/transactions/sync` listen for the [`SYNC_UPDATES_AVAILABLE`](https://plaid.com/docs/api/products/transactions/#SyncUpdatesAvailableWebhook-historical-update-complete) webhook and check that the `historical_update_complete` field in the payload is `true`. If using `/processor/transactions/get`, listen for the [`HISTORICAL_UPDATE`](https://plaid.com/docs/api/products/transactions/#historical_update) webhook.\n\nAfter the initial call, you can call `/processor/transactions/recurring/get` endpoint at any point in the future to retrieve the latest summary of recurring streams. Listen to the [`RECURRING_TRANSACTIONS_UPDATE`](https://plaid.com/docs/api/products/transactions/#recurring_transactions_update) webhook to be notified when new updates are available.\n\nTo receive Transactions webhooks for a processor token, set its webhook URL via the [`/processor/token/webhook/update`](https://plaid.com/docs/api/processor-partners/#processortokenwebhookupdate) endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "transactions",
+                "recurring",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d91c075f-5ec8-41bd-8ee9-9e519c86c34f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "recurring",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updated_datetime\": \"2022-05-01T00:00:00Z\",\n  \"inflow_streams\": [\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDje\",\n      \"stream_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nc\",\n      \"category\": [\n        \"Transfer\",\n        \"Payroll\"\n      ],\n      \"category_id\": \"21009000\",\n      \"description\": \"Platypus Payroll\",\n      \"merchant_name\": null,\n      \"personal_finance_category\": {\n        \"primary\": \"INCOME\",\n        \"detailed\": \"INCOME_WAGES\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-02-28\",\n      \"last_date\": \"2022-04-30\",\n      \"frequency\": \"SEMI_MONTHLY\",\n      \"transaction_ids\": [\n        \"nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw\",\n        \"EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL\",\n        \"ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd\",\n        \"QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK\",\n        \"uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF\"\n      ],\n      \"average_amount\": {\n        \"amount\": -800,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": -1000,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": true,\n      \"last_user_modified_datetime\": \"2023-01-19T10:34:50Z\"\n    }\n  ],\n  \"outflow_streams\": [\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff\",\n      \"stream_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd\",\n      \"category\": [\n        \"Service\",\n        \"Utilities\",\n        \"Electric\"\n      ],\n      \"category_id\": \"18068005\",\n      \"description\": \"ConEd Bill Payment\",\n      \"merchant_name\": \"ConEd\",\n      \"personal_finance_category\": {\n        \"primary\": \"RENT_AND_UTILITIES\",\n        \"detailed\": \"RENT_AND_UTILITIES_GAS_AND_ELECTRICITY\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-02-04\",\n      \"last_date\": \"2022-05-02\",\n      \"frequency\": \"MONTHLY\",\n      \"transaction_ids\": [\n        \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n        \"HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR\",\n        \"jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L\",\n        \"CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l\"\n      ],\n      \"average_amount\": {\n        \"amount\": 85,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": 100,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": false\n    },\n    {\n      \"account_id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDff\",\n      \"stream_id\": \"SrBNJZDuUMweodmPmSOeOImwsWt53ZXfJQAfC\",\n      \"category\": [\n        \"Shops\",\n        \"Warehouses and Wholesale Stores\"\n      ],\n      \"category_id\": \"19051000\",\n      \"description\": \"Costco Annual Membership\",\n      \"merchant_name\": \"Costco\",\n      \"personal_finance_category\": {\n        \"primary\": \"GENERAL_MERCHANDISE\",\n        \"detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"confidence_level\": \"UNKNOWN\"\n      },\n      \"first_date\": \"2022-01-23\",\n      \"last_date\": \"2023-01-22\",\n      \"frequency\": \"ANNUALLY\",\n      \"transaction_ids\": [\n        \"yqEBJ72cS4jFwcpxJcDuQr94oAQ1R1lMC33D4\",\n        \"Kz5Hm3cZCgpn4tMEKUGAGD6kAcxMBsEZDSwJJ\"\n      ],\n      \"average_amount\": {\n        \"amount\": 120,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"last_amount\": {\n        \"amount\": 120,\n        \"iso_currency_code\": \"USD\",\n        \"unofficial_currency_code\": null\n      },\n      \"is_active\": true,\n      \"status\": \"MATURE\",\n      \"is_user_modified\": true,\n      \"last_user_modified_datetime\": \"2023-01-19T10:34:50Z\"\n    }\n  ],\n  \"request_id\": \"tbFyCEqkU775ZGG\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdbe55a1-c449-49ac-a359-f17b12a050fc",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "transactions",
+                    "recurring",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b6421d8-7e52-4a43-9af2-5aa8a28b8aed",
+          "name": "Plaid Get investment transactions",
+          "request": {
+            "name": "Plaid Get investment transactions",
+            "description": {
+              "content": "The `/investments/transactions/get` endpoint allows developers to retrieve up to 24 months of user-authorized transaction data for investment accounts.\n\nTransactions are returned in reverse-chronological order, and the sequence of transaction ordering is stable and will not shift.\n\nDue to the potentially large number of investment transactions associated with an Item, results are paginated. Manipulate the count and offset parameters in conjunction with the `total_investment_transactions` response body field to fetch all available investment transactions.\n\nNote that Investments does not have a webhook to indicate when initial transaction data has loaded (unless you use the `async_update` option). Instead, if transactions data is not ready when `/investments/transactions/get` is first called, Plaid will wait for the data. For this reason, calling `/investments/transactions/get` immediately after Link may take up to one to two minutes to return.\n\nData returned by the asynchronous investments extraction flow (when `async_update` is set to true) may not be immediately available to `/investments/transactions/get`. To be alerted when the data is ready to be fetched, listen for the `HISTORICAL_UPDATE` webhook. If no investments history is ready when `/investments/transactions/get` is called, it will return a `PRODUCT_NOT_READY` error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "investments",
+                "transactions",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c05fafff-071e-4ecc-be75-e4f089ea2e9a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "investments",
+                    "transactions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"5e66Dl6jNatx3nXPGwZ7UkJed4z6KBcZA4Rbe\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"KqZZMoZmBWHJlz7yKaZjHZb78VNpaxfVa7e5z\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 320.76,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"5555\",\n      \"name\": \"Plaid IRA\",\n      \"official_name\": null,\n      \"subtype\": \"ira\",\n      \"type\": \"investment\"\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 23631.9805,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"6666\",\n      \"name\": \"Plaid 401k\",\n      \"official_name\": null,\n      \"subtype\": \"401k\",\n      \"type\": \"investment\"\n    }\n  ],\n  \"investment_transactions\": [\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": -8.72,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-29\",\n      \"fees\": 0,\n      \"investment_transaction_id\": \"oq99Pz97joHQem4BNjXECev1E4B6L6sRzwANW\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"INCOME DIV DIVIDEND RECEIVED\",\n      \"price\": 0,\n      \"quantity\": 0,\n      \"security_id\": \"eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ\",\n      \"subtype\": \"dividend\",\n      \"type\": \"cash\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": -1289.01,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-28\",\n      \"fees\": 7.99,\n      \"investment_transaction_id\": \"pK99jB9e7mtwjA435GpVuMvmWQKVbVFLWme57\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"SELL Matthews Pacific Tiger Fund Insti Class\",\n      \"price\": 27.53,\n      \"quantity\": -47.74104242992852,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"subtype\": \"sell\",\n      \"type\": \"sell\",\n      \"unofficial_currency_code\": null\n    },\n    {\n      \"account_id\": \"rz99ex9ZQotvnjXdgQLEsR81e3ArPgulVWjGj\",\n      \"amount\": 7.7,\n      \"cancel_transaction_id\": null,\n      \"date\": \"2020-05-27\",\n      \"fees\": 7.99,\n      \"investment_transaction_id\": \"LKoo1ko93wtreBwM7yQnuQ3P5DNKbKSPRzBNv\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"BUY DoubleLine Total Return Bond Fund\",\n      \"price\": 10.42,\n      \"quantity\": 0.7388014749727547,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"subtype\": \"buy\",\n      \"type\": \"buy\",\n      \"unofficial_currency_code\": null\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"assets\",\n      \"balance\",\n      \"identity\",\n      \"transactions\"\n    ],\n    \"billed_products\": [\n      \"auth\",\n      \"investments\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_12\",\n    \"item_id\": \"8Mqq5rqQ7Pcxq9MGDv3JULZ6yzZDLMCwoxGDq\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"iv4q3ZlytOOthkv\",\n  \"securities\": [\n    {\n      \"close_price\": 27,\n      \"close_price_as_of\": null,\n      \"cusip\": \"577130834\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US5771308344\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Matthews Pacific Tiger Fund Insti Class\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"JDdP7XPMklt5vwPmDN45t3KAoWAPmjtpaW7DP\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"MIPTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 10.42,\n      \"close_price_as_of\": null,\n      \"cusip\": \"258620103\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US2586201038\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"DoubleLine Total Return Bond Fund\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"NDVQrXQoqzt5v3bAe8qRt4A7mK7wvZCLEBBJk\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"DBLTX\",\n      \"type\": \"mutual fund\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    },\n    {\n      \"close_price\": 34.73,\n      \"close_price_as_of\": null,\n      \"cusip\": \"84470P109\",\n      \"institution_id\": null,\n      \"institution_security_id\": null,\n      \"is_cash_equivalent\": false,\n      \"isin\": \"US84470P1093\",\n      \"iso_currency_code\": \"USD\",\n      \"name\": \"Southside Bancshares Inc.\",\n      \"proxy_security_id\": null,\n      \"security_id\": \"eW4jmnjd6AtjxXVrjmj6SX1dNEdZp3Cy8RnRQ\",\n      \"sedol\": null,\n      \"ticker_symbol\": \"SBSI\",\n      \"type\": \"equity\",\n      \"unofficial_currency_code\": null,\n      \"update_datetime\": null,\n      \"market_identifier_code\": \"XNAS\",\n      \"option_contract\": null\n    }\n  ],\n  \"total_investment_transactions\": 3\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d534373b-07a2-486f-b30d-5504cf1291e4",
+          "name": "Plaid enhance locally-held transaction data",
+          "request": {
+            "name": "Plaid enhance locally-held transaction data",
+            "description": {
+              "content": "The `/beta/transactions/v1/enhance` endpoint enriches raw transaction data provided directly by clients.\n\nThe product is currently in beta.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beta",
+                "transactions",
+                "v1",
+                "enhance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e67ef463-e5c8-44f1-9879-03cbe29576e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "v1",
+                    "enhance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enhanced_transactions\": [\n    {\n      \"id\": \"6135818adda16500147e7c1d\",\n      \"description\": \"Debit purchase Apple 1235\",\n      \"amount\": 2307.21,\n      \"iso_currency_code\": \"USD\",\n      \"enhancements\": {\n        \"category\": [\n          \"Shops\",\n          \"Computers and Electronics\"\n        ],\n        \"category_id\": \"19013000\",\n        \"check_number\": null,\n        \"counterparties\": [\n          {\n            \"name\": \"Apple\",\n            \"type\": \"merchant\",\n            \"logo_url\": \"https://plaid-merchant-logos.plaid.com/apple_63.png\",\n            \"website\": \"apple.com\",\n            \"confidence_level\": \"VERY_HIGH\",\n            \"phone_number\": null\n          }\n        ],\n        \"location\": {\n          \"address\": \"300 Post St\",\n          \"city\": \"San Francisco\",\n          \"region\": \"CA\",\n          \"postal_code\": \"94108\",\n          \"country\": \"US\",\n          \"lat\": 40.740352,\n          \"lon\": -74.001761,\n          \"store_number\": \"1235\"\n        },\n        \"merchant_name\": \"Apple\",\n        \"website\": \"apple.com\",\n        \"logo_url\": \"https://plaid-merchant-logos.plaid.com/apple_63.png\",\n        \"payment_channel\": \"in store\",\n        \"personal_finance_category\": {\n          \"primary\": \"GENERAL_MERCHANDISE\",\n          \"detailed\": \"GENERAL_MERCHANDISE_ELECTRONICS\"\n        },\n        \"personal_finance_category_icon_url\": \"https://plaid-category-icons.plaid.com/PFC_GENERAL_MERCHANDISE.png\",\n        \"phone_number\": null\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "033eaf9b-ba38-48a7-9ffb-3d3fbcea149c",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "v1",
+                    "enhance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93ed5a96-b3ae-478c-ab49-91e03d5f5f75",
+          "name": "Plaid Create transaction category rule",
+          "request": {
+            "name": "Plaid Create transaction category rule",
+            "description": {
+              "content": "The `/transactions/rules/v1/create` endpoint creates transaction categorization rules.\n\nRules will be applied on the Item's transactions returned in `/transactions/get` response.\n\nThe product is currently in beta. To request access, contact transactions-feedback@plaid.com.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beta",
+                "transactions",
+                "rules",
+                "v1",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3294e1b-11f9-43f3-bd68-b3d0151da895",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\",\n  \"personal_finance_category\": \"FOOD_AND_DRINK_FAST_FOOD\",\n  \"rule_details\": {\n    \"field\": \"NAME\",\n    \"type\": \"SUBSTRING_MATCH\",\n    \"query\": \"Burger Shack\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rule\": {\n    \"id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo\",\n    \"item_id\": \"wz666MBjYWTp2PDzzggYhM6oWWmBb\",\n    \"created_at\": \"2022-02-28T11:00:00Z\",\n    \"personal_finance_category\": \"FOOD_AND_DRINK_FAST_FOOD\",\n    \"rule_details\": {\n      \"field\": \"NAME\",\n      \"type\": \"SUBSTRING_MATCH\",\n      \"query\": \"Burger Shack\"\n    }\n  },\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70da878e-2822-4bfb-af22-39c9341864b6",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\",\n  \"personal_finance_category\": \"FOOD_AND_DRINK_FAST_FOOD\",\n  \"rule_details\": {\n    \"field\": \"NAME\",\n    \"type\": \"SUBSTRING_MATCH\",\n    \"query\": \"Burger Shack\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e664a47a-e45d-4c21-94f4-25314d846774",
+          "name": "Plaid Return a list of rules created for the Item associated with the access token.",
+          "request": {
+            "name": "Plaid Return a list of rules created for the Item associated with the access token.",
+            "description": {
+              "content": "The `/transactions/rules/v1/list` returns a list of transaction rules created for the Item associated with the access token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beta",
+                "transactions",
+                "rules",
+                "v1",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bbc35515-1ab3-4588-ab8a-c17f01db1ee6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"rules\": [\n    {\n      \"id\": \"lPNjeW1nR6CDn5okmGQ6hEpMo4lLNo\",\n      \"item_id\": \"wz666MBjYWTp2PDzzggYhM6oWWmBb\",\n      \"created_at\": \"2022-02-28T11:00:00Z\",\n      \"personal_finance_category\": \"FOOD_AND_DRINK_FAST_FOOD\",\n      \"rule_details\": {\n        \"field\": \"NAME\",\n        \"type\": \"SUBSTRING_MATCH\",\n        \"query\": \"Burger Shack\"\n      }\n    },\n    {\n      \"id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF\",\n      \"item_id\": \"wz666MBjYWTp2PDzzggYhM6oWWmBb\",\n      \"created_at\": \"2022-02-27T14:50:00Z\",\n      \"personal_finance_category\": \"TRANSFER_IN_ACCOUNT_TRANSFER\",\n      \"rule_details\": {\n        \"field\": \"TRANSACTION_ID\",\n        \"type\": \"EXACT_MATCH\",\n        \"query\": \"kgygNvAVPzSX9KkddNdWHaVGRVex1MHm3k9no\"\n      }\n    }\n  ],\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdacc07a-6ad5-452b-b654-36faafe8ab99",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8ad6ad6-7208-4e5c-aefb-eb44a5bdd7da",
+          "name": "Plaid Remove transaction rule",
+          "request": {
+            "name": "Plaid Remove transaction rule",
+            "description": {
+              "content": "The `/transactions/rules/v1/remove` endpoint is used to remove a transaction rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beta",
+                "transactions",
+                "rules",
+                "v1",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4f22695-6341-4371-a432-4f48e2672f78",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\",\n  \"rule_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7baf1029-0a69-4092-b0fb-971f35a34b16",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "rules",
+                    "v1",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"7f57eb3d2a9j6480121fx361\",\n  \"secret\": \"79g03eoofwl8240v776r2h667442119\",\n  \"access_token\": \"access-sandbox-71e02f71-0960-4a27-abd2-5631e04f2175\",\n  \"rule_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBF\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37fb142c-d9e4-44c0-8c75-573ef7264955",
+          "name": "Plaid Obtain user insights based on transactions sent through /transactions/enrich",
+          "request": {
+            "name": "Plaid Obtain user insights based on transactions sent through /transactions/enrich",
+            "description": {
+              "content": "The `/beta/transactions/user_insights/v1/get` gets user insights for clients who have enriched data with `/transactions/enrich`.\n\nThe product is currently in beta.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beta",
+                "transactions",
+                "user_insights",
+                "v1",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee0e597a-489a-4cfd-a45a-75497f0545b5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "user_insights",
+                    "v1",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user_data_overview\": {\n    \"transaction_count\": 21,\n    \"oldest_transaction_date\": \"2023-01-01\",\n    \"newest_transaction_date\": \"2023-01-31\",\n    \"days_available\": 31,\n    \"total_outflows\": 1245.11,\n    \"total_inflows\": 2300.12\n  },\n  \"counterparty_insights\": {\n    \"financial_institution_insights\": [\n      {\n        \"name\": \"Chase\",\n        \"entity_id\": \"o2Ry34bq605MvmEed3yjqjkYWwqRQYpnkjd0O\",\n        \"website\": \"chase.com\",\n        \"detected_accounts\": [\n          {\n            \"account_type\": \"depository\",\n            \"account_subtype\": null,\n            \"transaction_count\": 1,\n            \"oldest_transaction_date\": \"2022-01-24\",\n            \"newest_transaction_date\": \"2023-01-05\",\n            \"newest_transaction_amount\": 500,\n            \"total_outflows\": 503,\n            \"total_inflows\": 0\n          }\n        ]\n      }\n    ],\n    \"merchant_insights\": [\n      {\n        \"name\": \"Costco\",\n        \"entity_id\": \"pBowAoZJMM9DKR37jvNmzM4yWBBXyMzV2rM3A\",\n        \"website\": \"costco.com\",\n        \"personal_finance_category_primary\": \"GENERAL_MERCHANDISE\",\n        \"personal_finance_category_detailed\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"transaction_count\": 2,\n        \"total_outflows\": 953.46,\n        \"total_inflows\": 24.99\n      },\n      {\n        \"name\": \"PG&E\",\n        \"entity_id\": \"6gEJJBrw8daLroaYgBAkpa65v9jVby69vejY0\",\n        \"website\": \"pge.com\",\n        \"personal_finance_category_primary\": \"RENT_AND_UTILITIES\",\n        \"personal_finance_category_detailed\": \"RENT_AND_UTILITIES_GAS_AND_ELECTRICITY\",\n        \"transaction_count\": 1,\n        \"total_outflows\": 123.01,\n        \"total_inflows\": 0\n      }\n    ]\n  },\n  \"category_insights\": {\n    \"primary_category_insights\": [\n      {\n        \"name\": \"GENERAL_MERCHANDISE\",\n        \"transaction_count\": 7,\n        \"total_outflows\": 1025.23,\n        \"total_inflows\": 24.99,\n        \"top_counterparties\": [\n          \"Costco\"\n        ]\n      },\n      {\n        \"name\": \"RENT_AND_UTILITIES\",\n        \"transaction_count\": 1,\n        \"total_outflows\": 123.01,\n        \"total_inflows\": 0,\n        \"top_counterparties\": [\n          \"PG&E\"\n        ]\n      }\n    ],\n    \"detailed_category_insights\": [\n      {\n        \"name\": \"GENERAL_MERCHANDISE_SUPERSTORES\",\n        \"transaction_count\": 3,\n        \"total_outflows\": 997.11,\n        \"total_inflows\": 24.99,\n        \"top_counterparties\": [\n          \"Costco\"\n        ]\n      }\n    ]\n  },\n  \"recurring_transactions\": {\n    \"inflow_streams\": [\n      {\n        \"stream_id\": \"yhnUVSIfe7SfeU0bcz8PDQr5ZUxUXebUvbKC0\",\n        \"description\": \"Payroll * Plaid\",\n        \"merchant_name\": \"Plaid\",\n        \"oldest_transaction_date\": \"2020-02-04\",\n        \"newest_transaction_date\": \"2023-08-02\",\n        \"average_days_apart\": 7,\n        \"frequency\": \"WEEKLY\",\n        \"transaction_count\": 5,\n        \"transaction_ids\": [\n          \"nkeaNrDGrhdo6c4qZWDA8ekuIPuJ4Avg5nKfw\",\n          \"EfC5ekksdy30KuNzad2tQupW8WIPwvjXGbGHL\",\n          \"ozfvj3FFgp6frbXKJGitsDzck5eWQH7zOJBYd\",\n          \"QvdDE8AqVWo3bkBZ7WvCd7LskxVix8Q74iMoK\",\n          \"uQozFPfMzibBouS9h9tz4CsyvFll17jKLdPAF\"\n        ],\n        \"average_amount\": {\n          \"amount\": 1000.91,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null\n        },\n        \"last_amount\": {\n          \"amount\": 1000,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null\n        },\n        \"is_active\": true,\n        \"status\": \"MATURE\",\n        \"personal_finance_category_primary\": \"INCOME\",\n        \"personal_finance_category_detailed\": \"INCOME_WAGES\"\n      }\n    ],\n    \"outflow_streams\": [\n      {\n        \"stream_id\": \"no86Eox18VHMvaOVL7gPUM9ap3aR1LsAVZ5nd\",\n        \"description\": \"ConEd Bill Payment\",\n        \"merchant_name\": \"ConEd\",\n        \"oldest_transaction_date\": \"2022-02-04\",\n        \"newest_transaction_date\": \"2022-05-02\",\n        \"average_days_apart\": 29,\n        \"frequency\": \"MONTHLY\",\n        \"transaction_count\": 4,\n        \"transaction_ids\": [\n          \"yhnUVvtcGGcCKU0bcz8PDQr5ZUxUXebUvbKC0\",\n          \"HPDnUVgI5Pa0YQSl0rxwYRwVXeLyJXTWDAvpR\",\n          \"jEPoSfF8xzMClE9Ohj1he91QnvYoSdwg7IT8L\",\n          \"CmdQTNgems8BT1B7ibkoUXVPyAeehT3Tmzk0l\"\n        ],\n        \"average_amount\": {\n          \"amount\": 85,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null\n        },\n        \"last_amount\": {\n          \"amount\": 100,\n          \"iso_currency_code\": \"USD\",\n          \"unofficial_currency_code\": null\n        },\n        \"is_active\": true,\n        \"status\": \"MATURE\",\n        \"personal_finance_category_primary\": \"RENT_AND_UTILITIES\",\n        \"personal_finance_category_detailed\": \"RENT_AND_UTILITIES_GAS_AND_ELECTRICITY\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "972fcf76-dac8-4d5f-99e9-2443c1b97ce5",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beta",
+                    "transactions",
+                    "user_insights",
+                    "v1",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 906,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "612e6ab0-6d1b-4083-8afe-e5b12b9e0a16",
+    "name": "Plaid transactions/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "2e88472f-c29b-49fc-b16a-d941208d0103",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1cf30bcf-f19f-404e-b431-d3a3e3e67ccc",
+          "name": "Plaid Search employer database",
+          "request": {
+            "name": "Plaid Search employer database",
+            "description": {
+              "content": "`/employers/search` allows you the ability to search Plaid’s database of known employers, for use with Deposit Switch. You can use this endpoint to look up a user's employer in order to confirm that they are supported. Users with non-supported employers can then be routed out of the Deposit Switch flow.\n\nThe data in the employer database is currently limited. As the Deposit Switch and Income products progress through their respective beta periods, more employers are being regularly added. Because the employer database is frequently updated, we recommend that you do not cache or store data from this endpoint for more than a day.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "employers",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e688aab-e201-4336-a40d-2fcfd10f9fb2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employers",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employers\": [\n    {\n      \"name\": \"Plaid Inc.\",\n      \"address\": {\n        \"city\": \"San Francisco\",\n        \"country\": \"US\",\n        \"postal_code\": \"94103\",\n        \"region\": \"CA\",\n        \"street\": \"1098 Harrison St\"\n      },\n      \"confidence_score\": 1,\n      \"employer_id\": \"emp_1\"\n    }\n  ],\n  \"request_id\": \"ixTBLZGvhD4NnmB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3851ac4f-ca3e-45aa-b533-3cfb06721156",
+    "name": "Plaid employers/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

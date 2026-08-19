@@ -1,0 +1,443 @@
+{
+  "item": [
+    {
+      "id": "75f53a18-6cc1-4148-995d-a304d7ffa8f9",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "daa74149-b445-4a26-b3e6-b1c63fd547b2",
+          "name": "Plaid Get details of all supported institutions",
+          "request": {
+            "name": "Plaid Get details of all supported institutions",
+            "description": {
+              "content": "Returns a JSON response containing details on all financial institutions currently supported by Plaid. Because Plaid supports thousands of institutions, results are paginated.\n\nIf there is no overlap between an institution’s enabled products and a client’s enabled products, then the institution will be filtered out from the response. As a result, the number of institutions returned may not match the count specified in the call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "institutions",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2969ebd-abcc-4604-b849-84e8e215691d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"institutions\": [\n    {\n      \"country_codes\": [\n        \"US\"\n      ],\n      \"institution_id\": \"ins_1\",\n      \"name\": \"Bank of America\",\n      \"products\": [\n        \"assets\",\n        \"auth\",\n        \"balance\",\n        \"transactions\",\n        \"identity\",\n        \"liabilities\"\n      ],\n      \"routing_numbers\": [\n        \"011000138\",\n        \"011200365\",\n        \"011400495\"\n      ],\n      \"dtc_numbers\": [\n        \"2236\",\n        \"0955\",\n        \"1367\"\n      ],\n      \"oauth\": false,\n      \"status\": {\n        \"item_logins\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.9,\n            \"error_plaid\": 0.01,\n            \"error_institution\": 0.09\n          }\n        },\n        \"transactions_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        },\n        \"auth\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.91,\n            \"error_plaid\": 0.01,\n            \"error_institution\": 0.08\n          }\n        },\n        \"identity\": {\n          \"status\": \"DEGRADED\",\n          \"last_status_change\": \"2019-02-15T15:50:00Z\",\n          \"breakdown\": {\n            \"success\": 0.42,\n            \"error_plaid\": 0.08,\n            \"error_institution\": 0.5\n          }\n        },\n        \"investments\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.89,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.09\n          },\n          \"liabilities\": {\n            \"status\": \"HEALTHY\",\n            \"last_status_change\": \"2019-02-15T15:53:00Z\",\n            \"breakdown\": {\n              \"success\": 0.89,\n              \"error_plaid\": 0.02,\n              \"error_institution\": 0.09\n            }\n          }\n        },\n        \"investments_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        },\n        \"liabilities_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        }\n      }\n    }\n  ],\n  \"request_id\": \"tbFyCEqkU774ZGG\",\n  \"total\": 11384\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fc70f4d-6597-4ffa-8dd5-19a2814eb80c",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 1387,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a7c3672-730b-4c4a-af50-a2ef56a8d3f7",
+          "name": "Plaid Search institutions",
+          "request": {
+            "name": "Plaid Search institutions",
+            "description": {
+              "content": "Returns a JSON response containing details for institutions that match the query parameters, up to a maximum of ten institutions per query.\n\nVersioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` parameters to authenticate to this endpoint. The `public_key` parameter has since been deprecated; all customers are encouraged to use `client_id` and `secret` instead.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "institutions",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd932f43-cbe9-4fa2-bc0a-44b3a018ba9a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"institutions\": [\n    {\n      \"country_codes\": [\n        \"US\"\n      ],\n      \"institution_id\": \"ins_118923\",\n      \"name\": \"Red Platypus Bank - Red Platypus Bank\",\n      \"products\": [\n        \"assets\",\n        \"auth\",\n        \"balance\",\n        \"transactions\",\n        \"identity\"\n      ],\n      \"routing_numbers\": [\n        \"011000138\",\n        \"011200365\",\n        \"011400495\"\n      ],\n      \"dtc_numbers\": [\n        \"2236\",\n        \"0955\",\n        \"1367\"\n      ],\n      \"oauth\": false,\n      \"status\": {\n        \"item_logins\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.9,\n            \"error_plaid\": 0.01,\n            \"error_institution\": 0.09\n          }\n        },\n        \"transactions_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        },\n        \"auth\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.91,\n            \"error_plaid\": 0.01,\n            \"error_institution\": 0.08\n          }\n        },\n        \"identity\": {\n          \"status\": \"DEGRADED\",\n          \"last_status_change\": \"2019-02-15T15:50:00Z\",\n          \"breakdown\": {\n            \"success\": 0.42,\n            \"error_plaid\": 0.08,\n            \"error_institution\": 0.5\n          }\n        },\n        \"investments\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.89,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.09\n          },\n          \"liabilities\": {\n            \"status\": \"HEALTHY\",\n            \"last_status_change\": \"2019-02-15T15:53:00Z\",\n            \"breakdown\": {\n              \"success\": 0.89,\n              \"error_plaid\": 0.02,\n              \"error_institution\": 0.09\n            }\n          }\n        },\n        \"investments_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        },\n        \"liabilities_updates\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-12T08:22:00Z\",\n          \"breakdown\": {\n            \"success\": 0.95,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.03,\n            \"refresh_interval\": \"NORMAL\"\n          }\n        }\n      }\n    }\n  ],\n  \"request_id\": \"Ggmk0enW4smO2Tp\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39ed399c-b579-4832-beaf-6ac54a37dd6f",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 5267,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "164c01b9-eba8-453f-8baa-6d82288a0ea5",
+          "name": "Plaid Get details of an institution",
+          "request": {
+            "name": "Plaid Get details of an institution",
+            "description": {
+              "content": "Returns a JSON response containing details on a specified financial institution currently supported by Plaid.\n\nVersioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` to authenticate to this endpoint. The `public_key` has been deprecated; all customers are encouraged to use `client_id` and `secret` instead.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "institutions",
+                "get_by_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a464cf7f-818f-446f-adb6-7c947cf59d3c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "get_by_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"institution\": {\n    \"country_codes\": [\n      \"US\"\n    ],\n    \"institution_id\": \"ins_109512\",\n    \"name\": \"Houndstooth Bank\",\n    \"products\": [\n      \"auth\",\n      \"balance\",\n      \"identity\",\n      \"transactions\"\n    ],\n    \"routing_numbers\": [\n      \"011000138\",\n      \"011200365\",\n      \"011400495\"\n    ],\n    \"dtc_numbers\": [\n      \"2236\",\n      \"0955\",\n      \"1367\"\n    ],\n    \"oauth\": false,\n    \"status\": {\n      \"item_logins\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-15T15:53:00Z\",\n        \"breakdown\": {\n          \"success\": 0.9,\n          \"error_plaid\": 0.01,\n          \"error_institution\": 0.09\n        }\n      },\n      \"transactions_updates\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-12T08:22:00Z\",\n        \"breakdown\": {\n          \"success\": 0.95,\n          \"error_plaid\": 0.02,\n          \"error_institution\": 0.03,\n          \"refresh_interval\": \"NORMAL\"\n        }\n      },\n      \"auth\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-15T15:53:00Z\",\n        \"breakdown\": {\n          \"success\": 0.91,\n          \"error_plaid\": 0.01,\n          \"error_institution\": 0.08\n        }\n      },\n      \"identity\": {\n        \"status\": \"DEGRADED\",\n        \"last_status_change\": \"2019-02-15T15:50:00Z\",\n        \"breakdown\": {\n          \"success\": 0.42,\n          \"error_plaid\": 0.08,\n          \"error_institution\": 0.5\n        }\n      },\n      \"investments\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-15T15:53:00Z\",\n        \"breakdown\": {\n          \"success\": 0.89,\n          \"error_plaid\": 0.02,\n          \"error_institution\": 0.09\n        },\n        \"liabilities\": {\n          \"status\": \"HEALTHY\",\n          \"last_status_change\": \"2019-02-15T15:53:00Z\",\n          \"breakdown\": {\n            \"success\": 0.89,\n            \"error_plaid\": 0.02,\n            \"error_institution\": 0.09\n          }\n        }\n      },\n      \"investments_updates\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-12T08:22:00Z\",\n        \"breakdown\": {\n          \"success\": 0.95,\n          \"error_plaid\": 0.02,\n          \"error_institution\": 0.03,\n          \"refresh_interval\": \"NORMAL\"\n        }\n      },\n      \"liabilities_updates\": {\n        \"status\": \"HEALTHY\",\n        \"last_status_change\": \"2019-02-12T08:22:00Z\",\n        \"breakdown\": {\n          \"success\": 0.95,\n          \"error_plaid\": 0.02,\n          \"error_institution\": 0.03,\n          \"refresh_interval\": \"NORMAL\"\n        }\n      }\n    },\n    \"primary_color\": \"#004966\",\n    \"url\": \"https://plaid.com\",\n    \"logo\": null\n  },\n  \"request_id\": \"m8MDnv9okwxFNBV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82351835-b6c1-4826-b4b8-59444bf4c068",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "institutions",
+                    "get_by_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 5267,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5f06c18b-97f6-45d3-b4f7-22f5f553053a",
+    "name": "Plaid institutions/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

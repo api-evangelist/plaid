@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid payment profile/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Reset the login of a Payment Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/payment_profile/reset_login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/sandbox/payment_profile/reset_login/` forces a Payment Profile into a state where the login is no longer valid. This makes it easy to test update mode for Payment Profile in the Sandbox environment.\n\n After calling `/sandbox/payment_profile/reset_login`, calls to the `/transfer/authorization/create` with the Payment Profile will result in a `decision_rationale` `PAYMENT_PROFILE_LOGIN_REQUIRED`. You can then use update mode for Payment Profile to restore it into a good state.\n\n In order to invo"
+        },
+        {
+          "info": {
+            "name": "Plaid Create payment profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_profile/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use `/payment_profile/create` endpoint to create a new payment profile.\nTo initiate the account linking experience, call `/link/token/create` and provide the `payment_profile_token` in the `transfer.payment_profile_token` field.\nYou can then use the `payment_profile_token` when creating transfers using `/transfer/authorization/create` and `/transfer/create`."
+        },
+        {
+          "info": {
+            "name": "Plaid Get payment profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_profile/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use `/payment_profile/get` endpoint to get the status of a given Payment Profile."
+        },
+        {
+          "info": {
+            "name": "Plaid Remove payment profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_profile/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/payment_profile/remove` endpoint to remove a given Payment Profile. Once it’s removed, it can no longer be used to create transfers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

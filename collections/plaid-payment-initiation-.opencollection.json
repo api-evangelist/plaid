@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid payment initiation/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Create payment recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/recipient/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment recipient for payment initiation.  The recipient must be in Europe, within a country that is a member of the Single Euro Payment Area (SEPA) or a non-Eurozone country [supported](https://plaid.com/global) by Plaid. For a standing order (recurring) payment, the recipient must be in the UK.\n\nIt is recommended to use `bacs` in the UK and `iban` in EU.\n\nThe endpoint is idempotent: if a developer has already made a request with the same payment details, Plaid will return the same `re"
+        },
+        {
+          "info": {
+            "name": "Plaid Reverse an existing payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/payment/reverse",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reverse a settled payment from a Plaid virtual account.\n\nThe original payment must be in a settled state to be refunded.\nTo refund partially, specify the amount as part of the request.\nIf the amount is not specified, the refund amount will be equal to all\nof the remaining payment amount that has not been refunded yet.\n\nThe refund will go back to the source account that initiated the payment.\nThe original payment must have been initiated to a Plaid virtual account\nso that this account can be used"
+        },
+        {
+          "info": {
+            "name": "Plaid Get payment recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/recipient/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get details about a payment recipient you have previously created."
+        },
+        {
+          "info": {
+            "name": "Plaid List payment recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/recipient/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/recipient/list` endpoint list the payment recipients that you have previously created."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/payment/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After creating a payment recipient, you can use the `/payment_initiation/payment/create` endpoint to create a payment to that recipient.  Payments can be one-time or standing order (recurring) and can be denominated in either EUR, GBP or other chosen [currency](https://plaid.com/docs/api/products/payment-initiation/#payment_initiation-payment-create-request-amount-currency).  If making domestic GBP-denominated payments, your recipient must have been created with BACS numbers. In general, EUR-den"
+        },
+        {
+          "info": {
+            "name": "Plaid Create payment token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/payment/token/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/payment/token/create` endpoint has been deprecated. New Plaid customers will be unable to use this endpoint, and existing customers are encouraged to migrate to the newer, `link_token`-based flow. The recommended flow is to provide the `payment_id` to `/link/token/create`, which returns a `link_token` used to initialize Link.\n\nThe `/payment_initiation/payment/token/create` is used to create a `payment_token`, which can then be used in Link initialization to enter a payme"
+        },
+        {
+          "info": {
+            "name": "Plaid Create payment consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/consent/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/consent/create` endpoint is used to create a payment consent, which can be used to initiate payments on behalf of the user. Payment consents are created with `UNAUTHORISED` status by default and must be authorised by the user before payments can be initiated.\n\nConsents can be limited in time and scope, and have constraints that describe limitations for payments."
+        },
+        {
+          "info": {
+            "name": "Plaid Get payment consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/consent/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/consent/get` endpoint can be used to check the status of a payment consent, as well as to receive basic information such as recipient and constraints."
+        },
+        {
+          "info": {
+            "name": "Plaid Revoke payment consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/consent/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/consent/revoke` endpoint can be used to revoke the payment consent. Once the consent is revoked, it is not possible to initiate payments using it."
+        },
+        {
+          "info": {
+            "name": "Plaid Execute a single payment using consent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/consent/payment/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/consent/payment/execute` endpoint can be used to execute payments using payment consent."
+        },
+        {
+          "info": {
+            "name": "Plaid Get payment details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/payment/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/payment/get` endpoint can be used to check the status of a payment, as well as to receive basic information such as recipient and payment amount. In the case of standing orders, the `/payment_initiation/payment/get` endpoint will provide information about the status of the overall standing order itself; the API cannot be used to retrieve payment status for individual payments within a standing order."
+        },
+        {
+          "info": {
+            "name": "Plaid List payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/payment_initiation/payment/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/payment_initiation/payment/list` endpoint can be used to retrieve all created payments. By default, the 10 most recent payments are returned. You can request more payments and paginate through the results using the optional `count` and `cursor` parameters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

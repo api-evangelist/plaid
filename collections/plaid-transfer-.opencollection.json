@@ -1,0 +1,753 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid transfer/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Retrieve a transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/get` endpoint fetches information about the transfer corresponding to the given `transfer_id`."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a recurring transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/recurring/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/recurring/get` fetches information about the recurring transfer corresponding to the given `recurring_transfer_id`."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a transfer authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/authorization/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/authorization/create` endpoint to authorize a transfer. This endpoint must be called prior to calling `/transfer/create`.\n\nThere are three possible outcomes to calling this endpoint: If the `authorization.decision` in the response is `declined`, the proposed transfer has failed the risk check and you cannot proceed with the transfer. If the `authorization.decision` is `approved`, and the `authorization.rationale_code` is `null`, the transfer has passed the risk check and you c"
+        },
+        {
+          "info": {
+            "name": "Plaid Cancel a transfer authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/authorization/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/authorization/cancel` endpoint to cancel a transfer authorization. A transfer authorization is eligible for cancellation if it has not yet been used to create a transfer."
+        },
+        {
+          "info": {
+            "name": "(Deprecated) Retrieve a balance held with Plaid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/balance/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "(Deprecated) Use the `/transfer/balance/get` endpoint to view a balance held with Plaid."
+        },
+        {
+          "info": {
+            "name": "Plaid Get RTP eligibility information of a transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/capabilities/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/capabilities/get` endpoint to determine the RTP eligibility information of a transfer. To simulate RTP eligibility in Sandbox, log in using the username `user_good` and password `pass_good` and use the first two checking and savings accounts in the \"First Platypus Bank\" institution (ending in 0000 or 1111), which will return `true`. Any other account will return `false`."
+        },
+        {
+          "info": {
+            "name": "Plaid Get transfer product configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/configuration/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/configuration/get` endpoint to view your transfer product configurations."
+        },
+        {
+          "info": {
+            "name": "Retrieve Plaid Ledger balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/ledger/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/ledger/get` endpoint to view a balance on the ledger held with Plaid."
+        },
+        {
+          "info": {
+            "name": "Plaid Move available balance between the ledgers of the platform and one of its originators",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/ledger/distribute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/ledger/distribute` endpoint to move available balance between the ledgers of the platform and one of its originators."
+        },
+        {
+          "info": {
+            "name": "Deposit funds into a Plaid Ledger balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/ledger/deposit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/ledger/deposit` endpoint to deposit funds into Plaid Ledger."
+        },
+        {
+          "info": {
+            "name": "Withdraw funds from a Plaid Ledger balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/ledger/withdraw",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/ledger/withdraw` endpoint to withdraw funds from a Plaid Ledger balance."
+        },
+        {
+          "info": {
+            "name": "Plaid Update the funding account associated with the originator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/originator/funding_account/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/originator/funding_account/update` endpoint to update the funding account associated with the originator."
+        },
+        {
+          "info": {
+            "name": "Plaid Get transfer product usage metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/metrics/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/metrics/get` endpoint to view your transfer product usage metrics."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/create` endpoint to initiate a new transfer."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a recurring transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/recurring/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/recurring/create` endpoint to initiate a new recurring transfer. This capability is not currently supported for Transfer UI or Platform Payments (beta) customers."
+        },
+        {
+          "info": {
+            "name": "Plaid List transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/list` endpoint to see a list of all your transfers and their statuses. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired transfers.\n"
+        },
+        {
+          "info": {
+            "name": "Plaid List recurring transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/recurring/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/recurring/list` endpoint to see a list of all your recurring transfers and their statuses. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired recurring transfers.\n"
+        },
+        {
+          "info": {
+            "name": "Plaid Cancel a transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/cancel` endpoint to cancel a transfer.  A transfer is eligible for cancellation if the `cancellable` property returned by `/transfer/get` is `true`."
+        },
+        {
+          "info": {
+            "name": "Plaid Cancel a recurring transfer.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/recurring/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/recurring/cancel` endpoint to cancel a recurring transfer.  Scheduled transfer that hasn't been submitted to bank will be cancelled."
+        },
+        {
+          "info": {
+            "name": "Plaid List transfer events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/event/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/event/list` endpoint to get a list of transfer events based on specified filter criteria."
+        },
+        {
+          "info": {
+            "name": "Plaid Sync transfer events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/event/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/transfer/event/sync` allows you to request up to the next 25 transfer events that happened after a specific `event_id`. Use the `/transfer/event/sync` endpoint to guarantee you have seen all transfer events."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a sweep",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/sweep/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/sweep/get` endpoint fetches a sweep corresponding to the given `sweep_id`."
+        },
+        {
+          "info": {
+            "name": "Plaid List sweeps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/sweep/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/sweep/list` endpoint fetches sweeps matching the given filters."
+        },
+        {
+          "info": {
+            "name": "Plaid Migrate account into Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/migrate_account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "As an alternative to adding Items via Link, you can also use the `/transfer/migrate_account` endpoint to migrate known account and routing numbers to Plaid Items. If you intend to create wire transfers on this account, you must provide `wire_routing_number`. Note that Items created in this way are not compatible with endpoints for other products, such as `/accounts/balance/get`, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link "
+        },
+        {
+          "info": {
+            "name": "Plaid Create a transfer intent object to invoke the Transfer UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/intent/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/intent/create` endpoint to generate a transfer intent object and invoke the Transfer UI."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve more information about a transfer intent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/intent/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/intent/get` endpoint to retrieve more information about a transfer intent."
+        },
+        {
+          "info": {
+            "name": "Plaid Lists historical repayments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/repayment/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/repayment/list` endpoint fetches repayments matching the given filters. Repayments are returned in reverse-chronological order (most recent first) starting at the given `start_time`."
+        },
+        {
+          "info": {
+            "name": "Plaid List the returns included in a repayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/repayment/return/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/repayment/return/list` endpoint retrieves the set of returns that were batched together into the specified repayment. The sum of amounts of returns retrieved by this request equals the amount of the repayment."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a new originator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/originator/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/originator/create` endpoint to create a new originator and return an `originator_client_id`."
+        },
+        {
+          "info": {
+            "name": "Generate a Plaid-hosted onboarding UI URL.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/questionnaire/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/questionnaire/create` endpoint generates a Plaid-hosted onboarding UI URL. Redirect the originator to this URL to provide their due diligence information and agree to Plaid’s terms for ACH money movement."
+        },
+        {
+          "info": {
+            "name": "Plaid Submit transfer diligence on behalf of the originator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/diligence/submit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/diligence/submit` endpoint to submit transfer diligence on behalf of the originator (i.e., the end customer)."
+        },
+        {
+          "info": {
+            "name": "Plaid Upload transfer diligence document on behalf of the originator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/diligence/document/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third-party sender customers can use `/transfer/diligence/document/upload` endpoint to upload a document on behalf of its end customer (i.e. originator) to Plaid. You’ll need to send a request of type multipart/form-data.\nYou must provide the `client_id` in the `PLAID-CLIENT-ID` header and `secret` in the `PLAID-SECRET` header."
+        },
+        {
+          "info": {
+            "name": "Plaid Get status of an originator's onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/originator/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/originator/get` endpoint gets status updates for an originator's onboarding process. This information is also available via the Transfer page on the Plaid dashboard."
+        },
+        {
+          "info": {
+            "name": "Plaid Get status of all originators' onboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/originator/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/originator/list` endpoint gets status updates for all of your originators' onboarding. This information is also available via the Plaid dashboard."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/refund/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/refund/create` endpoint to create a refund for a transfer. A transfer can be refunded if the transfer was initiated in the past 180 days.\n\nProcessing of the refund will not occur until at least 4 business days following the transfer's settlement date, plus any hold/settlement delays. This 3-day window helps better protect your business from regular ACH returns. Consumer initiated returns (unauthorized returns) could still happen for about 60 days from the settlement date. If t"
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve a refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/refund/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The `/transfer/refund/get` endpoint fetches information about the refund corresponding to the given `refund_id`."
+        },
+        {
+          "info": {
+            "name": "Plaid Cancel a refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/transfer/refund/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/transfer/refund/cancel` endpoint to cancel a refund.  A refund is eligible for cancellation if it has not yet been submitted to the payment network."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate creating a sweep",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/sweep/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/sweep/simulate` endpoint to create a sweep and associated events in the Sandbox environment. Upon calling this endpoint, all transfers with a sweep status of `swept` will become `swept_settled`, all `posted` or `pending` transfers with a sweep status of `unswept` will become `swept`, and all `returned` transfers with a sweep status of `swept` will become `return_swept`."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate a transfer event in Sandbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/simulate` endpoint to simulate a transfer event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/transfer/event/sync` or `/transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate a refund event in Sandbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/refund/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/refund/simulate` endpoint to simulate a refund event in the Sandbox environment.  Note that while an event will be simulated and will appear when using endpoints such as `/transfer/event/sync` or `/transfer/event/list`, no transactions will actually take place and funds will not move between accounts, even within the Sandbox."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate converting pending balance to available balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/ledger/simulate_available",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/ledger/simulate_available` endpoint to simulate converting pending balance to available balance for all originators in the Sandbox environment."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate a ledger deposit event in Sandbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/ledger/deposit/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/ledger/deposit/simulate` endpoint to simulate a ledger deposit event in the Sandbox environment."
+        },
+        {
+          "info": {
+            "name": "Plaid Simulate a ledger withdraw event in Sandbox",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/ledger/withdraw/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/ledger/withdraw/simulate` endpoint to simulate a ledger withdraw event in the Sandbox environment."
+        },
+        {
+          "info": {
+            "name": "Plaid Trigger the creation of a repayment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/repayment/simulate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/repayment/simulate` endpoint to trigger the creation of a repayment. As a side effect of calling this route, a repayment is created that includes all unreimbursed returns of guaranteed transfers. If there are no such returns, an 400 error is returned."
+        },
+        {
+          "info": {
+            "name": "Plaid Manually fire a Transfer webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/fire_webhook",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/fire_webhook` endpoint to manually trigger a `TRANSFER_EVENTS_UPDATE` webhook in the Sandbox environment."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a test clock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/test_clock/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/test_clock/create` endpoint to create a `test_clock` in the Sandbox environment.\n\nA test clock object represents an independent timeline and has a `virtual_time` field indicating the current timestamp of the timeline. Test clocks are used for testing recurring transfers in Sandbox.\n\nA test clock can be associated with up to 5 recurring transfers."
+        },
+        {
+          "info": {
+            "name": "Plaid Advance a test clock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/test_clock/advance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/test_clock/advance` endpoint to advance a `test_clock` in the Sandbox environment.\n\nA test clock object represents an independent timeline and has a `virtual_time` field indicating the current timestamp of the timeline. A test clock can be advanced by incrementing `virtual_time`, but may never go back to a lower `virtual_time`.\n\nIf a test clock is advanced, we will simulate the changes that ought to occur during the time that elapsed.\n\nFor example, a client creates a w"
+        },
+        {
+          "info": {
+            "name": "Plaid Get a test clock",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/test_clock/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/test_clock/get` endpoint to get a `test_clock` in the Sandbox environment."
+        },
+        {
+          "info": {
+            "name": "Plaid List test clocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/sandbox/transfer/test_clock/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/sandbox/transfer/test_clock/list` endpoint to see a list of all your test clocks in the Sandbox environment, by ascending `virtual_time`. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired test clocks."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

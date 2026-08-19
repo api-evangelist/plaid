@@ -1,0 +1,311 @@
+{
+  "item": [
+    {
+      "id": "8e19c830-543c-4963-b020-809f7667c883",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efdbb0ae-e187-4d25-9e1b-73f7e7b2a730",
+          "name": "Plaid Retrieve a list of all statements associated with an item.",
+          "request": {
+            "name": "Plaid Retrieve a list of all statements associated with an item.",
+            "description": {
+              "content": "The `/statements/list` endpoint retrieves a list of all statements associated with an item.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statements",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b52b2a3d-920d-4f79-8636-d74852303863",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statements",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n  \"institution_id\": \"ins_3\",\n  \"institution_name\": \"Chase\",\n  \"accounts\": [\n    {\n      \"account_id\": \"3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr\",\n      \"account_mask\": \"0000\",\n      \"account_name\": \"Plaid Saving\",\n      \"account_official_name\": \"Plaid Silver Standard 0.1% Interest Saving\",\n      \"account_subtype\": \"savings\",\n      \"account_type\": \"depository\",\n      \"statements\": [\n        {\n          \"statement_id\": \"vzeNDwK7KQIm4yEog683uElbp9GRLEFXGK98D\",\n          \"month\": 5,\n          \"year\": 2023\n        }\n      ]\n    }\n  ],\n  \"request_id\": \"eYupqX1mZkEuQRx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c08e465-2711-4969-94b1-03d07a939862",
+          "name": "Plaid Retrieve a single statement.",
+          "request": {
+            "name": "Plaid Retrieve a single statement.",
+            "description": {
+              "content": "The `/statements/download` endpoint retrieves a single statement PDF in binary format.  The response will contain a `Plaid-Content-Hash` header containing a SHA 256 checksum of the statement. This can be used to verify that the file being sent by Plaid is the same file that was downloaded to your system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statements",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6934a4aa-7cd8-43f3-808a-59d7e5196e21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statements",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12d77808-9c1b-4213-9ea4-bb9abb696f7d",
+          "name": "Plaid Refresh statements data.",
+          "request": {
+            "name": "Plaid Refresh statements data.",
+            "description": {
+              "content": "`/statements/refresh` initiates an on-demand extraction to fetch the statements for the provided dates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statements",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d13376b9-3740-4515-9510-a11f5667986f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statements",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"eYupqX1mZkEuQRx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6fd8d48b-e4ce-4706-8bef-169a3c7deece",
+    "name": "Plaid statements/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

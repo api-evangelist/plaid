@@ -1,0 +1,596 @@
+{
+  "item": [
+    {
+      "id": "75a13ed2-9c7e-44e7-91ee-0019e2819bab",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9286d7fa-f36a-4d69-bfb6-7f5620ad96a9",
+          "name": "Plaid Create an e-wallet",
+          "request": {
+            "name": "Plaid Create an e-wallet",
+            "description": {
+              "content": "Create an e-wallet. The response is the newly created e-wallet object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6d2aa6f-f9a0-42d9-a717-93007887f308",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n  \"recipient_id\": \"recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"balance\": {\n    \"iso_currency_code\": \"GBP\",\n    \"current\": 123.12,\n    \"available\": 100.96\n  },\n  \"request_id\": \"4zlKapIkTm8p5KM\",\n  \"numbers\": {\n    \"bacs\": {\n      \"account\": \"12345678\",\n      \"sort_code\": \"123456\"\n    }\n  },\n  \"status\": \"ACTIVE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0a2e17f-a30d-42dc-993f-81cb29be15c9",
+          "name": "Plaid Fetch an e-wallet",
+          "request": {
+            "name": "Plaid Fetch an e-wallet",
+            "description": {
+              "content": "Fetch an e-wallet. The response includes the current balance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9cdc362-0851-4dc3-9d96-3c8884fffa83",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n  \"recipient_id\": \"recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6\",\n  \"balance\": {\n    \"iso_currency_code\": \"GBP\",\n    \"current\": 123.12,\n    \"available\": 100.96\n  },\n  \"request_id\": \"4zlKapIkTm8p5KM\",\n  \"numbers\": {\n    \"bacs\": {\n      \"account\": \"12345678\",\n      \"sort_code\": \"123456\"\n    },\n    \"international\": {\n      \"iban\": \"GB33BUKB20201555555555\",\n      \"bic\": \"BUKBGB22\"\n    }\n  },\n  \"status\": \"ACTIVE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "640eb491-4699-4ef7-b59f-6f177e08753e",
+          "name": "Plaid Fetch a list of e-wallets",
+          "request": {
+            "name": "Plaid Fetch a list of e-wallets",
+            "description": {
+              "content": "This endpoint lists all e-wallets in descending order of creation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cac02499-5cee-4f31-9620-515ea6f4da9c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"wallets\": [\n    {\n      \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n      \"recipient_id\": \"recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f6\",\n      \"balance\": {\n        \"iso_currency_code\": \"GBP\",\n        \"current\": 123.12,\n        \"available\": 100.96\n      },\n      \"numbers\": {\n        \"bacs\": {\n          \"account\": \"12345678\",\n          \"sort_code\": \"123456\"\n        }\n      },\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a999\",\n      \"recipient_id\": \"recipient-id-production-9b6b4679-914b-445b-9450-efbdb80296f7\",\n      \"balance\": {\n        \"iso_currency_code\": \"EUR\",\n        \"current\": 456.78,\n        \"available\": 100.96\n      },\n      \"numbers\": {\n        \"international\": {\n          \"iban\": \"GB22HBUK40221241555626\",\n          \"bic\": \"HBUKGB4B\"\n        }\n      },\n      \"status\": \"ACTIVE\"\n    }\n  ],\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b31ddda-ea5b-45c6-bc78-c076d11981f1",
+          "name": "Plaid Execute a transaction using an e-wallet",
+          "request": {
+            "name": "Plaid Execute a transaction using an e-wallet",
+            "description": {
+              "content": "Execute a transaction using the specified e-wallet.\nSpecify the e-wallet to debit from, the counterparty to credit to, the idempotency key to prevent duplicate transactions, the amount and reference for the transaction.\nTransactions will settle in seconds to several days, depending on the underlying payment rail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "transaction",
+                "execute"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f85e9cee-01fd-4a6e-8ed0-a82b91ce6de2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "transaction",
+                    "execute"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction_id\": \"wallet-transaction-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n  \"status\": \"EXECUTED\",\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "734ba6fb-1847-4b3f-8b6c-e71c77b31e02",
+          "name": "Plaid Fetch an e-wallet transaction",
+          "request": {
+            "name": "Plaid Fetch an e-wallet transaction",
+            "description": {
+              "content": "Fetch a specific e-wallet transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "transaction",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a8aa3552-ff51-41f5-9580-74984d748dc3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "transaction",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction_id\": \"wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n  \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n  \"type\": \"PAYOUT\",\n  \"reference\": \"Payout 99744\",\n  \"amount\": {\n    \"iso_currency_code\": \"GBP\",\n    \"value\": 123.12\n  },\n  \"status\": \"EXECUTED\",\n  \"created_at\": \"2020-12-02T21:14:54Z\",\n  \"last_status_update\": \"2020-12-02T21:15:01Z\",\n  \"counterparty\": {\n    \"numbers\": {\n      \"bacs\": {\n        \"account\": \"31926819\",\n        \"sort_code\": \"601613\"\n      }\n    },\n    \"name\": \"John Smith\"\n  },\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f88f895-9f89-444b-bafd-d2a2583e60a0",
+          "name": "Plaid List e-wallet transactions",
+          "request": {
+            "name": "Plaid List e-wallet transactions",
+            "description": {
+              "content": "This endpoint lists the latest transactions of the specified e-wallet. Transactions are returned in descending order by the `created_at` time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wallet",
+                "transaction",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d280a532-994a-4230-b6c7-a39884d8abcf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "transaction",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next_cursor\": \"YWJjMTIzIT8kKiYoKSctPUB\",\n  \"transactions\": [\n    {\n      \"transaction_id\": \"wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n      \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n      \"type\": \"PAYOUT\",\n      \"reference\": \"Payout 99744\",\n      \"amount\": {\n        \"iso_currency_code\": \"GBP\",\n        \"value\": 123.12\n      },\n      \"status\": \"EXECUTED\",\n      \"created_at\": \"2020-12-02T21:14:54Z\",\n      \"last_status_update\": \"2020-12-02T21:15:01Z\",\n      \"counterparty\": {\n        \"numbers\": {\n          \"bacs\": {\n            \"account\": \"31926819\",\n            \"sort_code\": \"601613\"\n          }\n        },\n        \"name\": \"John Smith\"\n      }\n    },\n    {\n      \"transaction_id\": \"wallet-transaction-id-sandbox-feca8a7a-5591-4aef-9297-f3062bb735d3\",\n      \"wallet_id\": \"wallet-id-production-53e58b32-fc1c-46fe-bbd6-e584b27a88\",\n      \"type\": \"PAYOUT\",\n      \"reference\": \"Payout 99744\",\n      \"amount\": {\n        \"iso_currency_code\": \"EUR\",\n        \"value\": 456.78\n      },\n      \"status\": \"EXECUTED\",\n      \"created_at\": \"2020-12-02T21:14:54Z\",\n      \"last_status_update\": \"2020-12-02T21:15:01Z\",\n      \"counterparty\": {\n        \"numbers\": {\n          \"international\": {\n            \"iban\": \"GB33BUKB20201555555555\"\n          }\n        },\n        \"name\": \"John Smith\"\n      }\n    }\n  ],\n  \"request_id\": \"4zlKapIkTm8p5KM\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "39f001c7-0c43-4ca3-9519-c62b39b670ed",
+    "name": "Plaid wallet/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

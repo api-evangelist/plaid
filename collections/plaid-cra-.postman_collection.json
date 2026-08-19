@@ -1,0 +1,934 @@
+{
+  "item": [
+    {
+      "id": "743df7f4-44c3-4375-a654-16157f6507f3",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3802eed-bb70-4618-a08f-dd7646086d3b",
+          "name": "Plaid Retrieve a Base Report",
+          "request": {
+            "name": "Plaid Retrieve a Base Report",
+            "description": {
+              "content": "This endpoint allows the customer to retrieve a Base Report. Customers should pass in the `user_token` created in `/link/token/create`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "base_report",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f18d7dc-3bb6-4210-8d4c-8d1528459e9e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "base_report",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report\": {\n    \"report_id\": \"028e8404-a013-4a45-ac9e-002482f9cafc\",\n    \"date_generated\": \"2023-03-30T18:27:37Z\",\n    \"days_requested\": 5,\n    \"items\": [\n      {\n        \"accounts\": [\n          {\n            \"balances\": {\n              \"available\": 43200,\n              \"current\": 43200,\n              \"iso_currency_code\": \"USD\",\n              \"unofficial_currency_code\": null,\n              \"limit\": null\n            },\n            \"days_available\": 5,\n            \"historical_balances\": [\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-26\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-25\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"mask\": \"4444\",\n            \"name\": \"Plaid Money Market\",\n            \"official_name\": \"Plaid Platinum Standard 1.85% Interest Money Market\",\n            \"owners\": [\n              {\n                \"addresses\": [\n                  {\n                    \"data\": {\n                      \"city\": \"Malakoff\",\n                      \"country\": \"US\",\n                      \"region\": \"NY\",\n                      \"street\": \"2992 Cameron Road\",\n                      \"postal_code\": \"14236\"\n                    },\n                    \"primary\": true\n                  },\n                  {\n                    \"data\": {\n                      \"city\": \"San Matias\",\n                      \"country\": \"US\",\n                      \"region\": \"CA\",\n                      \"street\": \"2493 Leisure Lane\",\n                      \"postal_code\": \"93405-2255\"\n                    },\n                    \"primary\": false\n                  }\n                ],\n                \"emails\": [\n                  {\n                    \"data\": \"accountholder0@example.com\",\n                    \"primary\": true,\n                    \"type\": \"primary\"\n                  },\n                  {\n                    \"data\": \"accountholder1@example.com\",\n                    \"primary\": false,\n                    \"type\": \"secondary\"\n                  },\n                  {\n                    \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                    \"primary\": false,\n                    \"type\": \"other\"\n                  }\n                ],\n                \"names\": [\n                  \"Alberta Bobbeth Charleson\"\n                ],\n                \"phone_numbers\": [\n                  {\n                    \"data\": \"1112223333\",\n                    \"primary\": false,\n                    \"type\": \"home\"\n                  },\n                  {\n                    \"data\": \"1112224444\",\n                    \"primary\": false,\n                    \"type\": \"work\"\n                  },\n                  {\n                    \"data\": \"1112225555\",\n                    \"primary\": false,\n                    \"type\": \"mobile\"\n                  }\n                ]\n              }\n            ],\n            \"ownership_type\": null,\n            \"subtype\": \"money market\",\n            \"transactions\": [\n              {\n                \"amount\": 5850,\n                \"date\": \"2023-03-30\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"ACH Electronic CreditGUSTO PAY 123456\",\n                \"pending\": false,\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"type\": \"depository\"\n          },\n          {\n            \"balances\": {\n              \"available\": 100,\n              \"current\": 110,\n              \"iso_currency_code\": \"USD\",\n              \"unofficial_currency_code\": null,\n              \"limit\": null\n            },\n            \"days_available\": 5,\n            \"historical_balances\": [\n              {\n                \"current\": 110,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -390,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -373.67,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -284.27,\n                \"date\": \"2023-03-26\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -284.27,\n                \"date\": \"2023-03-25\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"mask\": \"0000\",\n            \"name\": \"Plaid Checking\",\n            \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n            \"owners\": [\n              {\n                \"addresses\": [\n                  {\n                    \"data\": {\n                      \"city\": \"Malakoff\",\n                      \"country\": \"US\",\n                      \"region\": \"NY\",\n                      \"street\": \"2992 Cameron Road\",\n                      \"postal_code\": \"14236\"\n                    },\n                    \"primary\": true\n                  },\n                  {\n                    \"data\": {\n                      \"city\": \"San Matias\",\n                      \"country\": \"US\",\n                      \"region\": \"CA\",\n                      \"street\": \"2493 Leisure Lane\",\n                      \"postal_code\": \"93405-2255\"\n                    },\n                    \"primary\": false\n                  }\n                ],\n                \"emails\": [\n                  {\n                    \"data\": \"accountholder0@example.com\",\n                    \"primary\": true,\n                    \"type\": \"primary\"\n                  },\n                  {\n                    \"data\": \"accountholder1@example.com\",\n                    \"primary\": false,\n                    \"type\": \"secondary\"\n                  },\n                  {\n                    \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                    \"primary\": false,\n                    \"type\": \"other\"\n                  }\n                ],\n                \"names\": [\n                  \"Alberta Bobbeth Charleson\"\n                ],\n                \"phone_numbers\": [\n                  {\n                    \"data\": \"1112223333\",\n                    \"primary\": false,\n                    \"type\": \"home\"\n                  },\n                  {\n                    \"data\": \"1112224444\",\n                    \"primary\": false,\n                    \"type\": \"work\"\n                  },\n                  {\n                    \"data\": \"1112225555\",\n                    \"primary\": false,\n                    \"type\": \"mobile\"\n                  }\n                ]\n              }\n            ],\n            \"ownership_type\": null,\n            \"subtype\": \"checking\",\n            \"transactions\": [\n              {\n                \"amount\": 89.4,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"SparkFun\",\n                \"pending\": false,\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"amount\": 12,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"McDonalds #3322\",\n                \"pending\": false,\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"amount\": 4.33,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"Starbucks\",\n                \"pending\": false,\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"amount\": -500,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"United Airlines **** REFUND ****\",\n                \"pending\": false,\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"type\": \"depository\"\n          }\n        ],\n        \"date_last_updated\": \"2023-03-30T18:25:26Z\",\n        \"institution_id\": \"ins_109508\",\n        \"institution_name\": \"First Platypus Bank\"\n      }\n    ]\n  },\n  \"request_id\": \"GVzMdiDd8DDAQK4\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8154b9b-02e9-4dbf-9bd1-4afd27b7bfd8",
+          "name": "Plaid Create a Base Report",
+          "request": {
+            "name": "Plaid Create a Base Report",
+            "description": {
+              "content": "This endpoint allows the customer to create a Base Report by passing in a user token. The Base Report will be generated based on the most recently linked item from the user token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "base_report",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7942360f-4995-4b86-9bf6-c52ca513971f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "base_report",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"GVzMdiDd8DDAQK4\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6c6159a-eaa0-47b6-91b7-26578dc4b397",
+          "name": "Plaid Retrieve information from the bank accounts used for income verification",
+          "request": {
+            "name": "Plaid Retrieve information from the bank accounts used for income verification",
+            "description": {
+              "content": "`/cra/bank_income/get` returns the bank income report(s) for a specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "bank_income",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1945f9a5-779c-4252-b6b5-02306014440c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "bank_income",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\",\n  \"bank_income\": [\n    {\n      \"bank_income_id\": \"abc123\",\n      \"generated_time\": \"2022-01-31T22:47:53Z\",\n      \"days_requested\": 90,\n      \"items\": [\n        {\n          \"last_updated_time\": \"2022-01-31T22:47:53Z\",\n          \"institution_id\": \"ins_0\",\n          \"institution_name\": \"Plaid Bank\",\n          \"bank_income_accounts\": [\n            {\n              \"mask\": \"8888\",\n              \"name\": \"Plaid Checking Account\",\n              \"official_name\": \"Plaid Checking Account\",\n              \"type\": \"depository\",\n              \"subtype\": \"checking\",\n              \"owners\": [\n                {\n                  \"addresses\": [\n                    {\n                      \"data\": {\n                        \"city\": \"Malakoff\",\n                        \"country\": \"US\",\n                        \"postal_code\": \"14236\",\n                        \"region\": \"NY\",\n                        \"street\": \"2992 Cameron Road\"\n                      },\n                      \"primary\": true\n                    },\n                    {\n                      \"data\": {\n                        \"city\": \"San Matias\",\n                        \"country\": \"US\",\n                        \"postal_code\": \"93405-2255\",\n                        \"region\": \"CA\",\n                        \"street\": \"2493 Leisure Lane\"\n                      },\n                      \"primary\": false\n                    }\n                  ],\n                  \"emails\": [\n                    {\n                      \"data\": \"accountholder0@example.com\",\n                      \"primary\": true,\n                      \"type\": \"primary\"\n                    },\n                    {\n                      \"data\": \"accountholder1@example.com\",\n                      \"primary\": false,\n                      \"type\": \"secondary\"\n                    },\n                    {\n                      \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                      \"primary\": false,\n                      \"type\": \"other\"\n                    }\n                  ],\n                  \"names\": [\n                    \"Alberta Bobbeth Charleson\"\n                  ],\n                  \"phone_numbers\": [\n                    {\n                      \"data\": \"1112223333\",\n                      \"primary\": false,\n                      \"type\": \"home\"\n                    },\n                    {\n                      \"data\": \"1112224444\",\n                      \"primary\": false,\n                      \"type\": \"work\"\n                    },\n                    {\n                      \"data\": \"1112225555\",\n                      \"primary\": false,\n                      \"type\": \"mobile\"\n                    }\n                  ]\n                }\n              ]\n            }\n          ],\n          \"bank_income_sources\": [\n            {\n              \"income_source_id\": \"“f17efbdd-caab-4278-8ece-963511cd3d51”\",\n              \"income_description\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n              \"income_category\": \"SALARY\",\n              \"start_date\": \"2021-11-15\",\n              \"end_date\": \"2022-01-15\",\n              \"pay_frequency\": \"MONTHLY\",\n              \"total_amount\": 300,\n              \"iso_currency_code\": \"USD\",\n              \"unofficial_currency_code\": null,\n              \"transaction_count\": 1,\n              \"next_payment_date\": \"2022-12-15\",\n              \"historical_average_monthly_gross_income\": 390,\n              \"historical_average_monthly_income\": 300,\n              \"forecasted_average_monthly_income\": 300,\n              \"forecasted_average_monthly_income_prediction_intervals\": [\n                {\n                  \"lower_bound\": 200,\n                  \"upper_bound\": 400,\n                  \"probability\": 0.8\n                }\n              ],\n              \"employer\": {\n                \"name\": \"Plaid Inc\"\n              },\n              \"historical_summary\": [\n                {\n                  \"start_date\": \"2021-11-02\",\n                  \"end_date\": \"2021-11-30\",\n                  \"total_amounts\": [\n                    {\n                      \"amount\": 100,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ],\n                  \"transactions\": [\n                    {\n                      \"amount\": -100,\n                      \"date\": \"2021-11-15\",\n                      \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                      \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                      \"pending\": false,\n                      \"check_number\": null,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ]\n                },\n                {\n                  \"start_date\": \"2021-12-01\",\n                  \"end_date\": \"2021-12-31\",\n                  \"total_amounts\": [\n                    {\n                      \"amount\": 100,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ],\n                  \"transactions\": [\n                    {\n                      \"amount\": -100,\n                      \"date\": \"2021-12-15\",\n                      \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                      \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                      \"pending\": false,\n                      \"check_number\": null,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ]\n                },\n                {\n                  \"start_date\": \"2022-01-01\",\n                  \"end_date\": \"2022-01-31\",\n                  \"total_amounts\": [\n                    {\n                      \"amount\": 100,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ],\n                  \"transactions\": [\n                    {\n                      \"amount\": -100,\n                      \"date\": \"2022-01-31\",\n                      \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                      \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                      \"pending\": false,\n                      \"check_number\": null,\n                      \"iso_currency_code\": \"USD\",\n                      \"unofficial_currency_code\": null\n                    }\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"bank_income_summary\": {\n        \"total_amounts\": [\n          {\n            \"amount\": 300,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"start_date\": \"2021-11-15\",\n        \"end_date\": \"2022-01-15\",\n        \"income_sources_count\": 1,\n        \"income_categories_count\": 1,\n        \"income_transactions_count\": 1,\n        \"historical_average_monthly_gross_income\": [\n          {\n            \"amount\": 390,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"historical_average_monthly_income\": [\n          {\n            \"amount\": 300,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"forecasted_average_monthly_income\": [\n          {\n            \"amount\": 300,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"historical_annual_gross_income\": [\n          {\n            \"amount\": 4680,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"historical_annual_income\": [\n          {\n            \"amount\": 3600,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"forecasted_annual_income\": [\n          {\n            \"amount\": 3600,\n            \"iso_currency_code\": \"USD\",\n            \"unofficial_currency_code\": null\n          }\n        ],\n        \"historical_summary\": [\n          {\n            \"start_date\": \"2021-11-02\",\n            \"end_date\": \"2021-11-30\",\n            \"total_amounts\": [\n              {\n                \"amount\": 100,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"transactions\": [\n              {\n                \"amount\": -100,\n                \"date\": \"2021-11-15\",\n                \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                \"pending\": false,\n                \"check_number\": null,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ]\n          },\n          {\n            \"start_date\": \"2021-12-01\",\n            \"end_date\": \"2021-12-31\",\n            \"total_amounts\": [\n              {\n                \"amount\": 100,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"transactions\": [\n              {\n                \"amount\": -100,\n                \"date\": \"2021-12-15\",\n                \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                \"pending\": false,\n                \"check_number\": null,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ]\n          },\n          {\n            \"start_date\": \"2022-01-01\",\n            \"end_date\": \"2022-01-31\",\n            \"total_amounts\": [\n              {\n                \"amount\": 100,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"transactions\": [\n              {\n                \"amount\": -100,\n                \"date\": \"2022-01-31\",\n                \"name\": \"“PLAID_INC_DIRECT_DEP_PPD”\",\n                \"original_description\": \"PLAID_INC_DIRECT_DEP_PPD 123\",\n                \"pending\": false,\n                \"check_number\": null,\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ]\n          }\n        ]\n      },\n      \"warnings\": []\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a190c73-fcdf-4172-8b62-7edde3bb9eae",
+          "name": "Plaid Create a CRA report for income verification",
+          "request": {
+            "name": "Plaid Create a CRA report for income verification",
+            "description": {
+              "content": "`/cra/bank_income/create` creates a CRA report for income verification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "bank_income",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e369f240-7b22-4981-b024-c6eeb34337b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "bank_income",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75be769c-e299-4555-afa0-e7bc69f5d136",
+          "name": "Plaid Retrieve cash flow insights from the bank accounts used for income verification",
+          "request": {
+            "name": "Plaid Retrieve cash flow insights from the bank accounts used for income verification",
+            "description": {
+              "content": "`/cra/partner_insights/get` returns cash flow insights for a specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "partner_insights",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21c3abc1-f9ae-4edb-a546-0ebcce06cbce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "partner_insights",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\",\n  \"report\": [\n    {\n      \"report_id\": \"abc123\",\n      \"generated_time\": \"2022-01-31T22:47:53Z\",\n      \"items\": [\n        {\n          \"institution_id\": \"ins_0\",\n          \"institution_name\": \"Plaid Bank\",\n          \"item_id\": \"ABC123\",\n          \"accounts\": [\n            {\n              \"mask\": \"8888\",\n              \"name\": \"Plaid Checking Account\",\n              \"official_name\": \"Plaid Checking Account\",\n              \"type\": \"depository\",\n              \"subtype\": \"checking\",\n              \"owners\": [\n                {\n                  \"addresses\": [\n                    {\n                      \"data\": {\n                        \"city\": \"Malakoff\",\n                        \"country\": \"US\",\n                        \"postal_code\": \"14236\",\n                        \"region\": \"NY\",\n                        \"street\": \"2992 Cameron Road\"\n                      },\n                      \"primary\": true\n                    },\n                    {\n                      \"data\": {\n                        \"city\": \"San Matias\",\n                        \"country\": \"US\",\n                        \"postal_code\": \"93405-2255\",\n                        \"region\": \"CA\",\n                        \"street\": \"2493 Leisure Lane\"\n                      },\n                      \"primary\": false\n                    }\n                  ],\n                  \"emails\": [\n                    {\n                      \"data\": \"accountholder0@example.com\",\n                      \"primary\": true,\n                      \"type\": \"primary\"\n                    },\n                    {\n                      \"data\": \"accountholder1@example.com\",\n                      \"primary\": false,\n                      \"type\": \"secondary\"\n                    },\n                    {\n                      \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                      \"primary\": false,\n                      \"type\": \"other\"\n                    }\n                  ],\n                  \"names\": [\n                    \"Alberta Bobbeth Charleson\"\n                  ],\n                  \"phone_numbers\": [\n                    {\n                      \"data\": \"1112223333\",\n                      \"primary\": false,\n                      \"type\": \"home\"\n                    },\n                    {\n                      \"data\": \"1112224444\",\n                      \"primary\": false,\n                      \"type\": \"work\"\n                    },\n                    {\n                      \"data\": \"1112225555\",\n                      \"primary\": false,\n                      \"type\": \"mobile\"\n                    }\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"prism\": {\n        \"insights\": {\n          \"version\": 3,\n          \"result\": {\n            \"l6m_cumbal_acc\": 1\n          }\n        },\n        \"cash_score\": {\n          \"version\": 3,\n          \"score\": 900,\n          \"reason_codes\": [\n            \"CASHFLOW_D11\"\n          ],\n          \"metadata\": {\n            \"max_age\": 20,\n            \"min_age\": 1,\n            \"min_age_credit\": 0,\n            \"min_age_debit\": 1,\n            \"max_age_debit\": 20,\n            \"max_age_credit\": 0,\n            \"num_trxn_credit\": 0,\n            \"num_trxn_debit\": 40,\n            \"l1m_credit_value_cnt\": 0,\n            \"l1m_debit_value_cnt\": 40\n          }\n        },\n        \"detect\": {\n          \"version\": 3,\n          \"score\": 900,\n          \"reason_codes\": [\n            \"CASHFLOW_D11\"\n          ],\n          \"metadata\": {\n            \"max_age\": 20,\n            \"min_age\": 1,\n            \"min_age_credit\": 0,\n            \"min_age_debit\": 1,\n            \"max_age_debit\": 20,\n            \"max_age_credit\": 0,\n            \"num_trxn_credit\": 0,\n            \"num_trxn_debit\": 40,\n            \"l1m_credit_value_cnt\": 0,\n            \"l1m_debit_value_cnt\": 40\n          }\n        },\n        \"status\": \"SUCCESS\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f7858c5-990b-40d9-a2fc-e261d5e3c062",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "partner_insights",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 9272,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d13b855-86c1-4347-b377-193fc7a9e1b7",
+          "name": "Plaid Register loan applications and decisions.",
+          "request": {
+            "name": "Plaid Register loan applications and decisions.",
+            "description": {
+              "content": "`/cra/loans/applications/register` registers loan applications and decisions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "loans",
+                "applications",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "657c4e65-8263-4893-ab87-5c3071f47726",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "loans",
+                    "applications",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "740337c3-c27d-4e1f-bf6f-8c9157286e41",
+          "name": "Plaid Register a list of loans to their applicants.",
+          "request": {
+            "name": "Plaid Register a list of loans to their applicants.",
+            "description": {
+              "content": "`/cra/loans/register` registers a list of loans to their applicants.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "loans",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d8b84f8-de15-48f2-ab21-e982e11d856e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "loans",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "123356ab-d311-4a70-99da-ce321ea5aa1d",
+          "name": "Plaid Updates loan data.",
+          "request": {
+            "name": "Plaid Updates loan data.",
+            "description": {
+              "content": "`/cra/loans/update` updates loan information such as the status and payment history.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "loans",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d0eaaf97-ef6e-4564-91a4-73fe8676432d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "loans",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18346718-b904-4b5a-aaa6-7f436f96dec0",
+          "name": "Plaid Unregister a list of loans.",
+          "request": {
+            "name": "Plaid Unregister a list of loans.",
+            "description": {
+              "content": "`/cra/loans/unregister` indicates the loans have reached a final status and no further updates are expected.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cra",
+                "loans",
+                "unregister"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8188d922-458a-4425-bc89-692bfc6af69e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cra",
+                    "loans",
+                    "unregister"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"LhQf0THi8SH1yJm\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c52a5081-48fc-4221-a5af-45e4811af268",
+    "name": "Plaid cra/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

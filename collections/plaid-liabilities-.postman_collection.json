@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "b375e99c-608a-4887-b5b7-665fc9c903d3",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1115130-1211-49b2-9b6b-82f3c47d1508",
+          "name": "Plaid Retrieve Liabilities data",
+          "request": {
+            "name": "Plaid Retrieve Liabilities data",
+            "description": {
+              "content": "The `/processor/liabilities/get` endpoint returns various details about a loan or credit account. Liabilities data is available primarily for US financial institutions, with some limited coverage of Canadian institutions. Currently supported account types are account type `credit` with account subtype `credit card` or `paypal`, and account type `loan` with account subtype `student` or `mortgage`.\n\nThe types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling `/processor/liabilities/get`.\n\nNote: This request may take some time to complete if `liabilities` was not specified as an initial product when creating the processor token. This is because Plaid must communicate directly with the institution to retrieve the additional data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "liabilities",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6d3d8dc-0496-4081-bdef-847f248820e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "liabilities",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK\",\n    \"balances\": {\n      \"available\": null,\n      \"current\": 410,\n      \"iso_currency_code\": \"USD\",\n      \"limit\": 2000,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"3333\",\n    \"name\": \"Plaid Credit Card\",\n    \"official_name\": \"Plaid Diamond 12.5% APR Interest Credit Card\",\n    \"subtype\": \"credit card\",\n    \"type\": \"credit\"\n  },\n  \"liabilities\": {\n    \"credit\": [\n      {\n        \"account_id\": \"dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK\",\n        \"aprs\": [\n          {\n            \"apr_percentage\": 15.24,\n            \"apr_type\": \"balance_transfer_apr\",\n            \"balance_subject_to_apr\": 1562.32,\n            \"interest_charge_amount\": 130.22\n          },\n          {\n            \"apr_percentage\": 27.95,\n            \"apr_type\": \"cash_apr\",\n            \"balance_subject_to_apr\": 56.22,\n            \"interest_charge_amount\": 14.81\n          },\n          {\n            \"apr_percentage\": 12.5,\n            \"apr_type\": \"purchase_apr\",\n            \"balance_subject_to_apr\": 157.01,\n            \"interest_charge_amount\": 25.66\n          },\n          {\n            \"apr_percentage\": 0,\n            \"apr_type\": \"special\",\n            \"balance_subject_to_apr\": 1000,\n            \"interest_charge_amount\": 0\n          }\n        ],\n        \"is_overdue\": false,\n        \"last_payment_amount\": 168.25,\n        \"last_payment_date\": \"2019-05-22\",\n        \"last_statement_issue_date\": \"2019-05-28\",\n        \"last_statement_balance\": 1708.77,\n        \"minimum_payment_amount\": 20,\n        \"next_payment_due_date\": \"2020-05-28\"\n      }\n    ],\n    \"mortgage\": [],\n    \"student\": []\n  },\n  \"request_id\": \"dTnnm60WgKGLnKL\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "494a484a-3702-4c31-99e4-e4ea3dbfd74e",
+          "name": "Plaid Retrieve Liabilities data",
+          "request": {
+            "name": "Plaid Retrieve Liabilities data",
+            "description": {
+              "content": "The `/liabilities/get` endpoint returns various details about an Item with loan or credit accounts. Liabilities data is available primarily for US financial institutions, with some limited coverage of Canadian institutions. Currently supported account types are account type `credit` with account subtype `credit card` or `paypal`, and account type `loan` with account subtype `student` or `mortgage`. To limit accounts listed in Link to types and subtypes supported by Liabilities, you can use the `account_filters` parameter when [creating a Link token](https://plaid.com/docs/api/tokens/#linktokencreate).\n\nThe types of information returned by Liabilities can include balances and due dates, loan terms, and account details such as original loan amount and guarantor. Data is refreshed approximately once per day; the latest data can be retrieved by calling `/liabilities/get`.\n\nNote: This request may take some time to complete if `liabilities` was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the additional data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "liabilities",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad0dd154-3498-481a-873e-2592913023c2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "liabilities",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 410,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": 2000,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"3333\",\n      \"name\": \"Plaid Credit Card\",\n      \"official_name\": \"Plaid Diamond 12.5% APR Interest Credit Card\",\n      \"subtype\": \"credit card\",\n      \"type\": \"credit\"\n    },\n    {\n      \"account_id\": \"Pp1Vpkl9w8sajvK6oEEKtr7vZxBnGpf7LxxLE\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 65262,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"7777\",\n      \"name\": \"Plaid Student Loan\",\n      \"official_name\": null,\n      \"subtype\": \"student\",\n      \"type\": \"loan\"\n    },\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZJyUg9XLd4rKEhw8Pb1J\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": 56302.06,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"8888\",\n      \"name\": \"Plaid Mortgage\",\n      \"official_name\": null,\n      \"subtype\": \"mortgage\",\n      \"type\": \"loan\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"identity\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"liabilities\": {\n    \"credit\": [\n      {\n        \"account_id\": \"dVzbVMLjrxTnLjX4G66XUp5GLklm4oiZy88yK\",\n        \"aprs\": [\n          {\n            \"apr_percentage\": 15.24,\n            \"apr_type\": \"balance_transfer_apr\",\n            \"balance_subject_to_apr\": 1562.32,\n            \"interest_charge_amount\": 130.22\n          },\n          {\n            \"apr_percentage\": 27.95,\n            \"apr_type\": \"cash_apr\",\n            \"balance_subject_to_apr\": 56.22,\n            \"interest_charge_amount\": 14.81\n          },\n          {\n            \"apr_percentage\": 12.5,\n            \"apr_type\": \"purchase_apr\",\n            \"balance_subject_to_apr\": 157.01,\n            \"interest_charge_amount\": 25.66\n          },\n          {\n            \"apr_percentage\": 0,\n            \"apr_type\": \"special\",\n            \"balance_subject_to_apr\": 1000,\n            \"interest_charge_amount\": 0\n          }\n        ],\n        \"is_overdue\": false,\n        \"last_payment_amount\": 168.25,\n        \"last_payment_date\": \"2019-05-22\",\n        \"last_statement_issue_date\": \"2019-05-28\",\n        \"last_statement_balance\": 1708.77,\n        \"minimum_payment_amount\": 20,\n        \"next_payment_due_date\": \"2020-05-28\"\n      }\n    ],\n    \"mortgage\": [\n      {\n        \"account_id\": \"BxBXxLj1m4HMXBm9WZJyUg9XLd4rKEhw8Pb1J\",\n        \"account_number\": \"3120194154\",\n        \"current_late_fee\": 25,\n        \"escrow_balance\": 3141.54,\n        \"has_pmi\": true,\n        \"has_prepayment_penalty\": true,\n        \"interest_rate\": {\n          \"percentage\": 3.99,\n          \"type\": \"fixed\"\n        },\n        \"last_payment_amount\": 3141.54,\n        \"last_payment_date\": \"2019-08-01\",\n        \"loan_term\": \"30 year\",\n        \"loan_type_description\": \"conventional\",\n        \"maturity_date\": \"2045-07-31\",\n        \"next_monthly_payment\": 3141.54,\n        \"next_payment_due_date\": \"2019-11-15\",\n        \"origination_date\": \"2015-08-01\",\n        \"origination_principal_amount\": 425000,\n        \"past_due_amount\": 2304,\n        \"property_address\": {\n          \"city\": \"Malakoff\",\n          \"country\": \"US\",\n          \"postal_code\": \"14236\",\n          \"region\": \"NY\",\n          \"street\": \"2992 Cameron Road\"\n        },\n        \"ytd_interest_paid\": 12300.4,\n        \"ytd_principal_paid\": 12340.5\n      }\n    ],\n    \"student\": [\n      {\n        \"account_id\": \"Pp1Vpkl9w8sajvK6oEEKtr7vZxBnGpf7LxxLE\",\n        \"account_number\": \"4277075694\",\n        \"disbursement_dates\": [\n          \"2002-08-28\"\n        ],\n        \"expected_payoff_date\": \"2032-07-28\",\n        \"guarantor\": \"DEPT OF ED\",\n        \"interest_rate_percentage\": 5.25,\n        \"is_overdue\": false,\n        \"last_payment_amount\": 138.05,\n        \"last_payment_date\": \"2019-04-22\",\n        \"last_statement_issue_date\": \"2019-04-28\",\n        \"loan_name\": \"Consolidation\",\n        \"loan_status\": {\n          \"end_date\": \"2032-07-28\",\n          \"type\": \"repayment\"\n        },\n        \"minimum_payment_amount\": 25,\n        \"next_payment_due_date\": \"2019-05-28\",\n        \"origination_date\": \"2002-08-28\",\n        \"origination_principal_amount\": 25000,\n        \"outstanding_interest_amount\": 6227.36,\n        \"payment_reference_number\": \"4277075694\",\n        \"pslf_status\": {\n          \"estimated_eligibility_date\": \"2021-01-01\",\n          \"payments_made\": 200,\n          \"payments_remaining\": 160\n        },\n        \"repayment_plan\": {\n          \"description\": \"Standard Repayment\",\n          \"type\": \"standard\"\n        },\n        \"sequence_number\": \"1\",\n        \"servicer_address\": {\n          \"city\": \"San Matias\",\n          \"country\": \"US\",\n          \"postal_code\": \"99415\",\n          \"region\": \"CA\",\n          \"street\": \"123 Relaxation Road\"\n        },\n        \"ytd_interest_paid\": 280.55,\n        \"ytd_principal_paid\": 271.65\n      }\n    ]\n  },\n  \"request_id\": \"dTnnm60WgKGLnKL\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "41c80224-5178-4e57-a2b5-f17e6a47dd46",
+    "name": "Plaid liabilities/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

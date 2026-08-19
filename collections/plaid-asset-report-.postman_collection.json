@@ -1,0 +1,974 @@
+{
+  "item": [
+    {
+      "id": "36462fd1-7899-40ff-aa66-bddaf1a6115e",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69b6758e-28ac-4549-b719-36b9a1667747",
+          "name": "Plaid Create an Asset Report",
+          "request": {
+            "name": "Plaid Create an Asset Report",
+            "description": {
+              "content": "The `/asset_report/create` endpoint initiates the process of creating an Asset Report, which can then be retrieved by passing the `asset_report_token` return value to the `/asset_report/get` or `/asset_report/pdf/get` endpoints.\n\nThe Asset Report takes some time to be created and is not available immediately after calling `/asset_report/create`. The exact amount of time to create the report will vary depending on how many days of history are requested and will typically range from a few seconds to about one minute. When the Asset Report is ready to be retrieved using `/asset_report/get` or `/asset_report/pdf/get`, Plaid will fire a `PRODUCT_READY` webhook. For full details of the webhook schema, see [Asset Report webhooks](https://plaid.com/docs/api/products/assets/#webhooks).\n\nThe `/asset_report/create` endpoint creates an Asset Report at a moment in time. Asset Reports are immutable. To get an updated Asset Report, use the `/asset_report/refresh` endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05e0df61-1ab5-4b5f-816a-36c810900a97",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asset_report_token\": \"assets-sandbox-6f12f5bb-22dd-4855-b918-f47ec439198a\",\n  \"asset_report_id\": \"1f414183-220c-44f5-b0c8-bc0e6d4053bb\",\n  \"request_id\": \"Iam3b\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e088bccb-6dad-4d65-ab90-c67b4193b911",
+          "name": "Plaid Retrieve an Asset Report",
+          "request": {
+            "name": "Plaid Retrieve an Asset Report",
+            "description": {
+              "content": "The `/asset_report/get` endpoint retrieves the Asset Report in JSON format. Before calling `/asset_report/get`, you must first create the Asset Report using `/asset_report/create` (or filter an Asset Report using `/asset_report/filter`) and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to be retrieved.\n\nBy default, an Asset Report includes transaction descriptions as returned by the bank, as opposed to parsed and categorized by Plaid. You can also receive cleaned and categorized transactions, as well as additional insights like merchant name or location information. We call this an Asset Report with Insights. An Asset Report with Insights provides transaction category, location, and merchant information in addition to the transaction strings provided in a standard Asset Report. To retrieve an Asset Report with Insights, call `/asset_report/get` endpoint with `include_insights` set to `true`.\n\nFor latency-sensitive applications, you can optionally call `/asset_report/create` with `options.add_ons` set to `[\"fast_assets\"]`. This will cause Plaid to create two versions of the Asset Report: one with only current and available balance and identity information, and then later on the complete Asset Report. You will receive separate webhooks for each version of the Asset Report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "974da2f8-b86e-443e-bc28-52f749e6646e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report\": {\n    \"asset_report_id\": \"028e8404-a013-4a45-ac9e-002482f9cafc\",\n    \"client_report_id\": \"client_report_id_1221\",\n    \"date_generated\": \"2023-03-30T18:27:37Z\",\n    \"days_requested\": 5,\n    \"items\": [\n      {\n        \"accounts\": [\n          {\n            \"account_id\": \"1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8\",\n            \"balances\": {\n              \"available\": 43200,\n              \"current\": 43200,\n              \"limit\": null,\n              \"margin_loan_amount\": null,\n              \"iso_currency_code\": \"USD\",\n              \"unofficial_currency_code\": null\n            },\n            \"days_available\": 5,\n            \"historical_balances\": [\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-26\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": 49050,\n                \"date\": \"2023-03-25\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"mask\": \"4444\",\n            \"name\": \"Plaid Money Market\",\n            \"official_name\": \"Plaid Platinum Standard 1.85% Interest Money Market\",\n            \"owners\": [\n              {\n                \"addresses\": [\n                  {\n                    \"data\": {\n                      \"city\": \"Malakoff\",\n                      \"country\": \"US\",\n                      \"region\": \"NY\",\n                      \"street\": \"2992 Cameron Road\",\n                      \"postal_code\": \"14236\"\n                    },\n                    \"primary\": true\n                  },\n                  {\n                    \"data\": {\n                      \"city\": \"San Matias\",\n                      \"country\": \"US\",\n                      \"region\": \"CA\",\n                      \"street\": \"2493 Leisure Lane\",\n                      \"postal_code\": \"93405-2255\"\n                    },\n                    \"primary\": false\n                  }\n                ],\n                \"emails\": [\n                  {\n                    \"data\": \"accountholder0@example.com\",\n                    \"primary\": true,\n                    \"type\": \"primary\"\n                  },\n                  {\n                    \"data\": \"accountholder1@example.com\",\n                    \"primary\": false,\n                    \"type\": \"secondary\"\n                  },\n                  {\n                    \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                    \"primary\": false,\n                    \"type\": \"other\"\n                  }\n                ],\n                \"names\": [\n                  \"Alberta Bobbeth Charleson\"\n                ],\n                \"phone_numbers\": [\n                  {\n                    \"data\": \"1112223333\",\n                    \"primary\": false,\n                    \"type\": \"home\"\n                  },\n                  {\n                    \"data\": \"1112224444\",\n                    \"primary\": false,\n                    \"type\": \"work\"\n                  },\n                  {\n                    \"data\": \"1112225555\",\n                    \"primary\": false,\n                    \"type\": \"mobile\"\n                  }\n                ]\n              }\n            ],\n            \"ownership_type\": null,\n            \"subtype\": \"money market\",\n            \"transactions\": [\n              {\n                \"account_id\": \"1qKRXQjk8xUWDJojNwPXTj8gEmR48piqRNye8\",\n                \"amount\": 5850,\n                \"date\": \"2023-03-30\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"ACH Electronic CreditGUSTO PAY 123456\",\n                \"pending\": false,\n                \"transaction_id\": \"gGQgjoeyqBF89PND6K14Sow1wddZBmtLomJ78\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"type\": \"depository\"\n          },\n          {\n            \"account_id\": \"eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v\",\n            \"balances\": {\n              \"available\": 100,\n              \"current\": 110,\n              \"limit\": null,\n              \"margin_loan_amount\": null,\n              \"iso_currency_code\": \"USD\",\n              \"unofficial_currency_code\": null\n            },\n            \"days_available\": 5,\n            \"historical_balances\": [\n              {\n                \"current\": 110,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -390,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -373.67,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -284.27,\n                \"date\": \"2023-03-26\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"current\": -284.27,\n                \"date\": \"2023-03-25\",\n                \"iso_currency_code\": \"USD\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"mask\": \"0000\",\n            \"name\": \"Plaid Checking\",\n            \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n            \"owners\": [\n              {\n                \"addresses\": [\n                  {\n                    \"data\": {\n                      \"city\": \"Malakoff\",\n                      \"country\": \"US\",\n                      \"region\": \"NY\",\n                      \"street\": \"2992 Cameron Road\",\n                      \"postal_code\": \"14236\"\n                    },\n                    \"primary\": true\n                  },\n                  {\n                    \"data\": {\n                      \"city\": \"San Matias\",\n                      \"country\": \"US\",\n                      \"region\": \"CA\",\n                      \"street\": \"2493 Leisure Lane\",\n                      \"postal_code\": \"93405-2255\"\n                    },\n                    \"primary\": false\n                  }\n                ],\n                \"emails\": [\n                  {\n                    \"data\": \"accountholder0@example.com\",\n                    \"primary\": true,\n                    \"type\": \"primary\"\n                  },\n                  {\n                    \"data\": \"accountholder1@example.com\",\n                    \"primary\": false,\n                    \"type\": \"secondary\"\n                  },\n                  {\n                    \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n                    \"primary\": false,\n                    \"type\": \"other\"\n                  }\n                ],\n                \"names\": [\n                  \"Alberta Bobbeth Charleson\"\n                ],\n                \"phone_numbers\": [\n                  {\n                    \"data\": \"1112223333\",\n                    \"primary\": false,\n                    \"type\": \"home\"\n                  },\n                  {\n                    \"data\": \"1112224444\",\n                    \"primary\": false,\n                    \"type\": \"work\"\n                  },\n                  {\n                    \"data\": \"1112225555\",\n                    \"primary\": false,\n                    \"type\": \"mobile\"\n                  }\n                ]\n              }\n            ],\n            \"ownership_type\": null,\n            \"subtype\": \"checking\",\n            \"transactions\": [\n              {\n                \"account_id\": \"eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v\",\n                \"amount\": 89.4,\n                \"date\": \"2023-03-27\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"SparkFun\",\n                \"pending\": false,\n                \"transaction_id\": \"4zBRq1Qem4uAPnoyKjJNTRQpQddM4ztlo1PLD\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"account_id\": \"eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v\",\n                \"amount\": 12,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"McDonalds #3322\",\n                \"pending\": false,\n                \"transaction_id\": \"dkjL41PnbKsPral79jpxhMWdW55gkPfBkWpRL\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"account_id\": \"eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v\",\n                \"amount\": 4.33,\n                \"date\": \"2023-03-28\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"Starbucks\",\n                \"pending\": false,\n                \"transaction_id\": \"a84ZxQaWDAtDL3dRgmazT57K7jjN3WFkNWMDy\",\n                \"unofficial_currency_code\": null\n              },\n              {\n                \"account_id\": \"eG7pNLjknrFpWvP7Dkbdf3Pq6GVBPKTaQJK5v\",\n                \"amount\": -500,\n                \"date\": \"2023-03-29\",\n                \"iso_currency_code\": \"USD\",\n                \"original_description\": \"United Airlines **** REFUND ****\",\n                \"pending\": false,\n                \"transaction_id\": \"xG9jbv3eMoFWepzB7wQLT3LoLggX5Duy1Gbe5\",\n                \"unofficial_currency_code\": null\n              }\n            ],\n            \"type\": \"depository\"\n          }\n        ],\n        \"date_last_updated\": \"2023-03-30T18:25:26Z\",\n        \"institution_id\": \"ins_109508\",\n        \"institution_name\": \"First Platypus Bank\",\n        \"item_id\": \"AZMP7JrGXgtPd3AQMeg7hwMKgk5E8qU1V5ME7\"\n      }\n    ],\n    \"user\": {\n      \"client_user_id\": \"uid_40332\",\n      \"email\": \"abcharleston@example.com\",\n      \"first_name\": \"Anna\",\n      \"last_name\": \"Charleston\",\n      \"middle_name\": \"B\",\n      \"phone_number\": \"1-415-867-5309\",\n      \"ssn\": \"111-22-1234\"\n    }\n  },\n  \"request_id\": \"GVzMdiDd8DDAQK4\",\n  \"warnings\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfccc757-2afc-460a-afd3-fe5b5badc6bc",
+          "name": "Plaid Retrieve a PDF Asset Report",
+          "request": {
+            "name": "Plaid Retrieve a PDF Asset Report",
+            "description": {
+              "content": "The `/asset_report/pdf/get` endpoint retrieves the Asset Report in PDF format. Before calling `/asset_report/pdf/get`, you must first create the Asset Report using `/asset_report/create` (or filter an Asset Report using `/asset_report/filter`) and then wait for the [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook to fire, indicating that the Report is ready to be retrieved.\n\nThe response to `/asset_report/pdf/get` is the PDF binary data. The `request_id`  is returned in the `Plaid-Request-ID` header.\n\n[View a sample PDF Asset Report](https://plaid.com/documents/sample-asset-report.pdf).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "pdf",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a65f836-3aad-4693-929a-6d9437ae49de",
+              "name": "A PDF of the Asset Report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "pdf",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edd61a36-fb50-43b6-b875-ba1b7eaf0c16",
+          "name": "Plaid Refresh an Asset Report",
+          "request": {
+            "name": "Plaid Refresh an Asset Report",
+            "description": {
+              "content": "An Asset Report is an immutable snapshot of a user's assets. In order to \"refresh\" an Asset Report you created previously, you can use the `/asset_report/refresh` endpoint to create a new Asset Report based on the old one, but with the most recent data available.\n\nThe new Asset Report will contain the same Items as the original Report, as well as the same filters applied by any call to `/asset_report/filter`. By default, the new Asset Report will also use the same parameters you submitted with your original `/asset_report/create` request, but the original `days_requested` value and the values of any parameters in the `options` object can be overridden with new values. To change these arguments, simply supply new values for them in your request to `/asset_report/refresh`. Submit an empty string (\"\") for any previously-populated fields you would like set as empty.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0cf7980e-aab9-47dc-b4bd-322139e1c7c1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asset_report_id\": \"c33ebe8b-6a63-4d74-a83d-d39791231ac0\",\n  \"asset_report_token\": \"assets-sandbox-8218d5f8-6d6d-403d-92f5-13a9afaa4398\",\n  \"request_id\": \"NBZaq\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7633d294-7f03-4220-af2a-2a5110c4b220",
+          "name": "Plaid Filter Asset Report",
+          "request": {
+            "name": "Plaid Filter Asset Report",
+            "description": {
+              "content": "By default, an Asset Report will contain all of the accounts on a given Item. In some cases, you may not want the Asset Report to contain all accounts. For example, you might have the end user choose which accounts are relevant in Link using the Account Select view, which you can enable in the dashboard. Or, you might always exclude certain account types or subtypes, which you can identify by using the `/accounts/get` endpoint. To narrow an Asset Report to only a subset of accounts, use the `/asset_report/filter` endpoint.\n\nTo exclude certain Accounts from an Asset Report, first use the `/asset_report/create` endpoint to create the report, then send the `asset_report_token` along with a list of `account_ids` to exclude to the `/asset_report/filter` endpoint, to create a new Asset Report which contains only a subset of the original Asset Report's data.\n\nBecause Asset Reports are immutable, calling `/asset_report/filter` does not alter the original Asset Report in any way; rather, `/asset_report/filter` creates a new Asset Report with a new token and id. Asset Reports created via `/asset_report/filter` do not contain new Asset data, and are not billed.\n\nPlaid will fire a [`PRODUCT_READY`](https://plaid.com/docs/api/products/assets/#product_ready) webhook once generation of the filtered Asset Report has completed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c5f84ba0-0f99-47a7-8e92-9c886844c5a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asset_report_token\": \"assets-sandbox-bc410c6a-4653-4c75-985c-e757c3497c5c\",\n  \"asset_report_id\": \"fdc09207-0cef-4d88-b5eb-0d970758ebd9\",\n  \"request_id\": \"qEg07\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "465640d1-a896-4ccc-9bf2-36938458ef58",
+          "name": "Plaid Delete an Asset Report",
+          "request": {
+            "name": "Plaid Delete an Asset Report",
+            "description": {
+              "content": "The `/item/remove` endpoint allows you to invalidate an `access_token`, meaning you will not be able to create new Asset Reports with it. Removing an Item does not affect any Asset Reports or Audit Copies you have already created, which will remain accessible until you remove them specifically.\n\nThe `/asset_report/remove` endpoint allows you to remove access to an Asset Report. Removing an Asset Report invalidates its `asset_report_token`, meaning you will no longer be able to use it to access Report data or create new Audit Copies. Removing an Asset Report does not affect the underlying Items, but does invalidate any `audit_copy_tokens` associated with the Asset Report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f971e50a-181d-47fc-9b03-2a082994be6f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"removed\": true,\n  \"request_id\": \"I6zHN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ea0a1f2-7a8f-4162-9585-b18fda890e61",
+          "name": "Plaid Create Asset Report Audit Copy",
+          "request": {
+            "name": "Plaid Create Asset Report Audit Copy",
+            "description": {
+              "content": "Plaid can provide an Audit Copy of any Asset Report directly to a participating third party on your behalf. For example, Plaid can supply an Audit Copy directly to Fannie Mae on your behalf if you participate in the Day 1 Certainty™ program. An Audit Copy contains the same underlying data as the Asset Report.\n\nTo grant access to an Audit Copy, use the `/asset_report/audit_copy/create` endpoint to create an `audit_copy_token` and then pass that token to the third party who needs access. Each third party has its own `auditor_id`, for example `fannie_mae`. You’ll need to create a separate Audit Copy for each third party to whom you want to grant access to the Report.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "audit_copy",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d5d13c8-39e0-485f-8508-72624de6163e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "audit_copy",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"audit_copy_token\": \"a-sandbox-3TAU2CWVYBDVRHUCAAAI27ULU4\",\n  \"request_id\": \"Iam3b\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5971be38-126a-4f2a-8e44-90ec606794ee",
+          "name": "Plaid Retrieve an Asset Report Audit Copy",
+          "request": {
+            "name": "Plaid Retrieve an Asset Report Audit Copy",
+            "description": {
+              "content": "`/asset_report/audit_copy/get` allows auditors to get a copy of an Asset Report that was previously shared via the `/asset_report/audit_copy/create` endpoint.  The caller of `/asset_report/audit_copy/create` must provide the `audit_copy_token` to the auditor.  This token can then be used to call `/asset_report/audit_copy/create`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "audit_copy",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e058f18d-0bce-4280-81fc-38d5407f2435",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "audit_copy",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report\": {\n    \"value\": \"reference #/components/schemas/AssetReport not found in the OpenAPI spec\"\n  },\n  \"warnings\": [\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/Warning not found in the OpenAPI spec\"\n    }\n  ],\n  \"request_id\": {\n    \"value\": \"reference #/components/schemas/RequestID not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ceb28883-2586-4f43-badc-19a3da0fdd02",
+          "name": "Plaid Remove Asset Report Audit Copy",
+          "request": {
+            "name": "Plaid Remove Asset Report Audit Copy",
+            "description": {
+              "content": "The `/asset_report/audit_copy/remove` endpoint allows you to remove an Audit Copy. Removing an Audit Copy invalidates the `audit_copy_token` associated with it, meaning both you and any third parties holding the token will no longer be able to use it to access Report data. Items associated with the Asset Report, the Asset Report itself and other Audit Copies of it are not affected and will remain accessible after removing the given Audit Copy.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "asset_report",
+                "audit_copy",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4981f3bb-b918-42b4-9eb1-444821521ee8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "asset_report",
+                    "audit_copy",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"removed\": true,\n  \"request_id\": \"m8MDnv9okwxFNBV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af467452-58f7-4507-8d3c-14f60891461c",
+          "name": "Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.",
+          "request": {
+            "name": "Plaid Retrieve an Asset Report with Freddie Mac format. Only Freddie Mac can use this endpoint.",
+            "description": {
+              "content": "The `credit/asset_report/freddie_mac/get` endpoint retrieves the Asset Report in Freddie Mac's JSON format.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "asset_report",
+                "freddie_mac",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e810163-157c-491f-8fc2-47b1b2ead870",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "asset_report",
+                    "freddie_mac",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SchemaVersion\": 1,\n  \"DEAL\": {\n    \"LOANS\": {\n      \"LOAN\": {\n        \"LOAN_IDENTIFIERS\": {\n          \"LOAN_IDENTIFIER\": {\n            \"LoanIdentifier\": \"100016746\",\n            \"LoanIdentifierType\": \"LenderLoan\"\n          }\n        }\n      }\n    },\n    \"PARTIES\": {\n      \"PARTY\": [\n        {\n          \"INDIVIDUAL\": {\n            \"NAME\": {\n              \"FirstName\": \"John\",\n              \"LastName\": \"Deere\"\n            }\n          },\n          \"ROLES\": {\n            \"ROLE\": {\n              \"ROLE_DETAIL\": {\n                \"PartyRoleType\": \"Borrower\"\n              }\n            }\n          },\n          \"TAXPAYER_IDENTIFIERS\": {\n            \"TAXPAYER_IDENTIFIER\": {\n              \"TaxpayerIdentifierType\": \"SocialSecurityNumber\",\n              \"TaxpayerIdentifierValue\": \"123-45-6789\"\n            }\n          }\n        }\n      ]\n    },\n    \"SERVICES\": {\n      \"SERVICE\": {\n        \"VERIFICATION_OF_ASSET\": {\n          \"REPORTING_INFORMATION\": {\n            \"ReportingInformationIdentifier\": \"a-prod-kol4xb5y4nf2zecqalb2d55mze\"\n          },\n          \"SERVICE_PRODUCT_FULFILLMENT\": {\n            \"SERVICE_PRODUCT_FULFILLMENT_DETAIL\": {\n              \"VendorOrderIdentifier\": \"PLAID\",\n              \"ServiceProductFulfillmentIdentifier\": \"VOA\"\n            }\n          },\n          \"VERIFICATION_OF_ASSET_RESPONSE\": {\n            \"ASSETS\": {\n              \"ASSET\": [\n                {\n                  \"ASSET_DETAIL\": {\n                    \"AssetAccountIdentifier\": \"3847\",\n                    \"AssetUniqueIdentifier\": \"c251a55e-c503-471b-a3b1-11a9243bc189\",\n                    \"AssetAsOfDate\": \"2022-07-27\",\n                    \"AssetDescription\": \"Unlimited Cash Rewards Visa Signature\",\n                    \"AssetAvailableBalanceAmount\": 2073.99,\n                    \"AssetCurrentBalanceAmount\": 2007.09,\n                    \"AssetType\": \"Other\",\n                    \"AssetTypeAdditionalDescription\": \"credit card\",\n                    \"AssetDaysRequestedCount\": 61,\n                    \"AssetOwnershipType\": null\n                  },\n                  \"ASSET_OWNERS\": {\n                    \"ASSET_OWNER\": [\n                      {\n                        \"AssetOwnerText\": \"Alberta Bobbeth Charleson\"\n                      }\n                    ]\n                  },\n                  \"ASSET_HOLDER\": {\n                    \"NAME\": {\n                      \"FullName\": \"Wells Fargo\"\n                    }\n                  },\n                  \"ASSET_TRANSACTIONS\": {\n                    \"ASSET_TRANSACTION\": [\n                      {\n                        \"ASSET_TRANSACTION_DETAIL\": {\n                          \"AssetTransactionUniqueIdentifier\": \"7jagxo9Eq6cXPKM8eMNJUgeeNnbgQdSDw6zgN\",\n                          \"AssetTransactionAmount\": 34.43,\n                          \"AssetTransactionDate\": \"2022-07-19\",\n                          \"AssetTransactionPostDate\": \"2022-07-19\",\n                          \"AssetTransactionType\": \"Debit\",\n                          \"AssetTransactionPaidByName\": null,\n                          \"AssetTransactionTypeAdditionalDescription\": null,\n                          \"AssetTransactionCategoryType\": \"FoodDining\",\n                          \"FinancialInstitutionTransactionIdentifier\": null\n                        },\n                        \"ASSET_TRANSACTION_DESCRIPTON\": [\n                          {\n                            \"AssetTransactionDescription\": \"TONYS PIZZA NAPOLETANA SAN FRANCISCOCA\"\n                          }\n                        ]\n                      }\n                    ]\n                  },\n                  \"VALIDATION_SOURCES\": {\n                    \"VALIDATION_SOURCE\": [\n                      {\n                        \"ValidationSourceName\": \"\",\n                        \"ValidationSourceReferenceIdentifier\": \"\"\n                      }\n                    ]\n                  }\n                }\n              ]\n            }\n          }\n        },\n        \"STATUSES\": {\n          \"STATUS\": {\n            \"StatusCode\": \"success\",\n            \"StatusDescription\": null\n          }\n        }\n      }\n    }\n  },\n  \"request_id\": \"eYupqX1mZkEuQRx\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "89e732ef-19b8-4b81-aaef-94ca6aae57a8",
+    "name": "Plaid asset report/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

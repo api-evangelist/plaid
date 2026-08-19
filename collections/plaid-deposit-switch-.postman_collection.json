@@ -1,0 +1,408 @@
+{
+  "item": [
+    {
+      "id": "be940ebf-54d8-4363-8ea7-a1a7da4728f3",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96e0ff8f-793f-4d7e-ad97-83a59a61b24a",
+          "name": "Plaid Create a deposit switch",
+          "request": {
+            "name": "Plaid Create a deposit switch",
+            "description": {
+              "content": "This endpoint creates a deposit switch entity that will be persisted throughout the lifecycle of the switch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deposit_switch",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b638c68-8740-4e49-9f75-db412d26f7dd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deposit_switch",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deposit_switch_id\": \"c7jMwPPManIwy9rwMewWP7lpb4pKRbtrbMomp\",\n  \"request_id\": \"lMjeOeu9X1VUh1F\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "362ab941-b860-4b35-bf28-e34696970ce7",
+          "name": "Plaid Create a deposit switch token",
+          "request": {
+            "name": "Plaid Create a deposit switch token",
+            "description": {
+              "content": "In order for the end user to take action, you will need to create a public token representing the deposit switch. This token is used to initialize Link. It can be used one time and expires after 30 minutes.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deposit_switch",
+                "token",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73d98b83-e389-49a9-9306-b4221a43a6f0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deposit_switch",
+                    "token",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deposit_switch_token\": \"deposit-switch-sandbox-3e5cacca-10a6-11ea-bcdb-6003089acac0\",\n  \"deposit_switch_token_expiration_time\": \"2019-12-31T12:01:37Z\",\n  \"request_id\": \"68MvHx4Ub5NYoXt\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87a3ebf6-8198-4273-b2cc-cd7eabf400cf",
+          "name": "Plaid Retrieve a deposit switch",
+          "request": {
+            "name": "Plaid Retrieve a deposit switch",
+            "description": {
+              "content": "This endpoint returns information related to how the user has configured their payroll allocation and the state of the switch. You can use this information to build logic related to the user's direct deposit allocation preferences.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deposit_switch",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d975219f-37f1-42ff-8853-c91420aa6d9e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deposit_switch",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"target_item_id\": \"MdRAkq1QikR3BLjDyMfMkVpqLmEm1VR7bX5hE\",\n  \"target_account_id\": \"bX5hEMdRAkq1QikR3BLjDyMfMkVpqLmEm1VR7\",\n  \"deposit_switch_id\": \"LjDyMfMkVpqLmEm1VR7bQikR3BX5hEMdRAkq1\",\n  \"state\": \"completed\",\n  \"switch_method\": \"instant\",\n  \"date_created\": \"2019-11-01\",\n  \"date_completed\": \"2019-11-01\",\n  \"account_has_multiple_allocations\": true,\n  \"is_allocated_remainder\": false,\n  \"percent_allocated\": 50,\n  \"amount_allocated\": null,\n  \"employer_name\": \"COMPANY INC\",\n  \"employer_id\": \"pqLmEm1VR7bQi11231\",\n  \"institution_name\": \"Bank of America\",\n  \"institution_id\": \"ins_1\",\n  \"request_id\": \"lMjeOeu9X1VUh1F\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46b878eb-692d-4278-a6cb-f89b0e775e0f",
+          "name": "Create a deposit switch without using Plaid Exchange",
+          "request": {
+            "name": "Create a deposit switch without using Plaid Exchange",
+            "description": {
+              "content": "This endpoint provides an alternative to `/deposit_switch/create` for customers who have not yet fully integrated with Plaid Exchange. Like `/deposit_switch/create`, it creates a deposit switch entity that will be persisted throughout the lifecycle of the switch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deposit_switch",
+                "alt",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee3841f9-65f9-447d-936b-00cf9254c061",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deposit_switch",
+                    "alt",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deposit_switch_id\": \"c7jMwPPManIwy9rwMewWP7lpb4pKRbtrbMomp\",\n  \"request_id\": \"lMjeOeu9X1VUh1F\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "415730d9-5fe1-4939-b746-83134fc81cd4",
+    "name": "Plaid deposit switch/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

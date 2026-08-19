@@ -1,0 +1,1222 @@
+{
+  "item": [
+    {
+      "id": "bd724a4b-1446-401d-9018-071697f17ff2",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac46ba4d-487f-4e72-aff3-81c43dee5d3d",
+          "name": "Plaid Evaluate risk of a bank account",
+          "request": {
+            "name": "Plaid Evaluate risk of a bank account",
+            "description": {
+              "content": "Use `/beacon/account_risk/v1/evaluate` to get risk insights for a linked account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "account_risk",
+                "v1",
+                "evaluate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "030088cc-be98-4793-8a43-aeb89c9703aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "account_risk",
+                    "v1",
+                    "evaluate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"mbVr0axYMECQ07NJ5gXnHRM9DeD2RJCxm9roR\",\n      \"attributes\": {\n        \"days_since_first_plaid_connection\": 510,\n        \"plaid_connections_count_7d\": 6,\n        \"plaid_connections_count_30d\": 7,\n        \"total_plaid_connections_count\": 15\n      },\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"request_id\": \"mdqfuVxeoza6mhu\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a2dd44d-0402-4c85-9953-4813bd35b0f3",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "account_risk",
+                    "v1",
+                    "evaluate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 9995,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13f36170-875f-4898-9b10-58a3d4a2bf69",
+          "name": "Plaid Create a Beacon User",
+          "request": {
+            "name": "Plaid Create a Beacon User",
+            "description": {
+              "content": "Create and scan a Beacon User against your Beacon Program, according to your program's settings.\n\nWhen you submit a new user to `/beacon/user/create`, several checks are performed immediately:\n\n  - The user's PII (provided within the `user` object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.\n\n  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "user",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21498f20-57c9-4773-84e0-f410f59ac46a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "user",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becusr_42cF1MNo42r9Xj\",\n  \"version\": 1,\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"updated_at\": \"2020-07-24T03:26:02Z\",\n  \"status\": \"cleared\",\n  \"program_id\": \"becprg_11111111111111\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"user\": {\n    \"date_of_birth\": \"1990-05-29\",\n    \"name\": {\n      \"given_name\": \"Leslie\",\n      \"family_name\": \"Knope\"\n    },\n    \"address\": {\n      \"street\": \"123 Main St.\",\n      \"street2\": \"Unit 42\",\n      \"city\": \"Pawnee\",\n      \"region\": \"IN\",\n      \"postal_code\": \"46001\",\n      \"country\": \"US\"\n    },\n    \"email_address\": \"user@example.com\",\n    \"phone_number\": \"+19876543212\",\n    \"id_number\": {\n      \"value\": \"123456789\",\n      \"type\": \"us_ssn\"\n    },\n    \"ip_address\": \"192.0.2.42\"\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17012351-2bbb-4d3e-9aa4-1bffb186e3c6",
+          "name": "Plaid Get a Beacon User",
+          "request": {
+            "name": "Plaid Get a Beacon User",
+            "description": {
+              "content": "Fetch a Beacon User.\n\nThe Beacon User is returned with all of their associated information and a `status` based on the Beacon Network duplicate record and fraud checks.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "user",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "09330795-3c76-4db2-ae13-53f25dd1e281",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "user",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becusr_42cF1MNo42r9Xj\",\n  \"version\": 1,\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"updated_at\": \"2020-07-24T03:26:02Z\",\n  \"status\": \"cleared\",\n  \"program_id\": \"becprg_11111111111111\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"user\": {\n    \"date_of_birth\": \"1990-05-29\",\n    \"name\": {\n      \"given_name\": \"Leslie\",\n      \"family_name\": \"Knope\"\n    },\n    \"address\": {\n      \"street\": \"123 Main St.\",\n      \"street2\": \"Unit 42\",\n      \"city\": \"Pawnee\",\n      \"region\": \"IN\",\n      \"postal_code\": \"46001\",\n      \"country\": \"US\"\n    },\n    \"email_address\": \"user@example.com\",\n    \"phone_number\": \"+19876543212\",\n    \"id_number\": {\n      \"value\": \"123456789\",\n      \"type\": \"us_ssn\"\n    },\n    \"ip_address\": \"192.0.2.42\"\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f7a40e7-8ebe-479e-ab58-8ed13b8d0a02",
+          "name": "Plaid Review a Beacon User",
+          "request": {
+            "name": "Plaid Review a Beacon User",
+            "description": {
+              "content": "Update the status of a Beacon User.\n\nWhen updating a Beacon User's status via this endpoint, Plaid validates that the status change is consistent with the related state for this Beacon User. Specifically, we will check:\n\n1. Whether there are any associated Beacon Reports connected to the Beacon User, and\n2. Whether there are any confirmed Beacon Report Syndications connected to the Beacon User.\n\nWhen updating a Beacon User's status to \"rejected\", we enforce that either a Beacon Report has been created for the Beacon User or a Beacon Report Syndication has been confirmed.\nWhen updating a Beacon User's status to \"cleared\", we enforce that there are no active Beacon Reports or confirmed Beacon Report Syndications associated with the user. If you previously created a Beacon Report for this user, you must delete it before updating the Beacon User's status to \"cleared\".\nThere are no restrictions on updating a Beacon User's status to \"pending_review\".\n\nIf these conditions are not met, the request will be rejected with an error explaining the issue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "user",
+                "review"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "814b511e-67a4-468c-8f64-f18eba38946c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "user",
+                    "review"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becusr_42cF1MNo42r9Xj\",\n  \"version\": 1,\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"updated_at\": \"2020-07-24T03:26:02Z\",\n  \"status\": \"cleared\",\n  \"program_id\": \"becprg_11111111111111\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"user\": {\n    \"date_of_birth\": \"1990-05-29\",\n    \"name\": {\n      \"given_name\": \"Leslie\",\n      \"family_name\": \"Knope\"\n    },\n    \"address\": {\n      \"street\": \"123 Main St.\",\n      \"street2\": \"Unit 42\",\n      \"city\": \"Pawnee\",\n      \"region\": \"IN\",\n      \"postal_code\": \"46001\",\n      \"country\": \"US\"\n    },\n    \"email_address\": \"user@example.com\",\n    \"phone_number\": \"+19876543212\",\n    \"id_number\": {\n      \"value\": \"123456789\",\n      \"type\": \"us_ssn\"\n    },\n    \"ip_address\": \"192.0.2.42\"\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfdb871b-1dc4-45bb-a486-4e918d66e82d",
+          "name": "Plaid Create a Beacon Report",
+          "request": {
+            "name": "Plaid Create a Beacon Report",
+            "description": {
+              "content": "Create a fraud report for a given Beacon User.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "report",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "078f75f5-3830-45ce-8b9d-6c4abada2d16",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "report",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becrpt_11111111111111\",\n  \"beacon_user_id\": \"becusr_42cF1MNo42r9Xj\",\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"type\": \"first_party\",\n  \"fraud_date\": \"1990-05-29\",\n  \"fraud_amount\": {\n    \"iso_currency_code\": \"USD\",\n    \"value\": 100\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6abd647-ee28-44b0-bc5f-6f68c90bcddd",
+          "name": "Plaid List Beacon Reports for a Beacon User",
+          "request": {
+            "name": "Plaid List Beacon Reports for a Beacon User",
+            "description": {
+              "content": "Use the `/beacon/report/list` endpoint to view all Beacon Reports you created for a specific Beacon User. The reports returned by this endpoint are exclusively reports you created for a specific user. A Beacon User can only have one active report at a time, but a new report can be created if a previous report has been deleted. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the `next_cursor` value as the `cursor` parameter in the next request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "report",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26ff2c0d-f79c-484f-9b3c-abf2790b47dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "report",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"beacon_reports\": [\n    {\n      \"id\": \"becrpt_11111111111111\",\n      \"beacon_user_id\": \"becusr_42cF1MNo42r9Xj\",\n      \"created_at\": \"2020-07-24T03:26:02Z\",\n      \"type\": \"first_party\",\n      \"fraud_date\": \"1990-05-29\",\n      \"fraud_amount\": {\n        \"iso_currency_code\": \"USD\",\n        \"value\": 100\n      },\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4406a08-090e-4e74-ba0a-0a45f2f4307f",
+          "name": "Plaid List Beacon Report Syndications for a Beacon User",
+          "request": {
+            "name": "Plaid List Beacon Report Syndications for a Beacon User",
+            "description": {
+              "content": "Use the `/beacon/report_syndication/list` endpoint to view all Beacon Reports that have been syndicated to a specific Beacon User. This endpoint returns Beacon Report Syndications which are references to Beacon Reports created either by you, or another Beacon customer, that matched the specified Beacon User. A Beacon User can have multiple active Beacon Report Syndications at once. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of results that can be retrieved. To fetch the next page, pass the `next_cursor` value as the `cursor` parameter in the next request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "report_syndication",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40ed6ac8-fc26-4353-8581-0ed91d4372d4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "report_syndication",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"beacon_report_syndications\": [\n    {\n      \"id\": \"becrsn_11111111111111\",\n      \"report\": {\n        \"id\": \"becrpt_11111111111111\",\n        \"created_at\": \"2020-07-24T03:26:02Z\",\n        \"type\": \"first_party\",\n        \"fraud_date\": \"1990-05-29\"\n      },\n      \"analysis\": {\n        \"address\": \"match\",\n        \"date_of_birth\": \"match\",\n        \"email_address\": \"match\",\n        \"name\": \"match\",\n        \"id_number\": \"match\",\n        \"ip_address\": \"match\",\n        \"phone_number\": \"match\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bcd3c82-8c64-49be-b74b-5a437c460b8f",
+          "name": "Plaid Get a Beacon Report",
+          "request": {
+            "name": "Plaid Get a Beacon Report",
+            "description": {
+              "content": "Returns a Beacon report for a given Beacon report id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "report",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "494b32e0-5b92-4c63-9b3f-53f60a951f2d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "report",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becrpt_11111111111111\",\n  \"beacon_user_id\": \"becusr_42cF1MNo42r9Xj\",\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"type\": \"first_party\",\n  \"fraud_date\": \"1990-05-29\",\n  \"fraud_amount\": {\n    \"iso_currency_code\": \"USD\",\n    \"value\": 100\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "325b26e4-880b-4a95-b859-e05deac9405d",
+          "name": "Plaid Get a Beacon Report Syndication",
+          "request": {
+            "name": "Plaid Get a Beacon Report Syndication",
+            "description": {
+              "content": "Returns a Beacon Report Syndication for a given Beacon Report Syndication id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "report_syndication",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "30f0fe1e-3eea-484a-b3a7-5cd5574f564e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "report_syndication",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becrsn_11111111111111\",\n  \"report\": {\n    \"id\": \"becrpt_11111111111111\",\n    \"created_at\": \"2020-07-24T03:26:02Z\",\n    \"type\": \"first_party\",\n    \"fraud_date\": \"1990-05-29\"\n  },\n  \"analysis\": {\n    \"address\": \"match\",\n    \"date_of_birth\": \"match\",\n    \"email_address\": \"match\",\n    \"name\": \"match\",\n    \"id_number\": \"match\",\n    \"ip_address\": \"match\",\n    \"phone_number\": \"match\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65c7ed6f-a66e-4e90-8a3a-e4e7b68f1171",
+          "name": "Plaid Update the identity data of a Beacon User",
+          "request": {
+            "name": "Plaid Update the identity data of a Beacon User",
+            "description": {
+              "content": "Update the identity data for a Beacon User in your Beacon Program.\n\nSimilar to `/beacon/user/create`, several checks are performed immediately when you submit a change to `/beacon/user/update`:\n\n  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's updated PII is also searched against all fraud reports created by your organization across all of your Beacon Programs. If the user's data matches a fraud report that your team created, the user will be returned with a status of `rejected`.\n\n  - Finally, the user's PII is searched against all fraud report shared with the Beacon Network by other companies. If a matching fraud report is found, the user will be returned with a `pending_review` status if your program has enabled automatic flagging based on network fraud.\n\nPlaid maintains a version history for each Beacon User, so the Beacon User's identity data before and after the update is retained as separate versions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "user",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc90bb50-0280-46df-af66-2eb967e30cee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "user",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becusr_42cF1MNo42r9Xj\",\n  \"version\": 1,\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"updated_at\": \"2020-07-24T03:26:02Z\",\n  \"status\": \"cleared\",\n  \"program_id\": \"becprg_11111111111111\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"user\": {\n    \"date_of_birth\": \"1990-05-29\",\n    \"name\": {\n      \"given_name\": \"Leslie\",\n      \"family_name\": \"Knope\"\n    },\n    \"address\": {\n      \"street\": \"123 Main St.\",\n      \"street2\": \"Unit 42\",\n      \"city\": \"Pawnee\",\n      \"region\": \"IN\",\n      \"postal_code\": \"46001\",\n      \"country\": \"US\"\n    },\n    \"email_address\": \"user@example.com\",\n    \"phone_number\": \"+19876543212\",\n    \"id_number\": {\n      \"value\": \"123456789\",\n      \"type\": \"us_ssn\"\n    },\n    \"ip_address\": \"192.0.2.42\"\n  },\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adaf4bd0-8974-4a34-aef2-360e6a047ac6",
+          "name": "Plaid Get a Beacon Duplicate",
+          "request": {
+            "name": "Plaid Get a Beacon Duplicate",
+            "description": {
+              "content": "Returns a Beacon Duplicate for a given Beacon Duplicate id.\n\nA Beacon Duplicate represents a pair of similar Beacon Users within your organization.\n\nTwo Beacon User revisions are returned for each Duplicate record in either the `beacon_user1` or `beacon_user2` response fields.\n\nThe `analysis` field in the response indicates which fields matched between `beacon_user1` and `beacon_user2`.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "duplicate",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "738e3847-d64b-402d-94db-856fba81c80d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "duplicate",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"becdup_11111111111111\",\n  \"beacon_user1\": {\n    \"id\": \"becusr_42cF1MNo42r9Xj\",\n    \"version\": 1\n  },\n  \"beacon_user2\": {\n    \"id\": \"becusr_42cF1MNo42r9Xj\",\n    \"version\": 1\n  },\n  \"analysis\": {\n    \"address\": \"match\",\n    \"date_of_birth\": \"match\",\n    \"email_address\": \"match\",\n    \"name\": \"match\",\n    \"id_number\": \"match\",\n    \"ip_address\": \"match\",\n    \"phone_number\": \"match\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "102b3fd2-48ac-44aa-a1b1-995de27a6c82",
+          "name": "Plaid List a Beacon User's history",
+          "request": {
+            "name": "Plaid List a Beacon User's history",
+            "description": {
+              "content": "List all changes to the Beacon User in reverse-chronological order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "beacon",
+                "user",
+                "history",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "99414c1b-75f3-464b-8d4b-69035d505929",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "beacon",
+                    "user",
+                    "history",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"beacon_users\": [\n    {\n      \"id\": \"becusr_42cF1MNo42r9Xj\",\n      \"version\": 1,\n      \"created_at\": \"2020-07-24T03:26:02Z\",\n      \"updated_at\": \"2020-07-24T03:26:02Z\",\n      \"status\": \"cleared\",\n      \"program_id\": \"becprg_11111111111111\",\n      \"client_user_id\": \"your-db-id-3b24110\",\n      \"user\": {\n        \"date_of_birth\": \"1990-05-29\",\n        \"name\": {\n          \"given_name\": \"Leslie\",\n          \"family_name\": \"Knope\"\n        },\n        \"address\": {\n          \"street\": \"123 Main St.\",\n          \"street2\": \"Unit 42\",\n          \"city\": \"Pawnee\",\n          \"region\": \"IN\",\n          \"postal_code\": \"46001\",\n          \"country\": \"US\"\n        },\n        \"email_address\": \"user@example.com\",\n        \"phone_number\": \"+19876543212\",\n        \"id_number\": {\n          \"value\": \"123456789\",\n          \"type\": \"us_ssn\"\n        },\n        \"ip_address\": \"192.0.2.42\"\n      },\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "20eb1205-5edd-4f00-8a7a-c254cdf9b325",
+    "name": "Plaid beacon/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1956 @@
+{
+  "item": [
+    {
+      "id": "c51ec2c3-cda5-47fd-ad03-758198f05391",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c756d626-7ccf-48f9-941c-0988cf8b5170",
+          "name": "Plaid Create a watchlist screening for an entity",
+          "request": {
+            "name": "Plaid Create a watchlist screening for an entity",
+            "description": {
+              "content": "Create a new entity watchlist screening to check your customer against watchlists defined in the associated entity watchlist program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e27de7c-6d3c-4e54-83c4-59459cdc40d4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"entscr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"entity_watchlist_program_id\": \"entprg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Al-Qaida\",\n    \"document_number\": \"C31195855\",\n    \"email_address\": \"user@example.com\",\n    \"country\": \"US\",\n    \"phone_number\": \"+14025671234\",\n    \"url\": \"https://example.com\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dc3d319-00cd-4ac5-8619-32b613769d69",
+          "name": "Plaid Get an entity screening",
+          "request": {
+            "name": "Plaid Get an entity screening",
+            "description": {
+              "content": "Retrieve an entity watchlist screening.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b52694c-8ffe-40ef-a601-324525dd6e8d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"entscr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"entity_watchlist_program_id\": \"entprg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Al-Qaida\",\n    \"document_number\": \"C31195855\",\n    \"email_address\": \"user@example.com\",\n    \"country\": \"US\",\n    \"phone_number\": \"+14025671234\",\n    \"url\": \"https://example.com\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44f172a8-4ae9-4ad6-ac5a-32d2b9c4ea5b",
+          "name": "Plaid List history for entity watchlist screenings",
+          "request": {
+            "name": "Plaid List history for entity watchlist screenings",
+            "description": {
+              "content": "List all changes to the entity watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "history",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31a77c71-73f8-4b99-986b-f6ad87934b0a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "history",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_watchlist_screenings\": [\n    {\n      \"id\": \"entscr_52xR9LKo77r1Np\",\n      \"search_terms\": {\n        \"entity_watchlist_program_id\": \"entprg_2eRPsDnL66rZ7H\",\n        \"legal_name\": \"Al-Qaida\",\n        \"document_number\": \"C31195855\",\n        \"email_address\": \"user@example.com\",\n        \"country\": \"US\",\n        \"phone_number\": \"+14025671234\",\n        \"url\": \"https://example.com\",\n        \"version\": 1\n      },\n      \"assignee\": \"54350110fedcbaf01234ffee\",\n      \"status\": \"cleared\",\n      \"client_user_id\": \"your-db-id-3b24110\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0778c65f-798d-42d2-8792-4ad3242d2f5a",
+          "name": "Plaid List hits for entity watchlist screenings",
+          "request": {
+            "name": "Plaid List hits for entity watchlist screenings",
+            "description": {
+              "content": "List all hits for the entity watchlist screening.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "hit",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d64c835-54b4-48fc-9edd-829d48bd6113",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "hit",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_watchlist_screening_hits\": [\n    {\n      \"id\": \"enthit_52xR9LKo77r1Np\",\n      \"review_status\": \"pending_review\",\n      \"first_active\": \"2020-07-24T03:26:02Z\",\n      \"inactive_since\": \"2020-07-24T03:26:02Z\",\n      \"historical_since\": \"2020-07-24T03:26:02Z\",\n      \"list_code\": \"EU_CON\",\n      \"plaid_uid\": \"uid_3NggckTimGSJHS\",\n      \"source_uid\": \"26192ABC\",\n      \"analysis\": {\n        \"documents\": \"match\",\n        \"email_addresses\": \"match\",\n        \"locations\": \"match\",\n        \"names\": \"match\",\n        \"phone_numbers\": \"match\",\n        \"urls\": \"match\",\n        \"search_terms_version\": 1\n      },\n      \"data\": {\n        \"documents\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"type\": \"swift\",\n              \"number\": \"C31195855\"\n            }\n          }\n        ],\n        \"email_addresses\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"email_address\": \"user@example.com\"\n            }\n          }\n        ],\n        \"locations\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"full\": \"Florida, US\",\n              \"country\": \"US\"\n            }\n          }\n        ],\n        \"names\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"full\": \"Al Qaida\",\n              \"is_primary\": false,\n              \"weak_alias_determination\": \"none\"\n            }\n          }\n        ],\n        \"phone_numbers\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"type\": \"phone\",\n              \"phone_number\": \"+14025671234\"\n            }\n          }\n        ],\n        \"urls\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"url\": \"https://example.com\"\n            }\n          }\n        ]\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "730f8116-8a0b-4cfe-b134-be1662c62374",
+          "name": "Plaid List entity watchlist screenings",
+          "request": {
+            "name": "Plaid List entity watchlist screenings",
+            "description": {
+              "content": "List all entity screenings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7fe34594-29e1-4312-80e8-9e06a20dffd2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_watchlist_screenings\": [\n    {\n      \"id\": \"entscr_52xR9LKo77r1Np\",\n      \"search_terms\": {\n        \"entity_watchlist_program_id\": \"entprg_2eRPsDnL66rZ7H\",\n        \"legal_name\": \"Al-Qaida\",\n        \"document_number\": \"C31195855\",\n        \"email_address\": \"user@example.com\",\n        \"country\": \"US\",\n        \"phone_number\": \"+14025671234\",\n        \"url\": \"https://example.com\",\n        \"version\": 1\n      },\n      \"assignee\": \"54350110fedcbaf01234ffee\",\n      \"status\": \"cleared\",\n      \"client_user_id\": \"your-db-id-3b24110\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6205f0f2-9964-4ad9-bc3c-0af3fdba4969",
+          "name": "Plaid Get entity watchlist screening program",
+          "request": {
+            "name": "Plaid Get entity watchlist screening program",
+            "description": {
+              "content": "Get an entity watchlist screening program",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "program",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "506470cc-008d-4cbb-80a1-c004d081a0d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "program",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"entprg_2eRPsDnL66rZ7H\",\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"is_rescanning_enabled\": true,\n  \"lists_enabled\": [\n    \"EU_CON\"\n  ],\n  \"name\": \"Sample Program\",\n  \"name_sensitivity\": \"balanced\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"is_archived\": false,\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b23f36b9-a7ae-46d6-ade9-c3f7c6e15a94",
+          "name": "Plaid List entity watchlist screening programs",
+          "request": {
+            "name": "Plaid List entity watchlist screening programs",
+            "description": {
+              "content": "List all entity watchlist screening programs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "program",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9b40c1e-8ac3-46ec-8f68-ed954fed939b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "program",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_watchlist_programs\": [\n    {\n      \"id\": \"entprg_2eRPsDnL66rZ7H\",\n      \"created_at\": \"2020-07-24T03:26:02Z\",\n      \"is_rescanning_enabled\": true,\n      \"lists_enabled\": [\n        \"EU_CON\"\n      ],\n      \"name\": \"Sample Program\",\n      \"name_sensitivity\": \"balanced\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      },\n      \"is_archived\": false\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d238dd39-cdb3-45f8-b205-db608dbbd377",
+          "name": "Plaid Create a review for an entity watchlist screening",
+          "request": {
+            "name": "Plaid Create a review for an entity watchlist screening",
+            "description": {
+              "content": "Create a review for an entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "review",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe22f2f1-c036-483d-916a-16d06bcd46a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "review",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"entrev_aCLNRxK3UVzn2r\",\n  \"confirmed_hits\": [\n    \"enthit_52xR9LKo77r1Np\"\n  ],\n  \"dismissed_hits\": [\n    \"enthit_52xR9LKo77r1Np\"\n  ],\n  \"comment\": \"These look like legitimate matches, rejecting the customer.\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "416d7863-b75a-4fa6-9d8d-197be405cfe4",
+          "name": "Plaid List reviews for entity watchlist screenings",
+          "request": {
+            "name": "Plaid List reviews for entity watchlist screenings",
+            "description": {
+              "content": "List all reviews for a particular entity watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "review",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74f392fd-e261-4c6b-bab7-f83b3bf63d83",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "review",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entity_watchlist_screening_reviews\": [\n    {\n      \"id\": \"entrev_aCLNRxK3UVzn2r\",\n      \"confirmed_hits\": [\n        \"enthit_52xR9LKo77r1Np\"\n      ],\n      \"dismissed_hits\": [\n        \"enthit_52xR9LKo77r1Np\"\n      ],\n      \"comment\": \"These look like legitimate matches, rejecting the customer.\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e07d84be-a2fa-4974-a15f-894dade33895",
+          "name": "Plaid Update an entity screening",
+          "request": {
+            "name": "Plaid Update an entity screening",
+            "description": {
+              "content": "Update an entity watchlist screening.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "entity",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fe1a436-6244-4f7d-979b-eef9c361eb76",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "entity",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"entscr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"entity_watchlist_program_id\": \"entprg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Al-Qaida\",\n    \"document_number\": \"C31195855\",\n    \"email_address\": \"user@example.com\",\n    \"country\": \"US\",\n    \"phone_number\": \"+14025671234\",\n    \"url\": \"https://example.com\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bbb77bf-d4a1-4cfa-9608-4536f2f02be4",
+          "name": "Plaid Create a watchlist screening for a person",
+          "request": {
+            "name": "Plaid Create a watchlist screening for a person",
+            "description": {
+              "content": "Create a new Watchlist Screening to check your customer against watchlists defined in the associated Watchlist Program. If your associated program has ongoing screening enabled, this is the profile information that will be used to monitor your customer over time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64205d60-e3e1-4174-a15d-c87e383e5c50",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"scr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"watchlist_program_id\": \"prg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Aleksey Potemkin\",\n    \"date_of_birth\": \"1990-05-29\",\n    \"document_number\": \"C31195855\",\n    \"country\": \"US\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e2218c4-9492-4235-b9a0-18779ed31a4b",
+          "name": "Plaid Retrieve an individual watchlist screening",
+          "request": {
+            "name": "Plaid Retrieve an individual watchlist screening",
+            "description": {
+              "content": "Retrieve a previously created individual watchlist screening",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f94fc4dc-c9c6-4fbe-86e9-279081b5a232",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"scr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"watchlist_program_id\": \"prg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Aleksey Potemkin\",\n    \"date_of_birth\": \"1990-05-29\",\n    \"document_number\": \"C31195855\",\n    \"country\": \"US\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2eaa5d5d-a959-4101-bede-1f6cb14c6329",
+          "name": "Plaid List history for individual watchlist screenings",
+          "request": {
+            "name": "Plaid List history for individual watchlist screenings",
+            "description": {
+              "content": "List all changes to the individual watchlist screening in reverse-chronological order. If the watchlist screening has not been edited, no history will be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "history",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ddd9290d-505d-445d-98e6-b85ba260953c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "history",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"watchlist_screenings\": [\n    {\n      \"id\": \"scr_52xR9LKo77r1Np\",\n      \"search_terms\": {\n        \"watchlist_program_id\": \"prg_2eRPsDnL66rZ7H\",\n        \"legal_name\": \"Aleksey Potemkin\",\n        \"date_of_birth\": \"1990-05-29\",\n        \"document_number\": \"C31195855\",\n        \"country\": \"US\",\n        \"version\": 1\n      },\n      \"assignee\": \"54350110fedcbaf01234ffee\",\n      \"status\": \"cleared\",\n      \"client_user_id\": \"your-db-id-3b24110\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e044f35-5901-4793-8c12-705a6fa364d0",
+          "name": "Plaid List hits for individual watchlist screening",
+          "request": {
+            "name": "Plaid List hits for individual watchlist screening",
+            "description": {
+              "content": "List all hits found by Plaid for a particular individual watchlist screening.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "hit",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0100df9-df7a-4003-a608-a5fbf5674566",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "hit",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"watchlist_screening_hits\": [\n    {\n      \"id\": \"scrhit_52xR9LKo77r1Np\",\n      \"review_status\": \"pending_review\",\n      \"first_active\": \"2020-07-24T03:26:02Z\",\n      \"inactive_since\": \"2020-07-24T03:26:02Z\",\n      \"historical_since\": \"2020-07-24T03:26:02Z\",\n      \"list_code\": \"US_SDN\",\n      \"plaid_uid\": \"uid_3NggckTimGSJHS\",\n      \"source_uid\": \"26192ABC\",\n      \"analysis\": {\n        \"dates_of_birth\": \"match\",\n        \"documents\": \"match\",\n        \"locations\": \"match\",\n        \"names\": \"match\",\n        \"search_terms_version\": 1\n      },\n      \"data\": {\n        \"dates_of_birth\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"beginning\": \"1990-05-29\",\n              \"ending\": \"1990-05-29\"\n            }\n          }\n        ],\n        \"documents\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"type\": \"passport\",\n              \"number\": \"C31195855\"\n            }\n          }\n        ],\n        \"locations\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"full\": \"Florida, US\",\n              \"country\": \"US\"\n            }\n          }\n        ],\n        \"names\": [\n          {\n            \"analysis\": {\n              \"summary\": \"match\"\n            },\n            \"data\": {\n              \"full\": \"Aleksey Potemkin\",\n              \"is_primary\": false,\n              \"weak_alias_determination\": \"none\"\n            }\n          }\n        ]\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93ffb7b6-cb36-4239-9522-39ef886fde91",
+          "name": "Plaid List Individual Watchlist Screenings",
+          "request": {
+            "name": "Plaid List Individual Watchlist Screenings",
+            "description": {
+              "content": "List previously created watchlist screenings for individuals",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e58c943-c908-482f-a654-69eac10714eb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"watchlist_screenings\": [\n    {\n      \"id\": \"scr_52xR9LKo77r1Np\",\n      \"search_terms\": {\n        \"watchlist_program_id\": \"prg_2eRPsDnL66rZ7H\",\n        \"legal_name\": \"Aleksey Potemkin\",\n        \"date_of_birth\": \"1990-05-29\",\n        \"document_number\": \"C31195855\",\n        \"country\": \"US\",\n        \"version\": 1\n      },\n      \"assignee\": \"54350110fedcbaf01234ffee\",\n      \"status\": \"cleared\",\n      \"client_user_id\": \"your-db-id-3b24110\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be8e96ec-ad63-436c-abd1-84f60eae2289",
+          "name": "Plaid Get individual watchlist screening program",
+          "request": {
+            "name": "Plaid Get individual watchlist screening program",
+            "description": {
+              "content": "Get an individual watchlist screening program",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "program",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7215990-8a4a-4ca3-a85d-59557a3e7fcd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "program",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"prg_2eRPsDnL66rZ7H\",\n  \"created_at\": \"2020-07-24T03:26:02Z\",\n  \"is_rescanning_enabled\": true,\n  \"lists_enabled\": [\n    \"US_SDN\"\n  ],\n  \"name\": \"Sample Program\",\n  \"name_sensitivity\": \"balanced\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"is_archived\": false,\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34884890-dcc7-4341-9919-ee36bf8242ec",
+          "name": "Plaid List individual watchlist screening programs",
+          "request": {
+            "name": "Plaid List individual watchlist screening programs",
+            "description": {
+              "content": "List all individual watchlist screening programs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "program",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "550f1864-08fa-4101-919f-f116424f7d2b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "program",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"watchlist_programs\": [\n    {\n      \"id\": \"prg_2eRPsDnL66rZ7H\",\n      \"created_at\": \"2020-07-24T03:26:02Z\",\n      \"is_rescanning_enabled\": true,\n      \"lists_enabled\": [\n        \"US_SDN\"\n      ],\n      \"name\": \"Sample Program\",\n      \"name_sensitivity\": \"balanced\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      },\n      \"is_archived\": false\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da7ffa07-62dd-4bc7-8ae5-ae683a05c80a",
+          "name": "Plaid Create a review for an individual watchlist screening",
+          "request": {
+            "name": "Plaid Create a review for an individual watchlist screening",
+            "description": {
+              "content": "Create a review for the individual watchlist screening. Reviews are compliance reports created by users in your organization regarding the relevance of potential hits found by Plaid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "review",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76358b11-f258-472d-bd40-894b36dd2fec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "review",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"rev_aCLNRxK3UVzn2r\",\n  \"confirmed_hits\": [\n    \"scrhit_52xR9LKo77r1Np\"\n  ],\n  \"dismissed_hits\": [\n    \"scrhit_52xR9LKo77r1Np\"\n  ],\n  \"comment\": \"These look like legitimate matches, rejecting the customer.\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64005929-6bdf-472a-b1cf-3968d30fc11f",
+          "name": "Plaid List reviews for individual watchlist screenings",
+          "request": {
+            "name": "Plaid List reviews for individual watchlist screenings",
+            "description": {
+              "content": "List all reviews for the individual watchlist screening.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "review",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80ef6fe2-fc06-46c5-8572-4d6f86e819d8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "review",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"watchlist_screening_reviews\": [\n    {\n      \"id\": \"rev_aCLNRxK3UVzn2r\",\n      \"confirmed_hits\": [\n        \"scrhit_52xR9LKo77r1Np\"\n      ],\n      \"dismissed_hits\": [\n        \"scrhit_52xR9LKo77r1Np\"\n      ],\n      \"comment\": \"These look like legitimate matches, rejecting the customer.\",\n      \"audit_trail\": {\n        \"source\": \"dashboard\",\n        \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n        \"timestamp\": \"2020-07-24T03:26:02Z\"\n      }\n    }\n  ],\n  \"next_cursor\": \"eyJkaXJlY3Rpb24iOiJuZXh0Iiwib2Zmc2V0IjoiMTU5NDM\",\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70618e49-0cac-433b-b3ec-227b99cedaab",
+          "name": "Plaid Update individual watchlist screening",
+          "request": {
+            "name": "Plaid Update individual watchlist screening",
+            "description": {
+              "content": "Update a specific individual watchlist screening. This endpoint can be used to add additional customer information, correct outdated information, add a reference id, assign the individual to a reviewer, and update which program it is associated with. Please note that you may not update `search_terms` and `status` at the same time since editing `search_terms` may trigger an automatic `status` change.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlist_screening",
+                "individual",
+                "update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d0ffd53-0e35-45c9-9022-aea339a97c64",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlist_screening",
+                    "individual",
+                    "update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"scr_52xR9LKo77r1Np\",\n  \"search_terms\": {\n    \"watchlist_program_id\": \"prg_2eRPsDnL66rZ7H\",\n    \"legal_name\": \"Aleksey Potemkin\",\n    \"date_of_birth\": \"1990-05-29\",\n    \"document_number\": \"C31195855\",\n    \"country\": \"US\",\n    \"version\": 1\n  },\n  \"assignee\": \"54350110fedcbaf01234ffee\",\n  \"status\": \"cleared\",\n  \"client_user_id\": \"your-db-id-3b24110\",\n  \"audit_trail\": {\n    \"source\": \"dashboard\",\n    \"dashboard_user_id\": \"54350110fedcbaf01234ffee\",\n    \"timestamp\": \"2020-07-24T03:26:02Z\"\n  },\n  \"request_id\": \"saKrIBuEB9qJZng\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ee6269ab-d3b4-4f69-a16f-ce11e0630b41",
+    "name": "Plaid watchlist screening/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "item": [
+    {
+      "id": "4a29c9c8-4802-485f-9069-19fdcfbdc5eb",
+      "name": "Plaid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff8a63eb-d0da-4087-8a34-2105f14bbe18",
+          "name": "Plaid Retrieve identity data",
+          "request": {
+            "name": "Plaid Retrieve identity data",
+            "description": {
+              "content": "The `/identity/get` endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses. Only name data is guaranteed to be returned; other fields will be empty arrays if not provided by the institution.\n\nThis request may take some time to complete if identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.\n\nNote: In API versions 2018-05-22 and earlier, the `owners` object is not returned, and instead identity information is returned in the top level `identity` object. For more details, see [Plaid API versioning](https://plaid.com/docs/api/versioning/#version-2019-05-29).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identity",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0a824bb2-b34a-46ef-8677-643fa1d85cf7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"owners\": [\n        {\n          \"addresses\": [\n            {\n              \"data\": {\n                \"city\": \"Malakoff\",\n                \"country\": \"US\",\n                \"postal_code\": \"14236\",\n                \"region\": \"NY\",\n                \"street\": \"2992 Cameron Road\"\n              },\n              \"primary\": true\n            },\n            {\n              \"data\": {\n                \"city\": \"San Matias\",\n                \"country\": \"US\",\n                \"postal_code\": \"93405-2255\",\n                \"region\": \"CA\",\n                \"street\": \"2493 Leisure Lane\"\n              },\n              \"primary\": false\n            }\n          ],\n          \"emails\": [\n            {\n              \"data\": \"accountholder0@example.com\",\n              \"primary\": true,\n              \"type\": \"primary\"\n            },\n            {\n              \"data\": \"accountholder1@example.com\",\n              \"primary\": false,\n              \"type\": \"secondary\"\n            },\n            {\n              \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n              \"primary\": false,\n              \"type\": \"other\"\n            }\n          ],\n          \"names\": [\n            \"Alberta Bobbeth Charleson\"\n          ],\n          \"phone_numbers\": [\n            {\n              \"data\": \"1112223333\",\n              \"primary\": false,\n              \"type\": \"home\"\n            },\n            {\n              \"data\": \"1112224444\",\n              \"primary\": false,\n              \"type\": \"work\"\n            },\n            {\n              \"data\": \"1112225555\",\n              \"primary\": false,\n              \"type\": \"mobile\"\n            }\n          ]\n        }\n      ],\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr\",\n      \"balances\": {\n        \"available\": 200,\n        \"current\": 210,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"1111\",\n      \"name\": \"Plaid Saving\",\n      \"official_name\": \"Plaid Silver Standard 0.1% Interest Saving\",\n      \"owners\": [\n        {\n          \"addresses\": [\n            {\n              \"data\": {\n                \"city\": \"Malakoff\",\n                \"country\": \"US\",\n                \"postal_code\": \"14236\",\n                \"region\": \"NY\",\n                \"street\": \"2992 Cameron Road\"\n              },\n              \"primary\": true\n            },\n            {\n              \"data\": {\n                \"city\": \"San Matias\",\n                \"country\": \"US\",\n                \"postal_code\": \"93405-2255\",\n                \"region\": \"CA\",\n                \"street\": \"2493 Leisure Lane\"\n              },\n              \"primary\": false\n            }\n          ],\n          \"emails\": [\n            {\n              \"data\": \"accountholder0@example.com\",\n              \"primary\": true,\n              \"type\": \"primary\"\n            },\n            {\n              \"data\": \"accountholder1@example.com\",\n              \"primary\": false,\n              \"type\": \"secondary\"\n            },\n            {\n              \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n              \"primary\": false,\n              \"type\": \"other\"\n            }\n          ],\n          \"names\": [\n            \"Alberta Bobbeth Charleson\"\n          ],\n          \"phone_numbers\": [\n            {\n              \"data\": \"1112223333\",\n              \"primary\": false,\n              \"type\": \"home\"\n            },\n            {\n              \"data\": \"1112224444\",\n              \"primary\": false,\n              \"type\": \"work\"\n            },\n            {\n              \"data\": \"1112225555\",\n              \"primary\": false,\n              \"type\": \"mobile\"\n            }\n          ]\n        }\n      ],\n      \"subtype\": \"savings\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"identity\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"3nARps6TOYtbACO\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0300c265-d7ce-4817-959a-052bdeee9908",
+          "name": "Plaid Returns uploaded document identity",
+          "request": {
+            "name": "Plaid Returns uploaded document identity",
+            "description": {
+              "content": "Use `/identity/documents/uploads/get` to retrieve document uploaded identity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identity",
+                "documents",
+                "uploads",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "baf64c85-073b-4736-8142-cc1a3267877f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "documents",
+                    "uploads",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": 100,\n        \"current\": 110,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"owners\": [\n        {\n          \"addresses\": [\n            {\n              \"data\": {\n                \"city\": \"Malakoff\",\n                \"country\": \"US\",\n                \"postal_code\": \"14236\",\n                \"region\": \"NY\",\n                \"street\": \"2992 Cameron Road\"\n              },\n              \"primary\": true\n            },\n            {\n              \"data\": {\n                \"city\": \"San Matias\",\n                \"country\": \"US\",\n                \"postal_code\": \"93405-2255\",\n                \"region\": \"CA\",\n                \"street\": \"2493 Leisure Lane\"\n              },\n              \"primary\": false\n            }\n          ],\n          \"emails\": [\n            {\n              \"data\": \"accountholder0@example.com\",\n              \"primary\": true,\n              \"type\": \"primary\"\n            },\n            {\n              \"data\": \"accountholder1@example.com\",\n              \"primary\": false,\n              \"type\": \"secondary\"\n            },\n            {\n              \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n              \"primary\": false,\n              \"type\": \"other\"\n            }\n          ],\n          \"names\": [\n            \"Alberta Bobbeth Charleson\"\n          ],\n          \"phone_numbers\": [\n            {\n              \"data\": \"1112223333\",\n              \"primary\": false,\n              \"type\": \"home\"\n            },\n            {\n              \"data\": \"1112224444\",\n              \"primary\": false,\n              \"type\": \"work\"\n            },\n            {\n              \"data\": \"1112225555\",\n              \"primary\": false,\n              \"type\": \"mobile\"\n            }\n          ]\n        }\n      ],\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr\",\n      \"balances\": {\n        \"available\": 200,\n        \"current\": 210,\n        \"iso_currency_code\": \"USD\",\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"1111\",\n      \"name\": \"Plaid Saving\",\n      \"official_name\": \"Plaid Silver Standard 0.1% Interest Saving\",\n      \"owners\": [\n        {\n          \"addresses\": [\n            {\n              \"data\": {\n                \"city\": \"Malakoff\",\n                \"country\": \"US\",\n                \"postal_code\": \"14236\",\n                \"region\": \"NY\",\n                \"street\": \"2992 Cameron Road\"\n              },\n              \"primary\": true\n            },\n            {\n              \"data\": {\n                \"city\": \"San Matias\",\n                \"country\": \"US\",\n                \"postal_code\": \"93405-2255\",\n                \"region\": \"CA\",\n                \"street\": \"2493 Leisure Lane\"\n              },\n              \"primary\": false\n            }\n          ],\n          \"emails\": [\n            {\n              \"data\": \"accountholder0@example.com\",\n              \"primary\": true,\n              \"type\": \"primary\"\n            },\n            {\n              \"data\": \"accountholder1@example.com\",\n              \"primary\": false,\n              \"type\": \"secondary\"\n            },\n            {\n              \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n              \"primary\": false,\n              \"type\": \"other\"\n            }\n          ],\n          \"names\": [\n            \"Alberta Bobbeth Charleson\"\n          ],\n          \"phone_numbers\": [\n            {\n              \"data\": \"1112223333\",\n              \"primary\": false,\n              \"type\": \"home\"\n            },\n            {\n              \"data\": \"1112224444\",\n              \"primary\": false,\n              \"type\": \"work\"\n            },\n            {\n              \"data\": \"1112225555\",\n              \"primary\": false,\n              \"type\": \"mobile\"\n            }\n          ]\n        }\n      ],\n      \"subtype\": \"savings\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"identity\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"3nARps6TOYtbACO\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7ab97d5-cf48-4a19-bfcf-fb721843107d",
+          "name": "Plaid Retrieve identity match score",
+          "request": {
+            "name": "Plaid Retrieve identity match score",
+            "description": {
+              "content": "The `/identity/match` endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.\n\nFields within the `balances` object will always be null when retrieved by `/identity/match`. Instead, use the free `/accounts/get` endpoint to request balance cached data, or `/accounts/balance/get` for real-time data.\n\nThis request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identity",
+                "match"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8fce1266-20ca-40a5-a057-ffb15580bc92",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "match"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts\": [\n    {\n      \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": null,\n        \"iso_currency_code\": null,\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"0000\",\n      \"name\": \"Plaid Checking\",\n      \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n      \"legal_name\": {\n        \"score\": 90,\n        \"is_nickname_match\": true,\n        \"is_first_name_or_last_name_match\": true,\n        \"is_business_name_detected\": false\n      },\n      \"phone_number\": {\n        \"score\": 100\n      },\n      \"email_address\": {\n        \"score\": 100\n      },\n      \"address\": {\n        \"score\": 100,\n        \"is_postal_code_match\": true\n      },\n      \"subtype\": \"checking\",\n      \"type\": \"depository\"\n    },\n    {\n      \"account_id\": \"3gE5gnRzNyfXpBK5wEEKcymJ5albGVUqg77gr\",\n      \"balances\": {\n        \"available\": null,\n        \"current\": null,\n        \"iso_currency_code\": null,\n        \"limit\": null,\n        \"unofficial_currency_code\": null\n      },\n      \"mask\": \"1111\",\n      \"name\": \"Plaid Saving\",\n      \"official_name\": \"Plaid Silver Standard 0.1% Interest Saving\",\n      \"legal_name\": {\n        \"score\": 30,\n        \"is_first_name_or_last_name_match\": false\n      },\n      \"phone_number\": {\n        \"score\": 100\n      },\n      \"email_address\": null,\n      \"address\": {\n        \"score\": 100,\n        \"is_postal_code_match\": true\n      },\n      \"subtype\": \"savings\",\n      \"type\": \"depository\"\n    }\n  ],\n  \"item\": {\n    \"available_products\": [\n      \"balance\",\n      \"investments\"\n    ],\n    \"billed_products\": [\n      \"assets\",\n      \"auth\",\n      \"identity\",\n      \"liabilities\",\n      \"transactions\"\n    ],\n    \"consent_expiration_time\": null,\n    \"error\": null,\n    \"institution_id\": \"ins_3\",\n    \"item_id\": \"eVBnVMp7zdTJLkRNr33Rs6zr7KNJqBFL9DrE6\",\n    \"update_type\": \"background\",\n    \"webhook\": \"https://www.genericwebhookurl.com/webhook\"\n  },\n  \"request_id\": \"3nARps6TOYtbACO\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc19d126-7c93-4d69-bf1a-57b0ab1f634e",
+          "name": "Plaid Refresh identity data",
+          "request": {
+            "name": "Plaid Refresh identity data",
+            "description": {
+              "content": "`/identity/refresh` is an optional endpoint for users of the Identity product. It initiates an on-demand extraction to fetch the most up to date Identity information from the Financial Institution. This on-demand extraction takes place in addition to the periodic extractions that automatically occur for any Identity-enabled Item. If changes to Identity are discovered after calling `/identity/refresh`, Plaid will fire a webhook [`DEFAULT_UPDATE`](https://plaid.com/docs/api/products/identity/#default_update).\n\nAs this endpoint triggers a synchronous request for fresh data, latency may be higher than for other Plaid endpoints (typically less than 10 seconds, but occasionally up to 30 seconds or more); if you encounter errors, you may find it necessary to adjust your timeout period when making requests.\n\n`/identity/refresh` is offered as an add-on to Identity and has a separate [fee model](/docs/account/billing/#per-request-flat-fee). To request access to this endpoint, submit a [product access request](https://dashboard.plaid.com/team/products) or contact your Plaid account manager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "identity",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9da16037-7744-4535-8c26-e3b7b041538d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request_id\": \"1vwmF5TBQwiqfwP\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff77ccf8-24f1-4d5c-beb7-56b5b3b74635",
+              "name": "Error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_type\": {\n    \"value\": \"reference #/components/schemas/PlaidErrorType not found in the OpenAPI spec\"\n  },\n  \"error_code\": \"string\",\n  \"error_message\": \"string\",\n  \"display_message\": \"string\",\n  \"request_id\": \"string\",\n  \"status\": 3688,\n  \"documentation_url\": \"string\",\n  \"suggested_action\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e73963ae-104f-415a-bed2-276e3a3c5a68",
+          "name": "Plaid Retrieve Identity data",
+          "request": {
+            "name": "Plaid Retrieve Identity data",
+            "description": {
+              "content": "The `/processor/identity/get` endpoint allows you to retrieve various account holder information on file with the financial institution, including names, emails, phone numbers, and addresses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "identity",
+                "get"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44d8a214-9a2a-4e7e-b0cf-72819e6cddd4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "identity",
+                    "get"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"XMGPJy4q1gsQoKd5z9R3tK8kJ9EWL8SdkgKMq\",\n    \"balances\": {\n      \"available\": 100,\n      \"current\": 110,\n      \"iso_currency_code\": \"USD\",\n      \"limit\": null,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"0000\",\n    \"name\": \"Plaid Checking\",\n    \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n    \"owners\": [\n      {\n        \"addresses\": [\n          {\n            \"data\": {\n              \"city\": \"Malakoff\",\n              \"country\": \"US\",\n              \"postal_code\": \"14236\",\n              \"region\": \"NY\",\n              \"street\": \"2992 Cameron Road\"\n            },\n            \"primary\": true\n          },\n          {\n            \"data\": {\n              \"city\": \"San Matias\",\n              \"country\": \"US\",\n              \"postal_code\": \"93405-2255\",\n              \"region\": \"CA\",\n              \"street\": \"2493 Leisure Lane\"\n            },\n            \"primary\": false\n          }\n        ],\n        \"emails\": [\n          {\n            \"data\": \"accountholder0@example.com\",\n            \"primary\": true,\n            \"type\": \"primary\"\n          },\n          {\n            \"data\": \"accountholder1@example.com\",\n            \"primary\": false,\n            \"type\": \"secondary\"\n          },\n          {\n            \"data\": \"extraordinarily.long.email.username.123456@reallylonghostname.com\",\n            \"primary\": false,\n            \"type\": \"other\"\n          }\n        ],\n        \"names\": [\n          \"Alberta Bobbeth Charleson\"\n        ],\n        \"phone_numbers\": [\n          {\n            \"data\": \"1112223333\",\n            \"primary\": false,\n            \"type\": \"home\"\n          },\n          {\n            \"data\": \"1112224444\",\n            \"primary\": false,\n            \"type\": \"work\"\n          },\n          {\n            \"data\": \"1112225555\",\n            \"primary\": false,\n            \"type\": \"mobile1\"\n          }\n        ]\n      }\n    ],\n    \"subtype\": \"checking\",\n    \"type\": \"depository\"\n  },\n  \"request_id\": \"eOPkBl6t33veI2J\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a2d317f-fcf4-4cdb-8427-1b911339388c",
+          "name": "Plaid Retrieve identity match score",
+          "request": {
+            "name": "Plaid Retrieve identity match score",
+            "description": {
+              "content": "The `/processor/identity/match` endpoint generates a match score, which indicates how well the provided identity data matches the identity information on file with the account holder's financial institution.\n\nFields within the `balances` object will always be null when retrieved by `/identity/match`. Instead, use the free `/accounts/get` endpoint to request balance cached data, or `/accounts/balance/get` for real-time data.\n\nThis request may take some time to complete if Identity was not specified as an initial product when creating the Item. This is because Plaid must communicate directly with the institution to retrieve the data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "processor",
+                "identity",
+                "match"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2210e728-8b89-47c8-8cda-4ab5102e7086",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processor",
+                    "identity",
+                    "match"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account\": {\n    \"account_id\": \"BxBXxLj1m4HMXBm9WZZmCWVbPjX16EHwv99vp\",\n    \"balances\": {\n      \"available\": null,\n      \"current\": null,\n      \"iso_currency_code\": null,\n      \"limit\": null,\n      \"unofficial_currency_code\": null\n    },\n    \"mask\": \"0000\",\n    \"name\": \"Plaid Checking\",\n    \"official_name\": \"Plaid Gold Standard 0% Interest Checking\",\n    \"legal_name\": {\n      \"score\": 90,\n      \"is_nickname_match\": true,\n      \"is_first_name_or_last_name_match\": true,\n      \"is_business_name_detected\": false\n    },\n    \"phone_number\": {\n      \"score\": 100\n    },\n    \"email_address\": {\n      \"score\": 100\n    },\n    \"address\": {\n      \"score\": 100,\n      \"is_postal_code_match\": true\n    },\n    \"subtype\": \"checking\",\n    \"type\": \"depository\"\n  },\n  \"request_id\": \"3nARps6TOYtbACO\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://production.plaid.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "521797ed-2178-4fba-954f-befb21b27dab",
+    "name": "Plaid identity/",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Needs description.\n\nContact Support:\n Name: Plaid Developer Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid wallet/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Create an e-wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an e-wallet. The response is the newly created e-wallet object."
+        },
+        {
+          "info": {
+            "name": "Plaid Fetch an e-wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch an e-wallet. The response includes the current balance."
+        },
+        {
+          "info": {
+            "name": "Plaid Fetch a list of e-wallets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint lists all e-wallets in descending order of creation."
+        },
+        {
+          "info": {
+            "name": "Plaid Execute a transaction using an e-wallet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/transaction/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute a transaction using the specified e-wallet.\nSpecify the e-wallet to debit from, the counterparty to credit to, the idempotency key to prevent duplicate transactions, the amount and reference for the transaction.\nTransactions will settle in seconds to several days, depending on the underlying payment rail."
+        },
+        {
+          "info": {
+            "name": "Plaid Fetch an e-wallet transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/transaction/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch a specific e-wallet transaction"
+        },
+        {
+          "info": {
+            "name": "Plaid List e-wallet transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/wallet/transaction/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint lists the latest transactions of the specified e-wallet. Transactions are returned in descending order by the `created_at` time."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

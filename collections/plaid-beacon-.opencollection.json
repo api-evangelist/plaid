@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid beacon/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Evaluate risk of a bank account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/account_risk/v1/evaluate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use `/beacon/account_risk/v1/evaluate` to get risk insights for a linked account."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/user/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create and scan a Beacon User against your Beacon Program, according to your program's settings.\n\nWhen you submit a new user to `/beacon/user/create`, several checks are performed immediately:\n\n  - The user's PII (provided within the `user` object) is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's PII "
+        },
+        {
+          "info": {
+            "name": "Plaid Get a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/user/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch a Beacon User.\n\nThe Beacon User is returned with all of their associated information and a `status` based on the Beacon Network duplicate record and fraud checks.\n"
+        },
+        {
+          "info": {
+            "name": "Plaid Review a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/user/review",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a Beacon User.\n\nWhen updating a Beacon User's status via this endpoint, Plaid validates that the status change is consistent with the related state for this Beacon User. Specifically, we will check:\n\n1. Whether there are any associated Beacon Reports connected to the Beacon User, and\n2. Whether there are any confirmed Beacon Report Syndications connected to the Beacon User.\n\nWhen updating a Beacon User's status to \"rejected\", we enforce that either a Beacon Report has been c"
+        },
+        {
+          "info": {
+            "name": "Plaid Create a Beacon Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/report/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a fraud report for a given Beacon User."
+        },
+        {
+          "info": {
+            "name": "Plaid List Beacon Reports for a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/report/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/beacon/report/list` endpoint to view all Beacon Reports you created for a specific Beacon User. The reports returned by this endpoint are exclusively reports you created for a specific user. A Beacon User can only have one active report at a time, but a new report can be created if a previous report has been deleted. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of results that can be retrieved. To fetch the next page, "
+        },
+        {
+          "info": {
+            "name": "Plaid List Beacon Report Syndications for a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/report_syndication/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use the `/beacon/report_syndication/list` endpoint to view all Beacon Reports that have been syndicated to a specific Beacon User. This endpoint returns Beacon Report Syndications which are references to Beacon Reports created either by you, or another Beacon customer, that matched the specified Beacon User. A Beacon User can have multiple active Beacon Report Syndications at once. The results from this endpoint are paginated; the `next_cursor` field will be populated if there is another page of"
+        },
+        {
+          "info": {
+            "name": "Plaid Get a Beacon Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/report/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a Beacon report for a given Beacon report id."
+        },
+        {
+          "info": {
+            "name": "Plaid Get a Beacon Report Syndication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/report_syndication/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a Beacon Report Syndication for a given Beacon Report Syndication id."
+        },
+        {
+          "info": {
+            "name": "Plaid Update the identity data of a Beacon User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/user/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the identity data for a Beacon User in your Beacon Program.\n\nSimilar to `/beacon/user/create`, several checks are performed immediately when you submit a change to `/beacon/user/update`:\n\n  - The user's updated PII is searched against all other users within the Beacon Program you specified. If a match is found that violates your program's \"Duplicate Information Filtering\" settings, the user will be returned with a status of `pending_review`.\n\n  - The user's updated PII is also searched ag"
+        },
+        {
+          "info": {
+            "name": "Plaid Get a Beacon Duplicate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/duplicate/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a Beacon Duplicate for a given Beacon Duplicate id.\n\nA Beacon Duplicate represents a pair of similar Beacon Users within your organization.\n\nTwo Beacon User revisions are returned for each Duplicate record in either the `beacon_user1` or `beacon_user2` response fields.\n\nThe `analysis` field in the response indicates which fields matched between `beacon_user1` and `beacon_user2`.\n"
+        },
+        {
+          "info": {
+            "name": "Plaid List a Beacon User's history",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/beacon/user/history/list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List all changes to the Beacon User in reverse-chronological order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

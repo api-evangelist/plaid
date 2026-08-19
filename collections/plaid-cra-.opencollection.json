@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plaid cra/",
+    "version": "2020-09-14_1.517.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plaid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plaid Retrieve a Base Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/base_report/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows the customer to retrieve a Base Report. Customers should pass in the `user_token` created in `/link/token/create`."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a Base Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/base_report/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows the customer to create a Base Report by passing in a user token. The Base Report will be generated based on the most recently linked item from the user token."
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve information from the bank accounts used for income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/bank_income/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/bank_income/get` returns the bank income report(s) for a specified user."
+        },
+        {
+          "info": {
+            "name": "Plaid Create a CRA report for income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/bank_income/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/bank_income/create` creates a CRA report for income verification"
+        },
+        {
+          "info": {
+            "name": "Plaid Retrieve cash flow insights from the bank accounts used for income verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/partner_insights/get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/partner_insights/get` returns cash flow insights for a specified user."
+        },
+        {
+          "info": {
+            "name": "Plaid Register loan applications and decisions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/loans/applications/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/loans/applications/register` registers loan applications and decisions."
+        },
+        {
+          "info": {
+            "name": "Plaid Register a list of loans to their applicants.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/loans/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/loans/register` registers a list of loans to their applicants."
+        },
+        {
+          "info": {
+            "name": "Plaid Updates loan data.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/loans/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/loans/update` updates loan information such as the status and payment history."
+        },
+        {
+          "info": {
+            "name": "Plaid Unregister a list of loans.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://production.plaid.com/cra/loans/unregister",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "`/cra/loans/unregister` indicates the loans have reached a final status and no further updates are expected."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
