@@ -61,6 +61,15 @@ apis:
   humanURL: https://plaid.com/docs/auth/
   baseURL: https://production.plaid.com
   tags:
+  - Authentication
+  - ACH
+  - Account Verification
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Auth
   - ACH
   - Account Verification
@@ -84,6 +93,15 @@ apis:
   humanURL: https://plaid.com/docs/balance/
   baseURL: https://production.plaid.com
   tags:
+  - Balances
+  - Account
+  - Real-Time
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Balance
   - Accounts
   - Real-Time
@@ -274,6 +292,15 @@ apis:
   humanURL: https://plaid.com/docs/transactions/
   baseURL: https://production.plaid.com
   tags:
+  - Transaction
+  - Categorization
+  - Sync
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Transactions
   - Categorization
   - Sync
@@ -297,6 +324,15 @@ apis:
   humanURL: https://plaid.com/docs/transactions/
   baseURL: https://production.plaid.com
   tags:
+  - Categories
+  - Transaction
+  - Taxonomy
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Categories
   - Transactions
   - Taxonomy
@@ -556,6 +592,15 @@ apis:
   baseURL: https://production.plaid.com
   tags:
   - Virtual Accounts
+  - Wallets
+  - E-Wallet
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
+  - Virtual Accounts
   - Wallet
   - e-Wallet
   - Financial
@@ -579,6 +624,15 @@ apis:
   humanURL: https://plaid.com/docs/api/institutions/
   baseURL: https://production.plaid.com
   tags:
+  - institutions
+  - Coverage
+  - Metadata
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Institutions
   - Coverage
   - Metadata
@@ -625,6 +679,15 @@ apis:
   humanURL: https://plaid.com/docs/link/
   baseURL: https://production.plaid.com
   tags:
+  - Link
+  - Authentication
+  - Onboarding UI
+  - Financial
+  - Fintech
+  - Open Banking
+  - Data Aggregation
+  - United States
+  tags_raw:
   - Link
   - OAuth
   - Onboarding UI
