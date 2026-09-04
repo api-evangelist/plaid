@@ -34,16 +34,18 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: paid
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Paid · Self-serve signup
+  label: Paid
   confidence: high
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  - sandbox
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/plaid.png
 score: 1200
@@ -204,8 +206,9 @@ common:
   url: conventions/plaid-conventions.yml
 - type: AsyncAPI
   url: asyncapi/plaid-webhooks--asyncapi-original.yml
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/plaid-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: ToolCrosswalk
   url: mcp/plaid-tool-crosswalk.yml
 - type: AgentSkills
