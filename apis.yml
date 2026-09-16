@@ -50,11 +50,11 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/plaid.png
 score: 1200
 created: '2024-07-07T00:00:00.000Z'
-modified: '2026-07-23'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: plaid:plaid-plaid-api
-  name: Plaid Plaid API
+  name: Plaid API
   description: The Plaid API from Plaid — 256 operation(s) for plaid.
   humanURL: https://plaid.com/docs/auth/
   baseURL: https://production.plaid.com
@@ -208,7 +208,10 @@ common:
   url: asyncapi/plaid-webhooks--asyncapi-original.yml
 - type: X-MCPServerCandidate
   url: mcp/plaid-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: ToolCrosswalk
   url: mcp/plaid-tool-crosswalk.yml
 - type: AgentSkills
