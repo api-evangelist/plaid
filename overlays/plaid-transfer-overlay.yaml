@@ -2,8 +2,8 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for Plaid Transfer
   version: 1.0.0
-generated: '2026-07-23'
-method: generated
+x-generated: '2026-07-23'
+x-method: generated
 extends: openapi/plaid-transfer--openapi.yml
 actions:
   - target: $.info
