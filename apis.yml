@@ -13,6 +13,14 @@ description: Plaid is a US financial-technology company and data-network aggrega
   for data providers, positioning it for CFPB 1033 open-banking rules.
 kind: company
 tags:
+- Finance
+- Fintech
+- Open Banking
+- Bank Accounts
+- Data Aggregation
+- Payments
+- United States
+tags_raw:
 - Financial
 - Fintech
 - Open Banking
