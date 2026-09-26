@@ -1,0 +1,24 @@
+generated: '2026-09-23'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://plaid.com/docs/api/webhooks/index.html.md
+sources:
+- https://plaid.com/docs/api/webhooks/index.html.md
+- https://plaid.com/docs/api/webhooks/webhook-verification/index.html.md
+- https://plaid.com/docs/errors/check-report-webhook/index.html.md
+- https://plaid.com/docs/identity-verification/webhooks/index.html.md
+description: Plaid webhooks provide push notifications for changes to Items and asynchronous processes. Specific Identity Verification events
+  can be subscribed to.
+events:
+- event: STEP_UPDATED
+  description: The user has started the Identity Verification session and is on the first step (or subsequent steps).
+- event: STATUS_UPDATED
+  description: The user has reached a terminal state for their Identity Verification session.
+- event: RETRIED
+  description: A retry has been requested for this user, either via the dashboard or via API.
+delivery:
+  signature: Plaid-Verification header containing a JWT signed with ES256
+  content_type: application/json POST payload
+note: Verification of the JWT is optional; Plaid provides a webhook verification key via /webhook_verification_key/get to validate the signature
+  and payload hash.
+docs: https://plaid.com/docs/api/webhooks/index.html.md

@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Plaid Core Exchange (FDX)
+  version: 1.0.0
+x-generated: '2026-09-23'
+x-method: generated
+x-source:
+  - openapi/plaid-core-exchange-openapi.yml
+  - conformance/plaid-conformance.yml
+  - authentication/plaid-authentication.yml
+  - lifecycle/plaid-lifecycle.yml
+extends: ../openapi/_original/plaid-core-exchange-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 4
+      x-apievangelist-standard:
+        family: FDX
+        name: Financial Data Exchange API
+        version: '6.4'
+        source: https://raw.githubusercontent.com/plaid/core-exchange/main/versions/6.4/corex.yaml
+        detail: conformance/plaid-conformance.yml
+      x-apievangelist-conformance: conformance/plaid-conformance.yml
+      x-apievangelist-authentication: authentication/plaid-authentication.yml
+      x-apievangelist-lifecycle: lifecycle/plaid-lifecycle.yml
+      x-apievangelist-docs: https://plaid.com/core-exchange/docs/reference/
+      x-apievangelist-source-repo: https://github.com/plaid/core-exchange
+      x-apievangelist-scope: >-
+        Plaid's implementation of the FDX Core Exchange contract. It is a
+        provider-side API that data-recipient partners call to fetch consented
+        end-user financial data; it does NOT replace the primary Plaid API.

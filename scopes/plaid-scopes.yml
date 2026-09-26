@@ -1,0 +1,51 @@
+generated: '2026-09-23'
+method: derived
+source: openapi/plaid-core-exchange-openapi.yml, openapi/plaid-plaid-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/plaid-core-exchange-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.your-organization.com/authorize
+    tokenUrl: https://www.your-organization.com/token
+  description: 'This API uses an [OAuth 2.0 authorization code flow](https://plaid.com/core-exchange/docs/authentication/oauth-flow)
+    and accepts the resulting access token as a bearer token. For example, `curl -H ''Authorization:
+    Bearer <ACCESS&#95;TOKEN>''`.'
+- name: oauth2
+  source: openapi/plaid-plaid-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.plaid.com/oauth2/apiv2/token
+  description: The Plaid API supports client credentials, authorization code, and custom delegation
+    flows.
+scopes:
+- scope: Account
+  description: (optional) Read account data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/plaid-core-exchange-openapi.yml
+- scope: Customer
+  description: (optional) Read customer data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/plaid-core-exchange-openapi.yml
+- scope: Transactions
+  description: (optional) Read transaction data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/plaid-core-exchange-openapi.yml
+- scope: cra:read
+  description: Read CRA report data.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/plaid-plaid-api-openapi.yml
+- scope: user:write
+  description: Write user data.
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/plaid-plaid-api-openapi.yml

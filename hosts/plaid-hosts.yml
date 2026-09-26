@@ -1,0 +1,216 @@
+generated: '2026-09-23'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 16
+  own: 11
+  other_domain: 1
+  platform: 4
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - sandbox
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: api.plaid.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: api
+  relation: own
+- host: api.your-organization.com
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: your-organization.com
+  role: api
+  relation: other-domain
+- host: dashboard.plaid.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Login
+  - SignUp
+  serves: []
+  registrable_domain: plaid.com
+  role: identity
+  relation: own
+- host: development.plaid.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: other
+  relation: own
+- host: docs.plaid.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: Home | Plaid Docs
+  status: 200
+  registrable_domain: plaid.com
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  - OpenAPISource
+  - CoreExchangeFDX
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: my.plaid.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: other
+  relation: own
+- host: plaid.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Security
+  - Newsroom
+  - GettingStarted
+  - Website
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - Blog
+  - BlogRSS
+  - Pricing
+  - TermsOfService
+  - PrivacyPolicy
+  - Support
+  - Quickstarts
+  - Sandbox
+  - ErrorCodes
+  - Libraries
+  - Versions
+  - PostmanCollection
+  - Webhooks
+  - LlmsText
+  - DeprecationPolicy
+  serves:
+  - docs
+  - cdn
+  vendor: cloudfront
+  registrable_domain: plaid.com
+  role: website
+  relation: own
+- host: production.plaid.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: plaid.com
+  role: other
+  relation: own
+- host: sandbox.plaid.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: sandbox
+  relation: own
+- host: security.plaid.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: other
+  relation: own
+- host: status.plaid.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - hosting
+  - status-page
+  vendor: vercel
+  registrable_domain: plaid.com
+  role: status
+  relation: own
+- host: support.plaid.com
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: plaid.com
+  role: support
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.postman.com
+  found_by:
+  - pointer
+  types:
+  - PostmanWorkspace
+  serves: []
+  registrable_domain: postman.com
+  role: other
+  relation: platform
+- host: x.com
+  found_by:
+  - pointer
+  types:
+  - Twitter
+  serves: []
+  registrable_domain: x.com
+  role: other
+  relation: platform

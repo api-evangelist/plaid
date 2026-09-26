@@ -1,62 +1,150 @@
-generated: '2026-07-23'
+generated: '2026-09-23'
 method: derived
 source:
   - mcp/plaid-mcp.yml
-  - openapi/
+  - https://plaid.com/docs/resources/mcp/
+  - https://github.com/plaid/ai-coding-toolkit/tree/main/sandbox
+  - openapi/plaid-plaid-api-openapi.yml
 description: >-
-  Crosswalk binding each candidate MCP tool (mcp/plaid-mcp.yml) to its backing
-  Plaid OpenAPI operationId, so every tool inherits a REAL inputSchema from the
-  spec instead of a guessed one. Plaid publishes no hosted MCP server and no
-  native public GraphQL endpoint (graphql/ holds a conceptual SDL only), so the
-  MCP surface is 1:1 derived from REST — no mcp_only tools exist, and the vast
-  remainder of Plaid's ~300 REST operations are rest_only (no candidate tool).
+  Crosswalk binding every tool Plaid officially advertises on its two MCP
+  servers to its backing operationId(s) in the public Plaid OpenAPI where such
+  a backing operation exists. Plaid's Dashboard MCP tools are Dashboard-scoped
+  (Link analytics, product usage, team listing, Item debugging) and are NOT
+  fronted by any public REST endpoint — they are marked mcp_only. Two Sandbox
+  MCP tools DO front real REST calls (get_sandbox_access_token wraps sandbox
+  public-token creation + item exchange; simulate_webhook wraps the
+  sandbox*FireWebhook family) and are bound accordingly. Plaid publishes no
+  native GraphQL API. Confidence is high where the mapping is a documented 1:1
+  wrap, medium where the tool composes multiple operations, and n/a for
+  mcp_only tools with no REST equivalent.
 surfaces:
   openapi:
-    path: openapi/
-    operations_total: ~300
+    path: openapi/plaid-plaid-api-openapi.yml
+    operations_total: 351
     gated: false
   graphql:
     endpoint: null
-    note: conceptual SDL only (graphql/plaid-schema.graphql); not a live introspectable endpoint
+    note: Plaid publishes no native GraphQL API (graphql/plaid-schema.graphql is a conceptual SDL only).
     gated: n/a
   mcp:
-    url: null
-    note: candidate surface derived from REST; no live tools/list to introspect
-    gated: n/a
+    dashboard_url: https://api.dashboard.plaid.com/mcp/
+    dashboard_gated: true
+    dashboard_gated_note: requires Plaid Production access + OAuth token with mcp:dashboard scope
+    sandbox_stdio: uvx mcp-server-plaid
+    sandbox_gated: true
+    sandbox_gated_note: requires Plaid Sandbox client_id + secret
 crosswalk:
-  - {tool: link_token_create, category: link, rest: [linkTokenCreate], binding: rest, confidence: high}
-  - {tool: item_public_token_exchange, category: item, rest: [itemPublicTokenExchange], binding: rest, confidence: high}
-  - {tool: accounts_get, category: accounts, rest: [accountsGet], binding: rest, confidence: high}
-  - {tool: accounts_balance_get, category: accounts, rest: [accountsBalanceGet], binding: rest, confidence: high}
-  - {tool: auth_get, category: auth, rest: [authGet], binding: rest, confidence: high}
-  - {tool: identity_get, category: identity, rest: [identityGet], binding: rest, confidence: high}
-  - {tool: identity_match, category: identity, rest: [identityMatch], binding: rest, confidence: high}
-  - {tool: transactions_sync, category: transactions, rest: [transactionsSync], binding: rest, confidence: high}
-  - {tool: transactions_get, category: transactions, rest: [transactionsGet], binding: rest, confidence: high}
-  - {tool: transfer_authorization_create, category: transfer, rest: [transferAuthorizationCreate], binding: rest, confidence: high}
-  - {tool: transfer_create, category: transfer, rest: [transferCreate], binding: rest, confidence: high}
-  - {tool: signal_evaluate, category: signal, rest: [signalEvaluate], binding: rest, confidence: high}
-  - {tool: asset_report_create, category: assets, rest: [assetReportCreate], binding: rest, confidence: high}
-  - {tool: item_get, category: item, rest: [itemGet], binding: rest, confidence: high}
-mcp_only: []
+  # ---- Dashboard MCP server (remote, mcp:dashboard scope) ----
+  - tool: plaid_debug_item
+    category: dashboard-diagnostics
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: >-
+      Diagnoses an Item using Dashboard-internal metadata (item logs, latest
+      errors, Link session, institution health). There is no equivalent
+      single-call public REST endpoint; the closest public operation is
+      itemGet, but plaid_debug_item returns Dashboard-only signals.
+  - tool: plaid_get_link_analytics
+    category: dashboard-analytics
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Link funnel + conversion metrics are Dashboard-only; no public REST equivalent.
+  - tool: plaid_get_tools_introduction
+    category: mcp-meta
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Returns usage guidance for the Dashboard MCP tools; MCP-server metadata.
+  - tool: plaid_get_usages
+    category: dashboard-analytics
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Product-usage / request-volume metrics are Dashboard-only.
+  - tool: plaid_list_teams
+    category: dashboard-admin
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Lists teams the OAuth token can act on; Dashboard-only.
+  # ---- Sandbox MCP server (local stdio, sandbox client_id + secret) ----
+  - tool: search_documentation
+    category: docs-search
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Full-text search of plaid.com/docs (llms.txt index); no REST endpoint.
+  - tool: get_mock_data_prompt
+    category: dev-tooling
+    rest: []
+    binding: mcp_only
+    confidence: high
+    note: Returns a prompt template for generating mock financial data; local tool, no REST.
+  - tool: get_sandbox_access_token
+    category: sandbox-lifecycle
+    rest:
+      - sandboxPublicTokenCreate
+      - itemPublicTokenExchange
+    binding: composite
+    confidence: high
+    note: >-
+      Wraps the documented Sandbox onboarding pair: create a public_token with
+      /sandbox/public_token/create then exchange it via /item/public_token/exchange.
+  - tool: simulate_webhook
+    category: sandbox-lifecycle
+    rest:
+      - sandboxItemFireWebhook
+      - sandboxUserFireWebhook
+      - sandboxTransferFireWebhook
+    binding: composite
+    confidence: medium
+    note: >-
+      Fans out to the sandbox *FireWebhook family depending on the requested
+      webhook_type; the exact operation is selected by the tool at runtime.
+mcp_only:
+  - tool: plaid_debug_item
+    reason: Dashboard-scoped diagnostic; no public REST equivalent.
+  - tool: plaid_get_link_analytics
+    reason: Link funnel/conversion analytics are Dashboard-only.
+  - tool: plaid_get_tools_introduction
+    reason: MCP-server metadata, not a Plaid API.
+  - tool: plaid_get_usages
+    reason: Product-usage metrics are Dashboard-only.
+  - tool: plaid_list_teams
+    reason: Team listing is Dashboard admin, not part of the public REST API.
+  - tool: search_documentation
+    reason: Documentation search runs locally against llms.txt; no REST endpoint.
+  - tool: get_mock_data_prompt
+    reason: Prompt-generation utility; no REST endpoint.
 rest_only:
-  - capability: transfer-ledger-and-recurring
-    note: transferLedgerGet/Distribute/Deposit/Withdraw, transferRecurringGet, transferBalanceGet, and the rest of the 49-op Transfer surface have no candidate tool
-  - capability: watchlist-screening
-    note: 20 Monitor watchlist-screening operations (individual + entity programs/hits/reviews) unmapped
-  - capability: beacon
-    note: 12 Beacon fraud-network operations unmapped
-  - capability: credit-and-cra
-    note: Credit (23) + Consumer Report CRA (9) underwriting operations unmapped
+  - capability: link-and-item-lifecycle
+    note: >-
+      linkTokenCreate, linkTokenGet, itemPublicTokenExchange, itemGet, itemRemove,
+      itemAccessTokenInvalidate and other Item lifecycle operations have no MCP
+      tool — LLMs need to call the REST API directly via a generated adapter.
+  - capability: accounts-and-balances
+    note: accountsGet, accountsBalanceGet, authGet — no MCP tool.
+  - capability: transactions
+    note: transactionsSync, transactionsGet, transactionsRefresh, transactionsEnrich, cashflowReportTransactionsGet — no MCP tool.
+  - capability: identity-and-verification
+    note: identityGet, identityMatch, identityVerification* — no MCP tool.
+  - capability: transfer-money-movement
+    note: transferAuthorizationCreate, transferCreate, transferGet, transferCancel, transferList, transferLedger*, transferRecurring* (~49 ops) — no MCP tool.
+  - capability: signal-risk-scoring
+    note: signalEvaluate, signalDecisionReport, signalReturnReport, signalPrepare — no MCP tool.
+  - capability: assets-and-cra
+    note: assetReport*, craCheckReport*, craMonitoringInsights* (~30 ops) — no MCP tool.
+  - capability: watchlist-monitor-and-beacon
+    note: ~20 Monitor watchlist-screening + ~12 Beacon fraud-network operations — no MCP tool.
   - capability: processor-partners
-    note: 21 processor-token operations unmapped
-  - capability: sandbox-and-item-admin
-    note: sandbox simulation + Item lifecycle admin operations unmapped
+    note: ~21 processor-token operations — no MCP tool.
   - capability: other-products
-    note: Investments, Liabilities, Statements, Income, Payment Initiation, Virtual Accounts, Institutions, FDX Core Exchange operations unmapped
+    note: Investments, Liabilities, Statements, Income, Payment Initiation, Virtual Accounts, Institutions, FDX Core Exchange — no MCP tool.
 coverage:
-  tools_named: 14
-  tools_bound: 14
-  mcp_only: 0
-  rest_ops_total: ~300
-  rest_ops_with_tool: 14
+  tools_named: 9
+  tools_bound_to_rest: 2
+  mcp_only: 7
+  rest_ops_total: 351
+  rest_ops_with_tool: 5   # sandboxPublicTokenCreate + itemPublicTokenExchange + 3 sandbox*FireWebhook

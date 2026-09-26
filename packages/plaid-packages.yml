@@ -1,11 +1,20 @@
-generated: '2026-07-23'
+generated: '2026-09-23'
 method: searched
 source: https://plaid.com/docs/api/libraries/
+sources:
+  - https://plaid.com/docs/api/libraries/
+  - https://registry.npmjs.org/plaid
+  - https://pypi.org/pypi/plaid-python/json
+  - https://rubygems.org/api/v1/gems/plaid.json
+  - https://search.maven.org/artifact/com.plaid/plaid-java
+  - https://proxy.golang.org/github.com/plaid/plaid-go/v47/@latest
+  - https://api.github.com/repos/plaid/plaid-link-ios/releases/latest
 description: >-
   Plaid's official server-side client libraries, all generated from the public
   plaid-openapi definition (github.com/plaid/plaid-openapi) and regularly
   updated for breaking and non-breaking API changes, plus the front-end Plaid
-  Link SDKs used to render the account-linking UI.
+  Link SDKs used to render the account-linking UI. Every version and published
+  date below is read verbatim from the package registry metadata endpoint.
 packages:
   - language: javascript
     registry: npm
@@ -14,6 +23,8 @@ packages:
     install: npm install plaid
     repo: https://github.com/plaid/plaid-node
     official: true
+    version: 47.0.0
+    published: '2026-09-01'
   - language: python
     registry: pypi
     name: plaid-python
@@ -21,6 +32,8 @@ packages:
     install: pip install plaid-python
     repo: https://github.com/plaid/plaid-python
     official: true
+    version: 44.0.0
+    published: '2026-09-01'
   - language: ruby
     registry: rubygems
     name: plaid
@@ -28,6 +41,8 @@ packages:
     install: gem install plaid
     repo: https://github.com/plaid/plaid-ruby
     official: true
+    version: 51.0.0
+    published: '2026-09-01'
   - language: java
     registry: maven
     name: com.plaid:plaid-java
@@ -35,13 +50,20 @@ packages:
     install: "implementation 'com.plaid:plaid-java:+'"
     repo: https://github.com/plaid/plaid-java
     official: true
+    version: 35.0.0
+    published: '2025-06-12'
   - language: go
     registry: pkg.go.dev
     name: github.com/plaid/plaid-go
     url: https://pkg.go.dev/github.com/plaid/plaid-go
-    install: go get github.com/plaid/plaid-go/v3/plaid
+    install: go get github.com/plaid/plaid-go/v47/plaid
     repo: https://github.com/plaid/plaid-go
     official: true
+    version: v47.0.0
+    published: '2026-09-01'
+    note: >-
+      Go module path is versioned per major (v47 as of 2026-09-01). The docs
+      page's install snippet still shows v3; use v47 for the current SDK.
   - language: swift
     registry: cocoapods-spm
     name: LinkKit (iOS)
@@ -50,6 +72,11 @@ packages:
     repo: https://github.com/plaid/plaid-link-ios
     official: true
     kind: front-end-link-sdk
+    version: 7.2.0
+    published: '2026-09-22'
+    note: >-
+      Distributed via CocoaPods and Swift Package Manager (no queryable
+      registry metadata endpoint); version read from GitHub releases.
   - language: kotlin
     registry: maven
     name: com.plaid.link:sdk-core (Android)
@@ -58,6 +85,8 @@ packages:
     repo: https://github.com/plaid/plaid-link-android
     official: true
     kind: front-end-link-sdk
+    version: 5.1.1
+    published: '2025-06-13'
   - language: javascript
     registry: npm
     name: react-plaid-link
@@ -66,6 +95,8 @@ packages:
     repo: https://github.com/plaid/react-plaid-link
     official: true
     kind: front-end-link-sdk
+    version: 5.0.0
+    published: '2026-07-24'
   - language: javascript
     registry: npm
     name: react-native-plaid-link-sdk
@@ -74,3 +105,5 @@ packages:
     repo: https://github.com/plaid/react-native-plaid-link-sdk
     official: true
     kind: front-end-link-sdk
+    version: 13.3.0
+    published: '2026-09-23'

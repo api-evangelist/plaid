@@ -1,0 +1,473 @@
+generated: '2026-09-23'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/plaid-core-exchange-openapi.yml
+- openapi/plaid-plaid-api-openapi.yml
+vocabulary:
+  name: Plaid Domain Vocabulary
+  description: 'Terms declared by Plaid''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-09-23'
+  terms:
+  - term: Personal Information
+    definition: Search and view customer or customers
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: Account Information
+    definition: Search and view customer accounts
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: Account Statements
+    definition: Search and retrieve account statements
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: Account Transactions
+    definition: Search and view account transactions
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: Payment Networks Information
+    definition: Search and view account payment networks
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: Asset Transfer Networks Information
+    definition: Search and view asset transfer networks
+    tags:
+    - Resource Group
+    source: openapi/plaid-core-exchange-openapi.yml
+  - term: plaid
+    definition: The Plaid API
+    tags:
+    - Resource Group
+    source: openapi/plaid-plaid-api-openapi.yml
+  - term: Paginated Array
+    definition: Base class for results that may be paginated
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/PaginatedArray
+  - term: Page Metadata
+    definition: Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set. The `nextOffset` identifier is deprecated and
+      will be removed with a future major release.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/PageMetadata
+  - term: Identifier
+    definition: Value for a unique identifier
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Identifier
+  - term: ISO 3166 Country Code
+    definition: ISO 3166-1 alpha-2 codes as of April 5, 2023, from officially assigned Country Codes on [ISO Online Browsing Platform](https://www.iso.org/obp/ui/).
+      Change log is at [ISO 3166 Maintenance Agency](https://www.iso.org/committee/48750.html)
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Iso3166CountryCode
+  - term: ISO 4217 Code
+    definition: Currency, fund and precious metal codes effective from June 25, 2024 per [ISO 4217 Currency Code Maintenance](https://www.six-group.com/en/products-services/financial-information/data-standards.html).
+      ZWL (the Zimbabwean dollar) expires August 31, 2024 and is deprecated and replaced with ZWG (Zimbabwe Gold), effective on June 25, 2024.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Iso4217Code
+  - term: String 255
+    definition: String with a maximum length of 255 characters
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/String255
+  - term: String 64
+    definition: String with a maximum length of 64 characters
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/String64
+  - term: Timestamp
+    definition: ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+      Send UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Timestamp
+  - term: Date String
+    definition: ISO 8601 full-date in format 'YYYY-MM-DD' according to [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DateString
+  - term: Currency entity
+    definition: A currency object containing an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Currency
+  - term: Security ID Type
+    definition: Plaid consumes solely CUSIP, ISIN, and SEDOL. This field, along with `securityId` are **required** unless `symbol` is provided.
+      **Note:** If `securityIdType` is provided, `securityId` is required.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/SecurityIdType
+  - term: Accounts entity
+    definition: An optionally paginated array of account descriptors. Each account descriptor carries a required `accountCategory` field identifying
+      its type; see the `AccountCategory` schema for the full list of values.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Accounts
+  - term: Account entity
+    definition: This provides an instance of an account without full details. Plaid expects that the `accountType` field is set to one of the
+      [account types](#account-types) listed below
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountWithDescriptor
+  - term: Account Category type
+    definition: The category of account. For example, annuity, commercial, deposit, digital wallet, insurance, investment, loan, or line of credit.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountCategory
+  - term: Account Descriptor entity
+    definition: This descriptor provides minimal information about the account for use in lightweight arrays
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountDescriptor
+  - term: Account Status
+    definition: Account status. Use `RESTRICTED`, with a normal 200, for a locked or limited account that's still open — not FDX error 705, which
+      means closed.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountStatus
+  - term: DepositAccountDescriptor
+    definition: 'A deposit account. For example, a checking, savings or money market account. Plaid consumes more detailed information for `CHECKING`
+      and `SAVINGS` accounts. The `accountType` field for deposit accounts may be set to any of the following: - `CHECKING`: A deposit account
+      held at a financial institution that allows withdrawals and deposits. - `SAVINGS`: An interest-bearing deposit account held at a b'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DepositAccountDescriptor
+  - term: DepositAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DepositAccountType
+  - term: DigitalWalletDescriptor
+    definition: Information for a digital wallet account **Note:** Digital wallet accounts are discoverable-only. Plaid does not consume downstream
+      data (balances, transactions, Auth) for digital wallet accounts.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DigitalWalletDescriptor
+  - term: DigitalWalletType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DigitalWalletType
+  - term: LoanAccountDescriptor
+    definition: 'A loan account. For example, mortgage, student loan or auto loan. Revolving debt, where the balance can be drawn on again after
+      it is paid down, belongs under `LOC_ACCOUNT` instead. Plaid consumes more detailed information for `MORTGAGE` and `STUDENTLOAN` accounts.
+      The `accountType` field for loan accounts may be set to any of the following: - `AUTOLOAN`: A type of loan used to finance a car purch'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LoanAccountDescriptor
+  - term: LoanAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LoanAccountType
+  - term: LineOfCreditAccountDescriptor
+    definition: 'A line-of-credit account. For example, a credit card or home equity line of credit. This category covers revolving debt, where
+      the balance can be drawn on again after it is paid down; non-revolving debt belongs under `LOAN_ACCOUNT`. Plaid consumes more detailed information
+      for `CREDITCARD` accounts. The `accountType` field for line of credit accounts may be set to any of the following: - `LINEOFCR'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LineOfCreditAccountDescriptor
+  - term: LineOfCreditAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LineOfCreditAccountType
+  - term: InvestmentAccountDescriptor
+    definition: 'An investment account. For example, a 401K or IRA. Plaid consumes the same details for all investment accounts. The `accountType`
+      field for investment accounts may be set to any of the following: - `401A`: An employer-sponsored money-purchase retirement plan that allows
+      dollar or percentage-based contributions from the employer, the employee, or both. - `401K`: An employer-sponsored defined-contri'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InvestmentAccountDescriptor
+  - term: InvestmentAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InvestmentAccountType
+  - term: InsuranceAccountDescriptor
+    definition: 'An insurance account. For example, whole life insurance or short-term disability. The `accountType` field for insurance accounts
+      may be set to any of the following: - `LONGTERMDISABILITY`: Insurance that replaces a portion of the policyholder''s income due to a disability
+      for an extended period of time, usually more than a year. - `SHORTTERMDISABILITY`: Insurance that replaces a portion of the poli'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InsuranceAccountDescriptor
+  - term: InsuranceAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InsuranceAccountType
+  - term: AnnuityAccountDescriptor
+    definition: 'An annuity account. For example, a fixed or variable annuity account. The `accountType` field for annuity accounts may be set
+      to any of the following: - `ANNUITY`: A form of insurance or investment entitling the investor to a series of annual sums. - `FIXEDANNUITY`:
+      A type of insurance contract that promises to pay the buyer a specific, guaranteed interest rate on their contributions to the accoun'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AnnuityAccountDescriptor
+  - term: AnnuityAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AnnuityAccountType
+  - term: CommercialAccountDescriptor
+    definition: A commercial account. For example, a business deposit account. The `accountType` field for commercial accounts may be set to any
+      of the [account types](#commercial-account-types) listed below. **Note:** Commercial accounts are discoverable-only. Plaid does not consume
+      downstream data (balances, transactions, Auth) for commercial accounts.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/CommercialAccountDescriptor
+  - term: CommercialAccountType
+    definition: The account type. Plaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the
+      possible account types described in the FDX specification.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/CommercialAccountType
+  - term: Account With Details entity
+    definition: An account with full details.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountWithDetails
+  - term: Deposit Account Details entity
+    definition: 'Full details of a deposit account. Plaid consumes the same information for all types of deposit accounts. Plaid expects a decimal
+      amount with two places (to represent fractional values of the base currency) for all monetary amounts. For example, `"currentBalance": 192.00`.
+      The `accountType` field for deposit accounts may be set to any of the [account types](#deposit-account-types) listed below.'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DepositAccount
+  - term: Loan Account entity
+    definition: Full details of a loan account. The `accountType` field for loan accounts may be set to any of the [account types](#loan-account-types)
+      listed below. Revolving debt, where the balance can be drawn on again after it is paid down, belongs under `LOC_ACCOUNT` instead. Plaid
+      only consumes the `MORTGAGE` and `STUDENTLOAN` types for its [Liabilities API](https://plaid.com/docs/api/products/liabilities/)
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LoanAccount
+  - term: LineOfCreditAccount
+    definition: Full details of a line of credit account. The `accountType` field for line of credit accounts may be set to any of the [account
+      types](#line-of-credit-account-types) listed below. This category covers revolving debt, where the balance can be drawn on again after it
+      is paid down; non-revolving debt belongs under `LOAN_ACCOUNT`. Plaid consumes the following parameters returned by the `GET /accounts`
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/LineOfCreditAccount
+  - term: InvestmentAccount
+    definition: 'Full details of an investment account. Plaid consumes all `InvestmentAccount` FDX fields for all types of investment accounts.
+      In the holdings array, Plaid consumes fields depending on their relevancy to the holding type. See the `holdings` array for more information.
+      Plaid expects a decimal amount with two places (to represent fractional values of the base currency) for all monetary amounts. For '
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InvestmentAccount
+  - term: Interest Rate Type
+    definition: Specifies whether an interest rate is fixed or variable. This information is helpful for personal financial planning and advising.
+      For example, it affects the potential benefits of refinancing, and informs whether a mortgage payment is expected to change in the future
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InterestRateType
+  - term: Interest Rate entity
+    definition: Full description of a single interest rate
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/InterestRate
+  - term: Compounding Period
+    definition: Interest compounding Period
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/CompoundingPeriod
+  - term: Funding Source
+    definition: Accounts for customer's alternate funding sources from which FI can transfer funds to cover transactions if customer has overdraft
+      protection from a consented account. In the order of which accounts will be attempted to transfer the coverage amount needed. Contains masked
+      or truncated account number or nickname, account type and/or institution name for full clarity on an internal or external fundi
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/FundingSource
+  - term: Bills entity
+    definition: Statements of payments due for an account
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Bills
+  - term: Scheduled Payments entity
+    definition: The payments scheduled on the account
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/ScheduledPayments
+  - term: Scheduled Payment Type
+    definition: The type of a payment scheduled on the account
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/ScheduledPaymentType
+  - term: Holding entity
+    definition: A holding in an investment account. Holdings in the investment account. Plaid maps the `holding` and the `investmentAccount` FDX
+      models to its securities models, which hold universal information like the ticker symbol, and to its holdings models, which hold account-specific
+      information like balances. For more information, see [Plaid investments](https://plaid.com/docs/investments/#securities-and-h
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Holding
+  - term: Security ID entity
+    definition: Unique identifier for a security
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/SecurityId
+  - term: Holding Type
+    definition: Plaid maps the holding type to the Plaid [security type](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-type).
+      Plaid expects you to return `OTHER` and set the `holdingSubType` to indicate cash-type holdings (`CASH`, `MONEYMARKET`).
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/HoldingType
+  - term: Holding SubType
+    definition: The subtype of an investment holding. Set this to `CASH` or `MONEYMARKET` to indicate a cash-type holding, with `holdingType`
+      set to `OTHER`.
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/HoldingSubType
+  - term: FI Attribute entity
+    definition: 'Financial institution-specific attribute. Sent as an array of name/value pairs, not a keyed object, with string values: `[{"name":
+      "isCashEquivalent", "value": "false"}]`, not `{"isCashEquivalent": false}`. `isCashEquivalent` must be `"true"` or `"false"`.'
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/FiAttribute
+  - term: Tax Lot entity
+    definition: Block of securities receiving the same tax treatment
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/TaxLot
+  - term: Position Type
+    definition: The type of an investment position
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/PositionType
+  - term: Account Contact entity
+    definition: Details used to verify an account
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountContact
+  - term: Account Holder entity
+    definition: A customer's relationship to a given account, extending their base customer information. Mark business holders by setting `type`
+      or `relationship` to `BUSINESS`, with the legal entity name on `businessCustomer`. Unmarked holders are treated as individuals and must
+      supply `name.first` and `name.last`.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountHolder
+  - term: Business or Consumer Type
+    definition: Indicates whether the customer is a consumer (individual) or a business entity
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/BusinessOrConsumer
+  - term: Business Customer entity
+    definition: When the account holder is a business customer, provides business-specific customer information
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/BusinessCustomer
+  - term: Customer entity
+    definition: Represents a customer. Plaid-specific schema created to exclude the `customerId` property of the FDX `Customer` schema
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/CustomerWithoutId
+  - term: Customer Name entity
+    definition: The name of an individual in their role as a customer. Plaid expects at least one populated name field. If any field is missing
+      (for example, no first name), then you respond with an empty string for that field
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/CustomerName
+  - term: Individual Name
+    definition: First name, middle initial, last name, suffix fields
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/IndividualName
+  - term: Account Holder Relationship
+    definition: 'Types of relationships between accounts and holders. Some definitions: * `AUTHORIZED_SIGNER` - An Authorized Signer is an individual
+      who has been given permission by the account owner/holder to sign checks, make withdrawals, and conduct transactions on behalf of an account
+      holder for deposit account types, such as checking or savings, but does not own the account. They may also have an ability to '
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountHolderRelationship
+  - term: Delivery Address
+    definition: A delivery address and its location type
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DeliveryAddress
+  - term: Delivery Address Type
+    definition: The location type of an address
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DeliveryAddressType
+  - term: Address
+    definition: Postal address
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Address
+  - term: Telephone Number
+    definition: Standard for international phone numbers
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/TelephoneNumber
+  - term: Telephone Number Purpose
+    definition: 'Purpose of the phone number: HOME, BUSINESS, PERSONAL, FAX, or BOTH. BOTH indicates number is used for both HOME and BUSINESS
+      purposes. `CELL` value is deprecated in v6.3, replaced by the `CELLULAR` value in the `network` field'
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/TelephoneNumberPurpose
+  - term: Telephone Network
+    definition: The network technology used for this telephone. One of CELLULAR, LANDLINE, PAGER, SATELLITE, or VOIP
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/TelephoneNetwork
+  - term: Payment Networks entity
+    definition: Array of payment networks. Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn't support
+      ACH
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountPaymentNetworkList
+  - term: Payment Network Supported by Account
+    definition: This provides details required to execute a transaction against the account within the payment network
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/PaymentNetwork
+  - term: Payment Network Type
+    definition: 'Suggested values for Payment Network Type. `US&#95;` refers to the USA, and `CA&#95;` refers to Canada. Possible values: * CA&#95;ACSS:
+      Automated Clearing House Settlement System * CA&#95;LVTS: Large-Value Transfer System * US&#95;ACH: Automated Clearing House (mostly small
+      banks) * US&#95;CHIPS: Clearinghouse Interbank Payments System (primarily big banks) * US&#95;FEDNOW: Federal Reserve Instant'
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/PaymentNetworkType
+  - term: Transactions entity
+    definition: A page of transactions for an account, spanning deposit, investment, loan, and line-of-credit transaction types.
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Transactions
+  - term: Transaction
+    definition: Base entity for financial transactions. For monetary amounts, Plaid expects a decimal amount, with two places to represent fractional
+      values of the base currency, for example `101.99`
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/Transaction
+  - term: DebitCreditMemo
+    definition: 'The posting type of a transaction. Because the transaction `amount` is an absolute value, this parameter is required to indicate
+      the transaction direction and sign (+/-): - `DEBIT`: Money is leaving the account. The transaction amount will be exposed with a **positive**
+      sign (+) - `CREDIT`: Money is entering the account. The transaction amount will be exposed with a **negative** sign (-) - `MEMO`:'
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DebitCreditMemo
+  - term: Transaction Status
+    definition: The status of a transaction. Plaid consumes solely the `PENDING` and `POSTED` enums, and treats `MEMO` and `AUTHORIZATION` as
+      if they were `PENDING`. Plaid expects that pending and posted transactions have different `transactionIds`. * `AUTHORIZATION` * `MEMO` -
+      A pending transaction to be completed at the end of this day * `PENDING` - A pending transaction * `POSTED` - A posted transaction
+    tags:
+    - Enumeration
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/TransactionStatus
+  - term: Deposit Transaction entity
+    definition: A transaction on a deposit account type
+    tags:
+    - Object
+    source: openapi/plaid-core-exchange-openapi.yml#/components/schemas/DepositTransaction

@@ -1,0 +1,805 @@
+{
+  "@context": {
+    "@vocab": "https://plaid.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "plaid": "https://plaid.com/schema#",
+    "PaginatedArray": "plaid:PaginatedArray",
+    "page": {
+      "@id": "plaid:page",
+      "@type": "@id"
+    },
+    "PageMetadata": "plaid:PageMetadata",
+    "nextOffset": {
+      "@id": "plaid:nextOffset",
+      "@type": "xsd:string"
+    },
+    "nextPageKey": {
+      "@id": "plaid:nextPageKey",
+      "@type": "xsd:string"
+    },
+    "totalElements": {
+      "@id": "plaid:totalElements",
+      "@type": "xsd:integer"
+    },
+    "Iso3166CountryCode": "plaid:Iso3166CountryCode",
+    "Iso4217Code": "plaid:Iso4217Code",
+    "Currency": "plaid:Currency",
+    "currencyCode": {
+      "@id": "plaid:currencyCode",
+      "@type": "@id"
+    },
+    "SecurityIdType": "plaid:SecurityIdType",
+    "AccountCategory": "plaid:AccountCategory",
+    "AccountDescriptor": "plaid:AccountDescriptor",
+    "accountCategory": {
+      "@id": "plaid:accountCategory",
+      "@type": "@id"
+    },
+    "accountId": {
+      "@id": "plaid:accountId",
+      "@type": "@id"
+    },
+    "accountNumberDisplay": {
+      "@id": "plaid:accountNumberDisplay",
+      "@type": "xsd:string"
+    },
+    "productName": {
+      "@id": "plaid:productName",
+      "@type": "xsd:string"
+    },
+    "productId": {
+      "@id": "plaid:productId",
+      "@type": "@id"
+    },
+    "nickname": {
+      "@id": "plaid:nickname",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "plaid:status",
+      "@type": "@id"
+    },
+    "currency": {
+      "@id": "plaid:currency",
+      "@type": "@id"
+    },
+    "AccountStatus": "plaid:AccountStatus",
+    "DepositAccountType": "plaid:DepositAccountType",
+    "DigitalWalletType": "plaid:DigitalWalletType",
+    "LoanAccountType": "plaid:LoanAccountType",
+    "LineOfCreditAccountType": "plaid:LineOfCreditAccountType",
+    "InvestmentAccountType": "plaid:InvestmentAccountType",
+    "InsuranceAccountType": "plaid:InsuranceAccountType",
+    "AnnuityAccountType": "plaid:AnnuityAccountType",
+    "CommercialAccountType": "plaid:CommercialAccountType",
+    "InterestRateType": "plaid:InterestRateType",
+    "InterestRate": "plaid:InterestRate",
+    "rate": {
+      "@id": "plaid:rate",
+      "@type": "xsd:decimal"
+    },
+    "rateAsOf": {
+      "@id": "plaid:rateAsOf",
+      "@type": "@id"
+    },
+    "compoundingPeriod": {
+      "@id": "plaid:compoundingPeriod",
+      "@type": "@id"
+    },
+    "priorRate": {
+      "@id": "plaid:priorRate",
+      "@type": "xsd:decimal"
+    },
+    "type": {
+      "@id": "plaid:type",
+      "@type": "@id"
+    },
+    "index": {
+      "@id": "plaid:index",
+      "@type": "xsd:string"
+    },
+    "CompoundingPeriod": "plaid:CompoundingPeriod",
+    "FundingSource": "plaid:FundingSource",
+    "accountType": {
+      "@id": "plaid:accountType",
+      "@type": "xsd:string"
+    },
+    "institutionName": {
+      "@id": "plaid:institutionName",
+      "@type": "xsd:string"
+    },
+    "Bills": "plaid:Bills",
+    "totalPaymentDue": {
+      "@id": "plaid:totalPaymentDue",
+      "@type": "xsd:decimal"
+    },
+    "minimumPaymentDue": {
+      "@id": "plaid:minimumPaymentDue",
+      "@type": "xsd:decimal"
+    },
+    "dueDate": {
+      "@id": "plaid:dueDate",
+      "@type": "@id"
+    },
+    "autoPayEnabled": {
+      "@id": "plaid:autoPayEnabled",
+      "@type": "xsd:boolean"
+    },
+    "autoPayAmount": {
+      "@id": "plaid:autoPayAmount",
+      "@type": "xsd:decimal"
+    },
+    "autoPayDate": {
+      "@id": "plaid:autoPayDate",
+      "@type": "@id"
+    },
+    "pastDueAmount": {
+      "@id": "plaid:pastDueAmount",
+      "@type": "xsd:decimal"
+    },
+    "lastPaymentAmount": {
+      "@id": "plaid:lastPaymentAmount",
+      "@type": "xsd:decimal"
+    },
+    "lastPaymentDate": {
+      "@id": "plaid:lastPaymentDate",
+      "@type": "@id"
+    },
+    "statementBalance": {
+      "@id": "plaid:statementBalance",
+      "@type": "xsd:decimal"
+    },
+    "statementDate": {
+      "@id": "plaid:statementDate",
+      "@type": "@id"
+    },
+    "ScheduledPayments": "plaid:ScheduledPayments",
+    "amount": {
+      "@id": "plaid:amount",
+      "@type": "xsd:decimal"
+    },
+    "date": {
+      "@id": "plaid:date",
+      "@type": "@id"
+    },
+    "payToPrincipal": {
+      "@id": "plaid:payToPrincipal",
+      "@type": "xsd:boolean"
+    },
+    "ScheduledPaymentType": "plaid:ScheduledPaymentType",
+    "SecurityId": "plaid:SecurityId",
+    "id": {
+      "@id": "plaid:id",
+      "@type": "@id"
+    },
+    "idType": {
+      "@id": "plaid:idType",
+      "@type": "@id"
+    },
+    "HoldingType": "plaid:HoldingType",
+    "HoldingSubType": "plaid:HoldingSubType",
+    "FiAttribute": "plaid:FiAttribute",
+    "name": {
+      "@id": "plaid:name",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "plaid:value",
+      "@type": "xsd:string"
+    },
+    "TaxLot": "plaid:TaxLot",
+    "originalPurchaseDate": {
+      "@id": "plaid:originalPurchaseDate",
+      "@type": "@id"
+    },
+    "quantity": {
+      "@id": "plaid:quantity",
+      "@type": "xsd:decimal"
+    },
+    "purchasedPrice": {
+      "@id": "plaid:purchasedPrice",
+      "@type": "xsd:decimal"
+    },
+    "costBasis": {
+      "@id": "plaid:costBasis",
+      "@type": "xsd:decimal"
+    },
+    "currentValue": {
+      "@id": "plaid:currentValue",
+      "@type": "xsd:decimal"
+    },
+    "positionType": {
+      "@id": "plaid:positionType",
+      "@type": "@id"
+    },
+    "PositionType": "plaid:PositionType",
+    "AccountContact": "plaid:AccountContact",
+    "holders": {
+      "@id": "plaid:holders",
+      "@container": "@list"
+    },
+    "emails": {
+      "@id": "plaid:emails",
+      "@container": "@list"
+    },
+    "addresses": {
+      "@id": "plaid:addresses",
+      "@container": "@list"
+    },
+    "telephones": {
+      "@id": "plaid:telephones",
+      "@container": "@list"
+    },
+    "BusinessOrConsumer": "plaid:BusinessOrConsumer",
+    "BusinessCustomer": "plaid:BusinessCustomer",
+    "CustomerWithoutId": "plaid:CustomerWithoutId",
+    "businessCustomer": {
+      "@id": "plaid:businessCustomer",
+      "@type": "@id"
+    },
+    "IndividualName": "plaid:IndividualName",
+    "first": {
+      "@id": "plaid:first",
+      "@type": "xsd:string"
+    },
+    "middle": {
+      "@id": "plaid:middle",
+      "@type": "xsd:string"
+    },
+    "last": {
+      "@id": "plaid:last",
+      "@type": "xsd:string"
+    },
+    "suffix": {
+      "@id": "plaid:suffix",
+      "@type": "xsd:string"
+    },
+    "AccountHolderRelationship": "plaid:AccountHolderRelationship",
+    "DeliveryAddressType": "plaid:DeliveryAddressType",
+    "Address": "plaid:Address",
+    "line1": {
+      "@id": "plaid:line1",
+      "@type": "@id"
+    },
+    "line2": {
+      "@id": "plaid:line2",
+      "@type": "@id"
+    },
+    "line3": {
+      "@id": "plaid:line3",
+      "@type": "@id"
+    },
+    "city": {
+      "@id": "plaid:city",
+      "@type": "@id"
+    },
+    "region": {
+      "@id": "plaid:region",
+      "@type": "@id"
+    },
+    "postalCode": {
+      "@id": "plaid:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "plaid:country",
+      "@type": "@id"
+    },
+    "TelephoneNumber": "plaid:TelephoneNumber",
+    "number": {
+      "@id": "plaid:number",
+      "@type": "xsd:string"
+    },
+    "network": {
+      "@id": "plaid:network",
+      "@type": "@id"
+    },
+    "primary": {
+      "@id": "plaid:primary",
+      "@type": "xsd:boolean"
+    },
+    "TelephoneNumberPurpose": "plaid:TelephoneNumberPurpose",
+    "TelephoneNetwork": "plaid:TelephoneNetwork",
+    "PaymentNetwork": "plaid:PaymentNetwork",
+    "bankId": {
+      "@id": "plaid:bankId",
+      "@type": "xsd:string"
+    },
+    "identifier": {
+      "@id": "plaid:identifier",
+      "@type": "xsd:string"
+    },
+    "transferIn": {
+      "@id": "plaid:transferIn",
+      "@type": "xsd:boolean"
+    },
+    "transferOut": {
+      "@id": "plaid:transferOut",
+      "@type": "xsd:boolean"
+    },
+    "PaymentNetworkType": "plaid:PaymentNetworkType",
+    "Transaction": "plaid:Transaction",
+    "transactionId": {
+      "@id": "plaid:transactionId",
+      "@type": "@id"
+    },
+    "referenceTransactionId": {
+      "@id": "plaid:referenceTransactionId",
+      "@type": "@id"
+    },
+    "postedTimestamp": {
+      "@id": "plaid:postedTimestamp",
+      "@type": "@id"
+    },
+    "transactionTimestamp": {
+      "@id": "plaid:transactionTimestamp",
+      "@type": "@id"
+    },
+    "cardNumberDisplay": {
+      "@id": "plaid:cardNumberDisplay",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "plaid:description",
+      "@type": "xsd:string"
+    },
+    "debitCreditMemo": {
+      "@id": "plaid:debitCreditMemo",
+      "@type": "@id"
+    },
+    "category": {
+      "@id": "plaid:category",
+      "@type": "xsd:string"
+    },
+    "subCategory": {
+      "@id": "plaid:subCategory",
+      "@type": "xsd:string"
+    },
+    "foreignAmount": {
+      "@id": "plaid:foreignAmount",
+      "@type": "xsd:decimal"
+    },
+    "foreignCurrency": {
+      "@id": "plaid:foreignCurrency",
+      "@type": "@id"
+    },
+    "DebitCreditMemo": "plaid:DebitCreditMemo",
+    "TransactionStatus": "plaid:TransactionStatus",
+    "InvestmentTransactionType": "plaid:InvestmentTransactionType",
+    "SecurityType": "plaid:SecurityType",
+    "UnitType": "plaid:UnitType",
+    "LoanTransactionType": "plaid:LoanTransactionType",
+    "LineOfCreditTransactionType": "plaid:LineOfCreditTransactionType",
+    "Customer": "plaid:Customer",
+    "customerId": {
+      "@id": "plaid:customerId",
+      "@type": "@id"
+    },
+    "Statement": "plaid:Statement",
+    "statementId": {
+      "@id": "plaid:statementId",
+      "@type": "@id"
+    },
+    "links": {
+      "@id": "plaid:links",
+      "@type": "@id"
+    },
+    "HateoasLink": "plaid:HateoasLink",
+    "href": {
+      "@id": "plaid:href",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "plaid:action",
+      "@type": "@id"
+    },
+    "rel": {
+      "@id": "plaid:rel",
+      "@type": "xsd:string"
+    },
+    "types": {
+      "@id": "plaid:types",
+      "@container": "@list"
+    },
+    "HttpAction": "plaid:HttpAction",
+    "ContentTypes": "plaid:ContentTypes",
+    "AssetTransferNetworkList": "plaid:AssetTransferNetworkList",
+    "assetTransferNetworks": {
+      "@id": "plaid:assetTransferNetworks",
+      "@container": "@list"
+    },
+    "AssetTransferNetwork": "plaid:AssetTransferNetwork",
+    "identifierType": {
+      "@id": "plaid:identifierType",
+      "@type": "@id"
+    },
+    "institutionId": {
+      "@id": "plaid:institutionId",
+      "@type": "xsd:string"
+    },
+    "jointAccount": {
+      "@id": "plaid:jointAccount",
+      "@type": "xsd:boolean"
+    },
+    "PaymentNetworkIdentifierType": "plaid:PaymentNetworkIdentifierType",
+    "AssetTransferType": "plaid:AssetTransferType",
+    "NetworkStatusGetRequest": "plaid:NetworkStatusGetRequest",
+    "client_id": {
+      "@id": "plaid:client_id",
+      "@type": "@id"
+    },
+    "secret": {
+      "@id": "plaid:secret",
+      "@type": "@id"
+    },
+    "user": {
+      "@id": "plaid:user",
+      "@type": "@id"
+    },
+    "template_id": {
+      "@id": "plaid:template_id",
+      "@type": "xsd:string"
+    },
+    "ProfileNetworkStatusGetRequest": "plaid:ProfileNetworkStatusGetRequest",
+    "NetworkStatusGetUser": "plaid:NetworkStatusGetUser",
+    "phone_number": {
+      "@id": "plaid:phone_number",
+      "@type": "xsd:string"
+    },
+    "NetworkStatusGetResponse": "plaid:NetworkStatusGetResponse",
+    "network_status": {
+      "@id": "plaid:network_status",
+      "@type": "@id"
+    },
+    "layer": {
+      "@id": "plaid:layer",
+      "@type": "@id"
+    },
+    "request_id": {
+      "@id": "plaid:request_id",
+      "@type": "@id"
+    },
+    "ProfileNetworkStatusGetResponse": "plaid:ProfileNetworkStatusGetResponse",
+    "NetworkStatusGetResponseNetworkStatus": "plaid:NetworkStatusGetResponseNetworkStatus",
+    "NetworkStatusGetResponseLayer": "plaid:NetworkStatusGetResponseLayer",
+    "eligible": {
+      "@id": "plaid:eligible",
+      "@type": "xsd:boolean"
+    },
+    "PartnerEndCustomerOAuthStatusUpdatedValues": "plaid:PartnerEndCustomerOAuthStatusUpdatedValues",
+    "WebhookEnvironmentValues": "plaid:WebhookEnvironmentValues",
+    "AuthGetRequest": "plaid:AuthGetRequest",
+    "access_token": {
+      "@id": "plaid:access_token",
+      "@type": "@id"
+    },
+    "options": {
+      "@id": "plaid:options",
+      "@type": "@id"
+    },
+    "AuthGetRequestOptions": "plaid:AuthGetRequestOptions",
+    "account_ids": {
+      "@id": "plaid:account_ids",
+      "@container": "@list"
+    },
+    "AuthGetResponse": "plaid:AuthGetResponse",
+    "accounts": {
+      "@id": "plaid:accounts",
+      "@container": "@list"
+    },
+    "numbers": {
+      "@id": "plaid:numbers",
+      "@type": "@id"
+    },
+    "item": {
+      "@id": "plaid:item",
+      "@type": "@id"
+    },
+    "AuthGetNumbers": "plaid:AuthGetNumbers",
+    "ach": {
+      "@id": "plaid:ach",
+      "@container": "@list"
+    },
+    "eft": {
+      "@id": "plaid:eft",
+      "@container": "@list"
+    },
+    "international": {
+      "@id": "plaid:international",
+      "@container": "@list"
+    },
+    "bacs": {
+      "@id": "plaid:bacs",
+      "@container": "@list"
+    },
+    "AuthVerifyRequestNumbers": "plaid:AuthVerifyRequestNumbers",
+    "AuthVerifyNumbersACH": "plaid:AuthVerifyNumbersACH",
+    "account": {
+      "@id": "plaid:account",
+      "@type": "xsd:string"
+    },
+    "routing": {
+      "@id": "plaid:routing",
+      "@type": "xsd:string"
+    },
+    "AuthVerifyRequest": "plaid:AuthVerifyRequest",
+    "legal_name": {
+      "@id": "plaid:legal_name",
+      "@type": "xsd:string"
+    },
+    "AuthVerifyResponse": "plaid:AuthVerifyResponse",
+    "item_id": {
+      "@id": "plaid:item_id",
+      "@type": "xsd:string"
+    },
+    "verification_status": {
+      "@id": "plaid:verification_status",
+      "@type": "xsd:string"
+    },
+    "verification_insights": {
+      "@id": "plaid:verification_insights",
+      "@type": "@id"
+    },
+    "UserAccountSessionGetRequest": "plaid:UserAccountSessionGetRequest",
+    "public_token": {
+      "@id": "plaid:public_token",
+      "@type": "xsd:string"
+    },
+    "UserAccountSessionGetResponse": "plaid:UserAccountSessionGetResponse",
+    "identity": {
+      "@id": "plaid:identity",
+      "@type": "@id"
+    },
+    "items": {
+      "@id": "plaid:items",
+      "@container": "@list"
+    },
+    "identity_edit_history": {
+      "@id": "plaid:identity_edit_history",
+      "@type": "@id"
+    },
+    "UserAccountSessionEventSendRequest": "plaid:UserAccountSessionEventSendRequest",
+    "cohort_id": {
+      "@id": "plaid:cohort_id",
+      "@type": "xsd:string"
+    },
+    "link_session_id": {
+      "@id": "plaid:link_session_id",
+      "@type": "xsd:string"
+    },
+    "event": {
+      "@id": "plaid:event",
+      "@type": "@id"
+    },
+    "UserAccountSessionEvent": "plaid:UserAccountSessionEvent",
+    "timestamp": {
+      "@id": "plaid:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "outcome": {
+      "@id": "plaid:outcome",
+      "@type": "xsd:string"
+    },
+    "UserAccountSessionEventSendResponse": "plaid:UserAccountSessionEventSendResponse",
+    "TransactionsGetRequest": "plaid:TransactionsGetRequest",
+    "start_date": {
+      "@id": "plaid:start_date",
+      "@type": "xsd:date"
+    },
+    "end_date": {
+      "@id": "plaid:end_date",
+      "@type": "xsd:date"
+    },
+    "PersonalFinanceCategoryVersion": "plaid:PersonalFinanceCategoryVersion",
+    "TransactionsGetRequestOptions": "plaid:TransactionsGetRequestOptions",
+    "count": {
+      "@id": "plaid:count",
+      "@type": "xsd:integer"
+    },
+    "offset": {
+      "@id": "plaid:offset",
+      "@type": "xsd:integer"
+    },
+    "include_original_description": {
+      "@id": "plaid:include_original_description",
+      "@type": "xsd:boolean"
+    },
+    "include_personal_finance_category_beta": {
+      "@id": "plaid:include_personal_finance_category_beta",
+      "@type": "xsd:boolean"
+    },
+    "include_personal_finance_category": {
+      "@id": "plaid:include_personal_finance_category",
+      "@type": "xsd:boolean"
+    },
+    "include_logo_and_counterparty_beta": {
+      "@id": "plaid:include_logo_and_counterparty_beta",
+      "@type": "xsd:boolean"
+    },
+    "personal_finance_category_version": {
+      "@id": "plaid:personal_finance_category_version",
+      "@type": "@id"
+    },
+    "days_requested": {
+      "@id": "plaid:days_requested",
+      "@type": "xsd:integer"
+    },
+    "TransactionsGetResponse": "plaid:TransactionsGetResponse",
+    "transactions": {
+      "@id": "plaid:transactions",
+      "@container": "@list"
+    },
+    "total_transactions": {
+      "@id": "plaid:total_transactions",
+      "@type": "xsd:integer"
+    },
+    "TransactionsRefreshRequest": "plaid:TransactionsRefreshRequest",
+    "TransactionsRefreshResponse": "plaid:TransactionsRefreshResponse",
+    "SandboxTransactionsCreateRequest": "plaid:SandboxTransactionsCreateRequest",
+    "SandboxTransactionsCreateResponse": "plaid:SandboxTransactionsCreateResponse",
+    "CashflowReportRefreshRequest": "plaid:CashflowReportRefreshRequest",
+    "CashflowReportRefreshResponse": "plaid:CashflowReportRefreshResponse",
+    "CashflowReportGetRequest": "plaid:CashflowReportGetRequest",
+    "cursor": {
+      "@id": "plaid:cursor",
+      "@type": "xsd:string"
+    },
+    "CashflowReportGetRequestOptions": "plaid:CashflowReportGetRequestOptions",
+    "CashflowReportGetResponse": "plaid:CashflowReportGetResponse",
+    "next_cursor": {
+      "@id": "plaid:next_cursor",
+      "@type": "xsd:string"
+    },
+    "has_more": {
+      "@id": "plaid:has_more",
+      "@type": "xsd:boolean"
+    },
+    "last_successful_update_time": {
+      "@id": "plaid:last_successful_update_time",
+      "@type": "xsd:dateTime"
+    },
+    "CashflowReportTransactionsGetRequest": "plaid:CashflowReportTransactionsGetRequest",
+    "CashflowReportTransactionsGetRequestOptions": "plaid:CashflowReportTransactionsGetRequestOptions",
+    "CashflowReportTransactionsGetResponse": "plaid:CashflowReportTransactionsGetResponse",
+    "CashflowReportInsightsGetRequest": "plaid:CashflowReportInsightsGetRequest",
+    "CashflowReportInsightsGetResponse": "plaid:CashflowReportInsightsGetResponse",
+    "account_insights": {
+      "@id": "plaid:account_insights",
+      "@type": "@id"
+    },
+    "last_generated_time": {
+      "@id": "plaid:last_generated_time",
+      "@type": "xsd:dateTime"
+    },
+    "CashflowReportAccountInsights": "plaid:CashflowReportAccountInsights",
+    "historical_balances": {
+      "@id": "plaid:historical_balances",
+      "@container": "@list"
+    },
+    "monthly_summaries": {
+      "@id": "plaid:monthly_summaries",
+      "@container": "@list"
+    },
+    "CashflowReportHistoricalBalance": "plaid:CashflowReportHistoricalBalance",
+    "iso_currency_code": {
+      "@id": "plaid:iso_currency_code",
+      "@type": "xsd:string"
+    },
+    "unofficial_currency_code": {
+      "@id": "plaid:unofficial_currency_code",
+      "@type": "xsd:string"
+    },
+    "CashflowReportMonthlySummaryStartingBalance": "plaid:CashflowReportMonthlySummaryStartingBalance",
+    "CashflowReportMonthlySummaryEndingBalance": "plaid:CashflowReportMonthlySummaryEndingBalance",
+    "CashflowReportMonthlySummaryAverageDailyEndingBalance": "plaid:CashflowReportMonthlySummaryAverageDailyEndingBalance",
+    "CashflowReportMonthlySummaryAverageDailyInflowAmount": "plaid:CashflowReportMonthlySummaryAverageDailyInflowAmount",
+    "CashflowReportMonthlySummaryAverageDailyOutflowAmount": "plaid:CashflowReportMonthlySummaryAverageDailyOutflowAmount",
+    "CashflowReportMonthlySummaryAverageDailyNetCashflowAmount": "plaid:CashflowReportMonthlySummaryAverageDailyNetCashflowAmount",
+    "CashflowReportMonthlySummaryTotalRevenue": "plaid:CashflowReportMonthlySummaryTotalRevenue",
+    "CashflowReportMonthlySummaryTotalLoanPayment": "plaid:CashflowReportMonthlySummaryTotalLoanPayment",
+    "CashflowReportMonthlySummaryTotalVariableExpense": "plaid:CashflowReportMonthlySummaryTotalVariableExpense",
+    "CashflowReportMonthlySummaryTotalPayroll": "plaid:CashflowReportMonthlySummaryTotalPayroll",
+    "CashflowReportMonthlySummary": "plaid:CashflowReportMonthlySummary",
+    "starting_balance": {
+      "@id": "plaid:starting_balance",
+      "@type": "@id"
+    },
+    "ending_balance": {
+      "@id": "plaid:ending_balance",
+      "@type": "@id"
+    },
+    "average_daily_ending_balance": {
+      "@id": "plaid:average_daily_ending_balance",
+      "@type": "@id"
+    },
+    "average_daily_inflow_amount": {
+      "@id": "plaid:average_daily_inflow_amount",
+      "@type": "@id"
+    },
+    "average_daily_outflow_amount": {
+      "@id": "plaid:average_daily_outflow_amount",
+      "@type": "@id"
+    },
+    "average_daily_net_cashflow_amount": {
+      "@id": "plaid:average_daily_net_cashflow_amount",
+      "@type": "@id"
+    },
+    "average_daily_inflow_transaction_count": {
+      "@id": "plaid:average_daily_inflow_transaction_count",
+      "@type": "xsd:decimal"
+    },
+    "average_daily_outflow_transaction_count": {
+      "@id": "plaid:average_daily_outflow_transaction_count",
+      "@type": "xsd:decimal"
+    },
+    "total_revenue": {
+      "@id": "plaid:total_revenue",
+      "@type": "@id"
+    },
+    "total_loan_payment": {
+      "@id": "plaid:total_loan_payment",
+      "@type": "@id"
+    },
+    "total_variable_expense": {
+      "@id": "plaid:total_variable_expense",
+      "@type": "@id"
+    },
+    "total_payroll": {
+      "@id": "plaid:total_payroll",
+      "@type": "@id"
+    },
+    "nsf_transaction_count": {
+      "@id": "plaid:nsf_transaction_count",
+      "@type": "xsd:integer"
+    },
+    "overdraft_transaction_count": {
+      "@id": "plaid:overdraft_transaction_count",
+      "@type": "xsd:integer"
+    },
+    "negative_ending_balance_day_count": {
+      "@id": "plaid:negative_ending_balance_day_count",
+      "@type": "xsd:integer"
+    },
+    "TransactionsRecurringUpdateRequest": "plaid:TransactionsRecurringUpdateRequest",
+    "inputs": {
+      "@id": "plaid:inputs",
+      "@container": "@list"
+    },
+    "TransactionsRecurringUpdateInput": "plaid:TransactionsRecurringUpdateInput",
+    "stream_id": {
+      "@id": "plaid:stream_id",
+      "@type": "xsd:string"
+    },
+    "transaction_ids": {
+      "@id": "plaid:transaction_ids",
+      "@container": "@list"
+    },
+    "TransactionsRecurringUpdateResponse": "plaid:TransactionsRecurringUpdateResponse",
+    "modified_streams": {
+      "@id": "plaid:modified_streams",
+      "@container": "@list"
+    },
+    "removed_stream_ids": {
+      "@id": "plaid:removed_stream_ids",
+      "@container": "@list"
+    },
+    "TransactionsRecurringMergeRequest": "plaid:TransactionsRecurringMergeRequest",
+    "TransactionsRecurringMergeInput": "plaid:TransactionsRecurringMergeInput",
+    "stream_ids": {
+      "@id": "plaid:stream_ids",
+      "@container": "@list"
+    },
+    "TransactionsRecurringMergeResponse": "plaid:TransactionsRecurringMergeResponse",
+    "TransactionsRecurringCreateRequest": "plaid:TransactionsRecurringCreateRequest"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Plaid API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Plaid's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-09-23) from openapi/plaid-core-exchange-openapi.yml, openapi/plaid-plaid-api-openapi.yml.",
+  "dcterms:created": "2026-09-23",
+  "dcterms:source": [
+    "openapi/plaid-core-exchange-openapi.yml",
+    "openapi/plaid-plaid-api-openapi.yml"
+  ]
+}

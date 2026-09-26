@@ -1,117 +1,176 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-23'
+method: searched
+source: https://plaid.com/pricing/
+sources:
+  - https://plaid.com/pricing/
+name: Plaid pricing plans
+description: >-
+  Plaid publishes three named pricing tiers on plaid.com/pricing (US & Canada
+  edition): Pay as You Go, Growth, and Custom. The page does NOT list numeric
+  per-call, per-account or per-month prices — every tier's price is stated as
+  qualitative copy ("Standard Pricing", "Discounted product rates",
+  "Volume-based pricing"). The page also lists which products are Included /
+  Not included / Contact for pricing per tier. First 200 API calls are free
+  under Limited Production access. Plaid's stated pricing models (from the FAQ)
+  are one-time per connected account, subscription per connected account, and
+  per-request.
 provider: Plaid
 providerId: plaid
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-reconciled: true
 tags:
   - Fintech
   - Banking
   - Open Finance
-description: Plaid uses one-time, subscription, and per-request pricing depending on product.
-sources:
-  - https://plaid.com/pricing/
+audience: developer-api
+pricing_basis: negotiated
+delivery:
+  delivery: managed
+  managed_tier: Pay as You Go
+  read: '2026-09-23'
+published: false
+plan_count: 3
+note: >-
+  No numeric prices are published on plaid.com/pricing. All three tiers link
+  either to a signup flow or to a sales-contact form; growth and custom tiers
+  explicitly say "Contact for pricing" for gated products. Numeric per-product
+  rates (e.g. Auth $1.50 per linked account) are not published on the pricing
+  page and were not verified from a primary source in this pass — see
+  plaid.com/docs/account/billing for billing mechanics.
+free_tier:
+  name: Limited Production
+  description_text: >-
+    Our Limited Production service allows you to make up to 200 API calls with
+    each available product using live data.
+  limit_text: up to 200 API calls with each available product using live data
 plans:
-  - id: plaid-payg
-    name: Pay As You Go
-    type: usage-based
-    description: Default Plaid pricing.
-    entries:
-      - label: Auth (per linked account)
-        name: auth
-        type: metered
-        metric: account
-        limit: -1
-        timeFrame: one-time
-        geo: US/CA
-        unit: 1
-        price: '1.50'
-        userMultiplied: false
-      - label: Identity (per call)
-        name: identity
-        type: metered
-        metric: call
-        limit: -1
-        timeFrame: usage
-        geo: US/CA
-        unit: 1
-        price: '0.30'
-        userMultiplied: false
-      - label: Income (per linked account)
-        name: income
-        type: metered
-        metric: account
-        limit: -1
-        timeFrame: one-time
-        geo: US/CA
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Balance (per call)
-        name: balance
-        type: metered
-        metric: call
-        limit: -1
-        timeFrame: usage
-        geo: US/CA
-        unit: 1
-        price: '0.10'
-        userMultiplied: false
-      - label: Transactions (per call)
-        name: transactions
-        type: metered
-        metric: call
-        limit: -1
-        timeFrame: usage
-        geo: US/CA
-        unit: 1
-        price: '0.45'
-        userMultiplied: false
-    elements:
-      - name: GA products
-      - name: Unlimited live API calls
-      - name: Link customization
-  - id: plaid-growth
-    name: Growth
-    type: subscription
-    description: Discounted product rates plus platform support and SSO.
-    entries:
-      - label: Monthly minimum (custom)
-        name: minimum
-        type: subscription
-        metric: month
-        limit: -1
-        timeFrame: month
-        geo: US/CA
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Discounted product rates
-      - name: Platform support
-      - name: SSO
-  - id: plaid-custom
-    name: Custom (Enterprise)
-    type: enterprise
-    description: Volume discounts (typically 30-50% off list at 10k+ MAU).
-    entries:
-      - label: Negotiated minimum
-        name: commit
-        type: subscription
-        metric: month
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: $1k-$10k+
-        userMultiplied: false
-    elements:
-      - name: Volume discounts
-      - name: Beta product access
-      - name: Premium support
-      - name: Account management
+  - name: Pay as You Go
+    price_text: Standard Pricing
+    description: >-
+      Best for individuals and developers. Start with our month-to-month plan:
+      unlimited usage, no commitments upfront—only pay for what you use.
+    period: month-to-month
+    features:
+      - Access to GA products
+      - Unlimited live API calls
+      - Link customization
+      - Standard Pricing
+    limits: []
+  - name: Growth
+    price_text: Contact for pricing
+    description: >-
+      Best for small teams and startups. Scale with a 12-month commitment:
+      access discounts, platform support package, and account management.
+    period: 12-month commitment
+    features:
+      - Everything in Pay as You Go
+      - Discounted product rates
+      - Platform support package
+      - Single Sign-On for Plaid Dashboard
+    limits: []
+  - name: Custom
+    price_text: Contact for pricing
+    description: >-
+      Best for businesses that need to scale. Create a flexible plan with
+      custom solutions, volume-based pricing, and support for regulated
+      industries.
+    period: negotiated
+    features:
+      - Everything in Growth
+      - Access to beta products
+      - Volume discounts
+      - Integration assistance
+      - Premium support
+      - Account Management
+    limits: []
+product_availability:
+  legend:
+    - Included
+    - Not included
+    - Contact for pricing
+  source: https://plaid.com/pricing/
+  matrix:
+    - product: Auth
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Balance
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Identity
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Identity Match
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Investments Move
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Assets
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Income
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Statements
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Enrich
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Investments
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Liabilities
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Transactions
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Identity Verification
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Monitor
+      pay_as_you_go: Included
+      growth: Included
+      custom: Included
+    - product: Layer
+      pay_as_you_go: Not included
+      growth: Contact for pricing
+      custom: Included
+    - product: Signal
+      pay_as_you_go: Not included
+      growth: Contact for pricing
+      custom: Included
+    - product: Transfer
+      pay_as_you_go: Not included
+      growth: Contact for pricing
+      custom: Included
+    - product: Consumer Report
+      pay_as_you_go: Not included
+      growth: Contact for pricing
+      custom: Included
+    - product: Protect
+      pay_as_you_go: Not included
+      growth: Contact for pricing
+      custom: Included
+pricing_models:
+  source: 'plaid.com/pricing (FAQ: "How much does Plaid cost?")'
+  models:
+    - name: One-time fee products
+      description_text: You'll incur a charge only once per connected account, regardless of the number of API calls made.
+    - name: Subscription products
+      description_text: These incur a monthly fee for each connected account.
+    - name: Per-request products
+      description_text: These have a flat fee for every successful API call.

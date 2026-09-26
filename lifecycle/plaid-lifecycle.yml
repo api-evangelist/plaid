@@ -33,6 +33,9 @@ sla:
 status_page: https://status.plaid.com/
 change_log: https://plaid.com/docs/changelog/
 deprecated_products:
-  - Bank Transfer (superseded by Transfer)
-  - Deposit Switch (legacy)
+  - name: Bank Transfer
+    status: deprecated
+    superseded_by: Transfer
+  - name: Deposit Switch
+    status: legacy
 deprecated_operations: []

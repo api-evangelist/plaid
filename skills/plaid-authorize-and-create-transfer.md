@@ -1,7 +1,7 @@
 ---
-name: Authorize and create an ACH transfer idempotently
+name: plaid-authorize-and-create-transfer
 description: Risk-check and authorize a money movement, optionally score it with Signal, then create the transfer using an idempotency_key to prevent duplicates.
-api: openapi/plaid-transfer--openapi.yml
+api: openapi/plaid-plaid-api-openapi.yml
 operations: [transferAuthorizationCreate, transferCreate, transferGet, signalEvaluate]
 ---
 

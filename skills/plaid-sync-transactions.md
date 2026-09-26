@@ -1,7 +1,7 @@
 ---
-name: Sync transactions incrementally with a cursor
+name: plaid-sync-transactions
 description: Pull an Item's transactions incrementally using the /transactions/sync cursor pattern, persisting the cursor to resume.
-api: openapi/plaid-transactions--openapi.yml
+api: openapi/plaid-plaid-api-openapi.yml
 operations: [transactionsSync, transactionsGet]
 ---
 

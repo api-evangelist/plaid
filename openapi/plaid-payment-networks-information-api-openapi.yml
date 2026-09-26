@@ -1,0 +1,286 @@
+openapi: 3.2.0
+info:
+  title: Plaid Payment Networks Information API
+  version: 6.4.0
+  contact:
+    name: Plaid support
+    url: https://plaid.com/data-connectivity-core-exchange/
+    email: dataconnectivity@plaid.com
+  description: 'Operations tagged Payment Networks Information across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.your-organization.com/fdx/v6
+  description: Financial Data Exchange V6.4.0 Core API
+tags:
+- name: Payment Networks Information
+  description: Search and view account payment networks
+paths:
+  /accounts/{accountId}/payment-networks:
+    get:
+      operationId: getAccountPaymentNetworks
+      tags:
+      - Payment Networks Information
+      description: Get payment networks supported by an account, for example ACH (Automated Clearing House). For more information about how Plaid uses this information, see the Plaid Auth API.
+      summary: Get payment networks supported by the account
+      security:
+      - openIdConnect:
+        - Account
+      - oauth2:
+        - Account
+      parameters:
+      - $ref: '#/components/parameters/AccountIdPath'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/PageKeyQuery'
+      - $ref: '#/components/parameters/LimitQuery'
+      responses:
+        '200':
+          description: 'Information required to execute a payment transaction against this account.
+
+
+            **Note:** If the status of the `accountId` provided is `RESTRICTED`, you can send a 200 response with an empty body to indicate that no payment networks are available at this time.
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountPaymentNetworkList'
+              example:
+                page:
+                  nextOffset: B47D80MVP23T
+                paymentNetworks:
+                - bankId: 010088889
+                  identifier: '1111222233335820'
+                  type: US_ACH
+                  transferIn: true
+                  transferOut: true
+    servers:
+    - url: https://api.your-organization.com/fdx/v6
+      description: Financial Data Exchange V6.4.0 Core API
+components:
+  schemas:
+    AccountPaymentNetworkList:
+      title: Payment Networks entity
+      type: object
+      description: 'Array of payment networks.
+
+        Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+
+        '
+      allOf:
+      - $ref: '#/components/schemas/PaginatedArray'
+      - type: object
+        properties:
+          paymentNetworks:
+            type: array
+            description: 'Array of payment networks.
+
+              Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+
+              '
+            items:
+              $ref: '#/components/schemas/PaymentNetwork'
+            minItems: 1
+            example:
+            - bankId: 010088889
+              identifier: '1111222233335820'
+              type: US_ACH
+              transferIn: true
+              transferOut: true
+        required:
+        - paymentNetworks
+    PageMetadata:
+      title: Page Metadata
+      description: 'Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.
+
+        The `nextOffset` identifier is deprecated and will be removed with a future major release.
+
+        '
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          example: B47D80MVP23T
+          deprecated: true
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Deprecated in favor of `nextPageKey`, will be removed with a future major release
+
+            '
+        nextPageKey:
+          type: string
+          example: B47D80MVP23T
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Implementation specific
+
+            '
+        totalElements:
+          type: integer
+          example: 3
+          description: 'Total number of elements
+
+            '
+    PaymentNetworkType:
+      title: Payment Network Type
+      description: 'Suggested values for Payment Network Type. `US&#95;` refers to the USA, and `CA&#95;` refers to Canada.
+
+        Possible values:
+
+
+        * CA&#95;ACSS: Automated Clearing House Settlement System
+
+        * CA&#95;LVTS: Large-Value Transfer System
+
+        * US&#95;ACH: Automated Clearing House (mostly small banks)
+
+        * US&#95;CHIPS: Clearinghouse Interbank Payments System (primarily big banks)
+
+        * US&#95;FEDNOW: Federal Reserve Instant Payment System
+
+
+        **NOTE**: `US&#95;FEDNOW` is supported as of v6.0. `US&#95;FEDWIRE` and `US&#95;RTP` are not supported payment network types.
+
+        '
+      type: string
+      enum:
+      - CA_ACSS
+      - CA_LVTS
+      - US_ACH
+      - US_CHIPS
+      - US_FEDNOW
+      - US_FEDWIRE
+      - US_RTP
+    PaymentNetwork:
+      title: Payment Network Supported by Account
+      description: 'This provides details required to execute a transaction against the account within the payment network
+
+        '
+      type: object
+      properties:
+        bankId:
+          type: string
+          description: 'Bank identifier used by the payment network. Typically the 9-digit
+
+            routing transit number (RTN) associated with the account number at a US institution,
+
+            or the 3-digit Institution (FID) and 5-digit Transit numbers for Canadian institutions,
+
+            including leading zeroes
+
+            '
+        identifier:
+          type: string
+          description: 'The number used to identify the account within the payment network.
+
+            Send 4 to 17 digits with no separators, even if displayed to customers formatted. A value with separators is rejected and that account''s Auth data will be discarded, though the response still succeeds and the account still appears.
+
+            '
+        type:
+          $ref: '#/components/schemas/PaymentNetworkType'
+        transferIn:
+          type: boolean
+          description: 'Can transfer funds to the account using this information. Plaid expects that this value represents the account''s current ability to be credited through a payment network.
+
+            Plaid recommends dynamically updating this value, for example to represent if the account is locked or not.
+
+
+            **Note:** Both `transferIn` and `transferOut` must be `true` in order for the account to support ACH
+
+            '
+        transferOut:
+          type: boolean
+          description: 'Can transfer funds from the account using this information. Plaid expects that this value represents the account''s current ability to be debited through a payment network.
+
+            Plaid recommends dynamically updating this value, for example to represent if the account is locked or not.
+
+
+            **Note:** Both `transferIn` and `transferOut` must be `true` in order for the account to support ACH
+
+            '
+      required:
+      - bankId
+      - identifier
+      - type
+      - transferIn
+      - transferOut
+    PaginatedArray:
+      title: Paginated Array
+      description: 'Base class for results that may be paginated
+
+        '
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
+  parameters:
+    PageKeyQuery:
+      name: pageKey
+      in: query
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Pagination can be implemented per provider''s preference
+
+        '
+      schema:
+        type: string
+    AccountIdPath:
+      name: accountId
+      in: path
+      description: 'Account identifier, found in the `GET /accounts` endpoint response.
+
+        Plaid expects the ID to be a different value from the account number
+
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    LimitQuery:
+      name: limit
+      in: query
+      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
+
+        '
+      schema:
+        type: integer
+    OffsetQuery:
+      name: offset
+      in: query
+      deprecated: true
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Deprecated in favor of PageKeyQuery, will be removed with a future major release
+
+        '
+      schema:
+        type: string
+        example: qwer123454q2f
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      description: 'This API uses an [OpenID Connect (OIDC) authentication flow](https://plaid.com/core-exchange/docs/authentication) and accepts the resulting [access token](https://plaid.com/core-exchange/docs/authentication) as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      openIdConnectUrl: https://www.your-organization.com/.well-known/openid-configuration
+    oauth2:
+      type: oauth2
+      description: 'This API uses an [OAuth 2.0 authorization code flow](https://plaid.com/core-exchange/docs/authentication/oauth-flow) and accepts the resulting access token as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.your-organization.com/authorize
+          tokenUrl: https://www.your-organization.com/token
+          scopes:
+            Account: (optional) Read account data
+            Customer: (optional) Read customer data
+            Transactions: (optional) Read transaction data
+x-refined-from:
+- plaid-core-exchange-openapi-original.yml
+- plaid-core-exchange-openapi.yml

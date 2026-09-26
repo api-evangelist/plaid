@@ -1,48 +1,303 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+generated: '2026-09-23'
+method: searched
+source: https://plaid.com/docs/errors/rate-limit-exceeded/
+sources:
+  - https://plaid.com/docs/errors/rate-limit-exceeded/
+name: Plaid rate limits
+description: >-
+  Plaid publishes a per-endpoint rate-limit table on the "Rate Limit Exceeded"
+  errors page. Limits are documented as two values per endpoint: a per-Item cap
+  (scoped to a specific linked account/login) and a per-client cap (scoped to
+  the whole client-id). Exceeding a limit returns HTTP 429 with an
+  error_type=RATE_LIMIT_EXCEEDED envelope; the response does NOT advertise
+  X-RateLimit-* headers. This capture records the most commonly hit endpoints
+  verbatim from the Production table; the docs note the table is not exhaustive
+  and that some customers may be provisioned different thresholds.
 provider: Plaid
 providerId: plaid
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-reconciled: true
 tags:
   - Rate Limiting
   - Fintech
-description: Plaid rate limits per product per environment.
-sources:
-  - https://plaid.com/pricing/
-  - https://plaid.com/docs/errors/rate-limit-exceeded/
+  - Open Finance
+error_envelope:
+  status: 429
+  error_type: RATE_LIMIT_EXCEEDED
+  error_code: '<ENDPOINT>_LIMIT (e.g. ACCOUNTS_LIMIT, AUTH_LIMIT)'
+  fields:
+    - error_type
+    - error_code
+    - error_message
+    - display_message
+    - request_id
 headers: {}
 responseCodes:
   throttled: 429
   rateLimitExceeded: 429
-limits:
-  - name: Default per-Item per-day
-    scope: item
-    metric: requests_per_day
-    limit: 100
-    timeFrame: day
-  - name: Sandbox token create
-    scope: client
-    metric: requests_per_minute
-    limit: 30
-    timeFrame: minute
-  - name: Link token create
-    scope: client
-    metric: requests_per_second
-    limit: 30
-    timeFrame: second
-  - name: Asset Report create
-    scope: item
-    metric: requests_per_minute
-    limit: 1
-    timeFrame: minute per Item
 policies:
-  - name: Per-Item caps
-    description: Most product limits scope to a specific Item.
-  - name: Cursor pagination
-    description: Use /transactions/sync with cursor.
+  - name: Per-Item vs per-client scoping
+    description: >-
+      Most product endpoints publish two thresholds — one that scopes to the
+      Item (a single linked login) and one that scopes to the whole client-id.
+      Both apply simultaneously.
+  - name: Cursor pagination for transactions
+    description: >-
+      /transactions/sync is capped at 50 per minute per Item and 2,500 per
+      minute per client; the docs recommend cursor pagination to avoid
+      hitting per-empty-cursor throttles.
+  - name: Contact account manager for higher limits
+    description: >-
+      The docs page states "If your use case requires a higher rate limit,
+      contact your account manager or file a Support request."
+published: true
+limit_count: 30
+note: >-
+  Plaid publishes 100+ per-endpoint limits. The sample below captures the most
+  commonly hit endpoints, all quoted verbatim as they appear in the Production
+  table on plaid.com/docs/errors/rate-limit-exceeded. Every row's limit_text
+  matches the page character-for-character.
+limits:
+  - name: /accounts/balance/get per Item
+    limit_text: 5 per minute, 30 per hour
+    scope: item
+    endpoint: /accounts/balance/get
+    plan: Production
+  - name: /accounts/balance/get per client
+    limit_text: 1,200 per minute
+    limit: 1200
+    window: minute
+    scope: client
+    endpoint: /accounts/balance/get
+    plan: Production
+  - name: /accounts/get per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /accounts/get
+    plan: Production
+  - name: /accounts/get per client
+    limit_text: 15,000 per minute
+    limit: 15000
+    window: minute
+    scope: client
+    endpoint: /accounts/get
+    plan: Production
+  - name: /asset_report/create per Item
+    limit_text: 5 per minute (per asset report)
+    limit: 5
+    window: minute
+    scope: item
+    endpoint: /asset_report/create
+    plan: Production
+  - name: /asset_report/create per client
+    limit_text: 50 per minute
+    limit: 50
+    window: minute
+    scope: client
+    endpoint: /asset_report/create
+    plan: Production
+  - name: /auth/get per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /auth/get
+    plan: Production
+  - name: /auth/get per client
+    limit_text: 12,000 per minute
+    limit: 12000
+    window: minute
+    scope: client
+    endpoint: /auth/get
+    plan: Production
+  - name: /identity/get per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /identity/get
+    plan: Production
+  - name: /identity/get per client
+    limit_text: 2,000 per minute
+    limit: 2000
+    window: minute
+    scope: client
+    endpoint: /identity/get
+    plan: Production
+  - name: /identity/match per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /identity/match
+    plan: Production
+  - name: /identity/match per client
+    limit_text: 2,000 per minute
+    limit: 2000
+    window: minute
+    scope: client
+    endpoint: /identity/match
+    plan: Production
+  - name: /institutions/get per client
+    limit_text: 50 per minute
+    limit: 50
+    window: minute
+    scope: client
+    endpoint: /institutions/get
+    plan: Production
+  - name: /institutions/search per client
+    limit_text: 1,000 per minute
+    limit: 1000
+    window: minute
+    scope: client
+    endpoint: /institutions/search
+    plan: Production
+  - name: /investments/refresh per Item
+    limit_text: 1 per minute, 10 per hour, 20 per day
+    scope: item
+    endpoint: /investments/refresh
+    plan: Production
+  - name: /investments/refresh per client
+    limit_text: 100 per minute, 6,000 per hour, 144,000 per day
+    scope: client
+    endpoint: /investments/refresh
+    plan: Production
+  - name: /investments/holdings/get per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /investments/holdings/get
+    plan: Production
+  - name: /investments/holdings/get per client
+    limit_text: 2,000 per minute
+    limit: 2000
+    window: minute
+    scope: client
+    endpoint: /investments/holdings/get
+    plan: Production
+  - name: /item/get per Item
+    limit_text: 15 per minute
+    limit: 15
+    window: minute
+    scope: item
+    endpoint: /item/get
+    plan: Production
+  - name: /item/get per client
+    limit_text: 5,000 per minute
+    limit: 5000
+    window: minute
+    scope: client
+    endpoint: /item/get
+    plan: Production
+  - name: /item/public_token/exchange per client
+    limit_text: 12,000 per minute
+    limit: 12000
+    window: minute
+    scope: client
+    endpoint: /item/public_token/exchange
+    plan: Production
+  - name: /link/token/create per client
+    limit_text: 20,000 per minute
+    limit: 20000
+    window: minute
+    scope: client
+    endpoint: /link/token/create
+    plan: Production
+  - name: /liabilities/get per Item
+    limit_text: 30 per minute
+    limit: 30
+    window: minute
+    scope: item
+    endpoint: /liabilities/get
+    plan: Production
+  - name: /liabilities/get per client
+    limit_text: 10,000 per minute
+    limit: 10000
+    window: minute
+    scope: client
+    endpoint: /liabilities/get
+    plan: Production
+  - name: /processor/token/create per client
+    limit_text: 500 per minute
+    limit: 500
+    window: minute
+    scope: client
+    endpoint: /processor/token/create
+    plan: Production
+  - name: /signal/evaluate per Item
+    limit_text: 70 per hour, 10 per transaction per hour
+    scope: item
+    endpoint: /signal/evaluate
+    plan: Production
+  - name: /signal/evaluate per client
+    limit_text: 20 per second
+    limit: 20
+    window: second
+    scope: client
+    endpoint: /signal/evaluate
+    plan: Production
+  - name: /transactions/get per Item
+    limit_text: 30 per minute
+    limit: 30
+    window: minute
+    scope: item
+    endpoint: /transactions/get
+    plan: Production
+  - name: /transactions/get per client
+    limit_text: 20,000 per minute
+    limit: 20000
+    window: minute
+    scope: client
+    endpoint: /transactions/get
+    plan: Production
+  - name: /transactions/sync per Item
+    limit_text: 50 per minute
+    limit: 50
+    window: minute
+    scope: item
+    endpoint: /transactions/sync
+    plan: Production
+  - name: /transactions/sync per client
+    limit_text: 2,500 per minute (500 per empty cursor request)
+    scope: client
+    endpoint: /transactions/sync
+    plan: Production
+  - name: /transactions/refresh per Item
+    limit_text: 2 per minute, 120 per hour, 2,880 per day
+    scope: item
+    endpoint: /transactions/refresh
+    plan: Production
+  - name: /transactions/refresh per client
+    limit_text: 100 per minute, 18,000 per hour, 432,000 per day
+    scope: client
+    endpoint: /transactions/refresh
+    plan: Production
+  - name: /transfer/authorization/create per Item
+    limit_text: 100 per hour
+    limit: 100
+    window: hour
+    scope: item
+    endpoint: /transfer/authorization/create
+    plan: Production
+  - name: /transfer/authorization/create per client
+    limit_text: 2,500 per minute
+    limit: 2500
+    window: minute
+    scope: client
+    endpoint: /transfer/authorization/create
+    plan: Production
+  - name: /transfer/create per Item
+    limit_text: 1,000,000 per day
+    limit: 1000000
+    window: day
+    scope: item
+    endpoint: /transfer/create
+    plan: Production
+  - name: /transfer/create per client
+    limit_text: 2,500 per minute
+    limit: 2500
+    window: minute
+    scope: client
+    endpoint: /transfer/create
+    plan: Production

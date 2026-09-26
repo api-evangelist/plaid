@@ -26,6 +26,75 @@ envelope:
   transport: >-
     Returned with a 4xx/5xx HTTP status; the machine-readable detail is the
     error_type/error_code pair in the body, not the HTTP status alone.
+problems:
+  - status: 400
+    title: INVALID_REQUEST
+    type: INVALID_REQUEST
+    description: The request was malformed or missing required fields / had an unexpected shape.
+  - status: 400
+    title: INVALID_INPUT
+    type: INVALID_INPUT
+    description: A field value was invalid (e.g. bad access_token, invalid credentials, unauthorized environment).
+  - status: 400
+    title: INVALID_RESULT
+    type: INVALID_RESULT
+    description: The result of the request was invalid (e.g. a check that could not be completed).
+  - status: 400
+    title: INSTITUTION_ERROR
+    type: INSTITUTION_ERROR
+    description: The financial institution is down, in maintenance, or returned an error.
+  - status: 429
+    title: RATE_LIMIT_EXCEEDED
+    type: RATE_LIMIT_EXCEEDED
+    description: Too many requests against an Item, product, or client — back off and retry.
+  - status: 500
+    title: API_ERROR
+    type: API_ERROR
+    description: An internal Plaid server error; safe to retry.
+  - status: 400
+    title: ITEM_ERROR
+    type: ITEM_ERROR
+    description: A problem with a specific Item — e.g. ITEM_LOGIN_REQUIRED, requiring re-authentication via update mode.
+  - status: 400
+    title: ASSET_REPORT_ERROR
+    type: ASSET_REPORT_ERROR
+    description: An error generating or retrieving an Asset Report.
+  - status: 400
+    title: RECAPTCHA_ERROR
+    type: RECAPTCHA_ERROR
+    description: reCAPTCHA verification failed (risk / bot mitigation in Link).
+  - status: 400
+    title: OAUTH_ERROR
+    type: OAUTH_ERROR
+    description: An error during the institution OAuth authorization flow.
+  - status: 400
+    title: PAYMENT_ERROR
+    type: PAYMENT_ERROR
+    description: An error in the Payment Initiation product.
+  - status: 400
+    title: TRANSFER_ERROR
+    type: TRANSFER_ERROR
+    description: An error in the Transfer (ACH/RTP) product, including insufficient funds or risk decline.
+  - status: 400
+    title: BANK_TRANSFER_ERROR
+    type: BANK_TRANSFER_ERROR
+    description: An error in the legacy Bank Transfer product.
+  - status: 400
+    title: INCOME_VERIFICATION_ERROR
+    type: INCOME_VERIFICATION_ERROR
+    description: An error in the Income verification product.
+  - status: 400
+    title: MICRODEPOSITS_ERROR
+    type: MICRODEPOSITS_ERROR
+    description: An error verifying same-day / manual micro-deposit amounts in Auth.
+  - status: 400
+    title: SANDBOX_ERROR
+    type: SANDBOX_ERROR
+    description: An error specific to the Sandbox environment (e.g. invalid test configuration).
+  - status: 400
+    title: PARTNER_ERROR
+    type: PARTNER_ERROR
+    description: An error in a reseller / partner onboarding operation.
 error_types:
   - error_type: INVALID_REQUEST
     http_status: 400

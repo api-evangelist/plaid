@@ -1,24 +1,53 @@
 overlay: 1.0.0
 info:
-  title: API Evangelist enhancements for Plaid Transfer
-  version: 1.0.0
-x-generated: '2026-07-23'
+  title: API Evangelist enhancements for Plaid Transfer (money movement)
+  version: 1.1.0
+x-generated: '2026-09-23'
 x-method: generated
-extends: openapi/plaid-transfer--openapi.yml
+x-source:
+  - openapi/plaid-plaid-api-openapi.yml
+  - conventions/plaid-conventions.yml
+  - errors/plaid-problem-types.yml
+  - errors/plaid-decline-codes.yml
+  - lifecycle/plaid-lifecycle.yml
+  - skills/plaid-authorize-and-create-transfer.md
+x-scope: Transfer money-movement paths under the main Plaid API spec.
+extends: openapi/plaid-plaid-api-openapi.yml
 actions:
   - target: $.info
     update:
-      x-apievangelist-rating: 4
+      x-apievangelist-transfer-scope:
+        product: Transfer
+        capability: ACH / RTP / Same-Day ACH money movement + ledger + recurring
+        rating: 4
+        idempotency:
+          supported: true
+          field: idempotency_key
+          scope: transfer money-movement endpoints
+          detail: conventions/plaid-conventions.yml
+        conventions: conventions/plaid-conventions.yml
+        errors: errors/plaid-problem-types.yml
+        decline_codes: errors/plaid-decline-codes.yml
+        lifecycle: lifecycle/plaid-lifecycle.yml
+        agent_skills:
+          - skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/transfer/authorization/create'].post
+    update:
+      x-apievangelist-transfer-step: authorize
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/transfer/create'].post
+    update:
+      x-apievangelist-transfer-step: create
       x-apievangelist-idempotency:
         supported: true
         field: idempotency_key
-        scope: transfer money-movement endpoints
-        detail: conventions/plaid-conventions.yml
-      x-apievangelist-conventions: conventions/plaid-conventions.yml
-      x-apievangelist-errors: errors/plaid-problem-types.yml
-      x-apievangelist-decline-codes: errors/plaid-decline-codes.yml
-      x-apievangelist-lifecycle: lifecycle/plaid-lifecycle.yml
-  - target: $.info
+        replay: identical params + same key returns the original transfer
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/transfer/get'].post
     update:
-      x-apievangelist-agent-skills:
-        - skills/plaid-authorize-and-create-transfer.md
+      x-apievangelist-transfer-step: read
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/signal/evaluate'].post
+    update:
+      x-apievangelist-transfer-step: risk-score
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md

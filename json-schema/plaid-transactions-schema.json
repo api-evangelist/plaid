@@ -1,0 +1,680 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/plaid/main/json-schema/plaid-transactions-schema.json",
+  "title": "Transactions entity",
+  "description": "A page of transactions for an account, spanning deposit, investment, loan, and line-of-credit transaction types.\n",
+  "x-generated": "2026-09-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/plaid-core-exchange-openapi.yml#/components/schemas/Transactions",
+  "allOf": [
+    {
+      "$ref": "#/$defs/PaginatedArray"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "transactions": {
+          "type": "array",
+          "description": "An optionally paginated array of transactions.\nMay be any of the following: [deposit transaction](#deposit-transaction), [investment transaction](#investment-transaction), [loan transaction](#loan-transaction), [line of credit transaction](#line-of-credit-transaction)\n",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/DepositTransaction"
+              },
+              {
+                "$ref": "#/$defs/InvestmentTransaction"
+              },
+              {
+                "$ref": "#/$defs/LineOfCreditTransaction"
+              },
+              {
+                "$ref": "#/$defs/LoanTransaction"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "transactions"
+      ]
+    }
+  ],
+  "$defs": {
+    "AccountCategory": {
+      "title": "Account Category type",
+      "description": "The category of account. For example, annuity, commercial, deposit, digital wallet, insurance, investment, loan, or line of credit.\n",
+      "enum": [
+        "ANNUITY_ACCOUNT",
+        "COMMERCIAL_ACCOUNT",
+        "DEPOSIT_ACCOUNT",
+        "DIGITAL_WALLET",
+        "INSURANCE_ACCOUNT",
+        "INVESTMENT_ACCOUNT",
+        "LOAN_ACCOUNT",
+        "LOC_ACCOUNT"
+      ]
+    },
+    "DebitCreditMemo": {
+      "title": "DebitCreditMemo",
+      "description": "The posting type of a transaction. Because the transaction `amount` is an absolute value, this parameter is required to indicate the transaction direction and sign (+/-):\n- `DEBIT`: Money is leaving the account. The transaction amount will be exposed with a **positive** sign (+)\n- `CREDIT`: Money is entering the account. The transaction amount will be exposed with a **negative** sign (-)\n- `MEMO`: The transaction is pending and will be completed at the end of the day. (Plaid handles `MEMO` transaction the same as `DEBIT` transactions.)\n",
+      "type": "string",
+      "enum": [
+        "CREDIT",
+        "DEBIT",
+        "MEMO"
+      ]
+    },
+    "DepositTransaction": {
+      "title": "Deposit Transaction entity",
+      "description": "A transaction on a deposit account type\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Transaction"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "DEPOSIT_ACCOUNT"
+              ]
+            },
+            "payee": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/String255"
+                }
+              ],
+              "description": "Payee name.\n"
+            },
+            "checkNumber": {
+              "type": "integer",
+              "description": "Check number. Plaid expects this solely if the transaction involves a check\n"
+            }
+          },
+          "required": [
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "FiAttribute": {
+      "title": "FI Attribute entity",
+      "description": "Financial institution-specific attribute.\n\nSent as an array of name/value pairs, not a keyed object, with string values: `[{\"name\": \"isCashEquivalent\", \"value\": \"false\"}]`, not `{\"isCashEquivalent\": false}`. `isCashEquivalent` must be `\"true\"` or `\"false\"`.\n",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the financial institution-specific attribute\n"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the financial institution-specific attribute\n"
+        }
+      }
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Value for a unique identifier\n",
+      "type": "string",
+      "maxLength": 256
+    },
+    "InvestmentTransaction": {
+      "title": "Investment Transaction entity",
+      "description": "A transaction on an investment account.\nIn addition to the required fields in the base `Transaction` model, Plaid requires the following fields\nfor all transactions on an investment account:\n\n* `fees`\n* `transactionType`\n\nIf the transaction involves a security, Plaid additionally requires the following fields:\n\n* `unitPrice`\n* `units`\n* `symbol` OR both `securityId` and `securityIdType`\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Transaction"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "INVESTMENT_ACCOUNT"
+              ]
+            },
+            "transactionType": {
+              "$ref": "#/$defs/InvestmentTransactionType"
+            },
+            "securityId": {
+              "type": "string",
+              "description": "If you return the `securityId` for a holding, Plaid uses it to look up the closing price from NYSE Group Security Master.\nIf you don't return `securityId` for a holding that uses security IDs (not recommended), Plaid uses the `unitPrice` as the closing price.\n\nThis field, along with `securityIdType` are **required** unless `symbol` is provided.\n\n**Note:** If `securityId` is provided, `securityIdType` is required.\n"
+            },
+            "securityIdType": {
+              "$ref": "#/$defs/SecurityIdType"
+            },
+            "securityType": {
+              "$ref": "#/$defs/SecurityType"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Ticker / Market symbol\nThis field is **required** unless both `securityId` and `securityIdType` are provided\n"
+            },
+            "commission": {
+              "type": "number",
+              "description": "Plaid expects that your organization includes a value for commission if the commission isn't included in `fees`\n"
+            },
+            "fees": {
+              "type": "number",
+              "description": "Fees applied to the trade. Plaid expects that the `fees` include the commission, unless your organization separately provides a value for `commission`\n"
+            },
+            "unitPrice": {
+              "type": "number",
+              "description": "Unit price. Plaid uses this as the [price](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-investment-transactions-price). Plaid falls back to using this as the [close price](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-securities-close-price) if you don't return `securityId` for transactions involving securities.\n**Note:** This field is required if the transaction involves a security\n"
+            },
+            "units": {
+              "type": "number",
+              "description": "Plaid requires this field for holdings and transactions involving securities.\nFor security-based actions other than stock splits, quantity.\nShares for stocks, mutual funds, and others. Face value for bonds.\nContracts for options.\n\n**Note:** This field is required if the transaction involves a security.\n"
+            },
+            "unitType": {
+              "$ref": "#/$defs/UnitType"
+            },
+            "fiAttributes": {
+              "type": "array",
+              "description": "Array of financial institution-specific attributes. Plaid recommends including a value for the `isCashEquivalent` attribute in this array, sent as a string value of `true` or `false`. This populates the [`is_cash_equivalent`](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-securities-is-cash-equivalent) field in Plaid's customer-facing API.\n",
+              "items": {
+                "$ref": "#/$defs/FiAttribute"
+              }
+            }
+          },
+          "required": [
+            "fees",
+            "transactionType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "InvestmentTransactionType": {
+      "title": "Investment Transaction Type",
+      "description": "The type of an investment transaction.\nPlaid maps these enums to Plaid [investment transaction types](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).\nPlaid doesn't map these enums to Plaid-specific transaction subtypes.\nPlaid maps these enums as follows:\n\n* ADJUSTMENT - fee\n* ATM - cash\n* CASH - cash\n* CHECK - cash\n* CLOSURE - Plaid suggests using SOLDTOCLOSE, PURCHASETOCLOSE, OPTIONEXERCISE or OPTIONEXPIRATION to indicate the specific type of closure, instead of using this enum.\n* CLOSUREOPT - Plaid suggests using SOLDTOCLOSE, PURCHASETOCLOSE, OPTIONEXERCISE or OPTIONEXPIRATION to indicate the specific type of closure, instead of using this enum.\n* CONTRIBUTION - buy (if transaction involves a security) or cash\n* DEP - cash\n* DEPOSIT - cash\n* DIRECTDEBIT - cash\n* DIRECTDEP - cash\n* DIV - cash\n* DIVIDEND - cash\n* DIVIDENDREINVEST - buy\n* EXPENSE - cash\n* FEE - fee\n* INCOME - cash\n* INTEREST - cash\n* INVEXPENSE - cash\n* JRNLFUND - transfer\n* JRNLSEC - transfer\n* MARGININTEREST - cash\n* OPTIONEXERCISE - transfer\n* OPTIONEXPIRATION - transfer\n* OTHER - cash - (unclassified)\n* PAYMENT - cash\n* POS - cash\n* PURCHASED - buy\n* PURCHASEDTOCOVER - buy\n* PURCHASETOCLOSE - buy\n* PURCHASETOOPEN - buy\n* REINVESTOFINCOME - buy\n* REPEATPMT - cash\n* RETURNOFCAPITAL - cash\n* SOLD - sell\n* SOLDTOCLOSE - sell\n* SOLDTOOPEN - sell\n* SPLIT - transfer\n* SRVCHG - fee\n* TRANSFER - transfer\n* XFER - transfer\n",
+      "type": "string",
+      "enum": [
+        "ADJUSTMENT",
+        "ATM",
+        "CASH",
+        "CHECK",
+        "CLOSURE",
+        "CLOSUREOPT",
+        "CONTRIBUTION",
+        "DEP",
+        "DEPOSIT",
+        "DIRECTDEBIT",
+        "DIRECTDEP",
+        "DIV",
+        "DIVIDEND",
+        "DIVIDENDREINVEST",
+        "EXPENSE",
+        "FEE",
+        "INCOME",
+        "INTEREST",
+        "INVEXPENSE",
+        "JRNLFUND",
+        "JRNLSEC",
+        "MARGININTEREST",
+        "OPTIONEXERCISE",
+        "OPTIONEXPIRATION",
+        "OTHER",
+        "PAYMENT",
+        "POS",
+        "PURCHASED",
+        "PURCHASEDTOCOVER",
+        "PURCHASETOCLOSE",
+        "PURCHASETOOPEN",
+        "REINVESTOFINCOME",
+        "REPEATPMT",
+        "RETURNOFCAPITAL",
+        "SOLD",
+        "SOLDTOCLOSE",
+        "SOLDTOOPEN",
+        "SPLIT",
+        "SRVCHG",
+        "TRANSFER",
+        "XFER"
+      ]
+    },
+    "Iso4217Code": {
+      "title": "ISO 4217 Code",
+      "description": "Currency, fund and precious metal codes effective from June 25, 2024 per\n[ISO 4217 Currency Code Maintenance](https://www.six-group.com/en/products-services/financial-information/data-standards.html).\nZWL (the Zimbabwean dollar) expires August 31, 2024 and is deprecated\nand replaced with ZWG (Zimbabwe Gold), effective on June 25, 2024.\n",
+      "type": "string",
+      "enum": [
+        "AED",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ANG",
+        "AOA",
+        "ARS",
+        "AUD",
+        "AWG",
+        "AZN",
+        "BAM",
+        "BBD",
+        "BDT",
+        "BGN",
+        "BHD",
+        "BIF",
+        "BMD",
+        "BND",
+        "BOB",
+        "BOV",
+        "BRL",
+        "BSD",
+        "BTN",
+        "BWP",
+        "BYN",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHE",
+        "CHF",
+        "CHW",
+        "CLF",
+        "CLP",
+        "CNY",
+        "COP",
+        "COU",
+        "CRC",
+        "CUC",
+        "CUP",
+        "CVE",
+        "CZK",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "EGP",
+        "ERN",
+        "ETB",
+        "EUR",
+        "FJD",
+        "FKP",
+        "GBP",
+        "GEL",
+        "GHS",
+        "GIP",
+        "GMD",
+        "GNF",
+        "GTQ",
+        "GYD",
+        "HKD",
+        "HNL",
+        "HTG",
+        "HUF",
+        "IDR",
+        "ILS",
+        "INR",
+        "IQD",
+        "IRR",
+        "ISK",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KMF",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KYD",
+        "KZT",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LRD",
+        "LSL",
+        "LYD",
+        "MAD",
+        "MDL",
+        "MGA",
+        "MKD",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MRU",
+        "MUR",
+        "MVR",
+        "MWK",
+        "MXN",
+        "MXV",
+        "MYR",
+        "MZN",
+        "NAD",
+        "NGN",
+        "NIO",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEN",
+        "PGK",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PYG",
+        "QAR",
+        "RON",
+        "RSD",
+        "RUB",
+        "RWF",
+        "SAR",
+        "SBD",
+        "SCR",
+        "SDG",
+        "SEK",
+        "SGD",
+        "SHP",
+        "SLE",
+        "SLL",
+        "SOS",
+        "SRD",
+        "SSP",
+        "STN",
+        "SVC",
+        "SYP",
+        "SZL",
+        "THB",
+        "TJS",
+        "TMT",
+        "TND",
+        "TOP",
+        "TRY",
+        "TTD",
+        "TWD",
+        "TZS",
+        "UAH",
+        "UGX",
+        "USD",
+        "USN",
+        "UYI",
+        "UYU",
+        "UYW",
+        "UZS",
+        "VED",
+        "VES",
+        "VND",
+        "VUV",
+        "WST",
+        "XAF",
+        "XAG",
+        "XAU",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XCD",
+        "XDR",
+        "XOF",
+        "XPD",
+        "XPF",
+        "XPT",
+        "XSU",
+        "XTS",
+        "XUA",
+        "XXX",
+        "YER",
+        "ZAR",
+        "ZMW",
+        "ZWG",
+        "ZWL"
+      ]
+    },
+    "LineOfCreditTransaction": {
+      "title": "Line-Of-Credit Transaction entity",
+      "description": "A line-of-credit transaction\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Transaction"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOC_ACCOUNT"
+              ]
+            },
+            "transactionType": {
+              "$ref": "#/$defs/LineOfCreditTransactionType"
+            },
+            "checkNumber": {
+              "type": "integer",
+              "description": "Check number. Plaid expects this solely if the transaction involves a check\n"
+            }
+          },
+          "required": [
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LineOfCreditTransactionType": {
+      "title": "Line-Of-Credit Transaction Type",
+      "description": "The type of a line of credit (LOC) transaction. Plaid passes through all LOC transaction types\n",
+      "type": "string",
+      "enum": [
+        "ADJUSTMENT",
+        "CHECK",
+        "FEE",
+        "INTEREST",
+        "PAYMENT",
+        "WITHDRAWAL",
+        "PURCHASE"
+      ]
+    },
+    "LoanTransaction": {
+      "title": "Loan Transaction entity",
+      "description": "A transaction on a loan account\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Transaction"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOAN_ACCOUNT"
+              ]
+            },
+            "transactionType": {
+              "$ref": "#/$defs/LoanTransactionType"
+            }
+          },
+          "required": [
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LoanTransactionType": {
+      "title": "Loan Transaction Type",
+      "description": "The type of a loan transaction. Plaid passes through all loan transaction types\n\n- `ADJUSTMENT`: Adjustment or correction.\n- `FEE`: Fee charge. For example, a late payment fee.\n- `INTEREST`: Interest charge.\n- `PAYMENT`: Required payment that satisfies the minimum payment (e.g. principal + interest for mortgages).\n- `LUMP_SUM_PAYMENT`: A single payment of money, as opposed to a series of payments made over time.\n- `SKIP_PAYMENT`: Payment that satisfies deferral of a required payment.\n- `DOUBLE_UP_PAYMENT`: Additional payment beyond the required payment to reduce the principal.\n- `PAYOFF`: Payment that satisfies the terms of the mortgage loan and completely pays off the debt.\n",
+      "type": "string",
+      "enum": [
+        "ADJUSTMENT",
+        "FEE",
+        "INTEREST",
+        "PAYMENT",
+        "LUMP_SUM_PAYMENT",
+        "SKIP_PAYMENT",
+        "DOUBLE_UP_PAYMENT",
+        "PAYOFF"
+      ]
+    },
+    "PageMetadata": {
+      "title": "Page Metadata",
+      "description": "Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.\nThe `nextOffset` identifier is deprecated and will be removed with a future major release.\n",
+      "type": "object",
+      "properties": {
+        "nextOffset": {
+          "type": "string",
+          "deprecated": true,
+          "description": "Opaque identifier. Does not need to be numeric or have any specific pattern.\nDeprecated in favor of `nextPageKey`, will be removed with a future major release\n"
+        },
+        "nextPageKey": {
+          "type": "string",
+          "description": "Opaque identifier. Does not need to be numeric or have any specific pattern.\nImplementation specific\n"
+        },
+        "totalElements": {
+          "type": "integer",
+          "description": "Total number of elements\n"
+        }
+      }
+    },
+    "PaginatedArray": {
+      "title": "Paginated Array",
+      "description": "Base class for results that may be paginated\n",
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/$defs/PageMetadata"
+        }
+      }
+    },
+    "SecurityIdType": {
+      "title": "Security ID Type",
+      "description": "Plaid consumes solely CUSIP, ISIN, and SEDOL.\n\nThis field, along with `securityId` are **required** unless `symbol` is provided.\n\n**Note:** If `securityIdType` is provided, `securityId` is required.\n",
+      "type": "string",
+      "enum": [
+        "CINS",
+        "CMC",
+        "CME",
+        "CUSIP",
+        "ISIN",
+        "ITSA",
+        "NASDAQ",
+        "SEDOL",
+        "SICC",
+        "VALOR",
+        "WKN"
+      ]
+    },
+    "SecurityType": {
+      "title": "Security Type",
+      "description": "The type of a security\n",
+      "type": "string",
+      "enum": [
+        "BOND",
+        "DEBT",
+        "MUTUALFUND",
+        "DIGITALASSET",
+        "OPTION",
+        "OTHER",
+        "STOCK",
+        "SWEEP"
+      ]
+    },
+    "String255": {
+      "title": "String 255",
+      "description": "String with a maximum length of 255 characters\n",
+      "type": "string",
+      "maxLength": 255
+    },
+    "Timestamp": {
+      "title": "Timestamp",
+      "description": "ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to\n[IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n\nSend UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.\n",
+      "type": "string",
+      "format": "date-time"
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Base entity for financial transactions. For monetary amounts, Plaid expects a decimal amount, with two places to represent fractional values of the base currency, for example `101.99`\n",
+      "type": "object",
+      "properties": {
+        "accountCategory": {
+          "$ref": "#/$defs/AccountCategory"
+        },
+        "transactionId": {
+          "description": "Long term persistent unique identifier of the transaction. Each ID must be unique within the scope of the account, as a duplicate ID will cause the transaction to be overwritten. The pending and posted versions of a transaction must have different IDs; you can associate them by sharing a `referenceTransactionId` instead of this field. This identifier's value must not be based on a counter that resets, such as at the end of a day or a statement cycle.\n",
+          "$ref": "#/$defs/Identifier"
+        },
+        "referenceTransactionId": {
+          "description": "For reverse postings, the identity of the transaction being\nreversed. For the correction transaction, the identity of the\nreversing post. For credit card posting transactions, the identity\nof the authorization transaction\n",
+          "$ref": "#/$defs/Identifier"
+        },
+        "postedTimestamp": {
+          "description": "The date and time that the transaction was posted to the account.\nThis property is **required** by Plaid when `status=POSTED`. Plaid expects this property to be omitted when `status=PENDING`\nISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to\n[IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n\nSend UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.\n",
+          "$ref": "#/$defs/Timestamp"
+        },
+        "transactionTimestamp": {
+          "description": "The date and time that the transaction was added to the server backend systems\nISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to\n[IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n\nSend UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.\n",
+          "$ref": "#/$defs/Timestamp"
+        },
+        "cardNumberDisplay": {
+          "type": "string",
+          "description": "The payment card number (e.g. debit, credit or digital), suitably masked,\nused to originate the transaction. May differ from primary account number as a\nsecondary or employee card or a one-time use number. This is an optional field\nand won't be returned for certain types of transactions such as cash or check deposits\n"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the transaction, such as information about a merchant's\nname or place of business in a manner that is user friendly and accessible to the customer\n"
+        },
+        "debitCreditMemo": {
+          "$ref": "#/$defs/DebitCreditMemo"
+        },
+        "category": {
+          "type": "string",
+          "description": "Transaction category, preferably MCC or SIC. Plaid expects your organization to provide MCC, if available and applicable\n"
+        },
+        "subCategory": {
+          "type": "string",
+          "description": "Transaction category detail specifying the standard of the transaction category.\nFor example, \"MCC\"\n"
+        },
+        "status": {
+          "$ref": "#/$defs/TransactionStatus"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of money in the account currency. The amount is an absolute value. Plaid relies on the `DebitCreditMemo` enum to determine the direction (and sign) of the transaction\n"
+        },
+        "foreignAmount": {
+          "type": "number",
+          "description": "The amount of money in the foreign currency. If this amount is specified, then Plaid expects that the `foreignCurrency` property is also set\n"
+        },
+        "foreignCurrency": {
+          "$ref": "#/$defs/Iso4217Code"
+        }
+      },
+      "required": [
+        "debitCreditMemo",
+        "description",
+        "transactionId",
+        "transactionTimestamp",
+        "status",
+        "amount"
+      ]
+    },
+    "TransactionStatus": {
+      "title": "Transaction Status",
+      "description": "The status of a transaction. Plaid consumes solely the `PENDING` and `POSTED` enums,\nand treats `MEMO` and `AUTHORIZATION` as if they were `PENDING`. Plaid expects that pending and posted transactions\nhave different `transactionIds`.\n* `AUTHORIZATION`\n* `MEMO` - A pending transaction to be completed at the end of this day\n* `PENDING` - A pending transaction\n* `POSTED` - A posted transaction\n",
+      "type": "string",
+      "enum": [
+        "AUTHORIZATION",
+        "MEMO",
+        "PENDING",
+        "POSTED"
+      ]
+    },
+    "UnitType": {
+      "title": "Unit Type",
+      "description": "The units of an investment transaction\n",
+      "type": "string",
+      "enum": [
+        "CURRENCY",
+        "SHARES"
+      ]
+    }
+  }
+}

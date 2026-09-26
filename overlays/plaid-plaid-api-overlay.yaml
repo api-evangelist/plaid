@@ -1,0 +1,120 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Plaid API
+  version: 1.0.0
+x-generated: '2026-09-23'
+x-method: generated
+x-source:
+  - openapi/plaid-plaid-api-openapi.yml
+  - conventions/plaid-conventions.yml
+  - errors/plaid-problem-types.yml
+  - errors/plaid-decline-codes.yml
+  - lifecycle/plaid-lifecycle.yml
+  - authentication/plaid-authentication.yml
+  - rate-limits/plaid-rate-limits.yml
+  - sandbox/plaid-sandbox.yml
+  - mcp/plaid-mcp.yml
+  - mcp/plaid-tool-crosswalk.yml
+  - llms/plaid-llms.txt
+extends: openapi/plaid-plaid-api-openapi.yml
+actions:
+  # ---- API-level annotations ----
+  - target: $.info
+    update:
+      x-apievangelist-rating: 5
+      x-apievangelist-version: '2020-09-14'
+      x-apievangelist-version-header: Plaid-Version
+      x-apievangelist-authentication: authentication/plaid-authentication.yml
+      x-apievangelist-conventions: conventions/plaid-conventions.yml
+      x-apievangelist-errors: errors/plaid-problem-types.yml
+      x-apievangelist-decline-codes: errors/plaid-decline-codes.yml
+      x-apievangelist-lifecycle: lifecycle/plaid-lifecycle.yml
+      x-apievangelist-rate-limits: rate-limits/plaid-rate-limits.yml
+      x-apievangelist-sandbox: sandbox/plaid-sandbox.yml
+      x-apievangelist-llms: llms/plaid-llms.txt
+      x-apievangelist-mcp:
+        manifest: mcp/plaid-mcp.yml
+        crosswalk: mcp/plaid-tool-crosswalk.yml
+        remote_endpoint: https://api.dashboard.plaid.com/mcp/
+        local_stdio: uvx mcp-server-plaid
+      x-apievangelist-agent-skills:
+        - skills/plaid-link-and-fetch-accounts.md
+        - skills/plaid-sync-transactions.md
+        - skills/plaid-authorize-and-create-transfer.md
+  # ---- Idempotency: money movement ----
+  - target: $.paths['/transfer/create'].post
+    update:
+      x-apievangelist-idempotency:
+        supported: true
+        field: idempotency_key
+        scope: per money-movement request
+        replay: identical params + same key returns the original transfer
+        detail: conventions/plaid-conventions.yml
+  - target: $.paths['/transfer/authorization/create'].post
+    update:
+      x-apievangelist-idempotency:
+        supported: true
+        field: idempotency_key
+        scope: per authorization request
+        detail: conventions/plaid-conventions.yml
+  # ---- Cursor pagination: transactions/sync ----
+  - target: $.paths['/transactions/sync'].post
+    update:
+      x-apievangelist-pagination:
+        style: cursor
+        cursor_field: cursor
+        next_cursor_field: next_cursor
+        has_more_field: has_more
+        delta_arrays: [added, modified, removed]
+        detail: conventions/plaid-conventions.yml
+  # ---- Offset pagination: transactions/get ----
+  - target: $.paths['/transactions/get'].post
+    update:
+      x-apievangelist-pagination:
+        style: offset
+        offset_field: options.offset
+        count_field: options.count
+        total_field: total_transactions
+  # ---- OAuth token endpoint powers the Dashboard MCP server ----
+  - target: $.paths['/oauth/token'].post
+    update:
+      x-apievangelist-mcp-token:
+        server: plaid-dashboard-mcp
+        scope: mcp:dashboard
+        grant_type: client_credentials
+        ttl: 15m
+        detail: mcp/plaid-mcp.yml
+  # ---- Agent skills bind to operationIds (grep-verified in spec) ----
+  - target: $.paths['/link/token/create'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-link-and-fetch-accounts.md
+  - target: $.paths['/item/public_token/exchange'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-link-and-fetch-accounts.md
+  - target: $.paths['/accounts/get'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-link-and-fetch-accounts.md
+  - target: $.paths['/accounts/balance/get'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-link-and-fetch-accounts.md
+  - target: $.paths['/auth/get'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-link-and-fetch-accounts.md
+  - target: $.paths['/transactions/sync'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-sync-transactions.md
+  - target: $.paths['/transactions/get'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-sync-transactions.md
+  - target: $.paths['/transfer/authorization/create'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/transfer/create'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/transfer/get'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md
+  - target: $.paths['/signal/evaluate'].post
+    update:
+      x-apievangelist-agent-skill: skills/plaid-authorize-and-create-transfer.md

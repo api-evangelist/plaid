@@ -1,0 +1,426 @@
+openapi: 3.2.0
+info:
+  title: Plaid Account Statements API
+  version: 6.4.0
+  contact:
+    name: Plaid support
+    url: https://plaid.com/data-connectivity-core-exchange/
+    email: dataconnectivity@plaid.com
+  description: 'Operations tagged Account Statements across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.your-organization.com/fdx/v6
+  description: Financial Data Exchange V6.4.0 Core API
+tags:
+- name: Account Statements
+  description: Search and retrieve account statements
+paths:
+  /accounts/{accountId}/statements:
+    get:
+      operationId: searchForAccountStatements
+      tags:
+      - Account Statements
+      description: Get account statements.
+      summary: Search for statements
+      parameters:
+      - $ref: '#/components/parameters/AccountIdPath'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/PageKeyQuery'
+      - $ref: '#/components/parameters/LimitQuery'
+      - $ref: '#/components/parameters/StartTimeQuery'
+      - $ref: '#/components/parameters/EndTimeQuery'
+      - $ref: '#/components/parameters/StartDateQuery'
+      - $ref: '#/components/parameters/EndDateQuery'
+      responses:
+        '200':
+          description: 'Paginated list of available statements.
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statements'
+              example:
+                page:
+                  nextOffset: B47D80MVP23T
+                statements:
+                - accountId: '10001'
+                  statementId: '20001'
+                  links:
+                  - href: /accounts/1111/statements?offset=2&limit=10
+    servers:
+    - url: https://api.your-organization.com/fdx/v6
+      description: Financial Data Exchange V6.4.0 Core API
+  /accounts/{accountId}/statements/{statementId}:
+    get:
+      operationId: getAccountStatement
+      tags:
+      - Account Statements
+      description: Get account statement PDF.
+      summary: Get account statement
+      parameters:
+      - $ref: '#/components/parameters/AccountIdPath'
+      - $ref: '#/components/parameters/StatementIdPath'
+      responses:
+        '200':
+          description: 'A PDF of an account statement.
+
+            '
+          content:
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/StatementPDF'
+    servers:
+    - url: https://api.your-organization.com/fdx/v6
+      description: Financial Data Exchange V6.4.0 Core API
+components:
+  parameters:
+    EndDateQuery:
+      name: endDate
+      in: query
+      description: 'End date for use in retrieval of elements (ISO 8601 format).
+
+        Provider to define the date ranges and behaviors they will support.
+
+
+        Example of defined behavior:
+
+        - Recipients need to either specify both start date and end date or neither. If both start date and end date are not specified; default provided. Default range: 7 Days of past data. (Today''s date - 6 days both dates are inclusive)
+
+        - Recipient can specify the same start date and end date. The returned data will reflect transactions from that date.
+
+        - If start date and end date both are specified and if start date is later than end date, return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If start date and end date both are specified and if start date is older than what the Data Provider supports, then the Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec. Example: If today is 5/14/2024 and the DP supports 24 months, the start date should be 5/14/2022 and newer; it should not be 5/13/2022 or older.
+
+        - If start date is specified but end date is not specified or vice versa; Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If end date is today''s date, the most recent transactions from the time the request is received will be returned.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    StartDateQuery:
+      name: startDate
+      in: query
+      description: 'Start date for use in retrieval of elements (ISO 8601 format).
+
+        Provider to define the date ranges and behaviors they will support.
+
+
+        Example of defined behavior:
+
+        - Recipients need to either specify both start date and end date or neither. If both start date and end date are not specified; default provided. Default range: 7 Days of past data. (Today''s date - 6 days both dates are inclusive)
+
+        - Recipient can specify the same start date and end date. The returned data will reflect transactions from that date.
+
+        - If start date and end date both are specified and if start date is later than end date, return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If start date and end date both are specified and if start date is older than what the Data Provider supports, then the Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec. Example: If today is 5/14/2024 and the DP supports 24 months, the start date should be 5/14/2022 and newer; it should not be 5/13/2022 or older.
+
+        - If start date is specified but end date is not specified or vice versa; Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    EndTimeQuery:
+      name: endTime
+      in: query
+      description: 'End time for use in retrieval of elements (ISO 8601).
+
+        When used with the `/transactions` endpoint, Plaid filters by the `postedTimestamp`.
+
+        Will support filtering by time in a future major release.
+
+        To support filtering by date only, see EndDateQuery
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    LimitQuery:
+      name: limit
+      in: query
+      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
+
+        '
+      schema:
+        type: integer
+    AccountIdPath:
+      name: accountId
+      in: path
+      description: 'Account identifier, found in the `GET /accounts` endpoint response.
+
+        Plaid expects the ID to be a different value from the account number
+
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    OffsetQuery:
+      name: offset
+      in: query
+      deprecated: true
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Deprecated in favor of PageKeyQuery, will be removed with a future major release
+
+        '
+      schema:
+        type: string
+        example: qwer123454q2f
+    StatementIdPath:
+      name: statementId
+      in: path
+      description: 'Statement identifier, found in the `GET /accounts/{accountId}/statements` endpoint response
+
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    PageKeyQuery:
+      name: pageKey
+      in: query
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Pagination can be implemented per provider''s preference
+
+        '
+      schema:
+        type: string
+    StartTimeQuery:
+      name: startTime
+      in: query
+      description: 'Start time for use in retrieval of elements (ISO 8601).
+
+        When used with the `/transactions` endpoint, Plaid filters by the `postedTimestamp`.
+
+        Will support filtering by time in a future major release.
+
+        To support filtering by date only, see StartDateQuery
+
+
+        Return everything you hold in the requested range. A fixed lookback of your own is indistinguishable from an account with little history.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+  schemas:
+    PageMetadata:
+      title: Page Metadata
+      description: 'Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.
+
+        The `nextOffset` identifier is deprecated and will be removed with a future major release.
+
+        '
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          example: B47D80MVP23T
+          deprecated: true
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Deprecated in favor of `nextPageKey`, will be removed with a future major release
+
+            '
+        nextPageKey:
+          type: string
+          example: B47D80MVP23T
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Implementation specific
+
+            '
+        totalElements:
+          type: integer
+          example: 3
+          description: 'Total number of elements
+
+            '
+    ContentTypes:
+      title: Content Types
+      description: 'Types of document formats. (Suggested values)
+
+        '
+      type: string
+      enum:
+      - application/pdf
+      - image/gif
+      - image/jpeg
+      - image/tiff
+      - image/png
+      - application/json
+    Statements:
+      title: Statements entity
+      description: 'A paginated array of account statements.
+
+
+        Return only statements within the requested window. Returning full history makes the same statement reappear on every extraction.
+
+        '
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/PaginatedArray'
+      - type: object
+        properties:
+          statements:
+            type: array
+            description: 'An array of statements, each with its own HATEOAS link to retrieve the account statement
+
+              '
+            items:
+              $ref: '#/components/schemas/Statement'
+        required:
+        - statements
+    StatementPDF:
+      title: Statement PDF
+      description: 'An account statement in PDF format.
+
+
+        Each statement must carry distinct, non-empty binary content. Plaid rejects duplicates and invalid payloads.
+
+        '
+      format: binary
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
+    HateoasLinks:
+      title: HATEOAS links array
+      description: 'An array of HATEOAS links
+
+        '
+      type: array
+      items:
+        $ref: '#/components/schemas/HateoasLink'
+    Statement:
+      title: Statement entity
+      description: 'An account statement
+
+        '
+      type: object
+      properties:
+        accountId:
+          $ref: '#/components/schemas/Identifier'
+          description: 'Corresponds to `accountId` in Account entity
+
+            '
+        statementId:
+          $ref: '#/components/schemas/Identifier'
+          description: 'Long-term persistent identity of the statement. This identity must be unique within your organization
+
+            '
+        statementDate:
+          $ref: '#/components/schemas/DateString'
+          description: 'The date the statement becomes available to be viewed by the user
+
+            '
+        description:
+          type: string
+          description: 'Description of the statement
+
+            '
+        links:
+          $ref: '#/components/schemas/HateoasLinks'
+          description: 'The HATEOAS links to retrieve this account statement, or to invoke other APIs.
+
+
+            **Note:** Plaid only accepts one link object in this array
+
+            '
+        status:
+          type: string
+          description: 'Availability status of statement
+
+            '
+    PaginatedArray:
+      title: Paginated Array
+      description: 'Base class for results that may be paginated
+
+        '
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    DateString:
+      title: Date String
+      description: 'ISO 8601 full-date in format ''YYYY-MM-DD'' according
+
+        to [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+
+        '
+      type: string
+      format: date
+      maxLength: 10
+      example: '2021-07-15'
+    HateoasLink:
+      title: HATEOAS Link
+      description: 'HATEOAS (Hypermedia As The Engine Of Application State) link
+
+        '
+      required:
+      - href
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri-reference
+          description: 'The resource URL
+
+            '
+          example: https://api.fi.com/fdx/v6/accounts/12345
+        action:
+          description: 'The HTTP method to use for the request
+
+            '
+          $ref: '#/components/schemas/HttpAction'
+        rel:
+          description: 'The relation of this link to its containing entity, as defined by the [IETF RFC8288](https://datatracker.ietf.org/doc/html/rfc8288)
+
+            '
+          type: string
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentTypes'
+          description: 'The content-types that can be used in the Accept header. **Note:** Plaid currently only accepts the PDF (`application/pdf`) content type
+
+            '
+    HttpAction:
+      title: HTTP action type
+      description: 'The HTTP method to use for requests
+
+        '
+      type: string
+      enum:
+      - GET
+      - POST
+      - PATCH
+      - DELETE
+      - PUT
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      description: 'This API uses an [OpenID Connect (OIDC) authentication flow](https://plaid.com/core-exchange/docs/authentication) and accepts the resulting [access token](https://plaid.com/core-exchange/docs/authentication) as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      openIdConnectUrl: https://www.your-organization.com/.well-known/openid-configuration
+    oauth2:
+      type: oauth2
+      description: 'This API uses an [OAuth 2.0 authorization code flow](https://plaid.com/core-exchange/docs/authentication/oauth-flow) and accepts the resulting access token as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.your-organization.com/authorize
+          tokenUrl: https://www.your-organization.com/token
+          scopes:
+            Account: (optional) Read account data
+            Customer: (optional) Read customer data
+            Transactions: (optional) Read transaction data
+x-refined-from:
+- plaid-core-exchange-openapi-original.yml
+- plaid-core-exchange-openapi.yml

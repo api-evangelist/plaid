@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/plaid/main/json-schema/plaid-customer-schema.json",
+  "title": "Customer entity",
+  "description": "Represents a customer. Plaid-specific schema created to hold one property, the `customerId` property of the FDX `Customer` schema\n",
+  "x-generated": "2026-09-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/plaid-core-exchange-openapi.yml#/components/schemas/Customer",
+  "type": "object",
+  "properties": {
+    "customerId": {
+      "$ref": "#/$defs/Identifier",
+      "description": "Long-term persistent identity of the customer. This identity must be unique within your organization. Plaid consumes this customer ID if your organization uses OAuth2 instead of OIDC to secure the API. Plaid expects your organization to issue the ID as a consistent, static, opaque, unique identifier for the user\n"
+    }
+  },
+  "required": [
+    "customerId"
+  ],
+  "$defs": {
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Value for a unique identifier\n",
+      "type": "string",
+      "maxLength": 256
+    }
+  }
+}

@@ -1,0 +1,1152 @@
+openapi: 3.2.0
+info:
+  title: Plaid Account Transactions API
+  version: 6.4.0
+  contact:
+    name: Plaid support
+    url: https://plaid.com/data-connectivity-core-exchange/
+    email: dataconnectivity@plaid.com
+  description: 'Operations tagged Account Transactions across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.your-organization.com/fdx/v6
+  description: Financial Data Exchange V6.4.0 Core API
+tags:
+- name: Account Transactions
+  description: Search and view account transactions
+paths:
+  /accounts/{accountId}/transactions:
+    get:
+      operationId: searchForAccountTransactions
+      tags:
+      - Account Transactions
+      description: 'List all account transactions. Plaid always queries this endpoint using a `startTime` and an `endTime`, for example, `/accounts/{accountId}/transactions?startTime=2022-01-30&endTime=2022-05-30`, and expects the time filters to be based on the `postedTimestamp`.
+
+
+        Plaid consumes data from this endpoint only for loan, investment, deposit, and line of credit accounts.'
+      summary: Search for account transactions
+      security:
+      - openIdConnect:
+        - Transactions
+      - oauth2:
+        - Transactions
+      parameters:
+      - $ref: '#/components/parameters/AccountIdPath'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/PageKeyQuery'
+      - $ref: '#/components/parameters/LimitQuery'
+      - $ref: '#/components/parameters/StartTimeQuery'
+      - $ref: '#/components/parameters/EndTimeQuery'
+      - $ref: '#/components/parameters/StartDateQuery'
+      - $ref: '#/components/parameters/EndDateQuery'
+      responses:
+        '200':
+          description: 'Paginated collection of transactions. Plaid consumes the following transaction types: InvestmentTransaction, DepositTransaction, LoanTransaction, or LocTransaction.
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transactions'
+              example:
+                page:
+                  nextOffset: B47D80MVP23T
+                transactions:
+                - accountCategory: DEPOSIT_ACCOUNT
+                  checkNumber: 1234
+                  payee: ACME LLC
+                  transactionId: depositTransaction000000001
+                  postedTimestamp: '2022-04-06T00:00:00.000Z'
+                  transactionTimestamp: '2022-04-05T00:00:00.000Z'
+                  description: check for latest ACME invoice
+                  debitCreditMemo: DEBIT
+                  status: PENDING
+                  amount: 400.0
+                - accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: depositTransaction000000002
+                  postedTimestamp: '2022-04-07T00:00:00.000Z'
+                  transactionTimestamp: '2022-04-07T00:00:00.000Z'
+                  description: reconciliation/adjustment of bank statement error
+                  debitCreditMemo: DEBIT
+                  status: POSTED
+                  amount: 0.8
+                - accountCategory: DEPOSIT_ACCOUNT
+                  transactionId: depositTransaction000000003
+                  postedTimestamp: '2022-04-08T00:00:00.000Z'
+                  transactionTimestamp: '2022-04-08T00:00:00.000Z'
+                  description: 'ATM cash deposit location #1234'
+                  debitCreditMemo: CREDIT
+                  status: POSTED
+                  amount: 101.8
+    servers:
+    - url: https://api.your-organization.com/fdx/v6
+      description: Financial Data Exchange V6.4.0 Core API
+components:
+  schemas:
+    UnitType:
+      title: Unit Type
+      description: 'The units of an investment transaction
+
+        '
+      type: string
+      enum:
+      - CURRENCY
+      - SHARES
+    String255:
+      title: String 255
+      description: 'String with a maximum length of 255 characters
+
+        '
+      type: string
+      maxLength: 255
+    PageMetadata:
+      title: Page Metadata
+      description: 'Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.
+
+        The `nextOffset` identifier is deprecated and will be removed with a future major release.
+
+        '
+      type: object
+      properties:
+        nextOffset:
+          type: string
+          example: B47D80MVP23T
+          deprecated: true
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Deprecated in favor of `nextPageKey`, will be removed with a future major release
+
+            '
+        nextPageKey:
+          type: string
+          example: B47D80MVP23T
+          description: 'Opaque identifier. Does not need to be numeric or have any specific pattern.
+
+            Implementation specific
+
+            '
+        totalElements:
+          type: integer
+          example: 3
+          description: 'Total number of elements
+
+            '
+    Transaction:
+      title: Transaction
+      description: 'Base entity for financial transactions. For monetary amounts, Plaid expects a decimal amount, with two places to represent fractional values of the base currency, for example `101.99`
+
+        '
+      type: object
+      discriminator:
+        propertyName: accountCategory
+      properties:
+        accountCategory:
+          $ref: '#/components/schemas/AccountCategory'
+        transactionId:
+          description: 'Long term persistent unique identifier of the transaction. Each ID must be unique within the scope of the account, as a duplicate ID will cause the transaction to be overwritten. The pending and posted versions of a transaction must have different IDs; you can associate them by sharing a `referenceTransactionId` instead of this field. This identifier''s value must not be based on a counter that resets, such as at the end of a day or a statement cycle.
+
+            '
+          $ref: '#/components/schemas/Identifier'
+        referenceTransactionId:
+          description: 'For reverse postings, the identity of the transaction being
+
+            reversed. For the correction transaction, the identity of the
+
+            reversing post. For credit card posting transactions, the identity
+
+            of the authorization transaction
+
+            '
+          $ref: '#/components/schemas/Identifier'
+        postedTimestamp:
+          description: 'The date and time that the transaction was posted to the account.
+
+            This property is **required** by Plaid when `status=POSTED`. Plaid expects this property to be omitted when `status=PENDING`
+
+            ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to
+
+            [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+
+
+            Send UTC or a local time with its correct offset. Plaid doesn''t normalize timestamps, so a local time labeled `Z` is read as UTC.
+
+            '
+          $ref: '#/components/schemas/Timestamp'
+        transactionTimestamp:
+          description: 'The date and time that the transaction was added to the server backend systems
+
+            ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to
+
+            [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+
+
+            Send UTC or a local time with its correct offset. Plaid doesn''t normalize timestamps, so a local time labeled `Z` is read as UTC.
+
+            '
+          $ref: '#/components/schemas/Timestamp'
+        cardNumberDisplay:
+          type: string
+          description: 'The payment card number (e.g. debit, credit or digital), suitably masked,
+
+            used to originate the transaction. May differ from primary account number as a
+
+            secondary or employee card or a one-time use number. This is an optional field
+
+            and won''t be returned for certain types of transactions such as cash or check deposits
+
+            '
+        description:
+          type: string
+          description: 'Description of the transaction, such as information about a merchant''s
+
+            name or place of business in a manner that is user friendly and accessible to the customer
+
+            '
+        debitCreditMemo:
+          $ref: '#/components/schemas/DebitCreditMemo'
+        category:
+          type: string
+          description: 'Transaction category, preferably MCC or SIC. Plaid expects your organization to provide MCC, if available and applicable
+
+            '
+        subCategory:
+          type: string
+          description: 'Transaction category detail specifying the standard of the transaction category.
+
+            For example, "MCC"
+
+            '
+        status:
+          $ref: '#/components/schemas/TransactionStatus'
+        amount:
+          type: number
+          description: 'The amount of money in the account currency. The amount is an absolute value. Plaid relies on the `DebitCreditMemo` enum to determine the direction (and sign) of the transaction
+
+            '
+        foreignAmount:
+          type: number
+          description: 'The amount of money in the foreign currency. If this amount is specified, then Plaid expects that the `foreignCurrency` property is also set
+
+            '
+        foreignCurrency:
+          $ref: '#/components/schemas/Iso4217Code'
+      required:
+      - debitCreditMemo
+      - description
+      - transactionId
+      - transactionTimestamp
+      - status
+      - amount
+    LoanTransactionType:
+      title: Loan Transaction Type
+      description: 'The type of a loan transaction. Plaid passes through all loan transaction types
+
+
+        - `ADJUSTMENT`: Adjustment or correction.
+
+        - `FEE`: Fee charge. For example, a late payment fee.
+
+        - `INTEREST`: Interest charge.
+
+        - `PAYMENT`: Required payment that satisfies the minimum payment (e.g. principal + interest for mortgages).
+
+        - `LUMP_SUM_PAYMENT`: A single payment of money, as opposed to a series of payments made over time.
+
+        - `SKIP_PAYMENT`: Payment that satisfies deferral of a required payment.
+
+        - `DOUBLE_UP_PAYMENT`: Additional payment beyond the required payment to reduce the principal.
+
+        - `PAYOFF`: Payment that satisfies the terms of the mortgage loan and completely pays off the debt.
+
+        '
+      type: string
+      enum:
+      - ADJUSTMENT
+      - FEE
+      - INTEREST
+      - PAYMENT
+      - LUMP_SUM_PAYMENT
+      - SKIP_PAYMENT
+      - DOUBLE_UP_PAYMENT
+      - PAYOFF
+    SecurityIdType:
+      title: Security ID Type
+      description: 'Plaid consumes solely CUSIP, ISIN, and SEDOL.
+
+
+        This field, along with `securityId` are **required** unless `symbol` is provided.
+
+
+        **Note:** If `securityIdType` is provided, `securityId` is required.
+
+        '
+      type: string
+      enum:
+      - CINS
+      - CMC
+      - CME
+      - CUSIP
+      - ISIN
+      - ITSA
+      - NASDAQ
+      - SEDOL
+      - SICC
+      - VALOR
+      - WKN
+    InvestmentTransactionType:
+      title: Investment Transaction Type
+      description: 'The type of an investment transaction.
+
+        Plaid maps these enums to Plaid [investment transaction types](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).
+
+        Plaid doesn''t map these enums to Plaid-specific transaction subtypes.
+
+        Plaid maps these enums as follows:
+
+
+        * ADJUSTMENT - fee
+
+        * ATM - cash
+
+        * CASH - cash
+
+        * CHECK - cash
+
+        * CLOSURE - Plaid suggests using SOLDTOCLOSE, PURCHASETOCLOSE, OPTIONEXERCISE or OPTIONEXPIRATION to indicate the specific type of closure, instead of using this enum.
+
+        * CLOSUREOPT - Plaid suggests using SOLDTOCLOSE, PURCHASETOCLOSE, OPTIONEXERCISE or OPTIONEXPIRATION to indicate the specific type of closure, instead of using this enum.
+
+        * CONTRIBUTION - buy (if transaction involves a security) or cash
+
+        * DEP - cash
+
+        * DEPOSIT - cash
+
+        * DIRECTDEBIT - cash
+
+        * DIRECTDEP - cash
+
+        * DIV - cash
+
+        * DIVIDEND - cash
+
+        * DIVIDENDREINVEST - buy
+
+        * EXPENSE - cash
+
+        * FEE - fee
+
+        * INCOME - cash
+
+        * INTEREST - cash
+
+        * INVEXPENSE - cash
+
+        * JRNLFUND - transfer
+
+        * JRNLSEC - transfer
+
+        * MARGININTEREST - cash
+
+        * OPTIONEXERCISE - transfer
+
+        * OPTIONEXPIRATION - transfer
+
+        * OTHER - cash - (unclassified)
+
+        * PAYMENT - cash
+
+        * POS - cash
+
+        * PURCHASED - buy
+
+        * PURCHASEDTOCOVER - buy
+
+        * PURCHASETOCLOSE - buy
+
+        * PURCHASETOOPEN - buy
+
+        * REINVESTOFINCOME - buy
+
+        * REPEATPMT - cash
+
+        * RETURNOFCAPITAL - cash
+
+        * SOLD - sell
+
+        * SOLDTOCLOSE - sell
+
+        * SOLDTOOPEN - sell
+
+        * SPLIT - transfer
+
+        * SRVCHG - fee
+
+        * TRANSFER - transfer
+
+        * XFER - transfer
+
+        '
+      type: string
+      enum:
+      - ADJUSTMENT
+      - ATM
+      - CASH
+      - CHECK
+      - CLOSURE
+      - CLOSUREOPT
+      - CONTRIBUTION
+      - DEP
+      - DEPOSIT
+      - DIRECTDEBIT
+      - DIRECTDEP
+      - DIV
+      - DIVIDEND
+      - DIVIDENDREINVEST
+      - EXPENSE
+      - FEE
+      - INCOME
+      - INTEREST
+      - INVEXPENSE
+      - JRNLFUND
+      - JRNLSEC
+      - MARGININTEREST
+      - OPTIONEXERCISE
+      - OPTIONEXPIRATION
+      - OTHER
+      - PAYMENT
+      - POS
+      - PURCHASED
+      - PURCHASEDTOCOVER
+      - PURCHASETOCLOSE
+      - PURCHASETOOPEN
+      - REINVESTOFINCOME
+      - REPEATPMT
+      - RETURNOFCAPITAL
+      - SOLD
+      - SOLDTOCLOSE
+      - SOLDTOOPEN
+      - SPLIT
+      - SRVCHG
+      - TRANSFER
+      - XFER
+    TransactionStatus:
+      title: Transaction Status
+      description: 'The status of a transaction. Plaid consumes solely the `PENDING` and `POSTED` enums,
+
+        and treats `MEMO` and `AUTHORIZATION` as if they were `PENDING`. Plaid expects that pending and posted transactions
+
+        have different `transactionIds`.
+
+        * `AUTHORIZATION`
+
+        * `MEMO` - A pending transaction to be completed at the end of this day
+
+        * `PENDING` - A pending transaction
+
+        * `POSTED` - A posted transaction
+
+        '
+      type: string
+      enum:
+      - AUTHORIZATION
+      - MEMO
+      - PENDING
+      - POSTED
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
+    DepositTransaction:
+      title: Deposit Transaction entity
+      description: 'A transaction on a deposit account type
+
+        '
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - type: object
+        properties:
+          accountCategory:
+            type: string
+            enum:
+            - DEPOSIT_ACCOUNT
+          payee:
+            allOf:
+            - $ref: '#/components/schemas/String255'
+            description: 'Payee name.
+
+              '
+          checkNumber:
+            type: integer
+            description: 'Check number. Plaid expects this solely if the transaction involves a check
+
+              '
+        required:
+        - accountCategory
+      example:
+        accountCategory: DEPOSIT_ACCOUNT
+        transactionId: 78RJ3311PLU34300E
+        transactionTimestamp: '2024-07-15T14:46:41.375+02:00'
+        description: ATM deposit
+        debitCreditMemo: CREDIT
+        status: PENDING
+        amount: 38.9
+    Iso4217Code:
+      title: ISO 4217 Code
+      description: 'Currency, fund and precious metal codes effective from June 25, 2024 per
+
+        [ISO 4217 Currency Code Maintenance](https://www.six-group.com/en/products-services/financial-information/data-standards.html).
+
+        ZWL (the Zimbabwean dollar) expires August 31, 2024 and is deprecated
+
+        and replaced with ZWG (Zimbabwe Gold), effective on June 25, 2024.
+
+        '
+      type: string
+      example: CAD
+      enum:
+      - AED
+      - AFN
+      - ALL
+      - AMD
+      - ANG
+      - AOA
+      - ARS
+      - AUD
+      - AWG
+      - AZN
+      - BAM
+      - BBD
+      - BDT
+      - BGN
+      - BHD
+      - BIF
+      - BMD
+      - BND
+      - BOB
+      - BOV
+      - BRL
+      - BSD
+      - BTN
+      - BWP
+      - BYN
+      - BZD
+      - CAD
+      - CDF
+      - CHE
+      - CHF
+      - CHW
+      - CLF
+      - CLP
+      - CNY
+      - COP
+      - COU
+      - CRC
+      - CUC
+      - CUP
+      - CVE
+      - CZK
+      - DJF
+      - DKK
+      - DOP
+      - DZD
+      - EGP
+      - ERN
+      - ETB
+      - EUR
+      - FJD
+      - FKP
+      - GBP
+      - GEL
+      - GHS
+      - GIP
+      - GMD
+      - GNF
+      - GTQ
+      - GYD
+      - HKD
+      - HNL
+      - HTG
+      - HUF
+      - IDR
+      - ILS
+      - INR
+      - IQD
+      - IRR
+      - ISK
+      - JMD
+      - JOD
+      - JPY
+      - KES
+      - KGS
+      - KHR
+      - KMF
+      - KPW
+      - KRW
+      - KWD
+      - KYD
+      - KZT
+      - LAK
+      - LBP
+      - LKR
+      - LRD
+      - LSL
+      - LYD
+      - MAD
+      - MDL
+      - MGA
+      - MKD
+      - MMK
+      - MNT
+      - MOP
+      - MRU
+      - MUR
+      - MVR
+      - MWK
+      - MXN
+      - MXV
+      - MYR
+      - MZN
+      - NAD
+      - NGN
+      - NIO
+      - NOK
+      - NPR
+      - NZD
+      - OMR
+      - PAB
+      - PEN
+      - PGK
+      - PHP
+      - PKR
+      - PLN
+      - PYG
+      - QAR
+      - RON
+      - RSD
+      - RUB
+      - RWF
+      - SAR
+      - SBD
+      - SCR
+      - SDG
+      - SEK
+      - SGD
+      - SHP
+      - SLE
+      - SLL
+      - SOS
+      - SRD
+      - SSP
+      - STN
+      - SVC
+      - SYP
+      - SZL
+      - THB
+      - TJS
+      - TMT
+      - TND
+      - TOP
+      - TRY
+      - TTD
+      - TWD
+      - TZS
+      - UAH
+      - UGX
+      - USD
+      - USN
+      - UYI
+      - UYU
+      - UYW
+      - UZS
+      - VED
+      - VES
+      - VND
+      - VUV
+      - WST
+      - XAF
+      - XAG
+      - XAU
+      - XBA
+      - XBB
+      - XBC
+      - XBD
+      - XCD
+      - XDR
+      - XOF
+      - XPD
+      - XPF
+      - XPT
+      - XSU
+      - XTS
+      - XUA
+      - XXX
+      - YER
+      - ZAR
+      - ZMW
+      - ZWG
+      - ZWL
+    Timestamp:
+      title: Timestamp
+      description: 'ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to
+
+        [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+
+
+        Send UTC or a local time with its correct offset. Plaid doesn''t normalize timestamps, so a local time labeled `Z` is read as UTC.
+
+        '
+      type: string
+      format: date-time
+      example: '2021-07-15T14:46:41.375Z'
+    SecurityType:
+      title: Security Type
+      description: 'The type of a security
+
+        '
+      type: string
+      enum:
+      - BOND
+      - DEBT
+      - MUTUALFUND
+      - DIGITALASSET
+      - OPTION
+      - OTHER
+      - STOCK
+      - SWEEP
+    PaginatedArray:
+      title: Paginated Array
+      description: 'Base class for results that may be paginated
+
+        '
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/PageMetadata'
+    DateString:
+      title: Date String
+      description: 'ISO 8601 full-date in format ''YYYY-MM-DD'' according
+
+        to [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)
+
+        '
+      type: string
+      format: date
+      maxLength: 10
+      example: '2021-07-15'
+    DebitCreditMemo:
+      title: DebitCreditMemo
+      description: 'The posting type of a transaction. Because the transaction `amount` is an absolute value, this parameter is required to indicate the transaction direction and sign (+/-):
+
+        - `DEBIT`: Money is leaving the account. The transaction amount will be exposed with a **positive** sign (+)
+
+        - `CREDIT`: Money is entering the account. The transaction amount will be exposed with a **negative** sign (-)
+
+        - `MEMO`: The transaction is pending and will be completed at the end of the day. (Plaid handles `MEMO` transaction the same as `DEBIT` transactions.)
+
+        '
+      type: string
+      enum:
+      - CREDIT
+      - DEBIT
+      - MEMO
+    InvestmentTransaction:
+      title: Investment Transaction entity
+      description: 'A transaction on an investment account.
+
+        In addition to the required fields in the base `Transaction` model, Plaid requires the following fields
+
+        for all transactions on an investment account:
+
+
+        * `fees`
+
+        * `transactionType`
+
+
+        If the transaction involves a security, Plaid additionally requires the following fields:
+
+
+        * `unitPrice`
+
+        * `units`
+
+        * `symbol` OR both `securityId` and `securityIdType`
+
+        '
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - type: object
+        properties:
+          accountCategory:
+            type: string
+            enum:
+            - INVESTMENT_ACCOUNT
+          transactionType:
+            $ref: '#/components/schemas/InvestmentTransactionType'
+          securityId:
+            type: string
+            description: 'If you return the `securityId` for a holding, Plaid uses it to look up the closing price from NYSE Group Security Master.
+
+              If you don''t return `securityId` for a holding that uses security IDs (not recommended), Plaid uses the `unitPrice` as the closing price.
+
+
+              This field, along with `securityIdType` are **required** unless `symbol` is provided.
+
+
+              **Note:** If `securityId` is provided, `securityIdType` is required.
+
+              '
+          securityIdType:
+            $ref: '#/components/schemas/SecurityIdType'
+          securityType:
+            $ref: '#/components/schemas/SecurityType'
+          symbol:
+            type: string
+            description: 'Ticker / Market symbol
+
+              This field is **required** unless both `securityId` and `securityIdType` are provided
+
+              '
+          commission:
+            type: number
+            description: 'Plaid expects that your organization includes a value for commission if the commission isn''t included in `fees`
+
+              '
+          fees:
+            type: number
+            description: 'Fees applied to the trade. Plaid expects that the `fees` include the commission, unless your organization separately provides a value for `commission`
+
+              '
+          unitPrice:
+            type: number
+            description: 'Unit price. Plaid uses this as the [price](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-investment-transactions-price). Plaid falls back to using this as the [close price](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-securities-close-price) if you don''t return `securityId` for transactions involving securities.
+
+              **Note:** This field is required if the transaction involves a security
+
+              '
+          units:
+            type: number
+            description: 'Plaid requires this field for holdings and transactions involving securities.
+
+              For security-based actions other than stock splits, quantity.
+
+              Shares for stocks, mutual funds, and others. Face value for bonds.
+
+              Contracts for options.
+
+
+              **Note:** This field is required if the transaction involves a security.
+
+              '
+          unitType:
+            $ref: '#/components/schemas/UnitType'
+          fiAttributes:
+            type: array
+            description: 'Array of financial institution-specific attributes. Plaid recommends including a value for the `isCashEquivalent` attribute in this array, sent as a string value of `true` or `false`. This populates the [`is_cash_equivalent`](https://plaid.com/docs/api/products/investments/#investments-transactions-get-response-securities-is-cash-equivalent) field in Plaid''s customer-facing API.
+
+              '
+            items:
+              $ref: '#/components/schemas/FiAttribute'
+        required:
+        - fees
+        - transactionType
+        - accountCategory
+      example:
+        accountCategory: INVESTMENT_ACCOUNT
+        transactionId: 78RJ3311PLU34300E
+        transactionTimestamp: '2024-07-15T14:46:41.375+02:00'
+        description: Share purchase
+        debitCreditMemo: DEBIT
+        status: PENDING
+        amount: 428.08
+        fees: 4.28
+        transactionType: PURCHASED
+        fiAttributes:
+        - name: isCashEquivalent
+          value: 'false'
+    FiAttribute:
+      title: FI Attribute entity
+      description: 'Financial institution-specific attribute.
+
+
+        Sent as an array of name/value pairs, not a keyed object, with string values: `[{"name": "isCashEquivalent", "value": "false"}]`, not `{"isCashEquivalent": false}`. `isCashEquivalent` must be `"true"` or `"false"`.
+
+        '
+      type: object
+      properties:
+        name:
+          type: string
+          description: 'Name of the financial institution-specific attribute
+
+            '
+        value:
+          type: string
+          description: 'Value of the financial institution-specific attribute
+
+            '
+    LineOfCreditTransaction:
+      title: Line-Of-Credit Transaction entity
+      description: 'A line-of-credit transaction
+
+        '
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - type: object
+        properties:
+          accountCategory:
+            type: string
+            enum:
+            - LOC_ACCOUNT
+          transactionType:
+            $ref: '#/components/schemas/LineOfCreditTransactionType'
+          checkNumber:
+            type: integer
+            description: 'Check number. Plaid expects this solely if the transaction involves a check
+
+              '
+        required:
+        - accountCategory
+      example:
+        accountCategory: LOC_ACCOUNT
+        transactionId: 78RJ3311PLU34300E
+        transactionTimestamp: '2024-07-15T14:46:41.375+02:00'
+        description: Recurring payment
+        debitCreditMemo: CREDIT
+        status: AUTHORIZATION
+        amount: 38.9
+    Transactions:
+      title: Transactions entity
+      description: 'A page of transactions for an account, spanning deposit, investment, loan, and line-of-credit transaction types.
+
+        '
+      allOf:
+      - $ref: '#/components/schemas/PaginatedArray'
+      - type: object
+        properties:
+          transactions:
+            type: array
+            description: 'An optionally paginated array of transactions.
+
+              May be any of the following: [deposit transaction](#deposit-transaction), [investment transaction](#investment-transaction), [loan transaction](#loan-transaction), [line of credit transaction](#line-of-credit-transaction)
+
+              '
+            items:
+              discriminator:
+                propertyName: accountCategory
+                mapping:
+                  DEPOSIT_ACCOUNT: '#/components/schemas/DepositTransaction'
+                  INVESTMENT_ACCOUNT: '#/components/schemas/InvestmentTransaction'
+                  LOAN_ACCOUNT: '#/components/schemas/LoanTransaction'
+                  LOC_ACCOUNT: '#/components/schemas/LineOfCreditTransaction'
+              oneOf:
+              - $ref: '#/components/schemas/DepositTransaction'
+              - $ref: '#/components/schemas/InvestmentTransaction'
+              - $ref: '#/components/schemas/LineOfCreditTransaction'
+              - $ref: '#/components/schemas/LoanTransaction'
+        required:
+        - transactions
+    AccountCategory:
+      title: Account Category type
+      description: 'The category of account. For example, annuity, commercial, deposit, digital wallet, insurance, investment, loan, or line of credit.
+
+        '
+      enum:
+      - ANNUITY_ACCOUNT
+      - COMMERCIAL_ACCOUNT
+      - DEPOSIT_ACCOUNT
+      - DIGITAL_WALLET
+      - INSURANCE_ACCOUNT
+      - INVESTMENT_ACCOUNT
+      - LOAN_ACCOUNT
+      - LOC_ACCOUNT
+    LineOfCreditTransactionType:
+      title: Line-Of-Credit Transaction Type
+      description: 'The type of a line of credit (LOC) transaction. Plaid passes through all LOC transaction types
+
+        '
+      type: string
+      enum:
+      - ADJUSTMENT
+      - CHECK
+      - FEE
+      - INTEREST
+      - PAYMENT
+      - WITHDRAWAL
+      - PURCHASE
+    LoanTransaction:
+      title: Loan Transaction entity
+      description: 'A transaction on a loan account
+
+        '
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Transaction'
+      - type: object
+        properties:
+          accountCategory:
+            type: string
+            enum:
+            - LOAN_ACCOUNT
+          transactionType:
+            $ref: '#/components/schemas/LoanTransactionType'
+        required:
+        - accountCategory
+      example:
+        accountCategory: LOAN_ACCOUNT
+        transactionId: 78RJ3311PLU34300E
+        transactionTimestamp: '2024-07-15T14:46:41.375+02:00'
+        description: Monthly loan payment-minimum due
+        debitCreditMemo: CREDIT
+        status: POSTED
+        amount: 1638.83
+  parameters:
+    EndDateQuery:
+      name: endDate
+      in: query
+      description: 'End date for use in retrieval of elements (ISO 8601 format).
+
+        Provider to define the date ranges and behaviors they will support.
+
+
+        Example of defined behavior:
+
+        - Recipients need to either specify both start date and end date or neither. If both start date and end date are not specified; default provided. Default range: 7 Days of past data. (Today''s date - 6 days both dates are inclusive)
+
+        - Recipient can specify the same start date and end date. The returned data will reflect transactions from that date.
+
+        - If start date and end date both are specified and if start date is later than end date, return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If start date and end date both are specified and if start date is older than what the Data Provider supports, then the Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec. Example: If today is 5/14/2024 and the DP supports 24 months, the start date should be 5/14/2022 and newer; it should not be 5/13/2022 or older.
+
+        - If start date is specified but end date is not specified or vice versa; Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If end date is today''s date, the most recent transactions from the time the request is received will be returned.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    StartDateQuery:
+      name: startDate
+      in: query
+      description: 'Start date for use in retrieval of elements (ISO 8601 format).
+
+        Provider to define the date ranges and behaviors they will support.
+
+
+        Example of defined behavior:
+
+        - Recipients need to either specify both start date and end date or neither. If both start date and end date are not specified; default provided. Default range: 7 Days of past data. (Today''s date - 6 days both dates are inclusive)
+
+        - Recipient can specify the same start date and end date. The returned data will reflect transactions from that date.
+
+        - If start date and end date both are specified and if start date is later than end date, return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        - If start date and end date both are specified and if start date is older than what the Data Provider supports, then the Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec. Example: If today is 5/14/2024 and the DP supports 24 months, the start date should be 5/14/2022 and newer; it should not be 5/13/2022 or older.
+
+        - If start date is specified but end date is not specified or vice versa; Data Provider should return ''invalid date range'' error code: 703, HTTPS 400 per the FDX spec.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    EndTimeQuery:
+      name: endTime
+      in: query
+      description: 'End time for use in retrieval of elements (ISO 8601).
+
+        When used with the `/transactions` endpoint, Plaid filters by the `postedTimestamp`.
+
+        Will support filtering by time in a future major release.
+
+        To support filtering by date only, see EndDateQuery
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+    LimitQuery:
+      name: limit
+      in: query
+      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
+
+        '
+      schema:
+        type: integer
+    AccountIdPath:
+      name: accountId
+      in: path
+      description: 'Account identifier, found in the `GET /accounts` endpoint response.
+
+        Plaid expects the ID to be a different value from the account number
+
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    OffsetQuery:
+      name: offset
+      in: query
+      deprecated: true
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Deprecated in favor of PageKeyQuery, will be removed with a future major release
+
+        '
+      schema:
+        type: string
+        example: qwer123454q2f
+    PageKeyQuery:
+      name: pageKey
+      in: query
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Pagination can be implemented per provider''s preference
+
+        '
+      schema:
+        type: string
+    StartTimeQuery:
+      name: startTime
+      in: query
+      description: 'Start time for use in retrieval of elements (ISO 8601).
+
+        When used with the `/transactions` endpoint, Plaid filters by the `postedTimestamp`.
+
+        Will support filtering by time in a future major release.
+
+        To support filtering by date only, see StartDateQuery
+
+
+        Return everything you hold in the requested range. A fixed lookback of your own is indistinguishable from an account with little history.
+
+        '
+      schema:
+        $ref: '#/components/schemas/DateString'
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      description: 'This API uses an [OpenID Connect (OIDC) authentication flow](https://plaid.com/core-exchange/docs/authentication) and accepts the resulting [access token](https://plaid.com/core-exchange/docs/authentication) as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      openIdConnectUrl: https://www.your-organization.com/.well-known/openid-configuration
+    oauth2:
+      type: oauth2
+      description: 'This API uses an [OAuth 2.0 authorization code flow](https://plaid.com/core-exchange/docs/authentication/oauth-flow) and accepts the resulting access token as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.your-organization.com/authorize
+          tokenUrl: https://www.your-organization.com/token
+          scopes:
+            Account: (optional) Read account data
+            Customer: (optional) Read customer data
+            Transactions: (optional) Read transaction data
+x-refined-from:
+- plaid-core-exchange-openapi-original.yml
+- plaid-core-exchange-openapi.yml

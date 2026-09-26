@@ -1,0 +1,193 @@
+openapi: 3.2.0
+info:
+  title: Plaid Asset Transfer Networks Information API
+  version: 6.4.0
+  contact:
+    name: Plaid support
+    url: https://plaid.com/data-connectivity-core-exchange/
+    email: dataconnectivity@plaid.com
+  description: 'Operations tagged Asset Transfer Networks Information across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.your-organization.com/fdx/v6
+  description: Financial Data Exchange V6.4.0 Core API
+tags:
+- name: Asset Transfer Networks Information
+  description: Search and view asset transfer networks
+paths:
+  /accounts/{accountId}/asset-transfer-networks:
+    get:
+      operationId: getAccountAssetTransferNetworks
+      tags:
+      - Asset Transfer Networks Information
+      description: Get asset transfer networks supported by an account. For example, Automated Customer Account Transfer Service (ACATS). For more information about how Plaid uses this information, see the Plaid Investments Move API.
+      summary: Get asset transfer details for this account
+      parameters:
+      - $ref: '#/components/parameters/AccountIdPath'
+      - $ref: '#/components/parameters/OffsetQuery'
+      - $ref: '#/components/parameters/PageKeyQuery'
+      - $ref: '#/components/parameters/LimitQuery'
+      responses:
+        '200':
+          description: 'Information required to execute an asset transfer transaction against this account.
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetTransferNetworkList'
+              example:
+                assetTransferNetworks:
+                - identifier: '23348817826'
+                  identifierType: ACCOUNT_NUMBER
+                  institutionName: First Plaidypus Bank
+                  institutionId: FPB
+                  type: US_ACATS
+                  jointAccount: true
+    servers:
+    - url: https://api.your-organization.com/fdx/v6
+      description: Financial Data Exchange V6.4.0 Core API
+components:
+  schemas:
+    AssetTransferNetworkList:
+      title: Asset Transfer Networks
+      description: 'A paginated array of asset transfer networks for the account
+
+        '
+      type: object
+      properties:
+        assetTransferNetworks:
+          type: array
+          description: 'A paginated array of asset transfer networks for the account
+
+            '
+          items:
+            $ref: '#/components/schemas/AssetTransferNetwork'
+      required:
+      - assetTransferNetworks
+    AssetTransferNetwork:
+      title: Asset Transfer Network
+      description: 'Information required to facilitate asset transfer from this account
+
+        '
+      type: object
+      properties:
+        identifier:
+          type: string
+          description: 'The number used to identify the account within the asset transfer network. If `identifierType` is `ACCOUNT_NUMBER`, this is the account number; if `identifierType` is `TOKENIZED_ACCOUNT_NUMBER`, this is a tokenized account number
+
+            '
+        identifierType:
+          $ref: '#/components/schemas/PaymentNetworkIdentifierType'
+        institutionName:
+          description: 'The name of the institution holding the account
+
+            '
+          type: string
+        institutionId:
+          description: 'Institution identifier used by the asset transfer network, e.g., the Depository Trust and Clearing Corporation code for the institution holding the account
+
+            '
+          type: string
+        type:
+          $ref: '#/components/schemas/AssetTransferType'
+        jointAccount:
+          description: 'Whether this account has joint owners
+
+            '
+          type: boolean
+      required:
+      - identifier
+      - institutionId
+      - type
+    AssetTransferType:
+      title: Asset Transfer Type
+      description: 'The type of asset transfer
+
+        '
+      type: string
+      enum:
+      - CA_ATON
+      - US_ACATS
+      - US_DTC
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
+    PaymentNetworkIdentifierType:
+      title: Payment Network Identifier Type
+      description: 'The type of identifier used to identify the account in the payment network
+
+        '
+      type: string
+      enum:
+      - ACCOUNT_NUMBER
+      - TOKENIZED_ACCOUNT_NUMBER
+  parameters:
+    PageKeyQuery:
+      name: pageKey
+      in: query
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Pagination can be implemented per provider''s preference
+
+        '
+      schema:
+        type: string
+    AccountIdPath:
+      name: accountId
+      in: path
+      description: 'Account identifier, found in the `GET /accounts` endpoint response.
+
+        Plaid expects the ID to be a different value from the account number
+
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    LimitQuery:
+      name: limit
+      in: query
+      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
+
+        '
+      schema:
+        type: integer
+    OffsetQuery:
+      name: offset
+      in: query
+      deprecated: true
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Deprecated in favor of PageKeyQuery, will be removed with a future major release
+
+        '
+      schema:
+        type: string
+        example: qwer123454q2f
+  securitySchemes:
+    openIdConnect:
+      type: openIdConnect
+      description: 'This API uses an [OpenID Connect (OIDC) authentication flow](https://plaid.com/core-exchange/docs/authentication) and accepts the resulting [access token](https://plaid.com/core-exchange/docs/authentication) as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      openIdConnectUrl: https://www.your-organization.com/.well-known/openid-configuration
+    oauth2:
+      type: oauth2
+      description: 'This API uses an [OAuth 2.0 authorization code flow](https://plaid.com/core-exchange/docs/authentication/oauth-flow) and accepts the resulting access token as a bearer token. For example, `curl -H ''Authorization: Bearer <ACCESS&#95;TOKEN>''`.
+
+        '
+      flows:
+        authorizationCode:
+          authorizationUrl: https://www.your-organization.com/authorize
+          tokenUrl: https://www.your-organization.com/token
+          scopes:
+            Account: (optional) Read account data
+            Customer: (optional) Read customer data
+            Transactions: (optional) Read transaction data
+x-refined-from:
+- plaid-core-exchange-openapi-original.yml
+- plaid-core-exchange-openapi.yml

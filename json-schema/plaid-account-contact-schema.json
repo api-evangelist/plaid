@@ -1,0 +1,582 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/plaid/main/json-schema/plaid-account-contact-schema.json",
+  "title": "Account Contact entity",
+  "description": "Details used to verify an account\n",
+  "x-generated": "2026-09-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountContact",
+  "type": "object",
+  "properties": {
+    "holders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AccountHolder"
+      },
+      "minItems": 1,
+      "description": "Owners of the account.\nNote that while the [FDX specification](https://financialdataexchange.org) enables associating holders and their\ncontact information in the full `AccountHolder` schema, Plaid doesn't consume these associations.\nInstead, Plaid consumes limited information for each `AccountHolder` and doesn't associate contact information such as emails,\naddresses, or telephone numbers to account holders.\nFor more information about Plaid's data model for account contact information, see [Identity](https://plaid.com/docs/api/products/identity/)\n"
+    },
+    "emails": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Email addresses associated with the account\n"
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DeliveryAddress"
+      },
+      "minItems": 1,
+      "description": "Physical mail addresses associated with the account\n"
+    },
+    "telephones": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/TelephoneNumber"
+      },
+      "minItems": 1,
+      "description": "Telephone numbers associated with the account\n"
+    }
+  },
+  "required": [
+    "holders",
+    "emails",
+    "addresses",
+    "telephones"
+  ],
+  "$defs": {
+    "AccountHolder": {
+      "title": "Account Holder entity",
+      "description": "A customer's relationship to a given account, extending their base customer information.\n\nMark business holders by setting `type` or `relationship` to `BUSINESS`, with the legal entity name on `businessCustomer`. Unmarked holders are treated as individuals and must supply `name.first` and `name.last`.\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/CustomerWithoutId"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "relationship": {
+              "$ref": "#/$defs/AccountHolderRelationship",
+              "description": "Customer's relationship to the account\n"
+            }
+          }
+        }
+      ]
+    },
+    "AccountHolderRelationship": {
+      "title": "Account Holder Relationship",
+      "description": "Types of relationships between accounts and holders. Some definitions:\n* `AUTHORIZED_SIGNER` - An Authorized Signer is an individual who has been given permission\nby the account owner/holder to sign checks, make withdrawals, and conduct transactions\non behalf of an account holder for deposit account types, such as checking or savings,\nbut does not own the account. They may also have an ability to make changes to the account\n(e.g. can close the account)\n* `AUTHORIZED_USER` - An Authorized User is an individual added to a credit card account by\nthe primary account holder, who has been authorized to make purchases using the card,\nbut has no legal responsibility to repay the debt. The primary account holder remains\nlegally responsible for repaying the debt for all charges incurred, including those of\nthe Authorized User. Authorized User may not have access to the full account control\n(e.g. cannot close the account)\n",
+      "type": "string",
+      "enum": [
+        "AUTHORIZED_SIGNER",
+        "AUTHORIZED_USER",
+        "BUSINESS",
+        "FOR_BENEFIT_OF",
+        "FOR_BENEFIT_OF_PRIMARY",
+        "FOR_BENEFIT_OF_PRIMARY_JOINT_RESTRICTED",
+        "FOR_BENEFIT_OF_SECONDARY",
+        "FOR_BENEFIT_OF_SECONDARY_JOINT_RESTRICTED",
+        "FOR_BENEFIT_OF_SOLE_OWNER_RESTRICTED",
+        "POWER_OF_ATTORNEY",
+        "PRIMARY",
+        "PRIMARY_BORROWER",
+        "PRIMARY_JOINT",
+        "PRIMARY_JOINT_TENANTS",
+        "SECONDARY",
+        "SECONDARY_BORROWER",
+        "SECONDARY_JOINT",
+        "SECONDARY_JOINT_TENANTS",
+        "SOLE_OWNER",
+        "TRUSTEE",
+        "UNIFORM_TRANSFER_TO_MINOR"
+      ]
+    },
+    "Address": {
+      "title": "Address",
+      "description": "Postal address\n",
+      "type": "object",
+      "properties": {
+        "line1": {
+          "$ref": "#/$defs/String64",
+          "description": "Address line 1\n"
+        },
+        "line2": {
+          "$ref": "#/$defs/String64",
+          "description": "Address line 2\n"
+        },
+        "line3": {
+          "$ref": "#/$defs/String64",
+          "description": "Address line 3\n"
+        },
+        "city": {
+          "$ref": "#/$defs/String64",
+          "description": "City\n"
+        },
+        "region": {
+          "$ref": "#/$defs/String64",
+          "description": "State or province\n"
+        },
+        "postalCode": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Postal code\n"
+        },
+        "country": {
+          "$ref": "#/$defs/Iso3166CountryCode",
+          "description": "ISO 3166-1 alpha-2 code, upper case, for example `US` — three-letter codes, full names, and lower case are rejected. Plaid also checks against its own supported-country list, so a valid code can still fail.\n"
+        }
+      },
+      "required": [
+        "line1",
+        "city",
+        "country"
+      ]
+    },
+    "BusinessCustomer": {
+      "title": "Business Customer entity",
+      "description": "When the account holder is a business customer, provides business-specific customer information\n",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the business customer\n"
+        }
+      }
+    },
+    "BusinessOrConsumer": {
+      "title": "Business or Consumer Type",
+      "description": "Indicates whether the customer is a consumer (individual) or a business entity\n",
+      "type": "string",
+      "enum": [
+        "BUSINESS",
+        "CONSUMER"
+      ]
+    },
+    "CustomerName": {
+      "title": "Customer Name entity",
+      "description": "The name of an individual in their role as a customer. Plaid expects at least one populated name field.\nIf any field is missing (for example, no first name), then you respond with an empty string for that field\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/IndividualName"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "prefix": {
+              "description": "Prefix, e.g. Mr., Mrs., Dr.\n",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "CustomerWithoutId": {
+      "title": "Customer entity",
+      "description": "Represents a customer. Plaid-specific schema created to exclude the `customerId` property of the FDX `Customer` schema\n",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/BusinessOrConsumer",
+          "description": "Whether this customer is a consumer (individual) or a business customer\n"
+        },
+        "name": {
+          "$ref": "#/$defs/CustomerName"
+        },
+        "businessCustomer": {
+          "$ref": "#/$defs/BusinessCustomer",
+          "description": "When customer `type` is `BUSINESS`, business-specific customer information, such as business name\n"
+        }
+      }
+    },
+    "DeliveryAddress": {
+      "title": "Delivery Address",
+      "description": "A delivery address and its location type\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Address"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/DeliveryAddressType",
+              "description": "Type of address location. One of BUSINESS, DELIVERY, HOME, MAILING"
+            },
+            "primary": {
+              "type": "boolean",
+              "description": "Whether this is the primary and first address to use for contact"
+            }
+          }
+        }
+      ]
+    },
+    "DeliveryAddressType": {
+      "title": "Delivery Address Type",
+      "description": "The location type of an address\n",
+      "type": "string",
+      "enum": [
+        "BUSINESS",
+        "DELIVERY",
+        "HOME",
+        "MAILING"
+      ]
+    },
+    "IndividualName": {
+      "title": "Individual Name",
+      "description": "First name, middle initial, last name, suffix fields\n",
+      "type": "object",
+      "properties": {
+        "first": {
+          "description": "First name\n",
+          "type": "string"
+        },
+        "middle": {
+          "description": "Middle name\n",
+          "type": "string"
+        },
+        "last": {
+          "description": "Last name\n",
+          "type": "string"
+        },
+        "suffix": {
+          "description": "Generational or academic suffix, e.g. Jr., Sr., III\n",
+          "type": "string"
+        }
+      },
+      "required": [
+        "first",
+        "last"
+      ]
+    },
+    "Iso3166CountryCode": {
+      "title": "ISO 3166 Country Code",
+      "description": "ISO 3166-1 alpha-2 codes as of April 5, 2023, from officially assigned Country Codes on [ISO Online Browsing Platform](https://www.iso.org/obp/ui/). Change log is at [ISO 3166 Maintenance Agency](https://www.iso.org/committee/48750.html)\n",
+      "type": "string",
+      "enum": [
+        "AD",
+        "AE",
+        "AF",
+        "AG",
+        "AI",
+        "AL",
+        "AM",
+        "AO",
+        "AQ",
+        "AR",
+        "AS",
+        "AT",
+        "AU",
+        "AW",
+        "AX",
+        "AZ",
+        "BA",
+        "BB",
+        "BD",
+        "BE",
+        "BF",
+        "BG",
+        "BH",
+        "BI",
+        "BJ",
+        "BL",
+        "BM",
+        "BN",
+        "BO",
+        "BQ",
+        "BR",
+        "BS",
+        "BT",
+        "BV",
+        "BW",
+        "BY",
+        "BZ",
+        "CA",
+        "CC",
+        "CD",
+        "CF",
+        "CG",
+        "CH",
+        "CI",
+        "CK",
+        "CL",
+        "CM",
+        "CN",
+        "CO",
+        "CR",
+        "CU",
+        "CV",
+        "CW",
+        "CX",
+        "CY",
+        "CZ",
+        "DE",
+        "DJ",
+        "DK",
+        "DM",
+        "DO",
+        "DZ",
+        "EC",
+        "EE",
+        "EG",
+        "EH",
+        "ER",
+        "ES",
+        "ET",
+        "FI",
+        "FJ",
+        "FK",
+        "FM",
+        "FO",
+        "FR",
+        "GA",
+        "GB",
+        "GD",
+        "GE",
+        "GF",
+        "GG",
+        "GH",
+        "GI",
+        "GL",
+        "GM",
+        "GN",
+        "GP",
+        "GQ",
+        "GR",
+        "GS",
+        "GT",
+        "GU",
+        "GW",
+        "GY",
+        "HK",
+        "HM",
+        "HN",
+        "HR",
+        "HT",
+        "HU",
+        "ID",
+        "IE",
+        "IL",
+        "IM",
+        "IN",
+        "IO",
+        "IQ",
+        "IR",
+        "IS",
+        "IT",
+        "JE",
+        "JM",
+        "JO",
+        "JP",
+        "KE",
+        "KG",
+        "KH",
+        "KI",
+        "KM",
+        "KN",
+        "KP",
+        "KR",
+        "KW",
+        "KY",
+        "KZ",
+        "LA",
+        "LB",
+        "LC",
+        "LI",
+        "LK",
+        "LR",
+        "LS",
+        "LT",
+        "LU",
+        "LV",
+        "LY",
+        "MA",
+        "MC",
+        "MD",
+        "ME",
+        "MF",
+        "MG",
+        "MH",
+        "MK",
+        "ML",
+        "MM",
+        "MN",
+        "MO",
+        "MP",
+        "MQ",
+        "MR",
+        "MS",
+        "MT",
+        "MU",
+        "MV",
+        "MW",
+        "MX",
+        "MY",
+        "MZ",
+        "NA",
+        "NC",
+        "NE",
+        "NF",
+        "NG",
+        "NI",
+        "NL",
+        "NO",
+        "NP",
+        "NR",
+        "NU",
+        "NZ",
+        "OM",
+        "PA",
+        "PE",
+        "PF",
+        "PG",
+        "PH",
+        "PK",
+        "PL",
+        "PM",
+        "PN",
+        "PR",
+        "PS",
+        "PT",
+        "PW",
+        "PY",
+        "QA",
+        "RE",
+        "RO",
+        "RS",
+        "RU",
+        "RW",
+        "SA",
+        "SB",
+        "SC",
+        "SD",
+        "SE",
+        "SG",
+        "SH",
+        "SI",
+        "SJ",
+        "SK",
+        "SL",
+        "SM",
+        "SN",
+        "SO",
+        "SR",
+        "SS",
+        "ST",
+        "SV",
+        "SX",
+        "SY",
+        "SZ",
+        "TC",
+        "TD",
+        "TF",
+        "TG",
+        "TH",
+        "TJ",
+        "TK",
+        "TL",
+        "TM",
+        "TN",
+        "TO",
+        "TR",
+        "TT",
+        "TV",
+        "TW",
+        "TZ",
+        "UA",
+        "UG",
+        "UM",
+        "US",
+        "UY",
+        "UZ",
+        "VA",
+        "VC",
+        "VE",
+        "VG",
+        "VI",
+        "VN",
+        "VU",
+        "WF",
+        "WS",
+        "YE",
+        "YT",
+        "ZA",
+        "ZM",
+        "ZW"
+      ]
+    },
+    "String64": {
+      "title": "String 64",
+      "description": "String with a maximum length of 64 characters\n",
+      "type": "string",
+      "maxLength": 64
+    },
+    "TelephoneNetwork": {
+      "title": "Telephone Network",
+      "description": "The network technology used for this telephone.\nOne of CELLULAR, LANDLINE, PAGER, SATELLITE, or VOIP\n",
+      "type": "string",
+      "enum": [
+        "CELLULAR",
+        "LANDLINE",
+        "PAGER",
+        "SATELLITE",
+        "VOIP"
+      ]
+    },
+    "TelephoneNumber": {
+      "title": "Telephone Number",
+      "description": "Standard for international phone numbers\n",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/TelephoneNumberPurpose",
+          "description": "Purpose of the phone number: HOME, BUSINESS, PERSONAL, FAX, or BOTH.\nBOTH indicates number is used for both HOME and BUSINESS purposes.\n`CELL` value is deprecated in v6.3, replaced by the `CELLULAR` value in the `network` field\n"
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4,
+          "pattern": "^\\+?[1-9][0-9]{0,2}$",
+          "description": "Country calling codes defined by ITU-T recommendations E.123 and E.164,\nsuch as '+1' for United States and Canada, see\n[list of country calling codes](https://en.wikipedia.org/wiki/List_of_country_calling_codes)\n"
+        },
+        "number": {
+          "type": "string",
+          "maxLength": 15,
+          "pattern": "\\d+",
+          "description": "Telephone subscriber number defined by ITU-T recommendation E.164\n"
+        },
+        "network": {
+          "$ref": "#/$defs/TelephoneNetwork",
+          "description": "The network technology used for this telephone.\nOne of CELLULAR, LANDLINE, PAGER, SATELLITE, or VOIP\n"
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "Whether this is the primary and first telephone number to call\n"
+        }
+      },
+      "required": [
+        "number",
+        "type"
+      ]
+    },
+    "TelephoneNumberPurpose": {
+      "title": "Telephone Number Purpose",
+      "description": "Purpose of the phone number: HOME, BUSINESS, PERSONAL, FAX, or BOTH.\nBOTH indicates number is used for both HOME and BUSINESS purposes.\n`CELL` value is deprecated in v6.3, replaced by the `CELLULAR` value in the `network` field\n",
+      "type": "string",
+      "enum": [
+        "BOTH",
+        "BUSINESS",
+        "CELL",
+        "FAX",
+        "HOME",
+        "PERSONAL"
+      ]
+    }
+  }
+}

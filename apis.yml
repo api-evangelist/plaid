@@ -1,17 +1,19 @@
 aid: plaid
+
 name: Plaid
+
 url: https://raw.githubusercontent.com/api-evangelist/plaid/refs/heads/main/apis.yml
-description: Plaid is a US financial-technology company and data-network aggregator that provides an API
-  platform for businesses to securely connect with their users' bank and financial accounts. Plaid acts
-  as the interface between 12,000+ financial institutions and third-party applications, powering bank-account
-  verification (Auth, Balance, Identity), transactions and enrichment, income and asset verification,
-  lending data (Assets, Liabilities, Investments, Consumer Report/CRA), risk and fraud tooling (Signal,
-  Beacon, Monitor watchlist screening, Identity Verification), and money movement (Transfer, Payment Initiation,
-  Virtual Accounts). Developers integrate through Plaid Link, a self-serve dashboard, client credentials,
-  per-Item access tokens, and a publicly published OpenAPI definition. In the US voluntary open-finance
-  landscape Plaid is an aggregator, and it also operates Core Exchange, its FDX-aligned data-access API
-  for data providers, positioning it for CFPB 1033 open-banking rules.
+
+description: Plaid is a US financial-technology company and data-network aggregator that provides an API platform for businesses to securely connect
+  with their users' bank and financial accounts. Plaid acts as the interface between 12,000+ financial institutions and third-party applications,
+  powering bank-account verification (Auth, Balance, Identity), transactions and enrichment, income and asset verification, lending data (Assets,
+  Liabilities, Investments, Consumer Report/CRA), risk and fraud tooling (Signal, Beacon, Monitor watchlist screening, Identity Verification),
+  and money movement (Transfer, Payment Initiation, Virtual Accounts). Developers integrate through Plaid Link, a self-serve dashboard, client
+  credentials, per-Item access tokens, and a publicly published OpenAPI definition. In the US voluntary open-finance landscape Plaid is an aggregator,
+  and it also operates Core Exchange, its FDX-aligned data-access API for data providers, positioning it for CFPB 1033 open-banking rules.
+
 kind: company
+
 tags:
 - Finance
 - Fintech
@@ -28,6 +30,7 @@ tags_raw:
 - Data Aggregation
 - Payments
 - United States
+
 deliveryModel:
   model: saas
   open_source: false
@@ -40,6 +43,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -55,22 +59,210 @@ accessModel:
   - sandbox
   generated: '2026-09-03'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/plaid.png
+
 score: 1200
+
 created: '2024-07-07T00:00:00.000Z'
-modified: '2026-09-16'
+
+modified: '2026-09-23'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Spectral
+  url: rules/plaid-spectral-rules.yml
+- type: Spectral
+  url: rules/plaid-rules.yml
+- type: Spectral
+  url: rules/plaid-asyncapi-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/plaid-context.jsonld
+- type: Vocabulary
+  url: vocabulary/plaid-vocabulary.yml
+- type: Webhooks
+  url: asyncapi/plaid-webhooks.yml
+- type: Webhooks
+  url: asyncapi/plaid-webhooks--asyncapi-original.yml
+- type: MCPServer
+  url: mcp/plaid-mcp.yml
+- type: Hosts
+  url: hosts/plaid-hosts.yml
+- type: Vendors
+  url: vendors/plaid-vendors.yml
+- type: Security
+  url: https://plaid.com/careers/openings/security/security-engineer-grc/
+- type: Newsroom
+  url: https://plaid.com/press/
+- type: GettingStarted
+  url: https://plaid.com/docs/payment-initiation/payment-initiation-one-time/user-onboarding-and-account-funding/index.html
+- type: OAuthScopes
+  url: scopes/plaid-scopes.yml
+- type: VulnerabilityDisclosure
+  url: security/plaid-vulnerability-disclosure.yml
+- type: AgentSkill
+  url: skills/plaid-authorize-and-create-transfer.md
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/plaid/overview
+- type: Website
+  url: https://plaid.com/
+- type: DeveloperPortal
+  url: https://plaid.com/docs/
+- type: Documentation
+  url: https://plaid.com/docs/api/
+- type: APIReference
+  url: https://plaid.com/docs/api/
+- type: GitHubOrganization
+  url: https://github.com/plaid
+- type: LinkedIn
+  url: https://www.linkedin.com/company/plaid-
+- type: Twitter
+  url: https://x.com/Plaid
+- type: Blog
+  url: https://plaid.com/blog/
+- type: BlogRSS
+  url: https://plaid.com/blog/rss.xml
+- type: Pricing
+  url: https://plaid.com/pricing/
+- type: TermsOfService
+  url: https://plaid.com/legal/
+- type: PrivacyPolicy
+  url: https://plaid.com/legal/#privacy-policy
+- type: Support
+  url: https://plaid.com/docs/support/
+- type: StatusPage
+  url: https://status.plaid.com/
+- type: Quickstarts
+  url: https://plaid.com/docs/quickstart/
+- type: Sandbox
+  url: https://plaid.com/docs/sandbox/
+- type: ErrorCodes
+  url: https://plaid.com/docs/errors/
+- type: Libraries
+  url: https://plaid.com/docs/api/libraries/
+- type: Versions
+  url: https://plaid.com/docs/api/versioning/
+- type: PostmanCollection
+  url: https://plaid.com/docs/api/postman/
+- type: Webhooks
+  url: https://plaid.com/docs/api/webhooks/
+- type: OpenAPISource
+  url: https://github.com/plaid/plaid-openapi
+- type: CoreExchangeFDX
+  url: https://github.com/plaid/core-exchange
+- type: Login
+  url: https://dashboard.plaid.com/signin
+- type: SignUp
+  url: https://dashboard.plaid.com/signup
+- type: LlmsText
+  url: https://plaid.com/llms.txt
+- type: AgenticAccess
+  url: agentic-access/plaid-agentic-access.yml
+- type: TrustCenter
+  url: security/plaid-trust-center.yml
+- type: DomainSecurity
+  url: security/plaid-domain-security.yml
+- type: Authentication
+  url: authentication/plaid-authentication.yml
+- type: Sandbox
+  url: sandbox/plaid-sandbox.yml
+- type: Conventions
+  url: conventions/plaid-conventions.yml
+- type: ChangeLog
+  url: changelog/plaid-changelog.yml
+- type: CLI
+  url: cli/plaid-cli.yml
+- type: Components
+  url: components/plaid-components.yml
+- type: DataModel
+  url: data-model/plaid-data-model.yml
+- type: DeclineCodes
+  url: errors/plaid-decline-codes.yml
+- type: ErrorCatalog
+  url: errors/plaid-problem-types.yml
+- type: Packages
+  url: packages/plaid-packages.yml
+- type: SDKs
+  url: packages/plaid-packages.yml
+- type: WellKnown
+  url: well-known/plaid-well-known.yml
+- type: Conformance
+  url: conformance/plaid-conformance.yml
+- type: Compliance
+  url: security/plaid-trust-center.yml
+- type: Lifecycle
+  url: lifecycle/plaid-lifecycle.yml
+- type: DeprecationPolicy
+  url: https://plaid.com/docs/api/versioning/
+- type: Idempotency
+  url: conventions/plaid-conventions.yml
+- type: AsyncAPI
+  url: asyncapi/plaid-webhooks--asyncapi-original.yml
+- type: X-MCPServerCandidate
+  url: mcp/plaid-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published
+    API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting
+    the artifact-type surfaces with a server that does not exist.'
+- type: ToolCrosswalk
+  url: mcp/plaid-tool-crosswalk.yml
+- type: AgentSkills
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/plaid-transfer-overlay.yaml
+- type: LLMsTxt
+  url: llms/plaid-llms.txt
+- type: Plans
+  url: plans/plaid-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/plaid-rate-limits.yml
+- type: FinOps
+  url: finops/plaid-finops.yml
+- type: Features
+  data:
+  - Auth API for ACH account/routing verification (~$1.50/linked account)
+  - Identity API for KYC name/address/phone match (~$0.30/call)
+  - Income API for income verification
+  - Transactions API with /sync cursor for incremental pulls (~$0.45/call)
+  - Balance API for real-time balance check (~$0.10/call)
+  - Investments, Liabilities, Assets, Statements products
+  - Plaid Link prebuilt UI for OAuth bank connection
+  - 12,000+ supported financial institutions
+  - Sandbox environment with synthetic data
+  - Default 100 req/day/Item rate limit
+  - Webhooks for transaction updates and item events
+  - Pay-as-you-go default; Growth tier with discounts and SSO
+  - Custom contracts $1k-$10k+/month with 30-50% volume discounts at scale
+  - Plaid Beacon for fraud network signals
+  - Plaid Transfer for ACH payment initiation
+  - Plaid Signal for ACH risk scoring
+  - 'Core Exchange: Plaid''s FDX-aligned data-access API for data providers'
+  sources:
+  - https://plaid.com/pricing/
+  updated: '2026-07-23'
+
 apis:
 - aid: plaid:plaid-plaid-api
   name: Plaid API
-  description: The Plaid API from Plaid — 256 operation(s) for plaid.
-  humanURL: https://plaid.com/docs/auth/
+  description: >-
+    The Plaid REST API — the aggregator surface for bank-account, identity, transactions, income, assets,
+    liabilities, investments, transfer, payment initiation, virtual accounts, signal, beacon, monitor
+    and identity-verification products. 360 paths / 351 operations at version 2020-09-14_1.740.1, published
+    verbatim by Plaid at github.com/plaid/plaid-openapi.
+  humanURL: https://plaid.com/docs/api/
   baseURL: https://production.plaid.com
   tags:
   - Plaid
   properties:
   - type: OpenAPI
     url: openapi/plaid-plaid-api-openapi.yml
+  - name: OpenAPI (provider-hosted)
+    type: OpenAPI
+    url: https://raw.githubusercontent.com/plaid/plaid-openapi/master/2020-09-14.yml
   - type: Documentation
     url: https://plaid.com/docs/auth/
   - type: Documentation
@@ -121,141 +313,177 @@ apis:
     url: https://plaid.com/docs/
   - type: Documentation
     url: https://plaid.com/docs/api/
-common:
-- type: AgentSkill
-  url: skills/plaid-authorize-and-create-transfer.md
-- type: PostmanWorkspace
-  url: https://www.postman.com/kinlaneapi/plaid/overview
-- type: Website
-  url: https://plaid.com/
-- type: DeveloperPortal
-  url: https://plaid.com/docs/
-- type: Documentation
-  url: https://plaid.com/docs/api/
-- type: GitHubOrganization
-  url: https://github.com/plaid
-- type: LinkedIn
-  url: https://www.linkedin.com/company/plaid-
-- type: Blog
-  url: https://plaid.com/blog/
-- type: BlogRSS
-  url: https://plaid.com/blog/rss.xml
-- type: Pricing
-  url: https://plaid.com/pricing/
-- type: TermsOfService
-  url: https://plaid.com/legal/
-- type: PrivacyPolicy
-  url: https://plaid.com/legal/#privacy-policy
-- type: Support
-  url: https://plaid.com/docs/support/
-- type: StatusPage
-  url: https://status.plaid.com/
-- type: Quickstarts
-  url: https://plaid.com/docs/quickstart/
-- type: Sandbox
-  url: https://plaid.com/docs/sandbox/
-- type: ErrorCodes
-  url: https://plaid.com/docs/errors/
-- type: Libraries
-  url: https://plaid.com/docs/api/libraries/
-- type: Versions
-  url: https://plaid.com/docs/api/versioning/
-- type: PostmanCollection
-  url: https://plaid.com/docs/api/postman/
-- type: Webhooks
-  url: https://plaid.com/docs/api/webhooks/
-- type: OpenAPISource
-  url: https://github.com/plaid/plaid-openapi
-- type: CoreExchangeFDX
-  url: https://github.com/plaid/core-exchange
-- type: Login
-  url: https://dashboard.plaid.com/signin
-- type: LlmsText
-  url: https://plaid.com/llms.txt
-- type: AgenticAccess
-  url: agentic-access/plaid-agentic-access.yml
-- type: TrustCenter
-  url: security/plaid-trust-center.yml
-- type: DomainSecurity
-  url: security/plaid-domain-security.yml
-- type: Authentication
-  url: authentication/plaid-authentication.yml
-- type: Sandbox
-  url: sandbox/plaid-sandbox.yml
-- type: Conventions
-  url: conventions/plaid-conventions.yml
-- type: ChangeLog
-  url: changelog/plaid-changelog.yml
-- type: CLI
-  url: cli/plaid-cli.yml
-- type: Components
-  url: components/plaid-components.yml
-- type: DataModel
-  url: data-model/plaid-data-model.yml
-- type: DeclineCodes
-  url: errors/plaid-decline-codes.yml
-- type: ErrorCatalog
-  url: errors/plaid-problem-types.yml
-- type: Packages
-  url: packages/plaid-packages.yml
-- type: SDKs
-  url: packages/plaid-packages.yml
-- type: WellKnown
-  url: well-known/plaid-well-known.yml
-- type: Conformance
-  url: conformance/plaid-conformance.yml
-- type: Compliance
-  url: security/plaid-trust-center.yml
-- type: Lifecycle
-  url: lifecycle/plaid-lifecycle.yml
-- type: DeprecationPolicy
-  url: https://plaid.com/docs/api/versioning/
-- type: Idempotency
-  url: conventions/plaid-conventions.yml
-- type: AsyncAPI
-  url: asyncapi/plaid-webhooks--asyncapi-original.yml
-- type: X-MCPServerCandidate
-  url: mcp/plaid-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
-    — a tool list derived from the published API contracts, not an existing server. The scorer already
-    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
-    surfaces with a server that does not exist.'
-- type: ToolCrosswalk
-  url: mcp/plaid-tool-crosswalk.yml
-- type: AgentSkills
-  url: skills/_index.yml
-- type: Overlay
-  url: overlays/plaid-transfer-overlay.yaml
-- type: LLMsTxt
-  url: llms/plaid-llms.txt
-- type: Plans
-  url: plans/plaid-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/plaid-rate-limits.yml
-- type: FinOps
-  url: finops/plaid-finops.yml
-- type: Features
-  data:
-  - Auth API for ACH account/routing verification (~$1.50/linked account)
-  - Identity API for KYC name/address/phone match (~$0.30/call)
-  - Income API for income verification
-  - Transactions API with /sync cursor for incremental pulls (~$0.45/call)
-  - Balance API for real-time balance check (~$0.10/call)
-  - Investments, Liabilities, Assets, Statements products
-  - Plaid Link prebuilt UI for OAuth bank connection
-  - 12,000+ supported financial institutions
-  - Sandbox environment with synthetic data
-  - Default 100 req/day/Item rate limit
-  - Webhooks for transaction updates and item events
-  - Pay-as-you-go default; Growth tier with discounts and SSO
-  - Custom contracts $1k-$10k+/month with 30-50% volume discounts at scale
-  - Plaid Beacon for fraud network signals
-  - Plaid Transfer for ACH payment initiation
-  - Plaid Signal for ACH risk scoring
-  - 'Core Exchange: Plaid''s FDX-aligned data-access API for data providers'
-  sources:
-  - https://plaid.com/pricing/
-  updated: '2026-07-23'
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - type: JSONSchema
+    url: json-schema/plaid-link-token-create-request-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-partner-customer-create-request-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-signal-evaluate-request-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transfer-authorization-create-request-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-beta-partner-customer-v1-create-request-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-processor-signal-evaluate-request-schema.json
+- aid: plaid:plaid-account-information-api
+  name: Plaid Account Information API
+  description: Search and view customer accounts
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Account Information
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-account-information-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+- aid: plaid:plaid-account-statements-api
+  name: Plaid Account Statements API
+  description: Search and retrieve account statements
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Account Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-account-statements-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+- aid: plaid:plaid-account-transactions-api
+  name: Plaid Account Transactions API
+  description: Search and view account transactions
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Account Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-account-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+- aid: plaid:plaid-asset-transfer-networks-information-api
+  name: Plaid Asset Transfer Networks Information API
+  description: Search and view asset transfer networks
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Asset Transfer Networks Information
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-asset-transfer-networks-information-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+- aid: plaid:plaid-payment-networks-information-api
+  name: Plaid Payment Networks Information API
+  description: Search and view account payment networks
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Payment Networks Information
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-payment-networks-information-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+- aid: plaid:plaid-personal-information-api
+  name: Plaid Personal Information API
+  description: Search and view customer or customers
+  humanURL: https://plaid.com/docs/api/
+  baseURL: https://production.plaid.com
+  tags:
+  - Personal Information
+  properties:
+  - type: OpenAPI
+    url: openapi/plaid-personal-information-api-openapi.yml
+  - type: Documentation
+    url: https://plaid.com/core-exchange/docs/reference/
+  - type: SourceCode
+    url: https://github.com/plaid/core-exchange
+  - type: JSONSchema
+    url: json-schema/plaid-account-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-transactions-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-payment-network-list-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-accounts-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-customer-schema.json
+  - type: JSONSchema
+    url: json-schema/plaid-account-with-details-schema.json
+x-enrichment:
+  date: '2026-09-23'
+  status: enriched
+  artifacts_added: 26
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic

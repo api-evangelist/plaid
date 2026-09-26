@@ -1,0 +1,1180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/plaid/main/json-schema/plaid-account-with-details-schema.json",
+  "title": "Account With Details entity",
+  "description": "An account with full details.\n",
+  "x-generated": "2026-09-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/plaid-core-exchange-openapi.yml#/components/schemas/AccountWithDetails",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/DepositAccount"
+    },
+    {
+      "$ref": "#/$defs/LoanAccount"
+    },
+    {
+      "$ref": "#/$defs/LineOfCreditAccount"
+    },
+    {
+      "$ref": "#/$defs/InvestmentAccount"
+    }
+  ],
+  "$defs": {
+    "AccountCategory": {
+      "title": "Account Category type",
+      "description": "The category of account. For example, annuity, commercial, deposit, digital wallet, insurance, investment, loan, or line of credit.\n",
+      "enum": [
+        "ANNUITY_ACCOUNT",
+        "COMMERCIAL_ACCOUNT",
+        "DEPOSIT_ACCOUNT",
+        "DIGITAL_WALLET",
+        "INSURANCE_ACCOUNT",
+        "INVESTMENT_ACCOUNT",
+        "LOAN_ACCOUNT",
+        "LOC_ACCOUNT"
+      ]
+    },
+    "AccountDescriptor": {
+      "title": "Account Descriptor entity",
+      "description": "This descriptor provides minimal information about the account for use in lightweight arrays\n",
+      "type": "object",
+      "properties": {
+        "accountCategory": {
+          "$ref": "#/$defs/AccountCategory"
+        },
+        "accountId": {
+          "description": "Long-term persistent identity of the account, though not an account number.\nThis identity must be unique within your organization.\n\nThis value must never change, including when the account number changes, and must not be derived from an account number.\n",
+          "$ref": "#/$defs/Identifier"
+        },
+        "accountNumberDisplay": {
+          "description": "Account display number for the end user's handle at the owning financial\ninstitution.\nPlaid expects that the last 4 digits of this masked number correspond to the last 4 digits of the account number.\nSend at most 4 letters or digits, for example `5820` — not `****5820` or `xxxx-5820`.\n",
+          "type": "string"
+        },
+        "productName": {
+          "type": "string",
+          "description": "Marketed product name for this account. Used in UIs to assist in account selection\n"
+        },
+        "productId": {
+          "$ref": "#/$defs/Identifier",
+          "description": "Unique ID of the marketed product for this account"
+        },
+        "nickname": {
+          "description": "Account nickname\n",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/AccountStatus"
+        },
+        "currency": {
+          "$ref": "#/$defs/Currency"
+        }
+      },
+      "required": [
+        "accountCategory",
+        "accountId",
+        "productName",
+        "status",
+        "currency"
+      ]
+    },
+    "AccountStatus": {
+      "title": "Account Status",
+      "description": "Account status.\n\nUse `RESTRICTED`, with a normal 200, for a locked or limited account that's still open — not FDX error 705, which means closed.\n",
+      "type": "string",
+      "enum": [
+        "CLOSED",
+        "DELINQUENT",
+        "NEGATIVECURRENTBALANCE",
+        "OPEN",
+        "PAID",
+        "PENDINGCLOSE",
+        "PENDINGOPEN",
+        "RESTRICTED"
+      ]
+    },
+    "Bills": {
+      "title": "Bills entity",
+      "description": "Statements of payments due for an account",
+      "type": "object",
+      "properties": {
+        "totalPaymentDue": {
+          "type": "number",
+          "description": "Total payment due or next payment due as it appears on the account statement. Monthly payment due for loans. May be the same amount as the `statementBalance`"
+        },
+        "minimumPaymentDue": {
+          "type": "number",
+          "description": "The minimum amount which is due on the account statement"
+        },
+        "dueDate": {
+          "$ref": "#/$defs/DateString",
+          "description": "The date that the payment is due as indicated on the statement"
+        },
+        "autoPayEnabled": {
+          "type": "boolean",
+          "description": "Whether the user's bill is paid automatically as indicated on the statement"
+        },
+        "autoPayAmount": {
+          "type": "number",
+          "description": "The amount of money the user has set to autopay this bill as indicated on the statement"
+        },
+        "autoPayDate": {
+          "$ref": "#/$defs/DateString",
+          "description": "The date the autopayment is set to trigger for this bill as indicated on the statement"
+        },
+        "pastDueAmount": {
+          "type": "number",
+          "description": "The amount that the user should have already paid as it appears on the statement. The value is negative if the user owes money"
+        },
+        "lastPaymentAmount": {
+          "type": "number",
+          "description": "The amount of the most recent payment as indicated on the statement"
+        },
+        "lastPaymentDate": {
+          "$ref": "#/$defs/DateString",
+          "description": "The date of most recent payment as indicated on the statement"
+        },
+        "statementBalance": {
+          "type": "number",
+          "description": "The amount of the last statement. The value is negative if the user owes money"
+        },
+        "statementDate": {
+          "$ref": "#/$defs/DateString",
+          "description": "The date the statement was issued"
+        }
+      }
+    },
+    "CompoundingPeriod": {
+      "title": "Compounding Period",
+      "description": "Interest compounding Period",
+      "type": "string",
+      "enum": [
+        "ANNUALLY",
+        "BIWEEKLY",
+        "DAILY",
+        "MONTHLY",
+        "SEMIANNUALLY",
+        "SEMIMONTHLY",
+        "WEEKLY"
+      ]
+    },
+    "Currency": {
+      "title": "Currency entity",
+      "description": "A currency object containing an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.\n",
+      "type": "object",
+      "properties": {
+        "currencyCode": {
+          "$ref": "#/$defs/Iso4217Code"
+        }
+      },
+      "required": [
+        "currencyCode"
+      ]
+    },
+    "DateString": {
+      "title": "Date String",
+      "description": "ISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n",
+      "type": "string",
+      "format": "date",
+      "maxLength": 10
+    },
+    "DepositAccount": {
+      "title": "Deposit Account Details entity",
+      "description": "Full details of a deposit account. Plaid consumes the same information for all types of deposit accounts.\nPlaid expects a decimal amount with two places (to represent fractional values of the base currency) for all monetary amounts. For example, `\"currentBalance\": 192.00`.\n\nThe `accountType` field for deposit accounts may be set to any of the [account types](#deposit-account-types) listed below.\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DepositAccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "currentBalance": {
+              "type": "number",
+              "description": "The total amount of money in the account (sum of all posted/cleared transactions, not including pending transactions).\nFor Plaid's full definition, see the [Transactions](https://plaid.com/docs/api/products/transactions/#transactions-get-response-accounts-balances-current)\n"
+            },
+            "availableBalance": {
+              "type": "number",
+              "description": "The money in the account available to spend (sum of all transactions, plus or minus pending transactions).\nFor Plaid's full definition, see [Transactions](https://plaid.com/docs/api/products/transactions/#transactions-get-response-accounts-balances-available)\n"
+            },
+            "earnedInterest": {
+              "$ref": "#/$defs/InterestRate",
+              "description": "The periodic (usually monthly) interest rate earned on account balances"
+            },
+            "underArbitration": {
+              "type": "boolean",
+              "description": "If `true`, the account is currently under arbitration"
+            },
+            "overdraftOptIn": {
+              "type": "boolean",
+              "description": "Whether customer has opted-in to coverage for FI to allow transactions which overdraw their account balance due to a debit card payment or ATM withdrawal"
+            },
+            "overdrafted": {
+              "type": "boolean",
+              "description": "Whether account currently has a negative or overdrafted account balance"
+            },
+            "overdraftProtectionFunded": {
+              "type": "boolean",
+              "description": "Whether customer has arranged alternate funding source(s) for FI to authorize and pay transactions on their account which might otherwise be declined or cause an overdraft on the account"
+            },
+            "overdraftFundingSources": {
+              "type": "array",
+              "description": "List of the customer's alternate funding sources from which FI can transfer funds to cover transactions if customer has overdraft protection from a consented account. In the order of which accounts will be attempted to transfer the coverage amount needed",
+              "items": {
+                "$ref": "#/$defs/FundingSource"
+              }
+            }
+          },
+          "required": [
+            "currentBalance",
+            "availableBalance"
+          ]
+        }
+      ]
+    },
+    "DepositAccountDescriptor": {
+      "description": "A deposit account. For example, a checking, savings or money market account.\nPlaid consumes more detailed information for `CHECKING` and `SAVINGS` accounts.\n\nThe `accountType` field for deposit accounts may be set to any of the following:\n\n- `CHECKING`: A deposit account held at a financial institution that allows withdrawals and deposits.\n- `SAVINGS`: An interest-bearing deposit account held at a bank or other financial institution.\n- `CD`: A certificate of deposit (CD) is a product offered by banks and credit unions that provides an interest rate premium in exchange for the customer agreeing to leave a lump-sum deposit untouched for a predetermined period of time.\n- `ESCROW`: A contractual arrangement in which a third party (the stakeholder or escrow agent) receives and disburses money or property for the primary transacting parties, with the disbursement dependent on conditions agreed to by the transacting parties.\n- `MONEYMARKET`: A deposit account that pays interest based on current interest rates in the money markets.\n- `HIGHINTERESTSAVINGSACCOUNT`: A savings account that offers a higher interest rate than a standard savings account.\n- `FIRSTHOMESAVINGSACCOUNT`: A tax-advantaged savings account for a first home purchase.\n- `OTHERDEPOSIT`: Use when none of the listed enums apply.\n\n**Consumption scope:**\n- **Balances**: Plaid returns balances for all deposit account types.\n- **Auth**: Plaid maps each account's `accountType` to an internal subtype, and the mapping can vary by institution. By default, `CHECKING` and `SAVINGS` resolve to Auth-eligible subtypes (`checking`, `savings`, or `cash management`); other types require Plaid to enable Auth for your institution before they return Auth data.\n- **Transactions**: Plaid consumes transactions for deposit accounts that resolve to Plaid's internal `depository` account type. By default this includes `CHECKING`, `SAVINGS`, `CD`, and `MONEYMARKET`, though the mapping can vary by institution. Accounts that don't resolve to `depository` return balances only (no Auth, no transactions).\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "DEPOSIT_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/DepositAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "DepositAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "CHECKING",
+        "SAVINGS",
+        "CD",
+        "ESCROW",
+        "MONEYMARKET",
+        "HIGHINTERESTSAVINGSACCOUNT",
+        "FIRSTHOMESAVINGSACCOUNT",
+        "OTHERDEPOSIT"
+      ]
+    },
+    "FiAttribute": {
+      "title": "FI Attribute entity",
+      "description": "Financial institution-specific attribute.\n\nSent as an array of name/value pairs, not a keyed object, with string values: `[{\"name\": \"isCashEquivalent\", \"value\": \"false\"}]`, not `{\"isCashEquivalent\": false}`. `isCashEquivalent` must be `\"true\"` or `\"false\"`.\n",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the financial institution-specific attribute\n"
+        },
+        "value": {
+          "type": "string",
+          "description": "Value of the financial institution-specific attribute\n"
+        }
+      }
+    },
+    "FundingSource": {
+      "title": "Funding Source",
+      "description": "Accounts for customer's alternate funding sources from which FI can transfer funds to cover transactions if customer has overdraft protection from a consented account. In the order of which accounts will be attempted to transfer the coverage amount needed. Contains masked or truncated account number or nickname, account type and/or institution name for full clarity on an internal or external funding source",
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "$ref": "#/$defs/Identifier",
+          "description": "Long-term persistent identity of the funding source account, not an account number. This identity must be unique to the owning institution"
+        },
+        "accountNumberDisplay": {
+          "type": "string",
+          "description": "Funding source account's masked or truncated account number or its nickname for display to the customer"
+        },
+        "accountType": {
+          "type": "string",
+          "description": "FDX account type of the funding source account (e.g. `CHECKING`, `SAVINGS`)"
+        },
+        "institutionName": {
+          "type": "string",
+          "description": "The name of the institution holding the account"
+        }
+      }
+    },
+    "Holding": {
+      "title": "Holding entity",
+      "description": "A holding in an investment account.\nHoldings in the investment account.\nPlaid maps the `holding` and the `investmentAccount` FDX models to its securities models, which hold universal information like the ticker symbol, and to its holdings models, which hold account-specific information like balances. For more information, see [Plaid investments](https://plaid.com/docs/investments/#securities-and-holdings)\n",
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "securityIds": {
+              "description": "Array of security identifiers\n\nEach entry must carry both `id` and `idType`. A holding whose entry has only one of the pair is rejected.\n",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SecurityId"
+              }
+            },
+            "holdingName": {
+              "type": "string",
+              "description": "Holding name or security name\n\nSend a name specific to the security, whether or not you also send a ticker, CUSIP, ISIN, or SEDOL. Plaid treats this name as unique on its own, so a generic value such as `Money Market Fund` can collide with a same-named security from another institution and fail to resolve.\n\nWhen the security has none of those identifiers, this name is the only thing identifying it, so send the same string every time — with nothing else to match on, a change of spacing, casing, or punctuation reads as a different security and splits the holding's history. When one of those identifiers is present it carries the identity instead, and the name can safely change.\n"
+            },
+            "holdingType": {
+              "$ref": "#/$defs/HoldingType"
+            },
+            "holdingSubType": {
+              "$ref": "#/$defs/HoldingSubType"
+            },
+            "symbol": {
+              "type": "string",
+              "description": "Ticker / Market symbol\n\nEvery holding must carry at least one identifying value: this field, `securityIds`, or `holdingName`. A holding with none of them fails validation for the whole holdings response, not just that holding. For a security with no public identifier, send `holdingName` alone rather than putting a proprietary code in this field.\n"
+            },
+            "purchasedPrice": {
+              "type": "number",
+              "description": "Price of holding at the time of purchase.\nPlaid determines an approximate [cost basis](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-holdings-cost-basis)\nusing the purchase price and the number of units. Plaid cannot take fees into account to determine the cost basis\nbecause the FDX holding schema doesn't include fees.\n"
+            },
+            "currentUnitPrice": {
+              "type": "number",
+              "description": "Current unit price. Plaid uses this as the [`institution_price`](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-holdings-institution-price).\nPlaid falls back to using this as the [close price](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-close-price)\nif you don't return `securityIds` for holdings involving securities.\n"
+            },
+            "currentUnitPriceDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Current unit price as of date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "units": {
+              "type": "number",
+              "description": "Plaid requires this field for holdings and transactions involving securities.\nFor security-based actions other than stock splits, quantity.\nShares for stocks, mutual funds, and others. Face value for bonds.\nContracts for options.\n\n**Note:** This field is required if the transaction involves a security.\n"
+            },
+            "marketValue": {
+              "type": "number",
+              "description": "Market value at the time the data was retrieved\n"
+            },
+            "faceValue": {
+              "type": "number",
+              "description": "Required for bonds. Face value at the time the data was retrieved. If this isn't present,\nPlaid assumes the holding isn't a bond and falls back to `marketValue`.\n"
+            },
+            "cashAccount": {
+              "type": "boolean",
+              "description": "If true, indicates that this holding is used to maintain proceeds\nfrom sales, dividends, and other cash postings to the investment account.\nIf you don't set a value for `isCashEquivalent` in the `fiAttributes` array,\nthen Plaid uses `cashAccount` in determining the [`is_cash_equivalent`](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-is-cash-equivalent)\nstatus.\n\nMust agree with `holdingSubType`. If this field is `false` and `holdingSubType` is `CASH` or `MONEYMARKET`, the holding will be rejected.\n"
+            },
+            "currency": {
+              "$ref": "#/$defs/Currency",
+              "description": "Currency information if it is different from Account entity\n"
+            },
+            "fiAttributes": {
+              "type": "array",
+              "description": "Array of financial institution-specific attributes.\nPlaid recommends including a value for the `isCashEquivalent` attribute in this array, sent as a string value of `true` or `false`.\nThis populates the [`is_cash_equivalent`](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-is-cash-equivalent) field in Plaid's customer-facing API.\nIf you return a value for `isCashEquivalent`, then return the same value for `cashAccount` as a boolean.\n",
+              "items": {
+                "$ref": "#/$defs/FiAttribute"
+              }
+            },
+            "taxLots": {
+              "type": "array",
+              "description": "Array of tax lots\n",
+              "items": {
+                "$ref": "#/$defs/TaxLot"
+              }
+            }
+          },
+          "required": [
+            "cashAccount",
+            "marketValue"
+          ]
+        }
+      ]
+    },
+    "HoldingSubType": {
+      "title": "Holding SubType",
+      "description": "The subtype of an investment holding. Set this to `CASH` or `MONEYMARKET` to indicate a cash-type holding, with `holdingType` set to `OTHER`.\n",
+      "type": "string",
+      "enum": [
+        "CASH",
+        "MONEYMARKET"
+      ]
+    },
+    "HoldingType": {
+      "title": "Holding Type",
+      "description": "Plaid maps the holding type to the Plaid [security type](https://plaid.com/docs/api/products/investments/#investments-holdings-get-response-securities-type).\nPlaid expects you to return `OTHER` and set the `holdingSubType` to indicate cash-type holdings (`CASH`, `MONEYMARKET`).\n",
+      "type": "string",
+      "enum": [
+        "ANNUITY",
+        "BOND",
+        "CD",
+        "DIGITALASSET",
+        "MUTUALFUND",
+        "OPTION",
+        "OTHER",
+        "STOCK"
+      ]
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Value for a unique identifier\n",
+      "type": "string",
+      "maxLength": 256
+    },
+    "InterestRate": {
+      "title": "Interest Rate entity",
+      "description": "Full description of a single interest rate",
+      "type": "object",
+      "properties": {
+        "rate": {
+          "type": "number",
+          "description": "Current interest rate value"
+        },
+        "rateAsOf": {
+          "$ref": "#/$defs/DateString",
+          "description": "Date of change to the current interest rate value"
+        },
+        "compoundingPeriod": {
+          "$ref": "#/$defs/CompoundingPeriod",
+          "description": "One of `DAILY`, `WEEKLY`, `BIWEEKLY`, `SEMIMONTHLY`, `MONTHLY`, `SEMIANNUALLY`, `ANNUALLY`"
+        },
+        "priorRate": {
+          "type": "number",
+          "description": "Prior interest rate value, if any, before change on AsOf date"
+        },
+        "type": {
+          "$ref": "#/$defs/InterestRateType",
+          "description": "One of `FIXED`, `INDEXED` or `VARIABLE`"
+        },
+        "index": {
+          "type": "string",
+          "description": "If an INDEXED rate, the name of the index to which the rate is tied: `EONIA`, `EURIBOR`, `EURREPO`, `FEFUND`, `LIBOR`, `PRIME`, `SOFR`, `SONIA`, etc."
+        }
+      }
+    },
+    "InterestRateType": {
+      "title": "Interest Rate Type",
+      "description": "Specifies whether an interest rate is fixed or variable. This information is helpful for personal financial planning and advising. For example, it affects the potential benefits of refinancing, and informs whether a mortgage payment is expected to change in the future\n",
+      "type": "string",
+      "enum": [
+        "FIXED",
+        "INDEXED",
+        "VARIABLE"
+      ]
+    },
+    "InvestmentAccount": {
+      "description": "Full details of an investment account. Plaid consumes all `InvestmentAccount` FDX fields for all types of investment accounts.\nIn the holdings array, Plaid consumes fields depending on their relevancy to the holding type. See the `holdings` array for more information.\nPlaid expects a decimal amount with two places (to represent fractional values of the base currency) for all monetary amounts. For example, `\"currentBalance\": 192.00`\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/InvestmentAccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "availableCashBalance": {
+              "type": "number",
+              "description": "Cash balance across all sub-accounts. Plaid expects that this includes sweep funds\n"
+            },
+            "earnedInterest": {
+              "$ref": "#/$defs/InterestRate",
+              "description": "The periodic (usually monthly) interest rate earned on account cash balances"
+            },
+            "balanceAsOf": {
+              "description": "Date and time of the balance\n\nISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to\n[IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n\nSend UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.\n",
+              "$ref": "#/$defs/Timestamp"
+            },
+            "currentValue": {
+              "type": "number",
+              "description": "Total current value of all investments\n"
+            },
+            "holdings": {
+              "type": "array",
+              "description": "Holdings in the investment account.\nPlaid maps the `holding` and the `investmentAccount` FDX models to its securities models, which hold universal information like the ticker symbol, and to its holdings models, which hold account-specific information like balances. For more information, see [Plaid investments](https://plaid.com/docs/investments/#securities-and-holdings)\n",
+              "items": {
+                "$ref": "#/$defs/Holding"
+              }
+            }
+          },
+          "required": [
+            "availableCashBalance",
+            "currentValue"
+          ]
+        }
+      ]
+    },
+    "InvestmentAccountDescriptor": {
+      "description": "An investment account. For example, a 401K or IRA.\nPlaid consumes the same details for all investment accounts.\n\nThe `accountType` field for investment accounts may be set to any of the following:\n\n- `401A`: An employer-sponsored money-purchase retirement plan that allows dollar or percentage-based contributions from the employer, the employee, or both.\n- `401K`: An employer-sponsored defined-contribution pension account defined in subsection 401(k) of the Internal Revenue Code.\n- `403B`: A U.S. tax-advantaged retirement savings plan available for public education organizations, some non-profit employers, cooperative hospital service organizations, and self-employed ministers.\n- `529`: A tax-advantaged savings plan designed to help pay for education.\n- `BROKERAGEPRODUCT`: Investment management offered by a licensed brokerage firm that places trades on behalf of the customer.\n- `COMMERCIALINVESTMENT`: An investment account for commercial customers, for example a commercial brokerage account. Available in v5.2 only; from v5.3 use `COMMERCIALINVESTMENT` under `CommercialAccountType`.\n- `COVERDELL`: A trust or custodial account set up solely for paying qualified education expenses for the designated beneficiary.\n- `DIGITALASSET`: An account containing digital assets.\n- `DEFINEDBENEFIT`: An employer-sponsored retirement plan where benefits are computed using a formula considering factors such as length of employment and salary history.\n- `DEFERREDPROFITSHARINGPLAN`: A Canadian employer-sponsored plan (DPSP) that distributes a share of company profits to employees.\n- `ESOP`: An employee stock ownership plan that gives employees an ownership interest in the company.\n- `GUARDIAN`: An account of a child in the parent’s name, with legal title to the assets, capital gains, and tax liabilities belonging to the parent.\n- `INDIVIDUALPENSIONPLAN`: A Canadian defined-benefit pension plan (IPP) covering a single participant, typically an owner-manager.\n- `INSTITUTIONALTRUST`: An institutional trust account.\n- `INVESTMENTACCOUNT`: A general investment account not covered by a more specific type.\n- `IRA`: An individual retirement account (IRA), a tax-advantaged account used to save and invest for retirement.\n- `KEOGH`: A tax-deferred pension plan available to self-employed individuals or unincorporated businesses.\n- `LIFEINCOMEFUND`: A Canadian life income fund (LIF), a locked-in retirement income fund with both minimum and maximum annual withdrawals.\n- `LOCKEDINRETIREMENTACCOUNT`: A Canadian locked-in retirement account (LIRA) holding pension funds that cannot be withdrawn until retirement.\n- `LOCKEDINRETIREMENTINCOMEFUND`: A Canadian locked-in retirement income fund (LRIF).\n- `LOCKEDINRETIREMENTSAVINGSPLAN`: A Canadian locked-in retirement savings plan (LRSP).\n- `NONQUALIFIEDPLAN`: A type of tax-deferred employer-sponsored retirement plan that falls outside of ERISA guidelines.\n- `NONQUALIFEDPLAN`: A misspelling of `NONQUALIFIEDPLAN` inherited from the FDX specification. Both values validate; send `NONQUALIFIEDPLAN`.\n- `OTHERINVESTMENT`: Use when none of the listed enums apply.\n- `ROLLOVER`: An account containing investments rolled over from an employee-sponsored account.\n- `ROTH`: An individual retirement account offering tax-free growth and tax-free withdrawals in retirement.\n- `PRESCRIBEDREGISTEREDRETIREMENTINCOMEFUND`: A Canadian prescribed registered retirement income fund (PRIF), which has no maximum annual withdrawal.\n- `PREPAID`: A prepaid account. Added in v6.2.\n- `REGISTEREDPENSIONPLAN`: A Canadian registered pension plan (RPP).\n- `REGISTEREDDISABILITYSAVINGSPLAN`: A Canadian registered disability savings plan (RDSP).\n- `REGISTEREDEDUCATIONSAVINGSPLAN`: A Canadian registered education savings plan (RESP).\n- `REGISTEREDRETIREMENTINCOMEFUND`: A Canadian registered retirement income fund (RRIF).\n- `REGISTEREDRETIREMENTSAVINGSPLAN`: A Canadian registered retirement savings plan (RRSP).\n- `RESTRICTEDLIFEINCOMEFUND`: A Canadian restricted life income fund (RLIF).\n- `RESTRICTEDLOCKEDINSAVINGSPLAN`: A Canadian restricted locked-in savings plan (RLSP).\n- `SPECIFIEDPENSIONPLAN`: A Canadian specified pension plan (SPP).\n- `SARSEP`: A simplified employee pension (SEP) plan set up before 1997 that includes a salary reduction arrangement.\n- `TAXABLE`: A taxable investment account.\n- `TAXFREESAVINGSACCOUNT`: A Canadian tax-free savings account (TFSA).\n- `TDA`: A tax-deferred annuity, a type of retirement plan similar to a 403(b). Plaid maps this to the same account subtype as `403B`.\n- `TRUST`: An account opened by an individual and managed by a designated trustee for the benefit of a third party.\n- `TERM`: Life insurance that provides coverage at a fixed rate of payments for a limited period of time.\n- `UGMA`: Uniform Gifts to Minors Act account.\n- `UTMA`: Uniform Transfers to Minors Act account.\n- `VARIABLEANNUITY`: An annuity whose value varies with the performance of its underlying investments.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "INVESTMENT_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/InvestmentAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "InvestmentAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "401A",
+        "401K",
+        "403B",
+        "529",
+        "BROKERAGEPRODUCT",
+        "COVERDELL",
+        "DIGITALASSET",
+        "DEFINEDBENEFIT",
+        "DEFERREDPROFITSHARINGPLAN",
+        "ESOP",
+        "GUARDIAN",
+        "INDIVIDUALPENSIONPLAN",
+        "INSTITUTIONALTRUST",
+        "INVESTMENTACCOUNT",
+        "IRA",
+        "KEOGH",
+        "LIFEINCOMEFUND",
+        "LOCKEDINRETIREMENTACCOUNT",
+        "LOCKEDINRETIREMENTINCOMEFUND",
+        "LOCKEDINRETIREMENTSAVINGSPLAN",
+        "NONQUALIFIEDPLAN",
+        "NONQUALIFEDPLAN",
+        "OTHERINVESTMENT",
+        "ROLLOVER",
+        "ROTH",
+        "PRESCRIBEDREGISTEREDRETIREMENTINCOMEFUND",
+        "PREPAID",
+        "REGISTEREDPENSIONPLAN",
+        "REGISTEREDDISABILITYSAVINGSPLAN",
+        "REGISTEREDEDUCATIONSAVINGSPLAN",
+        "REGISTEREDRETIREMENTINCOMEFUND",
+        "REGISTEREDRETIREMENTSAVINGSPLAN",
+        "RESTRICTEDLIFEINCOMEFUND",
+        "RESTRICTEDLOCKEDINSAVINGSPLAN",
+        "SPECIFIEDPENSIONPLAN",
+        "SARSEP",
+        "TAXABLE",
+        "TAXFREESAVINGSACCOUNT",
+        "TDA",
+        "TRUST",
+        "TERM",
+        "UGMA",
+        "UTMA",
+        "VARIABLEANNUITY"
+      ]
+    },
+    "Iso4217Code": {
+      "title": "ISO 4217 Code",
+      "description": "Currency, fund and precious metal codes effective from June 25, 2024 per\n[ISO 4217 Currency Code Maintenance](https://www.six-group.com/en/products-services/financial-information/data-standards.html).\nZWL (the Zimbabwean dollar) expires August 31, 2024 and is deprecated\nand replaced with ZWG (Zimbabwe Gold), effective on June 25, 2024.\n",
+      "type": "string",
+      "enum": [
+        "AED",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ANG",
+        "AOA",
+        "ARS",
+        "AUD",
+        "AWG",
+        "AZN",
+        "BAM",
+        "BBD",
+        "BDT",
+        "BGN",
+        "BHD",
+        "BIF",
+        "BMD",
+        "BND",
+        "BOB",
+        "BOV",
+        "BRL",
+        "BSD",
+        "BTN",
+        "BWP",
+        "BYN",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHE",
+        "CHF",
+        "CHW",
+        "CLF",
+        "CLP",
+        "CNY",
+        "COP",
+        "COU",
+        "CRC",
+        "CUC",
+        "CUP",
+        "CVE",
+        "CZK",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "EGP",
+        "ERN",
+        "ETB",
+        "EUR",
+        "FJD",
+        "FKP",
+        "GBP",
+        "GEL",
+        "GHS",
+        "GIP",
+        "GMD",
+        "GNF",
+        "GTQ",
+        "GYD",
+        "HKD",
+        "HNL",
+        "HTG",
+        "HUF",
+        "IDR",
+        "ILS",
+        "INR",
+        "IQD",
+        "IRR",
+        "ISK",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KMF",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KYD",
+        "KZT",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LRD",
+        "LSL",
+        "LYD",
+        "MAD",
+        "MDL",
+        "MGA",
+        "MKD",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MRU",
+        "MUR",
+        "MVR",
+        "MWK",
+        "MXN",
+        "MXV",
+        "MYR",
+        "MZN",
+        "NAD",
+        "NGN",
+        "NIO",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEN",
+        "PGK",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PYG",
+        "QAR",
+        "RON",
+        "RSD",
+        "RUB",
+        "RWF",
+        "SAR",
+        "SBD",
+        "SCR",
+        "SDG",
+        "SEK",
+        "SGD",
+        "SHP",
+        "SLE",
+        "SLL",
+        "SOS",
+        "SRD",
+        "SSP",
+        "STN",
+        "SVC",
+        "SYP",
+        "SZL",
+        "THB",
+        "TJS",
+        "TMT",
+        "TND",
+        "TOP",
+        "TRY",
+        "TTD",
+        "TWD",
+        "TZS",
+        "UAH",
+        "UGX",
+        "USD",
+        "USN",
+        "UYI",
+        "UYU",
+        "UYW",
+        "UZS",
+        "VED",
+        "VES",
+        "VND",
+        "VUV",
+        "WST",
+        "XAF",
+        "XAG",
+        "XAU",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XCD",
+        "XDR",
+        "XOF",
+        "XPD",
+        "XPF",
+        "XPT",
+        "XSU",
+        "XTS",
+        "XUA",
+        "XXX",
+        "YER",
+        "ZAR",
+        "ZMW",
+        "ZWG",
+        "ZWL"
+      ]
+    },
+    "LineOfCreditAccount": {
+      "type": "object",
+      "description": "Full details of a line of credit account. The `accountType` field for line of credit accounts may be set to any of the [account types](#line-of-credit-account-types) listed below. This category covers revolving debt, where the balance can be drawn on again after it is paid down; non-revolving debt belongs under `LOAN_ACCOUNT`.\n\nPlaid consumes the following parameters returned by the `GET /accounts` endpoint:\n\n* `availableCredit` — required for every `accountType` except `CHARGE`.\n* `creditLine`\n* `currentBalance`\n\nAdditionally, for the `CREDITCARD` accountType, Plaid consumes the previous information plus the following for its liabilities product:\n\n* `advancesApr`\n* `lastPaymentAmount`\n* `lastPaymentDate`\n* `lastStmtBalance`\n* `lastStmtDate`\n* `minimumPaymentAmount`\n* `nextPaymentDate`\n* `purchasesApr`\nPlaid expects a decimal amount with two places (to represent fractional values of the base currency) for all monetary amounts. For example, `\"currentBalance\": 192.00`\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/LineOfCreditAccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "creditLine": {
+              "type": "number",
+              "description": "Credit limit\n"
+            },
+            "availableCredit": {
+              "type": "number",
+              "description": "Available credit.\n\nRequired for every line of credit `accountType` except `CHARGE`.\n"
+            },
+            "nextPaymentAmount": {
+              "type": "number",
+              "description": "Amount of next payment.\nMay differ from `minimumPaymentAmount` if the customer pays more than their minimum or out of cycle\n"
+            },
+            "nextPaymentDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Due date of next payment.\nMay differ from the payment due date listed on the customer's most recent statement if the customer pays out of cycle\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "principalBalance": {
+              "type": "number",
+              "description": "Principal balance\n"
+            },
+            "currentBalance": {
+              "type": "number",
+              "description": "Current balance of line of credit\n"
+            },
+            "minimumPaymentAmount": {
+              "type": "number",
+              "description": "Minimum payment amount from last statement balance,\nwhich is due at the payment due date listed on that statement\n"
+            },
+            "lastPaymentAmount": {
+              "type": "number",
+              "description": "Amount of last payment\n"
+            },
+            "lastPaymentDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Last payment date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "pastDueAmount": {
+              "type": "number",
+              "description": "Amount owed that the account holder failed to pay on the due date\n"
+            },
+            "lastStmtBalance": {
+              "type": "number",
+              "description": "Final balance amount at end of last statement\n"
+            },
+            "lastStmtDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Last statement date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "purchasesApr": {
+              "type": "number",
+              "description": "Annual percentage rate for purchases\n"
+            },
+            "advancesApr": {
+              "type": "number",
+              "description": "Annual percentage rate for cash advances\n"
+            },
+            "transfersApr": {
+              "type": "number",
+              "description": "Annual Percentage Rate for balance transfers"
+            },
+            "bills": {
+              "type": "array",
+              "description": "Payments due on the account",
+              "items": {
+                "$ref": "#/$defs/Bills"
+              }
+            },
+            "scheduledPayments": {
+              "type": "array",
+              "description": "Array of payments scheduled",
+              "items": {
+                "$ref": "#/$defs/ScheduledPayments"
+              }
+            },
+            "chargedInterest": {
+              "$ref": "#/$defs/InterestRate",
+              "description": "The periodic interest rate on the line of credit"
+            },
+            "cashAdvanceBalance": {
+              "type": "number",
+              "description": "Total balance of cash advances"
+            },
+            "transferBalance": {
+              "type": "number",
+              "description": "Total of all balance transfer amounts"
+            },
+            "ppilBalance": {
+              "type": "number",
+              "description": "Total balance of Post Purchase Installment Loans (PPIL)"
+            },
+            "underArbitration": {
+              "type": "boolean",
+              "description": "If `true`, the account is currently under arbitration"
+            },
+            "feeSchedule": {
+              "type": "string",
+              "description": "Describes the current fee schedule for the account"
+            },
+            "ppilApr": {
+              "type": "number",
+              "description": "Current annual percentage rate (APR) for Post Purchase Installment Loans (PPIL)"
+            },
+            "balanceTransfersApr": {
+              "type": "number",
+              "description": "Current annual percentage rate (APR) for Balance Transfers"
+            },
+            "targetRateSaleApr": {
+              "type": "number",
+              "description": "Current annual percentage rate (APR) for Target Rate Sales"
+            }
+          },
+          "required": [
+            "currentBalance"
+          ]
+        }
+      ]
+    },
+    "LineOfCreditAccountDescriptor": {
+      "description": "A line-of-credit account. For example, a credit card or home equity line of credit. This category covers revolving debt, where the balance can be drawn on again after it is paid down; non-revolving debt belongs under `LOAN_ACCOUNT`.\nPlaid consumes more detailed information for `CREDITCARD` accounts.\n\nThe `accountType` field for line of credit accounts may be set to any of the following:\n\n- `LINEOFCREDIT`: A credit facility extended by a bank or other financial institution to a government, business or individual customer that enables the customer to draw on the facility when the customer needs funds. Use when none of the other line of credit enums apply.\n- `CHARGE`: An account to which goods and services may be charged on credit.\n- `CREDITCARD`: Allows cardholders to borrow funds with which to pay for goods and services with merchants that accept cards for payment. Send credit cards as this type, not as a loan account.\n- `HOMELINEOFCREDIT`: A loan in which the lender agrees to lend a maximum amount within an agreed period, where the collateral is the borrower's equity in their house.\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOC_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/LineOfCreditAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LineOfCreditAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "LINEOFCREDIT",
+        "CHARGE",
+        "CREDITCARD",
+        "HOMELINEOFCREDIT"
+      ]
+    },
+    "LoanAccount": {
+      "title": "Loan Account entity",
+      "type": "object",
+      "description": "Full details of a loan account. The `accountType` field for loan accounts may be set to any of the [account types](#loan-account-types) listed below. Revolving debt, where the balance can be drawn on again after it is paid down, belongs under `LOC_ACCOUNT` instead.\n\nPlaid only consumes the `MORTGAGE` and `STUDENTLOAN` types for its [Liabilities API](https://plaid.com/docs/api/products/liabilities/). For other loan account types Plaid consumes account details and transactions.\nPlaid consumes all loan account information as returned in the `GET /accounts` endpoint, as well as the additional information listed below:\n\nRequired for all loan accounts:\n* `principalBalance`\n* `interestRate`\n* `interestRateType`\n\nPlaid can exempt specific institutions and platforms from `interestRate` and `interestRateType`. To request this behavior, contact Plaid during your onboarding process. `principalBalance` is always required.\n\nOptional fields for `STUDENTLOAN` accounts:\n* `interestPaidYearToDate`\n* `lastPaymentAmount`\n* `lastPaymentDate`\n* `maturityDate`\n* `nextPaymentDate`\n* `originalPrincipal`\n* `originatingDate`\n\nRequired for `MORTGAGE` accounts:\n* `accountNumber`\n\nOptional fields for `MORTGAGE` accounts:\n* `escrowBalance`\n* `interestPaidYearToDate`\n* `lastPaymentAmount`\n* `lastPaymentDate`\n* `loanTerm`\n* `maturityDate`\n* `nextPaymentAmount`\n* `nextPaymentDate`\n* `originalPrincipal`\n* `originatingDate`\n\nPlaid expects a decimal amount with two places (to represent fractional values of the base currency) for all monetary amounts. For example, `\"escrowBalance\": 192.00`\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/LoanAccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountNumber": {
+              "type": "string",
+              "description": "Full account number for the end user's handle for the account at the owning institution\n\nFor `accountType` `MORTGAGE`, at least one of this field or `accountNumberDisplay` is required; if both are sent, this one takes precedence.\n"
+            },
+            "principalBalance": {
+              "type": "number",
+              "description": "Principal balance\n"
+            },
+            "escrowBalance": {
+              "type": "number",
+              "description": "Escrow balance of loan\n"
+            },
+            "originalPrincipal": {
+              "type": "number",
+              "description": "Original principal of loan\n"
+            },
+            "originatingDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Date loan originated\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "loanTerm": {
+              "type": "integer",
+              "description": "Term of loan in months\n"
+            },
+            "nextPaymentAmount": {
+              "type": "number",
+              "description": "Amount of next payment.\nMay differ from the scheduled payment amount if the customer pays more than required or out of cycle\n"
+            },
+            "nextPaymentDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Due date of next payment.\nMay differ from the payment due date listed on the customer's most recent statement if the customer pays out of cycle\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "lastPaymentAmount": {
+              "type": "number",
+              "description": "Amount of last payment\n"
+            },
+            "lastPaymentDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Last payment date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "maturityDate": {
+              "$ref": "#/$defs/DateString",
+              "description": "Maturity date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+            },
+            "interestPaidYearToDate": {
+              "type": "number",
+              "description": "Interest paid year to date\n"
+            },
+            "interestRate": {
+              "type": "number",
+              "description": "The interest rate for the account, expressed as a number between 0 and 100. For example, `4` represents 4.00%, and `7.99` represents 7.99%.\n"
+            },
+            "interestRateType": {
+              "$ref": "#/$defs/InterestRateType"
+            },
+            "currentSchool": {
+              "type": "string",
+              "description": "Current school the student loan is connected to\n"
+            },
+            "loanProviderName": {
+              "type": "string",
+              "description": "Name of the institution providing the loan\n"
+            },
+            "chargedInterest": {
+              "$ref": "#/$defs/InterestRate",
+              "description": "The periodic interest rate on the loan"
+            },
+            "annualPercentageRate": {
+              "type": "number",
+              "description": "The Annual Percentage Rate on the loan"
+            }
+          },
+          "required": [
+            "principalBalance",
+            "interestRate",
+            "interestRateType"
+          ]
+        }
+      ]
+    },
+    "LoanAccountDescriptor": {
+      "description": "A loan account. For example, mortgage, student loan or auto loan. Revolving debt, where the balance can be drawn on again after it is paid down, belongs under `LOC_ACCOUNT` instead.\nPlaid consumes more detailed information for `MORTGAGE` and `STUDENTLOAN` accounts.\n\nThe `accountType` field for loan accounts may be set to any of the following:\n\n- `AUTOLOAN`: A type of loan used to finance a car purchase.\n- `HOMEEQUITYLOAN`: A type of loan in which the borrower uses the equity of his or her home as collateral.\n- `INSTALLMENT`: A type of agreement or contract involving a loan that is repaid over time with a set number of scheduled payments.\n- `LOAN`: The lending of money by one or more individuals, organizations, or other entities to other individuals, organizations etc. Use when none of the other loan enums apply.\n- `MILITARYLOAN`: A military loan.\n- `MORTGAGE`: A type of loan you can use to buy or refinance a home.\n- `PERSONALLOAN`: A type of debt that is not protected by a guarantor, or collateralized by a lien on specific assets of the borrower.\n- `SMBLOAN`: A small/medium business loan.\n- `STUDENTLOAN`: A type of loan designed to help students pay for post-secondary education and the associated fees, such as tuition, books and supplies, and living expenses.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOAN_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/LoanAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LoanAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "AUTOLOAN",
+        "HOMEEQUITYLOAN",
+        "INSTALLMENT",
+        "LOAN",
+        "MILITARYLOAN",
+        "MORTGAGE",
+        "PERSONALLOAN",
+        "SMBLOAN",
+        "STUDENTLOAN"
+      ]
+    },
+    "PositionType": {
+      "title": "Position Type",
+      "description": "The type of an investment position\n",
+      "type": "string",
+      "enum": [
+        "LONG",
+        "SHORT"
+      ]
+    },
+    "ScheduledPaymentType": {
+      "title": "Scheduled Payment Type",
+      "description": "The type of a payment scheduled on the account",
+      "type": "string",
+      "enum": [
+        "AUTOPAY",
+        "ONE_TIME",
+        "REPEATING"
+      ]
+    },
+    "ScheduledPayments": {
+      "title": "Scheduled Payments entity",
+      "description": "The payments scheduled on the account",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Total payment due or next payment due. Monthly payment due for loans"
+        },
+        "date": {
+          "$ref": "#/$defs/DateString",
+          "description": "The date that the payment is due"
+        },
+        "type": {
+          "$ref": "#/$defs/ScheduledPaymentType",
+          "description": "Type of payment (`AUTOPAY`, `ONE_TIME`, `REPEATING`)"
+        },
+        "payToPrincipal": {
+          "type": "boolean",
+          "description": "Whether payment is applied to principal or not"
+        }
+      }
+    },
+    "SecurityId": {
+      "title": "Security ID entity",
+      "description": "Unique identifier for a security\n",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Identifier"
+        },
+        "idType": {
+          "$ref": "#/$defs/SecurityIdType"
+        }
+      }
+    },
+    "SecurityIdType": {
+      "title": "Security ID Type",
+      "description": "Plaid consumes solely CUSIP, ISIN, and SEDOL.\n\nThis field, along with `securityId` are **required** unless `symbol` is provided.\n\n**Note:** If `securityIdType` is provided, `securityId` is required.\n",
+      "type": "string",
+      "enum": [
+        "CINS",
+        "CMC",
+        "CME",
+        "CUSIP",
+        "ISIN",
+        "ITSA",
+        "NASDAQ",
+        "SEDOL",
+        "SICC",
+        "VALOR",
+        "WKN"
+      ]
+    },
+    "TaxLot": {
+      "title": "Tax Lot entity",
+      "description": "Block of securities receiving the same tax treatment\n",
+      "type": "object",
+      "properties": {
+        "originalPurchaseDate": {
+          "$ref": "#/$defs/DateString",
+          "description": "Lot acquired date\n\nISO 8601 full-date in format 'YYYY-MM-DD' according\nto [IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Lot quantity\n"
+        },
+        "purchasedPrice": {
+          "type": "number",
+          "description": "Original purchase price\n"
+        },
+        "costBasis": {
+          "type": "number",
+          "description": "Total amount of money spent acquiring this lot including any fees or commission expenses incurred\n"
+        },
+        "currentValue": {
+          "type": "number",
+          "description": "Lot market value\n"
+        },
+        "positionType": {
+          "$ref": "#/$defs/PositionType",
+          "description": "LONG, SHORT\n"
+        }
+      }
+    },
+    "Timestamp": {
+      "title": "Timestamp",
+      "description": "ISO 8601 date-time in format `YYYY-MM-DDThh:mm:ss.nnn[Z|[+|-]hh:mm]` according to\n[IETF RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)\n\nSend UTC or a local time with its correct offset. Plaid doesn't normalize timestamps, so a local time labeled `Z` is read as UTC.\n",
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

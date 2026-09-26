@@ -1,7 +1,7 @@
 ---
-name: Link a bank account and fetch accounts + balances
+name: plaid-link-and-fetch-accounts
 description: Initialize Plaid Link, exchange the public_token for an access_token, then read the connected accounts, balances, and ACH numbers.
-api: openapi/plaid-link--openapi.yml
+api: openapi/plaid-plaid-api-openapi.yml
 operations: [linkTokenCreate, itemPublicTokenExchange, accountsGet, accountsBalanceGet, authGet]
 ---
 

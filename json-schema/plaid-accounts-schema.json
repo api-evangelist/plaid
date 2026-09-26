@@ -1,0 +1,709 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/plaid/main/json-schema/plaid-accounts-schema.json",
+  "title": "Accounts entity",
+  "description": "An optionally paginated array of account descriptors. Each account descriptor carries a required `accountCategory` field identifying its type; see the `AccountCategory` schema for the full list of values.\n",
+  "x-generated": "2026-09-23",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/plaid-core-exchange-openapi.yml#/components/schemas/Accounts",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/$defs/PaginatedArray"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "description": "An optionally paginated array of account descriptors. Each account descriptor carries a required `accountCategory` field identifying its type; see the `AccountCategory` schema for the full list of values.\n",
+          "items": {
+            "$ref": "#/$defs/AccountWithDescriptor"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "accounts"
+      ]
+    }
+  ],
+  "$defs": {
+    "AccountCategory": {
+      "title": "Account Category type",
+      "description": "The category of account. For example, annuity, commercial, deposit, digital wallet, insurance, investment, loan, or line of credit.\n",
+      "enum": [
+        "ANNUITY_ACCOUNT",
+        "COMMERCIAL_ACCOUNT",
+        "DEPOSIT_ACCOUNT",
+        "DIGITAL_WALLET",
+        "INSURANCE_ACCOUNT",
+        "INVESTMENT_ACCOUNT",
+        "LOAN_ACCOUNT",
+        "LOC_ACCOUNT"
+      ]
+    },
+    "AccountDescriptor": {
+      "title": "Account Descriptor entity",
+      "description": "This descriptor provides minimal information about the account for use in lightweight arrays\n",
+      "type": "object",
+      "properties": {
+        "accountCategory": {
+          "$ref": "#/$defs/AccountCategory"
+        },
+        "accountId": {
+          "description": "Long-term persistent identity of the account, though not an account number.\nThis identity must be unique within your organization.\n\nThis value must never change, including when the account number changes, and must not be derived from an account number.\n",
+          "$ref": "#/$defs/Identifier"
+        },
+        "accountNumberDisplay": {
+          "description": "Account display number for the end user's handle at the owning financial\ninstitution.\nPlaid expects that the last 4 digits of this masked number correspond to the last 4 digits of the account number.\nSend at most 4 letters or digits, for example `5820` — not `****5820` or `xxxx-5820`.\n",
+          "type": "string"
+        },
+        "productName": {
+          "type": "string",
+          "description": "Marketed product name for this account. Used in UIs to assist in account selection\n"
+        },
+        "productId": {
+          "$ref": "#/$defs/Identifier",
+          "description": "Unique ID of the marketed product for this account"
+        },
+        "nickname": {
+          "description": "Account nickname\n",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/AccountStatus"
+        },
+        "currency": {
+          "$ref": "#/$defs/Currency"
+        }
+      },
+      "required": [
+        "accountCategory",
+        "accountId",
+        "productName",
+        "status",
+        "currency"
+      ]
+    },
+    "AccountStatus": {
+      "title": "Account Status",
+      "description": "Account status.\n\nUse `RESTRICTED`, with a normal 200, for a locked or limited account that's still open — not FDX error 705, which means closed.\n",
+      "type": "string",
+      "enum": [
+        "CLOSED",
+        "DELINQUENT",
+        "NEGATIVECURRENTBALANCE",
+        "OPEN",
+        "PAID",
+        "PENDINGCLOSE",
+        "PENDINGOPEN",
+        "RESTRICTED"
+      ]
+    },
+    "AccountWithDescriptor": {
+      "title": "Account entity",
+      "description": "This provides an instance of an account without full details. Plaid expects that the `accountType` field is set to one of the [account types](#account-types) listed below\n",
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AnnuityAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/CommercialAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/DepositAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/DigitalWalletDescriptor"
+        },
+        {
+          "$ref": "#/$defs/InsuranceAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/InvestmentAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/LoanAccountDescriptor"
+        },
+        {
+          "$ref": "#/$defs/LineOfCreditAccountDescriptor"
+        }
+      ]
+    },
+    "AnnuityAccountDescriptor": {
+      "description": "An annuity account. For example, a fixed or variable annuity account.\n\nThe `accountType` field for annuity accounts may be set to any of the following:\n\n- `ANNUITY`: A form of insurance or investment entitling the investor to a series of annual sums.\n- `FIXEDANNUITY`: A type of insurance contract that promises to pay the buyer a specific, guaranteed interest rate on their contributions to the account.\n- `VARIABLEANNUITY`: A type of insurance contract that promises to pay back the buyer based on the performance of an underlying portfolio of mutual funds selected by the buyer.\n\n**Note:** Annuity accounts are discoverable-only. Plaid does not consume downstream data (balances, transactions, Auth) for annuity accounts.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "ANNUITY_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/AnnuityAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "AnnuityAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "ANNUITY",
+        "FIXEDANNUITY",
+        "VARIABLEANNUITY"
+      ]
+    },
+    "CommercialAccountDescriptor": {
+      "description": "A commercial account. For example, a business deposit account. The `accountType` field for commercial accounts may be set to any of the [account types](#commercial-account-types) listed below.\n\n**Note:** Commercial accounts are discoverable-only. Plaid does not consume downstream data (balances, transactions, Auth) for commercial accounts.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "COMMERCIAL_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/CommercialAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "CommercialAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "COMMERCIALDEPOSIT",
+        "COMMERCIALINVESTMENT",
+        "COMMERCIALLOAN",
+        "COMMERCIALLINEOFCREDIT"
+      ]
+    },
+    "Currency": {
+      "title": "Currency entity",
+      "description": "A currency object containing an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.\n",
+      "type": "object",
+      "properties": {
+        "currencyCode": {
+          "$ref": "#/$defs/Iso4217Code"
+        }
+      },
+      "required": [
+        "currencyCode"
+      ]
+    },
+    "DepositAccountDescriptor": {
+      "description": "A deposit account. For example, a checking, savings or money market account.\nPlaid consumes more detailed information for `CHECKING` and `SAVINGS` accounts.\n\nThe `accountType` field for deposit accounts may be set to any of the following:\n\n- `CHECKING`: A deposit account held at a financial institution that allows withdrawals and deposits.\n- `SAVINGS`: An interest-bearing deposit account held at a bank or other financial institution.\n- `CD`: A certificate of deposit (CD) is a product offered by banks and credit unions that provides an interest rate premium in exchange for the customer agreeing to leave a lump-sum deposit untouched for a predetermined period of time.\n- `ESCROW`: A contractual arrangement in which a third party (the stakeholder or escrow agent) receives and disburses money or property for the primary transacting parties, with the disbursement dependent on conditions agreed to by the transacting parties.\n- `MONEYMARKET`: A deposit account that pays interest based on current interest rates in the money markets.\n- `HIGHINTERESTSAVINGSACCOUNT`: A savings account that offers a higher interest rate than a standard savings account.\n- `FIRSTHOMESAVINGSACCOUNT`: A tax-advantaged savings account for a first home purchase.\n- `OTHERDEPOSIT`: Use when none of the listed enums apply.\n\n**Consumption scope:**\n- **Balances**: Plaid returns balances for all deposit account types.\n- **Auth**: Plaid maps each account's `accountType` to an internal subtype, and the mapping can vary by institution. By default, `CHECKING` and `SAVINGS` resolve to Auth-eligible subtypes (`checking`, `savings`, or `cash management`); other types require Plaid to enable Auth for your institution before they return Auth data.\n- **Transactions**: Plaid consumes transactions for deposit accounts that resolve to Plaid's internal `depository` account type. By default this includes `CHECKING`, `SAVINGS`, `CD`, and `MONEYMARKET`, though the mapping can vary by institution. Accounts that don't resolve to `depository` return balances only (no Auth, no transactions).\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "DEPOSIT_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/DepositAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "DepositAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "CHECKING",
+        "SAVINGS",
+        "CD",
+        "ESCROW",
+        "MONEYMARKET",
+        "HIGHINTERESTSAVINGSACCOUNT",
+        "FIRSTHOMESAVINGSACCOUNT",
+        "OTHERDEPOSIT"
+      ]
+    },
+    "DigitalWalletDescriptor": {
+      "description": "Information for a digital wallet account\n\n**Note:** Digital wallet accounts are discoverable-only. Plaid does not consume downstream data (balances, transactions, Auth) for digital wallet accounts.\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "DIGITAL_WALLET"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/DigitalWalletType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "DigitalWalletType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "DIGITALWALLET"
+      ]
+    },
+    "Identifier": {
+      "title": "Identifier",
+      "description": "Value for a unique identifier\n",
+      "type": "string",
+      "maxLength": 256
+    },
+    "InsuranceAccountDescriptor": {
+      "description": "An insurance account. For example, whole life insurance or short-term disability.\n\nThe `accountType` field for insurance accounts may be set to any of the following:\n\n- `LONGTERMDISABILITY`: Insurance that replaces a portion of the policyholder's income due to a disability for an extended period of time, usually more than a year.\n- `SHORTTERMDISABILITY`: Insurance that replaces a portion of the policyholder's income due to a disability for a short period of time, usually less than a year.\n- `UNIVERSALLIFE`: A type of a cash value life insurance where the excess of premium payments above the current cost of insurance is credited to the cash value of the policy, which in turn is credited each month with interest.\n- `WHOLELIFE`: Life insurance which is guaranteed to remain in force for the insured's entire lifetime, provided required premiums are paid, or to the maturity date.\n\n**Note:** Insurance accounts are discoverable-only. Plaid does not consume downstream data (balances, transactions, Auth) for insurance accounts.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "INSURANCE_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/InsuranceAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "InsuranceAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "LONGTERMDISABILITY",
+        "SHORTTERMDISABILITY",
+        "UNIVERSALLIFE",
+        "WHOLELIFE"
+      ]
+    },
+    "InvestmentAccountDescriptor": {
+      "description": "An investment account. For example, a 401K or IRA.\nPlaid consumes the same details for all investment accounts.\n\nThe `accountType` field for investment accounts may be set to any of the following:\n\n- `401A`: An employer-sponsored money-purchase retirement plan that allows dollar or percentage-based contributions from the employer, the employee, or both.\n- `401K`: An employer-sponsored defined-contribution pension account defined in subsection 401(k) of the Internal Revenue Code.\n- `403B`: A U.S. tax-advantaged retirement savings plan available for public education organizations, some non-profit employers, cooperative hospital service organizations, and self-employed ministers.\n- `529`: A tax-advantaged savings plan designed to help pay for education.\n- `BROKERAGEPRODUCT`: Investment management offered by a licensed brokerage firm that places trades on behalf of the customer.\n- `COMMERCIALINVESTMENT`: An investment account for commercial customers, for example a commercial brokerage account. Available in v5.2 only; from v5.3 use `COMMERCIALINVESTMENT` under `CommercialAccountType`.\n- `COVERDELL`: A trust or custodial account set up solely for paying qualified education expenses for the designated beneficiary.\n- `DIGITALASSET`: An account containing digital assets.\n- `DEFINEDBENEFIT`: An employer-sponsored retirement plan where benefits are computed using a formula considering factors such as length of employment and salary history.\n- `DEFERREDPROFITSHARINGPLAN`: A Canadian employer-sponsored plan (DPSP) that distributes a share of company profits to employees.\n- `ESOP`: An employee stock ownership plan that gives employees an ownership interest in the company.\n- `GUARDIAN`: An account of a child in the parent’s name, with legal title to the assets, capital gains, and tax liabilities belonging to the parent.\n- `INDIVIDUALPENSIONPLAN`: A Canadian defined-benefit pension plan (IPP) covering a single participant, typically an owner-manager.\n- `INSTITUTIONALTRUST`: An institutional trust account.\n- `INVESTMENTACCOUNT`: A general investment account not covered by a more specific type.\n- `IRA`: An individual retirement account (IRA), a tax-advantaged account used to save and invest for retirement.\n- `KEOGH`: A tax-deferred pension plan available to self-employed individuals or unincorporated businesses.\n- `LIFEINCOMEFUND`: A Canadian life income fund (LIF), a locked-in retirement income fund with both minimum and maximum annual withdrawals.\n- `LOCKEDINRETIREMENTACCOUNT`: A Canadian locked-in retirement account (LIRA) holding pension funds that cannot be withdrawn until retirement.\n- `LOCKEDINRETIREMENTINCOMEFUND`: A Canadian locked-in retirement income fund (LRIF).\n- `LOCKEDINRETIREMENTSAVINGSPLAN`: A Canadian locked-in retirement savings plan (LRSP).\n- `NONQUALIFIEDPLAN`: A type of tax-deferred employer-sponsored retirement plan that falls outside of ERISA guidelines.\n- `NONQUALIFEDPLAN`: A misspelling of `NONQUALIFIEDPLAN` inherited from the FDX specification. Both values validate; send `NONQUALIFIEDPLAN`.\n- `OTHERINVESTMENT`: Use when none of the listed enums apply.\n- `ROLLOVER`: An account containing investments rolled over from an employee-sponsored account.\n- `ROTH`: An individual retirement account offering tax-free growth and tax-free withdrawals in retirement.\n- `PRESCRIBEDREGISTEREDRETIREMENTINCOMEFUND`: A Canadian prescribed registered retirement income fund (PRIF), which has no maximum annual withdrawal.\n- `PREPAID`: A prepaid account. Added in v6.2.\n- `REGISTEREDPENSIONPLAN`: A Canadian registered pension plan (RPP).\n- `REGISTEREDDISABILITYSAVINGSPLAN`: A Canadian registered disability savings plan (RDSP).\n- `REGISTEREDEDUCATIONSAVINGSPLAN`: A Canadian registered education savings plan (RESP).\n- `REGISTEREDRETIREMENTINCOMEFUND`: A Canadian registered retirement income fund (RRIF).\n- `REGISTEREDRETIREMENTSAVINGSPLAN`: A Canadian registered retirement savings plan (RRSP).\n- `RESTRICTEDLIFEINCOMEFUND`: A Canadian restricted life income fund (RLIF).\n- `RESTRICTEDLOCKEDINSAVINGSPLAN`: A Canadian restricted locked-in savings plan (RLSP).\n- `SPECIFIEDPENSIONPLAN`: A Canadian specified pension plan (SPP).\n- `SARSEP`: A simplified employee pension (SEP) plan set up before 1997 that includes a salary reduction arrangement.\n- `TAXABLE`: A taxable investment account.\n- `TAXFREESAVINGSACCOUNT`: A Canadian tax-free savings account (TFSA).\n- `TDA`: A tax-deferred annuity, a type of retirement plan similar to a 403(b). Plaid maps this to the same account subtype as `403B`.\n- `TRUST`: An account opened by an individual and managed by a designated trustee for the benefit of a third party.\n- `TERM`: Life insurance that provides coverage at a fixed rate of payments for a limited period of time.\n- `UGMA`: Uniform Gifts to Minors Act account.\n- `UTMA`: Uniform Transfers to Minors Act account.\n- `VARIABLEANNUITY`: An annuity whose value varies with the performance of its underlying investments.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "INVESTMENT_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/InvestmentAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "InvestmentAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "401A",
+        "401K",
+        "403B",
+        "529",
+        "BROKERAGEPRODUCT",
+        "COVERDELL",
+        "DIGITALASSET",
+        "DEFINEDBENEFIT",
+        "DEFERREDPROFITSHARINGPLAN",
+        "ESOP",
+        "GUARDIAN",
+        "INDIVIDUALPENSIONPLAN",
+        "INSTITUTIONALTRUST",
+        "INVESTMENTACCOUNT",
+        "IRA",
+        "KEOGH",
+        "LIFEINCOMEFUND",
+        "LOCKEDINRETIREMENTACCOUNT",
+        "LOCKEDINRETIREMENTINCOMEFUND",
+        "LOCKEDINRETIREMENTSAVINGSPLAN",
+        "NONQUALIFIEDPLAN",
+        "NONQUALIFEDPLAN",
+        "OTHERINVESTMENT",
+        "ROLLOVER",
+        "ROTH",
+        "PRESCRIBEDREGISTEREDRETIREMENTINCOMEFUND",
+        "PREPAID",
+        "REGISTEREDPENSIONPLAN",
+        "REGISTEREDDISABILITYSAVINGSPLAN",
+        "REGISTEREDEDUCATIONSAVINGSPLAN",
+        "REGISTEREDRETIREMENTINCOMEFUND",
+        "REGISTEREDRETIREMENTSAVINGSPLAN",
+        "RESTRICTEDLIFEINCOMEFUND",
+        "RESTRICTEDLOCKEDINSAVINGSPLAN",
+        "SPECIFIEDPENSIONPLAN",
+        "SARSEP",
+        "TAXABLE",
+        "TAXFREESAVINGSACCOUNT",
+        "TDA",
+        "TRUST",
+        "TERM",
+        "UGMA",
+        "UTMA",
+        "VARIABLEANNUITY"
+      ]
+    },
+    "Iso4217Code": {
+      "title": "ISO 4217 Code",
+      "description": "Currency, fund and precious metal codes effective from June 25, 2024 per\n[ISO 4217 Currency Code Maintenance](https://www.six-group.com/en/products-services/financial-information/data-standards.html).\nZWL (the Zimbabwean dollar) expires August 31, 2024 and is deprecated\nand replaced with ZWG (Zimbabwe Gold), effective on June 25, 2024.\n",
+      "type": "string",
+      "enum": [
+        "AED",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ANG",
+        "AOA",
+        "ARS",
+        "AUD",
+        "AWG",
+        "AZN",
+        "BAM",
+        "BBD",
+        "BDT",
+        "BGN",
+        "BHD",
+        "BIF",
+        "BMD",
+        "BND",
+        "BOB",
+        "BOV",
+        "BRL",
+        "BSD",
+        "BTN",
+        "BWP",
+        "BYN",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHE",
+        "CHF",
+        "CHW",
+        "CLF",
+        "CLP",
+        "CNY",
+        "COP",
+        "COU",
+        "CRC",
+        "CUC",
+        "CUP",
+        "CVE",
+        "CZK",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "EGP",
+        "ERN",
+        "ETB",
+        "EUR",
+        "FJD",
+        "FKP",
+        "GBP",
+        "GEL",
+        "GHS",
+        "GIP",
+        "GMD",
+        "GNF",
+        "GTQ",
+        "GYD",
+        "HKD",
+        "HNL",
+        "HTG",
+        "HUF",
+        "IDR",
+        "ILS",
+        "INR",
+        "IQD",
+        "IRR",
+        "ISK",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KMF",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KYD",
+        "KZT",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LRD",
+        "LSL",
+        "LYD",
+        "MAD",
+        "MDL",
+        "MGA",
+        "MKD",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MRU",
+        "MUR",
+        "MVR",
+        "MWK",
+        "MXN",
+        "MXV",
+        "MYR",
+        "MZN",
+        "NAD",
+        "NGN",
+        "NIO",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEN",
+        "PGK",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PYG",
+        "QAR",
+        "RON",
+        "RSD",
+        "RUB",
+        "RWF",
+        "SAR",
+        "SBD",
+        "SCR",
+        "SDG",
+        "SEK",
+        "SGD",
+        "SHP",
+        "SLE",
+        "SLL",
+        "SOS",
+        "SRD",
+        "SSP",
+        "STN",
+        "SVC",
+        "SYP",
+        "SZL",
+        "THB",
+        "TJS",
+        "TMT",
+        "TND",
+        "TOP",
+        "TRY",
+        "TTD",
+        "TWD",
+        "TZS",
+        "UAH",
+        "UGX",
+        "USD",
+        "USN",
+        "UYI",
+        "UYU",
+        "UYW",
+        "UZS",
+        "VED",
+        "VES",
+        "VND",
+        "VUV",
+        "WST",
+        "XAF",
+        "XAG",
+        "XAU",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XCD",
+        "XDR",
+        "XOF",
+        "XPD",
+        "XPF",
+        "XPT",
+        "XSU",
+        "XTS",
+        "XUA",
+        "XXX",
+        "YER",
+        "ZAR",
+        "ZMW",
+        "ZWG",
+        "ZWL"
+      ]
+    },
+    "LineOfCreditAccountDescriptor": {
+      "description": "A line-of-credit account. For example, a credit card or home equity line of credit. This category covers revolving debt, where the balance can be drawn on again after it is paid down; non-revolving debt belongs under `LOAN_ACCOUNT`.\nPlaid consumes more detailed information for `CREDITCARD` accounts.\n\nThe `accountType` field for line of credit accounts may be set to any of the following:\n\n- `LINEOFCREDIT`: A credit facility extended by a bank or other financial institution to a government, business or individual customer that enables the customer to draw on the facility when the customer needs funds. Use when none of the other line of credit enums apply.\n- `CHARGE`: An account to which goods and services may be charged on credit.\n- `CREDITCARD`: Allows cardholders to borrow funds with which to pay for goods and services with merchants that accept cards for payment. Send credit cards as this type, not as a loan account.\n- `HOMELINEOFCREDIT`: A loan in which the lender agrees to lend a maximum amount within an agreed period, where the collateral is the borrower's equity in their house.\n",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOC_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/LineOfCreditAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LineOfCreditAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "LINEOFCREDIT",
+        "CHARGE",
+        "CREDITCARD",
+        "HOMELINEOFCREDIT"
+      ]
+    },
+    "LoanAccountDescriptor": {
+      "description": "A loan account. For example, mortgage, student loan or auto loan. Revolving debt, where the balance can be drawn on again after it is paid down, belongs under `LOC_ACCOUNT` instead.\nPlaid consumes more detailed information for `MORTGAGE` and `STUDENTLOAN` accounts.\n\nThe `accountType` field for loan accounts may be set to any of the following:\n\n- `AUTOLOAN`: A type of loan used to finance a car purchase.\n- `HOMEEQUITYLOAN`: A type of loan in which the borrower uses the equity of his or her home as collateral.\n- `INSTALLMENT`: A type of agreement or contract involving a loan that is repaid over time with a set number of scheduled payments.\n- `LOAN`: The lending of money by one or more individuals, organizations, or other entities to other individuals, organizations etc. Use when none of the other loan enums apply.\n- `MILITARYLOAN`: A military loan.\n- `MORTGAGE`: A type of loan you can use to buy or refinance a home.\n- `PERSONALLOAN`: A type of debt that is not protected by a guarantor, or collateralized by a lien on specific assets of the borrower.\n- `SMBLOAN`: A small/medium business loan.\n- `STUDENTLOAN`: A type of loan designed to help students pay for post-secondary education and the associated fees, such as tuition, books and supplies, and living expenses.\n",
+      "allOf": [
+        {
+          "$ref": "#/$defs/AccountDescriptor"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "accountCategory": {
+              "type": "string",
+              "enum": [
+                "LOAN_ACCOUNT"
+              ]
+            },
+            "accountType": {
+              "$ref": "#/$defs/LoanAccountType"
+            }
+          },
+          "required": [
+            "accountType",
+            "accountCategory"
+          ]
+        }
+      ]
+    },
+    "LoanAccountType": {
+      "description": "The account type.\nPlaid consumes basic balance account information from the `accounts/{accountId}` endpoint for a subset of the possible account types described in the FDX specification.\n",
+      "type": "string",
+      "enum": [
+        "AUTOLOAN",
+        "HOMEEQUITYLOAN",
+        "INSTALLMENT",
+        "LOAN",
+        "MILITARYLOAN",
+        "MORTGAGE",
+        "PERSONALLOAN",
+        "SMBLOAN",
+        "STUDENTLOAN"
+      ]
+    },
+    "PageMetadata": {
+      "title": "Page Metadata",
+      "description": "Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.\nThe `nextOffset` identifier is deprecated and will be removed with a future major release.\n",
+      "type": "object",
+      "properties": {
+        "nextOffset": {
+          "type": "string",
+          "deprecated": true,
+          "description": "Opaque identifier. Does not need to be numeric or have any specific pattern.\nDeprecated in favor of `nextPageKey`, will be removed with a future major release\n"
+        },
+        "nextPageKey": {
+          "type": "string",
+          "description": "Opaque identifier. Does not need to be numeric or have any specific pattern.\nImplementation specific\n"
+        },
+        "totalElements": {
+          "type": "integer",
+          "description": "Total number of elements\n"
+        }
+      }
+    },
+    "PaginatedArray": {
+      "title": "Paginated Array",
+      "description": "Base class for results that may be paginated\n",
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/$defs/PageMetadata"
+        }
+      }
+    }
+  }
+}
