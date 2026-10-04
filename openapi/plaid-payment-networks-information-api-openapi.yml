@@ -1,12 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Plaid Payment Networks Information API
   version: 6.4.0
+  title: FDX V6.4.0 Payment Networks Information API
+  description: '## FDX compliance
+
+
+    The Core Exchange API specifications are a subset of the Financial Data Exchange (FDX) API specification, the usage thereof (or any part thereof) constitutes acceptance of the FDX API
+
+    License Agreement, which can be found at https://financialdataexchange.org/.'
   contact:
     name: Plaid support
     url: https://plaid.com/data-connectivity-core-exchange/
     email: dataconnectivity@plaid.com
-  description: 'Operations tagged Payment Networks Information across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.your-organization.com/fdx/v6
   description: Financial Data Exchange V6.4.0 Core API
@@ -52,41 +57,67 @@ paths:
                   type: US_ACH
                   transferIn: true
                   transferOut: true
-    servers:
-    - url: https://api.your-organization.com/fdx/v6
-      description: Financial Data Exchange V6.4.0 Core API
 components:
-  schemas:
-    AccountPaymentNetworkList:
-      title: Payment Networks entity
-      type: object
-      description: 'Array of payment networks.
+  parameters:
+    PageKeyQuery:
+      name: pageKey
+      in: query
+      description: 'Opaque cursor used by the provider to send the next set of records.
 
-        Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+        Pagination can be implemented per provider''s preference
 
         '
-      allOf:
-      - $ref: '#/components/schemas/PaginatedArray'
-      - type: object
-        properties:
-          paymentNetworks:
-            type: array
-            description: 'Array of payment networks.
+      schema:
+        type: string
+    AccountIdPath:
+      name: accountId
+      in: path
+      description: 'Account identifier, found in the `GET /accounts` endpoint response.
 
-              Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+        Plaid expects the ID to be a different value from the account number
 
-              '
-            items:
-              $ref: '#/components/schemas/PaymentNetwork'
-            minItems: 1
-            example:
-            - bankId: 010088889
-              identifier: '1111222233335820'
-              type: US_ACH
-              transferIn: true
-              transferOut: true
-        required:
-        - paymentNetworks
+        '
+      required: true
+      schema:
+        $ref: '#/components/schemas/Identifier'
+    LimitQuery:
+      name: limit
+      in: query
+      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
+
+        '
+      schema:
+        type: integer
+    OffsetQuery:
+      name: offset
+      in: query
+      deprecated: true
+      description: 'Opaque cursor used by the provider to send the next set of records.
+
+        Deprecated in favor of PageKeyQuery, will be removed with a future major release
+
+        '
+      schema:
+        type: string
+        example: qwer123454q2f
+  schemas:
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
+    PaginatedArray:
+      title: Paginated Array
+      description: 'Base class for results that may be paginated
+
+        '
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/PageMetadata'
     PageMetadata:
       title: Page Metadata
       description: 'Contains the opaque identifier, `nextPageKey`, to indicate a paginated result set.
@@ -119,6 +150,36 @@ components:
           description: 'Total number of elements
 
             '
+    AccountPaymentNetworkList:
+      title: Payment Networks entity
+      type: object
+      description: 'Array of payment networks.
+
+        Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+
+        '
+      allOf:
+      - $ref: '#/components/schemas/PaginatedArray'
+      - type: object
+        properties:
+          paymentNetworks:
+            type: array
+            description: 'Array of payment networks.
+
+              Not all deposit accounts support ACH transfers. For example, a prepaid debit card account doesn''t support ACH
+
+              '
+            items:
+              $ref: '#/components/schemas/PaymentNetwork'
+            minItems: 1
+            example:
+            - bankId: 010088889
+              identifier: '1111222233335820'
+              type: US_ACH
+              transferIn: true
+              transferOut: true
+        required:
+        - paymentNetworks
     PaymentNetworkType:
       title: Payment Network Type
       description: 'Suggested values for Payment Network Type. `US&#95;` refers to the USA, and `CA&#95;` refers to Canada.
@@ -202,65 +263,6 @@ components:
       - type
       - transferIn
       - transferOut
-    PaginatedArray:
-      title: Paginated Array
-      description: 'Base class for results that may be paginated
-
-        '
-      type: object
-      properties:
-        page:
-          $ref: '#/components/schemas/PageMetadata'
-    Identifier:
-      title: Identifier
-      description: 'Value for a unique identifier
-
-        '
-      type: string
-      maxLength: 256
-      example: someLongTermUniqueIDString
-  parameters:
-    PageKeyQuery:
-      name: pageKey
-      in: query
-      description: 'Opaque cursor used by the provider to send the next set of records.
-
-        Pagination can be implemented per provider''s preference
-
-        '
-      schema:
-        type: string
-    AccountIdPath:
-      name: accountId
-      in: path
-      description: 'Account identifier, found in the `GET /accounts` endpoint response.
-
-        Plaid expects the ID to be a different value from the account number
-
-        '
-      required: true
-      schema:
-        $ref: '#/components/schemas/Identifier'
-    LimitQuery:
-      name: limit
-      in: query
-      description: 'The number of elements that the API consumer wishes to receive. Plaid has a default limit of 100 elements. If your organization has a different limit, use the lower limit to determine how many items to send per page. To retrieve multiple pages, Plaid will use the opaque `nextPageKey` field to send a subsequent request until the `nextPageKey` is no longer included.
-
-        '
-      schema:
-        type: integer
-    OffsetQuery:
-      name: offset
-      in: query
-      deprecated: true
-      description: 'Opaque cursor used by the provider to send the next set of records.
-
-        Deprecated in favor of PageKeyQuery, will be removed with a future major release
-
-        '
-      schema:
-        type: string
-        example: qwer123454q2f
   securitySchemes:
     openIdConnect:
       type: openIdConnect
@@ -281,6 +283,3 @@ components:
             Account: (optional) Read account data
             Customer: (optional) Read customer data
             Transactions: (optional) Read transaction data
-x-refined-from:
-- plaid-core-exchange-openapi-original.yml
-- plaid-core-exchange-openapi.yml

@@ -1,12 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Plaid Asset Transfer Networks Information API
   version: 6.4.0
+  title: FDX V6.4.0 Asset Transfer Networks Information API
+  description: '## FDX compliance
+
+
+    The Core Exchange API specifications are a subset of the Financial Data Exchange (FDX) API specification, the usage thereof (or any part thereof) constitutes acceptance of the FDX API
+
+    License Agreement, which can be found at https://financialdataexchange.org/.'
   contact:
     name: Plaid support
     url: https://plaid.com/data-connectivity-core-exchange/
     email: dataconnectivity@plaid.com
-  description: 'Operations tagged Asset Transfer Networks Information across 2 of this provider''s published API definitions: plaid-core-exchange-openapi-original.yml, plaid-core-exchange-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.your-organization.com/fdx/v6
   description: Financial Data Exchange V6.4.0 Core API
@@ -43,11 +48,27 @@ paths:
                   institutionId: FPB
                   type: US_ACATS
                   jointAccount: true
-    servers:
-    - url: https://api.your-organization.com/fdx/v6
-      description: Financial Data Exchange V6.4.0 Core API
 components:
   schemas:
+    PaymentNetworkIdentifierType:
+      title: Payment Network Identifier Type
+      description: 'The type of identifier used to identify the account in the payment network
+
+        '
+      type: string
+      enum:
+      - ACCOUNT_NUMBER
+      - TOKENIZED_ACCOUNT_NUMBER
+    AssetTransferType:
+      title: Asset Transfer Type
+      description: 'The type of asset transfer
+
+        '
+      type: string
+      enum:
+      - CA_ATON
+      - US_ACATS
+      - US_DTC
     AssetTransferNetworkList:
       title: Asset Transfer Networks
       description: 'A paginated array of asset transfer networks for the account
@@ -64,6 +85,14 @@ components:
             $ref: '#/components/schemas/AssetTransferNetwork'
       required:
       - assetTransferNetworks
+    Identifier:
+      title: Identifier
+      description: 'Value for a unique identifier
+
+        '
+      type: string
+      maxLength: 256
+      example: someLongTermUniqueIDString
     AssetTransferNetwork:
       title: Asset Transfer Network
       description: 'Information required to facilitate asset transfer from this account
@@ -99,33 +128,6 @@ components:
       - identifier
       - institutionId
       - type
-    AssetTransferType:
-      title: Asset Transfer Type
-      description: 'The type of asset transfer
-
-        '
-      type: string
-      enum:
-      - CA_ATON
-      - US_ACATS
-      - US_DTC
-    Identifier:
-      title: Identifier
-      description: 'Value for a unique identifier
-
-        '
-      type: string
-      maxLength: 256
-      example: someLongTermUniqueIDString
-    PaymentNetworkIdentifierType:
-      title: Payment Network Identifier Type
-      description: 'The type of identifier used to identify the account in the payment network
-
-        '
-      type: string
-      enum:
-      - ACCOUNT_NUMBER
-      - TOKENIZED_ACCOUNT_NUMBER
   parameters:
     PageKeyQuery:
       name: pageKey
@@ -188,6 +190,3 @@ components:
             Account: (optional) Read account data
             Customer: (optional) Read customer data
             Transactions: (optional) Read transaction data
-x-refined-from:
-- plaid-core-exchange-openapi-original.yml
-- plaid-core-exchange-openapi.yml
