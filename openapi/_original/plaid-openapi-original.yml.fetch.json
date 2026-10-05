@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/plaid/plaid-openapi/master/2020-09-14.yml",
+ "requested_url": "https://raw.githubusercontent.com/plaid/plaid-openapi/master/2020-09-14.yml",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 3192769,
+ "sha256": "e07a869352e83670e2ef077376db268358ce7a0dc4a8e97b8e1e980b91616a8c",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.989), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
