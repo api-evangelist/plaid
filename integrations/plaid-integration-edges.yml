@@ -9,6 +9,10 @@ checked:
 - https://composio.dev/toolkits/plaid
 - https://monid.ai/tools/plaid
 - https://n8n.io/integrations/plaid/
+- https://plaid.com/docs/assets/partnerships/
+- https://plaid.com/docs/auth/partnerships/
+- https://plaid.com/partners/
+- https://www.make.com/en/integrations/plaid (403)
 - https://zapier.com/apps/plaid/integrations
 summary: null
 marketplace_apps: []
@@ -28,4 +32,532 @@ edges:
     property: schemas.PaymentMethod.processor
     detected_by: detect-payment-method-edges.py
     detected: '2026-10-12'
+- partner_name: Dwolla
+  partner: dwolla
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/dwolla/
+  use_case: Instantly authenticate your customers' bank accounts for use with Dwolla's ACH API
+  operations:
+  - processorTokenCreate
+- partner_name: Square
+  partner: square
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/square/
+  use_case: Instantly authenticate your customers' bank accounts for use with the Square Web Payments SDK
+  operations:
+  - processorTokenCreate
+- partner_name: ACHQ
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/achq/
+  use_case: Instantly authenticate your customers' bank accounts for use with ACHQ's ACH API
+  operations:
+  - processorTokenCreate
+- partner_name: Roll by ADP
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/adp-roll/
+  use_case: Authenticate your customers' bank accounts for secure payroll direct deposit support.
+  operations:
+  - processorTokenCreate
+- partner_name: Adyen
+  partner: adyen
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/adyen/
+  use_case: Validate bank accounts and reduce returns through an end-to-end pay-with-your-bank solution with Adyen
+  operations:
+  - processorTokenCreate
+- partner_name: Alpaca
+  partner: alpaca
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/alpaca/
+  use_case: Use Alpaca with Plaid Auth to send and receive payments
+  operations:
+  - processorTokenCreate
+- partner_name: Ansa
+  partner: ansa
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/ansa/
+  use_case: Instantly authenticate your customers' bank accounts for use with the Ansa API to enable wallet funding
+    over ACH
+  operations:
+  - processorTokenCreate
+- partner_name: Apex Fintech Solutions
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/apex-clearing/
+  use_case: Instantly authenticate your investors' bank accounts for use with Apex Fintech Solutions Cash API
+  operations:
+  - processorTokenCreate
+- partner_name: Astra
+  partner: astra
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/astra/
+  use_case: Instantly authenticate your customer's bank accounts for automated ACH transfers through the Astra platform
+  operations:
+  - processorTokenCreate
+- partner_name: Atomic
+  partner: atomic
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/atomic/
+  use_case: Instantly authenticate your customers' bank accounts to seamlessly fund investment accounts
+  operations:
+  - processorTokenCreate
+- partner_name: Bakkt
+  partner: bakkt
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/bakkt/
+  use_case: Instantly authenticate your customer's accounts to use with Bakkt Fiat Services API for ACH based money
+    movement
+  operations:
+  - processorTokenCreate
+- partner_name: Bond
+  partner: bond
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/bond/
+  use_case: Instantly authenticate your customers' bank accounts for use with Bond's ACH Transfers API
+  operations:
+  - processorTokenCreate
+- partner_name: Check
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/check/
+  use_case: Check lets you embed payroll in your product and easily configure and authenticate direct deposit payments
+  operations:
+  - processorTokenCreate
+- partner_name: Checkbook
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/checkbook/
+  use_case: Instantly authenticate your customers' bank accounts for use with Checkbook's payment solution -- including
+    ACH, real-time payments, push to card, virtual cards, and checks
+  operations:
+  - processorTokenCreate
+- partner_name: Checkout.com
+  partner: checkout-com
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/checkout/
+  use_case: Instantly authenticate bank account details for use with Checkout.com's Unified Payments API, and unlock
+    unrivaled payment performance
+  operations:
+  - processorTokenCreate
+- partner_name: DriveWealth
+  partner: drivewealth
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/drivewealth/
+  use_case: Enable your customers to instantly and securely fund DriveWealth supported investment accounts by linking
+    their bank account with Plaid
+  operations:
+  - processorTokenCreate
+- partner_name: Finix
+  partner: finix
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/finix/
+  use_case: Instantly add customer bank accounts to Finix to accept and send payments with tokenized payment information.
+    It's fast, frictionless, and secure.
+  operations:
+  - processorTokenCreate
+- partner_name: Frame
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/frame/
+  use_case: Instantly verify bank accounts to power payments, compliance, and billing in one unified platform
+  operations:
+  - processorTokenCreate
+- partner_name: Galileo
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/galileo/
+  use_case: Instantly authenticate your customers' bank accounts for account opening and funding
+  operations:
+  - processorTokenCreate
+  partner_candidate: galileo (galileo.io; Plaid partner is Galileo Financial Technologies, unverified)
+- partner_name: Gusto
+  partner: gusto
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/gusto/
+  use_case: Build payroll with Gusto, then use Plaid Auth to instantly connect your customers' bank accounts and
+    run payroll faster
+  operations:
+  - processorTokenCreate
+- partner_name: Highnote
+  partner: highnote
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/highnote/
+  use_case: Instantly authenticate your customer's bank accounts for use with the Highnote Platform to store account
+    details, transfer funds, and make payments
+  operations:
+  - processorTokenCreate
+- partner_name: Lithic
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/lithic/
+  use_case: Instant bank authentication for ACH payments and card loads
+  operations:
+  - processorTokenCreate
+- partner_name: Marqeta
+  partner: marqeta
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/marqeta/
+  use_case: Integrate Plaid and Marqeta's APIs to seamlessly authenticate your customer's bank account prior to
+    an ACH transfer
+  operations:
+  - processorTokenCreate
+- partner_name: Modern Treasury
+  partner: modern-treasury
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/modern-treasury/
+  use_case: Instantly authenticate your customers' bank accounts for use with Modern Treasury's ACH API
+  operations:
+  - processorTokenCreate
+- partner_name: Moov
+  partner: moov
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/moov/
+  use_case: Instantly authenticate your customers' bank accounts to enable them to accept, store, and disburse funds
+    with Moov
+  operations:
+  - processorTokenCreate
+- partner_name: Open Ledger
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/open-ledger/
+  use_case: Connect your customer's bank account to Open Ledger's embedded accounting API
+  operations:
+  - processorTokenCreate
+- partner_name: Riskified
+  partner: riskified
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/riskified/
+  use_case: Provide fraud screening and ACH payment guarantee
+  operations:
+  - processorTokenCreate
+- partner_name: Sardine
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/sardine/
+  use_case: Protect your users by using Sardine's all-in-one fraud and compliance API
+  operations:
+  - processorTokenCreate
+- partner_name: ScribeUp
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/scribeup/
+  use_case: Embed subscription management into your digital banking experience
+  operations:
+  - processorTokenCreate
+- partner_name: Seamless ACH
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/seamless-ach/
+  use_case: Enhance your checkout and reduce returns with Seamless ACH. Utilize Plaid's verification and real-time
+    balance checks to instantly debit and credit bank accounts.
+  operations:
+  - processorTokenCreate
+- partner_name: Sila Money
+  partner: sila-money
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/sila-money/
+  use_case: Banking, Digital Wallets, and ACH Payments API for software teams
+  operations:
+  - processorTokenCreate
+- partner_name: Silicon Valley Bank
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/svb/
+  use_case: Instantly authenticate your customers' bank accounts for use with Silicon Valley Bank's ACH API
+  operations:
+  - processorTokenCreate
+- partner_name: Straddle
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/straddle/
+  use_case: Integrate Plaid with Straddle to deliver secure, identity-linked bank payments that settle quickly and
+    feel as simple and reliable as using a debit card.
+  operations:
+  - processorTokenCreate
+- partner_name: Stripe
+  partner: stripe
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/stripe/
+  use_case: Instantly authenticate your customers' bank accounts for use with Stripe's ACH API
+  operations:
+  - processorTokenCreate
+- partner_name: TabaPay
+  partner: tabapay
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/taba-pay/
+  use_case: Instantly process ACH/RTP/FedNow with TabaPay's Unified API using your Plaid processor token
+  operations:
+  - processorTokenCreate
+- partner_name: Treasury Prime
+  partner: treasury-prime
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/treasury-prime/
+  use_case: Send payments and create counterparties with the Treasury Prime API
+  operations:
+  - processorTokenCreate
+- partner_name: Unit
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/unit/
+  use_case: Instantly authenticate counterparties' bank accounts for use with the Unit API
+  operations:
+  - processorTokenCreate
+- partner_name: VoPay
+  partner: vopay
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/vopay/
+  use_case: Eliminate inefficiencies of US and Canadian online bank account payments with VoPay's EFT / ACH and
+    Plaid
+  operations:
+  - processorTokenCreate
+- partner_name: Webull
+  partner: webull
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/webull/
+  use_case: Instantly connect and authenticate your customers' bank accounts to fund their Webull investment accounts
+  operations:
+  - processorTokenCreate
+- partner_name: Wedbush
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/wedbush/
+  use_case: Plaid-linked bank accounts can be connected to fund or withdraw from accounts on the Wedbush Securities
+    platform.
+  operations:
+  - processorTokenCreate
+- partner_name: Zero Hash
+  partner: zero-hash
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: money-movement
+  evidence: https://plaid.com/docs/auth/partnerships/zero-hash/
+  use_case: Use Zero Hash with Plaid Auth to embed bank account linking for ACH-funded crypto trades
+  operations:
+  - processorTokenCreate
+- partner_name: Alloy
+  partner: null
+  partner_match: null
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: assets-verification
+  evidence: https://plaid.com/docs/assets/partnerships/alloy/
+  use_case: Offers identity data orchestration and credit decisioning to financial services companies looking to
+    address fraud and uphold compliance (US only)
+- partner_name: Ocrolus
+  partner: ocrolus
+  partner_match: domain
+  type: claimed
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  category: assets-verification
+  evidence: https://plaid.com/docs/assets/partnerships/ocrolus/
+  use_case: Provides digitized Asset documentation verification (US only)
 templates: []

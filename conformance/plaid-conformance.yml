@@ -51,3 +51,6 @@ standards:
 - id: pagination
   conforms: true
   evidence: list operations take limit, offset
+- id: openapi-3.2
+  conforms: true
+  evidence: the document declares 3.2.0
