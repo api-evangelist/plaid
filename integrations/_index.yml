@@ -560,3 +560,23 @@
   relationship: processor-connection
   status: not-a-workflow
   arazzo: null
+- slug: plaid-uk-open-banking
+  label: UK Open Banking
+  partner_name: UK Open Banking
+  type: contract
+  channel: regulator-register
+  evidence: https://www.openbanking.org.uk/regulated-providers/plaid-b-v/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: UK Open Banking regulated providers (OBL directory)
+    spec_file: null
+    role: Third Party Providers
+    registered_name: Plaid B.V.
+    register_id: 6830
+    matched_domain: plaid.com
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
+  status: not-a-workflow
+  arazzo: null
