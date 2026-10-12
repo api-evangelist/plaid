@@ -1,0 +1,31 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/plaid/integrations
+- https://n8n.io/integrations/plaid/
+- https://composio.dev/toolkits/plaid
+- https://monid.ai/tools/plaid
+checked:
+- https://composio.dev/toolkits/plaid
+- https://monid.ai/tools/plaid
+- https://n8n.io/integrations/plaid/
+- https://zapier.com/apps/plaid/integrations
+summary: null
+marketplace_apps: []
+edges:
+- partner_name: cacheflow
+  partner: cacheflow
+  partner_match: domain
+  type: contract
+  channel: partner-built
+  relationship: processor-connection
+  direction: partner-built
+  evidence: https://github.com/api-evangelist/cacheflow/blob/main/openapi/cacheflow-payouts-api-openapi.yml
+  contract_reference:
+    repo: cacheflow
+    spec_file: cacheflow-payouts-api-openapi.yml
+    value: plaid
+    property: schemas.PaymentMethod.processor
+    detected_by: detect-payment-method-edges.py
+    detected: '2026-10-12'
+templates: []
