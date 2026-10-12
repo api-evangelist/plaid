@@ -17,21 +17,6 @@ checked:
 summary: null
 marketplace_apps: []
 edges:
-- partner_name: cacheflow
-  partner: cacheflow
-  partner_match: domain
-  type: contract
-  channel: partner-built
-  relationship: processor-connection
-  direction: partner-built
-  evidence: https://github.com/api-evangelist/cacheflow/blob/main/openapi/cacheflow-payouts-api-openapi.yml
-  contract_reference:
-    repo: cacheflow
-    spec_file: cacheflow-payouts-api-openapi.yml
-    value: plaid
-    property: schemas.PaymentMethod.processor
-    detected_by: detect-payment-method-edges.py
-    detected: '2026-10-12'
 - partner_name: Dwolla
   partner: dwolla
   partner_match: domain
