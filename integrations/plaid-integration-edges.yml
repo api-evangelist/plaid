@@ -564,7 +564,7 @@ edges:
     matched_domain: plaid.com
     api_families: null
     detected_by: sweep-standard-registers.py
-    detected: '2026-10-12'
+    detected: '2026-10-14'
 - partner_name: UK Open Banking
   partner: null
   type: contract
@@ -581,7 +581,7 @@ edges:
     matched_domain: plaid.com
     api_families: null
     detected_by: sweep-standard-registers.py
-    detected: '2026-10-12'
+    detected: '2026-10-14'
 - partner_name: FDX (Financial Data Exchange)
   partner: fdx
   type: contract
