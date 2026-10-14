@@ -12,6 +12,7 @@ checked:
 - https://plaid.com/docs/assets/partnerships/
 - https://plaid.com/docs/auth/partnerships/
 - https://plaid.com/partners/
+- https://registry.financialdataexchange.org/
 - https://www.make.com/en/integrations/plaid (403)
 - https://www.openbanking.org.uk/regulated-providers/plaid-b-v/
 - https://www.openbanking.org.uk/regulated-providers/plaid-financial-ltd/
@@ -581,4 +582,28 @@ edges:
     api_families: null
     detected_by: sweep-standard-registers.py
     detected: '2026-10-12'
+- partner_name: FDX (Financial Data Exchange)
+  partner: fdx
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.financialdataexchange.org/
+  contract_reference:
+    register: FDX Registry
+    standard: FDX API
+    spec_file: null
+    register_api: https://registry.financialdataexchange.org/fdxregistryapi/organizations/search/listingTags
+    role: data-access-platform
+    member_type: MEMBER
+    registered_name: Plaid Inc.
+    register_id: 136
+    registered_website: https://plaid.com
+    country: United States
+    fdx_version: null
+    matched_by: domain:plaid.com
+    detected_by: sweep-fdx.py
+    detected: '2026-10-14'
+  detected_by: sweep-fdx.py
+  first_seen: '2026-10-14'
 templates: []
