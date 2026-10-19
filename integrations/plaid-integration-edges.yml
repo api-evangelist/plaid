@@ -6,7 +6,9 @@ source:
 - https://composio.dev/toolkits/plaid
 - https://monid.ai/tools/plaid
 checked:
+- https://api.nuget.org/v3
 - https://composio.dev/toolkits/plaid
+- https://crates.io/api/v1
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
 - https://github.com/meltano/hub
 - https://monid.ai/tools/plaid
@@ -14,7 +16,12 @@ checked:
 - https://plaid.com/docs/assets/partnerships/
 - https://plaid.com/docs/auth/partnerships/
 - https://plaid.com/partners/
+- https://proxy.golang.org
+- https://pypi.org/pypi
 - https://registry.financialdataexchange.org/
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://www.make.com/en/integrations/plaid (403)
 - https://www.openbanking.org.uk/regulated-providers/plaid-b-v/
 - https://www.openbanking.org.uk/regulated-providers/plaid-financial-ltd/
@@ -662,5 +669,143 @@ edges:
     - bronze
     builder: 'community (Meltano Hub variant maintainers: airbyte)'
   detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Go module proxy
+  partner: null
+  partner_match: null
+  type: register
+  direction: provider-built
+  category: official SDK (Go)
+  evidence: https://pkg.go.dev/github.com/plaid/plaid-go
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/plaid/plaid-go
+      version: v1.10.0
+      released: '2022-01-06'
+      released_field: Time
+      lapsed: true
+      page: https://pkg.go.dev/github.com/plaid/plaid-go
+      repo_leg: github-org:plaid
+      publisher_leg: org:plaid
+      matched_by: github-org
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.plaid/plaid-java
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.plaid:plaid-java
+      version: 46.0.0
+      released: '2026-10-02'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.plaid/plaid-java
+      repo_leg: github-org:plaid
+      publisher_leg: groupId:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/plaid
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: plaid
+      version: 48.0.0
+      released: '2026-10-06'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/plaid
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    - name: react-native-plaid-link-sdk
+      version: 13.4.0
+      released: '2026-10-14'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/react-native-plaid-link-sdk
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    - name: react-plaid-link
+      version: 5.0.0
+      released: '2026-07-24'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/react-plaid-link
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: PyPI
+  partner: pypi
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Python)
+  evidence: https://pypi.org/project/plaid-python/
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: plaid-python
+      version: 45.0.0
+      released: '2026-10-02'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/plaid-python/
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
 templates: []

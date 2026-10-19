@@ -661,3 +661,144 @@
     builder: 'community (Meltano Hub variant maintainers: airbyte)'
   status: not-a-workflow
   arazzo: null
+- slug: plaid-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/plaid/plaid-go
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/plaid/plaid-go
+      version: v1.10.0
+      released: '2022-01-06'
+      released_field: Time
+      lapsed: true
+      page: https://pkg.go.dev/github.com/plaid/plaid-go
+      repo_leg: github-org:plaid
+      publisher_leg: org:plaid
+      matched_by: github-org
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: plaid-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.plaid/plaid-java
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.plaid:plaid-java
+      version: 46.0.0
+      released: '2026-10-02'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.plaid/plaid-java
+      repo_leg: github-org:plaid
+      publisher_leg: groupId:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: plaid-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/plaid
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: plaid
+      version: 48.0.0
+      released: '2026-10-06'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/plaid
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    - name: react-native-plaid-link-sdk
+      version: 13.4.0
+      released: '2026-10-14'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/react-native-plaid-link-sdk
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    - name: react-plaid-link
+      version: 5.0.0
+      released: '2026-07-24'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/react-plaid-link
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: plaid-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/plaid-python/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: plaid-python
+      version: 45.0.0
+      released: '2026-10-02'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/plaid-python/
+      repo_leg: github-org:plaid
+      publisher_leg: email:plaid.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
